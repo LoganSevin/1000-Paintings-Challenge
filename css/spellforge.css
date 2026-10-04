@@ -146,6 +146,24 @@
   color: var(--accent);
 }
 
+.spell-tome-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin: 0 0 0.35rem;
+}
+
+.spell-tome-tag {
+  font-size: 0.68rem;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  padding: 0.05rem 0.38rem;
+  border-radius: 99px;
+  border: 1px solid rgba(230, 197, 106, 0.55);
+  color: #f6e7c4;
+  background: rgba(74, 28, 18, 0.72);
+}
+
 .spell-slot-text {
   margin: 0;
   font: inherit;

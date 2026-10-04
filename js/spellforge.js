@@ -20,15 +20,20 @@
   var NOTE_BASE = 400000;
   var NOTES_KEY = "spellforge_notes_v1";
   var ASPECT_OPTIONS = ["1:1", "4:3", "3:4", "16:9", "9:16", "3:2", "2:3"];
-  var NOTE_THUMB =
-    "data:image/svg+xml," +
-    encodeURIComponent(
-      '<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">' +
-        '<rect width="64" height="64" rx="8" fill="#1e293b"/>' +
-        '<rect x="14" y="12" width="36" height="40" rx="3" fill="#334155" stroke="#94a3b8" stroke-width="2"/>' +
-        '<path d="M20 22h24M20 30h24M20 38h16" stroke="#e2e8f0" stroke-width="2.5" stroke-linecap="round"/>' +
-      "</svg>"
-    );
+  var TOME_STOP = {
+    a: 1, an: 1, the: 1, and: 1, or: 1, but: 1, nor: 1, so: 1, if: 1,
+    of: 1, to: 1, in: 1, on: 1, at: 1, by: 1, for: 1, with: 1, from: 1,
+    into: 1, over: 1, under: 1, about: 1, after: 1, before: 1, between: 1,
+    through: 1, while: 1, where: 1, when: 1, what: 1, which: 1, who: 1,
+    whom: 1, how: 1, that: 1, this: 1, these: 1, those: 1, it: 1, its: 1,
+    their: 1, his: 1, her: 1, she: 1, he: 1, they: 1, them: 1, you: 1,
+    your: 1, we: 1, our: 1, be: 1, been: 1, being: 1, is: 1, are: 1, was: 1,
+    were: 1, am: 1, can: 1, could: 1, would: 1, should: 1, may: 1, might: 1,
+    will: 1, shall: 1, have: 1, has: 1, had: 1, do: 1, does: 1, did: 1,
+    done: 1, not: 1, no: 1, too: 1, very: 1, just: 1, each: 1, both: 1,
+    such: 1, only: 1, also: 1, more: 1, most: 1, some: 1, any: 1, all: 1,
+    than: 1, then: 1, as: 1, up: 1, out: 1, off: 1,
+  };
 
   var canonicalList = [];
   var displayOrder = [];
@@ -975,9 +980,82 @@
     var t = String(prompt || "")
       .replace(/\s+/g, " ")
       .trim();
-    if (!t) return "Note";
+    if (!t) return "Tome";
     if (t.length <= 40) return t;
     return t.slice(0, 40) + "…";
+  }
+
+  function deriveTomeTags(text) {
+    var words = String(text || "").toLowerCase().match(/[a-z][a-z'-]{2,}/g) || [];
+    var counts = {};
+    var order = [];
+    words.forEach(function (word) {
+      word = word.replace(/^['-]+|['-]+$/g, "");
+      if (word.length < 3 || TOME_STOP[word]) return;
+      if (!counts[word]) {
+        counts[word] = 0;
+        order.push(word);
+      }
+      counts[word] += 1;
+    });
+    return order
+      .map(function (word, index) {
+        return {
+          word: word,
+          score: counts[word] * 10 + Math.min(word.length, 12),
+          index: index,
+        };
+      })
+      .sort(function (a, b) {
+        if (b.score !== a.score) return b.score - a.score;
+        return a.index - b.index;
+      })
+      .slice(0, 6)
+      .map(function (item) {
+        return item.word;
+      });
+  }
+
+  function escapeXml(s) {
+    return String(s || "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
+  function tomeCoverUrl(note) {
+    var tags = (note && note.tags && note.tags.length
+      ? note.tags
+      : deriveTomeTags(note && note.text)
+    ).slice(0, 3);
+    var lines = "";
+    for (var i = 0; i < tags.length; i++) {
+      var label = tags[i];
+      if (label.length > 12) label = label.slice(0, 11) + "…";
+      lines +=
+        '<text x="30" y="' +
+        (31 + i * 7) +
+        '" text-anchor="middle" font-family="Georgia, serif" font-size="5.2" fill="#e6c56a">' +
+        escapeXml(label) +
+        "</text>";
+    }
+    if (!tags.length) {
+      lines =
+        '<rect x="20" y="34" width="20" height="1.2" fill="#e6c56a"/>' +
+        '<rect x="23" y="40" width="14" height="1.2" fill="#e6c56a"/>';
+    }
+    var svg =
+      '<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">' +
+      '<rect width="64" height="64" rx="6" fill="#140e0a"/>' +
+      '<rect x="16" y="6" width="42" height="52" fill="#efe2c4"/>' +
+      '<rect x="8" y="6" width="40" height="52" fill="#7a2e22"/>' +
+      '<rect x="8" y="6" width="7" height="52" fill="#4c1c16"/>' +
+      '<rect x="18" y="12" width="24" height="1.4" fill="#e6c56a"/>' +
+      '<text x="28" y="23" text-anchor="middle" font-family="Georgia, serif" font-size="7" fill="#f6e7c4">TOME</text>' +
+      lines +
+      "</svg>";
+    return "data:image/svg+xml," + encodeURIComponent(svg);
   }
 
   function normalizeSpellNoteEntry(raw, idHint) {
@@ -989,6 +1067,7 @@
         id: id || undefined,
         title: deriveNoteTitle(raw),
         text: String(raw),
+        tags: deriveTomeTags(raw),
         createdAt: Date.now(),
       };
     }
@@ -1007,14 +1086,16 @@
     if (!title || (prompt && title === prompt && prompt.length > 40)) {
       title = deriveNoteTitle(prompt);
     }
-    if (!prompt && title && title !== "Note") {
+    if (!prompt && title && title !== "Tome" && title !== "Note") {
       prompt = title;
       title = deriveNoteTitle(prompt);
     }
+    var body = String(prompt || "");
     return {
       id: id || Number(raw.id) || undefined,
-      title: title || "Note",
-      text: String(prompt || ""),
+      title: title || "Tome",
+      text: body,
+      tags: deriveTomeTags(body),
       createdAt: raw.createdAt || Date.now(),
     };
   }
@@ -1084,7 +1165,7 @@
   }
 
   function spellKindLabel(num) {
-    if (noteOf(num)) return "Note";
+    if (noteOf(num)) return "Tome";
     var extra = extraSpells[num] || extraSpells[String(num)];
     if (!extra) return "#" + num;
     var g = extra.genNum != null ? extra.genNum : num;
@@ -1105,7 +1186,8 @@
 
   function paintingUrl(num) {
     num = resolveArsenalNum(num) || num;
-    if (noteOf(num)) return NOTE_THUMB;
+    var noteThumb = noteOf(num);
+    if (noteThumb) return tomeCoverUrl(noteThumb);
     var extra = extraSpells[num] || extraSpells[String(num)];
     if (extra && extra.url) return assetUrl(extra.url);
     if (window.getPaintingUrl) return window.getPaintingUrl(num);
@@ -1118,11 +1200,10 @@
     if (note) {
       var notePrompt = String(note.text || note.prompt || "");
       return {
-        title: note.title || deriveNoteTitle(notePrompt) || "Note",
+        title: note.title || deriveNoteTitle(notePrompt) || "Tome",
         description: notePrompt,
         prompt: notePrompt,
-        tags: ["note"],
-        style: "text note",
+        tags: note.tags && note.tags.length ? note.tags.slice() : deriveTomeTags(notePrompt),
       };
     }
     var extra = extraSpells[num] || extraSpells[String(num)];
@@ -5414,7 +5495,10 @@
               return;
             }
             if (ta) ta.value = "";
-            setSpellGenerateStatus("Equipped note into Spell " + ["I", "II", "III"][slot] + ".");
+            var named = res.tags && res.tags.length ? " Tags: " + res.tags.join(", ") + "." : "";
+            setSpellGenerateStatus(
+              "Equipped a tome into Spell " + ["I", "II", "III"][slot] + "." + named
+            );
           });
         }
       })(nsi);
@@ -5432,6 +5516,7 @@
       var num = spells[s];
       if (!num) {
         el.classList.remove("filled");
+        el.classList.remove("spell-slot-tome");
         el.innerHTML = '<span class="slot-label">Spell ' + names[s] + "</span>";
         clearSpellSlotBody(s);
         continue;
@@ -5442,13 +5527,29 @@
         a && a.title
           ? a.title
           : noteOf(num)
-            ? "Note"
+            ? "Tome"
             : extra
               ? spellKindLabel(num)
               : "Painting #" + num;
       var body = getSpellSlotBody(s);
       var head = spellKindLabel(num) + " · " + title;
+      var tome = noteOf(num);
+      var tagHtml = "";
+      if (tome) {
+        var tomeTags = (tome.tags && tome.tags.length ? tome.tags : deriveTomeTags(tome.text)).slice(0, 6);
+        if (tomeTags.length) {
+          tagHtml =
+            '<div class="spell-tome-tags">' +
+            tomeTags
+              .map(function (tag) {
+                return '<span class="spell-tome-tag">' + escapeHtml(tag) + "</span>";
+              })
+              .join("") +
+            "</div>";
+        }
+      }
       el.classList.add("filled");
+      el.classList.toggle("spell-slot-tome", !!tome);
       el.innerHTML =
         '<div class="spell-slot-inner">' +
         '<img src="' +
@@ -5460,6 +5561,7 @@
         '<div class="spell-slot-head">' +
         escapeHtml(head) +
         "</div>" +
+        tagHtml +
         buildSpellColorHtml(body, s) +
         "</div>" +
         '<button type="button" class="slot-clear" aria-label="Clear">×</button>' +
@@ -5490,12 +5592,12 @@
     if (!spellNotes.notes) spellNotes.notes = {};
     var id = Number(spellNotes.nextNoteId) || NOTE_BASE + 1;
     spellNotes.nextNoteId = id + 1;
-    var title = text.replace(/\s+/g, " ").slice(0, 40);
-    if (text.length > 40) title += "…";
+    var tags = deriveTomeTags(text);
     spellNotes.notes[String(id)] = {
       id: id,
-      title: title || "Note",
+      title: deriveNoteTitle(text),
       text: text,
+      tags: tags,
       createdAt: Date.now(),
     };
     saveSpellNotes();
@@ -5507,7 +5609,7 @@
     } else {
       saveEquippedSpells();
     }
-    return { ok: true, slot: slotIndex, id: id };
+    return { ok: true, slot: slotIndex, id: id, tags: tags };
   }
 
   function equipToSlot(num, slotIndex) {
@@ -5640,7 +5742,7 @@
         var title =
           a.title ||
           (extra && extra.title) ||
-          (noteOf(equipped) ? "Note" : "");
+          (noteOf(equipped) ? "Tome" : "");
         var line = spellKindLabel(equipped);
         if (title && String(title) !== line) line += " · " + title;
         if (thumb) {
