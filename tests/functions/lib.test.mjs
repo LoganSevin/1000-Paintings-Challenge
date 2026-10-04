@@ -20,19 +20,24 @@ test("Spellforge stasis prompt explicitly preserves all three identities", () =>
   ].join("\n");
 
   const prompt = buildStasisVisionPrompt(stasis, [], "16:9");
+  const combo = prompt.indexOf("COMBINATION PIECE");
+  const firstSpell = prompt.indexOf("SPELL I —");
   const courtyard = prompt.indexOf("sunlit Mediterranean courtyard");
   const peony = prompt.indexOf("vibrant peony");
   const coaster = prompt.indexOf("coastal roller coaster");
   const outcome = prompt.indexOf("Spellforge three-spell fusion");
 
   assert.match(prompt, /^16:9 wide canvas/);
+  assert.match(prompt, /COMBINATION PIECE/);
+  assert.match(prompt, /Do not paint Spell 1 by itself/);
+  assert.match(prompt, /Spell 2 contributes/);
+  assert.match(prompt, /Spell 3 contributes/);
   assert.match(prompt, /Spellforge three-spell fusion/);
+  assert.match(prompt, /one combination painting/);
   assert.match(prompt, /Spell 1, Spell 2, and Spell 3/);
-  assert.match(prompt, /Spell 2 is not Spell 1/);
-  assert.match(prompt, /Do not paint only Spell 1/);
-  assert.match(prompt, /equal size and a clear visible feature/);
+  assert.ok(combo >= 0 && combo < firstSpell);
   assert.ok(courtyard >= 0 && peony > courtyard && coaster > peony);
-  assert.ok(outcome > coaster);
+  assert.ok(firstSpell > combo && outcome > coaster);
 });
 
 test("arabic spell numbers stay three separate references", () => {
@@ -47,15 +52,27 @@ test("arabic spell numbers stay three separate references", () => {
   ].join("\n");
 
   const prompt = buildStasisVisionPrompt(stasis, [], "16:9");
+  const combo = prompt.indexOf("COMBINATION PIECE");
   const first = prompt.indexOf("SPELL 1 —");
   const second = prompt.indexOf("SPELL 2 —");
   const third = prompt.indexOf("SPELL 3 —");
   const outcome = prompt.indexOf("Spellforge three-spell fusion");
 
-  assert.ok(first >= 0 && second > first && third > second && outcome > third);
-  assert.match(prompt, /Spell 2 is not Spell 1/);
-  assert.match(prompt, /Do not paint only Spell 1/);
+  assert.ok(combo >= 0 && first > combo && second > first && third > second && outcome > third);
+  assert.match(prompt, /Spell 2 contributes/);
+  assert.match(prompt, /Spell 3 contributes/);
+  assert.match(prompt, /Do not paint Spell 1 by itself/);
   assert.doesNotMatch(prompt, /Spell II/);
+
+  const already = buildStasisVisionPrompt(
+    "COMBINATION PIECE: paint one new painting by mixing every spell below into a single scene. Do not paint Spell 1 by itself.\n" +
+      "Spell 1 contributes a courtyard. Spell 2 contributes a peony. Spell 3 contributes a coaster.\n\n" +
+      stasis,
+    [],
+    "16:9"
+  );
+  assert.equal((already.match(/COMBINATION PIECE/g) || []).length, 1);
+  assert.ok(already.indexOf("COMBINATION PIECE") < already.indexOf("SPELL 1 —"));
 });
 
 test("non-Spellforge stasis prompts keep the general framing", () => {
@@ -114,6 +131,8 @@ test("Cloudflare fallback does not ask for a landscape or forbid the signature",
   assert.match(prompt, /courtyard/i);
   assert.match(prompt, /peony/i);
   assert.match(prompt, /roller coaster/i);
+  assert.match(prompt, /mixed with/i);
+  assert.match(prompt, /combination/i);
   assert.ok(coaster >= 0 && outcome > coaster);
   assert.match(prompt, /Logan Sevin/);
   assert.match(prompt, /not a square/i);

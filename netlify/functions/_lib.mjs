@@ -520,7 +520,99 @@ const SPELL_HEADER_RE = /^SPELL (?:[1-9]|[IVX]+)\b/;
 const SPELLFORGE_OUTCOME_LINE_RE =
   /^(?:FINAL OUTCOME\b|FUSION(?: DIRECTIVE)?:|Output:|OUTPUT ASPECT\b|IN-CANVAS SIGNATURE\b|Compose for a |Style DNA\b|Mood DNA\b|Motif tags\b|Buzz words:|Artist synthesis\b|Extra direction:|MANDATORY\b|THREE IDENTITIES\b|THE THREE IDENTITIES\b|Spellforge three-spell fusion\b|Create one original\b)/;
 const SPELLFORGE_FUSION =
-  "Spellforge three-spell fusion: paint Spell 1, Spell 2, and Spell 3 as three different subjects in this one continuous scene. Spell 2 is not Spell 1. Spell 3 is not Spell 1. Give each equal size and a clear visible feature. Do not paint only Spell 1, and do not omit, hide, or merge any of the three.";
+  "Spellforge three-spell fusion: this is one combination painting. Mix the forms, colors, and subjects of Spell 1, Spell 2, and Spell 3 into a single new scene. Each spell stays visible inside the mix. Do not paint Spell 1 by itself.";
+
+const ROMAN_SPELL_NO = {
+  I: "1",
+  II: "2",
+  III: "3",
+  IV: "4",
+  V: "5",
+  VI: "6",
+  VII: "7",
+  VIII: "8",
+  IX: "9",
+};
+
+function spellNumberLabel(token) {
+  const t = String(token || "").toUpperCase();
+  if (/^[1-9]$/.test(t)) return t;
+  return ROMAN_SPELL_NO[t] || "";
+}
+
+/** Drop a source painting's own image prompt so it cannot replace the combination. */
+function stripSingleSpellPrompts(block) {
+  return String(block || "")
+    .split(/\n\s*\n/)
+    .filter((para, i) => i === 0 || !/^(generation prompt|source \(verbatim\))\s*:/i.test(para.trim()))
+    .join("\n\n")
+    .trim();
+}
+
+function spellContributionClause(block) {
+  const lines = String(block || "")
+    .split("\n")
+    .map((l) => l.trim())
+    .filter(Boolean);
+  const header = lines[0] || "";
+  const title = header
+    .replace(/^SPELL\s+(?:[1-9]|[IVX]+)\s*[—–-]\s*/i, "")
+    .replace(/\s*\(#\d+\)\s*$/, "")
+    .trim();
+  let clause = "";
+  for (const line of lines.slice(1)) {
+    if (/^(style|tags|mood|generation prompt|source)\s*:/i.test(line)) continue;
+    if (title && line.toLowerCase() === title.toLowerCase()) continue;
+    clause = line;
+    break;
+  }
+  return clipPromptChars(clause || title || "its own forms and colors", 160)
+    .replace(/…$/, "")
+    .replace(/[.]+$/, "")
+    .trim();
+}
+
+function combinationLead(spells) {
+  if (!spells || spells.length < 2) return "";
+  const bits = spells.slice(0, 3).map((block) => {
+    const header = String(block).split("\n")[0] || "";
+    const m = header.match(/^SPELL\s+([1-9]|[IVX]+)\b/i);
+    const n = m ? spellNumberLabel(m[1]) : "";
+    const clause = spellContributionClause(block);
+    const lower = clause.charAt(0).toLowerCase() + clause.slice(1);
+    return `${n ? `Spell ${n}` : "The next spell"} contributes ${lower}`;
+  });
+  return (
+    "COMBINATION PIECE: paint one new painting by mixing every spell below into a single scene. " +
+    "Do not paint Spell 1 by itself.\n" +
+    bits.join(". ") +
+    "."
+  );
+}
+
+/** A long Spell 1 description was being painted by itself. Keep the spells near the same length. */
+function balanceSpellBodies(spells) {
+  if (!spells || spells.length < 2) return spells || [];
+  const shortest = Math.min(...spells.map((s) => s.length));
+  const ceiling = Math.max(520, Math.round(shortest * 1.8));
+  return spells.map((block) => {
+    if (block.length <= ceiling) return block;
+    const lines = block.split("\n");
+    const header = lines[0];
+    const body = lines.slice(1).join("\n").trim();
+    const room = Math.max(80, ceiling - header.length - 1);
+    return header + "\n" + clipPromptChars(body, room);
+  });
+}
+
+function preludeWithoutIdentityBanner(text) {
+  return String(text || "")
+    .split("\n")
+    .filter((line) => !/^THREE IDENTITIES IN ONE PAINTING\.?$/i.test(line.trim()))
+    .join("\n")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+}
 
 /** Pull Spell I–III blocks out, leaving the aspect line and the outcome copy separate. */
 function splitSpellforgeReferences(raw) {
@@ -579,14 +671,19 @@ export function orderSpellforgePrompt(raw) {
   const at = protectedTailAt(text);
   const tail = at > 0 ? text.slice(at).trim() : "";
   const head = at > 0 ? text.slice(0, at).trim() : text;
-  const { prelude, spells, outcome } = splitSpellforgeReferences(head);
+  const split = splitSpellforgeReferences(head);
+  let spells = split.spells.map(stripSingleSpellPrompts).filter(Boolean);
   if (!spells.length) return text;
-  const peeled = peelAspectLines(prelude);
-  let outcomeBody = outcome;
-  if (!/Spellforge three-spell fusion/i.test(outcomeBody + "\n" + peeled.other)) {
+  const peeled = peelAspectLines(split.prelude);
+  const other = preludeWithoutIdentityBanner(peeled.other);
+  const hasCombo = /COMBINATION PIECE/i.test(other);
+  const lead = hasCombo ? other : [combinationLead(spells), other].filter(Boolean).join("\n\n");
+  spells = balanceSpellBodies(spells);
+  let outcomeBody = split.outcome;
+  if (!/Spellforge three-spell fusion/i.test(outcomeBody + "\n" + lead)) {
     outcomeBody = [SPELLFORGE_FUSION, outcomeBody].filter(Boolean).join("\n\n");
   }
-  const parts = [peeled.aspect, spells.join("\n\n"), outcomeBody, peeled.other].filter(Boolean);
+  const parts = [peeled.aspect, lead, spells.join("\n\n"), outcomeBody].filter(Boolean);
   let ordered = parts.join("\n\n");
   if (tail) ordered += "\n\n" + tail;
   return ordered;
@@ -605,10 +702,10 @@ export function fitSpellforgePrompt(text, max = GEN_PROMPT_SAFE_MAX) {
   if (!spells.length) return fitPromptKeepingTail(ordered, max);
   const peeled = peelAspectLines(prelude);
   const aspect = peeled.aspect;
-  if (peeled.other) outcome = [outcome, peeled.other].filter(Boolean).join("\n\n");
+  const lead = peeled.other;
   let guard = 0;
   const join = () =>
-    [aspect, spells.join("\n\n"), outcome].filter(Boolean).join("\n\n").trim();
+    [aspect, lead, spells.join("\n\n"), outcome].filter(Boolean).join("\n\n").trim();
   const fusionFloor = SPELLFORGE_FUSION.length;
   while (join().length > budget && outcome.length > fusionFloor + 80 && guard < 16) {
     guard += 1;
@@ -1202,20 +1299,10 @@ function fluxExtraBuzz(v) {
 const FLUX_EXTRA_MAX = 800;
 const FLUX_NUM_WORDS = ["", "one", "two", "three", "four", "five", "six"];
 
-function fluxRegions(n, aspect) {
-  const a = normalizeAspect(aspect);
-  const [w, h] = a.split(":").map(Number);
-  const tall = h > w;
-  if (n === 2) return tall ? ["In the upper half", "In the lower half"] : ["On the left", "On the right"];
-  if (n === 3) return tall ? ["At the top", "In the middle", "At the bottom"] : ["On the left", "In the center", "On the right"];
-  if (n === 4) return ["In the upper left", "In the upper right", "In the lower left", "In the lower right"];
-  return Array.from({ length: n }, (_, i) => `Focal element ${i + 1}`);
-}
-
 /**
  * opts.extraBuzz — the Spellforge "Extra buzz" field (request `extra_buzz`); falls back to the
  * stasis "Extra direction:" line. It is always included verbatim near the start of the prompt.
- * Spells get equal, bounded shares, each placed in its own region of one scene.
+ * Spells get equal, bounded shares, mixed into one combination rather than painted as the first spell alone.
  */
 export function buildCloudflarePrompt(stasis, buzzWords, aspect, opts = {}) {
   if (opts.source === "az") {
@@ -1270,14 +1357,14 @@ export function buildCloudflarePrompt(stasis, buzzWords, aspect, opts = {}) {
       items.length > 1 ? items.slice(0, -1).join(", ") + " and " + items[items.length - 1] + " in equal measure" : extra;
     const lead = extra ? (shortExtra ? extra.charAt(0).toUpperCase() + extra.slice(1) : extra) + "." : "";
     const opener =
-      `${medium} of one single seamless scene` +
+      `${medium} of one combination in a single seamless scene` +
       (wide ? " in a wide horizontal frame" : "") +
       (shortExtra ? `, prominently featuring ${extra}, ${items.length > 1 ? "each" : ""} clearly visible,` : "") +
-      (n > 1 ? ` with ${word} equal focal elements of the same size and prominence.` : ` with one clear focal subject.`);
+      (n > 1 ? ` mixing ${word} spells together.` : ` with one clear focal subject.`);
     const unifier =
       n > 1
-        ? `${n === 2 ? "Both" : "All " + word} stand together in one continuous scene with equal visual weight` +
-          (shortExtra ? `, surrounded by ${rotated}.` : ".")
+        ? `Mix ${n === 2 ? "both" : "all " + word} into one combination painting, not a picture of only the first spell` +
+          (shortExtra ? `, with ${rotated}.` : ".")
         : shortExtra
           ? `Surrounded by ${rotated}.`
           : "";
@@ -1291,9 +1378,11 @@ export function buildCloudflarePrompt(stasis, buzzWords, aspect, opts = {}) {
       const even = Math.max(120, Math.round(shortest * 1.3));
       if (cores.some((c) => c.length > even)) cores = subs.map((d) => fluxSpellCore(d.desc, Math.min(cap, even)));
     }
-    const regions = n > 1 ? fluxRegions(n, aspect) : ["At the center"];
     const lcArticle = (c) => c.replace(/^(A|An|The|Two|Three|Several|Many)\b/, (w) => w.toLowerCase());
-    const body = cores.map((c, i) => `${i ? regions[i].toLowerCase() : regions[i]}, ${lcArticle(c)}`).join("; ") + ".";
+    const body =
+      n > 1
+        ? cores.map((c, i) => (i === 0 ? c : "mixed with " + lcArticle(c))).join(", ") + "."
+        : "At the center, " + lcArticle(cores[0] || "") + ".";
     // The three spell references lead. The scene outcome follows them.
     prompt = [body, lead, opener.replace(/,\s+clearly/, ", clearly").replace(/\s+,/g, ","), unifier, tailText]
       .filter(Boolean)

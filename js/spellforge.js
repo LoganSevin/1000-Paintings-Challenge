@@ -1,6 +1,6 @@
 /**
  * Spellforge: shuffled grid, spell slots, fused text, interaction preview, optional fusion video.
- * Cache bust v120: generation names the three spells 1, 2, and 3 so II and III are not read as more of Spell I.
+ * Cache bust v121: a Spellforge generation is one combination of the equipped spells, not a painting of Spell 1 alone.
  */
 (function () {
   var PAGE_SIZE = 25;
@@ -3721,6 +3721,56 @@
     return refs + "\n\n" + outcome;
   }
 
+  function spellIngredientText(slotIndex) {
+    var raw = String(getSpellSlotBody(slotIndex) || "").trim();
+    if (!raw) return "";
+    var kept = raw.split(/\n\s*\n/).filter(function (para) {
+      return !/^(generation prompt|source \(verbatim\))\s*:/i.test(
+        String(para || "").trim()
+      );
+    });
+    return stripAspectTalkFromPrompt(kept.join("\n\n").trim());
+  }
+
+  function combinationPreface(spellParts) {
+    var bits = [];
+    for (var i = 0; i < spellParts.length; i++) {
+      var header = spellParts[i].header || "";
+      var hm = header.match(/^SPELL\s+([1-9])/);
+      var n = hm ? hm[1] : String(i + 1);
+      var title = header
+        .replace(/^SPELL\s+[1-9]\s+—\s+/, "")
+        .replace(/\s*\(#\d+\)\s*$/, "")
+        .trim();
+      var lines = String(spellParts[i].body || "").split("\n");
+      var clause = "";
+      for (var li = 0; li < lines.length; li++) {
+        var line = lines[li].trim();
+        if (!line) continue;
+        if (/^(style|tags|mood)\s*:/i.test(line)) continue;
+        if (title && line.toLowerCase() === title.toLowerCase()) continue;
+        clause = line;
+        break;
+      }
+      if (!clause) clause = title;
+      clause = clause.replace(/\s+/g, " ").trim();
+      if (clause.length > 160) {
+        clause = clause.slice(0, 157).replace(/\s+\S*$/, "");
+      }
+      clause = clause.replace(/[.…]+$/, "");
+      if (clause) clause = clause.charAt(0).toLowerCase() + clause.slice(1);
+      bits.push(
+        "Spell " + n + " contributes " + (clause || "its own forms and colors")
+      );
+    }
+    return (
+      "COMBINATION PIECE: paint one new painting by mixing every spell below into a single scene. " +
+      "Do not paint Spell 1 by itself.\n" +
+      bits.join(". ") +
+      "."
+    );
+  }
+
   function buildPhysicalGenerationPrompt(nums, meta) {
     nums = nums || getEquippedInOrder();
     meta = meta || collectCombinedMeta(nums);
@@ -3733,9 +3783,7 @@
       var num = spells[s];
       var a = getAnalysis(num) || {};
       var title = a.title || "Painting #" + num;
-      var body = stripAspectTalkFromPrompt(
-        String(getSpellSlotBody(s) || "").trim()
-      );
+      var body = spellIngredientText(s);
       if (!body) body = "(no description)";
       spellParts.push({
         header: "SPELL " + spellNo[s] + " — " + title + " (#" + num + ")",
@@ -3746,18 +3794,21 @@
 
     var artist =
       (window.GALLERY_AUTHOR && window.GALLERY_AUTHOR.author) || "Logan Sevin";
+    var labels = [];
+    for (var li = 0; li < spellParts.length; li++) {
+      var lm = spellParts[li].header.match(/^SPELL\s+([1-9])/);
+      if (lm) labels.push("Spell " + lm[1]);
+    }
+    var labelList = labels.join(", ").replace(/, ([^,]+)$/, ", and $1");
     var head =
-      "THREE IDENTITIES IN ONE PAINTING.\n" +
-      "Paint Spell 1, Spell 2, and Spell 3 as three different subjects. " +
-      "Spell 2 is not Spell 1. Spell 3 is not Spell 1. " +
-      "Give each equal size. They share one scene and interact. " +
-      "Not a triptych, not a 3-panel collage, not one hybrid that keeps only Spell 1.\n" +
+      "One combination painting. The spells above are the ingredients of this single scene.\n" +
       "Studio author: " +
       artist +
       ".";
     var merge =
-      "FUSION: one canvas, three subjects still countable. " +
-      "Include Spell 1 and Spell 2 and Spell 3. Do not stop after Spell 1.";
+      "FUSION: mix " +
+      labelList +
+      " into one combination. Each spell stays visible inside the mix. Do not paint Spell 1 by itself.";
     // No aspect-ratio wording — frame comes only from aspect_ratio API field
     var output =
       "Output: one original finished artwork (product-ready). Fill the canvas fully; no letterboxing; no collage panels of source paintings.";
@@ -3801,8 +3852,8 @@
       var bodies = spellParts.map(function (sp) {
         return sp.header + "\n" + sp.body;
       });
-      // Detailed references first. Outcome instructions follow them.
-      var parts = [bodies.join("\n\n"), "", "FINAL OUTCOME:", head];
+      // The combination names every spell first. The detailed references follow, then the outcome.
+      var parts = [combinationPreface(spellParts), "", bodies.join("\n\n"), "", "FINAL OUTCOME:", head];
       parts.push(merge);
       if (colorSec) parts.push(colorSec);
       parts.push(output);
