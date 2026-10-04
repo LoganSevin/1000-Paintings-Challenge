@@ -1,6 +1,6 @@
 /**
- * Stasis timelapse: walks descriptor tokens from 3 equipped spells, morphs paintings,
- * refines toward stasis vision — one forward run (no 8s loop), buzz words steer each stage.
+ * Stasis timelapse: keeps every equipped spell in one combination.
+ * The preview does not center a single spell or walk one tag as a loading percent.
  */
 (function () {
   var SEC_PER_TOKEN = 7;
@@ -88,6 +88,8 @@
     lastNumsKey: "",
     equippedNums: [],
     currentTokenWord: "",
+    painting: false,
+    combinationLine: "",
     videoEl: null,
     statusEl: null,
     downloadEl: null,
@@ -325,32 +327,20 @@
   function computeSpellWeights(tlState, spellCount) {
     var w = [];
     var i;
-    for (i = 0; i < spellCount; i++) w[i] = 0.04;
-
     if (!spellCount) return w;
-
-    if (tlState.inFinale) {
-      var cycle = (tl.time * 0.04) % spellCount;
-      var a = Math.floor(cycle);
-      var b = (a + 1) % spellCount;
-      var fe = smoothstep(cycle - a);
-      for (i = 0; i < spellCount; i++) w[i] = 0.06;
-      w[a] += (1 - fe) * 0.82;
-      w[b] += fe * 0.82;
-      return normalizeWeights(w);
-    }
-
-    var focus = tlState.activeSpellIdx % spellCount;
-    var nextIdx = Math.min(tlState.tokenIndex + 1, tl.spellTokens.length - 1);
-    var nextTok = tl.spellTokens[nextIdx];
-    var nextFocus = nextTok ? nextTok.spellIdx % spellCount : (focus + 1) % spellCount;
-    var ease = smoothstep(tlState.tokenLocal);
-
+    // Every spell stays in the mix. A small shared pulse never hands the frame to one subject.
     for (i = 0; i < spellCount; i++) {
-      if (i === focus) w[i] = 0.08 + (1 - ease) * 0.88;
-      else if (i === nextFocus && nextFocus !== focus) w[i] = 0.08 + ease * 0.88;
+      w[i] = 1 + 0.05 * Math.sin(tl.time * 0.45 + i * 2.1);
     }
     return normalizeWeights(w);
+  }
+
+  function combinationLabel() {
+    var n = Math.min(3, (tl.equippedNums || []).length);
+    var names = [];
+    for (var i = 0; i < n; i++) names.push("Spell " + (i + 1));
+    if (names.length < 2) return names[0] || "the equipped spells";
+    return names.join(", ").replace(/, ([^,]+)$/, ", and $1");
   }
 
   function drawCover(ctx, w, h, img, alpha, offsetX, offsetY, scaleMul, filterStr) {
@@ -432,52 +422,29 @@
 
     var weights = computeSpellWeights(tlState, spellCount);
     var phase = tlState.globalPhase;
-    var ease = smoothstep(tlState.tokenLocal);
-    var focus = tlState.activeSpellIdx % spellCount;
-    var nextIdx = Math.min(tlState.tokenIndex + 1, tl.spellTokens.length - 1);
-    var nextTok = tl.spellTokens[nextIdx];
-    var nextFocus = nextTok ? nextTok.spellIdx % spellCount : (focus + 1) % spellCount;
-    var imgFrom = tl.previewImages[focus];
-    var imgTo = tl.previewImages[nextFocus];
 
     ctx.fillStyle = "#0a0908";
     ctx.fillRect(0, 0, w, h);
     drawStasisTextMist(ctx, w, h, phase, detail, tlState);
 
-    var driftBase = (phase - 0.5) * w * 0.06;
-
     for (var i = 0; i < spellCount; i++) {
       var img = tl.previewImages[i];
       if (!img || weights[i] < 0.03) continue;
-      var towardNext = i === nextFocus ? ease * 0.04 * h : 0;
-      var awayFocus = i === focus ? -(ease * 0.03 * h) : 0;
-      var offsetX = driftBase * (i - (spellCount - 1) / 2);
-      var scale = 1.0 + phase * 0.06 + weights[i] * 0.08 + detail * 0.04;
-      var sat = 0.9 + weights[i] * 0.25 + detail * 0.2;
-      var hue = (hashStr(String(nums[i])) % 24) - 12;
+      var offsetX = (i - (spellCount - 1) / 2) * w * 0.04;
+      var sat = 0.95 + weights[i] * 0.15 + detail * 0.1;
+      ctx.save();
+      ctx.globalCompositeOperation = i === 0 ? "source-over" : "screen";
       drawCover(
         ctx,
         w,
         h,
         img,
-        weights[i],
+        i === 0 ? 0.92 : 0.78,
         offsetX,
-        towardNext + awayFocus,
-        scale,
-        "saturate(" + sat + ") hue-rotate(" + hue * ease + "deg) contrast(" + (0.95 + detail * 0.15) + ")"
+        0,
+        1.02,
+        "saturate(" + sat + ") contrast(" + (0.98 + detail * 0.08) + ")"
       );
-    }
-
-    if (imgFrom && imgTo && focus !== nextFocus && ease > 0.05 && ease < 0.95) {
-      drawDissolveTransition(ctx, w, h, imgFrom, imgTo, ease, tlState, detail);
-    }
-
-    if (ease > 0.02 && ease < 0.98 && imgTo) {
-      ctx.save();
-      ctx.beginPath();
-      ctx.rect(w * (1 - ease), 0, w * ease + 2, h);
-      ctx.clip();
-      drawCover(ctx, w, h, imgTo, 0.92, driftBase * 0.5, 0, 1.03, "saturate(1.2)");
       ctx.restore();
     }
 
@@ -511,7 +478,7 @@
     ctx.font = "15px 'DM Sans', sans-serif";
     var msg = tl.stasisText
       ? "Stasis timelapse · generate vision to deepen the forward run"
-      : "Equip 2+ spells — watch tokens cycle through each stylization";
+      : "Equip 2+ spells — the preview keeps every spell in one combination";
     ctx.fillText(msg, 20, h / 2);
   }
 
@@ -678,39 +645,16 @@
     drawBuzzOverlays(ctx, w, h, t, phase, detail, fx);
   }
 
-  function updateCaption(tlState, detail, buzzCount) {
+  function updateCaption() {
     if (!tl.captionEl) return;
-    var phase = tlState.globalPhase;
-    var stage =
-      phase < 0.2
-        ? "Emerging"
-        : phase < 0.45
-          ? "Structuring"
-          : phase < 0.7
-            ? "Refining"
-            : "Flourish";
-    var bits = [stage + " · " + Math.round(phase * 100) + "% through run"];
-    if (tlState.activeToken) {
-      bits.push(
-        "Spell " +
-          tlState.activeToken.slot +
-          ' · "' +
-          tlState.activeToken.word +
-          '"'
-      );
+    if (tl.painting && tl.combinationLine) {
+      tl.captionEl.textContent = tl.combinationLine;
+      return;
     }
-    bits.push(
-      (tlState.tokenIndex + 1) +
-        "/" +
-        Math.max(1, tl.spellTokens.length) +
-        " tokens"
-    );
-    if (tlState.inFinale) bits.push("continuation");
-    var live = tl.livePrompt.trim();
-    if (live) bits.push('live: "' + (live.length > 28 ? live.slice(0, 28) + "…" : live) + '"');
-    if (tl.stasisImage) bits.push("stasis vision");
-    else bits.push("3-spell morph");
-    tl.captionEl.textContent = bits.join(" · ");
+    var label = combinationLabel();
+    tl.captionEl.textContent = tl.painting
+      ? "Painting the combination of " + label + "."
+      : "Combination of " + label + ".";
   }
 
   function tick() {
@@ -745,15 +689,15 @@
     );
     var fx = activeEffects();
 
-    if (!tl.stasisImage) {
+    if (!tl.stasisImage || tl.painting) {
       drawPlaceholder(ctx, w, h, t, tlState);
-      updateCaption(tlState, detail, buzzCount);
+      updateCaption();
       tl.raf = requestAnimationFrame(tick);
       return;
     }
 
     drawStasisFrame(ctx, w, h, t, tlState, detail, fx);
-    updateCaption(tlState, detail, buzzCount);
+    updateCaption();
 
     tl.raf = requestAnimationFrame(tick);
   }
@@ -1024,6 +968,26 @@
 
   tl.setBuzz = function (words) {
     tl.activeBuzz = (words || []).slice();
+  };
+
+  tl.setPainting = function (on, promptText) {
+    tl.painting = !!on;
+    if (!tl.painting) {
+      tl.combinationLine = "";
+      updateCaption();
+      return;
+    }
+    var lines = String(promptText || "")
+      .split("\n")
+      .map(function (line) {
+        return line.trim();
+      })
+      .filter(Boolean);
+    var text = lines.slice(0, 2).join(" ");
+    if (text.length > 240) text = text.slice(0, 237).replace(/\s+\S*$/, "") + "…";
+    tl.combinationLine = text;
+    updateCaption();
+    if (!tl.running && spellforgePanelVisible()) tl.start();
   };
 
   tl.setLivePrompt = function (text) {

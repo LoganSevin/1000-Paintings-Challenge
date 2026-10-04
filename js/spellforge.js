@@ -1,6 +1,6 @@
 /**
  * Spellforge: shuffled grid, spell slots, fused text, interaction preview, optional fusion video.
- * Cache bust v121: a Spellforge generation is one combination of the equipped spells, not a painting of Spell 1 alone.
+ * Cache bust v122: the emerging preview keeps every equipped spell in the mix. It does not center Spell 1 or show one tag as a loading percent.
  */
 (function () {
   var PAGE_SIZE = 25;
@@ -4121,11 +4121,28 @@
     refreshSpellforgeInterfaceSkin();
   }
 
+  function combinationStatusLine() {
+    var labels = [];
+    for (var s = 0; s < 3; s++) {
+      if (spells[s]) labels.push("Spell " + (s + 1));
+    }
+    var list = labels.join(", ").replace(/, ([^,]+)$/, ", and $1");
+    return list
+      ? "Painting the combination of " + list + "…"
+      : "Painting the combination…";
+  }
+
+  function showCombinationProcessing(promptText) {
+    if (!window.SpellTimelapse || !window.SpellTimelapse.setPainting) return;
+    window.SpellTimelapse.setPainting(true, promptText || "");
+  }
+
   function setStasisVisionLoading(on) {
     var hint = document.getElementById("spell-stasis-vision-hint");
     var loading = document.getElementById("spell-stasis-vision-loading");
     var fig = document.getElementById("spell-stasis-vision-figure");
     var promptBox = document.getElementById("spell-stasis-vision-prompt");
+    if (loading && on) loading.textContent = combinationStatusLine();
     if (on) {
       if (hint) hint.hidden = true;
       if (loading) loading.hidden = false;
@@ -4737,10 +4754,7 @@
           if (statusEl) {
             statusEl.hidden = false;
             statusEl.className = "spell-generate-status";
-            statusEl.textContent =
-              st === "queued" || st === "pending"
-                ? "xAI generating… (" + st + ")"
-                : "Generating… (" + st + ")";
+            statusEl.textContent = combinationStatusLine();
           }
           if (st === "done") {
             if (job.moderated) {
@@ -5479,13 +5493,7 @@
     if (statusEl) {
       statusEl.hidden = false;
       statusEl.className = "spell-generate-status";
-      statusEl.textContent =
-        "New product still · frame " +
-        aspect +
-        " · " +
-        (paletteHex.length ? paletteHex.length + " locked colors · " : "") +
-        stasisSend.length +
-        " char body";
+      statusEl.textContent = combinationStatusLine();
     }
 
     // Phone + Tailscale can be slow; 45s was aborting valid queues mid-handshake.
@@ -5730,12 +5738,13 @@
       btn.textContent = "Generating…";
     }
     setStasisVisionLoading(true);
+    showCombinationProcessing(physical);
 
     var localOk = !forceCloud && useLocalGenerate();
     if (statusEl && !localOk) {
       statusEl.hidden = false;
       statusEl.className = "spell-generate-status";
-      statusEl.textContent = "Calling xAI for stasis vision…";
+      statusEl.textContent = combinationStatusLine();
     }
 
     var ready = isLocalHost()
@@ -5745,7 +5754,7 @@
       if (statusEl && !localOk) {
         statusEl.hidden = false;
         statusEl.className = "spell-generate-status";
-        statusEl.textContent = "Calling xAI for stasis vision…";
+        statusEl.textContent = combinationStatusLine();
       }
       return localOk
         ? generateStasisVisionLocal(nums, statusEl)
@@ -5774,6 +5783,9 @@
         generatingVision = false;
         skipLocalFuse = false;
         setStasisVisionLoading(false);
+        if (window.SpellTimelapse && window.SpellTimelapse.setPainting) {
+          window.SpellTimelapse.setPainting(false);
+        }
         if (btn) {
           btn.disabled = nums.length < 2;
           updateGenerateButton();
