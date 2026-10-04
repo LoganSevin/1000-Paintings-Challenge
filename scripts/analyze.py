@@ -266,6 +266,124 @@ def _oauth_needs_refresh(token: str, entry: dict) -> bool:
     return exp <= (time.time() + _OAUTH_REFRESH_SKEW_SEC)
 
 
+class CreditBlocked(RuntimeError):
+    """The xAI team has no credits left, or it is at its spending limit."""
+
+
+def is_credit_block(status_code: int, body: str) -> bool:
+    if status_code != 403:
+        return False
+    low = str(body or "").lower()
+    return "credit" in low or "spending limit" in low
+
+
+def credit_block_message(body: str) -> str:
+    raw = str(body or "").strip()
+    try:
+        data = json.loads(raw)
+    except (json.JSONDecodeError, TypeError):
+        return raw[:500]
+    err = data.get("error") if isinstance(data, dict) else ""
+    if isinstance(err, dict):
+        err = err.get("message") or err.get("error") or ""
+    return str(err or raw).strip()[:500]
+
+
+def list_inference_keys(*, allow_oauth: bool = True) -> list[str]:
+    """Console API keys first, then the Grok login. Duplicates are dropped."""
+    keys: list[str] = []
+
+    def add(raw: str) -> None:
+        k = _clean_key_string(raw)
+        if k and k not in keys:
+            keys.append(k)
+
+    bootstrap_xai_api_key_env()
+    add(
+        os.environ.get("XAI_API_KEY")
+        or os.environ.get("XAI_KEY")
+        or os.environ.get("GROK_API_KEY")
+        or ""
+    )
+    for part in str(os.environ.get("XAI_API_KEYS") or "").replace(";", ",").split(","):
+        add(part)
+    for path in _key_file_candidates():
+        add(_read_key_file(path))
+
+    entries = _iter_auth_entries()
+    for _entry_key, entry in entries:
+        k = _clean_key_string(entry.get("key") or entry.get("api_key") or "")
+        if k and _looks_like_api_key(k):
+            add(k)
+    if allow_oauth:
+        for entry_key, entry in entries:
+            k = _clean_key_string(entry.get("key") or "")
+            if not k or _looks_like_api_key(k):
+                continue
+            if _oauth_needs_refresh(k, entry):
+                refreshed = _refresh_oauth_entry(entry_key, entry)
+                if refreshed:
+                    k = refreshed
+            add(k)
+    return keys
+
+
+def pick_inference_key(client: httpx.Client, model: str) -> str:
+    """Use the first credential that can call the model.
+
+    A console key at its credit or spending limit is skipped. The Grok login
+    is the next credential.
+    """
+    keys = list_inference_keys()
+    if not keys:
+        raise ValueError(api_key_setup_hint())
+    last = "No API key accepted a request."
+    blocked = 0
+    for key in keys:
+        resp = client.post(
+            API_URL,
+            headers={
+                "Authorization": f"Bearer {key}",
+                "Content-Type": "application/json",
+            },
+            json={
+                "model": model,
+                "input": [
+                    {
+                        "role": "user",
+                        "content": [
+                            {
+                                "type": "input_text",
+                                "text": "Reply with the single word ok.",
+                            }
+                        ],
+                    }
+                ],
+                "store": False,
+            },
+            timeout=45.0,
+        )
+        if resp.status_code == 200:
+            if blocked:
+                print(
+                    "The console API key is out of credits. This run uses the Grok login instead.",
+                    file=sys.stderr,
+                )
+            return key
+        body = resp.text or ""
+        if is_credit_block(resp.status_code, body):
+            blocked += 1
+            last = credit_block_message(body)
+            continue
+        if resp.status_code in (401, 403):
+            last = credit_block_message(body) or f"HTTP {resp.status_code}"
+            continue
+        if resp.status_code == 429 or resp.status_code >= 500:
+            return key
+        last = credit_block_message(body) or f"HTTP {resp.status_code}"
+    raise CreditBlocked(last)
+
+
 def get_api_key(*, allow_oauth: bool = True, force_refresh: bool = False) -> str:
     """
     Resolve credentials for xAI inference (Conceptualizer, Animate, etc.).

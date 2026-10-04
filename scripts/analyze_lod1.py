@@ -24,7 +24,14 @@ LOD1_ANALYSES_PATH = GALLERY / "data" / "lod1-analyses.json"
 IMAGE_EXTS = (".jpg", ".jpeg", ".png", ".webp", ".gif", ".bmp")
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from analyze import DEFAULT_MAX_SIZE, DEFAULT_MODEL, get_api_key  # noqa: E402
+from analyze import (  # noqa: E402
+    DEFAULT_MAX_SIZE,
+    DEFAULT_MODEL,
+    CreditBlocked,
+    credit_block_message,
+    is_credit_block,
+    pick_inference_key,
+)
 
 PROMPT = """Upscaled artwork / generated still from a painting challenge studio.
 Study the image carefully. Describe ONLY what is actually visible.
@@ -207,12 +214,17 @@ def analyze_lod1_one(
                 json=payload,
                 timeout=90.0,
             )
+            if is_credit_block(resp.status_code, resp.text or ""):
+                raise CreditBlocked(credit_block_message(resp.text or ""))
             if resp.status_code in (403, 429, 500, 502, 503, 504):
                 wait = min(120, 5 * (2**attempt))
                 print(
                     f"  RETRY #{number}: HTTP {resp.status_code}, "
                     f"waiting {wait}s ({attempt + 1}/{max_retries})",
                     file=sys.stderr,
+                )
+                last_err = RuntimeError(
+                    f"HTTP {resp.status_code}: {credit_block_message(resp.text or '')}"
                 )
                 time.sleep(wait)
                 continue
@@ -286,7 +298,6 @@ def main():
     )
     args = parser.parse_args()
 
-    api_key = get_api_key()
     analyses = load_lod1_analyses()
     all_nums = list_generated_nums()
     if args.start:
@@ -334,6 +345,19 @@ def main():
     errors = 0
     limits = httpx.Limits(max_connections=args.workers + 2)
     with httpx.Client(limits=limits) as client:
+        try:
+            api_key = pick_inference_key(client, args.model)
+        except CreditBlocked as exc:
+            print(str(exc), file=sys.stderr)
+            print(
+                "The console key cannot describe stills until credits or the spending limit change: "
+                "https://console.x.ai/team/default/billing",
+                file=sys.stderr,
+            )
+            return
+        except ValueError as exc:
+            print(str(exc), file=sys.stderr)
+            return
         with ThreadPoolExecutor(max_workers=args.workers) as pool:
             futures = {
                 pool.submit(
@@ -350,6 +374,12 @@ def main():
                     done += 1
                     title = result.get("title", "?")
                     print(f"  [{done}/{len(pending)}] #{num}: {title}")
+                except CreditBlocked as e:
+                    errors += 1
+                    print(f"  STOP #{num}: {e}", file=sys.stderr)
+                    for pending_future in futures:
+                        pending_future.cancel()
+                    break
                 except Exception as e:
                     errors += 1
                     print(f"  ERROR #{num}: {e}", file=sys.stderr)

@@ -39,7 +39,7 @@ def main() -> int:
         print("Descriptions already match git — nothing to publish.")
         return 0
 
-    msg = "Auto-publish descriptions to logan7in.art"
+    msg = "Auto-publish descriptions to logan7in.art [deploy]"
     commit = run(["git", "commit", "-m", msg])
     if commit.returncode != 0:
         err = (commit.stderr or commit.stdout or "").strip()
