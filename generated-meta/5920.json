@@ -1,20 +1,26 @@
 {
-  "ok": true,
-  "num": 5920,
-  "name": "5920.jpg",
-  "path": "generated/5920.jpg",
-  "dir": "generated",
-  "url": "/generated/5920.jpg",
-  "bytes": 386134,
-  "source": "spellforge",
-  "description": "SPELLFORGE PRODUCT — invent ONE brand-new fine-art painting for sale.\nThis is NOT a remake, restage, collage, or near-copy of any equipped painting. Do not preserve any source composition, figure pose, camera angle, or layout.\nBorrow only abstract motifs, mood, and texture ideas from the influence texts below, then invent a fourth original scene that has never existed.\nStudio author: Logan Sevin.\n\nMANDATORY BOLD COLOR LOCKS — these pigments WIN over any colors described in source spell texts:\n  • Red (#EF4444) (appears 3× — ONE unified pigment spells I/III) — use this exact Red at #EF4444 as a major visible pigment (saturated, not a shy tint; not replaced by the source painting’s old palette).\n  • Maroon (#770033) (from spells I) — use this exact Maroon at #770033 as a major visible pigmen",
-  "saved_at": "2026-09-18T20:08:00Z",
-  "meta": {
-    "source": "spellforge",
-    "spells": [
-      100703,
-      100293,
-      270
-    ]
-  }
+  "number": 5920,
+  "title": "Surreal Cosmic Sorceress",
+  "description": "A green-skinned sorceress in a flowing purple robe and ornate headdress stands on a broken stone bridge, holding a small red mouse in her hand. Above her, a giant stylized eye with a pink iris and mechanical segments floats in a swirling purple and orange cosmic sky filled with clouds, floating temples, cherry blossoms, and glowing orbs.",
+  "prompt": "A green-skinned sorceress wearing a flowing purple hooded robe with gold details and an ornate headdress stands on a broken ornate stone bridge in a surreal cosmic landscape, holding a small red mouse, dramatic swirling purple and orange clouds, a massive stylized eye with pink iris and mechanical segments floating in the sky above, floating temples, cherry blossom petals drifting through the air, glowing orbs and ethereal light rays, highly detailed fantasy illustration",
+  "style": "fantasy surrealism",
+  "mood": "mystical dreamlike",
+  "medium": "digital painting",
+  "tags": [
+    "sorceress",
+    "giant eye",
+    "cosmic sky",
+    "fantasy bridge",
+    "cherry blossoms",
+    "surreal"
+  ],
+  "colors": [
+    "purple",
+    "pink",
+    "orange",
+    "green"
+  ],
+  "subject_type": "painting or scene",
+  "kind": "generated",
+  "analyzed_at": "2026-10-04T00:47:10Z"
 }
