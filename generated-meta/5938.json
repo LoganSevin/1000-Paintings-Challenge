@@ -1,26 +1,26 @@
 {
   "number": 5938,
-  "title": "Surreal Desert Eye Vision",
-  "description": "A giant stylized human eye floats in a purple sky above a desert landscape, with a red mouse inside its pupil and green vines extending downward. Below, a woman in a flowing red robe and headscarf walks through sand dunes surrounded by transparent bubbles containing smaller red mice and desert scenes, with cacti visible in the background.",
-  "prompt": "Surreal desert scene with a giant stylized human eye floating in a purple sky, a red mouse visible inside the pupil connected by green vines, below a woman in a long flowing red robe and white headscarf walking barefoot through sand dunes, surrounded by transparent bubbles containing smaller red mice and miniature desert scenes, cacti in the background, mystical and dreamlike atmosphere",
+  "title": "Surreal Desert Eye Scene",
+  "description": "A woman in a red robe and headscarf walks barefoot across sand dunes with small cacti around her. Above her floats a giant eye with a red mouse inside its pupil, a green vine, and another red mouse standing on a red and yellow sphere, all surrounded by transparent bubbles containing small desert scenes.",
+  "prompt": "A woman wearing a red patterned robe and white headscarf walks barefoot across rolling sand dunes with green cacti nearby. A giant human eye floats in the purple sky above her with a small red mouse sitting inside the pupil, a green vine curls down from the eye toward a second red mouse standing on a red and yellow sphere. Many transparent bubbles float around the woman and contain tiny desert scenes inside them.",
   "style": "surrealism",
-  "mood": "dreamlike mystical",
+  "mood": "dreamlike mysterious",
   "medium": "digital painting",
   "tags": [
     "surreal",
     "desert",
+    "woman",
     "eye",
     "mouse",
-    "bubbles",
-    "woman"
+    "bubbles"
   ],
   "colors": [
     "red",
+    "sand",
     "purple",
-    "beige",
     "green"
   ],
   "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:48:33Z"
+  "analyzed_at": "2026-10-04T01:13:37Z"
 }

@@ -1,26 +1,26 @@
 {
   "number": 5961,
-  "title": "Demonic Organ in Ruins",
-  "description": "A dark blue demonic figure with horns and claws emerges from a large pipe organ set within a crumbling gothic stone archway. Blue flames and dripping liquid surround the chained instrument while an open book titled 'SATANIS' lies on the debris-strewn floor in front.",
-  "prompt": "A demonic blue figure with horns and claws rises from within a decaying pipe organ inside a ruined gothic cathedral archway, surrounded by blue flames and dripping blue liquid, heavy chains and padlocks hang from the organ, an ancient book titled SATANIS lies open on the stone floor covered in blue ooze, dark atmospheric fantasy scene with crumbling stone and debris",
-  "style": "dark fantasy",
+  "title": "Demonic Organ",
+  "description": "A person sees a large pipe organ built into a broken arched stone window with a blue demon having horns and one eye appearing inside the glass. The demon's hands reach out from the glass as blue liquid drips down over the keyboard and onto an open book on the floor that shows the word STASIS.",
+  "prompt": "dark fantasy painting of a large old pipe organ built into a broken arched stone window inside a ruined building. a blue demon with horns and one large eye appears trapped in the cracked glass reaching out with its hands while blue liquid drips down over the keyboard and onto the floor. an open book lies on the ground in front of it. blue flames and chains surround the scene with skulls and debris on the floor.",
+  "style": "dark fantasy painting",
   "mood": "sinister eerie",
-  "medium": "digital painting",
+  "medium": "oil painting",
   "tags": [
+    "organ",
     "demon",
-    "pipe organ",
-    "gothic ruins",
     "blue flames",
-    "occult",
-    "chains"
+    "ruins",
+    "chains",
+    "book"
   ],
   "colors": [
-    "deep blue",
-    "black",
+    "blue",
+    "dark blue",
     "gold",
-    "purple"
+    "brown"
   ],
   "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:49:02Z"
+  "analyzed_at": "2026-10-04T01:13:58Z"
 }

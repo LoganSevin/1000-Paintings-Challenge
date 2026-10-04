@@ -1,26 +1,26 @@
 {
   "number": 5984,
-  "title": "Spellforge Product",
-  "description": "A surreal night scene features a large tilted blackboard covered in glowing mathematical equations including 30x(f)^2 - y and integrals. A blue-skinned humanoid figure with white patterned head and multicolored wires extending from its body holds a quill, writing on the board as flames and sparks erupt from its surface. Torn pages with formulas and a wax seal float in the dark foreground.",
-  "prompt": "Surreal night scene with dramatic lighting, a large tilted blackboard filled with glowing white mathematical equations and integrals including 30x(f)^2 - y, a blue-skinned humanoid figure with patterned white head and colorful wires extending from its body, the figure holds a quill writing on the board while flames and sparks erupt from the surface, torn pages with formulas and a wax seal floating in the foreground, dark dramatic sky with colorful horizon glow",
-  "style": "surreal fantasy",
-  "mood": "mystical chaotic",
-  "medium": "digital painting",
+  "title": "Spellforge Muse",
+  "description": "A painting shows a female figure with a mask-like face covered in symbols standing beside a large blackboard filled with painted marks and writing. Her hands touch a glowing quill that drips golden liquid while colorful threads flow from her head and body into the dark background filled with floating torn papers bearing painted marks.",
+  "prompt": "A female figure with a mask-like face covered in symbols stands beside a large blackboard covered in painted writing. Her hands hold a glowing quill that drips golden liquid as colorful threads flow from her head and body. Torn papers with painted marks float around her against a dark twilight background with glowing sky colors.",
+  "style": "fantasy painting",
+  "mood": "mystical creative",
+  "medium": "oil painting",
   "tags": [
-    "surreal",
-    "mathematics",
-    "blackboard",
-    "ethereal figure",
-    "magical",
-    "night scene"
+    "woman",
+    "chalkboard",
+    "quill",
+    "papers",
+    "threads",
+    "fantasy"
   ],
   "colors": [
     "deep blue",
     "purple",
-    "yellow",
-    "orange"
+    "gold",
+    "yellow"
   ],
   "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:49:28Z"
+  "analyzed_at": "2026-10-04T01:14:17Z"
 }

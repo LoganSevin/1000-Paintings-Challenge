@@ -1,18 +1,18 @@
 {
   "number": 6021,
-  "title": "Monochrome Rolling Hills",
-  "description": "A black and white landscape painting depicting rolling hills and agricultural fields divided by winding paths and hedgerows. Scattered trees dot the terrain leading to distant layered mountain ranges under a pale sky, with a prominent conical peak visible in the midground.",
-  "prompt": "Black and white ink landscape painting of vast rolling agricultural fields and hills divided by winding paths and clusters of trees, with layered distant mountains and a prominent conical peak in the background, rendered in bold expressive brushstrokes with varying shades of gray, high contrast, minimalist composition",
-  "style": "expressionist landscape",
-  "mood": "serene minimalist",
-  "medium": "ink and brush on paper",
+  "title": "Rolling Hills",
+  "description": "A person sees a wide view of rolling hills and farmland with scattered trees and winding paths. The setting has distant mountains under a bright sky and uses shades of black white and gray.",
+  "prompt": "monochrome black and white ink drawing of wide rolling hills and farmland with scattered trees winding paths and fields leading to distant mountains under a bright sky",
+  "style": "ink drawing",
+  "mood": "serene open",
+  "medium": "ink and wash",
   "tags": [
-    "landscape",
     "hills",
-    "monochrome",
-    "fields",
+    "farmland",
     "mountains",
-    "ink drawing"
+    "trees",
+    "monochrome",
+    "fields"
   ],
   "colors": [
     "black",
@@ -21,5 +21,5 @@
   ],
   "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:50:05Z"
+  "analyzed_at": "2026-10-04T01:14:46Z"
 }

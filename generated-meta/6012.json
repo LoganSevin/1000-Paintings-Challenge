@@ -1,26 +1,26 @@
 {
   "number": 6012,
-  "title": "Desert Valley Landscape",
-  "description": "A wide desert valley stretches into the distance with rolling orange sand dunes and sparse desert shrubs in the foreground. Layered mountains and rocky cliffs frame a fertile green valley with fields and scattered trees under a bright white sky.",
-  "prompt": "Wide desert valley landscape with orange sand dunes and desert shrubs in the foreground, leading to a lush green valley with fields and scattered trees, framed by layered rocky mountains and cliffs under a bright white sky, stylized digital painting with clean lines and soft shading",
-  "style": "digital painting",
+  "title": "Desert Valley View",
+  "description": "A person sees a wide open desert in the foreground with orange sand, dry bushes, and grasses. In the distance are large rocky mountains, green and yellow fields in a valley, and scattered trees under a bright white sky.",
+  "prompt": "A wide desert valley scene with orange sand and dry bushes in the foreground, leading to green and yellow fields dotted with trees in the middle ground, surrounded by tall rocky mountains in shades of blue and gray, under a bright white sky, shown in a clean illustrative painting style.",
+  "style": "digital illustration",
   "mood": "serene expansive",
-  "medium": "digital illustration",
+  "medium": "digital painting",
   "tags": [
-    "landscape",
     "desert",
     "mountains",
     "valley",
-    "dunes",
-    "nature"
+    "fields",
+    "bushes",
+    "illustration"
   ],
   "colors": [
     "orange",
-    "green",
+    "yellow",
     "blue",
-    "beige"
+    "green"
   ],
   "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:49:57Z"
+  "analyzed_at": "2026-10-04T01:14:40Z"
 }

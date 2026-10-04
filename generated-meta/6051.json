@@ -1,8 +1,8 @@
 {
   "number": 6051,
-  "title": "Geometric Abstract Composition",
-  "description": "A vertical abstract painting featuring bold geometric shapes including orange and black triangles, vertical color blocks in peach, grey, and green, and expressive paint drips. Scattered across the composition are vibrant splashes of pink, yellow, and blue with circular forms and organic brushstrokes against a white background.",
-  "prompt": "Vertical abstract geometric painting on white canvas with bold orange and black triangular shapes intersecting vertical color blocks in peach, sage green and grey. Dynamic paint drips running down from the forms. Scattered vibrant yellow circles, pink brushstrokes, and small blue and orange accents creating an energetic modern composition with visible texture and drips.",
+  "title": "Abstract Geometric Painting",
+  "description": "The picture shows an abstract composition of bold geometric shapes including triangles, rectangles, and circles arranged in a vertical format. A large black angular shape cuts through orange, pink, gray, and green sections with scattered yellow dots, paint drips, and brush marks against a white background.",
+  "prompt": "abstract geometric painting with bold shapes on white background, large black angular form cutting through orange triangle and pink rectangle, vertical color blocks in peach gray and green, yellow circles and dots scattered around, visible paint drips and brush strokes, bright modern composition with flat colors and hard edges",
   "style": "abstract geometric",
   "mood": "vibrant dynamic",
   "medium": "acrylic on canvas",
@@ -10,8 +10,8 @@
     "abstract",
     "geometric",
     "colorful",
-    "drips",
     "shapes",
+    "drips",
     "modern"
   ],
   "colors": [
@@ -22,5 +22,5 @@
   ],
   "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:50:40Z"
+  "analyzed_at": "2026-10-04T01:15:11Z"
 }

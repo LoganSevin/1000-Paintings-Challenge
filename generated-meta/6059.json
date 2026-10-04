@@ -1,18 +1,17 @@
 {
   "number": 6059,
-  "title": "Bugs Bunny with Looney Tunes",
-  "description": "Bugs Bunny stands confidently at the center with hands on hips, surrounded by several other Looney Tunes characters including Tasmanian Devil, Marvin the Martian, Porky Pig, and Sylvester. The scene is set in a whimsical painted environment with a circus tent, striped ball, and hot air balloon visible.",
-  "prompt": "Bugs Bunny standing tall in the center with hands on hips and a confident smile, surrounded by Tasmanian Devil, Marvin the Martian on a striped ball, Porky Pig, and Sylvester the Cat, whimsical circus setting with colorful tent and hot air balloon in the background, detailed cartoon style digital painting, vibrant colors, dynamic composition",
+  "title": "Bugs Bunny with Looney Tunes characters",
+  "description": "A large Bugs Bunny stands in the center with his hands on his hips smiling at the viewer. Several smaller Looney Tunes characters surround him including a small bear on a striped ball to the left a duck and devil character on a striped ball to the right and two tiny characters on the ground near a small wooden box.",
+  "prompt": "A large gray Bugs Bunny stands in the center with hands on hips smiling with big teeth and long ears. Smaller cartoon characters surround him: a small orange bear with crown on a striped ball to the left, a black devil character and duck on a red and white striped ball to the right, plus two tiny characters on the ground near a wooden box. Circus tent element in background with blue and beige painted walls. Painted red marks on the floor.",
   "style": "cartoon illustration",
-  "mood": "playful whimsical",
+  "mood": "playful colorful",
   "medium": "digital painting",
   "tags": [
     "Bugs Bunny",
     "Looney Tunes",
     "cartoon characters",
-    "group scene",
     "circus setting",
-    "classic animation"
+    "group scene"
   ],
   "colors": [
     "blue",
@@ -20,7 +19,7 @@
     "yellow",
     "brown"
   ],
-  "subject_type": "painting or scene",
+  "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:50:50Z"
+  "analyzed_at": "2026-10-04T01:15:19Z"
 }

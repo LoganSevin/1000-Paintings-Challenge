@@ -1,18 +1,18 @@
 {
   "number": 6016,
-  "title": "Surreal Clock Tower Landscape",
-  "description": "A massive teal clock tower with a glowing orb base stands at the center of a vibrant green landscape, surrounded by floating colorful spheres, butterflies, and birds. The scene is framed within a large circular portal against a beige background, with a dirt path leading to the tower, rolling hills, standing stones, and a small house in the foreground.",
-  "prompt": "A surreal fantasy landscape featuring a giant teal clock tower with a white clock face and glowing golden orb at its base, centered within a large circular portal. The scene shows rolling green hills, a winding dirt path, ancient standing stones, a small house, and distant mountains. Numerous colorful butterflies, birds, and floating spheres in red, blue, orange and silver drift around the tower against a soft beige sky, in a whimsical dreamlike style.",
+  "title": "Surreal Clock Tower Scene",
+  "description": "A large green clock tower shaped like a sphere with a white clock face stands in the center of rolling green hills under a big teal circular sky. Butterflies, birds, colorful spheres, and a small house appear on the path and in the air around tall rocks and distant mountains.",
+  "prompt": "A surreal scene shows a giant green spherical clock tower with a white clock face and arched doorway standing in the middle of green rolling hills. Butterflies, birds, and many colorful spheres float in the air around it under a large teal circular sky. A dirt path leads past a small house and tall rocks toward the tower with distant mountains in the background.",
   "style": "surreal fantasy",
-  "mood": "dreamlike whimsical",
+  "mood": "whimsical dreamlike",
   "medium": "digital painting",
   "tags": [
     "surreal",
     "clock tower",
-    "floating objects",
     "butterflies",
-    "fantasy landscape",
-    "circular portal"
+    "floating spheres",
+    "hills",
+    "fantasy"
   ],
   "colors": [
     "teal",
@@ -20,7 +20,7 @@
     "beige",
     "orange"
   ],
-  "subject_type": "painting or scene",
+  "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:50:02Z"
+  "analyzed_at": "2026-10-04T01:14:43Z"
 }

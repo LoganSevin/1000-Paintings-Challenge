@@ -1,26 +1,25 @@
 {
   "number": 5968,
-  "title": "Demonic Blacksmith Forging",
-  "description": "A muscular demonic figure with green and red skin, flaming head, and large blue wings kneels while forging on a red anvil, holding a hammer and emitting red, green, and blue laser beams from his eyes. An open wooden door with purple light and smoky green-red clouds appears in the background, with scattered papers and coins on the ground.",
-  "prompt": "A powerful muscular demon with green and red skin, flaming head inscribed with text, and large blue bat-like wings, kneeling at a red anvil while forging with a hammer, emitting red green and blue laser beams from his eyes, open wooden door with purple glow and smoky green and red clouds in the background, scattered old papers and coins on the ground, dramatic fantasy scene, detailed digital painting",
-  "style": "fantasy digital art",
-  "mood": "epic infernal",
+  "title": "Demon Blacksmith",
+  "description": "A muscular red and green demon with large blue wings kneels while holding a glowing green hammer in one hand and touching a red anvil with the other. The scene shows an open dark door with purple light behind it, scattered books and coins on the floor, and dramatic smoke filling the space.",
+  "prompt": "A muscular demon with red and green skin and large blue wings kneels in a smoky room. He holds a glowing green hammer in his right hand and touches a red anvil with his left hand. His body shows cracks of orange light. An open dark wooden door with purple light stands behind him. Scattered books coins and papers cover the floor. The air is filled with green red and white smoke.",
+  "style": "fantasy illustration",
+  "mood": "dramatic epic",
   "medium": "digital painting",
   "tags": [
     "demon",
     "blacksmith",
-    "fantasy",
     "anvil",
     "wings",
-    "forging"
+    "fantasy"
   ],
   "colors": [
-    "green",
     "red",
+    "green",
     "blue",
     "purple"
   ],
   "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:49:15Z"
+  "analyzed_at": "2026-10-04T01:14:04Z"
 }

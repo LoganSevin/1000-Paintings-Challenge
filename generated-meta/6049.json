@@ -1,26 +1,26 @@
 {
   "number": 6049,
-  "title": "Colorful Mediterranean Alley",
-  "description": "A narrow sunlit alleyway with vibrant yellow and orange buildings lines a steep stone staircase under a clear blue sky. The cobblestone path and steps are adorned with numerous potted plants and flowers in terracotta pots.",
-  "prompt": "A narrow European alley with bright yellow and orange stucco buildings on both sides, featuring a steep stone staircase leading up between them under a clear blue sky. The colorful cobblestone path at the bottom is lined with many terracotta pots containing green plants and vibrant pink, purple, and yellow flowers. Sunlight casts strong shadows across the scene, with hanging flower baskets on the walls and green shutters on the windows.",
-  "style": "photorealistic digital art",
+  "title": "Colorful Alley with Stairs",
+  "description": "A person sees a narrow alley between bright yellow and orange buildings with a stone staircase leading up the middle. Many potted plants and flowers in pink yellow and green sit on the colorful cobblestone path and steps under a clear blue sky.",
+  "prompt": "narrow alley between bright yellow and orange buildings with a wide stone staircase in the center leading upward, many potted plants and flowers in pink yellow and green placed on the steps and along the colorful cobblestone path, clear blue sky above, bright sunlight casting strong shadows on the walls",
+  "style": "photorealistic",
   "mood": "vibrant sunny",
-  "medium": "digital painting",
+  "medium": "digital photograph",
   "tags": [
-    "alleyway",
-    "staircase",
-    "Mediterranean",
-    "colorful buildings",
+    "alley",
+    "stairs",
+    "buildings",
     "potted plants",
-    "sunlight"
+    "cobblestone",
+    "bright colors"
   ],
   "colors": [
     "orange",
     "yellow",
     "blue",
-    "terracotta"
+    "green"
   ],
   "subject_type": "scene",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:50:38Z"
+  "analyzed_at": "2026-10-04T01:15:09Z"
 }

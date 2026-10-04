@@ -1,26 +1,26 @@
 {
   "number": 5989,
-  "title": "Vibrant Abstract Landscape",
-  "description": "A colorful surreal landscape painting featuring rolling green and yellow hills, stylized trees with rounded colorful foliage, and a bright winding path. Three horizontal white bars with circular cutouts overlay the center of the composition like a graphic interface element.",
-  "prompt": "A vibrant surreal landscape with rolling green and yellow hills, stylized trees with rounded colorful foliage in pink, purple, and blue, and a winding yellow path under a bright sky. The scene has a painterly style with soft blended forms and bold color blocking, overlaid with three horizontal white bars containing circular cutouts in the center like a graphic interface element.",
-  "style": "surreal digital art",
-  "mood": "whimsical vibrant",
+  "title": "Colorful Abstract Menu",
+  "description": "A person sees a bright abstract painting with a large white menu overlay that has three horizontal bars and three colored circles. The background shows rounded plant shapes, a yellow hat on the ground, and many colorful orbs in a vibrant setting.",
+  "prompt": "bright abstract painting with a large white menu overlay containing three horizontal bars and three colored circles in the center, vibrant rounded plant shapes and foliage in green yellow and blue fill the background, small yellow hat sits on the ground below, many colorful orbs and rounded forms scattered throughout, cheerful and colorful composition",
+  "style": "abstract",
+  "mood": "cheerful vibrant",
   "medium": "digital painting",
   "tags": [
-    "surreal",
-    "colorful",
-    "landscape",
     "abstract",
-    "nature",
-    "graphic"
+    "menu",
+    "colorful",
+    "plants",
+    "circles",
+    "hat"
   ],
   "colors": [
     "green",
     "yellow",
-    "pink",
-    "blue"
+    "purple",
+    "pink"
   ],
   "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:49:33Z"
+  "analyzed_at": "2026-10-04T01:14:22Z"
 }

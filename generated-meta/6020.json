@@ -1,26 +1,26 @@
 {
   "number": 6020,
   "title": "Knight Facing Dragon",
-  "description": "A knight in full silver armor with a flowing red cape stands on the left, holding a longsword pointed directly into the open mouth of a large purple dragon. The dragon, with orange accents and sharp spines, leans down from the right, its jaws wide around the blade. The background is a vibrant abstract mix of yellow, orange, and purple with paint splatter effects.",
-  "prompt": "A knight in shining silver plate armor and a long red cape stands facing a massive purple dragon with orange highlights. The knight holds a longsword straight into the dragon's open mouth. The dragon leans down aggressively with sharp teeth and spines visible. Dramatic abstract background with yellow, orange and purple paint splatters and brush strokes, dynamic fantasy composition, digital painting style",
-  "style": "digital fantasy illustration",
+  "description": "A knight in full silver armor and a flowing red cape stands on the left holding a long sword with both hands pointed at a large purple dragon on the right. The dragon has an open mouth with the sword blade inside it while the knight looks up at the beast against a colorful painted background.",
+  "prompt": "A knight in full silver armor with a long red cape stands facing a large purple dragon. The knight holds a long sword with both hands and points it directly into the open mouth of the dragon. The dragon has purple and orange scales with spikes along its back. The background is an abstract painted surface with yellow orange and purple brush strokes and paint splatters.",
+  "style": "fantasy painting",
   "mood": "epic confrontation",
   "medium": "digital painting",
   "tags": [
     "knight",
     "dragon",
-    "fantasy",
     "sword",
-    "confrontation",
-    "armor"
+    "fantasy",
+    "armor",
+    "confrontation"
   ],
   "colors": [
-    "purple",
     "yellow",
     "orange",
-    "silver"
+    "purple",
+    "red"
   ],
   "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:50:05Z"
+  "analyzed_at": "2026-10-04T01:14:46Z"
 }

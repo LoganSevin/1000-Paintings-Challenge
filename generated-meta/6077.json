@@ -1,26 +1,26 @@
 {
   "number": 6077,
-  "title": "Man in Mirror",
-  "description": "A surreal painting viewed through a dark doorway or frame. In the center of a deep blue-black wall hangs a small framed portrait of a young man with light brown hair taking a selfie with a smartphone, his reflection visible within the picture.",
-  "prompt": "A surreal dark interior scene viewed through a doorway with dramatic red and black painted wooden frame. Centered on a deep midnight blue wall is a small black framed painting showing a young man with light brown hair wearing a black t-shirt taking a selfie with his smartphone, his own reflection captured within the picture. Cinematic lighting with a glowing orange vertical light strip on the right and a curved red upholstered element visible on the lower right. Moody and mysterious atmosphere with signature in the corner.",
-  "style": "surrealism",
-  "mood": "eerie mysterious",
+  "title": "Mirror Self Portrait",
+  "description": "A person sees a framed mirror hanging on a dark wall inside a narrow painted doorway. The man's face looks directly forward while his hands hold a black phone he is touching, in a room with a red curved seat visible to the side.",
+  "prompt": "a man with light brown hair taking a selfie with a black phone stands reflected in a small framed mirror hanging on a dark blue wall inside a narrow doorway with rough painted red and orange walls a curved red seat sits to the right side of the doorway and a painted step with teal and orange marks is at the bottom",
+  "style": "painting",
+  "mood": "moody, mysterious",
   "medium": "oil painting",
   "tags": [
-    "surreal",
     "mirror",
     "selfie",
-    "dark interior",
-    "framed portrait",
-    "moody"
+    "man",
+    "dark room",
+    "red seat",
+    "doorway"
   ],
   "colors": [
-    "deep blue",
-    "black",
+    "dark blue",
     "red",
-    "orange"
+    "orange",
+    "black"
   ],
-  "subject_type": "painting or scene",
+  "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:51:07Z"
+  "analyzed_at": "2026-10-04T01:15:36Z"
 }

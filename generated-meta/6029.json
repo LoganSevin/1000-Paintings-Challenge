@@ -1,26 +1,26 @@
 {
   "number": 6029,
-  "title": "Three Crows on a Branch",
-  "description": "Three black crows perch on a thick, weathered wooden branch. The two crows on the left face each other with open beaks as if in conversation, while the third crow on the right looks toward them.",
-  "prompt": "Three realistic black crows perched on a thick weathered wooden branch against a soft beige and brown gradient background. The leftmost crow and the center crow face each other with open beaks as if conversing, while the third crow on the right looks toward them. Detailed feather texture, dramatic lighting, painterly style with visible brush strokes.",
-  "style": "realistic digital painting",
-  "mood": "mysterious, contemplative",
-  "medium": "digital illustration",
+  "title": "Three Black Crows on Branch",
+  "description": "Three black crows perch on a thick wooden branch. The left crow faces right with its beak near the middle crow's beak while the right crow looks left toward the others.",
+  "prompt": "realistic painting of three black crows perched together on a thick wooden branch against a plain beige background, the left crow faces right with beak near the middle crow, the right crow looks left, detailed black feathers with blueish highlights, strong claws gripping the branch, soft painterly style with visible brush strokes",
+  "style": "realistic painting",
+  "mood": "mysterious calm",
+  "medium": "oil on canvas",
   "tags": [
     "crows",
     "birds",
-    "perched",
     "branch",
-    "conversation",
-    "realistic"
+    "perched",
+    "realistic",
+    "painting"
   ],
   "colors": [
     "black",
-    "ochre",
+    "beige",
     "brown",
-    "beige"
+    "ochre"
   ],
   "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:50:17Z"
+  "analyzed_at": "2026-10-04T01:14:52Z"
 }

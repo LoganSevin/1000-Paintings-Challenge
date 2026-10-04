@@ -1,26 +1,26 @@
 {
   "number": 6073,
-  "title": "Framed Shadow Portrait",
-  "description": "A man with short dark hair and a serious expression stares directly forward from within a thin, illuminated rectangular frame. He holds a small dark object between his fingers near the right side of his face, set against a completely black background.",
-  "prompt": "A serious man with short dark hair stares intensely at the viewer from inside a thin glowing rectangular frame centered in a vast black void. He is wearing a dark collared shirt and holds a small dark object up near the right side of his face with his fingers. Dramatic chiaroscuro lighting with strong contrast, moody and mysterious atmosphere, highly detailed realistic digital painting.",
-  "style": "realistic",
-  "mood": "dramatic, mysterious",
-  "medium": "digital painting",
+  "title": "Man in Dark Frame",
+  "description": "A man with short dark hair and a beard stares directly forward with a serious expression. He stands inside a tall thin rectangular frame against a solid black background holding a small dark rectangular object in his raised right hand.",
+  "prompt": "a serious man with short dark hair and a beard stares straight at the viewer from inside a tall thin vertical rectangular frame set against a solid black background he wears a dark collared shirt and holds a small black rectangular object up in his right hand dramatic lighting plain realistic style",
+  "style": "realistic painting",
+  "mood": "somber mysterious",
+  "medium": "oil on canvas",
   "tags": [
     "man",
-    "portrait",
     "darkness",
-    "framed",
-    "chiaroscuro",
-    "moody"
+    "frame",
+    "staring",
+    "beard",
+    "black"
   ],
   "colors": [
     "black",
     "dark blue",
-    "warm skin tone",
-    "pale yellow"
+    "skin tone",
+    "white"
   ],
   "subject_type": "portrait",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:51:04Z"
+  "analyzed_at": "2026-10-04T01:15:31Z"
 }

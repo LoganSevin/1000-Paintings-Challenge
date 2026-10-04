@@ -1,18 +1,18 @@
 {
   "number": 6037,
-  "title": "Desert Mesa Landscape",
-  "description": "A black and white ink drawing of a vast desert canyon landscape. Layered rocky mesas and buttes rise in the background while the foreground features detailed desert shrubs, grasses, and arid terrain under a large empty sky.",
-  "prompt": "Black and white pen and ink drawing of a wide open desert canyon landscape with layered rocky mesas and buttes in the distance, rolling arid hills, sparse desert vegetation including shrubs and grasses in the foreground, detailed linework with heavy cross hatching and stippling on the rock faces and terrain, empty sky above, western desert scene.",
+  "title": "Desert Canyon Drawing",
+  "description": "A person sees a black and white ink drawing of rocky mesas and buttes rising above rolling desert hills. In the foreground are clumps of desert grasses and shrubs, with the ground showing faint paths winding between the formations under a large empty white sky.",
+  "prompt": "black and white ink drawing of a desert scene with tall rocky mesas and buttes in the background, rolling hills and valleys in the middle ground, and clumps of desert grass and shrubs in the foreground, large empty white sky above, detailed line work with heavy black shading on the rock faces, simple and stark western scenery",
   "style": "ink drawing",
-  "mood": "vast desolate",
+  "mood": "barren stark",
   "medium": "pen and ink",
   "tags": [
-    "landscape",
     "desert",
-    "mesa",
     "canyon",
+    "mesa",
     "ink drawing",
-    "western"
+    "western",
+    "black and white"
   ],
   "colors": [
     "black",
@@ -20,5 +20,5 @@
   ],
   "subject_type": "scene",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:50:26Z"
+  "analyzed_at": "2026-10-04T01:14:58Z"
 }

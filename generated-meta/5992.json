@@ -1,8 +1,8 @@
 {
   "number": 5992,
   "title": "Knight Facing Dragon",
-  "description": "A lone knight in shining armor and flowing red cape stands on a rocky cliff, sword raised towards a massive golden dragon looming in the misty sky above. The dragon has prominent horns and spines, with a hazy, smoky atmosphere and orange brushstroke accents filling the background.",
-  "prompt": "A lone knight in full silver armor with a long flowing red cape stands on a broken rocky cliff edge, holding a longsword pointed upwards, facing a giant majestic golden dragon with large horns and spines that looms in the misty sky above, hazy atmospheric background with orange brush stroke accents, epic fantasy scene, cinematic lighting",
+  "description": "A knight in full armor with a red cape stands on rocky ground holding a sword pointed forward. In the sky above looms a large brown dragon looking down at the knight.",
+  "prompt": "A knight in silver armor and flowing red cape stands on broken rocky ground holding a long sword pointed up at a giant brown dragon hovering in the air above him. The dragon has spikes and sharp teeth and looks down at the knight. The background is a hazy sky with yellow paint marks and brush strokes. The ground has orange patches and the knight's cape blows in the wind.",
   "style": "fantasy illustration",
   "mood": "epic confrontation",
   "medium": "digital painting",
@@ -10,17 +10,17 @@
     "knight",
     "dragon",
     "fantasy",
-    "cliff",
     "sword",
-    "epic"
+    "armor",
+    "rocks"
   ],
   "colors": [
-    "orange",
-    "gold",
+    "brown",
     "red",
-    "gray"
+    "gray",
+    "yellow"
   ],
-  "subject_type": "painting or scene",
+  "subject_type": "scene",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:49:36Z"
+  "analyzed_at": "2026-10-04T01:14:25Z"
 }

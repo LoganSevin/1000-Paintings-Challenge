@@ -1,26 +1,26 @@
 {
   "number": 6047,
-  "title": "Golden Horizon Landscape",
-  "description": "A vibrant impressionistic landscape at sunset featuring rolling hills and fields in warm orange, red, and yellow tones. The foreground shows abstract structures and green patches under a bright sky with soft white and blue clouds, and a small orange sun sits on the distant horizon.",
-  "prompt": "impressionistic landscape painting of vast rolling fields and hills at sunset, vibrant orange and red terrain with patches of green, abstract foreground structures, distant small orange sun on the horizon, bright sky with soft white and blue clouds, warm golden hour lighting, expressive brushstrokes, colorful and serene atmosphere",
-  "style": "Impressionistic",
-  "mood": "serene vibrant",
-  "medium": "digital painting",
+  "title": "Colorful Field at Sunset",
+  "description": "A person sees an open field with rolling hills under a big sky filled with white and blue clouds. The ground has patches of bright orange, yellow, red, and green with some dark trees and a small orange sun low on the horizon.",
+  "prompt": "impressionistic painting of an open field with rolling hills under a big sky filled with white and blue clouds the ground shows patches of bright orange yellow red and green with some dark trees and a small orange sun low on the horizon done with bold visible brush strokes in a colorful style",
+  "style": "impressionistic",
+  "mood": "vibrant peaceful",
+  "medium": "oil painting",
   "tags": [
-    "landscape",
+    "field",
     "sunset",
-    "impressionism",
     "hills",
-    "fields",
-    "colorful"
+    "clouds",
+    "colorful",
+    "abstract"
   ],
   "colors": [
     "orange",
     "yellow",
-    "green",
-    "blue"
+    "blue",
+    "green"
   ],
   "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:50:36Z"
+  "analyzed_at": "2026-10-04T01:15:07Z"
 }

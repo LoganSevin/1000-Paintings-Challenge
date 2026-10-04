@@ -1,26 +1,26 @@
 {
   "number": 6071,
-  "title": "Cosmic Black Hole Rift",
-  "description": "A surreal cosmic scene featuring a large black hole with a jagged, torn blue-white event horizon at the center. Swirling rings of dark matter and multiple metallic blue spheres orbit around it against a starry dark space background with nebulae and light streaks.",
-  "prompt": "surreal cosmic scene of a large black hole with jagged torn edges and swirling blue rings, multiple metallic blue spheres of varying sizes orbiting around it, dark space background with stars and nebulae, dramatic lighting with light streaks and clouds, highly detailed digital painting in cool tones",
-  "style": "surreal digital art",
-  "mood": "mysterious cosmic",
+  "title": "Black Hole Painting",
+  "description": "A painting shows a large black hole with a jagged torn edge in the center of swirling dark space. Many metallic spheres of different sizes float around the hole and in the surrounding dark void with small white dots.",
+  "prompt": "A painting of a large black hole in the center of space with a jagged torn ragged blue edge around the perfect black circle. Metallic silver spheres of various sizes float and orbit around the black hole and throughout the dark background with small white dots and subtle light swirls, dark cosmic scene in plain style.",
+  "style": "fantasy art",
+  "mood": "cosmic mysterious",
   "medium": "digital painting",
   "tags": [
     "black hole",
     "space",
-    "surreal",
-    "cosmic",
     "spheres",
-    "nebula"
+    "swirls",
+    "cosmic",
+    "torn edge"
   ],
   "colors": [
-    "dark blue",
     "black",
+    "dark blue",
     "silver",
     "white"
   ],
-  "subject_type": "scene",
+  "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:51:02Z"
+  "analyzed_at": "2026-10-04T01:15:30Z"
 }

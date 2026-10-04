@@ -1,26 +1,26 @@
 {
   "number": 6050,
-  "title": "Colorful Italian Alley",
-  "description": "A sunlit narrow cobblestone alleyway lined with vibrant yellow and orange Mediterranean buildings featuring arched doorways, blue shutters, and stone steps. The scene is filled with abundant potted plants and hanging baskets overflowing with bright pink and yellow flowers under a clear blue sky.",
-  "prompt": "A bright sunlit narrow cobblestone alley between vibrant yellow and orange Italian buildings with arched doorways, blue shutters, stone steps and wall lanterns. The scene overflows with lush potted plants and hanging flower baskets filled with pink bougainvillea and other colorful blooms, warm golden sunlight casting strong shadows on the multicolored paving stones, clear blue sky visible above, highly detailed digital painting",
-  "style": "digital painting",
-  "mood": "vibrant cheerful",
-  "medium": "digital art",
+  "title": "Colorful Mediterranean Alley",
+  "description": "A person sees a narrow alleyway between bright yellow and orange buildings with blue shutters and arched doorways. The cobblestone path is lined with many potted flowers in pink, yellow, and green, with hanging flower baskets on the walls under a clear blue sky.",
+  "prompt": "narrow alleyway between bright yellow and orange stucco buildings with blue shutters arched doorways and tiled roofs, colorful cobblestone path, many potted plants and hanging flower baskets with pink and yellow flowers, sunny day with clear blue sky, warm Mediterranean village setting",
+  "style": "realistic digital painting",
+  "mood": "sunny cheerful",
+  "medium": "digital illustration",
   "tags": [
     "alleyway",
-    "Mediterranean architecture",
     "flowers",
+    "buildings",
     "cobblestone",
-    "sunlight",
-    "Italian village"
+    "Mediterranean",
+    "sunlight"
   ],
   "colors": [
     "yellow",
     "orange",
-    "pink",
-    "blue"
+    "blue",
+    "pink"
   ],
   "subject_type": "scene",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:50:44Z"
+  "analyzed_at": "2026-10-04T01:15:10Z"
 }

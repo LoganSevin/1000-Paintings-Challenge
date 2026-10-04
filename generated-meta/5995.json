@@ -1,26 +1,25 @@
 {
   "number": 5995,
-  "title": "Crimson Figure on the Edge",
-  "description": "A lone figure in a flowing red robe sits on a rocky cliff edge, gazing toward a dramatic sky filled with swirling clouds of fiery orange, yellow, and teal. The foreground shows broken stone fragments under a painterly, atmospheric glow.",
-  "prompt": "A solitary figure wearing a long flowing red robe sits on the edge of a broken rocky cliff, looking out at a vast dramatic sky filled with swirling clouds of bright orange, yellow, and teal. Painterly digital art style with visible brush strokes, atmospheric lighting, broken stone fragments in the foreground, cinematic composition, moody and contemplative atmosphere.",
-  "style": "painterly digital art",
-  "mood": "contemplative, dramatic",
-  "medium": "digital painting",
+  "title": "Figure in Red Robe on Rocks",
+  "description": "A person wearing a long red robe sits on dark jagged rocks looking toward a dramatic sky. The person's face is in profile, their hands rest on the rocks, and the setting is a rocky outcrop under a sky filled with swirling orange, yellow, and dark clouds.",
+  "prompt": "A person in a flowing red robe sits on jagged dark rocks at the edge of a cliff looking out at a dramatic sky. The figure is seen from the side in profile with hands resting on the rocks. The sky is filled with swirling clouds of bright orange yellow and dark gray with glowing light breaking through. The rocky ground has sharp broken stones and the overall scene uses bold painterly brush strokes.",
+  "style": "digital painting",
+  "mood": "dramatic contemplative",
+  "medium": "digital art",
   "tags": [
-    "solitary figure",
+    "robed figure",
+    "rocky outcrop",
     "dramatic sky",
-    "rocky cliff",
     "fiery clouds",
-    "red robe",
-    "atmospheric"
+    "silhouette"
   ],
   "colors": [
     "orange",
     "yellow",
     "red",
-    "teal"
+    "dark gray"
   ],
   "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:49:38Z"
+  "analyzed_at": "2026-10-04T01:14:27Z"
 }

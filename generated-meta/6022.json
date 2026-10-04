@@ -1,26 +1,25 @@
 {
   "number": 6022,
-  "title": "Dog Riding Bicycle",
-  "description": "A tan and white dog with a black nose sits upright on a bicycle, gripping the chrome handlebars with both front paws while looking off to the left. The realistic digital painting shows the dog positioned on the bike's seat against a simple gradient background with subtle paint splatter effects.",
-  "prompt": "A realistic digital painting of a tan and white pit bull type dog sitting upright on a vintage bicycle, gripping the chrome handlebars with both front paws, looking attentively to the left with a focused expression, detailed fur and realistic lighting, simple gradient background with subtle paint texture, high detail, studio lighting",
-  "style": "realistic digital painting",
-  "mood": "curious, playful",
+  "title": "Dog on Bicycle",
+  "description": "A tan dog with white markings sits upright on a bicycle, its front paws resting on the handlebars as it looks to the left. The setting is a plain wall with soft light and some orange paint marks, and the colors are warm browns, white, silver, and red.",
+  "prompt": "A realistic painting of a tan dog with white chest and markings sitting upright on a bicycle with its front paws placed on the chrome handlebars looking attentively to the left, the dog has brown ears and dark eyes, the bicycle has brown grips and red ends, plain background wall with soft light and a few orange paint marks, warm colors and detailed fur texture.",
+  "style": "realistic painting",
+  "mood": "curious calm",
   "medium": "digital painting",
   "tags": [
     "dog",
     "bicycle",
-    "anthropomorphic",
-    "realistic",
-    "portrait",
-    "animal"
+    "handlebars",
+    "tan dog",
+    "paws"
   ],
   "colors": [
     "tan",
     "white",
-    "brown",
-    "silver"
+    "silver",
+    "red"
   ],
   "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:50:07Z"
+  "analyzed_at": "2026-10-04T01:14:47Z"
 }

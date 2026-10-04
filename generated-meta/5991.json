@@ -1,18 +1,18 @@
 {
   "number": 5991,
-  "title": "Desert Wanderer",
-  "description": "A solitary figure dressed in dark clothing stands in the middle of a vast desert, holding a long staff. Footprints and scattered rocks lead toward the figure across rolling pink and orange sand dunes under a uniform pale pink sky.",
-  "prompt": "A lone traveler in dark clothes holding a tall staff stands in an endless desert of smooth rolling sand dunes in shades of pink and orange. A trail of footprints and dark rocks leads to the figure across the sand. Vast pale pink sky fills the upper half of the composition, minimalist surreal scene, cinematic composition, soft atmospheric lighting",
-  "style": "surreal landscape",
+  "title": "Wanderer in Pink Desert",
+  "description": "A person in dark clothes stands on a sand dune holding a long staff while looking into the distance. The hands hold the staff and the setting is a vast desert with a trail of rocks and footprints leading to the figure under a solid pink sky.",
+  "prompt": "a lone person in dark clothing stands on a sand dune in a vast desert holding a long staff and looking into the distance a trail of rocks and footprints leads across the sand toward the figure the entire scene is bathed in soft pink and orange light with rolling dunes and a solid pink sky above",
+  "style": "surreal painting",
   "mood": "lonely serene",
-  "medium": "digital painting",
+  "medium": "oil on canvas",
   "tags": [
     "desert",
     "wanderer",
     "sand dunes",
-    "minimalist",
-    "surreal",
-    "footprints"
+    "footprints",
+    "staff",
+    "minimal"
   ],
   "colors": [
     "pink",
@@ -20,7 +20,7 @@
     "peach",
     "dark gray"
   ],
-  "subject_type": "scene",
+  "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:49:34Z"
+  "analyzed_at": "2026-10-04T01:14:24Z"
 }

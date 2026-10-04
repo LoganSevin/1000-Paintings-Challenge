@@ -1,26 +1,26 @@
 {
   "number": 6030,
   "title": "Dog at Computer",
-  "description": "A brown dog wearing a collar sits at a wooden desk, typing on a keyboard with its paws while looking at an Apple iMac monitor. The screen displays the word \"coffee\" in large orange letters, with a white mug and mouse also visible on the desk.",
-  "prompt": "A brown dog with a collar sitting upright at a wooden desk, using its paws to type on a keyboard in front of an Apple iMac computer. The monitor screen shows the word coffee in large orange letters on a white background. A white coffee mug and silver mouse sit on the desk to the left. The dog is focused on the screen, side view, in a cozy indoor setting with soft lighting, digital painting style.",
-  "style": "digital painting",
-  "mood": "whimsical, humorous",
-  "medium": "digital art",
+  "description": "A brown dog sits at a wooden desk and uses a keyboard with its front paws. The dog looks at a large computer monitor that shows one short word painted in orange.",
+  "prompt": "A brown dog sits at a wooden desk facing away from the viewer and uses a keyboard with its front paws while looking at a large computer monitor. The monitor screen shows the word coffee painted in orange letters. A white mug a computer mouse and cables sit on the desk. The scene has plain beige walls and is painted in a realistic style with visible brush strokes.",
+  "style": "painting",
+  "mood": "humorous calm",
+  "medium": "digital painting",
   "tags": [
     "dog",
     "computer",
-    "workspace",
-    "coffee",
-    "apple imac",
-    "humorous"
+    "desk",
+    "keyboard",
+    "monitor",
+    "coffee"
   ],
   "colors": [
     "brown",
     "orange",
-    "white",
-    "black"
+    "beige",
+    "gray"
   ],
   "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:50:17Z"
+  "analyzed_at": "2026-10-04T01:14:53Z"
 }

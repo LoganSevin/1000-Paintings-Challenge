@@ -1,26 +1,26 @@
 {
   "number": 5979,
-  "title": "Mystic Anvil Forge",
-  "description": "A skeletal figure with crossed arms sits on a glowing purple crystal atop a large black anvil. The anvil rests in the center of a swirling purple vortex encircled by a glowing golden ring inscribed with runes, with floating books, moths, and a smoking rose above.",
-  "prompt": "A skeletal figure wearing ornate gauntlets sits with arms crossed atop a large glowing purple crystal which rests on a massive black iron anvil with glowing orange cracks. The anvil is centered within a swirling cosmic vortex of deep purple and blue, encircled by a large golden ring covered in glowing runes. A smoking white rose hangs from the top of the ring. Books, moths, and magical artifacts float around the scene against an aurora-like background, dark fantasy style, intricate details, atmospheric lighting",
-  "style": "fantasy surrealism",
-  "mood": "mysterious arcane",
+  "title": "Armored Figure on Anvil",
+  "description": "A figure in full metal armor sits on a large cracked anvil with glowing orange lines, arms crossed over its chest. The figure has a glowing purple crystal for a head emitting smoke and a white rose hovers above it inside a large circular metal ring covered in painted marks and runes, all set against a swirling dark purple background with floating objects and green aurora lights at the bottom.",
+  "prompt": "A figure in full metal armor sits centered on a large cracked black anvil with glowing orange cracks, arms crossed over its chest. The figure has a glowing purple crystal instead of a head with smoke rising from it and a white rose floating above inside a large circular metal ring covered in painted marks and runes. The background is a swirling dark purple vortex with floating objects like books, chains, insects, and lanterns, with green and pink aurora lights glowing at the bottom of the scene.",
+  "style": "fantasy illustration",
+  "mood": "mysterious dark",
   "medium": "digital painting",
   "tags": [
-    "skeleton",
+    "fantasy",
+    "armor",
     "anvil",
     "crystal",
     "runes",
-    "vortex",
-    "fantasy"
+    "aurora"
   ],
   "colors": [
-    "deep purple",
-    "gold",
+    "purple",
     "black",
-    "emerald green"
+    "orange",
+    "green"
   ],
   "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:49:23Z"
+  "analyzed_at": "2026-10-04T01:14:14Z"
 }

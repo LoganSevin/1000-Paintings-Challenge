@@ -1,18 +1,18 @@
 {
   "number": 6033,
-  "title": "Mountain Valley Ink Sketch",
-  "description": "A black and white ink drawing of a mountainous landscape with rolling hills in the foreground. The scene features layered mountain ranges with bold black outlines, varying shades of gray wash, and clusters of pine trees on the slopes.",
-  "prompt": "A minimalist black and white ink wash landscape featuring dramatic layered mountain ranges with bold expressive brushstrokes and varying gray tones. Rolling hills in the foreground transition into darker shadowed areas, with clusters of stylized pine trees dotting the slopes and valley. Strong contrast between black outlines, white paper, and gray washes creates depth and atmosphere in this expressive nature scene.",
-  "style": "ink wash landscape",
-  "mood": "serene, stark",
+  "title": "Mountain Valley Drawing",
+  "description": "The picture shows a wide valley with a winding path leading through hills covered in dark bushes and trees. In the background are large mountains with shaded slopes under a bright white sky.",
+  "prompt": "black and white ink drawing of a wide mountain valley with a winding path curving through the foreground and midground. The hillsides are dotted with clusters of dark bushes and small trees. Layered mountain ranges fill the background with varying shades of gray on their slopes. The sky is plain white. Simple bold ink lines and brushwork define the forms.",
+  "style": "ink drawing",
+  "mood": "serene stark",
   "medium": "ink on paper",
   "tags": [
-    "landscape",
     "mountains",
-    "ink drawing",
-    "monochrome",
-    "pine trees",
-    "valley"
+    "valley",
+    "path",
+    "bushes",
+    "ink art",
+    "black and white"
   ],
   "colors": [
     "black",
@@ -21,5 +21,5 @@
   ],
   "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:50:21Z"
+  "analyzed_at": "2026-10-04T01:14:56Z"
 }

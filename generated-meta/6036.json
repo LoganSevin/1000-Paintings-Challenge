@@ -1,26 +1,26 @@
 {
   "number": 6036,
-  "title": "Vibrant Split Portrait",
-  "description": "A close-up digital painting of a woman's face turned slightly to the right. Her skin is rendered in bold orange and peach tones, with striking teal eyes, dark eyebrows, and glossy red lips, set against an abstract background divided into warm orange, green, and cool purple sections with visible brushstrokes.",
-  "prompt": "Close-up portrait of a beautiful woman with vibrant orange and peach skin tones, striking teal eyes with long lashes, dark defined eyebrows, and glossy bright red lips. Her face is dramatically lit and turned slightly right, set against an abstract painterly background split between warm orange and green on the left and cool purple on the right with visible expressive brushstrokes and color blocking.",
+  "title": "Woman Portrait",
+  "description": "The picture shows a close-up of a woman's face turned slightly to the right. Her skin has orange tones, she has bright green eyes with dark lashes, dark eyebrows, and glossy red lips, set against an abstract background of green, orange, and purple brush strokes.",
+  "prompt": "close up portrait of a woman's face turned slightly right with orange skin tones bright green eyes dark eyebrows and glossy red lips against an abstract background of green orange and purple brush strokes in a vibrant painterly style",
   "style": "digital painting",
-  "mood": "bold, artistic",
+  "mood": "vibrant artistic",
   "medium": "digital art",
   "tags": [
     "woman",
     "face",
-    "colorful",
     "abstract",
-    "digital painting",
-    "brushstrokes"
+    "colorful",
+    "digital",
+    "closeup"
   ],
   "colors": [
     "orange",
     "purple",
     "green",
-    "teal"
+    "red"
   ],
   "subject_type": "portrait",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:50:24Z"
+  "analyzed_at": "2026-10-04T01:14:57Z"
 }

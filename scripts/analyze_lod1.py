@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -33,17 +34,49 @@ from analyze import (  # noqa: E402
     pick_inference_key,
 )
 
-PROMPT = """Upscaled artwork / generated still from a painting challenge studio.
-Study the image carefully. Describe ONLY what is actually visible.
+PROMPT = """Look at this picture and describe it as a picture.
+Write what a person sees: the subject, the face, what the hands are touching, the setting, and the colors.
+Use plain words. Two sentences.
+Do not use the word landscape.
+Marks, runes, and writing painted on the picture stay paint. Do not copy them out.
+Do not transcribe equations, glyphs, or strings of symbols.
+Do not invent a story, a job, or a name that is not visible.
+If one short word is clearly lettered, you may name that word once.
 Match subject_type to the image:
-- painting or scene: a finished artwork, landscape, surreal scene
+- painting or scene: a finished artwork or a place
 - object: a single physical item
 - character_sheet: multiple posed views of one character
 - sprite_sheet: a grid of repeated poses
-- portrait: a person/face focus
+- portrait: a person or face
 Do NOT invent a character sheet unless that layout is clearly visible.
 Return ONLY JSON:
-{"title":"max 6 words","description":"2 accurate sentences of what is visible","style":"category","medium":"guess","mood":"1-3 words","subject_type":"painting|object|character_sheet|sprite_sheet|scene|portrait|other","tags":["up to 6 tags"],"colors":["up to 4 colors"],"prompt":"one concrete generation prompt 40-90 words, no 4k/masterpiece/hashtags"}"""
+{"title":"plain name of the picture, max 6 words","description":"2 sentences of what the picture shows","style":"category","medium":"guess","mood":"1-3 words","subject_type":"painting|object|character_sheet|sprite_sheet|scene|portrait|other","tags":["up to 6 plain tags"],"colors":["up to 4 colors"],"prompt":"one concrete generation prompt 40-90 words that restates the visible picture in plain words, no 4k/masterpiece/hashtags, no copied equations or symbol strings"}"""
+
+PROMPT_RETRY = (
+    PROMPT
+    + "\n\nThe last answer copied formulas, runes, or symbol strings. "
+    "Describe the picture in plain words instead. Do not copy any of that writing out."
+)
+
+_FORMULA = re.compile(
+    r"(?:"
+    r"\d+\s*[x×*]\s*\("
+    r"|[\^√∫∑]"
+    r"|\b(?:sin|cos|tan|log)\s*\("
+    r"|\b(?:equation|equations|integral|integrals|formula|formulas)\b"
+    r"|\b(?:mathematical|alchemical)\b"
+    r")",
+    re.IGNORECASE,
+)
+
+
+def looks_like_readout(result: dict) -> bool:
+    """True when the text transcribes marks instead of describing the picture."""
+    parts = [
+        str(result.get(key) or "")
+        for key in ("title", "description", "prompt", "tags")
+    ]
+    return _FORMULA.search(" ".join(parts)) is not None
 
 
 def load_lod1_analyses() -> dict:
@@ -184,6 +217,9 @@ def analyze_lod1_one(
 
     from analyze import API_URL, extract_text, image_to_data_url, parse_json_response
 
+    image_url = image_to_data_url(path, max_size)
+    prompt = PROMPT
+    readout_tries = 0
     payload = {
         "model": model,
         "input": [
@@ -192,10 +228,10 @@ def analyze_lod1_one(
                 "content": [
                     {
                         "type": "input_image",
-                        "image_url": image_to_data_url(path, max_size),
-                        "detail": "low",
+                        "image_url": image_url,
+                        "detail": "high",
                     },
-                    {"type": "input_text", "text": PROMPT},
+                    {"type": "input_text", "text": prompt},
                 ],
             }
         ],
@@ -241,6 +277,16 @@ def analyze_lod1_one(
             result["analyzed_at"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
             result["kind"] = "generated"
             result["source_file"] = path.name
+            if looks_like_readout(result) and readout_tries < 2 and attempt < max_retries - 1:
+                readout_tries += 1
+                prompt = PROMPT_RETRY
+                payload["input"][0]["content"][1]["text"] = prompt
+                print(
+                    f"  REDO #{number}: description copied marks "
+                    f"({readout_tries}/2)",
+                    file=sys.stderr,
+                )
+                continue
             return result
         except httpx.HTTPStatusError as e:
             last_err = e
@@ -292,6 +338,16 @@ def main():
     parser.add_argument("--model", default=DEFAULT_MODEL)
     parser.add_argument("--max-size", type=int, default=DEFAULT_MAX_SIZE)
     parser.add_argument(
+        "--numbers",
+        default="",
+        help="Comma-separated still numbers to analyze",
+    )
+    parser.add_argument(
+        "--no-publish",
+        action="store_true",
+        help="Write local descriptions and skip the git publish",
+    )
+    parser.add_argument(
         "--dry-run",
         action="store_true",
         help="List how many need analysis, then exit",
@@ -304,6 +360,9 @@ def main():
         all_nums = [n for n in all_nums if n >= args.start]
     if args.end:
         all_nums = [n for n in all_nums if n <= args.end]
+    if args.numbers.strip():
+        wanted = {int(part) for part in args.numbers.split(",") if part.strip()}
+        all_nums = [n for n in all_nums if n in wanted]
 
     if args.force:
         import shutil
@@ -394,6 +453,9 @@ def main():
     print(f"Saved to {LOD1_ANALYSES_PATH}")
     still = pending_nums(load_lod1_analyses(), list_generated_nums(), force=False)
     print(f"Still missing after this run: {len(still)}")
+    if args.no_publish:
+        print("Publish skipped.")
+        return
     try:
         from publish_descriptions import main as publish_descriptions
 

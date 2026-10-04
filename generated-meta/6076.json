@@ -1,26 +1,26 @@
 {
   "number": 6076,
-  "title": "Framed Digital Portrait",
-  "description": "A painted depiction of a black smartphone with a colorful, textured frame containing a portrait of a bearded man in a dark hoodie standing against a teal background. The entire composition is set against a dark backdrop with visible brushstrokes and paint drips.",
-  "prompt": "A realistic oil painting of a large black smartphone with a thick, textured, multicolored frame in yellow, red, and green, displayed against a dark background. Inside the phone screen is a portrait of a serious bearded man with dark hair wearing a black hoodie, standing in a dimly lit room with teal walls. Visible brushstrokes, paint drips, and artistic texture throughout the composition.",
-  "style": "realistic painting",
-  "mood": "introspective cinematic",
-  "medium": "oil on canvas",
+  "title": "Man in Phone Frame",
+  "description": "A man with a beard and dark hoodie stands centered looking forward with a serious expression. His hands are in the pockets of his hoodie. The setting is inside a large painted smartphone frame with a colorful border against a dark background.",
+  "prompt": "A realistic oil painting shows a bearded man in a dark hoodie standing straight and looking directly forward with a serious face. His hands are inside the hoodie pockets. He is framed inside a large black smartphone shape that has a colorful painted border in yellow red and green with paint drips. The background inside the phone is dark teal and the outer background is very dark.",
+  "style": "painting",
+  "mood": "dark serious",
+  "medium": "oil painting",
   "tags": [
+    "man",
     "smartphone",
     "portrait",
     "painting",
-    "man",
-    "digital art",
-    "frame"
+    "dark",
+    "hoodie"
   ],
   "colors": [
     "black",
-    "teal",
+    "dark teal",
     "yellow",
     "red"
   ],
   "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:51:07Z"
+  "analyzed_at": "2026-10-04T01:15:34Z"
 }

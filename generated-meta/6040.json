@@ -1,26 +1,26 @@
 {
   "number": 6040,
-  "title": "Surreal Clock Landscape",
-  "description": "A large circular clock face with Roman numerals features a three-dimensional surreal landscape on its lower half. A green hilly terrain with a winding path, trees, rocks, a frog, and multiple butterflies emerges from the clock, centered around a tower structure with a smaller clock face at its base.",
-  "prompt": "A highly detailed surreal clock face with Roman numerals serving as the frame for a three-dimensional miniature landscape. The lower half features rolling green hills with a winding orange path, small trees, rocks, a blue frog, and numerous colorful butterflies in flight. A tall ornate tower with a smaller analog clock at its base rises from the center of the hills, set against the off-white clock face with decorative stars and spheres.",
+  "title": "Surreal clock scene",
+  "description": "A large round clock with Roman numerals has its face replaced by a green hilly scene with a path, trees, a frog, and many butterflies and birds flying around it. In the center is a tall tower structure on a sphere with a smaller clock face whose hands point to ten minutes past ten.",
+  "prompt": "A large round wall clock with black Roman numerals on a beige background has its center replaced by a surreal green hilly scene with a winding path, small trees, rocks, a blue frog at the bottom left, and many colorful butterflies and birds flying around the clock face. A tall gray tower stands on a sphere in the middle with a smaller clock face whose hands show ten past ten.",
   "style": "surrealism",
   "mood": "whimsical dreamlike",
   "medium": "digital painting",
   "tags": [
-    "surreal",
     "clock",
-    "landscape",
+    "surreal",
     "butterflies",
-    "fantasy",
-    "tower"
+    "nature",
+    "tower",
+    "hills"
   ],
   "colors": [
     "green",
-    "beige",
     "orange",
-    "blue"
+    "blue",
+    "beige"
   ],
   "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:50:34Z"
+  "analyzed_at": "2026-10-04T01:15:01Z"
 }

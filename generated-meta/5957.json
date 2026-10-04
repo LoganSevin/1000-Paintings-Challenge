@@ -1,26 +1,26 @@
 {
   "number": 5957,
-  "title": "Weaver of Shadows",
-  "description": "A hooded figure kneels before a large wooden loom inside a gothic hall, weaving threads that form a glowing, fiery oval portal. On the stone floor in the foreground sits an hourglass, a butterfly on a wreath, an overturned bucket spilling red liquid, and a scroll with intricate patterns resting on the loom's base.",
-  "prompt": "A hooded figure in dark robes with glowing red patterns kneels before an enormous wooden loom inside a gothic cathedral hall with arched stained glass windows, weaving bright threads that create a fiery glowing oval portal in the air, sparks flying, a large ominous shadow of a horned figure cast on the wall behind, on the stone floor in front an hourglass, a white butterfly on a wreath with candles, an overturned metal bucket spilling red liquid, a scroll with arcane symbols on the loom, atmospheric dark fantasy scene, cinematic lighting, purple and blue tones with orange accents",
-  "style": "dark fantasy",
-  "mood": "mysterious ominous",
+  "title": "Weaver in the Chapel",
+  "description": "A hooded figure sits at a large wooden loom inside a gothic stone room. The person's hands touch a paper with a flower design while a glowing fiery object flies toward the loom and an hourglass, broken crown, and spilled bucket sit on a table in front.",
+  "prompt": "A hooded figure sits at a large wooden loom inside a gothic chapel with purple stone walls and arched windows. The person holds a paper with a flower design. A glowing fiery oval object flies toward the loom with sparks. In the foreground a table holds an hourglass, a broken crown with a white butterfly on it, and a spilled bucket with red liquid. Paint marks and runes stay as paint.",
+  "style": "fantasy painting",
+  "mood": "mysterious dark",
   "medium": "digital painting",
   "tags": [
     "loom",
     "hooded figure",
-    "gothic architecture",
-    "portal",
-    "magic",
-    "dark fantasy"
+    "gothic interior",
+    "hourglass",
+    "crown",
+    "fantasy"
   ],
   "colors": [
     "purple",
     "blue",
-    "orange",
-    "red"
+    "red",
+    "gold"
   ],
-  "subject_type": "painting or scene",
+  "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:48:58Z"
+  "analyzed_at": "2026-10-04T01:13:53Z"
 }

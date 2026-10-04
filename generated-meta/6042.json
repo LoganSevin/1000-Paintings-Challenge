@@ -1,26 +1,26 @@
 {
   "number": 6042,
-  "title": "Geometric Abstract Painting",
-  "description": "An abstract geometric painting featuring overlapping translucent diamonds and polygons in pastel colors. The composition includes the letters P, L, and I integrated into the shapes above a dark horizontal band with reflections below.",
-  "prompt": "abstract geometric painting with overlapping translucent diamonds and polygons in soft pink, yellow, orange and teal tones, the letters P L and I incorporated into the composition, dark horizontal band across the middle with reflections below, minimalist modern art style on canvas with visible texture",
+  "title": "Abstract Geometric Painting",
+  "description": "A person sees overlapping translucent geometric shapes like diamonds and triangles arranged in layers. The shapes in pink, yellow, orange, and green sit above and below a dark horizontal band against a light gray background.",
+  "prompt": "abstract geometric painting with overlapping translucent diamond and triangle shapes in layers of pink yellow orange and green arranged above and below a dark horizontal band all set against a plain light gray background with soft edges and flat colors",
   "style": "abstract geometric",
-  "mood": "serene minimalist",
-  "medium": "acrylic on canvas",
+  "mood": "calm minimalist",
+  "medium": "painting",
   "tags": [
     "geometric",
     "abstract",
-    "overlapping shapes",
+    "overlapping",
     "translucent",
-    "pastel colors",
-    "lettering"
+    "triangles",
+    "layers"
   ],
   "colors": [
     "pink",
     "yellow",
     "orange",
-    "teal"
+    "green"
   ],
   "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:50:29Z"
+  "analyzed_at": "2026-10-04T01:15:02Z"
 }

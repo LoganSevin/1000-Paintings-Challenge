@@ -1,26 +1,26 @@
 {
   "number": 6015,
-  "title": "Surreal Tower in Sphere",
-  "description": "A tall ornate clock tower with multiple clock faces stands at the center of a large transparent sphere. The sphere rests on a vibrant patterned mandala in a green rolling hills landscape, with colorful spheres, butterflies, and birds floating around it under a clock-faced halo.",
-  "prompt": "A tall ornate multi-story clock tower with several clock faces stands inside a large transparent bubble sphere, resting on an intricate red and gold circular mandala pattern. The sphere floats above vibrant green rolling hills with two small distant towers on the sides. Colorful balls, monarch butterflies, and birds fly around the sphere, with a large clock face halo above the tower, in a surreal dreamlike scene with soft lighting",
-  "style": "surreal fantasy",
-  "mood": "ethereal mystical",
+  "title": "Surreal Clock Tower Sphere",
+  "description": "A tall ornate clock tower stands inside a large transparent sphere that rests on green rolling hills. The tower has multiple clock faces and is surrounded by colorful spheres, butterflies, and birds while the base shows a large circular design with painted marks.",
+  "prompt": "A tall ornate clock tower with multiple clock faces stands at the center of a large transparent sphere resting on green rolling hills. Colorful spheres float around the tower along with butterflies and birds. The base of the tower features a large circular design with painted marks. The entire scene is contained within the sphere against a pale sky.",
+  "style": "surrealist painting",
+  "mood": "dreamlike mystical",
   "medium": "digital painting",
   "tags": [
-    "surreal",
     "clock tower",
     "sphere",
-    "landscape",
-    "mandala",
-    "fantasy"
+    "hills",
+    "butterflies",
+    "birds",
+    "surreal"
   ],
   "colors": [
     "green",
-    "orange",
     "blue",
+    "red",
     "gold"
   ],
   "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:50:00Z"
+  "analyzed_at": "2026-10-04T01:14:42Z"
 }

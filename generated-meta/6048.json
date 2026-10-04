@@ -1,18 +1,18 @@
 {
   "number": 6048,
-  "title": "Vibrant Spiral Swirls",
-  "description": "An abstract painting on a white canvas featuring multiple overlapping spiral forms in various sizes. The composition uses fluid brushstrokes and splatters in shades of pink, purple, and blue with accents of yellow and a small blue dot.",
-  "prompt": "Abstract painting on white canvas with multiple overlapping circular spirals and swirls created with fluid expressive brushstrokes. Vibrant composition featuring bright pink, magenta, deep purple, cyan blue and a touch of yellow. Dynamic energy with paint splatters and varying spiral sizes, artistic and colorful modern abstract artwork.",
+  "title": "Spiraling Color Swirls",
+  "description": "The picture shows many overlapping circular brushstroke swirls in different sizes that create a flowing abstract pattern. The setting is a white canvas with visible paint splatters and marks throughout, using colors of pink, purple, blue, and yellow.",
+  "prompt": "abstract painting on white canvas filled with many overlapping circular brushstroke swirls in different sizes that flow together, using shades of pink purple blue and yellow with visible paint splatters and marks throughout the composition",
   "style": "abstract",
-  "mood": "dynamic energetic",
+  "mood": "vibrant energetic",
   "medium": "acrylic on canvas",
   "tags": [
-    "spirals",
-    "abstract art",
+    "swirls",
+    "abstract",
+    "circular",
     "brushstrokes",
     "colorful",
-    "swirls",
-    "painting"
+    "splatters"
   ],
   "colors": [
     "pink",
@@ -22,5 +22,5 @@
   ],
   "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:50:38Z"
+  "analyzed_at": "2026-10-04T01:15:08Z"
 }

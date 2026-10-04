@@ -1,26 +1,26 @@
 {
   "number": 5940,
-  "title": "Surreal Mosaic Muse",
-  "description": "A vibrant surreal portrait of a woman's face and upper body composed of colorful mosaic tiles, with her mouth open as if singing or shouting. Her flowing psychedelic hair contains white horses, flowers, and swirls, while a spiral vortex of multicolored tiles emanates from her neck downward; to the right, a mosaic dog-like creature stands on a platform as glowing orbs project from her mouth toward it.",
-  "prompt": "Highly detailed surreal digital artwork of a woman's face made from colorful mosaic tiles with open screaming mouth, her hair transforming into swirling psychedelic patterns filled with white horses and flowers, a glowing spiral vortex of rainbow tiles flowing downward from her neck, a mosaic patterned dog creature standing on a platform to the right with glowing orbs and light beams projecting from her mouth toward it, intricate line work, vibrant contrasting colors, dark background with cosmic elements, fantasy art style",
-  "style": "surrealism",
-  "mood": "vibrant mystical",
+  "title": "Mosaic Woman Portrait",
+  "description": "A woman with a green and blue mosaic face has her mouth open as if shouting. Her hair flows out in colorful swirls filled with white horses, flowers, and vines while a dog in a ruff collar stands on a ledge to the right and looks at floating orbs that contain faces.",
+  "prompt": "surreal painting of a woman with a green and blue mosaic face and open shouting mouth, her hair made of colorful swirling patterns filled with white horses flowers and vines, a dog wearing a ruff collar stands on a ledge looking toward glowing orbs that contain faces, the woman's neck flows down into a large circular mosaic spiral pattern at the bottom with a bright center, black background with paint marks and runes",
+  "style": "surreal fantasy",
+  "mood": "mysterious visionary",
   "medium": "digital painting",
   "tags": [
-    "surreal",
     "mosaic",
-    "psychedelic",
+    "woman",
     "horses",
-    "vortex",
-    "fantasy"
+    "swirls",
+    "dog",
+    "orbs"
   ],
   "colors": [
-    "teal",
+    "green",
     "purple",
-    "lime green",
-    "magenta"
+    "blue",
+    "gold"
   ],
   "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:48:35Z"
+  "analyzed_at": "2026-10-04T01:13:38Z"
 }

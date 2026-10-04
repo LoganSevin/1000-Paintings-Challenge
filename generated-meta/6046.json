@@ -1,18 +1,18 @@
 {
   "number": 6046,
-  "title": "Orange Abstract Painting",
-  "description": "An abstract painting dominated by vibrant shades of orange and yellow with dynamic brushstrokes, drips, and scraped textures. Visible elements include white geometric shapes, red circular accents, thin black lines, and handwritten text markings on the right side.",
-  "prompt": "abstract expressionist painting in vibrant orange and yellow palette with dynamic expressive brushstrokes, paint drips, scraped textures, white geometric triangle shapes, small red circular accents, thin black linear elements, and handwritten text markings on the right side of the canvas, high contrast, energetic composition",
-  "style": "abstract expressionism",
+  "title": "Abstract Orange Painting",
+  "description": "A person sees an abstract painting with thick layers of orange and yellow paint applied in broad strokes and drips. The surface shows many marks of paint, some white brush strokes, and several small red dots placed across the composition.",
+  "prompt": "abstract painting with thick textured layers of orange and yellow paint, broad brush strokes, visible drips and scrapes, small red dots scattered across the surface, areas of white paint, energetic composition on canvas",
+  "style": "abstract",
   "mood": "energetic vibrant",
-  "medium": "acrylic on canvas",
+  "medium": "oil on canvas",
   "tags": [
     "abstract",
     "orange",
-    "expressionism",
-    "textured",
     "drips",
-    "geometric"
+    "texture",
+    "bold",
+    "modern"
   ],
   "colors": [
     "orange",
@@ -22,5 +22,5 @@
   ],
   "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:50:35Z"
+  "analyzed_at": "2026-10-04T01:15:05Z"
 }

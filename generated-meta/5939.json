@@ -1,26 +1,26 @@
 {
   "number": 5939,
-  "title": "Surreal Desert Dreamscape",
-  "description": "A robed figure with a red backpack and mouse-like tail stands on a sand dune holding a small glowing object. In the foreground is a colorful geodesic dome with dripping paint and a glowing green puddle, while above floats a large cluster of transparent bubbles containing miniature desert scenes with cacti and figures, all beneath a giant red eye in the sky.",
-  "prompt": "A surreal desert scene at twilight with rolling sand dunes. In the foreground a colorful geodesic dome with dripping paint sits next to a glowing green puddle. A robed figure with a red backpack and long mouse tail stands on a dune holding a small glowing flower. Above floats a large cluster of iridescent transparent bubbles containing miniature desert landscapes with cacti and tiny figures. A giant red eye with a black pupil floats in the dark starry sky surrounded by constellations.",
-  "style": "surrealism",
-  "mood": "dreamlike mystical",
+  "title": "Desert Bubble Dream",
+  "description": "A large red mouse in a purple robe stands on a sand dune and blows bubbles from a small wand held in its hand. Above float many iridescent bubbles containing tiny desert scenes with cacti, smaller mice, and robed figures while a glowing red eye watches from the sky over a colorful geometric dome that leaks liquid onto the sand.",
+  "prompt": "A large red mouse wearing a purple robe stands on a sand dune blowing bubbles from a wand held in its hand. Many floating iridescent bubbles contain tiny desert scenes with cacti small mice and robed figures. A glowing red eye sits in a red circle in the sky above. In the foreground a colorful geometric dome leaks liquid onto the sand creating a glowing puddle. Stars and constellations fill the night sky.",
+  "style": "surreal fantasy",
+  "mood": "dreamlike mysterious",
   "medium": "digital painting",
   "tags": [
-    "surreal",
+    "mouse",
     "desert",
     "bubbles",
-    "psychedelic",
-    "fantasy",
-    "dome"
+    "eye",
+    "dome",
+    "surreal"
   ],
   "colors": [
-    "orange",
+    "red",
     "purple",
-    "teal",
-    "red"
+    "orange",
+    "blue"
   ],
   "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:48:35Z"
+  "analyzed_at": "2026-10-04T01:13:38Z"
 }

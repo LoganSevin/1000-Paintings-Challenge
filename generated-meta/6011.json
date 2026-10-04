@@ -1,18 +1,18 @@
 {
   "number": 6011,
-  "title": "Rolling Countryside Landscape",
-  "description": "A vibrant stylized landscape depicts rolling green hills in the foreground, bright yellow fields, a winding blue river, and distant blue mountains under a pale sky. The scene is rendered with bold black outlines and flat areas of color in a graphic illustration style.",
-  "prompt": "Stylized graphic landscape with rolling green hills in foreground, bright yellow agricultural fields, a winding blue river cutting through the middle ground, scattered dark trees and hedgerows, and distant layered blue mountains under a pale sky, rendered with bold black outlines and flat vibrant color fields in a modern illustrative style",
-  "style": "graphic illustration",
-  "mood": "serene vibrant",
+  "title": "Rolling Hills and Fields",
+  "description": "A person sees a wide view of green fields in the foreground with patches of grass and small bushes. Beyond them are large bright yellow fields, a blue body of water, and distant blue and green mountains under a white sky.",
+  "prompt": "A wide view of rolling green hills and fields in the foreground with patches of grass and small bushes, large bright yellow fields curving through the middle, a blue body of water, and distant blue and green mountains under a plain white sky, all drawn in a graphic illustration style with bold black outlines and flat areas of color.",
+  "style": "illustration",
+  "mood": "serene rural",
   "medium": "digital painting",
   "tags": [
-    "landscape",
-    "countryside",
-    "hills",
-    "river",
     "fields",
-    "mountains"
+    "hills",
+    "mountains",
+    "yellow fields",
+    "rural view",
+    "illustration"
   ],
   "colors": [
     "green",
@@ -22,5 +22,5 @@
   ],
   "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:49:57Z"
+  "analyzed_at": "2026-10-04T01:14:39Z"
 }

@@ -1,26 +1,26 @@
 {
   "number": 6008,
-  "title": "Blue Poppies in Swirls",
-  "description": "An abstract painting featuring large, bold blue circular flower forms with visible brushstrokes and green stems. The vibrant background consists of overlapping swirling patterns in yellow, orange, red, and pink, accented with smaller blue dots and circles.",
-  "prompt": "Abstract painting with large expressive blue circular flowers and green stems, set against a dynamic background of swirling yellow, orange, red and pink brushstrokes. Bold visible impasto texture, smaller blue dots and circles scattered throughout the composition, vibrant and energetic color palette with strong contrast between the deep blue floral forms and the warm background swirls.",
-  "style": "abstract expressionism",
+  "title": "Blue Flowers",
+  "description": "The picture shows large round blue flowers with thick painted petals on green stems. The background is filled with bright swirling circles and dots in yellow orange red and pink.",
+  "prompt": "abstract painting of large round blue flowers with thick brush strokes and green stems set against a vibrant background of swirling circles and dots in yellow orange red and pink with smaller blue circles scattered throughout",
+  "style": "abstract painting",
   "mood": "vibrant energetic",
   "medium": "acrylic on canvas",
   "tags": [
-    "floral",
+    "flowers",
     "abstract",
     "swirls",
+    "dots",
     "colorful",
-    "poppies",
     "bold"
   ],
   "colors": [
     "blue",
     "yellow",
-    "orange",
-    "red"
+    "red",
+    "orange"
   ],
   "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:49:55Z"
+  "analyzed_at": "2026-10-04T01:14:37Z"
 }

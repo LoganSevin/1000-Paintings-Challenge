@@ -1,26 +1,26 @@
 {
   "number": 6043,
   "title": "Abstract Color Blocks",
-  "description": "An abstract painting featuring large, overlapping blocks and vertical brushstrokes of vibrant color. The composition blends teal, emerald green, deep purple, orange, and lavender with visible texture and paint drips.",
-  "prompt": "abstract painting with bold vertical and horizontal brushstrokes forming overlapping color blocks, featuring vibrant teal, emerald green, deep purple, bright orange, and soft lavender hues with visible texture, paint drips, and splatters on canvas, dynamic composition with strong color contrasts and expressive mark making",
-  "style": "abstract expressionism",
+  "description": "The picture shows an abstract painting with large blocks of overlapping color. A person's eye sees vertical and horizontal brushstrokes of teal, orange, purple, and green against a soft lavender background.",
+  "prompt": "abstract painting with large vertical and horizontal blocks of color, bold teal and turquoise shapes, bright orange patches, deep purple and blue areas, soft lavender background, visible brushstrokes, drips and paint marks, modern colorful composition",
+  "style": "abstract",
   "mood": "vibrant energetic",
   "medium": "acrylic on canvas",
   "tags": [
     "abstract",
-    "color field",
+    "color blocks",
     "brushstrokes",
-    "drips",
     "modern",
-    "vibrant"
+    "geometric",
+    "painterly"
   ],
   "colors": [
     "teal",
-    "purple",
     "orange",
-    "emerald"
+    "purple",
+    "lavender"
   ],
   "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:50:32Z"
+  "analyzed_at": "2026-10-04T01:15:03Z"
 }

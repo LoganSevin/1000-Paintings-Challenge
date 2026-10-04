@@ -1,26 +1,24 @@
 {
   "number": 6028,
-  "title": "Spell Coffee Spiller",
-  "description": "Three black crow-like figures stand in a barren landscape. The left crow has 'Spell' written in green on its chest, the middle has 'Coffee' in white, and the right crow is framed in an orange picture frame with 'Spiller' written in white.",
-  "prompt": "Surreal painting of three black crow-like birds standing in a desolate field with scattered flowers under a peach colored sky. The left bird has the word 'Spell' in green on its chest, the center bird has 'Coffee' in white, and the right bird stands inside a bright orange picture frame with the word 'Spiller' in white across its body. Signed 2019.",
-  "style": "surreal painting",
-  "mood": "whimsical eerie",
-  "medium": "acrylic on canvas",
+  "title": "Three Black Birds Painting",
+  "description": "A painting shows three large black birds standing on brown ground with scattered white and orange flowers. Two birds stand side by side on the left while the third bird stands inside an orange rectangular frame on the right.",
+  "prompt": "A naive art painting with a peach orange background shows three large black birds standing on brown ground. Two birds stand together on the left while the third bird is positioned inside a bright orange rectangular frame on the right. White and orange flowers are scattered on the ground around their feet.",
+  "style": "naive art",
+  "mood": "whimsical surreal",
+  "medium": "acrylic painting",
   "tags": [
-    "crows",
-    "surreal",
-    "text art",
-    "pun",
-    "orange frame",
-    "whimsical"
+    "birds",
+    "frame",
+    "flowers",
+    "painting"
   ],
   "colors": [
-    "black",
     "orange",
-    "peach",
+    "black",
+    "brown",
     "white"
   ],
   "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:50:15Z"
+  "analyzed_at": "2026-10-04T01:14:51Z"
 }

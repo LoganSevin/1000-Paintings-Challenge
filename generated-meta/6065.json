@@ -1,18 +1,18 @@
 {
   "number": 6065,
-  "title": "Skeleton's Last Delivery",
-  "description": "A skeletal figure dressed in a blue suit and fedora stands on a stack of bricks, holding two briefcases. A human skull rests on the bricks in front of him beside a wooden barrel and broken crate, with a gnarled dead tree and a large glowing orange sun in the background.",
-  "prompt": "A skeletal figure in a blue suit, vest, and fedora stands on a stack of old bricks holding two briefcases, a human skull placed on the bricks in front, next to a wooden barrel and broken wooden crate, with a large twisted dead tree behind him and a giant glowing orange sun in a hazy sky, dark surreal atmosphere, detailed textures",
+  "title": "Skeleton in Blue Suit",
+  "description": "A skeleton wearing a blue suit, vest, and fedora stands on a pile of broken bricks holding two briefcases. The skeleton's skull rests on the bricks in the foreground while a wooden barrel and crate sit nearby under a large dead tree against a big orange sun.",
+  "prompt": "A skeleton dressed in a blue suit with vest and black fedora hat stands on broken brick rubble holding two brown briefcases in its bony hands, a human skull sits on the bricks in front of it, a wooden barrel and wooden crate are on the ground nearby, a large leafless gnarled tree rises behind it with a huge bright orange sun in the background, the scene sits on a rocky base with scattered stones, painted in realistic digital art style with earthy tones.",
   "style": "digital painting",
-  "mood": "eerie, melancholic",
+  "mood": "eerie surreal",
   "medium": "digital art",
   "tags": [
     "skeleton",
-    "surreal",
-    "noir",
-    "barren tree",
-    "sunset",
-    "mystery"
+    "fedora",
+    "briefcase",
+    "dead tree",
+    "orange sun",
+    "barrel"
   ],
   "colors": [
     "orange",
@@ -22,5 +22,5 @@
   ],
   "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:50:56Z"
+  "analyzed_at": "2026-10-04T01:15:25Z"
 }

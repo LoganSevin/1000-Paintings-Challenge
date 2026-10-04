@@ -180,7 +180,41 @@ def save_book(book: dict) -> None:
     write_codes_md(book)
 
 
-def file_description_commit(rev: str) -> str:
+def apply_stills(book: dict, stills: list[dict]) -> None:
+    """Copy newer titles and descriptions onto stills already filed under other codes."""
+    by_number: dict[int, dict] = {}
+    for row in stills:
+        if not isinstance(row, dict):
+            continue
+        try:
+            by_number[int(row["number"])] = row
+        except (KeyError, TypeError, ValueError):
+            continue
+    for record in book.values():
+        if not isinstance(record, dict):
+            continue
+        rows = record.get("stills")
+        if not isinstance(rows, list):
+            continue
+        for row in rows:
+            if not isinstance(row, dict):
+                continue
+            try:
+                number = int(row.get("number"))
+            except (TypeError, ValueError):
+                continue
+            fresh = by_number.get(number)
+            if not fresh:
+                continue
+            title = str(fresh.get("title") or "").strip()
+            description = str(fresh.get("description") or "").strip()
+            if title:
+                row["title"] = title
+            if description:
+                row["description"] = description
+
+
+def file_description_commit(rev: str, *, refresh_others: bool = True) -> str:
     """File one description publish under the first 8 characters of its hash."""
     stills = stills_from_commit(rev)
     if not stills:
@@ -201,6 +235,8 @@ def file_description_commit(rev: str) -> str:
     for key, value in book.items():
         if key not in fresh:
             fresh[key] = value
+    if refresh_others:
+        apply_stills(fresh, stills)
     save_book(fresh)
     return code
 
@@ -208,9 +244,11 @@ def file_description_commit(rev: str) -> str:
 def file_all_description_publishes() -> list[str]:
     listed = run(["git", "log", "--pretty=%H", "--grep=Auto-publish descriptions"])
     revs = [line.strip() for line in (listed.stdout or "").splitlines() if line.strip()]
+    revs.reverse()
     filed = []
-    for rev in reversed(revs):
-        code = file_description_commit(rev)
+    last = len(revs) - 1
+    for index, rev in enumerate(revs):
+        code = file_description_commit(rev, refresh_others=index == last)
         if code:
             filed.append(code)
     return filed

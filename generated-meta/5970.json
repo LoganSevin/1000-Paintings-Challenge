@@ -1,26 +1,26 @@
 {
   "number": 5970,
-  "title": "Stasis Ritual",
-  "description": "Three golden humanoid figures sit in a decaying room. The central male figure holds an open book labeled STASIS while yellow liquid drips from his chest; he is flanked by two females, one with wild hair throwing glowing yellow particles and another with a long braid and circular patterns on her back.",
-  "prompt": "Three golden humanoid figures in a decaying derelict room with peeling walls covered in handwritten notes. A central male figure with short hair holds an open book labeled STASIS, yellow liquid dripping from wounds on his chest and neck. To his left a female figure with wild flowing hair throws glowing yellow particles from her raised hand, wearing a golden cape. To his right a female figure with a long thick braid down her back has circular symbols on her skin and touches his shoulder. All three sit in a pool of glowing yellow substance on the floor surrounded by scattered papers, dramatic cinematic lighting with strong yellow highlights and dark shadows.",
-  "style": "surreal painting",
-  "mood": "eerie mystical",
+  "title": "Three Figures with Book",
+  "description": "A man sits in the center holding an open book titled STASIS while yellow liquid pours from his head down his chest. Two yellow women with long hair touch him, one on each side, in a dark ruined room with papers and tools scattered on the floor.",
+  "prompt": "A man sits in the center of a dark ruined room holding an open book titled STASIS as yellow liquid pours from cuts on his head down his chest and pools around him. Two women with long yellow hair stand on each side touching his shoulders, one with a cape and the other with a braid and markings on her back, papers and tools lie scattered on the floor around them in a damaged interior space with peeling walls.",
+  "style": "fantasy painting",
+  "mood": "eerie symbolic",
   "medium": "digital painting",
   "tags": [
-    "surreal",
-    "ritual",
-    "golden figures",
-    "decaying room",
+    "fantasy art",
+    "three figures",
     "book",
-    "yellow liquid"
+    "yellow liquid",
+    "ruined room",
+    "symbolic"
   ],
   "colors": [
-    "gold",
     "yellow",
     "brown",
-    "purple"
+    "purple",
+    "black"
   ],
   "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:49:13Z"
+  "analyzed_at": "2026-10-04T01:14:06Z"
 }

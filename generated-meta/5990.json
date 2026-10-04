@@ -1,18 +1,18 @@
 {
   "number": 5990,
-  "title": "Abstract Wine Bottle",
-  "description": "An abstract painting featuring a stylized wine bottle in the center, rendered with flat pink, orange, and white shapes against a background divided into soft pink on the left and muted blue tones on the right. Visible brushstrokes, drips, and geometric color blocks create a modern, fragmented composition.",
-  "prompt": "abstract painting of a stylized wine bottle centered on canvas, rendered in flat areas of bright pink, orange, and white with geometric shapes and black details, set against a divided background of soft pink on the left and cool blue tones on the right, visible expressive brushstrokes, paint drips, and textured color fields in a modern contemporary style",
+  "title": "Abstract Bottle Painting",
+  "description": "A person sees an abstract painting of a pink bottle standing upright in the center with a white cork in its top. The bottle has various painted marks in blue white and black with a pink square near its base and is surrounded by large areas of pink orange and blue paint with visible brush strokes and drips.",
+  "prompt": "abstract painting of a pink bottle standing upright in the center with a white cork on top and various painted marks in blue white black and a pink square near its base, surrounded by large areas of pink orange and blue with visible brush strokes drips and painterly texture on canvas",
   "style": "abstract",
-  "mood": "vibrant, modern",
-  "medium": "acrylic on canvas",
+  "mood": "vibrant energetic",
+  "medium": "acrylic painting",
   "tags": [
     "abstract",
+    "bottle",
     "still life",
-    "wine bottle",
-    "color blocks",
-    "brushstrokes",
-    "contemporary"
+    "colorful",
+    "painterly",
+    "brushstrokes"
   ],
   "colors": [
     "pink",
@@ -22,5 +22,5 @@
   ],
   "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:49:34Z"
+  "analyzed_at": "2026-10-04T01:14:23Z"
 }

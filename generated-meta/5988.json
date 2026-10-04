@@ -1,18 +1,18 @@
 {
   "number": 5988,
-  "title": "Vibrant Paint Drip Abstract",
-  "description": "A dynamic abstract composition of vibrant, fluid paint splatters and thick drips flowing downward across a white surface. Bright overlapping colors form an energetic central mass with organic shapes, bubbles, and vertical streams in multiple hues.",
-  "prompt": "abstract painting featuring vibrant fluid paint splatters and thick colorful drips flowing vertically down a white canvas, energetic overlapping layers of bright yellow, lime green, orange, teal, and magenta with organic bubble shapes and dynamic movement, high contrast, expressive acrylic style",
-  "style": "abstract expressionism",
-  "mood": "energetic, vibrant",
-  "medium": "acrylic paint on canvas",
+  "title": "Abstract Paint Splatter",
+  "description": "The picture shows an abstract composition of colorful paint splatters, drips, and blended shapes on a white background. Bright yellow, green, orange, and blue paints form organic blobs, circular forms, and vertical drips that spread across the center and edges.",
+  "prompt": "abstract painting on white background featuring vibrant yellow green orange and blue paint splatters with organic blobs circular forms and long vertical drips flowing down from the top and sides the colors blend and overlap in the center with some darker accents creating a dynamic energetic composition of fluid paint marks and washes",
+  "style": "abstract",
+  "mood": "vibrant energetic",
+  "medium": "watercolor or acrylic paint",
   "tags": [
     "abstract",
-    "paint drip",
+    "paint splatter",
+    "drips",
     "colorful",
-    "splatters",
-    "fluid",
-    "acrylic"
+    "organic shapes",
+    "white background"
   ],
   "colors": [
     "yellow",
@@ -22,5 +22,5 @@
   ],
   "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:49:31Z"
+  "analyzed_at": "2026-10-04T01:14:21Z"
 }

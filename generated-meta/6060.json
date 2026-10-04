@@ -1,26 +1,26 @@
 {
   "number": 6060,
   "title": "Surreal Clock Landscape",
-  "description": "A large circular surreal landscape features a prominent clock tower with Roman numerals built into a green rolling hill with a winding stream. The scene is surrounded by floating colorful spheres, butterflies, bats, a star, and a small cross atop the tower, all set against a pale beige background.",
-  "prompt": "A surreal circular composition showing a detailed green hilly landscape with a stream and trees, featuring a tall clock tower with a large white clock face showing Roman numerals and black hands at approximately 4:55, a small white sphere and cross on top of the tower, various floating elements around the circle including colorful spheres, butterflies, bats, a star, and a small red planet-like object, all rendered in a detailed illustrative painting style with soft lighting and a pale beige background.",
-  "style": "surrealism",
-  "mood": "whimsical dreamlike",
-  "medium": "digital painting",
+  "description": "A person sees a large circular painting of a clock tower built on a green hill with a winding path, set inside a bigger round scene. The clock face shows Roman numerals and its hands point near ten to two, while butterflies, bats, colored spheres, and stars float in the sky above the hills and mountains.",
+  "prompt": "A large circular surreal painting shows a clock tower standing on a green rolling hill with a winding path, set against distant mountains under a blue sky. A big round clock face with Roman numerals has hands pointing near ten to two. Butterflies, bats, colored spheres, and stars float in the air around the tower and hills. The entire scene is contained within one big circle on a light beige background.",
+  "style": "surrealist painting",
+  "mood": "dreamlike whimsical",
+  "medium": "digital illustration",
   "tags": [
     "surreal",
     "clock tower",
-    "landscape",
-    "fantasy",
+    "hills",
     "butterflies",
+    "bats",
     "spheres"
   ],
   "colors": [
     "green",
-    "beige",
     "blue",
-    "orange"
+    "orange",
+    "beige"
   ],
   "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:50:51Z"
+  "analyzed_at": "2026-10-04T01:15:20Z"
 }

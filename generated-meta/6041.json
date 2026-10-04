@@ -1,26 +1,26 @@
 {
   "number": 6041,
-  "title": "Surreal Clock Landscape",
-  "description": "A large circular clock face with Roman numerals contains a surreal desert scene in its lower half featuring golden sand dunes, a human skull, bats, spiders, and scattered orbs. The upper half shows a blue sky with the Eiffel Tower emerging from a large sphere, a globe, butterflies, birds, and various floating objects.",
-  "prompt": "A surreal clock face with Roman numerals depicting a dreamlike scene, lower half shows golden sand dunes with a human skull, bats, spiders and orbs, upper half features the Eiffel Tower rising from a large sphere set against a blue sky, accompanied by a detailed globe, butterflies, birds and floating spheres in a whimsical Salvador Dali inspired composition.",
+  "title": "Surreal Clock",
+  "description": "A large round clock shows a tower on a big sphere at its center with hands pointing to ten past six. The top half has a blue sky with butterflies bats a globe a skull and other objects while the bottom has yellow sand with more bats a bottle and small spheres.",
+  "prompt": "a large round clock with roman numerals has a tall ornate tower standing on a giant sphere in the center with clock hands at ten past six. the upper part shows a blue sky filled with orange butterflies black bats a globe a white sphere and small objects. the lower part is yellow sand with a human skull a brown bottle more bats and spheres scattered around.",
   "style": "surrealism",
-  "mood": "dreamlike whimsical",
+  "mood": "dreamlike mysterious",
   "medium": "digital painting",
   "tags": [
     "surreal",
     "clock",
-    "Eiffel Tower",
-    "desert",
+    "tower",
     "skull",
-    "fantasy"
+    "butterflies",
+    "sand"
   ],
   "colors": [
-    "golden yellow",
-    "sky blue",
-    "terracotta",
-    "silver"
+    "blue",
+    "yellow",
+    "orange",
+    "brown"
   ],
   "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:50:29Z"
+  "analyzed_at": "2026-10-04T01:15:01Z"
 }

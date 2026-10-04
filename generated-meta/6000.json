@@ -1,18 +1,18 @@
 {
   "number": 6000,
   "title": "Pink Alien on Lava Rock",
-  "description": "A surreal creature with a pink head, large black eyes, and antennae stands on a mossy rock surrounded by flowing orange lava. The background features a swirling red and black vortex with floating white spheres, one of which has red polka dots matching the creature's egg-shaped white body with red spots.",
-  "prompt": "A surreal pink alien creature with a large egg-shaped white body covered in red polka dots, big glossy black eyes, and long antennae with pink bulbs stands on a moss-covered rocky outcrop. Bright orange lava flows down the rock into a river below. Three white spheres float in the air against a swirling red and black vortex background that transitions to green at the bottom. Highly detailed, vibrant colors, whimsical and bizarre atmosphere.",
+  "description": "A pink alien creature with large black eyes and a white egg-shaped body covered in red spots stands on a mossy rock. Its pink hands touch the rock while orange lava flows down from the rock into a swirling red and black background with three white spheres floating nearby.",
+  "prompt": "A pink alien creature with large black eyes a white egg-shaped body covered in red spots and thin pink antennae stands on a moss-covered rocky outcrop. Orange lava flows down the sides of the rock. The background is a swirling pattern of red and black with three white spheres floating in the air. The creature has a small mouth and its pink limbs are touching the mossy rock.",
   "style": "surreal digital art",
-  "mood": "whimsical bizarre",
+  "mood": "whimsical surreal",
   "medium": "digital painting",
   "tags": [
+    "alien",
+    "lava",
     "surreal",
     "creature",
-    "lava",
-    "psychedelic",
     "fantasy",
-    "alien"
+    "red background"
   ],
   "colors": [
     "red",
@@ -20,7 +20,7 @@
     "green",
     "orange"
   ],
-  "subject_type": "painting or scene",
+  "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:49:47Z"
+  "analyzed_at": "2026-10-04T01:14:31Z"
 }

@@ -1,18 +1,18 @@
 {
   "number": 6057,
-  "title": "Bugs Bunny with Eyeball",
-  "description": "Bugs Bunny stands confidently in the center with one hand on his hip and a wide smile, his large white foot resting on a giant realistic eyeball with a red iris. He is surrounded by multiple smaller versions of himself in various playful poses, some wearing a conductor hat and bow tie, with floating red and green hearts against a blue-green background.",
-  "prompt": "Bugs Bunny standing confidently in the center with a big smile and one hand on his hip, his large white foot resting on a giant realistic eyeball with a red iris and white sclera. Multiple smaller Bugs Bunnies in various playful poses surround him, some wearing a tiny conductor hat and red bow tie, with floating red and green hearts scattered around. Dynamic composition with blue and green background, vibrant cartoon style, detailed digital painting.",
+  "title": "Bugs Bunny with friends",
+  "description": "A large Bugs Bunny stands in the center with his hands on his hips and one foot resting on a big round object that has a red lens. His face shows a wide smile with teeth and he is surrounded by many smaller versions of himself and one other rabbit character all in different poses with hearts floating around.",
+  "prompt": "a large bugs bunny stands in the center smiling with hands on hips and one foot on a big round object with a red lens, surrounded by many smaller bugs bunny characters in different poses and one other rabbit friend, hearts floating around, blue and white fur with red inner ears, cartoon style on a simple background",
   "style": "cartoon",
-  "mood": "playful energetic",
+  "mood": "playful cheerful",
   "medium": "digital painting",
   "tags": [
     "Bugs Bunny",
+    "cartoon rabbits",
     "Looney Tunes",
-    "surreal",
-    "cartoon characters",
-    "eyeball",
-    "hearts"
+    "hearts",
+    "red lens",
+    "group scene"
   ],
   "colors": [
     "blue",
@@ -20,7 +20,7 @@
     "white",
     "brown"
   ],
-  "subject_type": "scene",
+  "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:50:47Z"
+  "analyzed_at": "2026-10-04T01:15:17Z"
 }

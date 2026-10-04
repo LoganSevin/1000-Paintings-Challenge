@@ -1,26 +1,26 @@
 {
   "number": 6014,
-  "title": "Surreal Celestial Tower",
-  "description": "A circular surreal painting depicts a tall ornate clock tower emerging from a green landscape and piercing a large teal planet in the center of a cosmic scene. Colorful spheres, butterflies, and bats orbit the planet against a gradient teal and beige background.",
-  "prompt": "A surreal circular painting featuring a tall ornate clock tower rising from a detailed green landscape with hills and ruins, the tower piercing through the center of a large teal planet. Colorful spheres in orange, pink, yellow and blue orbit around it along with monarch butterflies and bats, all set against a dreamy teal cosmic sky that gradients into beige, in a detailed illustrative fantasy style.",
-  "style": "surrealism",
-  "mood": "ethereal dreamlike",
+  "title": "Surreal Tower with Planets",
+  "description": "A tall clock tower stands in the center of a green hilly setting with small buildings around its base. Many colorful planets and orbs float in a circular teal space around the tower along with several butterflies and a bat while a large green planet appears behind the tower.",
+  "prompt": "A tall ornate clock tower stands in the middle of rolling green hills with small buildings at its base. Many colorful spheres and planets of different sizes float in a perfect circular teal space surrounding the tower along with several butterflies and one bat. A large green planet appears directly behind the tower top. The entire scene is contained in a circular frame against a smooth teal to beige gradient background.",
+  "style": "surrealist painting",
+  "mood": "dreamlike surreal",
   "medium": "digital painting",
   "tags": [
-    "surreal",
-    "cosmic",
-    "clock tower",
-    "planet",
+    "tower",
+    "planets",
     "butterflies",
+    "surreal",
+    "circular",
     "celestial"
   ],
   "colors": [
     "teal",
     "green",
     "orange",
-    "purple"
+    "red"
   ],
   "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:49:59Z"
+  "analyzed_at": "2026-10-04T01:14:41Z"
 }

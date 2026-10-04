@@ -1,26 +1,25 @@
 {
   "number": 6027,
   "title": "Three Birds in Desert",
-  "description": "Three large birds stand in a barren desert landscape. A black starry raven on the left, a brown eagle in the center, and a white eagle on the right with a trail of red footprints leading to it.",
-  "prompt": "surreal painting of three large anthropomorphic birds standing in a barren yellow desert under a pale sky with a white sun, on the left a tall black raven covered in white starry patterns and constellations, in the middle a brown feathered eagle, on the right a white feathered eagle, red stone footprints trailing to the white bird, minimalist composition with strong shadows, painterly style",
-  "style": "surreal painting",
-  "mood": "mysterious surreal",
+  "description": "Three large birds stand in a row on yellow sand. A black bird covered in white marks is on the left, a brown bird is in the middle, and a white bird is on the right, with a pale sun in the sky above.",
+  "prompt": "A painting of three large birds standing together on yellow desert sand. On the left is a tall black bird with white marks on its feathers and long tail. In the middle is a brown bird with yellow beak. On the right is a white bird with fluffy feathers. A large pale sun hangs in the light gray sky above them. The ground has small stones and footprints.",
+  "style": "painting",
+  "mood": "mysterious",
   "medium": "digital painting",
   "tags": [
     "birds",
     "desert",
-    "surreal",
-    "eagle",
-    "raven",
-    "symbolic"
+    "sun",
+    "sand",
+    "three figures"
   ],
   "colors": [
-    "ochre",
+    "yellow",
     "black",
     "brown",
     "white"
   ],
   "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:50:12Z"
+  "analyzed_at": "2026-10-04T01:14:51Z"
 }

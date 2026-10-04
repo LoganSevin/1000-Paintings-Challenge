@@ -1,18 +1,18 @@
 {
   "number": 5922,
-  "title": "Horned Witch with Scroll",
-  "description": "A black silhouette of a horned female figure with pink tears sits on a swirling green cloth, reading an unrolled green scroll. The surreal night scene features blue swirling ribbons with glowing symbols, a flowering yellow tree branch above, and three crystal orbs below containing miniature scenes of a moonlit beach with two figures.",
-  "prompt": "A black silhouette of a horned female witch with pink tears streaming from her eyes, sitting cross-legged while reading a long green scroll. She rests on flowing green fabric that swirls into a vortex below. Blue ethereal ribbons with glowing magical symbols swirl around her against a black background. A branch with yellow cherry blossoms extends from the top right. In the lower right are three crystal spheres of varying sizes showing a miniature beach scene with two silhouetted figures under a full moon and starry sky, with text visible inside one orb.",
-  "style": "surreal fantasy",
-  "mood": "mystical, melancholic",
+  "title": "Horned Figure with Scroll",
+  "description": "A black horned figure with pink drips on its face sits on swirling green cloth against a black background. The figure holds an open green scroll with paint writing while three glowing orbs float nearby showing silhouettes of people and night scenes with a moon.",
+  "prompt": "A black horned figure with pink drips down its face sits on swirling green cloth. The figure holds a large open green scroll covered in painted writing. Three glowing orbs float nearby showing silhouettes of two people under a moon one with pink border. Blue swirling patterns with yellow flowers and leaves fill the top against a black background with more yellow petals falling.",
+  "style": "fantasy painting",
+  "mood": "mysterious surreal",
   "medium": "digital painting",
   "tags": [
-    "witch",
-    "silhouette",
+    "fantasy",
+    "horned figure",
     "scroll",
-    "crystal orbs",
-    "surreal",
-    "fantasy"
+    "orbs",
+    "swirling patterns",
+    "night scene"
   ],
   "colors": [
     "black",
@@ -22,5 +22,5 @@
   ],
   "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:48:02Z"
+  "analyzed_at": "2026-10-04T01:13:20Z"
 }

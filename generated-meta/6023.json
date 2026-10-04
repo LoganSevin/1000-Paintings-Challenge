@@ -1,26 +1,26 @@
 {
   "number": 6023,
-  "title": "Green Sorceress at the Amphitheater",
-  "description": "A close-up of a stern woman with green skin, long black hair, and glowing white eyes stares directly forward. She wears a dark hooded cloak while standing at the arched entrance of a large outdoor amphitheater filled with an audience watching a performance on a distant stage with red curtains at sunset.",
-  "prompt": "A close-up portrait of a stern woman with vibrant green skin, long straight black hair, furrowed brows, and glowing white eyes, wearing a black hooded cloak, standing at the entrance of a massive stone amphitheater filled with a large audience, a small stage with red curtains visible in the distance under a sunset sky with orange and blue hues, cinematic lighting, dramatic atmosphere",
-  "style": "cinematic digital painting",
-  "mood": "ominous dramatic",
+  "title": "Green Faced Figure Over Theater",
+  "description": "A large green faced person with black hair and a black cloak stands in the foreground looking forward with a serious expression. In the background through an archway is an outdoor theater stage with red curtains and a crowd of people watching at sunset.",
+  "prompt": "A large green faced person with shoulder length black hair and a black cloak stands in the foreground looking forward with a serious expression, positioned in front of a large stone archway. Through the archway is an outdoor amphitheater with a stage featuring red curtains and performers, a large crowd of people seated watching the show, trees and hills visible in the distance under an orange sunset sky.",
+  "style": "digital painting",
+  "mood": "dramatic mysterious",
   "medium": "digital art",
   "tags": [
-    "green skin",
-    "amphitheater",
-    "hooded figure",
-    "audience",
-    "dramatic lighting",
-    "fantasy"
+    "figure",
+    "theater",
+    "crowd",
+    "archway",
+    "sunset",
+    "cloak"
   ],
   "colors": [
-    "dark green",
+    "green",
     "black",
-    "deep blue",
-    "warm orange"
+    "red",
+    "orange"
   ],
-  "subject_type": "portrait",
+  "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:50:18Z"
+  "analyzed_at": "2026-10-04T01:14:48Z"
 }

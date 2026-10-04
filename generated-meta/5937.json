@@ -1,18 +1,18 @@
 {
   "number": 5937,
-  "title": "Grim Reaper on Pier",
-  "description": "A skeletal Grim Reaper in a purple robe stands on a wooden pier over colorful swirling water, holding a bloody handgun in one hand and a large ornate clock in the other. The surreal sky features a blue dragon, a scythe-wielding grim reaper silhouette, a green skeleton elephant on a broomstick, multiple hot air balloons, and traditional East Asian buildings floating in the water below.",
-  "prompt": "A skeletal Grim Reaper wearing a flowing purple robe stands on a wooden pier over swirling colorful water, holding a handgun with red blood dripping from it in one hand and a large ornate green and gold clock in the other. In the chaotic sky above, a large blue and orange dragon flies, a green skeleton elephant rides a broomstick, multiple hot air balloons float, and a large grim reaper silhouette with a scythe looms in the clouds. Traditional East Asian pagoda-style buildings float in the water, with vibrant colors, swirling patterns and a dreamlike surreal atmosphere.",
+  "title": "Skeleton on Pier",
+  "description": "A skeleton in a purple hooded robe stands on a wooden pier over water. The skeleton holds a red dripping gun in one hand and an alarm clock in the other while red paint runs down the pier.",
+  "prompt": "a skeleton wearing a purple hooded robe stands on a wooden pier over water holding a red dripping gun in one hand and a large alarm clock in the other with red paint running down the pier a blue dragon flies in the sky above many floating clocks fill the air a green skeleton elephant rides a broomstick a grim reaper with scythe floats in the clouds and many small boats with glowing pagodas are on the water",
   "style": "surreal fantasy",
   "mood": "chaotic surreal",
   "medium": "digital painting",
   "tags": [
-    "grim reaper",
-    "surreal",
-    "dragon",
     "skeleton",
-    "fantasy",
-    "clock"
+    "dragon",
+    "clocks",
+    "pier",
+    "hot air balloons",
+    "grim reaper"
   ],
   "colors": [
     "blue",
@@ -22,5 +22,5 @@
   ],
   "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:48:31Z"
+  "analyzed_at": "2026-10-04T01:13:36Z"
 }

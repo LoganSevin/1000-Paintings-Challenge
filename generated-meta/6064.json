@@ -1,26 +1,26 @@
 {
   "number": 6064,
   "title": "Bald Man with Mustache",
-  "description": "A bald man with a prominent handlebar mustache is shown in profile, looking upward with his head tilted back. He wears a dark crew-neck shirt against a simple, dark gradient background.",
-  "prompt": "realistic digital portrait of a bald man with a large curled handlebar mustache, shown in sharp profile looking upward with head tilted back, strong dramatic side lighting highlighting his jawline and neck, wearing a dark crew neck shirt, simple dark gradient background, highly detailed skin texture, cinematic lighting, moody atmosphere",
+  "description": "A bald man with a prominent yellowish mustache is shown from the shoulders up in profile, looking upward and to the left with his head tilted back. He wears a dark shirt against a solid dark brown and black background. ",
+  "prompt": "A bald man with a large handlebar mustache is shown in profile from the shoulders up, head tilted back as he looks upward and to the left. He has light skin, visible neck and ear, and wears a dark long-sleeved shirt. The background is a solid dark brown to black gradient with soft lighting highlighting his face and head.",
   "style": "realistic digital painting",
-  "mood": "contemplative, dramatic",
+  "mood": "dramatic portrait",
   "medium": "digital painting",
   "tags": [
-    "portrait",
-    "bald man",
+    "man",
+    "bald",
     "mustache",
-    "profile view",
-    "dramatic lighting",
-    "realism"
+    "profile",
+    "portrait",
+    "dark background"
   ],
   "colors": [
     "dark brown",
-    "ochre",
     "black",
-    "skin tone"
+    "skin tone",
+    "yellowish"
   ],
   "subject_type": "portrait",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:50:56Z"
+  "analyzed_at": "2026-10-04T01:15:22Z"
 }

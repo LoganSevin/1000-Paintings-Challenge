@@ -1,26 +1,26 @@
 {
   "number": 6044,
-  "title": "Vibrant Abstract Landscape",
-  "description": "An expressive abstract landscape painting featuring a body of reflective water in the foreground with orange and yellow vegetation. Bold orange mountains rise against a dynamic sky of layered blue, white, and peach tones with visible brushstrokes and paint splatters.",
-  "prompt": "abstract expressionist landscape painting with bold orange mountains and hills under a dynamic sky of layered blues, whites, and peach tones. A reflective body of water in the foreground shows blue and orange reflections, with bright yellow and orange vegetation along the banks. Visible energetic brushstrokes, paint splatters, and textured impasto details throughout the composition in a vibrant modern style.",
-  "style": "abstract expressionism",
+  "title": "Abstract Lake Scene",
+  "description": "The picture shows a body of water in the foreground with yellow grass on its banks and orange hills behind it under a sky filled with white and blue clouds. The water reflects the bright orange and blue colors from the land and sky above.",
+  "prompt": "abstract painting of a body of water in the foreground with yellow grass on the banks orange hills behind it and a sky filled with white and blue clouds the water reflects the bright orange and blue colors from the land and sky above with visible thick brush strokes and paint marks",
+  "style": "abstract",
   "mood": "vibrant energetic",
-  "medium": "acrylic on canvas",
+  "medium": "oil painting",
   "tags": [
-    "landscape",
     "abstract",
-    "colorful",
-    "impasto",
+    "lake",
+    "hills",
     "water",
-    "mountains"
+    "sky",
+    "colorful"
   ],
   "colors": [
     "orange",
     "blue",
     "white",
-    "peach"
+    "yellow"
   ],
   "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:50:32Z"
+  "analyzed_at": "2026-10-04T01:15:04Z"
 }

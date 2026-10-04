@@ -1,26 +1,26 @@
 {
   "number": 6035,
-  "title": "Three Travelers at Sunset",
-  "description": "Three robed figures with their backs to the viewer walk along a dirt path through a grassy hillside. The central bearded figure holds a tall wooden staff with a spear-like tip, flanked by two hooded companions each carrying smaller staffs, all heading toward a bright sun setting over distant mountains.",
-  "prompt": "Three robed travelers with their backs turned walking away on a dirt path through a golden grassy hillside scattered with white wildflowers, the central bearded man holding a tall wooden spear staff, flanked by two hooded figures each carrying smaller staffs, dramatic sunset with bright sun on the horizon casting long shadows, distant mountains under a sky with voluminous clouds, warm cinematic lighting, epic atmosphere",
-  "style": "cinematic digital painting",
+  "title": "Three Travelers at Sunrise",
+  "description": "Three people in robes walk away from the viewer across a hilly plain covered in dry grass and white flowers. The center figure holds a tall spear in his right hand while the left and right figures each carry a smaller spear.",
+  "prompt": "Three robed figures seen from behind walk across a hilly plain covered in dry grass and white flowers. The center bearded man holds a tall spear upright in his right hand. The other two figures each carry a smaller spear. Bright sun rises on the horizon casting golden light across the scene with distant mountains under a blue sky with clouds.",
+  "style": "realistic digital painting",
   "mood": "epic serene",
   "medium": "digital art",
   "tags": [
-    "biblical",
-    "journey",
-    "sunset",
-    "robed figures",
-    "mountain landscape",
-    "golden hour"
+    "travelers",
+    "robes",
+    "spear",
+    "hills",
+    "sunrise",
+    "flowers"
   ],
   "colors": [
     "golden yellow",
     "warm orange",
-    "earthy brown",
-    "soft blue"
+    "light blue",
+    "earthy brown"
   ],
-  "subject_type": "scene",
+  "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:50:23Z"
+  "analyzed_at": "2026-10-04T01:14:57Z"
 }

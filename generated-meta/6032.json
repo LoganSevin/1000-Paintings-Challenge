@@ -1,26 +1,25 @@
 {
   "number": 6032,
-  "title": "Dog Riding Bicycle",
-  "description": "A small corgi-like dog with large upright ears, tan and white fur, and a blue collar with a tag stands on the handlebars of a bicycle. Its front paws rest on the brown grips as it looks directly forward against a textured background.",
-  "prompt": "A cute corgi dog with large pointed ears, tan and white fur, dark eyes and black nose stands balanced on a bicycle. Its front paws grip the brown handlebar grips while wearing a blue collar with a round metal tag. The dog looks straight at the viewer with perked ears against a textured painterly background in warm orange, tan and grey tones.",
-  "style": "digital painting",
-  "mood": "whimsical, alert",
-  "medium": "digital art",
+  "title": "Dog on Bicycle",
+  "description": "A small orange and white dog with big upright ears and a blue collar looks directly at the viewer while sitting on a bicycle. Its front paws rest on the handlebars against a simple painted background of beige, gray, and orange tones.",
+  "prompt": "A small orange and white dog with large upright ears, black eyes, and a blue collar with a round tag sits on a bicycle and looks straight at the viewer. The dog rests both front paws on the silver handlebars with brown grips. The background is an abstract painted wall in beige gray and orange brush strokes. Simple realistic style with visible brush textures.",
+  "style": "painting",
+  "mood": "curious playful",
+  "medium": "digital painting",
   "tags": [
     "dog",
     "bicycle",
-    "corgi",
     "portrait",
-    "handlebars",
-    "cute"
+    "animal",
+    "handlebars"
   ],
   "colors": [
     "orange",
-    "tan",
-    "blue",
-    "brown"
+    "beige",
+    "gray",
+    "white"
   ],
   "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:50:20Z"
+  "analyzed_at": "2026-10-04T01:14:54Z"
 }

@@ -1,17 +1,17 @@
 {
   "number": 6007,
-  "title": "Surreal Blue Orbs Sunset",
-  "description": "A vibrant surreal landscape depicts rolling green and golden fields under a dramatic sky filled with swirling orange, red, and yellow patterns. Numerous floating blue spheres of varying sizes, some with thin connecting lines, dominate the upper portion above a distant purple mountain range and a bright setting sun.",
-  "prompt": "A vibrant surreal landscape with rolling green and golden fields in the foreground, distant purple hills, and a bright yellow sun setting on the horizon. The sky is a swirling vortex of fiery orange, red, and yellow brushstrokes filled with dozens of floating dark blue spheres and orbs of different sizes connected by thin lines, expressive painterly style with visible brushwork.",
-  "style": "surreal expressionism",
-  "mood": "vibrant dreamlike",
-  "medium": "acrylic painting",
+  "title": "Vibrant Swirling Sky Over Fields",
+  "description": "A person sees a bright yellow sun setting on the horizon with swirling orange and red patterns filling the sky above rolling hills and green fields. Many large blue circles of different sizes float across the upper part of the scene with smaller blue dots scattered around them.",
+  "prompt": "A vibrant expressionist painting shows a bright yellow sun setting behind distant purple hills with rolling fields of green yellow and orange stretching across the foreground. The sky is filled with swirling patterns of red orange and yellow paint while many large solid blue circles and smaller blue dots float across the upper portion of the image in an energetic composition.",
+  "style": "expressionist",
+  "mood": "vibrant energetic",
+  "medium": "oil painting",
   "tags": [
-    "surreal",
-    "landscape",
-    "floating orbs",
     "sunset",
     "swirling sky",
+    "blue circles",
+    "fields",
+    "hills",
     "colorful"
   ],
   "colors": [
@@ -22,5 +22,5 @@
   ],
   "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:49:55Z"
+  "analyzed_at": "2026-10-04T01:14:36Z"
 }

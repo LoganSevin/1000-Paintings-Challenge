@@ -1,18 +1,18 @@
 {
   "number": 6070,
-  "title": "Cosmic Black Hole",
-  "description": "A large circular formation dominates the center of the image, featuring concentric rings that transition from bright white-blue at the core to darker blue and black toward the outer edges. The surrounding dark space contains scattered specks of white and orange dots, with visible brushstroke textures and paint drips throughout.",
-  "prompt": "abstract painting of a cosmic black hole featuring a bright white-blue glowing circular core surrounded by multiple concentric rings in shades of blue and black, with scattered orange and white specks floating in deep black space, visible textured brushstrokes and paint drips, dark mysterious atmosphere",
+  "title": "Black Hole Painting",
+  "description": "The picture shows a large circular form with glowing white rings at its center surrounded by dark swirling bands. The setting is a deep black space dotted with small white specks and some orange marks on the outer rings.",
+  "prompt": "abstract painting of a large black circular form with glowing white rings at the center surrounded by dark swirling bands on a deep black background with small white specks and orange marks on the outer rings",
   "style": "abstract painting",
   "mood": "cosmic mysterious",
   "medium": "oil on canvas",
   "tags": [
     "black hole",
     "cosmic",
-    "concentric circles",
+    "circular",
     "space",
-    "abstract",
-    "celestial"
+    "rings",
+    "abstract"
   ],
   "colors": [
     "black",
@@ -22,5 +22,5 @@
   ],
   "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:51:02Z"
+  "analyzed_at": "2026-10-04T01:15:28Z"
 }

@@ -1,26 +1,26 @@
 {
   "number": 6038,
-  "title": "Dog Typing Spell Coffee",
-  "description": "A brown and white dog with large ears sits at a desk between two vintage computers. Its front paws rest on a keyboard while a dismembered human foot with red nail polish lies on the desk in front of it. The left monitor displays the text 'Spelll coffee.' in orange letters.",
-  "prompt": "A surreal scene of a brown and white dog with large pointed ears and a black collar sitting upright at a white desk, front paws on a vintage keyboard. To its left is a retro gray CRT monitor on a matching computer base displaying the misspelled text 'Spelll coffee.' in orange. To the right is a beige boxy computer with a damaged screen. A severed human foot with red painted toenails rests on the desk. Soft dramatic lighting, painterly style with visible brushstrokes.",
-  "style": "surreal painting",
-  "mood": "bizarre surreal",
+  "title": "Dog at Retro Computer",
+  "description": "A brown and white dog with large pointed ears sits at a white desk between two old computers. Its front paws rest on a keyboard while a brown and red object lies on the desk in front of it; the left monitor shows text and the right computer has a damaged case.",
+  "prompt": "A brown and white dog with large pointed ears and a black collar sits upright at a white desk with its front paws on a keyboard looking forward. An old gray CRT monitor on the left displays text while a beige computer tower on the right has a broken case with exposed screen. A brown and red object rests on the desk in front of the dog against a plain neutral background in a realistic painted style.",
+  "style": "realistic painting",
+  "mood": "curious retro",
   "medium": "digital painting",
   "tags": [
     "dog",
-    "vintage computer",
-    "surreal",
-    "dismembered foot",
-    "retro tech",
-    "typing"
+    "computer",
+    "retro",
+    "desk",
+    "monitor",
+    "keyboard"
   ],
   "colors": [
     "brown",
-    "beige",
+    "white",
     "gray",
-    "orange"
+    "beige"
   ],
-  "subject_type": "painting or scene",
+  "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:50:26Z"
+  "analyzed_at": "2026-10-04T01:14:59Z"
 }

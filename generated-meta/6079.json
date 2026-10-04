@@ -1,26 +1,26 @@
 {
   "number": 6079,
-  "title": "Majestic Forest Stag",
-  "description": "A majestic brown stag with large, detailed antlers stands centered and facing forward in a forest clearing. The scene is framed within a dark wooden picture frame with a metallic inner border, resting on a surface with a small paint smear at the bottom.",
-  "prompt": "A majestic brown stag with impressive antlers stands facing directly forward in the center of a misty forest clearing, surrounded by tall dark pine trees and vibrant wildflowers in red, yellow, and orange at its feet, atmospheric blue fog in the background, rich detailed fur and realistic lighting, presented as a finished painting within a dark wooden frame with silver inner border",
-  "style": "realistic digital painting",
+  "title": "Deer in Forest Painting",
+  "description": "A brown deer with large antlers stands facing forward in the center of the picture. The deer is in a forest with tall dark green trees behind it and red and yellow flowers at its feet. ",
+  "prompt": "A brown deer with large branched antlers stands facing the viewer in the center of a misty forest. Tall dark green pine trees fill the background under a foggy sky while the ground around the deer's feet is covered in red and yellow wildflowers. The deer has a calm expression with direct gaze and detailed fur texture.",
+  "style": "realistic painting",
   "mood": "serene majestic",
-  "medium": "digital art print in wooden frame",
+  "medium": "oil on canvas",
   "tags": [
-    "stag",
-    "antlers",
+    "deer",
     "forest",
+    "antlers",
+    "flowers",
     "wildlife",
-    "nature",
-    "framed art"
+    "trees"
   ],
   "colors": [
     "brown",
     "dark green",
-    "blue",
-    "red"
+    "red",
+    "yellow"
   ],
   "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:51:09Z"
+  "analyzed_at": "2026-10-04T01:15:36Z"
 }

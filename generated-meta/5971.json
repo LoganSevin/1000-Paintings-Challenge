@@ -1,26 +1,26 @@
 {
   "number": 5971,
-  "title": "Golden Trinity in Alchemy",
-  "description": "A surreal painting depicts a three-headed golden figure with multiple arms, covered in text and symbols, seated in a large copper basin filled with molten gold that drips everywhere. The scene is set inside a stone chamber with walls covered in glowing alchemical and esoteric symbols, a skylight above casting radiant beams, and scattered papers on the floor.",
-  "prompt": "A surreal alchemical scene inside a stone vaulted chamber with walls covered in glowing red and yellow esoteric runes and symbols. At the center, a three-headed golden humanoid figure with multiple arms sits in a large copper basin overflowing with molten glowing gold that drips down the sides and onto the floor. The figure is covered in intricate text and symbols, holding a quill pen in one hand and a book in another, with radiant light beams shining down from a stained glass skylight above. Scattered papers with writing lie on the floor around the basin, dramatic golden hour lighting, highly detailed symbolic painting.",
-  "style": "surreal symbolic",
-  "mood": "mystical esoteric",
-  "medium": "digital painting",
+  "title": "Golden Figure in Basin",
+  "description": "A golden three-headed figure sits in a large copper basin filled with yellow liquid. The figure has closed eyes, a wreath on its head, one hand on its chest and the other holding a quill that drips yellow, with light beams shining down from above.",
+  "prompt": "A golden three headed figure with closed eyes and a wreath sits inside a large round copper basin filled with thick yellow liquid. One hand rests on its chest while the other holds a quill dripping yellow. Bright beams of light shine down from a circular window above. The curved walls are covered in painted marks and runes. Scattered papers lie on the floor around the basin. The entire scene uses rich yellow gold and copper tones.",
+  "style": "symbolic painting",
+  "mood": "mysterious sacred",
+  "medium": "oil painting",
   "tags": [
-    "alchemical",
-    "trinity",
-    "golden figure",
-    "occult symbols",
-    "molten gold",
-    "three-headed"
+    "three-headed figure",
+    "copper basin",
+    "golden liquid",
+    "runes",
+    "light beams",
+    "quill"
   ],
   "colors": [
+    "yellow",
     "gold",
     "copper",
-    "yellow",
     "brown"
   ],
   "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:49:15Z"
+  "analyzed_at": "2026-10-04T01:14:07Z"
 }

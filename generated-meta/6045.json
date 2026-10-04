@@ -1,26 +1,26 @@
 {
   "number": 6045,
-  "title": "Vibrant Rural Sunset",
-  "description": "An expressive landscape painting depicts a dramatic sunset with a sky filled with bold strokes of pink, orange, and yellow. Below, rolling hills in deep blues and blacks overlook golden and green fields dotted with small houses and bushes in the foreground.",
-  "prompt": "expressive landscape painting of a dramatic sunset over rolling dark hills, vibrant sky in bold pink orange and yellow brushstrokes, golden and green fields in the foreground with small rural houses and bushes, energetic visible brushwork, warm and cool color contrast",
+  "title": "Rural Sunset Painting",
+  "description": "A person sees a colorful painted scene of fields with small houses and dark hills under a bright sky filled with orange, red, and yellow clouds. The foreground has dark brushstrokes and a bush while the middle ground shows yellow and green fields with scattered trees. ",
+  "prompt": "A colorful painting of a rural scene at sunset with bright orange red and yellow sky above dark rolling hills and small white houses with red roofs scattered across yellow and green fields with a few bushes in the foreground all done with visible expressive brushstrokes in a vibrant style.",
   "style": "expressionist",
-  "mood": "vibrant dramatic",
+  "mood": "vibrant serene",
   "medium": "oil painting",
   "tags": [
-    "landscape",
     "sunset",
-    "rural",
-    "hills",
+    "fields",
     "houses",
-    "expressive"
+    "hills",
+    "colorful",
+    "brushstrokes"
   ],
   "colors": [
     "orange",
-    "pink",
     "yellow",
-    "dark blue"
+    "red",
+    "dark green"
   ],
   "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:50:35Z"
+  "analyzed_at": "2026-10-04T01:15:08Z"
 }

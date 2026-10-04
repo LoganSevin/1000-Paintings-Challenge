@@ -1,26 +1,25 @@
 {
   "number": 6052,
   "title": "Bugs Bunny Portrait",
-  "description": "Bugs Bunny is depicted from the chest up, centered in the frame with his head turned slightly to his right. He has a wide grin showing his teeth, large expressive eyes, long upright ears with pink interiors, and his classic grey and white fur coloring.",
-  "prompt": "Bugs Bunny shown from the chest up with a wide toothy grin and large expressive eyes, long grey ears with pink interiors, classic white muzzle and grey fur, positioned against a vibrant abstract painterly background with bold yellow, orange, red and black brush strokes and splatters in an energetic modern art style",
-  "style": "pop art",
-  "mood": "playful vibrant",
+  "description": "A person sees Bugs Bunny from Looney Tunes as the main subject, shown from the chest up with his head turned toward the viewer. He has a wide grin showing teeth, large white eyes, long upright ears with pink insides, and his hands are not visible; the setting is an abstract painted background with bold brush strokes. ",
+  "prompt": "Bugs Bunny from the chest up facing the viewer with a big toothy grin, large white eyes, long upright bunny ears with pink insides, gray and white fur, set against an abstract painted background with bold expressive brush strokes in yellow orange and dark tones, cartoon style character portrait",
+  "style": "cartoon",
+  "mood": "cheerful playful",
   "medium": "digital painting",
   "tags": [
     "Bugs Bunny",
-    "Looney Tunes",
-    "cartoon character",
+    "cartoon rabbit",
     "abstract background",
-    "colorful",
-    "iconic"
+    "Looney Tunes",
+    "grinning character"
   ],
   "colors": [
     "yellow",
     "orange",
-    "grey",
+    "blue",
     "white"
   ],
   "subject_type": "portrait",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:50:41Z"
+  "analyzed_at": "2026-10-04T01:15:12Z"
 }

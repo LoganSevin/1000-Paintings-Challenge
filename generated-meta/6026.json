@@ -1,26 +1,26 @@
 {
   "number": 6026,
-  "title": "Yellow Labrador in Flowers",
-  "description": "A vibrant digital painting features a close-up portrait of a yellow Labrador retriever with bright yellow-green fur, floppy ears, and a dark nose, gazing directly at the viewer. The dog is surrounded by a dense background of colorful hibiscus flowers in shades of purple, pink, orange, and yellow.",
-  "prompt": "Close-up portrait of a bright yellow Labrador retriever with glossy yellow-green fur, floppy ears, dark expressive eyes and black nose, looking straight at the viewer, surrounded by a lush dense background of vibrant hibiscus flowers in purple, magenta, orange, pink and yellow, highly detailed fur, vibrant saturated colors, painterly digital art style",
-  "style": "Digital Painting",
-  "mood": "Vibrant Whimsical",
-  "medium": "Digital Art",
+  "title": "Yellow Dog with Flowers",
+  "description": "A yellow Labrador retriever with a black nose looks directly at the viewer. The dog is surrounded by a background of colorful hibiscus flowers in shades of purple, orange, pink, and yellow.",
+  "prompt": "A vibrant yellow Labrador retriever with a black nose and dark eyes looks straight at the viewer, its head and shoulders filling the frame, surrounded by a dense background of colorful hibiscus flowers in purple, orange, pink and yellow with green leaves, the dog's fur shows bright yellow and green tones with orange ears, realistic digital painting style with bold saturated colors",
+  "style": "digital painting",
+  "mood": "vibrant cheerful",
+  "medium": "digital art",
   "tags": [
+    "dog",
     "labrador",
-    "dog portrait",
-    "hibiscus flowers",
+    "flowers",
+    "hibiscus",
     "colorful",
-    "vibrant",
-    "digital art"
+    "portrait"
   ],
   "colors": [
     "yellow",
-    "green",
     "purple",
-    "orange"
+    "orange",
+    "green"
   ],
   "subject_type": "portrait",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:50:15Z"
+  "analyzed_at": "2026-10-04T01:14:50Z"
 }

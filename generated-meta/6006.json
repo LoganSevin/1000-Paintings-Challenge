@@ -1,26 +1,26 @@
 {
   "number": 6006,
-  "title": "Swirling Blue Orbs Over Hills",
-  "description": "A vibrant landscape painting depicts rolling green and golden hills with dark treelines under a dramatic sky. Large blue spheres of varying sizes float throughout a swirling vortex of red, orange, and yellow brushstrokes, with a bright sun visible on the horizon.",
-  "prompt": "A surreal landscape painting featuring rolling hills in shades of green and golden yellow with dark treelines, beneath a dramatic swirling sky of vibrant red, orange, and yellow brushstrokes. Numerous large solid blue spheres and smaller blue dots float throughout the composition, with a bright glowing sun on the horizon. Bold, expressive style with visible brushwork.",
-  "style": "surreal landscape",
-  "mood": "vibrant surreal",
+  "title": "Blue Circles Over Hills",
+  "description": "A person sees many blue circles of different sizes floating across the upper part of the picture. Below them are rolling hills covered in green and yellow fields with dark trees under a swirling red orange and yellow sky with a small yellow sun near the middle.",
+  "prompt": "a finished painting showing many solid blue circles of different sizes floating across the top half over a swirling background of red orange and yellow brush strokes with a small yellow sun near the center the bottom half shows rolling hills covered in patches of green and golden yellow fields with dark clusters of trees",
+  "style": "painting",
+  "mood": "vibrant energetic",
   "medium": "oil painting",
   "tags": [
-    "surreal",
-    "landscape",
-    "blue orbs",
-    "swirling sky",
-    "rolling hills",
-    "vibrant colors"
+    "hills",
+    "circles",
+    "swirls",
+    "sun",
+    "fields",
+    "sky"
   ],
   "colors": [
     "blue",
-    "orange",
+    "red",
     "yellow",
     "green"
   ],
   "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:49:52Z"
+  "analyzed_at": "2026-10-04T01:14:36Z"
 }

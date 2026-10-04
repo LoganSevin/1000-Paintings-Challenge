@@ -1,26 +1,26 @@
 {
   "number": 6039,
-  "title": "Surreal Clock Landscape",
-  "description": "A large circular wall clock with Roman numerals features a detailed surreal painting in its center showing a stone tower on a green rolling hill with a winding stone path. Various small symbolic objects like butterflies, a bat, pocket watch, Poké Ball, globe, and tools are arranged around the clock face.",
-  "prompt": "Highly detailed surreal circular clock with Roman numerals, in the center a painted landscape with a tall stone tower on a lush green hill with winding path leading to it, surrounded by symbolic objects including orange butterflies, a black bat, small pocket watch, red and white Poké Ball, miniature globe, stone, carrot, key, and other tiny items scattered around the dial, whimsical symbolic composition, intricate details, painted style",
+  "title": "Surreal Clock",
+  "description": "A large round clock face hangs on a plain wall. The clock shows a green hill scene in the center with a path and tower, and its face holds many small objects like butterflies, a bat, balls, tools, and a small watch.",
+  "prompt": "A large round clock with roman numerals hangs on a plain wall. The center of the clock face shows rolling green hills with a stone path leading to a tall tower building. Many small objects are placed around the clock face including orange and black butterflies, a black bat, a small white watch, colored balls, tools, and other items. The clock has a brown outer rim. Painted in a detailed realistic style.",
   "style": "surrealism",
   "mood": "whimsical dreamlike",
-  "medium": "digital painting",
+  "medium": "oil painting",
   "tags": [
-    "surreal clock",
-    "symbolic objects",
-    "tower landscape",
-    "roman numerals",
-    "fantasy art",
-    "still life"
+    "clock",
+    "surreal",
+    "collage",
+    "tower",
+    "butterfly",
+    "hills"
   ],
   "colors": [
-    "white",
     "green",
-    "orange",
-    "gold"
+    "white",
+    "brown",
+    "orange"
   ],
   "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:50:27Z"
+  "analyzed_at": "2026-10-04T01:15:00Z"
 }

@@ -1,18 +1,18 @@
 {
   "number": 5926,
-  "title": "Demon Reading Under Cherry Tree",
-  "description": "A black silhouette demon with horns and a long tail sits on a green-draped table, one hand touching an open spellbook with glowing symbols. Three floating picture frames hover above, each containing silhouettes of figures in different scenes, while a flowering yellow cherry blossom branch extends across a swirling blue sky filled with stylized eyes.",
-  "prompt": "A black silhouette demon with horns and tail sits at a table covered in green cloth, reaching toward an open glowing spellbook. Above, a large flowering yellow cherry blossom branch stretches across a swirling blue sky filled with many stylized watching eyes. Three ornate floating picture frames contain silhouettes of people in different scenes: one under an arch, one by a lake at night, and one reading a book. Pink petals and paint drips fall through the air, vibrant surreal fantasy painting.",
-  "style": "surreal fantasy",
-  "mood": "mystical eerie",
-  "medium": "digital painting",
+  "title": "Demon Reading",
+  "description": "A black demon with horns and a long tail sits on a green table covered by a cloth. The demon looks up at three floating picture frames that show silhouettes of people under flowering branches while its hand rests on an open book with paint marks on the cover.",
+  "prompt": "A black demon with horns and a long tail sits at a table covered in a green cloth and looks up at three floating picture frames. The demon's hand rests on an open book with paint marks. The frames contain silhouettes of people under flowering yellow branches. The background is a swirling blue sky filled with many eyes and a large flowering branch with yellow blossoms. Paint drips from the frames and the demon's tail.",
+  "style": "fantasy painting",
+  "mood": "mysterious dreamy",
+  "medium": "oil painting",
   "tags": [
     "demon",
-    "cherry blossom",
+    "book",
+    "flowers",
     "floating frames",
-    "spellbook",
-    "surreal",
-    "silhouette"
+    "silhouettes",
+    "night sky"
   ],
   "colors": [
     "blue",
@@ -22,5 +22,5 @@
   ],
   "subject_type": "painting",
   "kind": "generated",
-  "analyzed_at": "2026-10-04T00:48:08Z"
+  "analyzed_at": "2026-10-04T01:13:26Z"
 }
