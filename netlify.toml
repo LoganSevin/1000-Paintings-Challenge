@@ -38,6 +38,9 @@
 [functions."cameo-video"]
   timeout = 60
 
+[functions."animate-cast"]
+  timeout = 60
+
 [[redirects]]
   from = "/api/health"
   to = "/.netlify/functions/health"
@@ -161,6 +164,12 @@
 [[redirects]]
   from = "/api/cameo-video"
   to = "/.netlify/functions/cameo-video"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/animate-cast"
+  to = "/.netlify/functions/animate-cast"
   status = 200
   force = true
 

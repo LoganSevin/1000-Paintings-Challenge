@@ -5336,19 +5336,46 @@
     return false;
   }
 
+  function currentSpellforgeStill() {
+    if (stasisVisionUrl) return stasisVisionUrl;
+    var fig = document.getElementById("spell-stasis-vision-figure");
+    var img = document.getElementById("spell-stasis-vision-img");
+    if (!fig || fig.hidden || !img) return "";
+    return img.getAttribute("src") || "";
+  }
+
   function spellforgeAnimatePayload() {
-    var physical = document.getElementById("spell-physical-prompt");
     var stasisEl = document.getElementById("spell-stasis");
-    var prompt =
-      (physical && physical.value && physical.value.trim()) ||
-      (stasisEl && stasisEl.value && stasisEl.value.trim()) ||
-      String(spellStasis || lastFusedPrompt || "").trim();
+    var notes = String((stasisEl && stasisEl.value) || spellStasis || "")
+      .replace(/\s+/g, " ")
+      .trim();
+    if (notes.length > 700) notes = notes.slice(0, 699).trim() + "…";
+    var prompt = notes
+      ? "Animate this still. Preserve the painting. Motion: " + notes
+      : "Animate this still. Preserve the subjects, palette, and composition. Gentle living motion.";
     return {
       prompt: prompt,
-      stasis: String(spellStasis || "").trim() || prompt,
-      imageUrl: stasisVisionUrl || "",
+      stasis: notes,
+      imageUrl: currentSpellforgeStill(),
       aspect: getAspectRatio(),
     };
+  }
+
+  function bindAnimateHandoff() {
+    var sendAn = document.getElementById("spell-send-animate");
+    if (sendAn && !sendAn.dataset.bound) {
+      sendAn.dataset.bound = "1";
+      sendAn.addEventListener("click", function () {
+        sendSpellforgeToAnimate({ autoCast: false });
+      });
+    }
+    var genAn = document.getElementById("spell-gen-video-animate");
+    if (genAn && !genAn.dataset.bound) {
+      genAn.dataset.bound = "1";
+      genAn.addEventListener("click", function () {
+        sendSpellforgeToAnimate({ autoCast: true });
+      });
+    }
   }
 
   function setSpellGenerateStatus(msg, isErr) {
@@ -5379,9 +5406,17 @@
             autoCast: !!opts.autoCast,
           });
           if (opts.autoCast) {
-            setSpellGenerateStatus("Seeded Animate — cast if it did not start automatically.");
+            setSpellGenerateStatus(
+              payload.imageUrl
+                ? "Animating the Spellforge still."
+                : "Opened Animate with the motion prompt. Generate an image first to move that still."
+            );
           } else {
-            setSpellGenerateStatus("Sent fused prompt to Animate.");
+            setSpellGenerateStatus(
+              payload.imageUrl
+                ? "Sent the still to Animate. Press Cast to move it."
+                : "Sent the motion prompt to Animate."
+            );
           }
           resolve(seeded);
         } catch (e) {
@@ -5467,20 +5502,7 @@
       mwBtn.onclick = openMuralwalkFloor;
     }
 
-    var sendAn = document.getElementById("spell-send-animate");
-    if (sendAn && !sendAn.dataset.bound) {
-      sendAn.dataset.bound = "1";
-      sendAn.addEventListener("click", function () {
-        sendSpellforgeToAnimate({ autoCast: false });
-      });
-    }
-    var genAn = document.getElementById("spell-gen-video-animate");
-    if (genAn && !genAn.dataset.bound) {
-      genAn.dataset.bound = "1";
-      genAn.addEventListener("click", function () {
-        sendSpellforgeToAnimate({ autoCast: true });
-      });
-    }
+    bindAnimateHandoff();
 
     for (var nsi = 0; nsi < 3; nsi++) {
       (function (slot) {
@@ -6080,6 +6102,7 @@
   function boot() {
     if (!document.getElementById("panel-spellforge")) return;
     try {
+      bindAnimateHandoff();
       loadSpellNotes();
       window.equipSpellPainting = function (num) {
         ensureSpellforgeStarted();

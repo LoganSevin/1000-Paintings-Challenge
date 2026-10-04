@@ -470,18 +470,27 @@
               state.poolReady = true;
               state.poolLoading = false;
               updateTrayCount();
-              setStatus(
-                state.pool.length
-                  ? state.pool.length + " spells ready — drag upward to cast motion."
-                  : "Pool empty — run start_server.bat and add paintings.",
-                state.pool.length ? "ok" : "error"
-              );
+              if (!state.seedImageUrl && !state.seedStasis) {
+                setStatus(
+                  state.pool.length
+                    ? state.pool.length + " spells ready — drag upward to cast motion."
+                    : "Pool empty — run start_server.bat and add paintings.",
+                  state.pool.length ? "ok" : "error"
+                );
+              }
               return state.pool;
             });
           });
       })
       .catch(function () {
         state.poolLoading = false;
+        if (state.pool.length) {
+          state.poolReady = true;
+          if (!state.seedImageUrl && !state.seedStasis) {
+            setStatus(state.pool.length + " spells ready — drag upward or press Cast.", "ok");
+          }
+          return state.pool;
+        }
         setStatus("Could not load spell library.", "error");
         return [];
       });
@@ -2130,6 +2139,14 @@
       video_url: opts.video_url || "",
       aspect_ratio: state.seedAspect || "16:9",
     };
+    var still = String(opts.image_url || state.seedImageUrl || "").trim();
+    if (still && still.indexOf("data:") !== 0 && still.indexOf("http") !== 0) {
+      still = absoluteUrl(still);
+    }
+    if (still) {
+      body.reference_image = still;
+      body.image_url = still;
+    }
     var cast = getCastPayload();
     var beats = getBeatsPayload();
     if (cast.length) {
@@ -2258,7 +2275,11 @@
     });
 
     state.genEtaSec = estimateEtaSec(duration, morph.morph_chain);
-    beginGeneration(hasSpellVisual ? spellItem.url : primaryCastCharacter() && primaryCastCharacter().preview_url);
+    beginGeneration(
+      hasSpellVisual
+        ? spellItem.url
+        : (primaryCastCharacter() && primaryCastCharacter().preview_url) || state.seedImageUrl || ""
+    );
     setStatus(
       "Casting " +
         label +
@@ -2287,6 +2308,7 @@
           spells: spells,
           morph_chain: morph.morph_chain,
           video_url: morph.video_url,
+          image_url: hasSpellVisual ? spellItem.url : state.seedImageUrl || "",
         });
       })
       .then(function (result) {
@@ -3352,6 +3374,14 @@
     var prompt = $("an-prompt");
     if (prompt) attachCharacterMentions(prompt, { allowEnterSubmit: true });
 
+    var castBtn = $("an-cast");
+    if (castBtn && !castBtn.dataset.bound) {
+      castBtn.dataset.bound = "1";
+      castBtn.addEventListener("click", function () {
+        castSpell(null);
+      });
+    }
+
     document.addEventListener("mousedown", function (e) {
       if (!mentionState.menu || mentionState.menu.hidden) return;
       if (e.target.closest("#an-mention-menu")) return;
@@ -3424,7 +3454,8 @@
 
   function seedFromSpellforge(opts) {
     opts = opts || {};
-    var prompt = String(opts.prompt || opts.stasis || "").trim();
+    var prompt = String(opts.prompt || opts.stasis || "").replace(/\s+/g, " ").trim();
+    if (prompt.length > 900) prompt = prompt.slice(0, 899).trim() + "…";
     var stasis = String(opts.stasis || opts.prompt || "").trim();
     var imageUrl = String(opts.imageUrl || "").trim();
     var aspect = String(opts.aspect || "").trim() || "16:9";
@@ -3435,9 +3466,11 @@
     state.seedStasis = stasis;
     state.seedImageUrl = imageUrl;
     setStatus(
-      prompt
-        ? "Seeded from Spellforge — review the prompt, then cast."
-        : "Opened from Spellforge.",
+      imageUrl
+        ? "Still from Spellforge is on the stage. Press Cast to animate it."
+        : prompt
+          ? "Seeded from Spellforge — press Cast."
+          : "Opened from Spellforge.",
       "ok"
     );
     var result = {
