@@ -1,6 +1,11 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { buildCloudflarePrompt, buildStasisVisionPrompt } from "../../netlify/functions/_lib.mjs";
+import {
+  buildCloudflarePrompt,
+  buildStasisVisionPrompt,
+  dropModerationTriggerWords,
+  moderationStrikeFromImageResponse,
+} from "../../netlify/functions/_lib.mjs";
 
 test("Spellforge stasis prompt explicitly preserves all three identities", () => {
   const stasis = [
@@ -88,4 +93,40 @@ test("Cloudflare fallback does not ask for a landscape or forbid the signature",
   assert.match(prompt, /not a square/i);
   assert.doesNotMatch(prompt, /\blandscape\b/i);
   assert.doesNotMatch(prompt, /no signature/i);
+});
+
+test("a moderation strike returns the prompt with the trigger word removed", () => {
+  const prompt = "A figure stands at an anvil with blood on the ropes in a quiet room.";
+  const strike = moderationStrikeFromImageResponse(
+    {
+      data: [
+        {
+          url: "https://example.test/moderation-note.jpg",
+          respect_moderation: false,
+        },
+      ],
+    },
+    prompt
+  );
+
+  assert.equal(strike.moderated, true);
+  assert.deepEqual(strike.dropped, ["blood"]);
+  assert.match(strike.prompt, /quiet room/);
+  assert.doesNotMatch(strike.prompt, /\bblood\b/i);
+});
+
+test("a passed image is not treated as a moderation strike", () => {
+  assert.equal(
+    moderationStrikeFromImageResponse(
+      { data: [{ url: "https://example.test/art.jpg", respect_moderation: true }] },
+      "A quiet room."
+    ),
+    null
+  );
+  const kept = dropModerationTriggerWords("A quiet room with a halo.");
+  assert.equal(kept.prompt, "A quiet room with a halo.");
+  assert.deepEqual(kept.dropped, []);
+  const listed = dropModerationTriggerWords("blood, halo");
+  assert.equal(listed.prompt, "halo");
+  assert.deepEqual(listed.dropped, ["blood"]);
 });

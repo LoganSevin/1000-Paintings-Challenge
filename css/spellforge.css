@@ -1001,6 +1001,16 @@ button.spell-chip.spell-chip-toggle.is-on:hover {
   margin: 0;
 }
 
+.spell-stasis-vision-prompt {
+  margin: 0;
+  max-width: 42rem;
+  white-space: pre-wrap;
+  font: inherit;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: rgba(232, 224, 208, 0.92);
+}
+
 .spell-stasis-vision-frame {
   display: block;
   width: 100%;

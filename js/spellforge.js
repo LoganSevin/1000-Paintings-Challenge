@@ -386,7 +386,11 @@
         .replace(/[ \t]+\n/g, "\n")
         .replace(/\n{3,}/g, "\n\n");
     });
-    return out.replace(/[ \t]+$/gm, "").trim();
+    return out
+      .replace(/,(\s*,)+/g, ",")
+      .replace(/^[ \t]*[,.;:]+[ \t]*/gm, "")
+      .replace(/[ \t]+$/gm, "")
+      .trim();
   }
 
   function updateStasisModeration() {
@@ -3532,10 +3536,15 @@
     var fig = document.getElementById("spell-stasis-vision-figure");
     var img = document.getElementById("spell-stasis-vision-img");
     var open = document.getElementById("spell-stasis-vision-open");
+    var promptBox = document.getElementById("spell-stasis-vision-prompt");
+    if (promptBox && url) {
+      promptBox.hidden = true;
+      promptBox.textContent = "";
+    }
     if (!url) {
       if (loading) loading.hidden = true;
       if (fig) fig.hidden = true;
-      if (hint) hint.hidden = false;
+      if (hint) hint.hidden = !!(promptBox && !promptBox.hidden);
       if (img) img.removeAttribute("src");
       if (open) {
         open.href = "#";
@@ -3565,13 +3574,18 @@
     var hint = document.getElementById("spell-stasis-vision-hint");
     var loading = document.getElementById("spell-stasis-vision-loading");
     var fig = document.getElementById("spell-stasis-vision-figure");
+    var promptBox = document.getElementById("spell-stasis-vision-prompt");
     if (on) {
       if (hint) hint.hidden = true;
       if (loading) loading.hidden = false;
       if (fig) fig.hidden = true;
+      if (promptBox) {
+        promptBox.hidden = true;
+        promptBox.textContent = "";
+      }
     } else if (!stasisVisionUrl) {
       if (loading) loading.hidden = true;
-      if (hint) hint.hidden = false;
+      if (hint) hint.hidden = !!(promptBox && !promptBox.hidden);
     } else {
       if (loading) loading.hidden = true;
     }
@@ -4178,6 +4192,14 @@
                 : "Generating… (" + st + ")";
           }
           if (st === "done") {
+            if (job.moderated) {
+              resolve({
+                moderated: true,
+                prompt: String(job.prompt || ""),
+                dropped: Array.isArray(job.dropped) ? job.dropped : [],
+              });
+              return;
+            }
             if (job.images && job.images.length) {
               resolve(job.images);
               return;
@@ -5007,11 +5029,16 @@
         });
       })
       .then(function (images) {
+        if (images && images.moderated) return images;
         var img = images && images[0];
         if (img && img.url) return img.url;
         throw new Error("No image returned");
       })
       .then(function (url) {
+        if (url && url.moderated) {
+          showModerationPrompt(url, statusEl);
+          return null;
+        }
         return applyGeneratedVision(url, nums, statusEl).then(function () {
           return persistGeneratedStill(url).then(function () {
             return url;
@@ -5037,6 +5064,61 @@
         }
         throw new Error(msg);
       });
+  }
+
+  function showModerationPrompt(result, statusEl) {
+    var prompt = String((result && result.prompt) || "");
+    var dropped = result && Array.isArray(result.dropped) ? result.dropped : [];
+    stasisVisionUrl = "";
+    lastVisionBlob = null;
+    var box = document.getElementById("spell-stasis-vision-prompt");
+    if (box) {
+      box.hidden = false;
+      box.textContent = prompt;
+    }
+    updateStasisVisionView("");
+    if (box) box.hidden = false;
+    var stasisEl = document.getElementById("spell-stasis");
+    var promptEl = document.getElementById("spell-prompt");
+    var physicalEl = document.getElementById("spell-physical-prompt");
+    var nextStasis = stasisEl ? stasisEl.value : spellStasis;
+    var nextPrompt = promptEl ? promptEl.value : spellPrompt;
+    var nextPhysical = physicalEl ? physicalEl.value : "";
+    dropped.forEach(function (word) {
+      dropBuzzWord(word);
+      nextStasis = omitFlaggedFromText(nextStasis, word);
+      nextPrompt = omitFlaggedFromText(nextPrompt, word);
+      nextPhysical = omitFlaggedFromText(nextPhysical, word);
+    });
+    if (promptEl && nextPrompt !== promptEl.value) {
+      spellPrompt = nextPrompt;
+      promptEl.value = nextPrompt;
+    }
+    if (physicalEl && nextPhysical !== physicalEl.value) {
+      physicalEl.value = nextPhysical;
+      physicalUserDirty = true;
+      updatePhysicalPromptCharCount(nextPhysical);
+      lastFusedPrompt = nextPhysical;
+    }
+    if (stasisEl && nextStasis !== stasisEl.value) {
+      setStasisText(nextStasis, { userEdit: true });
+    } else if (stasisEl) {
+      spellStasis = stasisEl.value;
+    }
+    if (statusEl) {
+      statusEl.hidden = false;
+      statusEl.className = "spell-generate-status";
+      var named = dropped.length
+        ? " Dropped " +
+          dropped
+            .map(function (word) {
+              return "“" + word + "”";
+            })
+            .join(", ") +
+          "."
+        : "";
+      statusEl.textContent = "Moderation strike." + named + " The prompt is below.";
+    }
   }
 
   function generateStasisVision(opts) {
@@ -5938,6 +6020,9 @@
           return equipNote(slotIndex, text);
         },
         softenPromptForModeration: softenPromptForModeration,
+        showModerationStrike: function (result) {
+          showModerationPrompt(result, document.getElementById("spell-generate-status"));
+        },
         autoSoftenEnabled: autoSoftenEnabled,
         setAutoSoftenEnabled: setAutoSoftenEnabled,
         whenReady: function () {

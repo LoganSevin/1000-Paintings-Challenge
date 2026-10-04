@@ -25,5 +25,8 @@ export default async function handler(request, context) {
     images: job.images,
     error: job.error,
     type: job.type,
+    moderated: !!job.moderated,
+    prompt: job.moderated ? String(job.prompt || "") : "",
+    dropped: job.moderated && Array.isArray(job.dropped) ? job.dropped : [],
   });
 }

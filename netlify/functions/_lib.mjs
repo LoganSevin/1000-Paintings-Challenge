@@ -749,7 +749,57 @@ export async function materializeStillDataUrl(imageUrl) {
   return `data:${mime};base64,${buf.toString("base64")}`;
 }
 
-function xaiImageFromResponse(data) {
+/** Words that trip image moderation. A strike drops these from the prompt. */
+const MODERATION_WORD_RES = [
+  /\b(batman|joker|superman|spiderman|spider-?man|iron\s*man|thanos|yoda|vader|darth|grogu|baby\s*yoda|mandalorian|elsa|olaf|mario|luigi|harry\s*potter|voldemort|hogwarts|gandalf|sauron|gollum|deadpool|wolverine|hulk|black\s*panther|wakanda|barbie|mickey|minnie|disney|marvel|dc\s*comics|lightsaber|death\s*star|millennium\s*falcon|avengers|infinity\s*gauntlet|jedi|sith|skywalker|chewbacca|pennywise|xenomorph|terminator|buzz\s*lightyear|spongebob|pikachu|pokemon|pokémon|inception|matrix|oppenheimer|dune|euphoria|wednesday|john\s*wick|top\s*gun|star\s*wars|star\s*trek|breaking\s*bad|stranger\s*things|squid\s*game|nazi|swastika|isis|porn|nude|naked|nsfw|explicit\s*sex|child\s*porn|underage|lolita)\b/gi,
+  /\b(gore|beheading|dismember|bloody\s*massacre|torture|rape|suicidal|school\s*shooting)\b/gi,
+  /\b(gun|rifle|pistol|blood|corpse|kill|murder|weapon|war\s*crime|lingerie|sexy|erotic)\b/gi,
+  /\b(tt\d{7,8}|imdb\.com\/title)\b/gi,
+];
+
+export function dropModerationTriggerWords(text) {
+  let out = String(text || "");
+  const dropped = [];
+  const seen = new Set();
+  for (const re of MODERATION_WORD_RES) {
+    out = out.replace(new RegExp(re.source, re.flags), (match) => {
+      const key = match.toLowerCase();
+      if (!seen.has(key)) {
+        seen.add(key);
+        dropped.push(match);
+      }
+      return " ";
+    });
+  }
+  out = out
+    .replace(/[ \t]{2,}/g, " ")
+    .replace(/\s+([,.;:!?])/g, "$1")
+    .replace(/,(\s*,)+/g, ",")
+    .replace(/^[ \t]*[,.;:]+[ \t]*/gm, "")
+    .replace(/\(\s*\)/g, "")
+    .replace(/[ \t]+\n/g, "\n")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+  return { prompt: out, dropped };
+}
+
+export function moderationStrikeFromImageResponse(data, prompt) {
+  const items = Array.isArray(data?.data) ? data.data : [];
+  const struck =
+    data?.respect_moderation === false ||
+    items.some((item) => item && item.respect_moderation === false);
+  if (!struck) return null;
+  const cleaned = dropModerationTriggerWords(prompt);
+  return {
+    moderated: true,
+    prompt: cleaned.prompt,
+    dropped: cleaned.dropped,
+  };
+}
+
+function xaiImageFromResponse(data, prompt) {
+  const strike = moderationStrikeFromImageResponse(data, prompt);
+  if (strike) return strike;
   const items = data.data || [];
   if (!items.length) throw new Error("No image returned from xAI.");
   const item = items[0];
@@ -782,6 +832,10 @@ export function buildFlashProjectPrompt(stasis, buzzWords, aspectRatio, opts = {
   return prefix + body + suffix;
 }
 
+function moderationMessage(text) {
+  return /content policy|usage policy|moderation|safety filter/i.test(String(text || ""));
+}
+
 async function postXaiImage(url, payload, apiKey) {
   const resp = await fetch(url, {
     method: "POST",
@@ -793,9 +847,18 @@ async function postXaiImage(url, payload, apiKey) {
   });
   const data = await resp.json();
   if (!resp.ok) {
-    throw new Error(apiErrorMessage(data, resp.status));
+    const message = apiErrorMessage(data, resp.status);
+    if (moderationMessage(message)) {
+      const cleaned = dropModerationTriggerWords(payload && payload.prompt);
+      return {
+        moderated: true,
+        prompt: cleaned.prompt,
+        dropped: cleaned.dropped,
+      };
+    }
+    throw new Error(message);
   }
-  return xaiImageFromResponse(data);
+  return xaiImageFromResponse(data, payload && payload.prompt);
 }
 
 export async function generateXaiStasisImage(stasis, buzzWords, aspectRatio, referenceImage, cfOpts = {}) {

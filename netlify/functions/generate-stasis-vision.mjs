@@ -41,6 +41,17 @@ async function runJob(jobId, body, visitorKey) {
       referenceImage,
       cfOpts
     );
+    if (imageUrl && typeof imageUrl === "object" && imageUrl.moderated) {
+      await saveJob(store, jobId, {
+        id: jobId,
+        type: "stasis_vision",
+        status: "done",
+        moderated: true,
+        prompt: String(imageUrl.prompt || ""),
+        dropped: Array.isArray(imageUrl.dropped) ? imageUrl.dropped : [],
+      });
+      return;
+    }
     let dataUrl = imageUrl;
     try {
       dataUrl = await materializeStillDataUrl(imageUrl);
