@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import { AsyncLocalStorage } from "node:async_hooks";
+import { getStore } from "@netlify/blobs";
 
 const xaiKeyStore = new AsyncLocalStorage();
 
@@ -236,6 +237,113 @@ export async function withXaiKeyFallback(fn, extraKey) {
     }
   }
   throw finalError(lastErr);
+}
+
+const GROK_LOGIN_TOKEN_URL = "https://auth.x.ai/oauth2/token";
+let grokLoginCache = { token: "", exp: 0 };
+
+export function shouldTryGrokLogin(err) {
+  const msg = String(err && err.message ? err.message : err || "");
+  if (!msg) return false;
+  return isCreditsLimitError(err) || isInvalidKeyError(err) || /no xai api key/i.test(msg);
+}
+
+function jwtExp(token) {
+  try {
+    const part = String(token || "").split(".")[1];
+    if (!part) return 0;
+    const pad = part + "=".repeat((4 - (part.length % 4)) % 4);
+    const payload = JSON.parse(Buffer.from(pad, "base64url").toString("utf8"));
+    return Number(payload.exp) || 0;
+  } catch (e) {
+    return 0;
+  }
+}
+
+async function readGrokLoginSession() {
+  try {
+    const store = getStore({ name: "grok-login", consistency: "strong" });
+    const saved = await store.get("session", { type: "json" });
+    if (saved && typeof saved === "object") return saved;
+  } catch (e) {}
+  return null;
+}
+
+async function writeGrokLoginSession(session) {
+  try {
+    const store = getStore({ name: "grok-login", consistency: "strong" });
+    await store.setJSON("session", session);
+  } catch (e) {}
+}
+
+/** Access token for the Grok login. Used when the console API key is out of credits. */
+export async function grokLoginAccessToken() {
+  const now = Math.floor(Date.now() / 1000);
+  if (grokLoginCache.token && grokLoginCache.exp > now + 120) return grokLoginCache.token;
+
+  const saved = await readGrokLoginSession();
+  const clientId = String(
+    (saved && saved.client_id) || process.env.XAI_OIDC_CLIENT_ID || ""
+  ).trim();
+  const refresh = String(
+    (saved && saved.refresh_token) || process.env.XAI_OAUTH_REFRESH_TOKEN || ""
+  ).trim();
+  const cachedAccess = String((saved && saved.access_token) || "").trim();
+  const cachedExp = Number(saved && saved.exp) || jwtExp(cachedAccess);
+  if (cachedAccess && cachedExp > now + 120) {
+    grokLoginCache = { token: cachedAccess, exp: cachedExp };
+    return cachedAccess;
+  }
+  if (!refresh || !clientId) return "";
+
+  const res = await fetch(GROK_LOGIN_TOKEN_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams({
+      grant_type: "refresh_token",
+      refresh_token: refresh,
+      client_id: clientId,
+    }).toString(),
+  });
+  if (!res.ok) return "";
+  let data = {};
+  try {
+    data = await res.json();
+  } catch (e) {
+    return "";
+  }
+  const access = String(data.access_token || "").trim();
+  if (!access) return "";
+  const exp = now + (Number(data.expires_in) || 3600);
+  grokLoginCache = { token: access, exp };
+  await writeGrokLoginSession({
+    access_token: access,
+    refresh_token: String(data.refresh_token || refresh).trim(),
+    exp,
+    client_id: clientId,
+  });
+  return access;
+}
+
+export async function listVideoKeys(extra) {
+  const keys = listXaiKeys(extra);
+  const login = await grokLoginAccessToken();
+  if (login && keys.indexOf(login) < 0) keys.push(login);
+  return keys;
+}
+
+/**
+ * Console keys first. When they are out of credits or rejected, use the Grok login.
+ */
+export async function withVideoAuth(fn, extraKey) {
+  try {
+    return await withXaiKeyFallback(fn, extraKey);
+  } catch (err) {
+    if (!shouldTryGrokLogin(err)) throw err;
+    const token = await grokLoginAccessToken();
+    if (!token) throw err;
+    return fn(token);
+  }
 }
 
 export function getImageApiKey() {

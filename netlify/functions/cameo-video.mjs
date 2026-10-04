@@ -1,9 +1,10 @@
 import {
   corsPreflight,
   jsonResponse,
-  listXaiKeys,
+  isCreditsLimitError,
+  listVideoKeys,
   visitorXaiKey,
-  withXaiKeyFallback,
+  withVideoAuth,
 } from "./_lib.mjs";
 
 const VIDEO_START = "https://api.x.ai/v1/videos/generations";
@@ -33,7 +34,7 @@ async function errorFrom(res) {
 }
 
 async function startCameo(image, visitorKey) {
-  return withXaiKeyFallback(async function (key) {
+  return withVideoAuth(async function (key) {
     const res = await fetch(VIDEO_START, {
       method: "POST",
       headers: {
@@ -58,7 +59,7 @@ async function startCameo(image, visitorKey) {
 }
 
 async function pollCameo(id, visitorKey) {
-  const keys = listXaiKeys(visitorKey);
+  const keys = await listVideoKeys(visitorKey);
   if (!keys.length) return noKey();
   let lastStatus = 404;
   for (let i = 0; i < keys.length; i++) {
@@ -113,6 +114,11 @@ export default async function handler(request) {
     const jobId = await startCameo(image, visitor);
     return jsonResponse({ ok: true, job_id: jobId, status: "pending" }, 202);
   } catch (e) {
-    return jsonResponse({ error: (e && e.message) || "Cameo could not start." }, 500);
+    let msg = (e && e.message) || "Cameo could not start.";
+    if (isCreditsLimitError(e)) {
+      msg =
+        "The console API key is out of credits. This cameo uses the Grok login, and that login did not start the video.";
+    }
+    return jsonResponse({ error: msg }, 500);
   }
 }

@@ -5,6 +5,7 @@ import {
   buildStasisVisionPrompt,
   dropModerationTriggerWords,
   moderationStrikeFromImageResponse,
+  shouldTryGrokLogin,
 } from "../../netlify/functions/_lib.mjs";
 
 test("Spellforge stasis prompt explicitly preserves all three identities", () => {
@@ -129,4 +130,13 @@ test("a passed image is not treated as a moderation strike", () => {
   const listed = dropModerationTriggerWords("blood, halo");
   assert.equal(listed.prompt, "halo");
   assert.deepEqual(listed.dropped, ["blood"]);
+});
+
+test("a credit or rejected key is handed to the Grok login", () => {
+  assert.equal(
+    shouldTryGrokLogin(new Error("Your team has used all available credits or reached its monthly spending limit.")),
+    true
+  );
+  assert.equal(shouldTryGrokLogin(new Error("Incorrect API key provided")), true);
+  assert.equal(shouldTryGrokLogin(new Error("Prompt cannot be empty")), false);
 });

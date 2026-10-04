@@ -323,6 +323,17 @@
       }
       return msg;
     }
+    if (
+      low.indexOf("spending limit") >= 0 ||
+      low.indexOf("purchase more") >= 0 ||
+      low.indexOf("used all available credits") >= 0 ||
+      low.indexOf("out of credits") >= 0
+    ) {
+      return (
+        "The console API key is out of credits. Cast again — video uses the Grok login, " +
+        "and buying credits is not required."
+      );
+    }
     if (low.indexOf("could not reach") >= 0 || low.indexOf("network") >= 0) {
       return "Could not reach the video API. Check your internet connection and restart start_server.bat.";
     }

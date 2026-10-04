@@ -2,10 +2,11 @@ import { getStore } from "@netlify/blobs";
 import {
   corsPreflight,
   jsonResponse,
-  listXaiKeys,
+  isCreditsLimitError,
+  listVideoKeys,
   saveJob,
   visitorXaiKey,
-  withXaiKeyFallback,
+  withVideoAuth,
 } from "./_lib.mjs";
 
 const VIDEO_START = "https://api.x.ai/v1/videos/generations";
@@ -90,7 +91,7 @@ export async function refreshAnimateJob(store, job, visitorKey) {
   if (current === "done" || current === "failed" || current === "expired") return job;
   const id = String(job.request_id || job.id || "");
   if (!id) return job;
-  const keys = listXaiKeys(visitorKey);
+  const keys = await listVideoKeys(visitorKey);
   for (let i = 0; i < keys.length; i++) {
     const res = await fetch("https://api.x.ai/v1/videos/" + encodeURIComponent(id), {
       headers: { Authorization: "Bearer " + keys[i] },
@@ -147,7 +148,7 @@ export default async function handler(request) {
 
   const visitor = visitorXaiKey(request);
   try {
-    const requestId = await withXaiKeyFallback(async function (key) {
+    const requestId = await withVideoAuth(async function (key) {
       const res = await fetch(VIDEO_START, {
         method: "POST",
         headers: {
@@ -172,6 +173,11 @@ export default async function handler(request) {
     });
     return jsonResponse({ job_id: requestId, status: "pending" }, 202);
   } catch (e) {
-    return jsonResponse({ error: (e && e.message) || "Animate could not start." }, 500);
+    let msg = (e && e.message) || "Animate could not start.";
+    if (isCreditsLimitError(e)) {
+      msg =
+        "The console API key is out of credits. This cast uses the Grok login, and that login did not start the video.";
+    }
+    return jsonResponse({ error: msg }, 500);
   }
 }
