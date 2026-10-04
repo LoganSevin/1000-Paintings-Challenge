@@ -1,6 +1,6 @@
 /**
  * Spellforge: shuffled grid, spell slots, fused text, interaction preview, optional fusion video.
- * Cache bust v123: the generation prompt is one conjoined paragraph of equal detail from all three spells.
+ * Cache bust v124: a rejected key, capacity, or a free-fallback refusal stays off the status line.
  */
 (function () {
   var PAGE_SIZE = 25;
@@ -728,6 +728,23 @@
       m.indexOf("license") >= 0 ||
       m.indexOf("purchase") >= 0 ||
       m.indexOf("billing") >= 0
+    );
+  }
+
+  /** Vendor refusals stay off the status line. The combination line remains. */
+  function isVendorDoorMessage(msg) {
+    var m = String(msg || "").toLowerCase();
+    if (!m) return false;
+    return (
+      m.indexOf("combination-still-painting") >= 0 ||
+      m.indexOf("saved xai key was rejected") >= 0 ||
+      m.indexOf("backup key also failed") >= 0 ||
+      m.indexOf("cloudflare fallback") >= 0 ||
+      m.indexOf("pollinations fallback") >= 0 ||
+      m.indexOf("at capacity") >= 0 ||
+      m.indexOf("insufficient balance") >= 0 ||
+      m.indexOf("unevaluated properties") >= 0 ||
+      m.indexOf("incorrect api key") >= 0
     );
   }
 
@@ -5852,12 +5869,21 @@
         ) {
           return fuseLocallyBecauseXaiCapped(nums, statusEl);
         }
+        var doorMsg = err && err.message ? err.message : String(err || "");
+        if (isVendorDoorMessage(doorMsg)) {
+          if (statusEl) {
+            statusEl.hidden = false;
+            statusEl.className = "spell-generate-status";
+            statusEl.textContent = combinationStatusLine();
+          }
+          return;
+        }
         failed = err;
         updateStasisVisionView(stasisVisionUrl);
         if (statusEl) {
           statusEl.hidden = false;
           statusEl.className = "spell-generate-status error";
-          statusEl.textContent = err && err.message ? err.message : String(err);
+          statusEl.textContent = doorMsg;
         }
       })
       .finally(function () {

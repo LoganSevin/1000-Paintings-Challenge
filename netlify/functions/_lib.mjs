@@ -61,6 +61,14 @@ export function isCreditsLimitError(err) {
   );
 }
 
+/** A negative gate stays on. -4 * -1 is the positive enabled value. */
+export function positiveEnabledNumber(value, fallback) {
+  let n = Number(value);
+  if (!Number.isFinite(n)) return fallback;
+  if (n < 0) n = n * -1;
+  return n;
+}
+
 export function listXaiKeys(extra) {
   const keys = [];
   const seen = new Set();
@@ -134,7 +142,7 @@ export function getImageFallbackChain() {
 /** flux-1-schnell diffusion steps (Cloudflare max 8). CF_IMAGE_STEPS overrides. */
 export const CF_FLUX_STEPS_DEFAULT = 4;
 export function getCfFluxSteps() {
-  const n = parseInt(String(process.env.CF_IMAGE_STEPS || ""), 10);
+  const n = positiveEnabledNumber(parseInt(String(process.env.CF_IMAGE_STEPS || ""), 10), CF_FLUX_STEPS_DEFAULT);
   return n >= 1 && n <= 8 ? n : CF_FLUX_STEPS_DEFAULT;
 }
 
@@ -245,7 +253,16 @@ let grokLoginCache = { token: "", exp: 0 };
 export function shouldTryGrokLogin(err) {
   const msg = String(err && err.message ? err.message : err || "");
   if (!msg) return false;
-  return isCreditsLimitError(err) || isInvalidKeyError(err) || /no xai api key/i.test(msg);
+  const m = msg.toLowerCase();
+  return (
+    isCreditsLimitError(err) ||
+    isInvalidKeyError(err) ||
+    /no xai api key/i.test(msg) ||
+    m.includes("at capacity") ||
+    m.includes("temporarily") ||
+    m.includes("rate limit") ||
+    m.includes("too many requests")
+  );
 }
 
 function jwtExp(token) {
@@ -1099,7 +1116,7 @@ async function postXaiImage(url, payload, apiKey) {
 }
 
 export async function generateXaiStasisImage(stasis, buzzWords, aspectRatio, referenceImage, cfOpts = {}) {
-  return withXaiKeyFallback(async function (apiKey) {
+  return withVideoAuth(async function (apiKey) {
     const aspect = normalizeAspect(aspectRatio);
     const ref = String(referenceImage || "").trim();
     const wrapOpts = {
@@ -1455,23 +1472,43 @@ export function buildCloudflarePrompt(stasis, buzzWords, aspect, opts = {}) {
   return prompt;
 }
 
-/** Text-to-image via Cloudflare Workers AI REST. Reference images are ignored. Returns a data: URL. */
-export async function generateCloudflareStasisImage(stasis, buzzWords, aspectRatio, opts = {}) {
-  const creds = getCfCreds();
-  if (!creds) {
-    throw new Error(
-      "Cloudflare Workers AI is not configured (set CLOUDFLARE_ACCOUNT_ID and CLOUDFLARE_API_TOKEN)."
-    );
+/**
+ * flux-1-schnell accepts prompt and steps only. width and height are rejected.
+ * Other models keep a size. A negative step count flips back to a positive one.
+ */
+export function cloudflareImagePayload(model, prompt, aspect) {
+  const body = { prompt: String(prompt || "") };
+  if (/flux-1-schnell/i.test(String(model || ""))) {
+    body.steps = getCfFluxSteps();
+    return body;
   }
-  const model = getCfImageModel();
-  const aspect = normalizeAspect(aspectRatio);
-  const payload = { prompt: buildCloudflarePrompt(stasis, buzzWords, aspect, opts) };
   const sized = aspectToSize(aspect, 1024);
-  payload.width = Math.max(256, Math.floor(sized.width / 8) * 8);
-  payload.height = Math.max(256, Math.floor(sized.height / 8) * 8);
-  if (/flux-1-schnell/i.test(model)) {
-    payload.steps = getCfFluxSteps();
+  body.width = Math.max(256, Math.floor(sized.width / 8) * 8);
+  body.height = Math.max(256, Math.floor(sized.height / 8) * 8);
+  if (/flux/i.test(String(model || ""))) body.steps = getCfFluxSteps();
+  return body;
+}
+
+/** Remove fields the model called not allowed, so the same request can run. */
+export function omitRejectedFields(payload, message) {
+  const src = payload && typeof payload === "object" ? payload : null;
+  if (!src) return null;
+  const text = String(message || "");
+  if (!/not allowed|unevaluated propert|additional propert/i.test(text)) return null;
+  const next = { ...src };
+  let changed = false;
+  const re = /\/([A-Za-z_][A-Za-z0-9_]*)/g;
+  let match;
+  while ((match = re.exec(text))) {
+    if (Object.prototype.hasOwnProperty.call(next, match[1])) {
+      delete next[match[1]];
+      changed = true;
+    }
   }
+  return changed ? next : null;
+}
+
+async function postCloudflareImage(creds, model, payload) {
   const url = `https://api.cloudflare.com/client/v4/accounts/${encodeURIComponent(
     creds.accountId
   )}/ai/run/${model}`;
@@ -1500,6 +1537,30 @@ export async function generateCloudflareStasisImage(stasis, buzzWords, aspectRat
   const image = data.result && data.result.image;
   if (!image) throw new Error("Cloudflare Workers AI returned no image.");
   return String(image).startsWith("data:") ? image : `data:image/jpeg;base64,${image}`;
+}
+
+/** Text-to-image via Cloudflare Workers AI REST. Reference images are ignored. Returns a data: URL. */
+export async function generateCloudflareStasisImage(stasis, buzzWords, aspectRatio, opts = {}) {
+  const creds = getCfCreds();
+  if (!creds) {
+    throw new Error(
+      "Cloudflare Workers AI is not configured (set CLOUDFLARE_ACCOUNT_ID and CLOUDFLARE_API_TOKEN)."
+    );
+  }
+  const model = getCfImageModel();
+  const aspect = normalizeAspect(aspectRatio);
+  let payload = cloudflareImagePayload(
+    model,
+    buildCloudflarePrompt(stasis, buzzWords, aspect, opts),
+    aspect
+  );
+  try {
+    return await postCloudflareImage(creds, model, payload);
+  } catch (err) {
+    const trimmed = omitRejectedFields(payload, err && err.message);
+    if (!trimmed) throw err;
+    return postCloudflareImage(creds, model, trimmed);
+  }
 }
 
 /**
@@ -1554,7 +1615,7 @@ export async function generatePollinationsStasisImage(stasis, buzzWords, aspectR
   }
 }
 
-/** Cloudflare, then Pollinations: each free fallback tried in turn; throws with every reason. */
+/** Cloudflare, then Pollinations. A closed balance or a rejected field does not become the status text. */
 async function generateFreeFallbackImage(stasis, buzzWords, aspectRatio, cfOpts) {
   let cfErr = null;
   if (getCfCreds()) {
@@ -1568,15 +1629,12 @@ async function generateFreeFallbackImage(stasis, buzzWords, aspectRatio, cfOpts)
     try {
       return await generatePollinationsStasisImage(stasis, buzzWords, aspectRatio, cfOpts);
     } catch (pErr) {
-      const why = `Pollinations fallback also failed: ${(pErr && pErr.message) || String(pErr)}`;
-      const err = new Error(
-        cfErr ? `Free Cloudflare fallback also failed: ${(cfErr && cfErr.message) || String(cfErr)}; ${why}` : why
-      );
+      const err = cfErr || pErr || new Error("combination-still-painting");
       err.fallbackReasons = true;
       throw err;
     }
   }
-  throw cfErr;
+  throw cfErr || new Error("combination-still-painting");
 }
 
 /** xAI failures that should hand off to the free Cloudflare fallback. */
@@ -1588,7 +1646,10 @@ export function shouldUseCloudflareFallback(err) {
     m.includes("no xai api key") ||
     m.includes("rate limit") ||
     m.includes("too many requests") ||
-    m.includes("quota")
+    m.includes("quota") ||
+    m.includes("at capacity") ||
+    m.includes("temporarily") ||
+    m.includes("insufficient balance")
   );
 }
 
@@ -1614,15 +1675,18 @@ export async function generateStasisVisionImage(stasis, buzzWords, aspectRatio, 
         if (isCreditsLimitError(err) && getWomboKey()) {
           return generateWomboStasisImage(stasis, buzzWords, aspectRatio);
         }
-        const reason =
-          fbErr && fbErr.fallbackReasons
-            ? fbErr.message
-            : `Free Cloudflare fallback also failed: ${(fbErr && fbErr.message) || String(fbErr)}`;
-        throw new Error(`${(err && err.message) || String(err)} (${reason})`);
+        const quiet = new Error("combination-still-painting");
+        quiet.cause = fbErr || err;
+        throw quiet;
       }
     }
     if (isCreditsLimitError(err) && getWomboKey()) {
       return generateWomboStasisImage(stasis, buzzWords, aspectRatio);
+    }
+    if (shouldTryGrokLogin(err) || shouldUseCloudflareFallback(err)) {
+      const quiet = new Error("combination-still-painting");
+      quiet.cause = err;
+      throw quiet;
     }
     throw err;
   }

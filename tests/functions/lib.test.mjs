@@ -3,9 +3,13 @@ import test from "node:test";
 import {
   buildCloudflarePrompt,
   buildStasisVisionPrompt,
+  cloudflareImagePayload,
   dropModerationTriggerWords,
   moderationStrikeFromImageResponse,
+  omitRejectedFields,
+  positiveEnabledNumber,
   shouldTryGrokLogin,
+  shouldUseCloudflareFallback,
 } from "../../netlify/functions/_lib.mjs";
 
 test("Spellforge stasis prompt explicitly preserves all three identities", () => {
@@ -191,5 +195,35 @@ test("a credit or rejected key is handed to the Grok login", () => {
     true
   );
   assert.equal(shouldTryGrokLogin(new Error("Incorrect API key provided")), true);
+  assert.equal(shouldTryGrokLogin(new Error("The service is temporarily at capacity. Please retry your request shortly.")), true);
+  assert.equal(shouldUseCloudflareFallback(new Error("The service is temporarily at capacity.")), true);
   assert.equal(shouldTryGrokLogin(new Error("Prompt cannot be empty")), false);
+});
+
+test("flux-1-schnell does not send width or height", () => {
+  const payload = cloudflareImagePayload(
+    "@cf/black-forest-labs/flux-1-schnell",
+    "one combination painting",
+    "16:9"
+  );
+  assert.equal(payload.prompt, "one combination painting");
+  assert.equal(typeof payload.steps, "number");
+  assert.equal(Object.prototype.hasOwnProperty.call(payload, "width"), false);
+  assert.equal(Object.prototype.hasOwnProperty.call(payload, "height"), false);
+
+  const rejected = {
+    prompt: "one combination painting",
+    steps: 4,
+    width: 1024,
+    height: 576,
+  };
+  const trimmed = omitRejectedFields(
+    rejected,
+    "Cloudflare Workers AI: AiError: Bad input: Error: Additional or unevaluated properties '/width, /height' at '/' not allowed"
+  );
+  assert.equal(trimmed.width, undefined);
+  assert.equal(trimmed.height, undefined);
+  assert.equal(trimmed.prompt, "one combination painting");
+  assert.equal(trimmed.steps, 4);
+  assert.equal(positiveEnabledNumber(-4, 4), 4);
 });
