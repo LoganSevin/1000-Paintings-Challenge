@@ -490,14 +490,14 @@ export function fitPromptKeepingTail(text, max = GEN_PROMPT_SAFE_MAX) {
   let head = at > 0 ? t.slice(0, at).trim() : t;
   const budget = tail ? max - tail.length - 2 : max;
   if (budget < 200) return clipPromptChars(t, max);
-  const parts = head.split(/(?=^SPELL [IVX]+\b)/m);
+  const parts = head.split(/(?=^SPELL (?:[1-9]|[IVX]+)\b)/m);
   let guard = 0;
   while (head.length > budget && guard < 24) {
     guard += 1;
     let longest = -1;
     let longestLen = 0;
     for (let i = 0; i < parts.length; i++) {
-      if (!/^SPELL [IVX]+\b/m.test(parts[i])) continue;
+      if (!/^SPELL (?:[1-9]|[IVX]+)\b/m.test(parts[i])) continue;
       if (parts[i].length > longestLen) {
         longestLen = parts[i].length;
         longest = i;
@@ -516,11 +516,11 @@ export function fitPromptKeepingTail(text, max = GEN_PROMPT_SAFE_MAX) {
   return tail ? head + "\n\n" + tail : head;
 }
 
-const SPELL_HEADER_RE = /^SPELL [IVX]+\b/;
+const SPELL_HEADER_RE = /^SPELL (?:[1-9]|[IVX]+)\b/;
 const SPELLFORGE_OUTCOME_LINE_RE =
   /^(?:FINAL OUTCOME\b|FUSION(?: DIRECTIVE)?:|Output:|OUTPUT ASPECT\b|IN-CANVAS SIGNATURE\b|Compose for a |Style DNA\b|Mood DNA\b|Motif tags\b|Buzz words:|Artist synthesis\b|Extra direction:|MANDATORY\b|THREE IDENTITIES\b|THE THREE IDENTITIES\b|Spellforge three-spell fusion\b|Create one original\b)/;
 const SPELLFORGE_FUSION =
-  "Spellforge three-spell fusion: show Spell I, Spell II, and Spell III as three equally prominent, immediately recognizable focal identities in this one continuous scene. Give each a clear visible feature, connect them through a shared setting or interaction, and do not omit, hide, or merge away any identity.";
+  "Spellforge three-spell fusion: paint Spell 1, Spell 2, and Spell 3 as three different subjects in this one continuous scene. Spell 2 is not Spell 1. Spell 3 is not Spell 1. Give each equal size and a clear visible feature. Do not paint only Spell 1, and do not omit, hide, or merge any of the three.";
 
 /** Pull Spell I–III blocks out, leaving the aspect line and the outcome copy separate. */
 function splitSpellforgeReferences(raw) {
@@ -689,7 +689,7 @@ export function buildStasisVisionPrompt(stasis, buzzWords, aspectRatio, opts = {
   const raw = String(stasis || "").trim();
   const aspectLine = `${frame} canvas — output this exact aspect ratio, not square unless the ratio is 1:1.`;
   const spellforge =
-    /THREE IDENTITIES IN ONE PAINTING/i.test(raw) || /^SPELL [IVX]+\s*—/m.test(raw);
+    /THREE IDENTITIES IN ONE PAINTING/i.test(raw) || /^SPELL (?:[1-9]|[IVX]+)\s*—/m.test(raw);
   // Spell I–III stay in front of the outcome sentence. The signature stays on the tail.
   if (spellforge) {
     const signed = /IN-CANVAS SIGNATURE/i.test(raw);
@@ -1111,10 +1111,10 @@ function fluxFraming(aspect) {
 /** Spellforge auto-built stasis -> { subjects[], colors[], styles[], moods[], extra } or null. */
 function parseSpellforgeStasis(stasis) {
   const text = String(stasis || "");
-  if (!/SPELLFORGE PRODUCT|──\s*INFLUENCE\s+[IV]+|THREE IDENTITIES|SPELL [IVX]+\s*—/.test(text)) return null;
+  if (!/SPELLFORGE PRODUCT|──\s*INFLUENCE\s+[IV]+|THREE IDENTITIES|SPELL (?:[1-9]|[IVX]+)\s*—/.test(text)) return null;
   const subjects = [];
   const re =
-    /(?:──\s*INFLUENCE\s+[IV]+[^\n]*──|SPELL [IVX]+\s*—[^\n]*)\s*\n([\s\S]*?)(?=\n\s*(?:──\s*INFLUENCE|SPELL [IVX]+\s*—|FUSION(?: DIRECTIVE)?:|FINAL OUTCOME\b|Output:|OUTPUT ASPECT|IN-CANVAS SIGNATURE|THE THREE IDENTITIES|Style DNA|Buzz words:)|$)/g;
+    /(?:──\s*INFLUENCE\s+[IV]+[^\n]*──|SPELL (?:[1-9]|[IVX]+)\s*—[^\n]*)\s*\n([\s\S]*?)(?=\n\s*(?:──\s*INFLUENCE|SPELL (?:[1-9]|[IVX]+)\s*—|FUSION(?: DIRECTIVE)?:|FINAL OUTCOME\b|Output:|OUTPUT ASPECT|IN-CANVAS SIGNATURE|THE THREE IDENTITIES|Style DNA|Buzz words:)|$)/g;
   let m;
   while ((m = re.exec(text))) {
     const d = fluxDescFromSlotBody(m[1]);

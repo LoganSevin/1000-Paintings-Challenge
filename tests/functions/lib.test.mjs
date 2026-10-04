@@ -27,10 +27,35 @@ test("Spellforge stasis prompt explicitly preserves all three identities", () =>
 
   assert.match(prompt, /^16:9 wide canvas/);
   assert.match(prompt, /Spellforge three-spell fusion/);
-  assert.match(prompt, /Spell I, Spell II, and Spell III/);
-  assert.match(prompt, /equally prominent, immediately recognizable/);
+  assert.match(prompt, /Spell 1, Spell 2, and Spell 3/);
+  assert.match(prompt, /Spell 2 is not Spell 1/);
+  assert.match(prompt, /Do not paint only Spell 1/);
+  assert.match(prompt, /equal size and a clear visible feature/);
   assert.ok(courtyard >= 0 && peony > courtyard && coaster > peony);
   assert.ok(outcome > coaster);
+});
+
+test("arabic spell numbers stay three separate references", () => {
+  const stasis = [
+    "THREE IDENTITIES IN ONE PAINTING.",
+    "SPELL 1 — Courtyard (#957)",
+    "A sunlit Mediterranean courtyard with blue shutters.",
+    "SPELL 2 — Peony (#579)",
+    "A vibrant peony in full bloom.",
+    "SPELL 3 — Coaster (#392)",
+    "A coastal roller coaster winding above the sea.",
+  ].join("\n");
+
+  const prompt = buildStasisVisionPrompt(stasis, [], "16:9");
+  const first = prompt.indexOf("SPELL 1 —");
+  const second = prompt.indexOf("SPELL 2 —");
+  const third = prompt.indexOf("SPELL 3 —");
+  const outcome = prompt.indexOf("Spellforge three-spell fusion");
+
+  assert.ok(first >= 0 && second > first && third > second && outcome > third);
+  assert.match(prompt, /Spell 2 is not Spell 1/);
+  assert.match(prompt, /Do not paint only Spell 1/);
+  assert.doesNotMatch(prompt, /Spell II/);
 });
 
 test("non-Spellforge stasis prompts keep the general framing", () => {

@@ -1,6 +1,6 @@
 /**
  * Spellforge: shuffled grid, spell slots, fused text, interaction preview, optional fusion video.
- * Cache bust v119: the spellbook opens on the mixed 1000 paintings, with shuffle. Generated is a separate view.
+ * Cache bust v120: generation names the three spells 1, 2, and 3 so II and III are not read as more of Spell I.
  */
 (function () {
   var PAGE_SIZE = 25;
@@ -3510,7 +3510,7 @@
 
   function slotNoteExcerpts(nums, maxEach) {
     maxEach = maxEach || 320;
-    var roman = ["I", "II", "III"];
+    var roman = ["1", "2", "3"];
     var out = [];
     for (var s = 0; s < 3; s++) {
       if (!spells[s]) continue;
@@ -3698,7 +3698,7 @@
     if (refs.length + 2 + minOutcome > max) outcomeBudget = minOutcome;
     if (outcome.length > outcomeBudget) outcome = clipPromptText(outcome, outcomeBudget);
     var room = Math.max(80, max - outcome.length - 2);
-    var blocks = refs.split(/\n(?=SPELL [IVX]+\b)/);
+    var blocks = refs.split(/\n(?=SPELL (?:[1-9]|[IVX]+)\b)/);
     var guard = 0;
     function joined() {
       return blocks.join("\n\n").replace(/\n{3,}/g, "\n\n").trim();
@@ -3726,7 +3726,7 @@
     meta = meta || collectCombinedMeta(nums);
     if (!nums.length) return "";
 
-    var roman = ["I", "II", "III"];
+    var spellNo = ["1", "2", "3"];
     var spellParts = [];
     for (var s = 0; s < 3; s++) {
       if (!spells[s]) continue;
@@ -3738,7 +3738,7 @@
       );
       if (!body) body = "(no description)";
       spellParts.push({
-        header: "SPELL " + roman[s] + " — " + title + " (#" + num + ")",
+        header: "SPELL " + spellNo[s] + " — " + title + " (#" + num + ")",
         body: body,
       });
     }
@@ -3748,15 +3748,16 @@
       (window.GALLERY_AUTHOR && window.GALLERY_AUTHOR.author) || "Logan Sevin";
     var head =
       "THREE IDENTITIES IN ONE PAINTING.\n" +
-      "Keep Spell I, Spell II, and Spell III as distinct identities — each stays itself " +
-      "(subject, form, palette). They share one scene and interact. " +
-      "Not a triptych, not a 3-panel collage, not one mashed hybrid that erases any identity.\n" +
+      "Paint Spell 1, Spell 2, and Spell 3 as three different subjects. " +
+      "Spell 2 is not Spell 1. Spell 3 is not Spell 1. " +
+      "Give each equal size. They share one scene and interact. " +
+      "Not a triptych, not a 3-panel collage, not one hybrid that keeps only Spell 1.\n" +
       "Studio author: " +
       artist +
       ".";
     var merge =
-      "FUSION: one canvas, three identities still countable. " +
-      "Spell I remains Spell I. Spell II remains Spell II. Spell III remains Spell III.";
+      "FUSION: one canvas, three subjects still countable. " +
+      "Include Spell 1 and Spell 2 and Spell 3. Do not stop after Spell 1.";
     // No aspect-ratio wording — frame comes only from aspect_ratio API field
     var output =
       "Output: one original finished artwork (product-ready). Fill the canvas fully; no letterboxing; no collage panels of source paintings.";
