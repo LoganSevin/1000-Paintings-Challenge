@@ -79,6 +79,10 @@
     img.removeAttribute("hidden");
     if (changed) img.src = src;
     root.classList.add("has-image");
+    var openBtn = $("server-window-open");
+    if (openBtn) openBtn.hidden = false;
+    var stageImg = $("server-window-stage-img");
+    if (stageImg && changed) stageImg.src = src;
     if (tab) root.setAttribute("data-from", tab);
     if (booted && changed && !quiet) {
       var box = frame();
@@ -371,6 +375,79 @@
     }, POLL_MS);
   }
 
+  function stageEl() {
+    var stage = $("server-window-stage");
+    if (stage) return stage;
+    stage = document.createElement("div");
+    stage.id = "server-window-stage";
+    stage.className = "server-window-stage";
+    stage.hidden = true;
+    stage.setAttribute("role", "dialog");
+    stage.setAttribute("aria-modal", "true");
+    stage.setAttribute("aria-label", "Last generated, full screen");
+    var img = document.createElement("img");
+    img.id = "server-window-stage-img";
+    img.alt = "Last generated";
+    var close = document.createElement("p");
+    close.className = "server-window-stage-close";
+    close.textContent = "Close";
+    stage.appendChild(img);
+    stage.appendChild(close);
+    document.body.appendChild(stage);
+    stage.addEventListener("click", closeStage);
+    return stage;
+  }
+
+  function openStage() {
+    var img = $("server-window-img");
+    var src = img && !img.hidden && img.getAttribute("src");
+    if (!src) return;
+    var stage = stageEl();
+    var big = $("server-window-stage-img");
+    if (big.getAttribute("src") !== src) big.src = src;
+    stage.hidden = false;
+    stage.classList.add("is-open");
+    document.body.classList.add("server-stage-open");
+    var req = stage.requestFullscreen || stage.webkitRequestFullscreen;
+    if (req) {
+      try {
+        var pending = req.call(stage);
+        if (pending && pending.catch) pending.catch(function () {});
+      } catch (e) {}
+    }
+  }
+
+  function closeStage() {
+    var stage = $("server-window-stage");
+    if (!stage) return;
+    var fs = document.fullscreenElement || document.webkitFullscreenElement;
+    if (fs === stage) {
+      var exit = document.exitFullscreen || document.webkitExitFullscreen;
+      if (exit) {
+        try {
+          var pending = exit.call(document);
+          if (pending && pending.catch) pending.catch(function () {});
+        } catch (e) {}
+      }
+    }
+    stage.classList.remove("is-open");
+    stage.hidden = true;
+    document.body.classList.remove("server-stage-open");
+  }
+
+  function onFullscreenChange() {
+    var stage = $("server-window-stage");
+    if (!stage || !stage.classList.contains("is-open")) return;
+    var fs = document.fullscreenElement || document.webkitFullscreenElement;
+    if (fs === stage) {
+      stage.dataset.wentFull = "1";
+      return;
+    }
+    if (!stage.dataset.wentFull) return;
+    delete stage.dataset.wentFull;
+    closeStage();
+  }
+
   function init() {
     selfId = sessionId();
     installFetch();
@@ -379,6 +456,13 @@
     booted = true;
     paintOnline(1);
     start();
+    var openBtn = $("server-window-open");
+    if (openBtn) openBtn.addEventListener("click", openStage);
+    document.addEventListener("fullscreenchange", onFullscreenChange);
+    document.addEventListener("webkitfullscreenchange", onFullscreenChange);
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") closeStage();
+    });
     window.addEventListener("spellforge-job-done", onGenerated);
     window.addEventListener("fi-generated-new", onGenerated);
     window.addEventListener("l7in-generated", onGenerated);

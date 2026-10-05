@@ -80,6 +80,77 @@ body:not(.is-public-site) .server-window {
   font-size: 1.15rem;
   letter-spacing: 0.02em;
   background: linear-gradient(transparent, rgba(0, 0, 0, 0.72));
+  pointer-events: none;
+}
+
+.server-window-open {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: transparent;
+  font-size: 0;
+  cursor: zoom-in;
+  pointer-events: auto;
+}
+
+.server-window-open[hidden] {
+  display: none !important;
+}
+
+.server-window-stage {
+  position: fixed;
+  inset: 0;
+  z-index: 10160;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: #000;
+  cursor: zoom-out;
+}
+
+.server-window-stage.is-open {
+  display: flex;
+}
+
+.server-window-stage img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.server-window-stage-close {
+  position: absolute;
+  top: max(0.8rem, env(safe-area-inset-top, 0px));
+  right: max(0.8rem, env(safe-area-inset-right, 0px));
+  margin: 0;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid rgba(244, 236, 216, 0.7);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.45);
+  color: #f4ecd8;
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  pointer-events: none;
+}
+
+.server-window-stage:fullscreen,
+.server-window-stage:-webkit-full-screen {
+  width: 100%;
+  height: 100%;
+  background: #000;
+  display: flex;
+}
+
+body.server-stage-open {
+  overflow: hidden;
 }
 
 /* Keep the title and tabs clear of the window when the column reaches the corner. */
