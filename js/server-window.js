@@ -6,6 +6,10 @@
   var PEER_TTL_MS = 12000;
   var POLL_MS = 3000;
   var DEDUPE_MS = 20000;
+  // Shared copy stays under the server cap (one D1 base64 chunk). The tab that
+  // generated the still keeps the original URL for full screen.
+  var SHARE_MAX_BYTES = 670000;
+  var SHARE_EDGE = 2048;
   var peers = {};
   var selfId = "";
   var channel = null;
@@ -16,6 +20,7 @@
   var lastKeyAt = 0;
   var posting = false;
   var pendingBody = null;
+  var postedKey = "";
 
   function $(id) {
     return document.getElementById(id);
@@ -138,21 +143,71 @@
     return false;
   }
 
-  function thumbOf(url) {
+  function dataUrlBytes(dataUrl) {
+    var s = String(dataUrl || "");
+    var i = s.indexOf(",");
+    if (i < 0) return 0;
+    var b64 = s.slice(i + 1).replace(/\s/g, "");
+    if (!b64) return 0;
+    var pad = 0;
+    if (b64.slice(-2) === "==") pad = 2;
+    else if (b64.slice(-1) === "=") pad = 1;
+    return ((b64.length * 3) >> 2) - pad;
+  }
+
+  function reusableStill(url) {
+    if (!/^data:image\/(?:jpeg|png|webp);base64,/i.test(url)) return "";
+    var n = dataUrlBytes(url);
+    if (n < 16 || n > SHARE_MAX_BYTES) return "";
+    return url;
+  }
+
+  function encodeShare(img) {
+    var w0 = img.naturalWidth || img.width || 1;
+    var h0 = img.naturalHeight || img.height || 1;
+    var edge = SHARE_EDGE;
+    var quality = 0.86;
+    var canvas = document.createElement("canvas");
+    var ctx = canvas.getContext("2d");
+    if (!ctx) return "";
+    var guard = 0;
+    while (guard < 16) {
+      guard += 1;
+      var scale = Math.min(1, edge / Math.max(w0, h0));
+      var w = Math.max(1, Math.round(w0 * scale));
+      var h = Math.max(1, Math.round(h0 * scale));
+      canvas.width = w;
+      canvas.height = h;
+      ctx.imageSmoothingEnabled = true;
+      if ("imageSmoothingQuality" in ctx) ctx.imageSmoothingQuality = "high";
+      ctx.drawImage(img, 0, 0, w, h);
+      var dataUrl = canvas.toDataURL("image/jpeg", quality);
+      if (dataUrlBytes(dataUrl) <= SHARE_MAX_BYTES) return dataUrl;
+      if (quality > 0.62) {
+        quality = Math.round((quality - 0.08) * 100) / 100;
+        continue;
+      }
+      edge = Math.round(edge * 0.8);
+      quality = 0.8;
+      if (edge < 960) return "";
+    }
+    return "";
+  }
+
+  function shareCopy(url) {
     return new Promise(function (resolve, reject) {
+      var asIs = reusableStill(url);
+      if (asIs) {
+        resolve(asIs);
+        return;
+      }
       var img = new Image();
       if (/^https?:/i.test(url)) img.crossOrigin = "anonymous";
       img.onload = function () {
         try {
-          var w = img.naturalWidth || img.width || 1;
-          var h = img.naturalHeight || img.height || 1;
-          var scale = Math.min(1, 320 / Math.max(w, h));
-          var canvas = document.createElement("canvas");
-          canvas.width = Math.max(1, Math.round(w * scale));
-          canvas.height = Math.max(1, Math.round(h * scale));
-          var ctx = canvas.getContext("2d");
-          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-          resolve(canvas.toDataURL("image/jpeg", 0.72));
+          var out = encodeShare(img);
+          if (!out) reject(new Error("large"));
+          else resolve(out);
         } catch (e) {
           reject(e);
         }
@@ -218,10 +273,14 @@
       .replace(/[^a-z0-9-]/g, "")
       .slice(0, 40) || "gallery";
     showImage(url, now, tab);
-    thumbOf(url).then(
+    var shareKey = keyOf(url);
+    shareCopy(url).then(
       function (dataUrl) {
-        if (!dataUrl || dataUrl.length < 32 || dataUrl.length > 140000) return;
-        publish(dataUrl, Date.now(), tab, false, true);
+        if (shareKey !== lastKey) return;
+        if (!dataUrl || dataUrlBytes(dataUrl) < 16 || dataUrlBytes(dataUrl) > SHARE_MAX_BYTES) return;
+        postedKey = keyOf(dataUrl);
+        remember(dataUrl, now, tab);
+        postChannel({ type: "image", id: selfId, at: now, tab: tab, image: dataUrl });
         postStill({ image: dataUrl, tab: tab });
       },
       function () {
@@ -263,6 +322,10 @@
       })
       .then(function (dataUrl) {
         if (!dataUrl) return;
+        if (postedKey && keyOf(dataUrl) === postedKey) {
+          if (last.at > shownAt) shownAt = last.at;
+          return;
+        }
         publish(dataUrl, last.at, last.tab, true);
       })
       .catch(function () {});

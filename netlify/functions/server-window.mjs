@@ -2,7 +2,7 @@ import { getStore } from "@netlify/blobs";
 import { jsonResponse, corsPreflight } from "./_lib.mjs";
 
 // One shared still for every open console. Presence (tab-presence / "presence")
-// already heartbeats each viewport; this store only keeps the latest thumbnail.
+// already heartbeats each viewport; this store only keeps the latest still.
 const STORE = "server-window";
 const IMAGE_KEY = "last-image";
 const META_KEY = "last-meta";
@@ -10,7 +10,8 @@ const PRESENCE_STORE = "tab-presence";
 const PRESENCE_KEY = "presence";
 const PRESENCE_TTL_MS = 25000;
 const SID_RE = /^[A-Za-z0-9._-]{8,80}$/;
-const MAX_IMAGE_BYTES = 100000;
+// 670KB binary is ~893KB of base64, under the 900KB D1 chunk in blobs-d1.mjs.
+const MAX_IMAGE_BYTES = 670000;
 
 function noStore(body, status = 200) {
   const res = jsonResponse(body, status);

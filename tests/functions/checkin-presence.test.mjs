@@ -144,6 +144,35 @@ test("server window counts live consoles and keeps the latest still", async () =
   assert.equal(res.status, 404);
 });
 
+test("server window accepts a sharp still and refuses one past the cap", async () => {
+  function jpegOf(n) {
+    const buf = Buffer.alloc(n);
+    buf[0] = 0xff;
+    buf[1] = 0xd8;
+    buf[2] = 0xff;
+    buf[n - 1] = 0xd9;
+    return "data:image/jpeg;base64," + buf.toString("base64");
+  }
+  const sharp = jpegOf(120000);
+  let res = await serverWindow(post("http://x/api/server-window", { image: sharp, tab: "gallery" }));
+  let d = await res.json();
+  assert.equal(res.status, 200);
+  assert.equal(d.ok, true);
+  assert.equal(d.last.image, true);
+  res = await serverWindow(new Request("http://x/api/server-window?image=1"));
+  assert.equal(res.status, 200);
+  const buf = new Uint8Array(await res.arrayBuffer());
+  assert.equal(buf.length, 120000);
+  assert.equal(buf[0], 0xff);
+  assert.equal(buf[1], 0xd8);
+
+  res = await serverWindow(post("http://x/api/server-window", { image: jpegOf(670001), tab: "gallery" }));
+  assert.equal(res.status, 400);
+  res = await serverWindow(new Request("http://x/api/server-window?image=1"));
+  const kept = new Uint8Array(await res.arrayBuffer());
+  assert.equal(kept.length, 120000, "a too-large post leaves the sharp still");
+});
+
 test("deploy gate: previews always build, production needs [deploy]", () => {
   const msg = (m) => () => m;
   assert.equal(decide({ CONTEXT: "deploy-preview" }, msg("anything")).build, true);
