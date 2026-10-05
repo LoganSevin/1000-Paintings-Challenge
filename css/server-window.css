@@ -1,0 +1,126 @@
+/* Top-left server window: who is here, and the newest still from any console. */
+
+.server-window {
+  position: fixed;
+  top: max(0.45rem, env(safe-area-inset-top, 0px));
+  left: max(0.5rem, env(safe-area-inset-left, 0px));
+  z-index: 10045;
+  width: 11rem;
+  pointer-events: none;
+}
+
+/* Studio keeps the credits readout in this corner. The public site hides it. */
+body:not(.is-public-site) .server-window {
+  top: 3.5rem;
+}
+
+.server-window-online {
+  margin: 0 0 0.22rem;
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  color: #f4ecd8;
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.9),
+    0 0 14px rgba(0, 0, 0, 0.55);
+}
+
+.server-window-frame {
+  position: relative;
+  width: 11rem;
+  height: 8.15rem;
+  margin: 0;
+  border: 1.5px solid rgba(244, 236, 216, 0.82);
+  border-radius: 2px;
+  overflow: hidden;
+  background: rgba(6, 8, 12, 0.28);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28);
+}
+
+.server-window-frame.is-fresh {
+  box-shadow:
+    0 0 0 1px rgba(244, 236, 216, 0.95),
+    0 0 18px rgba(201, 162, 39, 0.55);
+}
+
+.server-window-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.server-window-frame img[hidden] {
+  display: none !important;
+}
+
+.server-window-caption {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0.4rem;
+  color: rgba(244, 236, 216, 0.9);
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  line-height: 1.15;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.85);
+}
+
+.server-window.has-image .server-window-caption {
+  inset: auto 0 0 0;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 0.85rem 0.4rem 0.28rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.72));
+}
+
+/* Keep the title and tabs clear of the window when the column reaches the corner. */
+@media (max-width: 1780px) {
+  body .site-header {
+    padding-left: 12.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .server-window,
+  .server-window-frame {
+    width: 6.7rem;
+  }
+
+  .server-window-frame {
+    height: 5rem;
+  }
+
+  .server-window-online {
+    font-size: 1.15rem;
+  }
+
+  .server-window-caption {
+    font-size: 0.92rem;
+  }
+
+  .server-window.has-image .server-window-caption {
+    font-size: 0.62rem;
+    padding-top: 0.55rem;
+  }
+
+  body .site-header {
+    padding-left: 7.7rem;
+  }
+}
+
+body.an-theater-active .server-window {
+  display: none;
+}
+
+body.stare-immersive .server-window {
+  opacity: 0.15;
+}

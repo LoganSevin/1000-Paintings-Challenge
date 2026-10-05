@@ -14,6 +14,7 @@ let server;
 let dir;
 let checkin;
 let presence;
+let serverWindow;
 
 test.before(async () => {
   dir = await mkdtemp(join(tmpdir(), "blobs-"));
@@ -23,6 +24,7 @@ test.before(async () => {
   setEnvironmentContext({ siteID: "site-1", token: "t0ken", edgeURL: url, uncachedEdgeURL: url });
   checkin = (await import("../../netlify/functions/gallery-checkin.mjs")).default;
   presence = (await import("../../netlify/functions/presence.mjs")).default;
+  serverWindow = (await import("../../netlify/functions/server-window.mjs")).default;
 });
 
 test.after(async () => {
@@ -77,6 +79,69 @@ test("presence heartbeat also returns tab-open totals", async () => {
   assert.equal(d.opens.gallery, 1);
   const leave = await (await presence(post("http://x/api/presence", { sid: "session-1234", leave: true }))).json();
   assert.equal(leave.counts.gallery, undefined);
+});
+
+test("server window counts live consoles and keeps the latest still", async () => {
+  const presenceStore = getStore({ name: "tab-presence", consistency: "strong" });
+  const now = Date.now();
+  await presenceStore.setJSON("presence", {
+    "session-aaaa": { tab: "spellforge", ts: now },
+    "session-bbbb": { tab: "gallery", ts: now },
+    "session-old1": { tab: "gallery", ts: now - 60000 },
+    "nope": { tab: "gallery", ts: now },
+  });
+
+  let res = await serverWindow(new Request("http://x/api/server-window"));
+  let d = await res.json();
+  assert.equal(res.headers.get("cache-control"), "no-store, no-cache, must-revalidate");
+  assert.equal(d.ok, true);
+  assert.equal(d.online, 2);
+  assert.equal(d.last, null);
+
+  const jpeg = "data:image/jpeg;base64," + Buffer.from([
+    0xff, 0xd8, 0xff, 0xd9, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,
+  ]).toString("base64");
+  res = await serverWindow(post("http://x/api/server-window", { image: jpeg, tab: "Spellforge" }));
+  d = await res.json();
+  assert.equal(res.status, 200);
+  assert.equal(d.ok, true);
+  assert.equal(d.online, 2);
+  assert.equal(d.last.tab, "spellforge");
+  assert.equal(d.last.image, true);
+  assert.ok(d.last.at);
+
+  res = await serverWindow(new Request("http://x/api/server-window?image=1"));
+  assert.equal(res.status, 200);
+  assert.equal(res.headers.get("content-type"), "image/jpeg");
+  const buf = new Uint8Array(await res.arrayBuffer());
+  assert.equal(buf[0], 0xff);
+  assert.equal(buf[1], 0xd8);
+
+  const png = "data:image/png;base64," + Buffer.from([
+    0x89, 0x50, 0x4e, 0x47, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+  ]).toString("base64");
+  res = await serverWindow(post("http://x/api/server-window", { image: png, tab: "colors" }));
+  d = await res.json();
+  assert.equal(d.last.tab, "colors");
+  res = await serverWindow(new Request("http://x/api/server-window?image=1"));
+  assert.equal(res.headers.get("content-type"), "image/png");
+
+  res = await serverWindow(post("http://x/api/server-window", { image: "data:text/plain;base64,aGVsbG8=", tab: "spellforge" }));
+  assert.equal(res.status, 400);
+  res = await serverWindow(new Request("http://x/api/server-window"));
+  d = await res.json();
+  assert.equal(d.last.tab, "colors", "a refused post leaves the latest still");
+
+  res = await serverWindow(post("http://x/api/server-window", {
+    remote: "https://l7in-generated.netlify.app/generated/1.jpg",
+    tab: "animate",
+  }));
+  d = await res.json();
+  assert.equal(d.last.tab, "animate");
+  assert.equal(d.last.remote, "https://l7in-generated.netlify.app/generated/1.jpg");
+  assert.equal(d.last.image, undefined);
+  res = await serverWindow(new Request("http://x/api/server-window?image=1"));
+  assert.equal(res.status, 404);
 });
 
 test("deploy gate: previews always build, production needs [deploy]", () => {

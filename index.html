@@ -127,12 +127,20 @@
   <link rel="stylesheet" href="css/annotations.css?v=1" />
   <link rel="stylesheet" href="css/page-chat.css?v=1" />
   <link rel="stylesheet" href="css/tab-presence.css?v=1" />
+  <link rel="stylesheet" href="css/server-window.css?v=1" />
   <link rel="stylesheet" href="css/tab-debug.css?v=8" />
   <script defer src="js/lazy-assets.js?v=2"></script>
   <script defer src="js/fonts-desktop.js?v=1"></script>
 </head>
 <body>
   <a href="./">Welcome</a>
+  <aside id="server-window" class="server-window" aria-label="Server">
+    <p class="server-window-online" id="server-window-online" aria-live="polite">1 online</p>
+    <figure class="server-window-frame">
+      <img id="server-window-img" alt="Last generated" hidden />
+      <figcaption class="server-window-caption" id="server-window-caption">Last generated</figcaption>
+    </figure>
+  </aside>
   <div id="xai-credits-hud" class="xai-credits-hud is-loading" role="status" aria-live="polite" aria-label="API credits and weekly usage">
     <a class="xai-credits-link" href="https://console.x.ai/team/default/billing" target="_blank" rel="noopener noreferrer" title="Open xAI billing — buy credits with money you earn">
       <span class="xai-credits-line" id="xai-credits-line1">Credits …</span>
@@ -8917,6 +8925,7 @@
   <script defer src="js/gallery-welcome.js?v=12"></script>
   <script defer src="js/page-chat.js?v=3"></script>
   <script defer src="js/tab-presence.js?v=3"></script>
+  <script defer src="js/server-window.js?v=2"></script>
   <script defer src="js/time-clock.js?v=7"></script>
   <script defer src="js/gallery-shared.js?v=8"></script>
   <script defer src="js/gallery-save-video.js?v=1"></script>
