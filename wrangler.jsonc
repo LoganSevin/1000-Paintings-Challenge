@@ -3,6 +3,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "logan7in-art",
+  "account_id": "ba14a217d31778e1d6d5fbb1a684b1c7",
   "main": "cloudflare/worker.mjs",
   "compatibility_date": "2025-09-01",
   "compatibility_flags": ["nodejs_compat"],

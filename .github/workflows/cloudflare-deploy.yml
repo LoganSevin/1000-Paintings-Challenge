@@ -1,0 +1,68 @@
+# Deploys the site to Cloudflare Workers (static assets + API) on every push to main.
+# Needs the repo secret CLOUDFLARE_DEPLOY_TOKEN (Workers Scripts Edit + D1 Edit on
+# account ba14a217d31778e1d6d5fbb1a684b1c7). Until that secret exists the job
+# skips cleanly. Netlify is unaffected (it still follows the [deploy] rule).
+name: Deploy to Cloudflare
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: cloudflare-deploy
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_DEPLOY_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ba14a217d31778e1d6d5fbb1a684b1c7
+      WRANGLER_SEND_METRICS: "false"
+    steps:
+      - name: Check deploy token
+        id: token
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
+            echo "::notice::CLOUDFLARE_DEPLOY_TOKEN repo secret is not set; skipping the Cloudflare deploy."
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/checkout@v4
+        if: steps.token.outputs.ok == 'true'
+
+      - uses: actions/setup-node@v4
+        if: steps.token.outputs.ok == 'true'
+        with:
+          node-version: 22
+
+      - name: Test Cloudflare adapter
+        if: steps.token.outputs.ok == 'true'
+        run: |
+          node tests/cloudflare/routes.test.mjs
+          node --experimental-sqlite tests/cloudflare/blobs-d1.test.mjs
+
+      - name: Build (pack JSON collections, write _headers)
+        if: steps.token.outputs.ok == 'true'
+        run: node cloudflare/build.mjs
+
+      - name: Deploy
+        if: steps.token.outputs.ok == 'true'
+        shell: bash  # -eo pipefail, so a failed deploy fails the job despite tee
+        run: npx --yes wrangler@4 deploy 2>&1 | tee deploy.log
+
+      - name: Smoke test
+        if: steps.token.outputs.ok == 'true'
+        run: |
+          url="$(grep -o 'https://[A-Za-z0-9.-]*workers\.dev' deploy.log | head -1 || true)"
+          if [ -z "$url" ]; then echo "::notice::No workers.dev URL in deploy output; skipping smoke test"; exit 0; fi
+          echo "Smoke-testing $url"
+          curl -fsS --retry 3 --retry-delay 5 "$url/api/health"; echo
+          curl -fsS -o /dev/null -w "index %{http_code}\n" "$url/"
