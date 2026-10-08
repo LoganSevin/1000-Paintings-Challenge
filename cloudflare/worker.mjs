@@ -8,9 +8,11 @@ import process from "node:process";
 import { setBlobsDatabase } from "./blobs-d1.mjs";
 import { servePacked, PACKED_PREFIXES } from "./packs.mjs";
 
+import animateCast from "../netlify/functions/animate-cast.mjs";
 import authConfig from "../netlify/functions/auth-config.mjs";
 import authGoogle from "../netlify/functions/auth-google.mjs";
 import blendSpells from "../netlify/functions/blend-spells.mjs";
+import cameoVideo from "../netlify/functions/cameo-video.mjs";
 import claudeChat from "../netlify/functions/claude-chat.mjs";
 import galleryCheckin from "../netlify/functions/gallery-checkin.mjs";
 import generateStasisVision from "../netlify/functions/generate-stasis-vision.mjs";
@@ -30,9 +32,11 @@ import xaiUsage from "../netlify/functions/xai-usage.mjs";
 
 // Function name -> handler (also reachable as /.netlify/functions/<name>).
 export const FUNCTIONS = {
+  "animate-cast": animateCast,
   "auth-config": authConfig,
   "auth-google": authGoogle,
   "blend-spells": blendSpells,
+  "cameo-video": cameoVideo,
   "claude-chat": claudeChat,
   "gallery-checkin": galleryCheckin,
   "generate-stasis-vision": generateStasisVision,
@@ -74,6 +78,8 @@ const API_ROUTES = [
   ["/api/auth/google", "auth-google"],
   ["/api/claude-chat", "claude-chat"],
   ["/api/openai-chat", "openai-chat"],
+  ["/api/cameo-video", "cameo-video"],
+  ["/api/animate-cast", "animate-cast"],
 ];
 
 export function matchRoute(pathname) {

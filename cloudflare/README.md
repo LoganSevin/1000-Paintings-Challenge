@@ -25,12 +25,14 @@ Free-plan limits that shaped this:
   (one open, visible tab ≈ 8.6k presence heartbeats/day).
 - 10 ms CPU per request: fine (handlers mostly wait on network/D1).
 
-## Deploy (Workers Builds, Git-connected)
-Dashboard → Workers & Pages → Create → Import a repository → `LoganSevin/1000-Paintings-Challenge`
-- Production branch: `main`
-- Build command: `node cloudflare/build.mjs`
-- Deploy command: `npx wrangler deploy`
-- Build variable: `SKIP_DEPENDENCY_INSTALL=1` (the Worker needs no npm packages)
+## Deploy (GitHub Actions)
+`.github/workflows/cloudflare-deploy.yml` runs on every push to `main` (and on
+manual "Run workflow"): adapter tests -> `node cloudflare/build.mjs` ->
+`wrangler deploy` -> smoke test of `/api/health`. It needs the repo secret
+`CLOUDFLARE_DEPLOY_TOKEN` (API token with Workers Scripts Edit + D1 Edit on the
+account); without it the job skips. Set it without echoing the value, e.g.
+`printenv CLOUDFLARE_DEPLOY_TOKEN | gh secret set CLOUDFLARE_DEPLOY_TOKEN`.
+Manual deploy from a checkout: `node cloudflare/build.mjs && npx wrangler deploy`.
 
 Secrets (Worker → Settings → Variables and Secrets, type Secret):
 `XAI_API_KEY` (or `XAI_API_KEYS`), `CLOUDFLARE_API_TOKEN` (Workers AI),
