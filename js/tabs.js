@@ -99,6 +99,7 @@
     lumen: document.getElementById("panel-lumen"),
     cameos: document.getElementById("panel-cameos"),
     codes: document.getElementById("panel-codes"),
+    diction: document.getElementById("panel-diction"),
     houma: document.getElementById("panel-houma"),
     thousand: document.getElementById("panel-thousand"),
     moba: document.getElementById("panel-moba"),
@@ -209,6 +210,7 @@
     lumen: "Lumen — closed lines are fills; textures morph inward to a substance; void is the empty space outside",
     cameos: "Cameos — upload any image; a portrait short says 1 through 6, then looks left, right, and left again",
     codes: "Codes — eight-character references from 00000000 to zzzzzzzz",
+    diction: "Dictionary — every headword A to Z; highlight a definition and right-click to generate it",
     houma: "Houma — GTA-style open world on the Terrebonne map: tunnel, bayou, Southland, port",
     thousand: "1000 — a thousand different game templates you can click and rewrite",
     moba: "MOBA — click-to-move lanes, towers, minions, QWER",
@@ -315,6 +317,7 @@
     if (name === "sine" || name === "sinewave" || name === "sine-wave" || name === "light") name = "lumen";
     if (name === "cameo") name = "cameos";
     if (name === "code") name = "codes";
+    if (name === "dictionary") name = "diction";
     if (name === "anthropic") name = "claude";
     if (name === "openai" || name === "gpt") name = "chatgpt";
     if (name === "kids") {
@@ -1068,6 +1071,12 @@
         window.Codes.onShow();
       }
       hideOtherTabs(name);
+    } else if (name === "diction") {
+      window.dispatchEvent(new Event("diction-show"));
+      if (window.Diction && window.Diction.onShow) {
+        window.Diction.onShow();
+      }
+      hideOtherTabs(name);
     } else if (name === "maps") {
       window.dispatchEvent(new Event("maps-show"));
       if (window.Maps && window.Maps.onShow) {
@@ -1161,6 +1170,7 @@
     if (tabName === "sine" || tabName === "sinewave" || tabName === "sine-wave" || tabName === "light") tabName = "lumen";
     if (tabName === "cameo") tabName = "cameos";
     if (tabName === "code") tabName = "codes";
+    if (tabName === "dictionary") tabName = "diction";
     if (tabName === "anthropic") tabName = "claude";
     if (tabName === "openai" || tabName === "gpt") tabName = "chatgpt";
     if (tabName === "rooms") tabName = "places";
