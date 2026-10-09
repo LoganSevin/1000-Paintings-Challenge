@@ -135,22 +135,50 @@
   color: var(--text-muted);
 }
 
+.dict-pos-block {
+  margin: 0 0 1.05rem;
+}
+
+.dict-pos-block h4 {
+  margin: 0 0 0.4rem;
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
+}
+
 .dict-sense {
   margin: 0 0 0.75rem;
 }
 
-.dict-pos {
-  display: inline-block;
-  margin-right: 0.35rem;
-  color: var(--accent);
-  font-size: 0.78rem;
-  letter-spacing: 0.03em;
-  text-transform: lowercase;
+.dict-def {
+  margin: 0 0 0.35rem;
 }
 
-.dict-example {
+.dict-sentence {
+  margin: 0 0 0.45rem;
+  padding: 0.45rem 0.65rem;
+  border-left: 2px solid var(--accent, #d7c4a3);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  background: var(--bg-elevated);
+}
+
+.dict-sentence-label {
   display: block;
-  margin-top: 0.2rem;
+  margin-bottom: 0.15rem;
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.dict-sentence mark {
+  background: transparent;
+  color: var(--accent);
+}
+
+.dict-sentence-missing {
   color: var(--text-muted);
 }
 

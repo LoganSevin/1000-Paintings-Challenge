@@ -272,15 +272,154 @@
     return entry.senses
       .map(function (sense) {
         var line = sense.def || "";
-        if (sense.example) {
-          var ex = sense.example;
+        var ex = sense.examples && sense.examples[0] && sense.examples[0].text;
+        if (ex) {
           if (!/[.!?]$/.test(ex)) ex += ".";
-          line += " Example: " + ex;
+          line += " In a sentence: " + ex;
         }
         return line;
       })
       .filter(Boolean)
       .join(" ");
+  }
+
+  function markUses(sentence, forms) {
+    var list = [];
+    (forms || []).forEach(function (form) {
+      form = String(form || "").trim();
+      if (!form) return;
+      var key = form.toLowerCase();
+      if (list.some(function (item) { return item.toLowerCase() === key; })) return;
+      list.push(form);
+    });
+    list.sort(function (a, b) { return b.length - a.length; });
+    var safe = escapeHtml(sentence);
+    if (!list.length) return safe;
+    var re = new RegExp(
+      "\\b(" +
+        list
+          .map(function (form) {
+            return form.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+          })
+          .join("|") +
+        ")\\b",
+      "gi"
+    );
+    return safe.replace(re, "<mark>$1</mark>");
+  }
+
+  function takeExamples(def) {
+    var raw = [];
+    var parsed = (def && def.parsedExamples) || [];
+    var i;
+    for (i = 0; i < parsed.length; i++) {
+      var html = parsed[i] && (parsed[i].example || parsed[i]);
+      if (html) raw.push(String(html));
+    }
+    if (!raw.length && def && def.examples) {
+      for (i = 0; i < def.examples.length; i++) raw.push(String(def.examples[i]));
+    }
+    var out = [];
+    for (i = 0; i < raw.length && out.length < 2; i++) {
+      var forms = [];
+      raw[i].replace(/<b>([^<]+)<\/b>/gi, function (_, used) {
+        forms.push(plainDefinition(used));
+        return _;
+      });
+      var text = plainDefinition(raw[i]);
+      if (!text || text.length < 2) continue;
+      if (out.some(function (item) { return item.text === text; })) continue;
+      out.push({ text: text, forms: forms });
+    }
+    return out;
+  }
+
+  function blocksFrom(data) {
+    var meanings = (data && data.en) || [];
+    var english = meanings.filter(function (meaning) {
+      return (meaning.language || "English") === "English";
+    });
+    if (english.length) meanings = english;
+    var blocks = [];
+    meanings.forEach(function (meaning) {
+      var pos = meaning.partOfSpeech || "definition";
+      var senses = [];
+      (meaning.definitions || []).forEach(function (def) {
+        var html = (def && def.definition) || "";
+        if (/<ol\b/i.test(html)) return;
+        var text = plainDefinition(html);
+        if (!text) return;
+        senses.push({
+          pos: pos,
+          def: text,
+          examples: takeExamples(def),
+        });
+      });
+      var picked = [];
+      var spare = null;
+      senses.forEach(function (sense) {
+        if (picked.length < 3) picked.push(sense);
+        else if (!spare && sense.examples.length) spare = sense;
+      });
+      if (spare) picked.push(spare);
+      if (!picked.length) return;
+      var existing = null;
+      blocks.forEach(function (block) {
+        if (block.pos.toLowerCase() === pos.toLowerCase()) existing = block;
+      });
+      if (!existing) {
+        blocks.push({ pos: pos, senses: picked });
+        return;
+      }
+      picked.forEach(function (sense) {
+        if (existing.senses.length >= 3) return;
+        var already = existing.senses.some(function (item) {
+          return item.examples.length;
+        });
+        if (!sense.examples.length && already) return;
+        existing.senses.push(sense);
+      });
+    });
+    return blocks.slice(0, 6);
+  }
+
+  function renderSenses(entry) {
+    var blocks = entry.blocks || [];
+    if (!blocks.length) {
+      return '<p class="dict-empty">No published definition for this headword. Highlight the word and right-click to generate it.</p>';
+    }
+    return blocks
+      .map(function (block) {
+        var any = block.senses.some(function (sense) {
+          return sense.examples && sense.examples.length;
+        });
+        var body = block.senses
+          .map(function (sense) {
+            var sentences = (sense.examples || [])
+              .map(function (ex) {
+                return (
+                  '<p class="dict-sentence"><span class="dict-sentence-label">In a sentence</span> ' +
+                  markUses(ex.text, (ex.forms || []).concat([entry.word])) +
+                  "</p>"
+                );
+              })
+              .join("");
+            return '<div class="dict-sense"><p class="dict-def">' + escapeHtml(sense.def) + "</p>" + sentences + "</div>";
+          })
+          .join("");
+        var missing = any
+          ? ""
+          : '<p class="dict-sentence dict-sentence-missing"><span class="dict-sentence-label">In a sentence</span> No published sentence for this part of speech.</p>';
+        return (
+          '<section class="dict-pos-block"><h4>' +
+          escapeHtml(block.pos) +
+          "</h4>" +
+          body +
+          missing +
+          "</section>"
+        );
+      })
+      .join("");
   }
 
   function renderEntry(entry) {
@@ -291,23 +430,7 @@
       root.innerHTML = '<p class="dict-empty">Pick a word.</p>';
       return;
     }
-    var senses = entry.senses || [];
-    var body = senses.length
-      ? senses
-          .map(function (sense) {
-            return (
-              '<p class="dict-sense"><span class="dict-pos">' +
-              escapeHtml(sense.pos || "definition") +
-              "</span> " +
-              escapeHtml(sense.def) +
-              (sense.example
-                ? '<span class="dict-example">“' + escapeHtml(sense.example) + "”</span>"
-                : "") +
-              "</p>"
-            );
-          })
-          .join("")
-      : '<p class="dict-empty">No published definition for this headword. Highlight the word and right-click to generate it.</p>';
+    var body = renderSenses(entry);
     var painting = chosenPainting(entry.word);
     var figure = painting
       ? '<figure class="dict-result"><img id="dict-result-img" alt="' +
@@ -355,24 +478,13 @@
         return r.json();
       })
       .then(function (data) {
-        var entry = { word: word, phonetic: "", senses: [] };
-        var meanings = (data && data.en) || [];
-        meanings.forEach(function (meaning) {
-          (meaning.definitions || []).slice(0, 3).forEach(function (def) {
-            var text = plainDefinition(def && def.definition);
-            if (!text) return;
-            var example = "";
-            if (def.parsedExamples && def.parsedExamples[0]) {
-              example = plainDefinition(def.parsedExamples[0].example);
-            }
-            entry.senses.push({
-              pos: meaning.partOfSpeech || "",
-              def: text,
-              example: example,
-            });
+        var entry = { word: word, phonetic: "", senses: [], blocks: [] };
+        entry.blocks = data ? blocksFrom(data) : [];
+        entry.blocks.forEach(function (block) {
+          block.senses.forEach(function (sense) {
+            entry.senses.push(sense);
           });
         });
-        entry.senses = entry.senses.slice(0, 8);
         defs[word] = entry;
         if (activeWord === word) renderEntry(entry);
       })
