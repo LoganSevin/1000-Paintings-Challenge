@@ -288,7 +288,7 @@
     if (orbit) {
       orbit.textContent = tool === "orbit"
         ? "Drag to orbit. Scroll to move in."
-        : "Drag on the mesh to " + tool + ". Scroll still moves in.";
+        : "Drag on the mesh to " + tool + ". Middle-click to orbit. Scroll still moves in.";
     }
     var canvas = $("mx-cloud");
     if (canvas) canvas.classList.toggle("is-sculpt", tool !== "orbit");
@@ -589,9 +589,15 @@
     var canvas = $("mx-cloud");
     if (!canvas || canvas.dataset.bound) return;
     canvas.dataset.bound = "1";
+    canvas.addEventListener("mousedown", function (e) {
+      if (e.button === 1) e.preventDefault();
+    });
     canvas.addEventListener("pointerdown", function (e) {
       var rect = canvas.getBoundingClientRect();
-      if (tool !== "orbit") {
+      var orbiting = tool === "orbit" || e.button === 1;
+      if (e.button === 1) e.preventDefault();
+      if (!orbiting) {
+        if (e.button !== 0) return;
         view.drag = { mode: "sculpt", id: e.pointerId };
         sculptAt(e.clientX - rect.left, e.clientY - rect.top);
         try { if (canvas.setPointerCapture) canvas.setPointerCapture(e.pointerId); } catch (err) {}
@@ -599,6 +605,7 @@
       }
       view.drag = { mode: "orbit", x: e.clientX, y: e.clientY, yaw: view.yaw, pitch: view.pitch, id: e.pointerId };
       try { if (canvas.setPointerCapture) canvas.setPointerCapture(e.pointerId); } catch (err) {}
+      canvas.classList.add("is-orbiting");
     });
     canvas.addEventListener("pointermove", function (e) {
       if (!view.drag || e.pointerId !== view.drag.id) return;
@@ -611,7 +618,10 @@
       view.pitch = clamp(view.drag.pitch + (e.clientY - view.drag.y) * 0.008, -1.15, 1.15);
     });
     function endDrag(e) {
-      if (view.drag && e.pointerId === view.drag.id) view.drag = null;
+      if (view.drag && e.pointerId === view.drag.id) {
+        view.drag = null;
+        canvas.classList.remove("is-orbiting");
+      }
     }
     canvas.addEventListener("pointerup", endDrag);
     canvas.addEventListener("pointercancel", endDrag);

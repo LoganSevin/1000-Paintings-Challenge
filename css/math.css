@@ -131,6 +131,10 @@
   cursor: crosshair;
 }
 
+#mx-cloud.is-orbiting {
+  cursor: grabbing;
+}
+
 .mx-orbit {
   margin-top: 0.35rem;
 }
