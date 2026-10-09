@@ -17,6 +17,9 @@
   var menuPhrase = "";
   var busy = false;
   var paintRaf = 0;
+  var STORE = "l7in_diction_inventory_v1";
+  var inventory = {};
+  var picked = {};
 
   function $(id) {
     return document.getElementById(id);
@@ -46,6 +49,117 @@
       .replace(/</g, "&lt;")
       .replace(/>/g, "&gt;")
       .replace(/"/g, "&quot;");
+  }
+
+  function loadInventory() {
+    try {
+      var raw = JSON.parse(localStorage.getItem(STORE) || "{}");
+      inventory = raw && typeof raw === "object" ? raw : {};
+    } catch (e) {
+      inventory = {};
+    }
+  }
+
+  function saveInventory() {
+    var keys = Object.keys(inventory);
+    if (keys.length > 80) {
+      keys.sort(function (a, b) {
+        var aa = inventory[a][0] && inventory[a][0].at;
+        var bb = inventory[b][0] && inventory[b][0].at;
+        return (aa || 0) - (bb || 0);
+      });
+      keys.slice(0, keys.length - 80).forEach(function (key) {
+        delete inventory[key];
+      });
+    }
+    var stored = {};
+    Object.keys(inventory).forEach(function (key) {
+      var list = paintingsFor(key).filter(function (item) {
+        return !(String(item.url).indexOf("data:") === 0 && String(item.url).length > 120000);
+      });
+      if (list.length) stored[key] = list;
+    });
+    try {
+      localStorage.setItem(STORE, JSON.stringify(stored));
+    } catch (e) {
+      keys = Object.keys(stored);
+      keys.slice(0, Math.ceil(keys.length / 2)).forEach(function (key) {
+        delete stored[key];
+        delete inventory[key];
+      });
+      try {
+        localStorage.setItem(STORE, JSON.stringify(stored));
+      } catch (e2) {}
+    }
+  }
+
+  function paintingsFor(word) {
+    var list = inventory[word];
+    return Array.isArray(list) ? list : [];
+  }
+
+  function rememberPainting(word, phrase, url) {
+    word = String(word || "").toLowerCase();
+    url = String(url || "");
+    if (!word || !url) return;
+    var list = paintingsFor(word).slice();
+    list.unshift({
+      phrase: String(phrase || word).replace(/\s+/g, " ").trim().slice(0, 180),
+      url: url,
+      at: Date.now(),
+    });
+    if (list.length > 24) list.length = 24;
+    inventory[word] = list;
+    picked[word] = 0;
+    saveInventory();
+  }
+
+  function chosenPainting(word) {
+    var list = paintingsFor(word);
+    if (!list.length) return null;
+    var idx = picked[word];
+    if (idx == null || idx < 0 || idx >= list.length) idx = 0;
+    picked[word] = idx;
+    return list[idx];
+  }
+
+  function inventoryMarkup(word) {
+    var list = paintingsFor(word);
+    if (!list.length) return "";
+    var chosen = chosenPainting(word);
+    var rows = list
+      .map(function (item, i) {
+        var on = item === chosen;
+        return (
+          '<button type="button" class="dict-inventory-item' +
+          (on ? " is-on" : "") +
+          '" data-inv="' +
+          i +
+          '" role="option" aria-selected="' +
+          (on ? "true" : "false") +
+          '"><img alt="" src="' +
+          escapeHtml(item.url) +
+          '"><span>' +
+          escapeHtml(item.phrase || word) +
+          "</span></button>"
+        );
+      })
+      .join("");
+    return (
+      '<div class="dict-inventory">' +
+      '<p class="dict-inventory-label">Image inventory</p>' +
+      '<button type="button" id="dict-inventory-toggle" class="dict-inventory-toggle" aria-expanded="false" aria-haspopup="listbox" aria-label="Image inventory">' +
+      '<img alt="" src="' +
+      escapeHtml(chosen.url) +
+      '"><span>' +
+      escapeHtml(chosen.phrase || word) +
+      '</span><em>' +
+      list.length +
+      "</em></button>" +
+      '<div id="dict-inventory-menu" class="dict-inventory-menu" hidden role="listbox" aria-label="Image inventory">' +
+      rows +
+      "</div></div>"
+    );
   }
 
   function loadLetter(ch) {
@@ -194,34 +308,27 @@
           })
           .join("")
       : '<p class="dict-empty">No published definition for this headword. Highlight the word and right-click to generate it.</p>';
-    var figure = "";
-    var img = $("dict-result-img");
-    if (img && img.getAttribute("src")) {
-      figure =
-        '<figure class="dict-result"><img id="dict-result-img" alt="Generated from the highlighted phrase" src="' +
-        escapeHtml(img.getAttribute("src")) +
-        '"></figure>';
-    } else {
-      figure =
-        '<figure class="dict-result" hidden><img id="dict-result-img" alt="Generated from the highlighted phrase"></figure>';
-    }
+    var painting = chosenPainting(entry.word);
+    var figure = painting
+      ? '<figure class="dict-result"><img id="dict-result-img" alt="' +
+        escapeHtml(painting.phrase || entry.word) +
+        '" src="' +
+        escapeHtml(painting.url) +
+        '"></figure>'
+      : "";
     root.innerHTML =
       "<h3>" +
       escapeHtml(entry.word) +
       "</h3>" +
       (entry.phonetic ? '<p class="dict-phonetic">' + escapeHtml(entry.phonetic) + "</p>" : "") +
       body +
+      inventoryMarkup(entry.word) +
       figure;
   }
 
-  function showImage(url) {
-    renderEntry(currentEntry);
-    var img = $("dict-result-img");
-    var fig = img && img.parentElement;
-    if (!img) return;
-    img.src = url;
-    img.alt = "Generated from the highlighted phrase";
-    if (fig) fig.hidden = false;
+  function showImage(word, phrase, url) {
+    rememberPainting(word, phrase, url);
+    if (activeWord === word && currentEntry && currentEntry.word === word) renderEntry(currentEntry);
   }
 
   function openWord(word) {
@@ -236,7 +343,10 @@
     var root = $("dict-entry");
     if (root) {
       root.innerHTML =
-        "<h3>" + escapeHtml(word) + '</h3><p class="dict-empty">Opening the definition…</p>';
+        "<h3>" +
+        escapeHtml(word) +
+        '</h3><p class="dict-empty">Opening the definition…</p>' +
+        inventoryMarkup(word);
     }
     fetch("https://en.wiktionary.org/api/rest_v1/page/definition/" + encodeURIComponent(word))
       .then(function (r) {
@@ -381,6 +491,7 @@
 
   function generate(phrase) {
     if (busy || !phrase) return;
+    var word = activeWord || (currentEntry && currentEntry.word) || "";
     busy = true;
     hideMenu();
     var prompt = buildPrompt(phrase, currentEntry);
@@ -418,8 +529,13 @@
         throw new Error((d && d.error) || "The painting did not start.");
       })
       .then(function (url) {
-        showImage(url);
-        setStatus("Painted “" + phrase.slice(0, 80) + "”.");
+        showImage(word, phrase, url);
+        setStatus(
+          "Painted “" +
+            phrase.slice(0, 80) +
+            "”." +
+            (word ? " It is in the image inventory for " + word + "." : "")
+        );
       })
       .catch(function (err) {
         setStatus(quietError(err));
@@ -432,7 +548,7 @@
   function onEntryContext(e) {
     var root = $("dict-entry");
     if (!root || !root.contains(e.target)) return;
-    if (e.target.closest && e.target.closest(".dict-result")) return;
+    if (e.target.closest && e.target.closest(".dict-result, .dict-inventory")) return;
     var phrase = selectionPhrase() || wordAtPoint(e.clientX, e.clientY);
     e.preventDefault();
     if (!phrase) {
@@ -512,6 +628,21 @@
     if (entry && !entry.dataset.bound) {
       entry.dataset.bound = "1";
       entry.addEventListener("contextmenu", onEntryContext);
+      entry.addEventListener("click", function (e) {
+        var toggle = e.target.closest(".dict-inventory-toggle");
+        if (toggle) {
+          var menu = $("dict-inventory-menu");
+          if (!menu) return;
+          var willOpen = menu.hidden;
+          menu.hidden = !willOpen;
+          toggle.setAttribute("aria-expanded", willOpen ? "true" : "false");
+          return;
+        }
+        var opt = e.target.closest("[data-inv]");
+        if (!opt || !activeWord) return;
+        picked[activeWord] = parseInt(opt.getAttribute("data-inv"), 10) || 0;
+        if (currentEntry && currentEntry.word === activeWord) renderEntry(currentEntry);
+      });
     }
 
     var go = $("dict-menu-go");
@@ -526,12 +657,22 @@
       bind.done = true;
       document.addEventListener("click", function (e) {
         var menu = $("dict-menu");
-        if (!menu || menu.hidden) return;
-        if (menu.contains(e.target)) return;
-        hideMenu();
+        if (menu && !menu.hidden && !menu.contains(e.target)) hideMenu();
+        if (e.target.closest && e.target.closest(".dict-inventory")) return;
+        var inventoryMenu = $("dict-inventory-menu");
+        var toggle = $("dict-inventory-toggle");
+        if (inventoryMenu && !inventoryMenu.hidden) {
+          inventoryMenu.hidden = true;
+          if (toggle) toggle.setAttribute("aria-expanded", "false");
+        }
       });
       document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape") hideMenu();
+        if (e.key !== "Escape") return;
+        hideMenu();
+        var inventoryMenu = $("dict-inventory-menu");
+        var toggle = $("dict-inventory-toggle");
+        if (inventoryMenu) inventoryMenu.hidden = true;
+        if (toggle) toggle.setAttribute("aria-expanded", "false");
       });
       window.addEventListener("resize", hideMenu);
     }
@@ -548,6 +689,7 @@
     }
   }
 
+  loadInventory();
   window.Diction = { onShow: onShow };
   document.addEventListener("diction-show", onShow);
 
