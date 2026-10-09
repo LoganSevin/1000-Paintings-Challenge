@@ -34,7 +34,10 @@
     location.hostname === "localhost" ||
     location.hostname === "127.0.0.1" ||
     /^192\.168\.|^10\.|^172\.(1[6-9]|2\d|3[0-1])\./.test(location.hostname);
-  var PUBLIC_GENERATED_ORIGIN = IS_LOCAL ? "" : "https://l7in-generated.netlify.app";
+  // On Cloudflare the Worker sets window.GENERATED_ORIGIN = "" (images served at /generated/*).
+  var PUBLIC_GENERATED_ORIGIN = IS_LOCAL
+    ? ""
+    : typeof window.GENERATED_ORIGIN === "string" ? window.GENERATED_ORIGIN : "https://l7in-generated.netlify.app";
   var PC_ONLY =
     "Could not reach phone uploads. Refresh logan7in.art and try again.";
   var PC_ONLY_TRAY =

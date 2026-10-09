@@ -10,7 +10,10 @@ const LOD1_REFRESH_MS = 12000;
 const IS_LOCAL =
   location.hostname === "localhost" || location.hostname === "127.0.0.1";
 const CAN_USE_GALLERY_API = IS_LOCAL;
-const PUBLIC_GENERATED_ORIGIN = IS_LOCAL ? "" : "https://l7in-generated.netlify.app";
+// On Cloudflare the Worker sets window.GENERATED_ORIGIN = "" (images served at /generated/*).
+const PUBLIC_GENERATED_ORIGIN = IS_LOCAL
+  ? ""
+  : typeof window.GENERATED_ORIGIN === "string" ? window.GENERATED_ORIGIN : "https://l7in-generated.netlify.app";
 
 function galleryApiUrl(path) {
   const base = String(window.SPELLFORGE_API_BASE || "").replace(/\/$/, "");

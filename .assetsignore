@@ -26,3 +26,5 @@ __pycache__
 /sketches/json/
 # 32 MB > 25 MiB limit; videofy-export.js falls back to jsDelivr/unpkg for it.
 /js/vendor/ffmpeg/core/ffmpeg-core.wasm
+# Served by the l7in-generated Worker through the GENERATED service binding:
+/generated/
