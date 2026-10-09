@@ -16,6 +16,7 @@
     { group: "Look", name: "24 Hours", note: "86,400 seconds — nested rings, idle watch", href: "#hours" },
     { group: "Look", name: "Lumen", note: "Closed lines are fills. Textures morph to a substance at the core. Void is empty space outside.", href: "#lumen" },
     { group: "Look", name: "Codes", note: "Eight-character references from 00000000 to zzzzzzzz", href: "#codes" },
+    { group: "Look", name: "Periodic table", note: "All 118 elements, and covalent, ionic, and metallic bonds", href: "#periodic" },
     { group: "Language", name: "API How it works", note: "Highlight, Define, Suggest for fix", href: "#api" },
     { group: "Language", name: "JS source", note: "Read every file in js/", href: "#js" },
     { group: "Language", name: "CSS source", note: "Read every file in css/", href: "#css" },

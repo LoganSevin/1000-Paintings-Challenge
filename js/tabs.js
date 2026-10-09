@@ -100,6 +100,7 @@
     cameos: document.getElementById("panel-cameos"),
     codes: document.getElementById("panel-codes"),
     diction: document.getElementById("panel-diction"),
+    periodic: document.getElementById("panel-periodic"),
     houma: document.getElementById("panel-houma"),
     thousand: document.getElementById("panel-thousand"),
     moba: document.getElementById("panel-moba"),
@@ -211,6 +212,7 @@
     cameos: "Cameos — upload any image; a portrait short says 1 through 6, then looks left, right, and left again",
     codes: "Codes — eight-character references from 00000000 to zzzzzzzz",
     diction: "Dictionary — every headword A to Z; highlight a definition and right-click to generate it",
+    periodic: "Periodic Table — all 118 elements, and how covalent, ionic, and metallic bonds work",
     houma: "Houma — GTA-style open world on the Terrebonne map: tunnel, bayou, Southland, port",
     thousand: "1000 — a thousand different game templates you can click and rewrite",
     moba: "MOBA — click-to-move lanes, towers, minions, QWER",
@@ -318,6 +320,7 @@
     if (name === "cameo") name = "cameos";
     if (name === "code") name = "codes";
     if (name === "dictionary") name = "diction";
+    if (name === "elements" || name === "element" || name === "periodictable" || name === "periodic-table") name = "periodic";
     if (name === "anthropic") name = "claude";
     if (name === "openai" || name === "gpt") name = "chatgpt";
     if (name === "kids") {
@@ -1077,6 +1080,12 @@
         window.Diction.onShow();
       }
       hideOtherTabs(name);
+    } else if (name === "periodic") {
+      window.dispatchEvent(new Event("periodic-show"));
+      if (window.Periodic && window.Periodic.onShow) {
+        window.Periodic.onShow();
+      }
+      hideOtherTabs(name);
     } else if (name === "maps") {
       window.dispatchEvent(new Event("maps-show"));
       if (window.Maps && window.Maps.onShow) {
@@ -1171,6 +1180,7 @@
     if (tabName === "cameo") tabName = "cameos";
     if (tabName === "code") tabName = "codes";
     if (tabName === "dictionary") tabName = "diction";
+    if (tabName === "elements" || tabName === "element" || tabName === "periodictable" || tabName === "periodic-table") tabName = "periodic";
     if (tabName === "anthropic") tabName = "claude";
     if (tabName === "openai" || tabName === "gpt") tabName = "chatgpt";
     if (tabName === "rooms") tabName = "places";
