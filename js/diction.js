@@ -346,7 +346,11 @@
       var senses = [];
       (meaning.definitions || []).forEach(function (def) {
         var html = (def && def.definition) || "";
-        if (/<ol\b/i.test(html)) return;
+        if (/<ol\b/i.test(html)) {
+          var lead = plainDefinition(html.replace(/<ol[\s\S]*$/i, ""));
+          if (lead) senses.push({ pos: pos, def: lead, examples: [] });
+          return;
+        }
         var text = plainDefinition(html);
         if (!text) return;
         senses.push({
@@ -358,7 +362,7 @@
       var picked = [];
       var spare = null;
       senses.forEach(function (sense) {
-        if (picked.length < 3) picked.push(sense);
+        if (picked.length < 4) picked.push(sense);
         else if (!spare && sense.examples.length) spare = sense;
       });
       if (spare) picked.push(spare);
@@ -372,7 +376,7 @@
         return;
       }
       picked.forEach(function (sense) {
-        if (existing.senses.length >= 3) return;
+        if (existing.senses.length >= 4) return;
         var already = existing.senses.some(function (item) {
           return item.examples.length;
         });
@@ -404,7 +408,13 @@
                 );
               })
               .join("");
-            return '<div class="dict-sense"><p class="dict-def">' + escapeHtml(sense.def) + "</p>" + sentences + "</div>";
+            return (
+              '<div class="dict-sense"><div class="dict-def"><p class="dict-def-label">Definition</p><p class="dict-def-text">' +
+              escapeHtml(sense.def) +
+              "</p></div>" +
+              sentences +
+              "</div>"
+            );
           })
           .join("");
         var missing = any
