@@ -1,0 +1,231 @@
+#panel-math.panel[hidden] {
+  display: none !important;
+}
+
+#panel-math.panel.active {
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+
+.mx-shell {
+  padding: 1.25rem 1.4rem 2.5rem;
+  color: var(--text);
+  max-width: 100%;
+  min-width: 0;
+}
+
+.mx-head h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.7rem;
+  margin: 0 0 0.3rem;
+}
+
+.mx-hint,
+.mx-orbit,
+.mx-statement {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.mx-hint {
+  max-width: 44rem;
+}
+
+.mx-lab {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.85fr);
+  gap: 1rem;
+  align-items: start;
+  margin-top: 0.9rem;
+  min-width: 0;
+}
+
+.mx-stage,
+.mx-side {
+  min-width: 0;
+}
+
+.mx-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.45rem 0.8rem;
+  margin-bottom: 0.45rem;
+}
+
+.mx-bar p {
+  margin: 0;
+}
+
+#mx-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.35rem;
+}
+
+#mx-count {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+}
+
+.mx-actions-top,
+.mx-actions,
+.mx-switches,
+.mx-curriculum {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.mx-actions-top button,
+.mx-actions button,
+.mx-switches button,
+.mx-curriculum button {
+  font: inherit;
+  color: var(--text);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.32rem 0.72rem;
+  cursor: pointer;
+}
+
+.mx-actions-top button,
+.mx-curriculum button.is-on,
+.mx-switch.is-on {
+  border-color: var(--accent, #d7c4a3);
+  color: var(--accent, #d7c4a3);
+}
+
+#mx-cloud {
+  display: block;
+  width: 100%;
+  height: min(62vh, 520px);
+  min-height: 260px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: #12110e;
+  touch-action: none;
+  cursor: grab;
+}
+
+.mx-orbit {
+  margin-top: 0.35rem;
+}
+
+.mx-formula {
+  margin-top: 0.55rem;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+.mx-formula p {
+  margin: 0;
+}
+
+.mx-formula .is-off {
+  opacity: 0.35;
+}
+
+.mx-side {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.mx-label {
+  margin: 0.35rem 0 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.mx-statement {
+  min-height: 2.6rem;
+}
+
+.mx-gauge {
+  display: grid;
+  grid-template-columns: 7.2rem minmax(0, 1fr) 2.6rem;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0.18rem 0;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.mx-gauge input {
+  width: 100%;
+  min-width: 0;
+  accent-color: var(--accent, #d7c4a3);
+}
+
+.mx-gauge-val {
+  text-align: right;
+  color: var(--text);
+}
+
+.mx-route {
+  margin: 0;
+  padding-left: 1.15rem;
+  font-size: 0.84rem;
+  line-height: 1.4;
+}
+
+.mx-route li {
+  margin: 0.18rem 0;
+  color: var(--text-muted);
+}
+
+.mx-route li.is-done {
+  color: var(--text);
+}
+
+.mx-route li.is-done::marker {
+  color: var(--accent, #d7c4a3);
+}
+
+.mx-answer {
+  margin: 0;
+  padding: 0.7rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  font-size: 0.88rem;
+  line-height: 1.4;
+}
+
+@media (max-width: 800px) {
+  .mx-shell {
+    padding: 1rem 0.75rem 2rem;
+  }
+
+  .mx-lab {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .mx-stage {
+    order: -1;
+  }
+
+  #mx-cloud {
+    height: 280px;
+    min-height: 220px;
+  }
+
+  .mx-gauge {
+    grid-template-columns: 6.2rem minmax(0, 1fr) 2.4rem;
+  }
+}

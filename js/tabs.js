@@ -101,6 +101,7 @@
     codes: document.getElementById("panel-codes"),
     diction: document.getElementById("panel-diction"),
     periodic: document.getElementById("panel-periodic"),
+    math: document.getElementById("panel-math"),
     houma: document.getElementById("panel-houma"),
     thousand: document.getElementById("panel-thousand"),
     moba: document.getElementById("panel-moba"),
@@ -213,6 +214,7 @@
     codes: "Codes — eight-character references from 00000000 to zzzzzzzz",
     diction: "Dictionary — every headword A to Z; highlight a definition and right-click to generate it",
     periodic: "Periodic Table — set elements on a bench, bond them, and heat a sample until it melts or boils",
+    math: "Math — one shot runs a solved route; gauges and switches drive a 3D point cloud",
     houma: "Houma — GTA-style open world on the Terrebonne map: tunnel, bayou, Southland, port",
     thousand: "1000 — a thousand different game templates you can click and rewrite",
     moba: "MOBA — click-to-move lanes, towers, minions, QWER",
@@ -321,6 +323,7 @@
     if (name === "code") name = "codes";
     if (name === "dictionary") name = "diction";
     if (name === "elements" || name === "element" || name === "periodictable" || name === "periodic-table") name = "periodic";
+    if (name === "mathematics" || name === "maths") name = "math";
     if (name === "anthropic") name = "claude";
     if (name === "openai" || name === "gpt") name = "chatgpt";
     if (name === "kids") {
@@ -1084,6 +1087,12 @@
       window.dispatchEvent(new Event("periodic-show"));
       if (window.Periodic && window.Periodic.onShow) {
         window.Periodic.onShow();
+      }
+      hideOtherTabs(name);
+    } else if (name === "math") {
+      window.dispatchEvent(new Event("math-show"));
+      if (window.MathLab && window.MathLab.onShow) {
+        window.MathLab.onShow();
       }
       hideOtherTabs(name);
     } else if (name === "maps") {

@@ -58,6 +58,7 @@
   <link rel="stylesheet" href="css/codes.css?v=3" />
   <link rel="stylesheet" href="css/diction.css?v=1" />
   <link rel="stylesheet" href="css/periodic.css?v=6" />
+  <link rel="stylesheet" href="css/math.css?v=1" />
   <link rel="stylesheet" href="css/print-shops.css?v=2" />
   <link rel="stylesheet" href="css/subscribe.css?v=1" />
   <link rel="stylesheet" href="css/gallery-welcome.css?v=10" />
@@ -326,6 +327,7 @@
         <button type="button" class="tab" data-tab="codes">Codes</button>
         <button type="button" class="tab" data-tab="diction">Diction</button>
         <button type="button" class="tab" data-tab="periodic">Periodic</button>
+        <button type="button" class="tab" data-tab="math">Math</button>
       </nav>
       <nav class="kids-tabs" id="kids-tabs" aria-label="Kids">
         <button type="button" class="tab" data-tab="kids-baby">Baby Cartoons</button>
@@ -7982,6 +7984,46 @@
     </div>
   </section>
 
+  <section id="panel-math" class="panel" hidden>
+    <div class="mx-shell">
+      <header class="mx-head">
+        <div>
+          <h2>Math</h2>
+          <p class="mx-hint">One shot runs the solved route. Gauges and switches rewrite the object. The point cloud is that object.</p>
+        </div>
+      </header>
+      <div class="mx-lab">
+        <div class="mx-stage">
+          <div class="mx-bar">
+            <p id="mx-title">Piecewise</p>
+            <p id="mx-count"></p>
+            <div class="mx-actions-top">
+              <button type="button" id="mx-shot">One shot</button>
+              <button type="button" id="mx-reset">Reset</button>
+            </div>
+          </div>
+          <canvas id="mx-cloud" aria-label="Math point cloud"></canvas>
+          <p class="mx-orbit">Drag to orbit. Scroll to move in.</p>
+          <div id="mx-formula" class="mx-formula"></div>
+        </div>
+        <div class="mx-side">
+          <div id="mx-curriculum" class="mx-curriculum"></div>
+          <p id="mx-statement" class="mx-statement"></p>
+          <h3 class="mx-label">Gauges</h3>
+          <div id="mx-gauges" class="mx-gauges"></div>
+          <h3 class="mx-label">Switches</h3>
+          <div id="mx-switches" class="mx-switches"></div>
+          <h3 class="mx-label">Actions</h3>
+          <div id="mx-actions" class="mx-actions"></div>
+          <h3 class="mx-label">Route</h3>
+          <ol id="mx-route" class="mx-route"></ol>
+          <h3 class="mx-label">Solved</h3>
+          <p id="mx-answer" class="mx-answer"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="panel-commercial" class="panel" hidden>
     <div class="co-shell">
       <header class="co-top">
@@ -9071,15 +9113,16 @@
   <script defer src="js/codes.js?v=2"></script>
   <script defer src="js/diction.js?v=1"></script>
   <script defer src="js/periodic.js?v=7"></script>
+  <script defer src="js/math.js?v=1"></script>
   <script defer src="js/profit.js?v=2"></script>
   <script defer src="js/tabloid-print.js?v=2"></script>
   <script src="https://accounts.google.com/gsi/client" async defer></script>
   <script defer src="js/site-nav.js?v=5"></script>
   <script defer src="js/kids.js?v=4"></script>
   <script defer src="js/kids-art.js?v=7"></script>
-  <script defer src="js/tabs.js?v=116"></script>
+  <script defer src="js/tabs.js?v=117"></script>
   <script defer src="js/source-tabs.js?v=5"></script>
-  <script defer src="js/studio-tab.js?v=11"></script>
+  <script defer src="js/studio-tab.js?v=12"></script>
   <script defer src="js/grok-tab.js?v=1"></script>
   <script defer src="js/tokens-tab.js?v=1"></script>
   <script defer src="js/vendor-tab.js?v=4"></script>
