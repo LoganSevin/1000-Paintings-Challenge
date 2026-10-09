@@ -200,6 +200,137 @@
     return n === 1 ? sign : String(n) + sign;
   }
 
+  function angDiff(a, b) {
+    var d = Math.abs(a - b) % (Math.PI * 2);
+    return d > Math.PI ? Math.PI * 2 - d : d;
+  }
+
+  function partnerAngles(atom) {
+    var angles = [];
+    var i;
+    for (i = 0; i < bonds.length; i++) {
+      var bond = bonds[i];
+      if (bond.kind === "metallic") continue;
+      var otherId = bond.a === atom.id ? bond.b : bond.b === atom.id ? bond.a : 0;
+      if (!otherId) continue;
+      var other = atomById(otherId);
+      if (!other) continue;
+      angles.push(Math.atan2(other.fy - atom.fy, other.fx - atom.fx));
+    }
+    return angles;
+  }
+
+  function inMetalSea(atom) {
+    var i;
+    for (i = 0; i < bonds.length; i++) {
+      if (bonds[i].kind === "metallic" && (bonds[i].a === atom.id || bonds[i].b === atom.id)) return true;
+    }
+    return false;
+  }
+
+  function freeSides(avoid) {
+    var sides = [];
+    var base = avoid.length ? avoid[0] : -Math.PI / 2;
+    var i;
+    var j;
+    for (i = 0; i < 4; i++) {
+      var ang = avoid.length ? base + i * (Math.PI / 2) : -Math.PI / 2 + i * (Math.PI / 2);
+      var blocked = false;
+      for (j = 0; j < avoid.length; j++) {
+        if (angDiff(ang, avoid[j]) < 0.65) blocked = true;
+      }
+      if (!blocked) sides.push(ang);
+    }
+    if (avoid.length) {
+      var sorted = avoid.slice().sort(function (a, b) { return a - b; });
+      for (i = 0; i < sorted.length; i++) {
+        var a = sorted[i];
+        var b = sorted[(i + 1) % sorted.length];
+        var gap = i === sorted.length - 1 ? sorted[0] + Math.PI * 2 - a : b - a;
+        if (gap > 1.05) sides.push(a + gap / 2);
+      }
+    }
+    return sides;
+  }
+
+  function arrangeDots(electronCount, openCount, avoid) {
+    var singles = Math.max(0, Math.min(openCount, electronCount));
+    var paired = electronCount - singles;
+    if (paired % 2) {
+      paired -= 1;
+      singles += 1;
+    }
+    var kinds = [];
+    var pairs = paired / 2;
+    var spare = singles - Math.max(0, openCount);
+    var open = Math.max(0, openCount);
+    var i;
+    while (pairs > 0) {
+      kinds.push("pair");
+      pairs -= 1;
+    }
+    while (spare > 0) {
+      kinds.push("lone");
+      spare -= 1;
+    }
+    while (open > 0) {
+      kinds.push("single");
+      open -= 1;
+    }
+    var sides = freeSides(avoid);
+    var guard = 0;
+    while (sides.length < kinds.length && guard < 6) {
+      sides.push((sides.length ? sides[sides.length - 1] : -Math.PI / 2) + 0.8);
+      guard += 1;
+    }
+    var dots = [];
+    for (i = 0; i < kinds.length && i < sides.length; i++) {
+      if (kinds[i] === "pair") {
+        dots.push({ ang: sides[i], spread: -1, kind: "pair" });
+        dots.push({ ang: sides[i], spread: 1, kind: "pair" });
+      } else {
+        dots.push({ ang: sides[i], spread: 0, kind: kinds[i] });
+      }
+    }
+    return dots;
+  }
+
+  function shellRadius(el) {
+    return el.symbol === "H" || el.symbol === "He" ? 28 : 38;
+  }
+
+  function metalGroups() {
+    var parent = {};
+    function find(id) {
+      if (parent[id] == null) parent[id] = id;
+      if (parent[id] !== id) parent[id] = find(parent[id]);
+      return parent[id];
+    }
+    var i;
+    for (i = 0; i < bonds.length; i++) {
+      if (bonds[i].kind !== "metallic") continue;
+      var a = bonds[i].a;
+      var b = bonds[i].b;
+      parent[find(a)] = find(b);
+    }
+    var groups = [];
+    var seen = {};
+    Object.keys(parent).forEach(function (key) {
+      var root = find(parseInt(key, 10));
+      if (seen[root]) return;
+      seen[root] = true;
+      var members = [];
+      Object.keys(parent).forEach(function (id) {
+        if (find(parseInt(id, 10)) === root) {
+          var atom = atomById(parseInt(id, 10));
+          if (atom) members.push(atom);
+        }
+      });
+      if (members.length) groups.push(members);
+    });
+    return groups;
+  }
+
   function orderName(order) {
     return order === 3 ? "Triple" : order === 2 ? "Double" : "Single";
   }
@@ -269,7 +400,9 @@
     var hand = $("pt-hand");
     if (!hand) return;
     if (!armed || !bySymbol[armed]) hand.textContent = "Nothing in hand.";
-    else hand.textContent = "Holding " + bySymbol[armed].name.toLowerCase() + ". Click the bench, or click an atom to attach it.";
+    else hand.textContent = bySymbol[armed].name + " in hand. Tap the bench, or tap an atom with an open spot.";
+    var bench = $("pt-bench");
+    if (bench) bench.classList.toggle("has-hand", !!armed);
   }
 
   function arm(symbol) {
@@ -318,10 +451,12 @@
       return;
     }
     if (isMetal(eA) && isMetal(eB)) {
-      if (existing) actionNote = eA.name + " and " + eB.name + " already share a metallic sea.";
+      if (existing) actionNote = "Those atoms already share a metallic sea.";
       else {
         bonds.push({ a: idA, b: idB, order: 1, kind: "metallic" });
-        actionNote = eA.name + " and " + eB.name + " pool their outer electrons. Metallic bond.";
+        actionNote = eA.name === eB.name
+          ? "The " + eA.name.toLowerCase() + " atoms pool their outer electrons. Metallic bond."
+          : eA.name + " and " + eB.name + " pool their outer electrons. Metallic bond.";
       }
       return;
     }
@@ -440,15 +575,77 @@
     if (hint) hint.hidden = atoms.length > 0;
   }
 
+  function svgEl(name, attrs) {
+    var node = document.createElementNS("http://www.w3.org/2000/svg", name);
+    Object.keys(attrs).forEach(function (key) {
+      node.setAttribute(key, attrs[key]);
+    });
+    return node;
+  }
+
+  function dotAt(atom, el, dot, w, h) {
+    var radius = shellRadius(el);
+    var ang = dot.ang;
+    var x = atom.fx * w + Math.cos(ang) * radius + (-Math.sin(ang)) * dot.spread * 5.5;
+    var y = atom.fy * h + Math.sin(ang) * radius + Math.cos(ang) * dot.spread * 5.5;
+    return { x: x, y: y };
+  }
+
   function paintBonds() {
     var bench = $("pt-bench");
     if (!bench) return;
     var w = bench.clientWidth || 640;
     var h = bench.clientHeight || 360;
-    var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    svg.setAttribute("class", "pt-bond-svg");
-    svg.setAttribute("viewBox", "0 0 " + w + " " + h);
+    var svg = svgEl("svg", { class: "pt-bond-svg", viewBox: "0 0 " + w + " " + h });
+    metalGroups().forEach(function (group) {
+      var minX = Infinity;
+      var minY = Infinity;
+      var maxX = -Infinity;
+      var maxY = -Infinity;
+      group.forEach(function (atom) {
+        var x = atom.fx * w;
+        var y = atom.fy * h;
+        if (x < minX) minX = x;
+        if (y < minY) minY = y;
+        if (x > maxX) maxX = x;
+        if (y > maxY) maxY = y;
+      });
+      var cx = (minX + maxX) / 2;
+      var cy = (minY + maxY) / 2;
+      var rx = Math.max(54, (maxX - minX) / 2 + 46);
+      var ry = Math.max(42, (maxY - minY) / 2 + 40);
+      svg.appendChild(svgEl("ellipse", {
+        class: "pt-sea-blob",
+        cx: cx,
+        cy: cy,
+        rx: rx,
+        ry: ry,
+      }));
+      var n = Math.max(4, group.length * 2);
+      var i;
+      for (i = 0; i < n; i++) {
+        var ang = -Math.PI / 2 + (i * Math.PI * 2) / n;
+        svg.appendChild(svgEl("circle", {
+          class: "pt-electron pt-sea-dot",
+          cx: cx + Math.cos(ang) * rx * 0.62,
+          cy: cy + Math.sin(ang) * ry * 0.55,
+          r: 3.3,
+        }));
+      }
+    });
+    atoms.forEach(function (atom) {
+      var el = bySymbol[atom.symbol];
+      if (!el || isMetal(el)) return;
+      var full = shellElectrons(atom) >= shellCap(el);
+      svg.appendChild(svgEl("circle", {
+        class: "pt-shell-ring" + (full ? " is-full" : ""),
+        cx: atom.fx * w,
+        cy: atom.fy * h,
+        r: shellRadius(el),
+      }));
+    });
     bonds.forEach(function (bond, index) {
+      if (bond.kind !== "covalent") return;
       var A = atomById(bond.a);
       var B = atomById(bond.b);
       if (!A || !B) return;
@@ -463,73 +660,206 @@
       var uy = dy / len;
       var px = -uy;
       var py = ux;
-      var pad = 30;
-      var ax = x1 + ux * pad;
-      var ay = y1 + uy * pad;
-      var bx = x2 - ux * pad;
-      var by = y2 - uy * pad;
-      var hit = document.createElementNS("http://www.w3.org/2000/svg", "line");
-      hit.setAttribute("class", "pt-bond-hit");
-      hit.setAttribute("data-bond", String(index));
-      hit.setAttribute("x1", ax);
-      hit.setAttribute("y1", ay);
-      hit.setAttribute("x2", bx);
-      hit.setAttribute("y2", by);
-      svg.appendChild(hit);
-      var offsets = bond.kind === "covalent" && bond.order === 3 ? [-4, 0, 4] : bond.kind === "covalent" && bond.order === 2 ? [-3, 3] : [0];
-      offsets.forEach(function (off) {
-        var line = document.createElementNS("http://www.w3.org/2000/svg", "line");
-        line.setAttribute("class", "pt-bond-line is-" + bond.kind);
-        if (bond.kind === "ionic") line.setAttribute("stroke-dasharray", "5 4");
-        line.setAttribute("x1", ax + px * off);
-        line.setAttribute("y1", ay + py * off);
-        line.setAttribute("x2", bx + px * off);
-        line.setAttribute("y2", by + py * off);
-        svg.appendChild(line);
+      var order = bond.order;
+      var p;
+      for (p = 0; p < order; p++) {
+        var along = (p - (order - 1) / 2) * 13;
+        var mx = (x1 + x2) / 2 + ux * along;
+        var my = (y1 + y2) / 2 + uy * along;
+        svg.appendChild(svgEl("circle", { class: "pt-shared", cx: mx + px * 6, cy: my + py * 6, r: 4.4 }));
+        svg.appendChild(svgEl("circle", { class: "pt-shared", cx: mx - px * 6, cy: my - py * 6, r: 4.4 }));
+      }
+      svg.appendChild(svgEl("line", {
+        class: "pt-bond-hit",
+        "data-bond": String(index),
+        x1: x1 + ux * 30,
+        y1: y1 + uy * 30,
+        x2: x2 - ux * 30,
+        y2: y2 - uy * 30,
+      }));
+    });
+    atoms.forEach(function (atom) {
+      var el = bySymbol[atom.symbol];
+      if (!el) return;
+      var avoid = partnerAngles(atom);
+      var dots = [];
+      if (isMetal(el)) {
+        if (!inMetalSea(atom)) {
+          var outer = loneCount(atom);
+          var i;
+          for (i = 0; i < outer; i++) {
+            dots.push({
+              ang: -Math.PI / 2 + (outer === 1 ? 0 : (i * Math.PI * 2) / outer),
+              spread: 0,
+              kind: "single",
+            });
+          }
+          var lost = ionicLost(atom.id);
+          var face = avoid.length ? avoid[0] : Math.PI / 2;
+          for (i = 0; i < lost; i++) {
+            dots.push({
+              ang: face + i * 0.45,
+              spread: 0,
+              kind: "slot",
+            });
+          }
+        }
+      } else {
+        dots = arrangeDots(loneCount(atom), Math.min(shareRoom(atom), Math.max(0, takeRoom(atom))), avoid);
+        var gained = ionicGained(atom.id);
+        var g;
+        for (g = 0; g < gained && dots.length; g++) {
+          var face = avoid.length ? avoid[Math.min(g, avoid.length - 1)] : -Math.PI / 2;
+          var best = dots[0];
+          var bestD = 99;
+          dots.forEach(function (dot) {
+            if (dot.gained) return;
+            var d = angDiff(dot.ang, face);
+            if (d < bestD) {
+              bestD = d;
+              best = dot;
+            }
+          });
+          best.gained = true;
+        }
+      }
+      dots.forEach(function (dot) {
+        var at = dotAt(atom, el, dot, w, h);
+        if (dot.kind === "slot") {
+          svg.appendChild(svgEl("circle", { class: "pt-slot", cx: at.x, cy: at.y, r: 3.6 }));
+          return;
+        }
+        var cls = "pt-electron";
+        if (dot.gained) cls += " is-gained";
+        svg.appendChild(svgEl("circle", { class: cls, cx: at.x, cy: at.y, r: 3.4 }));
+        if (dot.kind === "single") {
+          svg.appendChild(svgEl("circle", { class: "pt-open", cx: at.x, cy: at.y, r: 7 }));
+        }
       });
+      var charge = chargeText(chargeOf(atom));
+      if (charge) {
+        var lift = isMetal(el) ? 26 : shellRadius(el) + 10;
+        var label = svgEl("text", {
+          class: "pt-charge-label",
+          x: atom.fx * w,
+          y: atom.fy * h - lift,
+        });
+        label.textContent = charge;
+        svg.appendChild(label);
+      }
+    });
+    bonds.forEach(function (bond, index) {
+      if (bond.kind !== "ionic") return;
+      var A = atomById(bond.a);
+      var B = atomById(bond.b);
+      if (!A || !B) return;
+      var x1 = A.fx * w;
+      var y1 = A.fy * h;
+      var x2 = B.fx * w;
+      var y2 = B.fy * h;
+      var dx = x2 - x1;
+      var dy = y2 - y1;
+      var len = Math.sqrt(dx * dx + dy * dy) || 1;
+      var ux = dx / len;
+      var uy = dy / len;
+      svg.appendChild(svgEl("line", {
+        class: "pt-ion-trail",
+        x1: x1 + ux * 34,
+        y1: y1 + uy * 34,
+        x2: x2 - ux * 34,
+        y2: y2 - uy * 34,
+      }));
+      svg.appendChild(svgEl("line", {
+        class: "pt-bond-hit",
+        "data-bond": String(index),
+        x1: x1 + ux * 34,
+        y1: y1 + uy * 34,
+        x2: x2 - ux * 34,
+        y2: y2 - uy * 34,
+      }));
     });
     var old = bench.querySelector(".pt-bond-svg");
     if (old) bench.replaceChild(svg, old);
     else bench.insertBefore(svg, bench.firstChild);
   }
 
+  function centerCluster() {
+    if (atoms.length < 1) return;
+    var bench = $("pt-bench");
+    var w = bench && bench.clientWidth ? bench.clientWidth : 640;
+    var h = bench && bench.clientHeight ? bench.clientHeight : 360;
+    var padX = 64 / w;
+    var padY = 64 / h;
+    var minX = Infinity;
+    var maxX = -Infinity;
+    var minY = Infinity;
+    var maxY = -Infinity;
+    var i;
+    for (i = 0; i < atoms.length; i++) {
+      var atom = atoms[i];
+      if (atom.fx < minX) minX = atom.fx;
+      if (atom.fx > maxX) maxX = atom.fx;
+      if (atom.fy < minY) minY = atom.fy;
+      if (atom.fy > maxY) maxY = atom.fy;
+    }
+    var bw = Math.max(0.04, maxX - minX);
+    var bh = Math.max(0.04, maxY - minY);
+    var scale = Math.min(1, (1 - padX * 2) / bw, (1 - padY * 2) / bh);
+    var cx = (minX + maxX) / 2;
+    var cy = (minY + maxY) / 2;
+    for (i = 0; i < atoms.length; i++) {
+      atoms[i].fx = 0.5 + (atoms[i].fx - cx) * scale;
+      atoms[i].fy = 0.48 + (atoms[i].fy - cy) * scale;
+    }
+  }
+
+  function focusStage() {
+    var stage = document.querySelector("#panel-periodic .pt-stage");
+    if (!stage || !atoms.length || !stage.scrollIntoView) return;
+    var rect = stage.getBoundingClientRect();
+    if (rect.top < 12 || rect.bottom > window.innerHeight - 12) {
+      stage.scrollIntoView({ block: "nearest" });
+    }
+  }
+
   function renderBench() {
     var bench = $("pt-bench");
     if (!bench) return;
-    var html = ['<p id="pt-bench-hint" class="pt-bench-hint"' + (atoms.length ? " hidden" : "") + ">Set an element here.</p>"];
+    centerCluster();
+    var html = ['<p id="pt-bench-hint" class="pt-bench-hint"' + (atoms.length ? " hidden" : "") + ">Pick an element, then tap here.</p>"];
     html.push('<span id="pt-phase" class="pt-phase"></span>');
     atoms.forEach(function (atom) {
       var el = bySymbol[atom.symbol];
-      var dots = "";
-      var n = loneCount(atom);
-      var k;
-      for (k = 0; k < n; k++) {
-        var ang = n === 1 ? -90 : -90 + (k * 360) / n;
-        dots += '<i class="pt-e" style="transform: rotate(' + ang + 'deg) translateY(-30px)"></i>';
-      }
-      var charge = chargeText(chargeOf(atom));
+      var room = isMetal(el) ? giveRoom(atom) > 0 && !inMetalSea(atom) : shareRoom(atom) > 0 && takeRoom(atom) > 0;
+      var spoken = el.name + ". ";
+      if (family(el) === "noble") spoken += "Full shell.";
+      else if (isMetal(el)) spoken += (room ? "It can still give an electron." : "Its outer electrons have left.");
+      else spoken += shareRoom(atom) + (shareRoom(atom) === 1 ? " open spot." : " open spots.");
       html.push(
-        '<button type="button" class="pt-dot' + (selected === atom.id ? " is-on" : "") + '" data-id="' + atom.id + '" data-symbol="' + atom.symbol + '" data-family="' + family(el) + '" style="left:' + (atom.fx * 100) + "%;top:" + (atom.fy * 100) + '%">' +
-        dots +
-        '<span class="pt-dot-sym">' + atom.symbol + "</span>" +
-        (charge ? '<span class="pt-charge">' + charge + "</span>" : "") +
-        "</button>"
+        '<button type="button" class="pt-dot' + (selected === atom.id ? " is-on" : "") + (room ? " has-room" : "") + '" data-id="' + atom.id + '" data-symbol="' + atom.symbol + '" data-family="' + family(el) + '" style="left:' + (atom.fx * 100) + "%;top:" + (atom.fy * 100) + '%" aria-label="' + spoken + '">' +
+        '<span class="pt-dot-sym">' + atom.symbol + "</span></button>"
       );
     });
     bench.innerHTML = html.join("");
     paintBonds();
+    focusStage();
   }
 
   function placeNear(targetId, symbol) {
+    var bench = $("pt-bench");
+    var w = bench && bench.clientWidth ? bench.clientWidth : 640;
+    var h = bench && bench.clientHeight ? bench.clientHeight : 360;
     var target = atomById(targetId);
     var n = 0;
     var i;
     for (i = 0; i < bonds.length; i++) {
       if (bonds[i].a === targetId || bonds[i].b === targetId) n += 1;
     }
-    var ang = -Math.PI / 2 + n * (Math.PI / 2.15);
-    var fx = clamp(target.fx + Math.cos(ang) * 0.18, 0.1, 0.9);
-    var fy = clamp(target.fy + Math.sin(ang) * 0.22, 0.16, 0.84);
+    var slots = [-2.15, -1.0, 1.05, 2.2, 2.85, -2.85, 0.1, 3.14];
+    var ang = slots[Math.min(n, slots.length - 1)];
+    var dist = 108;
+    var fx = clamp(target.fx + (Math.cos(ang) * dist) / w, 0.16, 0.84);
+    var fy = clamp(target.fy + (Math.sin(ang) * dist) / h, 0.24, 0.76);
     return addAtom(symbol, fx, fy);
   }
 

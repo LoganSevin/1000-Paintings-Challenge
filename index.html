@@ -57,7 +57,7 @@
   <link rel="stylesheet" href="css/cameos.css?v=3" />
   <link rel="stylesheet" href="css/codes.css?v=3" />
   <link rel="stylesheet" href="css/diction.css?v=1" />
-  <link rel="stylesheet" href="css/periodic.css?v=2" />
+  <link rel="stylesheet" href="css/periodic.css?v=6" />
   <link rel="stylesheet" href="css/print-shops.css?v=2" />
   <link rel="stylesheet" href="css/subscribe.css?v=1" />
   <link rel="stylesheet" href="css/gallery-welcome.css?v=10" />
@@ -7939,7 +7939,7 @@
       <header class="pt-head">
         <div>
           <h2>Periodic Table</h2>
-          <p class="pt-hint">Click an element, then click the bench to set it down. Click one atom, then another, to bond them. Click that pair again to share another electron. Heat a pure sample to melt or boil it.</p>
+          <p class="pt-hint">Pick an element and tap the bench. Dots are outer electrons. A dashed ring is an open spot. A pair between atoms is a shared bond. A gold pool is a metal sea. Heat a pure sample to melt or boil it.</p>
         </div>
       </header>
       <div class="pt-lab">
@@ -7956,6 +7956,12 @@
             <span id="pt-phase" class="pt-phase"></span>
           </div>
           <p id="pt-formula" class="pt-formula">Empty bench</p>
+          <ul class="pt-key" aria-hidden="true">
+            <li><i class="pt-key-dot"></i> Electron</li>
+            <li><i class="pt-key-open"></i> Open spot</li>
+            <li><i class="pt-key-share"></i> Shared pair</li>
+            <li><i class="pt-key-sea"></i> Metal sea</li>
+          </ul>
           <p id="pt-result" class="pt-result">Click an element, then click the bench.</p>
           <label class="pt-heat">Heat
             <input id="pt-heat" type="range" min="0" max="6000" value="298" aria-label="Heat the sample" />
@@ -9064,7 +9070,7 @@
   <script defer src="js/cameos.js?v=4"></script>
   <script defer src="js/codes.js?v=2"></script>
   <script defer src="js/diction.js?v=1"></script>
-  <script defer src="js/periodic.js?v=2"></script>
+  <script defer src="js/periodic.js?v=7"></script>
   <script defer src="js/profit.js?v=2"></script>
   <script defer src="js/tabloid-print.js?v=2"></script>
   <script src="https://accounts.google.com/gsi/client" async defer></script>
