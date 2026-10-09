@@ -212,7 +212,7 @@
     cameos: "Cameos — upload any image; a portrait short says 1 through 6, then looks left, right, and left again",
     codes: "Codes — eight-character references from 00000000 to zzzzzzzz",
     diction: "Dictionary — every headword A to Z; highlight a definition and right-click to generate it",
-    periodic: "Periodic Table — all 118 elements, and how covalent, ionic, and metallic bonds work",
+    periodic: "Periodic Table — set elements on a bench, bond them, and heat a sample until it melts or boils",
     houma: "Houma — GTA-style open world on the Terrebonne map: tunnel, bayou, Southland, port",
     thousand: "1000 — a thousand different game templates you can click and rewrite",
     moba: "MOBA — click-to-move lanes, towers, minions, QWER",
