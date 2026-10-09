@@ -214,7 +214,7 @@
     codes: "Codes — eight-character references from 00000000 to zzzzzzzz",
     diction: "Dictionary — every headword A to Z; highlight a definition and right-click to generate it",
     periodic: "Periodic Table — set elements on a bench, bond them, and heat a sample until it melts or boils",
-    math: "Math — one shot runs a solved route; gauges and switches drive a 3D point cloud",
+    math: "Math — set a range, make a geometry, sculpt it, and apply a function",
     houma: "Houma — GTA-style open world on the Terrebonne map: tunnel, bayou, Southland, port",
     thousand: "1000 — a thousand different game templates you can click and rewrite",
     moba: "MOBA — click-to-move lanes, towers, minions, QWER",
@@ -1189,6 +1189,7 @@
     if (tabName === "cameo") tabName = "cameos";
     if (tabName === "code") tabName = "codes";
     if (tabName === "dictionary") tabName = "diction";
+    if (tabName === "mathematics" || tabName === "maths") tabName = "math";
     if (tabName === "elements" || tabName === "element" || tabName === "periodictable" || tabName === "periodic-table") tabName = "periodic";
     if (tabName === "anthropic") tabName = "claude";
     if (tabName === "openai" || tabName === "gpt") tabName = "chatgpt";

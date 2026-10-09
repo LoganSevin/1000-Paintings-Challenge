@@ -85,7 +85,9 @@
 .mx-actions-top button,
 .mx-actions button,
 .mx-switches button,
-.mx-curriculum button {
+.mx-curriculum button,
+.mx-choices button,
+#mx-clear {
   font: inherit;
   color: var(--text);
   background: var(--bg-card);
@@ -97,9 +99,20 @@
 
 .mx-actions-top button,
 .mx-curriculum button.is-on,
+.mx-choices button.is-on,
 .mx-switch.is-on {
   border-color: var(--accent, #d7c4a3);
   color: var(--accent, #d7c4a3);
+}
+
+.mx-choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.mx-gauge[hidden] {
+  display: none !important;
 }
 
 #mx-cloud {
@@ -112,6 +125,10 @@
   background: #12110e;
   touch-action: none;
   cursor: grab;
+}
+
+#mx-cloud.is-sculpt {
+  cursor: crosshair;
 }
 
 .mx-orbit {
