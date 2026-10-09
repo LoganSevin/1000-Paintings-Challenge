@@ -2,10 +2,14 @@
 // Static files are served straight from the assets upload (no Worker invocation);
 // this script only runs for /api/*, /.netlify/functions/* and the packed JSON
 // collections (see cloudflare/build.mjs). The handlers are the exact same files
-// Netlify runs (netlify/functions/*.mjs); "@netlify/blobs" is aliased to the D1
-// shim in wrangler.jsonc.
+// Netlify runs (netlify/functions/*.mjs); "@netlify/blobs" is aliased to the
+// blob shim in wrangler.jsonc (Durable Object or D1 backend).
+// It also serves the generated images at /generated/* from the separate
+// assets-only Worker "l7in-generated" (service binding GENERATED) and tells the
+// page to use them instead of l7in-generated.netlify.app.
 import process from "node:process";
-import { setBlobsDatabase } from "./blobs-d1.mjs";
+import { Buffer } from "node:buffer";
+import { setBlobsBackendFromEnv, getStore } from "./blobs-d1.mjs";
 import { servePacked, PACKED_PREFIXES } from "./packs.mjs";
 
 import animateCast from "../netlify/functions/animate-cast.mjs";
@@ -29,6 +33,8 @@ import redefineStasis from "../netlify/functions/redefine-stasis.mjs";
 import transfer from "../netlify/functions/transfer.mjs";
 import transferUpload from "../netlify/functions/transfer-upload.mjs";
 import xaiUsage from "../netlify/functions/xai-usage.mjs";
+
+export { BlobStoreDO } from "./blobs-do.mjs";
 
 // Function name -> handler (also reachable as /.netlify/functions/<name>).
 export const FUNCTIONS = {
@@ -126,12 +132,70 @@ function errorJson(message, status = 500) {
   });
 }
 
+// HTML pages that get the generated-images flag injected (run_worker_first).
+const HTML_PATHS = new Set(["/", "/index.html", "/subscribe", "/subscribe.html"]);
+const GENERATED_FLAG = '<script>window.GENERATED_ORIGIN="";window.GALLERY_HOST="cloudflare";</script>';
+
+async function serveHtml(request, env) {
+  const res = await env.ASSETS.fetch(request);
+  const type = res.headers.get("content-type") || "";
+  if (!env.GENERATED || !type.includes("text/html")) return res;
+  return new HTMLRewriter()
+    .on("head", { element(el) { el.prepend(GENERATED_FLAG, { html: true }); } })
+    .transform(res);
+}
+
+function serveGenerated(request, env, url) {
+  if (!env.GENERATED) return new Response("Not found", { status: 404 });
+  const target = new URL(url.pathname.slice("/generated".length) + url.search, "https://l7in-generated.internal");
+  return env.GENERATED.fetch(new Request(target, request));
+}
+
+function safeEqual(a, b) {
+  const x = new TextEncoder().encode(String(a));
+  const y = new TextEncoder().encode(String(b));
+  let diff = x.length ^ y.length;
+  for (let i = 0; i < Math.max(x.length, y.length); i++) diff |= (x[i % (x.length || 1)] || 0) ^ (y[i % (y.length || 1)] || 0);
+  return diff === 0;
+}
+
+// One-time data migration from Netlify Blobs (cloudflare/import-netlify-blobs.mjs
+// --json). Disabled unless the ADMIN_TOKEN secret is set.
+async function adminImport(request, env) {
+  if (request.method !== "POST") return errorJson("Method not allowed", 405);
+  const auth = request.headers.get("authorization") || "";
+  if (!env.ADMIN_TOKEN || !auth.startsWith("Bearer ") || !safeEqual(auth.slice(7), env.ADMIN_TOKEN)) {
+    return errorJson("Unauthorized", 401);
+  }
+  const rows = await request.json();
+  let n = 0;
+  for (const r of Array.isArray(rows) ? rows : []) {
+    if (!r || !r.store || r.key == null) continue;
+    const value = r.enc === "b64" ? new Uint8Array(Buffer.from(String(r.data || ""), "base64")) : String(r.data || "");
+    await getStore(r.store).set(String(r.key), value, r.metadata ? { metadata: r.metadata } : {});
+    n++;
+  }
+  return Response.json({ imported: n });
+}
+
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
 
+    if (url.pathname === "/generated" || url.pathname.startsWith("/generated/")) return serveGenerated(request, env, url);
+    if (HTML_PATHS.has(url.pathname)) return serveHtml(request, env);
+
     for (const prefix of PACKED_PREFIXES) {
       if (url.pathname.startsWith(prefix)) return servePacked(request, env, url, ctx);
+    }
+
+    if (url.pathname === "/api/_admin/blobs-import") {
+      setBlobsBackendFromEnv(env);
+      try {
+        return await adminImport(request, env);
+      } catch (e) {
+        return errorJson((e && e.message) || String(e), 500);
+      }
     }
 
     const route = matchRoute(url.pathname);
@@ -143,7 +207,7 @@ export default {
     }
 
     syncEnv(env);
-    setBlobsDatabase(env.DB);
+    const storage = setBlobsBackendFromEnv(env);
 
     // Netlify-style context. No waitUntil on purpose: Workers cap waitUntil at
     // ~30 s after the response, while the image fallback chain can take longer.
@@ -169,7 +233,8 @@ export default {
       if (route.name === "health" && res && res.status === 200) {
         const body = await res.json();
         body.host = "cloudflare";
-        body.storage = env.DB ? "d1" : "missing";
+        body.storage = storage;
+        body.generated_images = env.GENERATED ? "cloudflare" : "netlify";
         return new Response(JSON.stringify(body), { status: 200, headers: res.headers });
       }
       return res || new Response(null, { status: 204 });

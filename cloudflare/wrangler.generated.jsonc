@@ -1,0 +1,17 @@
+// Assets-only Worker for the generated images (replaces l7in-generated.netlify.app).
+// The main Worker serves them at /generated/* through a service binding, and the
+// page loads them from there when it runs on Cloudflare.
+// The images are not in git (generated/ is ignored); deploy from a checkout that has them:
+//   npx wrangler deploy -c cloudflare/wrangler.generated.jsonc
+// Free plan: 20,000 files per deploy, 25 MiB per file (6,271 files / 2.4 GB today).
+{
+  "name": "l7in-generated",
+  "account_id": "ba14a217d31778e1d6d5fbb1a684b1c7",
+  "compatibility_date": "2025-09-01",
+  "assets": {
+    "directory": "../generated",
+    "not_found_handling": "none"
+  },
+  "workers_dev": true,
+  "preview_urls": false
+}

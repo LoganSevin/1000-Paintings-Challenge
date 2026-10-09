@@ -1,41 +1,70 @@
-// Drop-in replacement for the parts of `@netlify/blobs` the site uses, backed by
-// Cloudflare D1. wrangler.jsonc aliases "@netlify/blobs" to this file, so the
+// Drop-in replacement for the parts of `@netlify/blobs` the site uses, on
+// Cloudflare. wrangler.jsonc aliases "@netlify/blobs" to this file, so the
 // functions in netlify/functions/ run unchanged on Cloudflare. (On Netlify the
 // real package is used; this file is never loaded there.)
 //
-// Why D1 and not KV: KV's free tier allows 1,000 writes/day and the tab-presence
-// heartbeat alone writes every 10 s per open tab. D1 free: 100k rows written and
-// 5M rows read per day, 5 GB. Values are stored as TEXT (binary as base64) and
-// split into ~900 KB chunks because a D1 row is capped at 2 MB.
+// Two interchangeable backends with the same schema:
+//  - D1 (binding DB) when bound;
+//  - otherwise a SQLite Durable Object (binding BLOBS, cloudflare/blobs-do.mjs),
+//    which needs no extra API-token permission on the free plan.
+// Why not KV: KV's free tier allows 1,000 writes/day and the tab-presence
+// heartbeat alone writes every 10 s per open tab. Values are stored as TEXT
+// (binary as base64) and split into ~900 KB chunks (a D1 row is capped at 2 MB).
+
+export const SCHEMA = [
+  "CREATE TABLE IF NOT EXISTS blobs (store TEXT NOT NULL, key TEXT NOT NULL, etag TEXT NOT NULL, metadata TEXT, enc TEXT NOT NULL, size INTEGER NOT NULL, chunks INTEGER NOT NULL, data TEXT, updated_at INTEGER NOT NULL, PRIMARY KEY (store, key)) WITHOUT ROWID",
+  "CREATE TABLE IF NOT EXISTS blob_chunks (store TEXT NOT NULL, key TEXT NOT NULL, idx INTEGER NOT NULL, data TEXT NOT NULL, PRIMARY KEY (store, key, idx)) WITHOUT ROWID",
+];
 
 let DB = null;
+let DO_NS = null;
 let schemaReady = null;
-const CHUNK = 900_000;
+export const CHUNK = 900_000;
 
-/** Called by cloudflare/worker.mjs on every request with env.DB. */
+/** D1 backend (also used by the tests with an in-memory SQLite). */
 export function setBlobsDatabase(db) {
   if (db !== DB) {
     DB = db;
     schemaReady = null;
   }
+  if (db) DO_NS = null;
+}
+
+/** Durable Object backend (namespace binding of BlobStoreDO). */
+export function setBlobsDurableObject(ns) {
+  DO_NS = ns || null;
+  if (ns) DB = null;
+}
+
+/** Called by cloudflare/worker.mjs on every request. D1 wins when bound. */
+export function setBlobsBackendFromEnv(env) {
+  if (env && env.DB) {
+    setBlobsDatabase(env.DB);
+    return "d1";
+  }
+  if (env && env.BLOBS) {
+    setBlobsDurableObject(env.BLOBS);
+    return "durable-object";
+  }
+  DB = null;
+  DO_NS = null;
+  return "missing";
+}
+
+// A new stub per call: Workers forbid reusing I/O objects across requests.
+function doStub() {
+  return DO_NS.get(DO_NS.idFromName("blobs"));
 }
 
 function db() {
-  if (!DB) throw new Error("Blob storage is not configured (missing D1 binding DB).");
+  if (!DB) throw new Error("Blob storage is not configured (missing D1 binding DB or Durable Object binding BLOBS).");
   return DB;
 }
 
 async function ensureSchema() {
   if (!schemaReady) {
     schemaReady = db()
-      .batch([
-        db().prepare(
-          "CREATE TABLE IF NOT EXISTS blobs (store TEXT NOT NULL, key TEXT NOT NULL, etag TEXT NOT NULL, metadata TEXT, enc TEXT NOT NULL, size INTEGER NOT NULL, chunks INTEGER NOT NULL, data TEXT, updated_at INTEGER NOT NULL, PRIMARY KEY (store, key)) WITHOUT ROWID"
-        ),
-        db().prepare(
-          "CREATE TABLE IF NOT EXISTS blob_chunks (store TEXT NOT NULL, key TEXT NOT NULL, idx INTEGER NOT NULL, data TEXT NOT NULL, PRIMARY KEY (store, key, idx)) WITHOUT ROWID"
-        ),
-      ])
+      .batch(SCHEMA.map((sql) => db().prepare(sql)))
       .catch((e) => {
         schemaReady = null;
         throw e;
@@ -233,9 +262,78 @@ class D1Store {
   }
 }
 
+class DOStore {
+  constructor(name) {
+    this.name = String(name || "default");
+  }
+
+  async _read(key) {
+    return doStub().read(this.name, String(key));
+  }
+
+  async get(key, opts = {}) {
+    const r = await this._read(key);
+    if (!r) return null;
+    return decodeValue(r, r.text, opts && opts.type);
+  }
+
+  async getWithMetadata(key, opts = {}) {
+    const r = await this._read(key);
+    if (!r) return null;
+    return { data: decodeValue(r, r.text, opts && opts.type), etag: r.etag, metadata: parseMeta(r.metadata) };
+  }
+
+  async getMetadata(key) {
+    const r = await this._read(key);
+    if (!r) return null;
+    return { etag: r.etag, metadata: parseMeta(r.metadata) };
+  }
+
+  async set(key, value, opts = {}) {
+    const { enc, text, size } = await encodeValue(value);
+    const etag = newEtag();
+    const parts = [];
+    if (text.length > CHUNK) for (let i = 0; i < text.length; i += CHUNK) parts.push(text.slice(i, i + CHUNK));
+    else parts.push(text);
+    const metadata = opts && opts.metadata ? JSON.stringify(opts.metadata) : null;
+    const cond = {};
+    if (opts && opts.onlyIfNew) cond.onlyIfNew = true;
+    if (opts && opts.onlyIfMatch) cond.onlyIfMatch = String(opts.onlyIfMatch);
+    const modified = await doStub().write(this.name, String(key), { etag, metadata, enc, size, parts }, cond);
+    return modified ? { modified: true, etag } : { modified: false };
+  }
+
+  async setJSON(key, value, opts = {}) {
+    return this.set(key, JSON.stringify(value), opts);
+  }
+
+  async delete(key) {
+    await doStub().del(this.name, String(key));
+  }
+
+  async list(opts = {}) {
+    const prefix = String((opts && opts.prefix) || "");
+    const blobs = await doStub().list(this.name, prefix);
+    return splitDirs(blobs, prefix, opts);
+  }
+}
+
+function splitDirs(blobs, prefix, opts) {
+  if (!opts || !opts.directories) return { blobs, directories: [] };
+  const dirs = new Set();
+  const flat = [];
+  for (const b of blobs) {
+    const rest = b.key.slice(prefix.length);
+    const i = rest.indexOf("/");
+    if (i >= 0) dirs.add(prefix + rest.slice(0, i));
+    else flat.push(b);
+  }
+  return { blobs: flat, directories: [...dirs] };
+}
+
 export function getStore(input) {
   const name = typeof input === "string" ? input : input && input.name;
-  return new D1Store(name);
+  return DO_NS && !DB ? new DOStore(name) : new D1Store(name);
 }
 
 export function getDeployStore(input) {

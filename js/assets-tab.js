@@ -29,7 +29,8 @@
     if (!raw) return "";
     if (typeof window.resolveGalleryUrl === "function") return window.resolveGalleryUrl(raw);
     if (!isLocal() && raw.indexOf("/generated/") === 0) {
-      return "https://l7in-generated.netlify.app" + raw.slice("/generated".length);
+      var origin = typeof window.GENERATED_ORIGIN === "string" ? window.GENERATED_ORIGIN : "https://l7in-generated.netlify.app";
+      return origin ? origin + raw.slice("/generated".length) : raw;
     }
     return raw;
   }

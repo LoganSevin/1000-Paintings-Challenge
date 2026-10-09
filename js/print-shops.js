@@ -15,7 +15,8 @@
 
   function generatedUrl(n) {
     if (typeof window.generatedUrl === "function") return window.generatedUrl(n);
-    return "https://l7in-generated.netlify.app/" + n + ".jpg";
+    var origin = typeof window.GENERATED_ORIGIN === "string" ? window.GENERATED_ORIGIN : "https://l7in-generated.netlify.app";
+    return (origin || "/generated") + "/" + n + ".jpg";
   }
 
   function loadCfg() {

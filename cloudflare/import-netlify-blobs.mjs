@@ -1,11 +1,16 @@
 #!/usr/bin/env node
-// One-time migration: Netlify Blobs export -> SQL for the D1 blob store.
+// One-time migration: Netlify Blobs export -> Cloudflare blob store.
 //
 // 1. Export (Netlify CLI, site linked):  for each store/key
 //      netlify blobs:get <store> <key> --output <dir>/<file>
 //    plus <dir>/manifest.json = [{ store, key, file }, ...]
-// 2. node cloudflare/import-netlify-blobs.mjs <dir> > blobs-import.sql
-// 3. npx wrangler d1 execute logan7in-blobs --remote --file blobs-import.sql
+// 2a. Durable Object store (default): JSON rows for the Worker's import route
+//      node cloudflare/import-netlify-blobs.mjs <dir> --json > rows.json
+//      curl -X POST -H "Authorization: Bearer $ADMIN_TOKEN" --data-binary @rows.json \
+//        https://<worker>/api/_admin/blobs-import      (needs the ADMIN_TOKEN secret)
+// 2b. D1 store:
+//      node cloudflare/import-netlify-blobs.mjs <dir> > blobs-import.sql
+//      npx wrangler d1 execute logan7in-blobs --remote --file blobs-import.sql
 //
 // D1 caps one SQL statement at 100 KB, so values are split into ~60 KB chunks
 // (cloudflare/blobs-d1.mjs reads any chunk size). Phone-upload files get their
@@ -14,6 +19,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 const dir = process.argv[2];
+const JSON_MODE = process.argv.includes("--json");
 if (!dir) {
   console.error("usage: node cloudflare/import-netlify-blobs.mjs <export-dir> > import.sql");
   process.exit(1);
@@ -52,6 +58,7 @@ const out = [
 ];
 let n = 0;
 const now = Date.now();
+const jsonRows = [];
 for (const r of rows) {
   if (!r || !r.store || r.key == null || SKIP_STORES.has(r.store)) continue;
   if (r.store === "page-chat" && String(r.key).startsWith("rl/")) continue; // rate-limit stamps
@@ -62,6 +69,11 @@ for (const r of rows) {
   const enc = binary ? "b64" : "utf8";
   const text = binary ? buf.toString("base64") : buf.toString("utf8");
   const meta = phoneMeta[r.key] ? JSON.stringify(phoneMeta[r.key]) : r.metadata ? JSON.stringify(r.metadata) : null;
+  if (JSON_MODE) {
+    jsonRows.push({ store: r.store, key: String(r.key), enc, data: text, metadata: meta ? JSON.parse(meta) : null });
+    n++;
+    continue;
+  }
   const etag = '"' + (r.etag ? String(r.etag).replace(/"/g, "") : "imp" + n) + '"';
   out.push(`DELETE FROM blob_chunks WHERE store = ${q(r.store)} AND key = ${q(r.key)};`);
   if (text.length <= CHUNK) {
@@ -79,5 +91,10 @@ for (const r of rows) {
   }
   n++;
 }
-process.stdout.write(out.join("\n") + "\n");
-console.error(`import SQL for ${n} blobs`);
+if (JSON_MODE) {
+  process.stdout.write(JSON.stringify(jsonRows));
+  console.error(`import rows for ${n} blobs`);
+} else {
+  process.stdout.write(out.join("\n") + "\n");
+  console.error(`import SQL for ${n} blobs`);
+}

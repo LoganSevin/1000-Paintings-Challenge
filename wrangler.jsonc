@@ -7,18 +7,24 @@
   "main": "cloudflare/worker.mjs",
   "compatibility_date": "2025-09-01",
   "compatibility_flags": ["nodejs_compat"],
-  // Netlify functions import "@netlify/blobs"; on Cloudflare that is the D1 shim.
+  // Netlify functions import "@netlify/blobs"; on Cloudflare that is the blob shim.
   "alias": { "@netlify/blobs": "./cloudflare/blobs-d1.mjs" },
   "assets": {
     "directory": ".",
     "binding": "ASSETS",
     "html_handling": "auto-trailing-slash",
     "not_found_handling": "none",
-    "run_worker_first": ["/api/*", "/.netlify/*", "/sketches-meta/*", "/generated-meta/*", "/sketches/json/*"]
+    "run_worker_first": ["/api/*", "/.netlify/*", "/sketches-meta/*", "/generated-meta/*", "/sketches/json/*", "/generated/*", "/", "/index.html", "/subscribe", "/subscribe.html"]
   },
-  // Netlify Blobs replacement. `wrangler deploy` creates the database on first
-  // deploy if database_id is omitted (automatic provisioning).
-  "d1_databases": [{ "binding": "DB", "database_name": "logan7in-blobs" }],
+  // Netlify Blobs replacement: a SQLite Durable Object (free plan, no extra API
+  // permission). To use D1 instead, add
+  //   "d1_databases": [{ "binding": "DB", "database_name": "logan7in-blobs" }]
+  // (the D1 binding wins when present; re-import the data after switching).
+  "durable_objects": { "bindings": [{ "name": "BLOBS", "class_name": "BlobStoreDO" }] },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["BlobStoreDO"] }],
+  // Generated images: separate assets-only Worker deployed from a checkout that
+  // has generated/ (cloudflare/wrangler.generated.jsonc); served at /generated/*.
+  "services": [{ "binding": "GENERATED", "service": "l7in-generated" }],
   "vars": { "CLOUDFLARE_ACCOUNT_ID": "ba14a217d31778e1d6d5fbb1a684b1c7" },
   "observability": { "enabled": true }
 }
