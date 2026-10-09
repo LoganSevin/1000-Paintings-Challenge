@@ -1,7 +1,7 @@
 /**
- * Math — a point cloud you shape.
- * Range sets the domain, Create drops a geometry, Sculpt moves points,
- * and a function bends whatever is there.
+ * Math — a mesh you shape.
+ * Range sets the domain, Create drops a geometry, Sculpt moves vertices,
+ * and a function bends the faces.
  */
 (function () {
   "use strict";
@@ -201,6 +201,18 @@
           list.push({ u: along === 1 ? 0 : i / (along - 1), v: j / (across - 1) });
         }
       }
+    } else if (shape === "torus") {
+      for (i = 0; i < n; i++) {
+        for (j = 0; j < n; j++) {
+          list.push({ u: i / n, v: j / n });
+        }
+      }
+    } else if (shape === "sphere") {
+      for (i = 0; i < n; i++) {
+        for (j = 0; j < n; j++) {
+          list.push({ u: n === 1 ? 0.5 : i / (n - 1), v: j / n });
+        }
+      }
     } else {
       for (i = 0; i < n; i++) {
         for (j = 0; j < n; j++) {
@@ -244,12 +256,28 @@
     return count;
   }
 
+  function gridDims() {
+    var n = range.n | 0;
+    if (shape === "helix") return { cols: 5, rows: n * 4, wrapU: false, wrapV: false };
+    if (shape === "torus") return { cols: n, rows: n, wrapU: true, wrapV: true };
+    if (shape === "sphere") return { cols: n, rows: n, wrapU: false, wrapV: true };
+    return { cols: n, rows: n, wrapU: false, wrapV: false };
+  }
+
+  function faceCount() {
+    var dim = gridDims();
+    if (points.length !== dim.rows * dim.cols || dim.rows < 2 || dim.cols < 2) return 0;
+    var rows = dim.wrapU ? dim.rows : dim.rows - 1;
+    var cols = dim.wrapV ? dim.cols : dim.cols - 1;
+    return rows * cols * 2;
+  }
+
   function paintReadout() {
     var title = $("mx-title");
     var found = SHAPES.filter(function (item) { return item.id === shape; })[0];
     if (title) title.textContent = found ? found.name : "Math";
     var count = $("mx-count");
-    if (count) count.textContent = points.length.toLocaleString() + " points · " + sculptedCount() + " sculpted";
+    if (count) count.textContent = points.length.toLocaleString() + " vertices · " + faceCount().toLocaleString() + " faces · " + sculptedCount() + " sculpted";
     var formula = $("mx-formula");
     if (formula) {
       formula.innerHTML = formulaLines().map(function (line) {
@@ -260,7 +288,7 @@
     if (orbit) {
       orbit.textContent = tool === "orbit"
         ? "Drag to orbit. Scroll to move in."
-        : "Drag on the cloud to " + tool + ". Scroll still moves in.";
+        : "Drag on the mesh to " + tool + ". Scroll still moves in.";
     }
     var canvas = $("mx-cloud");
     if (canvas) canvas.classList.toggle("is-sculpt", tool !== "orbit");
@@ -303,6 +331,50 @@
     return { sx: w / 2 + x1 * f, sy: h / 2 - y1 * f, depth: z2, rgb: p.rgb };
   }
 
+  function inFront(p) {
+    return p.depth + view.dist > 0.45;
+  }
+
+  function faceShade(a, b, c) {
+    var ux = b.x - a.x;
+    var uy = b.y - a.y;
+    var uz = b.z - a.z;
+    var vx = c.x - a.x;
+    var vy = c.y - a.y;
+    var vz = c.z - a.z;
+    var nx = uy * vz - uz * vy;
+    var ny = uz * vx - ux * vz;
+    var nz = ux * vy - uy * vx;
+    var len = Math.hypot(nx, ny, nz);
+    if (len < 1e-5) return 0;
+    var nd = Math.abs((nx * 0.32 + ny * 0.86 + nz * 0.39) / len);
+    return 0.32 + 0.68 * nd;
+  }
+
+  function drawFloor(ctx, w, h) {
+    ctx.strokeStyle = "rgba(78,70,58,0.28)";
+    ctx.lineWidth = 1;
+    var g;
+    for (g = -2; g <= 2; g++) {
+      var a = project({ x: -2.2, y: -1.45, z: g, rgb: [0, 0, 0] }, w, h);
+      var b = project({ x: 2.2, y: -1.45, z: g, rgb: [0, 0, 0] }, w, h);
+      if (inFront(a) && inFront(b)) {
+        ctx.beginPath();
+        ctx.moveTo(a.sx, a.sy);
+        ctx.lineTo(b.sx, b.sy);
+        ctx.stroke();
+      }
+      var c = project({ x: g, y: -1.45, z: -2.2, rgb: [0, 0, 0] }, w, h);
+      var d = project({ x: g, y: -1.45, z: 2.2, rgb: [0, 0, 0] }, w, h);
+      if (inFront(c) && inFront(d)) {
+        ctx.beginPath();
+        ctx.moveTo(c.sx, c.sy);
+        ctx.lineTo(d.sx, d.sy);
+        ctx.stroke();
+      }
+    }
+  }
+
   function draw() {
     var canvas = $("mx-cloud");
     if (!canvas) return;
@@ -320,36 +392,78 @@
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.fillStyle = "#12110e";
     ctx.fillRect(0, 0, w, h);
-    var drawn = [];
+    ctx.lineJoin = "round";
+    drawFloor(ctx, w, h);
     var i;
     var j;
-    for (i = -4; i <= 4; i++) {
-      for (j = -4; j <= 4; j++) {
-        if ((i + j) % 2) continue;
-        drawn.push(project({ x: i * 0.55, y: -1.45, z: j * 0.55, rgb: [42, 38, 32] }, w, h));
-      }
-    }
     for (i = 0; i < points.length; i++) {
       var dot = project(points[i], w, h);
       points[i].sx = dot.sx;
       points[i].sy = dot.sy;
-      drawn.push(dot);
+      points[i].depth = dot.depth;
     }
-    drawn.sort(function (a, b) { return b.depth - a.depth; });
-    for (i = 0; i < drawn.length; i++) {
-      var size = Math.max(1.8, 78 / (drawn[i].depth + view.dist + 2.4));
-      ctx.fillStyle = "rgb(" + drawn[i].rgb[0] + "," + drawn[i].rgb[1] + "," + drawn[i].rgb[2] + ")";
-      ctx.fillRect(drawn[i].sx - size / 2, drawn[i].sy - size / 2, size, size);
+    var dim = gridDims();
+    var faces = [];
+    if (points.length === dim.rows * dim.cols) {
+      var rowN = dim.wrapU ? dim.rows : dim.rows - 1;
+      var colN = dim.wrapV ? dim.cols : dim.cols - 1;
+      for (i = 0; i < rowN; i++) {
+        var i2 = (i + 1) % dim.rows;
+        for (j = 0; j < colN; j++) {
+          var j2 = (j + 1) % dim.cols;
+          var a = points[i * dim.cols + j];
+          var b = points[i * dim.cols + j2];
+          var c = points[i2 * dim.cols + j];
+          var d = points[i2 * dim.cols + j2];
+          pushFace(faces, a, b, d);
+          pushFace(faces, a, d, c);
+        }
+      }
     }
-    [[1.5, 0, 0, "rgba(255,224,138,0.75)"], [0, 1.5, 0, "rgba(183,211,255,0.75)"], [0, 0, 1.5, "rgba(240,196,234,0.75)"]].forEach(function (axis) {
-      var a = project({ x: 0, y: 0, z: 0, rgb: [255, 255, 255] }, w, h);
-      var b = project({ x: axis[0], y: axis[1], z: axis[2], rgb: [255, 255, 255] }, w, h);
+    faces.sort(function (p, q) { return q.depth - p.depth; });
+    for (i = 0; i < faces.length; i++) {
+      var face = faces[i];
+      ctx.beginPath();
+      ctx.moveTo(face.ax, face.ay);
+      ctx.lineTo(face.bx, face.by);
+      ctx.lineTo(face.cx, face.cy);
+      ctx.closePath();
+      ctx.fillStyle = "rgb(" + face.rgb[0] + "," + face.rgb[1] + "," + face.rgb[2] + ")";
+      ctx.fill();
+      ctx.strokeStyle = "rgba(10,8,6,0.62)";
+      ctx.lineWidth = 0.85;
+      ctx.stroke();
+    }
+    [[1.5, 0, 0, "rgba(255,224,138,0.8)"], [0, 1.5, 0, "rgba(183,211,255,0.8)"], [0, 0, 1.5, "rgba(240,196,234,0.8)"]].forEach(function (axis) {
+      var origin = project({ x: 0, y: 0, z: 0, rgb: [255, 255, 255] }, w, h);
+      var tip = project({ x: axis[0], y: axis[1], z: axis[2], rgb: [255, 255, 255] }, w, h);
+      if (!inFront(origin) || !inFront(tip)) return;
       ctx.strokeStyle = axis[3];
       ctx.lineWidth = 1.25;
       ctx.beginPath();
-      ctx.moveTo(a.sx, a.sy);
-      ctx.lineTo(b.sx, b.sy);
+      ctx.moveTo(origin.sx, origin.sy);
+      ctx.lineTo(tip.sx, tip.sy);
       ctx.stroke();
+    });
+  }
+
+  function pushFace(faces, a, b, c) {
+    if (!inFront(a) || !inFront(b) || !inFront(c)) return;
+    var shade = faceShade(a, b, c);
+    if (!shade) return;
+    faces.push({
+      depth: (a.depth + b.depth + c.depth) / 3,
+      ax: a.sx,
+      ay: a.sy,
+      bx: b.sx,
+      by: b.sy,
+      cx: c.sx,
+      cy: c.sy,
+      rgb: [
+        Math.round(((a.rgb[0] + b.rgb[0] + c.rgb[0]) / 3) * shade),
+        Math.round(((a.rgb[1] + b.rgb[1] + c.rgb[1]) / 3) * shade),
+        Math.round(((a.rgb[2] + b.rgb[2] + c.rgb[2]) / 3) * shade),
+      ],
     });
   }
 
