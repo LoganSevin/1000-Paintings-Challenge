@@ -6093,6 +6093,16 @@
 
     bindAnimateHandoff();
 
+    var dropAllBtn = document.getElementById("spell-drop-all");
+    if (dropAllBtn && !dropAllBtn.dataset.bound) {
+      dropAllBtn.dataset.bound = "1";
+      dropAllBtn.addEventListener("click", function () {
+        if (!spells[0] && !spells[1] && !spells[2]) return;
+        setEquippedSlots([null, null, null], { skipAutoVision: true });
+        setSpellGenerateStatus("Dropped Spell I, Spell II, and Spell III.");
+      });
+    }
+
     for (var nsi = 0; nsi < 3; nsi++) {
       (function (slot) {
         var btn = document.getElementById("spell-note-equip-" + slot);
@@ -6190,6 +6200,8 @@
     }
     updateFusion();
     saveEquippedSpells();
+    var dropAll = document.getElementById("spell-drop-all");
+    if (dropAll) dropAll.disabled = !spells[0] && !spells[1] && !spells[2];
   }
 
   function equipNote(slotIndex, text) {

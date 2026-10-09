@@ -127,6 +127,17 @@
   margin-bottom: 1rem;
 }
 
+.spellbook-header #spell-drop-all {
+  padding: 0.4rem 0.85rem;
+  font-size: 0.82rem;
+  flex-shrink: 0;
+}
+
+#spell-drop-all:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
 .spell-slot .spell-slot-inner {
   display: flex;
   gap: 0.65rem;
