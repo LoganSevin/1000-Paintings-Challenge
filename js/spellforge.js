@@ -1,6 +1,6 @@
 /**
  * Spellforge: shuffled grid, spell slots, fused text, interaction preview, optional fusion video.
- * Cache bust v126: a typed number finds that one spell, not a band of them.
+ * Cache bust v127: opening Spellforge keeps the other equipped spells.
  */
 (function () {
   var PAGE_SIZE = 25;
@@ -58,6 +58,8 @@
     pages: PAGE_COUNT,
   };
   var spells = [null, null, null];
+  /** False until the saved trio is read, so an early paint cannot store blanks over it. */
+  var equippedSlotsReady = false;
   var spellNotes = { notes: {}, nextNoteId: NOTE_BASE + 1 };
   var activePage = 0;
   var pickerQuery = "";
@@ -2361,12 +2363,20 @@
   }
 
   function saveEquippedSpells() {
+    if (!equippedSlotsReady) return;
     try {
-      localStorage.setItem(EQUIP_SAVE_KEY, JSON.stringify(spells));
+      localStorage.setItem(
+        EQUIP_SAVE_KEY,
+        JSON.stringify([spells[0], spells[1], spells[2]])
+      );
     } catch (e) {}
   }
 
   function loadEquippedSpells() {
+    // Once. A later call would put back whatever was saved at boot and drop
+    // a tome the artist just equipped into one slot.
+    if (equippedSlotsReady) return;
+    equippedSlotsReady = true;
     try {
       var raw = localStorage.getItem(EQUIP_SAVE_KEY);
       if (!raw) return;
@@ -2374,9 +2384,22 @@
       if (!Array.isArray(saved) || saved.length !== 3) return;
       for (var i = 0; i < 3; i++) {
         var n = parseInt(saved[i], 10);
-        spells[i] = isValidSpellNum(n) ? n : null;
+        // Keep generated / sketch / tome ids even before that arsenal exists.
+        // Rejecting them here used to blank the other two slots.
+        spells[i] = n > 0 && !isNaN(n) ? n : null;
       }
     } catch (e) {}
+  }
+
+  function revalidateEquippedSpells() {
+    var changed = false;
+    for (var i = 0; i < 3; i++) {
+      if (!spells[i] || isValidSpellNum(spells[i])) continue;
+      spells[i] = null;
+      clearSpellSlotBody(i);
+      changed = true;
+    }
+    if (changed) saveEquippedSpells();
   }
 
   function loadSpellsFromShareLink() {
@@ -6651,7 +6674,10 @@
       loadSpellAssets().then(function () {
         buildDisplayOrder(false);
         loadSpellsFromShareLink();
-        if (!location.search.match(/spells=/)) loadEquippedSpells();
+        if (!location.search.match(/spells=/)) {
+          loadEquippedSpells();
+          revalidateEquippedSpells();
+        }
         if (loading) loading.hidden = true;
         if (window.SpellLoop) {
           window.SpellLoop.init("spell-loop-canvas", "spell-loop-caption");
@@ -6768,6 +6794,7 @@
       syncBookViewUi();
       bindAnimateHandoff();
       loadSpellNotes();
+      loadEquippedSpells();
       window.equipSpellPainting = function (num) {
         ensureSpellforgeStarted();
         openSlotDialog(num);
