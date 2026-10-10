@@ -1,6 +1,6 @@
 /**
  * Spellforge: shuffled grid, spell slots, fused text, interaction preview, optional fusion video.
- * Cache bust v124: a rejected key, capacity, or a free-fallback refusal stays off the status line.
+ * Cache bust v126: a typed number finds that one spell, not a band of them.
  */
 (function () {
   var PAGE_SIZE = 25;
@@ -2039,14 +2039,58 @@
     return idx < 0 ? 0 : Math.floor(idx / PAGE_SIZE);
   }
 
+  /**
+   * A typed number is one spell. "10" is painting 10, not 10–99.
+   * g# / s# / si# / phone pick that one still of that kind.
+   */
+  function typedNumberQuery(query) {
+    var q = String(query || "").trim().toLowerCase().replace(/\s+/g, "");
+    var m = q.match(/^(?:si#|si)(\d+)$/);
+    if (m) return { kind: "inverted", n: parseInt(m[1], 10) };
+    m = q.match(/^(?:s#|s)(\d+)$/);
+    if (m) return { kind: "sketch", n: parseInt(m[1], 10) };
+    m = q.match(/^(?:g#|gen#|gen|g)(\d+)$/);
+    if (m) return { kind: "generated", n: parseInt(m[1], 10) };
+    m = q.match(/^(?:phone#|phone)(\d+)$/);
+    if (m) return { kind: "phone", n: parseInt(m[1], 10) };
+    m = q.match(/^#?(\d+)$/);
+    if (m) return { kind: "number", n: parseInt(m[1], 10) };
+    return null;
+  }
+
+  function spellIsTypedNumber(num, typed) {
+    var extra = extraSpells[num] || extraSpells[String(num)];
+    var g = extra && extra.genNum != null ? extra.genNum : 0;
+    if (typed.kind === "generated") {
+      return !!(extra && extra.source === "generated" && g === typed.n);
+    }
+    if (typed.kind === "sketch") {
+      return !!(extra && extra.source === "sketch" && g === typed.n);
+    }
+    if (typed.kind === "inverted") {
+      return !!(extra && extra.source === "sketch-inverted" && g === typed.n);
+    }
+    if (typed.kind === "phone") {
+      return !!(extra && extra.source === "phone-upload" && g === typed.n);
+    }
+    if (!extra) return num === typed.n;
+    if (bookView === "generated" && extra.source === "generated" && g === typed.n) return true;
+    return false;
+  }
+
   function filterBySearch(query) {
     var qRaw = String(query || "").trim();
     if (!qRaw) return null;
     var qLow = qRaw.toLowerCase();
+    var typed = typedNumberQuery(qRaw);
     var hits = [];
     var order = currentOrder();
     for (var i = 0; i < order.length; i++) {
       var num = order[i];
+      if (typed) {
+        if (spellIsTypedNumber(num, typed)) hits.push(num);
+        continue;
+      }
       var a = getAnalysis(num);
       var extra = extraSpells[num] || extraSpells[String(num)];
       // Kind filters: phone / generated / gen / sketch
@@ -2080,7 +2124,7 @@
           continue;
         }
       }
-      if (window.paintingMatchesSearch && !extra) {
+      if (window.paintingMatchesSearch && !extra && !typed) {
         if (window.paintingMatchesSearch(num, a, qRaw)) hits.push(num);
         continue;
       }
