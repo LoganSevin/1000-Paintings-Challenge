@@ -64,3 +64,9 @@
 body.kids-mode .account-gate {
   display: none !important;
 }
+
+/* The sign-in / connect-key card left the header corner (page chat sits there).
+   Keys are pasted or cleared on the xAI tab. */
+.account-gate {
+  display: none !important;
+}

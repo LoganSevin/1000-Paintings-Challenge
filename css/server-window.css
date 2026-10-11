@@ -533,3 +533,95 @@ html.server-cluster-hidden body.is-local-studio .site-header {
     padding-top: 5.3rem;
   }
 }
+
+/* ---- Here list: title bar folds the list away -------------------------- */
+
+.server-people-title {
+  display: flex;
+}
+
+.server-people-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-shadow: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.server-people-count {
+  font-family: var(--font-ui);
+  font-size: 0.62em;
+  color: rgba(244, 236, 216, 0.75);
+}
+
+.server-people-count:empty {
+  display: none;
+}
+
+.server-people-caret {
+  width: 0;
+  height: 0;
+  border-left: 0.26rem solid transparent;
+  border-right: 0.26rem solid transparent;
+  border-top: 0.32rem solid currentColor;
+  transition: transform 0.15s ease;
+}
+
+html.server-people-collapsed .server-people-caret {
+  transform: rotate(-90deg);
+}
+
+html.server-people-collapsed .server-people {
+  height: auto;
+}
+
+html.server-people-collapsed .server-people-frame {
+  display: none;
+}
+
+html.server-people-collapsed .server-people-title {
+  padding-bottom: 0.4rem;
+}
+
+/* Phones and small tablets: tap targets of at least 32px. */
+@media (max-width: 768px) {
+  .server-people-title {
+    padding: 0 0.4rem;
+  }
+
+  .server-people-toggle {
+    width: 100%;
+    min-height: 2rem;
+  }
+
+  html.server-people-collapsed .server-people-title {
+    padding-bottom: 0;
+  }
+
+  .server-cluster-toggle {
+    z-index: 10051;
+    min-height: 2rem;
+    padding: 0.3rem 0.7rem;
+  }
+}
+
+/* Phones: with the list folded, the header only clears the still and the bar. */
+@media (max-width: 540px) {
+  html.server-people-collapsed:not(.server-cluster-hidden) body .site-header,
+  html.server-people-collapsed:not(.server-cluster-hidden) body.is-public-site .site-header {
+    padding-top: 14.6rem;
+  }
+
+  html.server-people-collapsed:not(.server-cluster-hidden) body:not(.is-public-site) .site-header {
+    padding-top: 17.8rem;
+  }
+}

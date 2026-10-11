@@ -773,3 +773,16 @@ body.sc-tab-active .site-header .subtitle { display: none; }
   .api-body { grid-template-columns: 1fr; }
   .api-spec-panel { border-left: none; border-top: 1px solid var(--border); max-height: 14rem; }
 }
+/* Phones: the pill moves to the right end of the top line, clear of the
+   "N online" count and the Hide button beside it. */
+@media (max-width: 540px) {
+  .logan7in-unlimited {
+    top: max(0.4rem, env(safe-area-inset-top, 0px));
+    left: auto;
+    right: max(0.45rem, env(safe-area-inset-right, 0px));
+    transform: none;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.6rem;
+    letter-spacing: 0.05em;
+  }
+}

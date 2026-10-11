@@ -74,6 +74,12 @@
     return origFetch(input, init);
   };
 
+  // The floating "Sign in with Google / Connect xAI key" card no longer sits in
+  // the header corner (page chat lives there now). The key flow stays: the xAI
+  // tab's Paste xAI key / Clear key, the Key tab, and key prompts when a cloud
+  // generate needs one all still use window.AccountGate below.
+  var SHOW_HUD = false;
+
   function ensureHud() {
     var el = document.getElementById("account-gate");
     if (el) return el;
@@ -85,6 +91,11 @@
   }
 
   function render() {
+    if (!SHOW_HUD) {
+      var old = document.getElementById("account-gate");
+      if (old && old.parentNode) old.parentNode.removeChild(old);
+      return;
+    }
     var el = ensureHud();
     var signed = !!(user && (user.email || user.name));
     var key = getVisitorXaiKey();
@@ -186,6 +197,7 @@
         });
       })
       .catch(function (err) {
+        if (!SHOW_HUD) return;
         var el = ensureHud();
         var note = el.querySelector(".account-note");
         if (note) note.textContent = (err && err.message) || "Sign-in failed";
@@ -277,6 +289,7 @@
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", function () {
       render();
+      if (!SHOW_HUD) return;
       loadClientId().then(function () {
         loadGsi();
         render();
@@ -284,9 +297,11 @@
     });
   } else {
     render();
-    loadClientId().then(function () {
-      loadGsi();
-      render();
-    });
+    if (SHOW_HUD) {
+      loadClientId().then(function () {
+        loadGsi();
+        render();
+      });
+    }
   }
 })();
