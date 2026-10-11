@@ -20,6 +20,11 @@
   var INV_SKETCH_BASE = 300000;
   var NOTE_BASE = 400000;
   var NOTES_KEY = "spellforge_notes_v1";
+  /** Stills borrowed from someone online (online-users.js "Spell 1-3"): SHARED_BASE + n. */
+  var SHARED_BASE = 500000;
+  var SHARED_KEY = "spellforge_shared_v1";
+  var SHARED_KEEP = 6;
+  var sharedSpells = null;
   var ASPECT_OPTIONS = ["1:1", "4:3", "3:4", "16:9", "9:16", "3:2", "2:3"];
   var TOME_STOP = {
     a: 1, an: 1, the: 1, and: 1, or: 1, but: 1, nor: 1, so: 1, if: 1,
@@ -1161,6 +1166,131 @@
     } catch (e) {}
   }
 
+  function loadSharedSpells() {
+    if (sharedSpells) return sharedSpells;
+    sharedSpells = { next: SHARED_BASE + 1, items: {} };
+    try {
+      var parsed = JSON.parse(localStorage.getItem(SHARED_KEY) || "null");
+      if (parsed && parsed.items && typeof parsed.items === "object") {
+        Object.keys(parsed.items).forEach(function (k) {
+          var it = parsed.items[k];
+          var id = parseInt(k, 10);
+          if (!it || !it.url || id <= SHARED_BASE || id >= SHARED_BASE + 100000) return;
+          it.id = id;
+          sharedSpells.items[String(id)] = it;
+        });
+        sharedSpells.next = Math.max(SHARED_BASE + 1, parseInt(parsed.next, 10) || SHARED_BASE + 1);
+      }
+    } catch (e) {}
+    return sharedSpells;
+  }
+
+  function sharedOf(num) {
+    num = parseInt(num, 10);
+    if (!num || num <= SHARED_BASE || num >= SHARED_BASE + 100000) return null;
+    return loadSharedSpells().items[String(num)] || null;
+  }
+
+  // Keep what is equipped plus the newest few; data URLs are large, so trim
+  // further if localStorage is full (the slot still works for this visit).
+  function saveSharedSpells() {
+    var store = loadSharedSpells();
+    var ids = Object.keys(store.items).sort(function (a, b) {
+      return (store.items[b].addedAt || 0) - (store.items[a].addedAt || 0);
+    });
+    var keep = {};
+    var n = 0;
+    ids.forEach(function (k) {
+      var equipped = spells.indexOf(parseInt(k, 10)) >= 0;
+      if (equipped || n < SHARED_KEEP) {
+        keep[k] = store.items[k];
+        if (!equipped) n += 1;
+      }
+    });
+    store.items = keep;
+    var order = Object.keys(keep).sort(function (a, b) {
+      return (keep[a].addedAt || 0) - (keep[b].addedAt || 0);
+    });
+    for (var guard = 0; guard <= order.length; guard++) {
+      try {
+        var out = {};
+        Object.keys(keep).forEach(function (k) {
+          out[k] = keep[k];
+        });
+        localStorage.setItem(SHARED_KEY, JSON.stringify({ next: store.next, items: out }));
+        return;
+      } catch (e) {
+        var drop = null;
+        for (var i = 0; i < order.length; i++) {
+          if (keep[order[i]] && spells.indexOf(parseInt(order[i], 10)) < 0) {
+            drop = order[i];
+            break;
+          }
+        }
+        if (!drop) return;
+        delete keep[drop];
+      }
+    }
+  }
+
+  function sharedAnalysis(it) {
+    var who = it.name || "someone";
+    var prompt = String(it.prompt || "").trim();
+    var where = it.tab ? " in the " + it.tab + " tab" : "";
+    return {
+      title: who + "\u2019s last generated",
+      description: prompt || "A still " + who + " generated" + where + " on logan7in.art.",
+      tags: ["shared", it.tab || "generated"].filter(Boolean),
+    };
+  }
+
+  /**
+   * Put someone's still into Spell I/II/III (online-users.js). Same path as
+   * picking from the arsenal (spells[] + renderSlots), with the image kept as
+   * a shared spell so the slot survives a reload.
+   */
+  function equipImage(slotIndex, info) {
+    slotIndex = parseInt(slotIndex, 10);
+    if (isNaN(slotIndex) || slotIndex < 0 || slotIndex > 2) {
+      return { ok: false, error: "Pick Spell I\u2013III." };
+    }
+    info = info || {};
+    var url = String(info.url || "");
+    if (!/^(?:data:image\/|https?:\/\/|blob:)/i.test(url)) return { ok: false, error: "No image to equip." };
+    var store = loadSharedSpells();
+    var key = String(info.key || "");
+    var id = 0;
+    if (key) {
+      Object.keys(store.items).forEach(function (k) {
+        if (store.items[k].key === key) id = parseInt(k, 10);
+      });
+    }
+    if (!id) {
+      id = store.next;
+      store.next = id + 1;
+    }
+    store.items[String(id)] = {
+      id: id,
+      key: key,
+      url: url,
+      name: String(info.name || "").slice(0, 40),
+      tab: String(info.tab || "").replace(/[^a-z0-9-]/gi, "").slice(0, 40),
+      prompt: String(info.prompt || "").slice(0, 800),
+      at: parseInt(info.at, 10) || Date.now(),
+      addedAt: Date.now(),
+    };
+    spells[slotIndex] = id;
+    clearSpellSlotBody(slotIndex);
+    saveSharedSpells();
+    if (spellforgeReady) {
+      renderSlots();
+      renderGrid();
+    } else {
+      saveEquippedSpells();
+    }
+    return { ok: true, slot: slotIndex, id: id };
+  }
+
   function noteOf(num) {
     num = parseInt(num, 10);
     if (!num || !spellNotes || !spellNotes.notes) return null;
@@ -1176,6 +1306,7 @@
     if (!n || n < 1) return 0;
     if (extraSpells[n] || extraSpells[String(n)]) return n;
     if (noteOf(n)) return n;
+    if (sharedOf(n)) return n;
     if (n <= TOTAL) return n;
     var asGen = GEN_BASE + n;
     if (extraSpells[asGen] || extraSpells[String(asGen)]) return asGen;
@@ -1187,12 +1318,14 @@
     if (!n || n < 1) return false;
     if (n <= TOTAL) return true;
     if (noteOf(n)) return true;
+    if (sharedOf(n)) return true;
     if (extraSpells[n] || extraSpells[String(n)]) return true;
     return !!(extraSpells[GEN_BASE + n] || extraSpells[String(GEN_BASE + n)]);
   }
 
   function spellKindLabel(num) {
     if (noteOf(num)) return "Tome";
+    if (sharedOf(num)) return "Shared";
     var extra = extraSpells[num] || extraSpells[String(num)];
     if (!extra) return "#" + num;
     var g = extra.genNum != null ? extra.genNum : num;
@@ -1215,6 +1348,8 @@
     num = resolveArsenalNum(num) || num;
     var noteThumb = noteOf(num);
     if (noteThumb) return tomeCoverUrl(noteThumb);
+    var shared = sharedOf(num);
+    if (shared) return /^(?:data:|blob:|https?:)/i.test(shared.url) ? shared.url : assetUrl(shared.url);
     var extra = extraSpells[num] || extraSpells[String(num)];
     if (extra && extra.url) return assetUrl(extra.url);
     if (window.getPaintingUrl) return window.getPaintingUrl(num);
@@ -1233,6 +1368,8 @@
         tags: note.tags && note.tags.length ? note.tags.slice() : deriveTomeTags(notePrompt),
       };
     }
+    var sharedIt = sharedOf(num);
+    if (sharedIt) return sharedAnalysis(sharedIt);
     var extra = extraSpells[num] || extraSpells[String(num)];
     if (extra && extra.analysis) return extra.analysis;
     if (extra && extra.genNum) {
@@ -6834,6 +6971,9 @@
         },
         equipNote: function (slotIndex, text) {
           return equipNote(slotIndex, text);
+        },
+        equipImage: function (slotIndex, info) {
+          return equipImage(slotIndex, info);
         },
         softenPromptForModeration: softenPromptForModeration,
         showModerationStrike: function (result) {

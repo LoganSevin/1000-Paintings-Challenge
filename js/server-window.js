@@ -21,6 +21,10 @@
   var posting = false;
   var pendingBody = null;
   var postedKey = "";
+  // Prompt of the newest generate-stasis-vision request, recorded with the
+  // visitor's still so Spellforge gets its text when someone borrows it.
+  var lastPrompt = { text: "", at: 0 };
+  var PROMPT_FRESH_MS = 15 * 60 * 1000;
 
   function $(id) {
     return document.getElementById(id);
@@ -251,12 +255,49 @@
           if (data && data.ok) {
             if (data.last && data.last.at && data.last.at >= shownAt) shownAt = data.last.at;
             paintOnline(data.online);
+            if (data.user_last && window.L7inIdentity) window.L7inIdentity.setLast(data.user_last);
+            emitUsers(data.users);
           }
         })
         .catch(function () {})
         .then(send);
     }
     send();
+  }
+
+  function emitUsers(users) {
+    if (!Array.isArray(users)) return;
+    try {
+      window.dispatchEvent(new CustomEvent("presence-users", { detail: { users: users } }));
+    } catch (e) {}
+  }
+
+  // Who made this still: session id (hashed by the server), the name in use
+  // right now, and the prompt if this page just asked for one.
+  function withOwner(body) {
+    body.sid = selfId || sessionId();
+    try {
+      if (window.L7inIdentity) body.name = window.L7inIdentity.name();
+    } catch (e) {}
+    if (lastPrompt.text && Date.now() - lastPrompt.at < PROMPT_FRESH_MS) body.prompt = lastPrompt.text;
+    return body;
+  }
+
+  function notePrompt(url, init) {
+    if (!/generate-stasis-vision/.test(url)) return;
+    if (!init || String(init.method || "GET").toUpperCase() !== "POST") return;
+    if (typeof init.body !== "string" || init.body.length > 200000) return;
+    try {
+      var body = JSON.parse(init.body);
+      // A tab's own prompt (what the visitor typed) first, then the stasis text.
+      var parts = [];
+      [body && body.prompt, body && body.stasis].forEach(function (p) {
+        p = typeof p === "string" ? p.trim() : "";
+        if (p && parts.indexOf(p) < 0) parts.push(p);
+      });
+      var text = parts.join("\n\n");
+      if (text) lastPrompt = { text: text.slice(0, 800), at: Date.now() };
+    } catch (e) {}
   }
 
   function share(url, meta) {
@@ -281,13 +322,13 @@
         postedKey = keyOf(dataUrl);
         remember(dataUrl, now, tab);
         postChannel({ type: "image", id: selfId, at: now, tab: tab, image: dataUrl });
-        postStill({ image: dataUrl, tab: tab });
+        postStill(withOwner({ image: dataUrl, tab: tab }));
       },
       function () {
         if (/^https:\/\//i.test(url)) {
           showImage(url, now, tab);
           postChannel({ type: "remote", id: selfId, at: now, tab: tab, remote: url });
-          postStill({ remote: url, tab: tab });
+          postStill(withOwner({ remote: url, tab: tab }));
         }
       }
     );
@@ -296,6 +337,7 @@
   function applyServer(data) {
     if (!data || !data.ok) return;
     paintOnline(data.online);
+    emitUsers(data.users);
     var last = data.last;
     if (!last || !last.at || last.at <= shownAt) return;
     if (last.remote && !last.image) {
@@ -374,6 +416,9 @@
     if (!window.fetch || window.fetch.__l7inServer) return;
     var orig = window.fetch;
     var wrapped = function (input, init) {
+      try {
+        notePrompt(typeof input === "string" ? input : (input && input.url) || "", init);
+      } catch (e0) {}
       return orig.apply(this, arguments).then(function (res) {
         try {
           noteResponse(input, res);

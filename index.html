@@ -130,7 +130,8 @@
   <link rel="stylesheet" href="css/annotations.css?v=1" />
   <link rel="stylesheet" href="css/page-chat.css?v=1" />
   <link rel="stylesheet" href="css/tab-presence.css?v=1" />
-  <link rel="stylesheet" href="css/server-window.css?v=5" />
+  <link rel="stylesheet" href="css/server-window.css?v=6" />
+  <link rel="stylesheet" href="css/online-users.css?v=1" />
   <link rel="stylesheet" href="css/tab-debug.css?v=8" />
   <script defer src="js/lazy-assets.js?v=2"></script>
   <script defer src="js/fonts-desktop.js?v=1"></script>
@@ -139,11 +140,21 @@
   <a href="./">Welcome</a>
   <aside id="server-window" class="server-window" aria-label="Server">
     <p class="server-window-online" id="server-window-online" aria-live="polite">1 online</p>
-    <figure class="server-window-frame">
-      <img id="server-window-img" alt="Last generated" hidden />
-      <button type="button" id="server-window-open" class="server-window-open" hidden aria-label="Open last generated full screen">Open full screen</button>
-      <figcaption class="server-window-caption" id="server-window-caption">Last generated</figcaption>
-    </figure>
+    <div class="server-window-row">
+      <figure class="server-window-frame">
+        <img id="server-window-img" alt="Last generated" hidden />
+        <button type="button" id="server-window-open" class="server-window-open" hidden aria-label="Open last generated full screen">Open full screen</button>
+        <figcaption class="server-window-caption" id="server-window-caption">Last generated</figcaption>
+      </figure>
+      <section class="online-users" id="online-users" aria-label="Who is online">
+        <header class="online-users-head">
+          <span class="online-users-title">Here now <span class="online-users-count" id="online-users-count"></span></span>
+          <span class="online-users-hint">right-click your name to rename</span>
+        </header>
+        <ul class="online-users-list" id="online-users-list"></ul>
+        <p class="online-users-status" id="online-users-status" role="status" aria-live="polite" hidden></p>
+      </section>
+    </div>
   </aside>
   <div id="xai-credits-hud" class="xai-credits-hud is-loading" role="status" aria-live="polite" aria-label="API credits and weekly usage">
     <a class="xai-credits-link" href="https://console.x.ai/team/default/billing" target="_blank" rel="noopener noreferrer" title="Open xAI billing — buy credits with money you earn">
@@ -9041,9 +9052,10 @@
   <script defer src="js/account-gate.js?v=5"></script>
   <script defer src="js/annotations.js?v=3"></script>
   <script defer src="js/gallery-welcome.js?v=12"></script>
-  <script defer src="js/page-chat.js?v=3"></script>
-  <script defer src="js/tab-presence.js?v=3"></script>
-  <script defer src="js/server-window.js?v=4"></script>
+  <script defer src="js/online-users.js?v=1"></script>
+  <script defer src="js/page-chat.js?v=4"></script>
+  <script defer src="js/tab-presence.js?v=4"></script>
+  <script defer src="js/server-window.js?v=5"></script>
   <script defer src="js/time-clock.js?v=7"></script>
   <script defer src="js/gallery-shared.js?v=8"></script>
   <script defer src="js/gallery-save-video.js?v=1"></script>
