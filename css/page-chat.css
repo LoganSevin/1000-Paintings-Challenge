@@ -281,3 +281,52 @@ body.ann-drawing .page-chat {
   opacity: 0.35;
   pointer-events: none;
 }
+
+/* Phones: page chat takes the top-right corner (where the sign-in card was),
+   in the column beside Last generated so it never covers the still. It starts
+   minimized; the whole head is a 32px tap target. */
+@media (max-width: 540px) {
+  .page-chat,
+  .page-chat.is-collapsed {
+    top: calc(max(0.4rem, env(safe-area-inset-top, 0px)) + 1.75rem);
+    bottom: auto;
+    right: max(0.45rem, env(safe-area-inset-right, 0px));
+    z-index: 10049;
+  }
+
+  .page-chat {
+    width: min(16.5rem, max(9rem, calc(100vw - 13.5rem)));
+    max-height: min(60vh, 17rem);
+  }
+
+  .page-chat.is-collapsed {
+    width: auto;
+    max-width: max(9rem, calc(100vw - 13.5rem));
+  }
+
+  .page-chat-head {
+    min-height: 2rem;
+    padding: 0.15rem 0.2rem 0.15rem 0.5rem;
+  }
+
+  .page-chat-toggle {
+    width: 2rem;
+    height: 2rem;
+    font-size: 0.9rem;
+  }
+
+  .page-chat-body {
+    min-height: 3.5rem;
+    max-height: 6.5rem;
+  }
+
+  .page-chat-send {
+    min-height: 2rem;
+  }
+
+  .page-chat input[type="text"],
+  .page-chat input:not([type]) {
+    min-height: 2rem;
+    font-size: 16px; /* no iOS zoom on focus */
+  }
+}

@@ -193,6 +193,42 @@
       for (var j = 0; j < groups.offline.length; j++) list.appendChild(rowFor(groups.offline[j], false));
     }
     list.scrollTop = scroll;
+    var count = $("server-people-count");
+    if (count) count.textContent = groups.online.length ? String(groups.online.length) : "";
+  }
+
+  // Fold the list to just its title bar. Closed by default on phones (set in
+  // index.html before paint); the choice is remembered in this browser.
+  var OPEN_KEY = "l7in_server_people_open_v1";
+
+  function peopleCollapsed() {
+    return document.documentElement.classList.contains("server-people-collapsed");
+  }
+
+  function paintPeopleToggle() {
+    var btn = $("server-people-toggle");
+    if (!btn) return;
+    var closed = peopleCollapsed();
+    btn.setAttribute("aria-expanded", closed ? "false" : "true");
+    btn.title = closed ? "Show the Here list" : "Hide the Here list";
+  }
+
+  function setPeopleCollapsed(closed) {
+    document.documentElement.classList.toggle("server-people-collapsed", !!closed);
+    try {
+      localStorage.setItem(OPEN_KEY, closed ? "closed" : "open");
+    } catch (e) {}
+    paintPeopleToggle();
+  }
+
+  function bindPeopleToggle() {
+    var btn = $("server-people-toggle");
+    if (!btn || btn.dataset.bound) return;
+    btn.dataset.bound = "1";
+    paintPeopleToggle();
+    btn.addEventListener("click", function () {
+      setPeopleCollapsed(!peopleCollapsed());
+    });
   }
 
   function stillThumb(person) {
@@ -551,6 +587,7 @@
     selfId = sessionId();
     rememberName(myName());
     selfImage = readLocalStill();
+    bindPeopleToggle();
     paint([]);
     if (selfImage) noteStill(selfImage);
     start();
