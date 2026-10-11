@@ -1,6 +1,6 @@
 /**
  * Spellforge: shuffled grid, spell slots, fused text, interaction preview, optional fusion video.
- * Cache bust v130: Describe writes the photo in the frame. A skipped caption stays out of the box.
+ * Cache bust v131: changing one spell leaves the other two spells' wording alone.
  */
 (function () {
   var PAGE_SIZE = 25;
@@ -4213,9 +4213,9 @@
   }
 
   /**
-   * One paragraph. Each equipped spell contributes the same amount of detail.
-   * The first share keeps its capital. Later shares are lowercased.
-   * Spell headers stay off the text the model sees.
+   * One paragraph. Each spell keeps its own detail, capped on its own.
+   * A shorter spell does not trim the other two. The first share keeps its
+   * capital. Later shares are lowercased. Spell headers stay off the model text.
    */
   function conjoinedSpellParagraph(spellParts) {
     var shares = [];
@@ -4224,14 +4224,9 @@
       if (share) shares.push(share);
     }
     if (!shares.length) return "";
-    var shortest = shares[0].length;
-    for (var j = 1; j < shares.length; j++) {
-      if (shares[j].length < shortest) shortest = shares[j].length;
-    }
-    var cap = Math.max(140, Math.min(420, shortest));
     var bits = [];
     for (var k = 0; k < shares.length; k++) {
-      var bit = clipShareText(shares[k], cap);
+      var bit = clipShareText(shares[k], 420);
       if (!bit) continue;
       if (bits.length) bit = bit.charAt(0).toLowerCase() + bit.slice(1);
       bits.push(bit);
@@ -4900,9 +4895,7 @@
       stasisVisionUrl = "";
       applyFusedUi._lastVisionSlots = "";
       activeBuzzWords = [];
-      // Clear body overrides only for slots that changed painting
-      stasisUserDirty = false;
-      physicalUserDirty = false;
+      // Edited notes and the 4th description stay until Redefine or Rebuild.
       applyFusedUi._lastSlots = slotKey;
       updateStasisVisionView("");
     }
@@ -4910,10 +4903,9 @@
       meta.colors = getPaletteHexList();
     }
     if (nums.length >= 2) {
-      // Keep user edits / omits unless slots changed or stasis empty
-      if (slotsChanged || !stasisUserDirty || !String(spellStasis || "").trim()) {
+      // A slot change updates only that spell. Edited notes stay until Redefine.
+      if (!stasisUserDirty || !String(spellStasis || "").trim()) {
         spellStasis = mixed;
-        stasisUserDirty = false;
       }
     } else {
       spellStasis = "";
@@ -6822,10 +6814,12 @@
 
   function renderSlots() {
     closeSpellColorPopover();
-    var slots = document.querySelectorAll(".spell-slot");
+    var slots = document.querySelectorAll("#panel-spellforge .spell-slots-stack > .spell-slot");
     var names = ["I", "II", "III"];
-    for (var s = 0; s < slots.length; s++) {
-      var el = slots[s];
+    for (var si = 0; si < slots.length; si++) {
+      var el = slots[si];
+      var s = parseInt(el.getAttribute("data-slot"), 10);
+      if (isNaN(s) || s < 0 || s > 2) continue;
       var num = spells[s];
       if (!num) {
         el.classList.remove("filled");

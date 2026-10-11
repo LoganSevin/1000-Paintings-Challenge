@@ -559,10 +559,7 @@ function clipShareEven(share, cap) {
   return cut.replace(/[\s,;:—–-]+$/, "").replace(/[.…]+$/, "").trim();
 }
 
-function equalShareLimit(shares) {
-  const shortest = Math.min(...shares.map((s) => String(s || "").length));
-  return Math.max(140, Math.min(420, shortest || 140));
-}
+const SPELL_SHARE_CAP = 420;
 
 /** Descriptive text of one spell block, without its header, title repeat, or style lines. */
 function spellShareText(block) {
@@ -590,16 +587,16 @@ function spellShareText(block) {
 }
 
 /**
- * One paragraph. Each spell gets the same cap, so a long Spell 1 cannot lead.
+ * One paragraph. Each spell keeps its own detail up to SPELL_SHARE_CAP.
+ * A shorter spell does not trim the other two.
  * The first share keeps its capital. Later shares are lowercased.
  */
 function conjoinedFromShares(shares) {
   const clean = (shares || []).map((s) => String(s || "").replace(/\s+/g, " ").trim()).filter(Boolean);
   if (!clean.length) return "";
-  const cap = equalShareLimit(clean);
   const bits = clean
     .map((share, i) => {
-      const bit = clipShareEven(share, cap);
+      const bit = clipShareEven(share, SPELL_SHARE_CAP);
       if (!bit) return "";
       return i === 0 ? bit : bit.charAt(0).toLowerCase() + bit.slice(1);
     })
@@ -1430,14 +1427,8 @@ export function buildCloudflarePrompt(stasis, buzzWords, aspect, opts = {}) {
           : "";
     const fixedLen = lead.length + opener.length + unifier.length + tailText.length + 20 * n + 8;
     const cap = Math.max(110, Math.min(n === 1 ? 420 : 260, Math.floor((FLUX_PROMPT_TARGET - fixedLen) / n)));
-    // Balance: every spell gets the same bounded share, and none may run much longer than the
-    // shortest one (a long first sentence is trimmed to its core clause).
-    let cores = subs.map((d) => fluxSpellCore(d.desc, cap));
-    if (n > 1) {
-      const shortest = Math.min(...cores.map((c) => c.length));
-      const even = Math.max(120, Math.round(shortest * 1.3));
-      if (cores.some((c) => c.length > even)) cores = subs.map((d) => fluxSpellCore(d.desc, Math.min(cap, even)));
-    }
+    // Each spell is capped on its own. A short spell does not trim the others.
+    const cores = subs.map((d) => fluxSpellCore(d.desc, cap));
     const lcArticle = (c) => c.replace(/^(A|An|The|Two|Three|Several|Many)\b/, (w) => w.toLowerCase());
     const body =
       n > 1

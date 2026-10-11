@@ -92,6 +92,25 @@ test("non-Spellforge stasis prompts keep the general framing", () => {
   assert.match(prompt, /A quiet field at dawn/);
 });
 
+test("a short spell does not trim the other two", () => {
+  const courtyard = "A sunlit Mediterranean courtyard with blue shutters, a stone well, and clay pots along the stair.";
+  const coaster =
+    "A coastal roller coaster winding above the sea with red cars and a brass bell at the last turn before the tunnel.";
+  const stasis = [
+    "SPELL 1 — Courtyard (#957)",
+    courtyard,
+    "SPELL 2 — Dot (#2)",
+    "A dot.",
+    "SPELL 3 — Coaster (#392)",
+    coaster,
+  ].join("\n");
+
+  const prompt = buildStasisVisionPrompt(stasis, [], "16:9");
+  assert.match(prompt, /stone well, and clay pots along the stair/i);
+  assert.match(prompt, /brass bell at the last turn before the tunnel/i);
+  assert.match(prompt, /\ba dot\b/i);
+});
+
 test("a signed Spellforge prompt keeps Spell III and the signature under the cap", () => {
   const filler = "Brushwork continues across the courtyard wall. ".repeat(160);
   const stasis = [
@@ -121,7 +140,9 @@ test("a signed Spellforge prompt keeps Spell III and the signature under the cap
   assert.doesNotMatch(prompt, /\blandscape\b/i);
   assert.doesNotMatch(prompt, /SPELL I —/);
   assert.match(prompt, /together with/i);
-  assert.ok((prompt.match(/Brushwork continues/g) || []).length < 5);
+  assert.match(prompt, /coastal roller coaster winding above the sea/);
+  const brushwork = (prompt.match(/Brushwork continues/g) || []).length;
+  assert.ok(brushwork >= 1 && brushwork < 20);
 });
 
 test("Cloudflare fallback does not ask for a landscape or forbid the signature", () => {
