@@ -2192,6 +2192,67 @@ button.spell-chip.spell-chip-toggle.is-on:hover {
   flex-wrap: wrap;
   gap: 0.35rem;
 }
+.spell-photo-frame {
+  margin: 0 0 0.85rem;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  border-radius: 8px;
+  background: rgba(15, 23, 42, 0.35);
+}
+.spell-photo-hint {
+  margin: 0.2rem 0 0.45rem;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+.spell-photo-stage {
+  position: relative;
+  min-height: 9.5rem;
+  border: 1px solid rgba(201, 162, 39, 0.45);
+  border-radius: 6px;
+  background: #070b14;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.spell-photo-stage.is-drag {
+  border-color: #e6c56a;
+}
+.spell-photo-stage img {
+  display: block;
+  max-width: 100%;
+  max-height: 16rem;
+  object-fit: contain;
+}
+.spell-photo-stage img[hidden] {
+  display: none;
+}
+.spell-photo-empty {
+  margin: 0;
+  padding: 0.75rem;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  text-align: center;
+}
+.spell-photo-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0.45rem 0 0.15rem;
+}
+.spell-photo-status {
+  min-height: 1.1rem;
+  margin: 0.15rem 0 0.4rem;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+.spell-photo-status.is-err {
+  color: #e8a090;
+}
+.spell-photo-frame .btn-secondary:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
 .spell-animate-row {
   display: flex;
   flex-wrap: wrap;

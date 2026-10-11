@@ -73,7 +73,7 @@
   }
   </script>
   <link rel="stylesheet" href="css/stasis-skin.css?v=2" />
-  <link rel="stylesheet" href="css/spellforge.css?v=51" />
+  <link rel="stylesheet" href="css/spellforge.css?v=52" />
   <!-- Secondary tab CSS loads after first paint via lazy-assets.js -->
   <link rel="stylesheet" href="css/muralwalk.css?v=46" />
   <link rel="stylesheet" href="css/fleeting-idea.css?v=100" />
@@ -504,6 +504,25 @@
             <button type="button" id="spell-note-equip-2" class="btn-secondary" data-spell-note-slot="2">Spell III</button>
           </div>
         </div>
+        <section class="spell-photo-frame" id="spell-photo-frame" aria-label="Photo for a spell">
+          <label class="spell-fusion-label" for="spell-photo-desc">Photo — description equips one spell</label>
+          <p class="spell-photo-hint">Drop a photo in this frame. Its description can go into Spell I, II, or III.</p>
+          <div class="spell-photo-stage" id="spell-photo-drop" tabindex="0">
+            <img id="spell-photo-img" alt="" hidden />
+            <p class="spell-photo-empty" id="spell-photo-empty">Drop a photo here</p>
+          </div>
+          <div class="spell-photo-actions">
+            <button type="button" id="spell-photo-choose" class="btn-secondary">Choose photo</button>
+            <input type="file" id="spell-photo-file" accept="image/*" hidden />
+          </div>
+          <textarea id="spell-photo-desc" class="spell-note-text" rows="4" placeholder="The description of this photo appears here. You can edit it." spellcheck="true"></textarea>
+          <p id="spell-photo-status" class="spell-photo-status" aria-live="polite"></p>
+          <div class="spell-notes-actions">
+            <button type="button" id="spell-photo-equip-0" class="btn-secondary" data-spell-photo-slot="0" disabled>Spell I</button>
+            <button type="button" id="spell-photo-equip-1" class="btn-secondary" data-spell-photo-slot="1" disabled>Spell II</button>
+            <button type="button" id="spell-photo-equip-2" class="btn-secondary" data-spell-photo-slot="2" disabled>Spell III</button>
+          </div>
+        </section>
         <section class="spell-fusion-panel" id="spell-fusion-panel">
           <h3 class="spell-fusion-title">Fused spell</h3>
           <p id="spell-fusion-hint" class="spell-fusion-hint">Equip 2–3 spells to merge styles, tags, and a mixed description.</p>
@@ -9150,7 +9169,7 @@
   <script defer src="js/stasis-interface-skin.js?v=2"></script>
   <script defer src="js/stasis-floor-gen.js?v=8"></script>
   <script defer src="js/spellforge-config.js?v=5"></script>
-  <script defer src="js/spellforge.js?v=128"></script>
+  <script defer src="js/spellforge.js?v=129"></script>
   <script defer src="js/fix-webm-duration.js?v=1"></script>
   <script defer src="js/videofy-export.js?v=3"></script>
   <script defer src="js/viral.js?v=13"></script>

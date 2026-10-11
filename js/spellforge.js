@@ -1,6 +1,6 @@
 /**
  * Spellforge: shuffled grid, spell slots, fused text, interaction preview, optional fusion video.
- * Cache bust v128: a still from someone here equips into one Spell I, II, or III slot.
+ * Cache bust v129: a photo frame writes the upload description into one Spell I, II, or III slot.
  */
 (function () {
   var PAGE_SIZE = 25;
@@ -25,6 +25,11 @@
   var VISITOR_SPAN = 100000;
   var VISITOR_KEY = "spellforge_visitors_v1";
   var VISITOR_KEEP = 4;
+  /** Photos described in the Spellforge frame. 600000–699999 is the visitor range. */
+  var PHOTO_BASE = 700000;
+  var PHOTO_SPAN = 100000;
+  var PHOTO_KEY = "spellforge_photos_v1";
+  var PHOTO_KEEP = 4;
   var ASPECT_OPTIONS = ["1:1", "4:3", "3:4", "16:9", "9:16", "3:2", "2:3"];
   var TOME_STOP = {
     a: 1, an: 1, the: 1, and: 1, or: 1, but: 1, nor: 1, so: 1, if: 1,
@@ -68,6 +73,10 @@
   var spellNotes = { notes: {}, nextNoteId: NOTE_BASE + 1 };
   var visitorSpells = { next: VISITOR_BASE + 1, items: {} };
   var visitorSpellsReady = false;
+  var photoSpells = { next: PHOTO_BASE + 1, items: {} };
+  var photoSpellsReady = false;
+  var photoFrame = { url: "", title: "", prompt: "", tags: [], style: "" };
+  var photoDescribeToken = 0;
   var activePage = 0;
   var pickerQuery = "";
   /** "all" is the mixed spellbook (paintings + shuffle). "generated" is the G# view. */
@@ -1291,6 +1300,141 @@
     return { ok: true, slot: slotIndex, id: id, slots: [spells[0], spells[1], spells[2]] };
   }
 
+  function loadPhotoSpells() {
+    if (photoSpellsReady) return;
+    photoSpellsReady = true;
+    try {
+      var raw = localStorage.getItem(PHOTO_KEY);
+      if (!raw) return;
+      var parsed = JSON.parse(raw);
+      var items = {};
+      var incoming = parsed && parsed.items;
+      if (incoming && typeof incoming === "object") {
+        Object.keys(incoming).forEach(function (k) {
+          var it = incoming[k];
+          var id = parseInt(it && it.id != null ? it.id : k, 10);
+          if (!id || id <= PHOTO_BASE || id >= PHOTO_BASE + PHOTO_SPAN) return;
+          var url = String((it && it.url) || "");
+          if (!/^data:image\/(?:jpeg|png|webp);base64,/i.test(url)) return;
+          var tags = [];
+          if (it && Array.isArray(it.tags)) {
+            it.tags.forEach(function (tag) {
+              var s = String(tag || "").replace(/\s+/g, " ").trim().slice(0, 24);
+              if (s && tags.length < 6) tags.push(s);
+            });
+          }
+          items[String(id)] = {
+            id: id,
+            url: url,
+            title: String((it && it.title) || "").replace(/\s+/g, " ").trim().slice(0, 80),
+            description: String((it && it.description) || "").replace(/\s+/g, " ").trim().slice(0, 2000),
+            prompt: String((it && it.prompt) || "").trim().slice(0, 1200),
+            style: String((it && it.style) || "").replace(/\s+/g, " ").trim().slice(0, 40),
+            tags: tags,
+            at: parseInt(it && it.at, 10) || 0,
+          };
+        });
+      }
+      var next = parseInt(parsed && parsed.next, 10) || PHOTO_BASE + 1;
+      if (next <= PHOTO_BASE || next >= PHOTO_BASE + PHOTO_SPAN) next = PHOTO_BASE + 1;
+      photoSpells = { next: next, items: items };
+    } catch (e) {}
+  }
+
+  function photoOf(num) {
+    num = parseInt(num, 10);
+    if (!num || !photoSpells || !photoSpells.items) return null;
+    return photoSpells.items[String(num)] || null;
+  }
+
+  function savePhotoSpells() {
+    var items = (photoSpells && photoSpells.items) || {};
+    var keep = {};
+    var i;
+    for (i = 0; i < 3; i++) {
+      var equipped = photoOf(spells[i]);
+      if (equipped) keep[String(equipped.id)] = equipped;
+    }
+    var rest = [];
+    Object.keys(items).forEach(function (k) {
+      if (keep[k]) return;
+      rest.push(items[k]);
+    });
+    rest.sort(function (a, b) {
+      return (b.at || 0) - (a.at || 0);
+    });
+    for (i = 0; i < rest.length && i < PHOTO_KEEP; i++) keep[String(rest[i].id)] = rest[i];
+    photoSpells.items = keep;
+    try {
+      localStorage.setItem(PHOTO_KEY, JSON.stringify({ next: photoSpells.next, items: keep }));
+    } catch (e) {
+      var only = {};
+      for (i = 0; i < 3; i++) {
+        var eq = photoOf(spells[i]);
+        if (eq) only[String(eq.id)] = eq;
+      }
+      photoSpells.items = only;
+      try {
+        localStorage.setItem(PHOTO_KEY, JSON.stringify({ next: photoSpells.next, items: only }));
+      } catch (e2) {}
+    }
+  }
+
+  function equipPhoto(slotIndex, info) {
+    slotIndex = parseInt(slotIndex, 10);
+    if (slotIndex < 0 || slotIndex > 2 || isNaN(slotIndex)) {
+      return { ok: false, error: "Pick Spell I–III." };
+    }
+    info = info || {};
+    var url = String(info.url || photoFrame.url || "");
+    if (!/^data:image\/(?:jpeg|png|webp);base64,/i.test(url)) {
+      return { ok: false, error: "Choose a photo first." };
+    }
+    var description = String(info.description != null ? info.description : "").replace(/\s+/g, " ").trim();
+    if (!description) {
+      var ta = document.getElementById("spell-photo-desc");
+      description = String((ta && ta.value) || "").replace(/\s+/g, " ").trim();
+    }
+    description = description.slice(0, 2000);
+    if (!description) return { ok: false, error: "The description is not ready." };
+    loadPhotoSpells();
+    if (!photoSpells.items) photoSpells.items = {};
+    var id = Number(photoSpells.next) || PHOTO_BASE + 1;
+    if (id <= PHOTO_BASE || id >= PHOTO_BASE + PHOTO_SPAN) id = PHOTO_BASE + 1;
+    while (photoSpells.items[String(id)] && id < PHOTO_BASE + PHOTO_SPAN - 1) id += 1;
+    photoSpells.next = id + 1;
+    var title = String(info.title || photoFrame.title || "").replace(/\s+/g, " ").trim().slice(0, 80);
+    if (!title) title = deriveNoteTitle(description);
+    var tags = [];
+    var rawTags = info.tags || photoFrame.tags || [];
+    if (Array.isArray(rawTags)) {
+      rawTags.forEach(function (tag) {
+        var s = String(tag || "").replace(/\s+/g, " ").trim().slice(0, 24);
+        if (s && tags.length < 6) tags.push(s);
+      });
+    }
+    photoSpells.items[String(id)] = {
+      id: id,
+      url: url,
+      title: title || "Photo",
+      description: description,
+      prompt: String(info.prompt || photoFrame.prompt || "").trim().slice(0, 1200),
+      style: String(info.style || photoFrame.style || "").replace(/\s+/g, " ").trim().slice(0, 40),
+      tags: tags,
+      at: Date.now(),
+    };
+    spells[slotIndex] = id;
+    clearSpellSlotBody(slotIndex);
+    savePhotoSpells();
+    if (spellforgeReady) {
+      renderSlots();
+      renderGrid();
+    } else {
+      saveEquippedSpells();
+    }
+    return { ok: true, slot: slotIndex, id: id, slots: [spells[0], spells[1], spells[2]] };
+  }
+
   function isNoteId(n) {
     return !!noteOf(n);
   }
@@ -1301,6 +1445,7 @@
     if (extraSpells[n] || extraSpells[String(n)]) return n;
     if (noteOf(n)) return n;
     if (visitorOf(n)) return n;
+    if (photoOf(n)) return n;
     if (n <= TOTAL) return n;
     var asGen = GEN_BASE + n;
     if (extraSpells[asGen] || extraSpells[String(asGen)]) return asGen;
@@ -1313,11 +1458,13 @@
     if (n <= TOTAL) return true;
     if (noteOf(n)) return true;
     if (visitorOf(n)) return true;
+    if (photoOf(n)) return true;
     if (extraSpells[n] || extraSpells[String(n)]) return true;
     return !!(extraSpells[GEN_BASE + n] || extraSpells[String(GEN_BASE + n)]);
   }
 
   function spellKindLabel(num) {
+    if (photoOf(num)) return "Photo";
     if (visitorOf(num)) return "Here";
     if (noteOf(num)) return "Tome";
     var extra = extraSpells[num] || extraSpells[String(num)];
@@ -1344,6 +1491,8 @@
     if (noteThumb) return tomeCoverUrl(noteThumb);
     var visitorThumb = visitorOf(num);
     if (visitorThumb && visitorThumb.url) return visitorThumb.url;
+    var photoThumb = photoOf(num);
+    if (photoThumb && photoThumb.url) return photoThumb.url;
     var extra = extraSpells[num] || extraSpells[String(num)];
     if (extra && extra.url) return assetUrl(extra.url);
     if (window.getPaintingUrl) return window.getPaintingUrl(num);
@@ -1368,6 +1517,16 @@
       return {
         title: who,
         description: "A still from " + who + ".",
+      };
+    }
+    var photo = photoOf(num);
+    if (photo) {
+      return {
+        title: photo.title || "Photo",
+        description: photo.description || "",
+        prompt: photo.prompt || "",
+        tags: photo.tags && photo.tags.length ? photo.tags.slice() : [],
+        style: photo.style || "",
       };
     }
     var extra = extraSpells[num] || extraSpells[String(num)];
@@ -2530,6 +2689,7 @@
 
   function revalidateEquippedSpells() {
     loadVisitorSpells();
+    loadPhotoSpells();
     var changed = false;
     for (var i = 0; i < 3; i++) {
       if (!spells[i] || isValidSpellNum(spells[i])) continue;
@@ -2897,6 +3057,8 @@
     if (spellSlotBodyOverride[slotIndex] != null) return spellSlotBodyOverride[slotIndex];
     var note = noteOf(spells[slotIndex]);
     if (note) return String(note.text || "");
+    var photo = photoOf(spells[slotIndex]);
+    if (photo) return String(photo.description || "");
     return analysisSpellText(spells[slotIndex]);
   }
 
@@ -6330,7 +6492,263 @@
       })(nsi);
     }
 
+    bindPhotoFrame();
     updateStasisModeration();
+  }
+
+  function setPhotoStatus(msg, isErr) {
+    var el = document.getElementById("spell-photo-status");
+    if (!el) return;
+    el.textContent = msg || "";
+    el.classList.toggle("is-err", !!isErr);
+  }
+
+  function syncPhotoEquipButtons() {
+    var ta = document.getElementById("spell-photo-desc");
+    var ready = !!(photoFrame.url && ta && String(ta.value || "").trim());
+    for (var i = 0; i < 3; i++) {
+      var btn = document.getElementById("spell-photo-equip-" + i);
+      if (btn) btn.disabled = !ready;
+    }
+  }
+
+  function showPhotoFrame(url) {
+    var img = document.getElementById("spell-photo-img");
+    var empty = document.getElementById("spell-photo-empty");
+    if (img) {
+      img.src = url || "";
+      img.hidden = !url;
+      img.alt = url ? "Photo in the spell frame" : "";
+    }
+    if (empty) empty.hidden = !!url;
+  }
+
+  function readPhotoPack(data) {
+    var a = data && data.analysis && typeof data.analysis === "object" ? data.analysis : {};
+    var tags = [];
+    var rawTags = a.tags || [];
+    if (Array.isArray(rawTags)) {
+      rawTags.forEach(function (tag) {
+        var s = String(tag || "").replace(/\s+/g, " ").trim().slice(0, 24);
+        if (s && tags.length < 6) tags.push(s);
+      });
+    }
+    return {
+      description: String((data && data.description) || a.description || "")
+        .replace(/\s+/g, " ")
+        .trim()
+        .slice(0, 2000),
+      title: String((data && data.title) || a.title || "")
+        .replace(/\s+/g, " ")
+        .trim()
+        .slice(0, 80),
+      prompt: String((data && data.prompt) || a.prompt || "").trim().slice(0, 1200),
+      style: String(a.style || "").replace(/\s+/g, " ").trim().slice(0, 40),
+      tags: tags,
+      error: String((data && (data.analysisError || data.error)) || "").slice(0, 180),
+    };
+  }
+
+  function describePhoto(dataUrl, name) {
+    var token = ++photoDescribeToken;
+    setPhotoStatus("Writing the description…");
+    syncPhotoEquipButtons();
+    return fetch(apiUrl("/api/transfer/describe"), {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ image_base64: dataUrl, name: name || "photo.jpg" }),
+    })
+      .then(function (res) {
+        return res.json().catch(function () {
+          return {};
+        }).then(function (data) {
+          if (!res.ok || !data || data.ok === false) {
+            throw new Error((data && (data.error || data.analysisError)) || "Describe failed");
+          }
+          return data;
+        });
+      })
+      .then(function (data) {
+        if (token !== photoDescribeToken) return;
+        var parsed = readPhotoPack(data);
+        photoFrame.title = parsed.title;
+        photoFrame.prompt = parsed.prompt;
+        photoFrame.tags = parsed.tags;
+        photoFrame.style = parsed.style;
+        var ta = document.getElementById("spell-photo-desc");
+        if (ta) ta.value = parsed.description;
+        if (parsed.description) setPhotoStatus("Description ready. Equip Spell I, II, or III.");
+        else setPhotoStatus(parsed.error || "No description came back. Type one in the box.", true);
+        syncPhotoEquipButtons();
+      })
+      .catch(function () {
+        if (token !== photoDescribeToken) return;
+        setPhotoStatus("The description could not be written. Type it in the box.", true);
+        syncPhotoEquipButtons();
+      });
+  }
+
+  function fileToPhotoDataUrl(file) {
+    return new Promise(function (resolve, reject) {
+      function fail() {
+        reject(new Error("Could not read this photo."));
+      }
+      function drawSource(source) {
+        var w = source.width || source.naturalWidth || 1;
+        var h = source.height || source.naturalHeight || 1;
+        var scale = Math.min(1, 960 / Math.max(w, h));
+        var canvas = document.createElement("canvas");
+        canvas.width = Math.max(1, Math.round(w * scale));
+        canvas.height = Math.max(1, Math.round(h * scale));
+        var ctx = canvas.getContext("2d");
+        if (!ctx) {
+          reject(new Error("Could not prepare this photo."));
+          return;
+        }
+        ctx.drawImage(source, 0, 0, canvas.width, canvas.height);
+        if (source.close) {
+          try {
+            source.close();
+          } catch (eClose) {}
+        }
+        var url = canvas.toDataURL("image/jpeg", 0.72);
+        if (url.length > 180000) {
+          var next = document.createElement("canvas");
+          next.width = Math.max(1, Math.round(canvas.width * 0.7));
+          next.height = Math.max(1, Math.round(canvas.height * 0.7));
+          next.getContext("2d").drawImage(canvas, 0, 0, next.width, next.height);
+          url = next.toDataURL("image/jpeg", 0.55);
+        }
+        if (!/^data:image\/jpeg;base64,/i.test(url) || url.length < 32) {
+          reject(new Error("Could not prepare this photo."));
+          return;
+        }
+        resolve(url);
+      }
+      function fromDataUrl(dataUrl) {
+        var img = new Image();
+        img.onload = function () {
+          drawSource(img);
+        };
+        img.onerror = fail;
+        img.src = dataUrl;
+      }
+      if (typeof createImageBitmap === "function") {
+        createImageBitmap(file).then(drawSource).catch(function () {
+          var reader = new FileReader();
+          reader.onload = function () {
+            fromDataUrl(reader.result);
+          };
+          reader.onerror = fail;
+          reader.readAsDataURL(file);
+        });
+        return;
+      }
+      var reader = new FileReader();
+      reader.onload = function () {
+        fromDataUrl(reader.result);
+      };
+      reader.onerror = fail;
+      reader.readAsDataURL(file);
+    });
+  }
+
+  function takePhotoFile(file) {
+    if (!file) return;
+    setPhotoStatus("Preparing the photo…");
+    fileToPhotoDataUrl(file)
+      .then(function (url) {
+        photoFrame.url = url;
+        photoFrame.title = "";
+        photoFrame.prompt = "";
+        photoFrame.tags = [];
+        photoFrame.style = "";
+        var ta = document.getElementById("spell-photo-desc");
+        if (ta) ta.value = "";
+        showPhotoFrame(url);
+        syncPhotoEquipButtons();
+        var stem = String(file.name || "photo").replace(/\.[^.]+$/, "") || "photo";
+        describePhoto(url, stem + ".jpg");
+      })
+      .catch(function () {
+        setPhotoStatus("This photo could not be read. Choose a JPEG.", true);
+      });
+  }
+
+  function photoFileFromList(list) {
+    var files = list ? Array.prototype.slice.call(list) : [];
+    for (var i = 0; i < files.length; i++) {
+      var file = files[i];
+      if (file && (!file.type || file.type.indexOf("image/") === 0)) return file;
+    }
+    return null;
+  }
+
+  function bindPhotoFrame() {
+    var frame = document.getElementById("spell-photo-frame");
+    if (!frame || frame.dataset.bound) return;
+    frame.dataset.bound = "1";
+    var stage = document.getElementById("spell-photo-drop");
+    var choose = document.getElementById("spell-photo-choose");
+    var input = document.getElementById("spell-photo-file");
+    var ta = document.getElementById("spell-photo-desc");
+    if (choose && input) {
+      choose.addEventListener("click", function () {
+        input.click();
+      });
+      input.addEventListener("change", function () {
+        var file = photoFileFromList(input.files);
+        input.value = "";
+        if (file) takePhotoFile(file);
+      });
+    }
+    if (stage) {
+      stage.addEventListener("click", function () {
+        if (input) input.click();
+      });
+      ["dragenter", "dragover"].forEach(function (name) {
+        stage.addEventListener(name, function (e) {
+          e.preventDefault();
+          stage.classList.add("is-drag");
+        });
+      });
+      ["dragleave", "drop"].forEach(function (name) {
+        stage.addEventListener(name, function (e) {
+          e.preventDefault();
+          stage.classList.remove("is-drag");
+        });
+      });
+      stage.addEventListener("drop", function (e) {
+        var file = photoFileFromList(e.dataTransfer && e.dataTransfer.files);
+        if (file) takePhotoFile(file);
+      });
+      stage.addEventListener("paste", function (e) {
+        var file = photoFileFromList(e.clipboardData && e.clipboardData.files);
+        if (!file) return;
+        e.preventDefault();
+        takePhotoFile(file);
+      });
+    }
+    if (ta) {
+      ta.addEventListener("input", function () {
+        syncPhotoEquipButtons();
+      });
+    }
+    for (var i = 0; i < 3; i++) {
+      (function (slot) {
+        var btn = document.getElementById("spell-photo-equip-" + slot);
+        if (!btn) return;
+        btn.addEventListener("click", function () {
+          var res = equipPhoto(slot);
+          if (!res.ok) {
+            setPhotoStatus(res.error, true);
+            return;
+          }
+          setPhotoStatus("Equipped this photo into Spell " + ["I", "II", "III"][slot] + ".");
+        });
+      })(i);
+    }
+    syncPhotoEquipButtons();
   }
 
   function renderSlots() {
@@ -6808,6 +7226,7 @@
       spellforgeReady = true;
       loadSpellNotes();
       loadVisitorSpells();
+      loadPhotoSpells();
       buildManifestMap();
       // Paintings + phone uploads + generated stills (mixed shuffle)
       loadSpellAssets().then(function () {
@@ -6934,6 +7353,7 @@
       bindAnimateHandoff();
       loadSpellNotes();
       loadVisitorSpells();
+      loadPhotoSpells();
       loadEquippedSpells();
       window.equipSpellPainting = function (num) {
         ensureSpellforgeStarted();
@@ -6977,6 +7397,9 @@
         },
         equipVisitorStill: function (slotIndex, info) {
           return equipVisitorStill(slotIndex, info);
+        },
+        equipPhoto: function (slotIndex, info) {
+          return equipPhoto(slotIndex, info);
         },
         softenPromptForModeration: softenPromptForModeration,
         showModerationStrike: function (result) {
