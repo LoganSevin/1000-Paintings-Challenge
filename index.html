@@ -517,16 +517,17 @@
         </div>
         <section class="spell-photo-frame" id="spell-photo-frame" aria-label="Photo for a spell">
           <label class="spell-fusion-label" for="spell-photo-desc">Photo — description equips one spell</label>
-          <p class="spell-photo-hint">Drop a photo in this frame. Its description can go into Spell I, II, or III.</p>
+          <p class="spell-photo-hint">Drop a photo in this frame. Describe it, then equip Spell I, II, or III.</p>
           <div class="spell-photo-stage" id="spell-photo-drop" tabindex="0">
             <img id="spell-photo-img" alt="" hidden />
             <p class="spell-photo-empty" id="spell-photo-empty">Drop a photo here</p>
           </div>
           <div class="spell-photo-actions">
             <button type="button" id="spell-photo-choose" class="btn-secondary">Choose photo</button>
+            <button type="button" id="spell-photo-describe" class="btn-secondary" disabled>Describe</button>
             <input type="file" id="spell-photo-file" accept="image/*" hidden />
           </div>
-          <textarea id="spell-photo-desc" class="spell-note-text" rows="4" placeholder="The description of this photo appears here. You can edit it." spellcheck="true"></textarea>
+          <textarea id="spell-photo-desc" class="spell-note-text" rows="4" placeholder="Describe this photo, or type the description." spellcheck="true"></textarea>
           <p id="spell-photo-status" class="spell-photo-status" aria-live="polite"></p>
           <div class="spell-notes-actions">
             <button type="button" id="spell-photo-equip-0" class="btn-secondary" data-spell-photo-slot="0" disabled>Spell I</button>
@@ -9180,7 +9181,7 @@
   <script defer src="js/stasis-interface-skin.js?v=2"></script>
   <script defer src="js/stasis-floor-gen.js?v=8"></script>
   <script defer src="js/spellforge-config.js?v=5"></script>
-  <script defer src="js/spellforge.js?v=129"></script>
+  <script defer src="js/spellforge.js?v=130"></script>
   <script defer src="js/fix-webm-duration.js?v=1"></script>
   <script defer src="js/videofy-export.js?v=3"></script>
   <script defer src="js/viral.js?v=13"></script>

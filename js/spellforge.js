@@ -1,6 +1,6 @@
 /**
  * Spellforge: shuffled grid, spell slots, fused text, interaction preview, optional fusion video.
- * Cache bust v129: a photo frame writes the upload description into one Spell I, II, or III slot.
+ * Cache bust v130: Describe writes the photo in the frame. A skipped caption stays out of the box.
  */
 (function () {
   var PAGE_SIZE = 25;
@@ -75,8 +75,11 @@
   var visitorSpellsReady = false;
   var photoSpells = { next: PHOTO_BASE + 1, items: {} };
   var photoSpellsReady = false;
-  var photoFrame = { url: "", title: "", prompt: "", tags: [], style: "" };
+  var photoFrame = { url: "", id: "", name: "", title: "", prompt: "", tags: [], style: "" };
   var photoDescribeToken = 0;
+  var photoDescribeBusy = false;
+  var PHOTO_SKIP_CAPTION =
+    "Phone upload under Logan7in unlimited. Cloud caption is optional and was skipped so the studio stays uncapped.";
   var activePage = 0;
   var pickerQuery = "";
   /** "all" is the mixed spellbook (paintings + shuffle). "generated" is the G# view. */
@@ -1396,7 +1399,9 @@
       description = String((ta && ta.value) || "").replace(/\s+/g, " ").trim();
     }
     description = description.slice(0, 2000);
-    if (!description) return { ok: false, error: "The description is not ready." };
+    if (!description || isSkipPhotoCaption(description)) {
+      return { ok: false, error: "The description is not ready." };
+    }
     loadPhotoSpells();
     if (!photoSpells.items) photoSpells.items = {};
     var id = Number(photoSpells.next) || PHOTO_BASE + 1;
@@ -6496,6 +6501,13 @@
     updateStasisModeration();
   }
 
+  function isSkipPhotoCaption(text) {
+    var s = String(text || "").replace(/\s+/g, " ").trim();
+    if (!s) return false;
+    if (s === PHOTO_SKIP_CAPTION) return true;
+    return s.indexOf("Cloud caption is optional and was skipped") >= 0;
+  }
+
   function setPhotoStatus(msg, isErr) {
     var el = document.getElementById("spell-photo-status");
     if (!el) return;
@@ -6505,11 +6517,14 @@
 
   function syncPhotoEquipButtons() {
     var ta = document.getElementById("spell-photo-desc");
-    var ready = !!(photoFrame.url && ta && String(ta.value || "").trim());
+    var text = ta ? String(ta.value || "").replace(/\s+/g, " ").trim() : "";
+    var ready = !!(photoFrame.url && text && !isSkipPhotoCaption(text));
     for (var i = 0; i < 3; i++) {
       var btn = document.getElementById("spell-photo-equip-" + i);
       if (btn) btn.disabled = !ready;
     }
+    var describeBtn = document.getElementById("spell-photo-describe");
+    if (describeBtn) describeBtn.disabled = !photoFrame.url || photoDescribeBusy;
   }
 
   function showPhotoFrame(url) {
@@ -6549,21 +6564,42 @@
     };
   }
 
-  function describePhoto(dataUrl, name) {
+  function rememberPhotoId(data) {
+    var id = data && (data.id || (data.item && data.item.id));
+    if (id) photoFrame.id = String(id);
+  }
+
+  function clearSkipPhotoCaption() {
+    var ta = document.getElementById("spell-photo-desc");
+    if (ta && isSkipPhotoCaption(ta.value)) ta.value = "";
+  }
+
+  function describePhoto() {
+    if (!photoFrame.url || photoDescribeBusy) return;
     var token = ++photoDescribeToken;
-    setPhotoStatus("Writing the description…");
+    photoDescribeBusy = true;
     syncPhotoEquipButtons();
+    setPhotoStatus("Writing the description…");
+    var body = photoFrame.id
+      ? { id: photoFrame.id, force: true }
+      : {
+          image_base64: photoFrame.url,
+          name: photoFrame.name || "photo.jpg",
+          force: true,
+        };
     return fetch(apiUrl("/api/transfer/describe"), {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ image_base64: dataUrl, name: name || "photo.jpg" }),
+      body: JSON.stringify(body),
     })
       .then(function (res) {
         return res.json().catch(function () {
           return {};
         }).then(function (data) {
-          if (!res.ok || !data || data.ok === false) {
-            throw new Error((data && (data.error || data.analysisError)) || "Describe failed");
+          data = data && typeof data === "object" ? data : {};
+          rememberPhotoId(data);
+          if (!res.ok || data.ok === false) {
+            throw new Error("The description could not be written.");
           }
           return data;
         });
@@ -6571,19 +6607,41 @@
       .then(function (data) {
         if (token !== photoDescribeToken) return;
         var parsed = readPhotoPack(data);
+        var model = data && data.analysis && data.analysis.model;
+        if (
+          model === "logan7in-unlimited-local" ||
+          isSkipPhotoCaption(parsed.description) ||
+          !parsed.description
+        ) {
+          clearSkipPhotoCaption();
+          setPhotoStatus(
+            "The description could not be written. Type it in the box, or press Describe again.",
+            true
+          );
+          syncPhotoEquipButtons();
+          return;
+        }
         photoFrame.title = parsed.title;
         photoFrame.prompt = parsed.prompt;
         photoFrame.tags = parsed.tags;
         photoFrame.style = parsed.style;
         var ta = document.getElementById("spell-photo-desc");
         if (ta) ta.value = parsed.description;
-        if (parsed.description) setPhotoStatus("Description ready. Equip Spell I, II, or III.");
-        else setPhotoStatus(parsed.error || "No description came back. Type one in the box.", true);
+        setPhotoStatus("Description ready. Equip Spell I, II, or III.");
         syncPhotoEquipButtons();
       })
       .catch(function () {
         if (token !== photoDescribeToken) return;
-        setPhotoStatus("The description could not be written. Type it in the box.", true);
+        clearSkipPhotoCaption();
+        setPhotoStatus(
+          "The description could not be written. Type it in the box, or press Describe again.",
+          true
+        );
+        syncPhotoEquipButtons();
+      })
+      .then(function () {
+        if (token !== photoDescribeToken) return;
+        photoDescribeBusy = false;
         syncPhotoEquipButtons();
       });
   }
@@ -6655,10 +6713,15 @@
 
   function takePhotoFile(file) {
     if (!file) return;
+    photoDescribeToken += 1;
+    photoDescribeBusy = false;
     setPhotoStatus("Preparing the photo…");
     fileToPhotoDataUrl(file)
       .then(function (url) {
         photoFrame.url = url;
+        photoFrame.id = "";
+        var stem = String(file.name || "photo").replace(/\.[^.]+$/, "") || "photo";
+        photoFrame.name = stem + ".jpg";
         photoFrame.title = "";
         photoFrame.prompt = "";
         photoFrame.tags = [];
@@ -6666,12 +6729,12 @@
         var ta = document.getElementById("spell-photo-desc");
         if (ta) ta.value = "";
         showPhotoFrame(url);
+        setPhotoStatus("Photo ready. Press Describe to write what is in the picture.");
         syncPhotoEquipButtons();
-        var stem = String(file.name || "photo").replace(/\.[^.]+$/, "") || "photo";
-        describePhoto(url, stem + ".jpg");
       })
       .catch(function () {
         setPhotoStatus("This photo could not be read. Choose a JPEG.", true);
+        syncPhotoEquipButtons();
       });
   }
 
@@ -6690,8 +6753,14 @@
     frame.dataset.bound = "1";
     var stage = document.getElementById("spell-photo-drop");
     var choose = document.getElementById("spell-photo-choose");
+    var describeBtn = document.getElementById("spell-photo-describe");
     var input = document.getElementById("spell-photo-file");
     var ta = document.getElementById("spell-photo-desc");
+    if (describeBtn) {
+      describeBtn.addEventListener("click", function () {
+        describePhoto();
+      });
+    }
     if (choose && input) {
       choose.addEventListener("click", function () {
         input.click();

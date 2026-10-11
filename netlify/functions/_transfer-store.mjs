@@ -7,6 +7,7 @@ import {
   extractResponseText,
   parseJsonBlob,
   withXaiKeyFallback,
+  withVideoAuth,
   isCreditsLimitError,
 } from "./_lib.mjs";
 
@@ -201,11 +202,25 @@ async function describeViaChat(apiKey, model, dataUrl) {
   return withPrompt(parseAnalysisText(text));
 }
 
+export const LOCAL_CAPTION_MODEL = "logan7in-unlimited-local";
+export const LOCAL_CAPTION_NOTE =
+  "Phone upload under Logan7in unlimited. Cloud caption is optional and was skipped so the studio stays uncapped.";
+
+export function isLocalCaption(analysis) {
+  if (!analysis || typeof analysis !== "object") return false;
+  if (String(analysis.model || "") === LOCAL_CAPTION_MODEL) return true;
+  return String(analysis.description || "").indexOf("Cloud caption is optional and was skipped") >= 0;
+}
+
+/** Automatic upload may keep a local note. A chosen Describe does not. */
+export function shouldKeepLocalCaption(err, force) {
+  return !force && isCreditsLimitError(err);
+}
+
 function unlimitedLocalDescribe() {
   return {
     title: "Phone still",
-    description:
-      "Phone upload under Logan7in unlimited. Cloud caption is optional and was skipped so the studio stays uncapped.",
+    description: LOCAL_CAPTION_NOTE,
     prompt:
       "Faithful painterly still from a phone photograph, concrete light and materials, no 4k, no masterpiece, no hashtags.",
     style: "photographic",
@@ -216,11 +231,14 @@ function unlimitedLocalDescribe() {
     colors: [],
     kind: "phone-upload",
     analyzed_at: new Date().toISOString(),
-    model: "logan7in-unlimited-local",
+    model: LOCAL_CAPTION_MODEL,
   };
 }
 
-export async function describePhoneImage(buf, mime) {
+export async function describePhoneImage(buf, mime, opts) {
+  const force = !!(opts && opts.force);
+  const visitorKey = opts && opts.visitorKey;
+  const auth = force ? withVideoAuth : withXaiKeyFallback;
   const type = sniffMime(buf, mime || "image/jpeg");
   const b64 = Buffer.from(buf).toString("base64");
   const dataUrl = "data:" + type + ";base64," + b64;
@@ -228,7 +246,7 @@ export async function describePhoneImage(buf, mime) {
     return name && arr.indexOf(name) === i;
   });
   try {
-  return await withXaiKeyFallback(async function (apiKey) {
+  return await auth(async function (apiKey) {
     let lastErr = "Describe failed";
     for (let i = 0; i < models.length; i++) {
       try {
@@ -253,9 +271,9 @@ export async function describePhoneImage(buf, mime) {
     } catch (err) {
       throw new Error(String((err && err.message) || lastErr).slice(0, 240));
     }
-  });
+  }, visitorKey);
   } catch (err) {
-    if (isCreditsLimitError(err)) return unlimitedLocalDescribe();
+    if (shouldKeepLocalCaption(err, force)) return unlimitedLocalDescribe();
     throw err;
   }
 }
@@ -277,7 +295,7 @@ export async function patchPhoneItem(store, id, patch) {
   return found;
 }
 
-export async function describeSavedPhone(store, id) {
+export async function describeSavedPhone(store, id, opts) {
   const key = String(id || "").replace(/[^A-Za-z0-9._-]/g, "");
   if (!key) {
     const err = new Error("id required");
@@ -292,7 +310,12 @@ export async function describeSavedPhone(store, id) {
   }
   const mime = (meta.metadata && (meta.metadata.contentType || meta.metadata.contenttype)) || "image/jpeg";
   const buf = Buffer.from(meta.data);
-  const analysis = await describePhoneImage(buf, mime);
+  const analysis = await describePhoneImage(buf, mime, opts);
+  if (opts && opts.force && isLocalCaption(analysis)) {
+    const skipped = new Error("The description could not be written.");
+    skipped.status = 502;
+    throw skipped;
+  }
   return patchPhoneItem(store, key, {
     analysis,
     analysisStatus: "ready",
@@ -329,7 +352,7 @@ export async function saveIndex(store, items) {
   return next.items;
 }
 
-export async function savePhoneImage(store, buf, mime, filename) {
+export async function savePhoneImage(store, buf, mime, filename, opts) {
   if (!buf || !buf.length) {
     const err = new Error("Empty photo");
     err.status = 400;
@@ -356,13 +379,19 @@ export async function savePhoneImage(store, buf, mime, filename) {
     url: fileUrl(id),
     analysisStatus: "analyzing",
   };
+  const force = !!(opts && opts.force);
   try {
-    const analysis = await describePhoneImage(buf, type);
-    item.analysis = analysis;
-    item.analysisStatus = "ready";
-    item.title = analysis.title || item.title;
-    item.description = analysis.description || "";
-    item.prompt = analysis.prompt || "";
+    const analysis = await describePhoneImage(buf, type, opts);
+    if (force && isLocalCaption(analysis)) {
+      item.analysisStatus = "failed";
+      item.analysisError = "The description could not be written.";
+    } else {
+      item.analysis = analysis;
+      item.analysisStatus = "ready";
+      item.title = analysis.title || item.title;
+      item.description = analysis.description || "";
+      item.prompt = analysis.prompt || "";
+    }
   } catch (err) {
     item.analysisStatus = "failed";
     item.analysisError = String((err && err.message) || err).slice(0, 240);
@@ -370,19 +399,21 @@ export async function savePhoneImage(store, buf, mime, filename) {
   const items = await loadIndex(store);
   items.unshift(item);
   await saveIndex(store, items);
+  const refused = force && item.analysisStatus === "failed";
   return {
-    ok: true,
+    ok: !refused,
     name,
     id,
     url: fileUrl(id),
     box: TAB_BOX,
     size: buf.length,
-    title: item.title,
-    description: item.description || "",
-    prompt: item.prompt || "",
-    analysis: item.analysis || null,
+    title: refused ? name.replace(/\.[^.]+$/, "") || name : item.title,
+    description: refused ? "" : item.description || "",
+    prompt: refused ? "" : item.prompt || "",
+    analysis: refused ? null : item.analysis || null,
     analysisStatus: item.analysisStatus,
     analysisError: item.analysisError || "",
+    error: refused ? "The description could not be written." : "",
     inGeneratorMix: true,
   };
 }
