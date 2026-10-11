@@ -1,9 +1,10 @@
 import { Buffer } from "node:buffer";
-import { jsonResponse, corsPreflight } from "./_lib.mjs";
+import { jsonResponse, corsPreflight, visitorXaiKey } from "./_lib.mjs";
 import {
   TAB_BOX,
   decodeDataUrl,
   describeSavedPhone,
+  isLocalCaption,
   loadIndex,
   phoneStore,
   savePhoneImage,
@@ -29,8 +30,13 @@ function routeName(pathname) {
   return "";
 }
 
+function wantsForce(body) {
+  return !!(body && (body.force === true || body.force === "true" || body.force === 1));
+}
+
 export default async function handler(request) {
   if (request.method === "OPTIONS") return corsPreflight();
+  let force = false;
   try {
     const url = new URL(request.url);
     const route = routeName(url.pathname);
@@ -95,10 +101,24 @@ export default async function handler(request) {
       const ctype = String(request.headers.get("content-type") || "").toLowerCase();
       if (ctype.includes("json") || route === "describe") {
         const body = JSON.parse((await request.text()) || "{}");
+        force = wantsForce(body);
+        const visitorKey = visitorXaiKey(request);
         const id = String(body.id || "").trim();
         if (id && !body.image_base64 && !body.data && !body.image) {
-          const row = await describeSavedPhone(store, id);
-          return noStore({ ok: true, item: toListItem(row), analysis: row.analysis });
+          const row = await describeSavedPhone(store, id, { force, visitorKey });
+          const analysis = row.analysis || null;
+          if (force && isLocalCaption(analysis)) {
+            return noStore({ ok: false, error: "The description could not be written.", id }, 502);
+          }
+          return noStore({
+            ok: true,
+            id: row.id,
+            item: toListItem(row),
+            analysis,
+            description: row.description || "",
+            title: row.title || "",
+            prompt: row.prompt || "",
+          });
         }
         const decoded = decodeDataUrl(body.image_base64 || body.data || body.image || "");
         if (!decoded) return noStore({ ok: false, error: "Provide a photo" }, 400);
@@ -106,8 +126,20 @@ export default async function handler(request) {
           store,
           decoded.buf,
           decoded.mime,
-          body.name || body.filename || "upload.jpg"
+          body.name || body.filename || "upload.jpg",
+          { force, visitorKey }
         );
+        if (result && result.ok === false) {
+          return noStore(
+            {
+              ok: false,
+              error: "The description could not be written.",
+              id: result.id || "",
+              url: result.url || "",
+            },
+            502
+          );
+        }
         return noStore(result);
       }
       const buf = Buffer.from(await request.arrayBuffer());
@@ -122,6 +154,9 @@ export default async function handler(request) {
     return noStore({ ok: false, error: "Not found" }, 404);
   } catch (err) {
     const status = err && err.status ? err.status : 500;
+    if (force && status >= 500) {
+      return noStore({ ok: false, error: "The description could not be written." }, 502);
+    }
     return noStore({ ok: false, error: (err && err.message) || "Upload failed" }, status);
   }
 }
