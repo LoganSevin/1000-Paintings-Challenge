@@ -197,15 +197,20 @@ test("server people keeps a name and a still for each console", async () => {
   assert.equal(d.ok, true);
   assert.equal(d.people.length, 1);
   assert.equal(d.people[0].sid, "session-abcd");
-  assert.equal(d.people[0].name, "Ada Lovelace the very lo");
+  assert.equal(d.people[0].name, "Ada Lovelace the very long name");
   assert.equal(d.people[0].stillAt, 0);
+  assert.equal(d.people[0].online, true);
+  assert.equal(d.people[0].tab, "gallery");
   assert.equal(d.people[0].image, undefined);
 
   res = await serverPeople(
-    post("http://x/api/server-people", { sid: "session-wxyz", name: "   " })
+    post("http://x/api/server-people", { sid: "session-wxyz", name: "   ", tab: "Spellforge" })
   );
   d = await res.json();
-  assert.equal(d.people.find((p) => p.sid === "session-wxyz").name, "Guest wxyz");
+  const guest = d.people.find((p) => p.sid === "session-wxyz");
+  assert.equal(guest.name, "guest-wxyz");
+  assert.equal(guest.tab, "spellforge");
+  assert.equal(guest.online, true);
 
   res = await serverPeople(post("http://x/api/server-people", { sid: "short", name: "Nope" }));
   assert.equal(res.status, 400);
@@ -240,29 +245,56 @@ test("server people keeps a name and a still for each console", async () => {
   buf = new Uint8Array(await res.arrayBuffer());
   assert.equal(buf[buf.length - 1], 13, "Beau's still is separate");
 
+  res = await serverPeople(
+    post("http://x/api/server-people", { sid: "session-abcd", name: "Ada", to: "session-beau1", text: "  Hello <b>Beau</b>  " })
+  );
+  d = await res.json();
+  assert.equal(res.status, 200);
+  assert.equal(d.mail.length, 1);
+  assert.equal(d.mail[0].text, "Hello Beau");
+  assert.equal(d.mail[0].from, "session-abcd");
+  assert.equal(d.mail[0].to, "session-beau1");
+  res = await serverPeople(new Request("http://x/api/server-people?sid=session-beau1"));
+  d = await res.json();
+  assert.equal(d.mail.length, 1);
+  assert.equal(d.mail[0].text, "Hello Beau");
+  res = await serverPeople(new Request("http://x/api/server-people?sid=session-wxyz"));
+  d = await res.json();
+  assert.equal(d.mail.length, 0);
+
   res = await serverPeople(post("http://x/api/server-people", { sid: "session-beau1", leave: true }));
   d = await res.json();
-  assert.equal(d.people.some((p) => p.sid === "session-beau1"), false);
+  const left = d.people.find((p) => p.sid === "session-beau1");
+  assert.ok(left);
+  assert.equal(left.online, false);
   res = await serverPeople(new Request("http://x/api/server-people?image=1&sid=session-beau1"));
-  assert.equal(res.status, 404);
+  assert.equal(res.status, 200);
 
   const now = Date.now();
   await store.set("still-session-old9", new Uint8Array([9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9]));
   const roster = {
     "session-abcd": { name: "Ada", seen: now, stillAt: now, type: "image/jpeg" },
   };
-  for (let i = 0; i < 40; i++) {
-    const sid = "session-cap" + String(i).padStart(2, "0");
-    roster[sid] = { name: "Cap " + i, seen: now - i - 1, stillAt: 0, type: "" };
-  }
-  roster["session-old9"] = { name: "Old", seen: now - 120000, stillAt: now, type: "image/jpeg" };
+  roster["session-old9"] = { name: "Old", seen: now - 120000, stillAt: now, type: "image/jpeg", tab: "gallery" };
   await store.setJSON("roster", roster);
-
   res = await serverPeople(new Request("http://x/api/server-people"));
   d = await res.json();
-  assert.equal(d.people.some((p) => p.sid === "session-old9"), false);
-  assert.equal(d.people.length, 36);
+  const stale = d.people.find((p) => p.sid === "session-old9");
+  assert.ok(stale);
+  assert.equal(stale.online, false);
+  res = await serverPeople(new Request("http://x/api/server-people?image=1&sid=session-old9"));
+  assert.equal(res.status, 200);
+
+  for (let i = 0; i < 130; i++) {
+    const sid = "session-cap" + String(i).padStart(3, "0");
+    roster[sid] = { name: "Cap " + i, seen: now - i - 1, stillAt: 0, type: "", tab: "gallery" };
+  }
+  await store.setJSON("roster", roster);
+  res = await serverPeople(new Request("http://x/api/server-people"));
+  d = await res.json();
+  assert.equal(d.people.length, 120);
   assert.equal(d.people.some((p) => p.sid === "session-abcd"), true);
+  assert.equal(d.people.some((p) => p.sid === "session-old9"), false);
   const gone = await store.get("still-session-old9", { type: "arrayBuffer" });
   assert.equal(gone, null);
 });

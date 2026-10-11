@@ -1,12 +1,19 @@
 import { getStore } from "@netlify/blobs";
 import { jsonResponse, corsPreflight } from "./_lib.mjs";
 
-// Who is at the console right now, and each person's own last still.
-// The corner window keeps one shared still. This store keeps one per visitor.
+// Everyone who has opened the console, including people who have since left.
+// A fresh heartbeat is online. Closing the site, or going quiet, moves them
+// offline and keeps the name, tab, and last still so the roster can account
+// for them. The corner window still has its own shared still.
 const STORE = "server-people";
 const ROSTER_KEY = "roster";
+const MAIL_KEY = "mail";
 const TTL_MS = 90000;
-const MAX_PEOPLE = 36;
+const MAX_KEEP = 120;
+const MAIL_KEEP = 200;
+const MAIL_COOLDOWN_MS = 1500;
+const MAX_NAME = 32;
+const MAX_TEXT = 200;
 const SID_RE = /^[A-Za-z0-9._-]{8,80}$/;
 const MAX_IMAGE_BYTES = 670000;
 
@@ -23,7 +30,7 @@ function stillKey(sid) {
 
 function guestName(sid) {
   const tail = String(sid || "").replace(/[^A-Za-z0-9]/g, "").slice(-4);
-  return "Guest " + (tail || "0000");
+  return "guest-" + (tail || "0000");
 }
 
 function cleanName(raw, sid) {
@@ -31,9 +38,32 @@ function cleanName(raw, sid) {
     .replace(/[\u0000-\u001f\u007f]/g, " ")
     .replace(/\s+/g, " ")
     .trim()
-    .slice(0, 24)
+    .slice(0, MAX_NAME)
     .trim();
   return name || guestName(sid);
+}
+
+function cleanTab(raw) {
+  let tab = String(raw || "")
+    .toLowerCase()
+    .replace(/^#/, "")
+    .split("?")[0]
+    .replace(/[^a-z0-9-]/g, "")
+    .slice(0, 40);
+  if (tab === "0-z" || tab === "zeroz" || tab === "0z") tab = "az";
+  if (tab === "kjv" || tab === "scripture") tab = "bible";
+  if (tab === "rooms") tab = "places";
+  if (!tab || tab === "subscribe") tab = "gallery";
+  return tab;
+}
+
+function cleanText(raw) {
+  return String(raw || "")
+    .replace(/<[^>]*>/g, "")
+    .replace(/[\u0000-\u001f\u007f]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .slice(0, MAX_TEXT);
 }
 
 function b64ToBytes(b64) {
@@ -77,6 +107,15 @@ async function readRoster(store) {
   }
 }
 
+async function readMail(store) {
+  try {
+    const raw = await store.get(MAIL_KEY, { type: "json" });
+    return Array.isArray(raw) ? raw : [];
+  } catch (e) {
+    return [];
+  }
+}
+
 function toPeople(roster) {
   return Object.entries(roster)
     .map(([sid, info]) => ({
@@ -84,29 +123,54 @@ function toPeople(roster) {
       name: info.name,
       seen: info.seen,
       stillAt: info.stillAt || 0,
+      tab: info.tab || "gallery",
+      online: !info.offline,
     }))
-    .sort((a, b) => b.seen - a.seen || a.name.localeCompare(b.name));
+    .sort((a, b) => Number(b.online) - Number(a.online) || b.seen - a.seen || a.name.localeCompare(b.name));
+}
+
+function mailFor(mail, sid) {
+  if (!sid) return [];
+  return mail
+    .filter((m) => m && (m.to === sid || m.from === sid))
+    .slice(-40)
+    .map((m) => ({
+      id: m.id,
+      from: m.from,
+      fromName: m.fromName,
+      to: m.to,
+      text: m.text,
+      ts: m.ts,
+    }));
 }
 
 async function prune(roster, store) {
   const now = Date.now();
-  const entries = Object.entries(roster).filter(([sid, info]) => {
-    if (!SID_RE.test(sid) || !info || typeof info !== "object") return false;
+  const entries = [];
+  for (const [sid, info] of Object.entries(roster)) {
+    if (!SID_RE.test(sid) || !info || typeof info !== "object") continue;
     const seen = parseInt(info.seen, 10) || 0;
-    return seen && now - seen <= TTL_MS;
-  });
-  entries.sort((a, b) => (parseInt(b[1].seen, 10) || 0) - (parseInt(a[1].seen, 10) || 0));
-  const kept = entries.slice(0, MAX_PEOPLE);
+    if (!seen) continue;
+    const offline = info.offline === true || now - seen > TTL_MS;
+    entries.push([
+      sid,
+      {
+        name: cleanName(info.name, sid),
+        seen,
+        stillAt: parseInt(info.stillAt, 10) || 0,
+        type: String(info.type || ""),
+        tab: cleanTab(info.tab || "gallery"),
+        offline,
+        mailAt: parseInt(info.mailAt, 10) || 0,
+      },
+    ]);
+  }
+  const online = entries.filter((entry) => !entry[1].offline).sort((a, b) => b[1].seen - a[1].seen);
+  const offline = entries.filter((entry) => entry[1].offline).sort((a, b) => b[1].seen - a[1].seen);
+  const kept = online.concat(offline).slice(0, MAX_KEEP);
   const keepSet = new Set(kept.map((entry) => entry[0]));
   const next = {};
-  for (const [sid, info] of kept) {
-    next[sid] = {
-      name: cleanName(info.name, sid),
-      seen: parseInt(info.seen, 10) || now,
-      stillAt: parseInt(info.stillAt, 10) || 0,
-      type: String(info.type || ""),
-    };
-  }
+  for (const [sid, info] of kept) next[sid] = info;
   for (const sid of Object.keys(roster)) {
     if (keepSet.has(sid)) continue;
     try {
@@ -165,10 +229,12 @@ export default async function handler(request) {
 
   if (request.method === "GET") {
     const roster = await prune(await readRoster(store), store);
+    const sid = String(url.searchParams.get("sid") || "");
     try {
       await store.setJSON(ROSTER_KEY, roster);
     } catch (e) {}
-    return noStore({ ok: true, people: toPeople(roster) });
+    const mail = SID_RE.test(sid) ? mailFor(await readMail(store), sid) : [];
+    return noStore({ ok: true, people: toPeople(roster), mail });
   }
 
   if (request.method !== "POST") {
@@ -185,14 +251,32 @@ export default async function handler(request) {
   let roster = await prune(await readRoster(store), store);
 
   if (body.leave === true) {
-    delete roster[sid];
+    if (roster[sid]) roster[sid] = Object.assign({}, roster[sid], { offline: true });
     try {
-      await store.delete(stillKey(sid));
       await store.setJSON(ROSTER_KEY, roster);
     } catch (e) {
       return noStore({ ok: false, error: "Store failed" }, 500);
     }
-    return noStore({ ok: true, people: toPeople(roster) });
+    return noStore({
+      ok: true,
+      people: toPeople(roster),
+      mail: mailFor(await readMail(store), sid),
+    });
+  }
+
+  const wantsMail = body.to != null || body.text != null;
+  let mailTo = "";
+  let mailText = "";
+  if (wantsMail) {
+    mailTo = String(body.to || "");
+    mailText = cleanText(body.text);
+    if (!SID_RE.test(mailTo)) return noStore({ ok: false, error: "Unknown person" }, 400);
+    if (!mailText) return noStore({ ok: false, error: "Message required" }, 400);
+    const prevMail = roster[sid];
+    const mailAt = prevMail ? parseInt(prevMail.mailAt, 10) || 0 : 0;
+    if (mailAt && Date.now() - mailAt < MAIL_COOLDOWN_MS) {
+      return noStore({ ok: false, error: "Slow down" }, 429);
+    }
   }
 
   const image = body.image ? decodeImage(body.image) : null;
@@ -201,25 +285,46 @@ export default async function handler(request) {
   }
 
   const prev = roster[sid] || {};
+  const now = Date.now();
   const nextInfo = {
     name: cleanName(body.name, sid),
-    seen: Date.now(),
+    seen: now,
     stillAt: parseInt(prev.stillAt, 10) || 0,
     type: String(prev.type || ""),
+    tab: cleanTab(body.tab || prev.tab || "gallery"),
+    offline: false,
+    mailAt: wantsMail ? now : parseInt(prev.mailAt, 10) || 0,
   };
   if (image) {
-    nextInfo.stillAt = Date.now();
+    nextInfo.stillAt = now;
     nextInfo.type = image.type;
   }
   roster[sid] = nextInfo;
   roster = await prune(roster, store);
 
+  let mail = await readMail(store);
+  if (wantsMail) {
+    mail = mail
+      .concat([
+        {
+          id: now.toString(36) + Math.random().toString(36).slice(2, 8),
+          from: sid,
+          fromName: nextInfo.name,
+          to: mailTo,
+          text: mailText,
+          ts: now,
+        },
+      ])
+      .slice(-MAIL_KEEP);
+  }
+
   try {
     if (image) await store.set(stillKey(sid), image.bytes);
     await store.setJSON(ROSTER_KEY, roster);
+    if (wantsMail) await store.setJSON(MAIL_KEY, mail);
   } catch (e) {
     return noStore({ ok: false, error: "Store failed" }, 500);
   }
 
-  return noStore({ ok: true, people: toPeople(roster) });
+  return noStore({ ok: true, people: toPeople(roster), mail: mailFor(mail, sid) });
 }

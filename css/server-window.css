@@ -218,7 +218,7 @@ body.stare-immersive .server-people {
   z-index: 10045;
   display: flex;
   flex-direction: column;
-  width: 15.5rem;
+  width: 18rem;
   height: 16.5rem;
   border: 2px solid rgba(244, 236, 216, 0.82);
   border-radius: 2px;
@@ -264,9 +264,91 @@ body:not(.is-public-site) .server-people {
 .server-person {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 0.18rem;
-  margin: 0 0 0.22rem;
+  margin: 0 0 0.28rem;
   min-width: 0;
+}
+
+.server-person.is-offline {
+  opacity: 0.72;
+}
+
+.server-person-still {
+  flex: 0 0 auto;
+  width: 2.15rem;
+  height: 2.15rem;
+  object-fit: cover;
+  border: 1px solid rgba(244, 236, 216, 0.55);
+  border-radius: 2px;
+  background: rgba(0, 0, 0, 0.35);
+  display: block;
+}
+
+.server-person-still.is-empty {
+  display: inline-block;
+}
+
+.server-person-id {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.server-person-tab {
+  padding: 0 0.2rem;
+  color: rgba(244, 236, 216, 0.72);
+  font-family: var(--font-ui);
+  font-size: 0.62rem;
+  line-height: 1.1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.server-people-offline-label {
+  margin: 0.35rem 0 0.2rem;
+  padding: 0 0.15rem;
+  color: rgba(244, 236, 216, 0.7);
+  font-family: var(--font-ui);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.server-person-compose {
+  flex: 1 0 100%;
+  display: flex;
+  gap: 0.2rem;
+  margin-top: 0.12rem;
+}
+
+.server-person-compose input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.12rem 0.28rem;
+  border: 1px solid rgba(244, 236, 216, 0.55);
+  background: rgba(0, 0, 0, 0.55);
+  color: #f4ecd8;
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+}
+
+.server-people-mail {
+  list-style: none;
+  margin: 0;
+  padding: 0.25rem 0.4rem 0.35rem;
+  max-height: 4.2rem;
+  overflow: auto;
+  border-top: 1px solid rgba(244, 236, 216, 0.28);
+  font-family: var(--font-ui);
+  font-size: 0.68rem;
+  line-height: 1.3;
+}
+
+.server-people-mail[hidden] {
+  display: none;
 }
 
 .server-person-name,
@@ -297,8 +379,9 @@ body:not(.is-public-site) .server-people {
   text-overflow: clip;
 }
 
-.server-person-view,
-.server-person-spell {
+.server-person-msg,
+.server-person-spell,
+.server-person-compose button {
   flex: 0 0 auto;
   margin: 0;
   padding: 0.1rem 0.28rem;
@@ -312,7 +395,6 @@ body:not(.is-public-site) .server-people {
   cursor: pointer;
 }
 
-.server-person-view:disabled,
 .server-person-spell:disabled {
   opacity: 0.35;
   cursor: default;
@@ -355,6 +437,6 @@ body:not(.is-public-site) .server-people {
 
 @media (max-width: 2200px) and (min-width: 1100px) {
   body .site-header {
-    padding-left: 39.6rem;
+    padding-left: 42.2rem;
   }
 }
