@@ -26,6 +26,7 @@ import openaiChat from "../netlify/functions/openai-chat.mjs";
 import pageChat from "../netlify/functions/page-chat.mjs";
 import presence from "../netlify/functions/presence.mjs";
 import serverWindow from "../netlify/functions/server-window.mjs";
+import serverPeople from "../netlify/functions/server-people.mjs";
 import proxyMedia from "../netlify/functions/proxy-media.mjs";
 import pulseFeed from "../netlify/functions/pulse-feed.mjs";
 import pulsePosts from "../netlify/functions/pulse-posts.mjs";
@@ -52,6 +53,7 @@ export const FUNCTIONS = {
   "page-chat": pageChat,
   presence,
   "server-window": serverWindow,
+  "server-people": serverPeople,
   "proxy-media": proxyMedia,
   "pulse-feed": pulseFeed,
   "pulse-posts": pulsePosts,
@@ -77,6 +79,7 @@ const API_ROUTES = [
   ["/api/page-chat", "page-chat"],
   ["/api/presence", "presence"],
   ["/api/server-window", "server-window"],
+  ["/api/server-people", "server-people"],
   ["/api/pulse/feed", "pulse-feed"],
   ["/api/pulse/posts", "pulse-posts"],
   ["/api/jobs/:jobId", "job-status"],

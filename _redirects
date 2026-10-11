@@ -5,3 +5,4 @@
 /api/page-chat /.netlify/functions/page-chat 200
 /api/presence /.netlify/functions/presence 200
 /api/server-window /.netlify/functions/server-window 200
+/api/server-people /.netlify/functions/server-people 200
