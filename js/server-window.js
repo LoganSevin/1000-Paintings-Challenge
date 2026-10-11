@@ -528,6 +528,39 @@
     closeStage();
   }
 
+  var CLUSTER_KEY = "l7in_server_cluster_v1";
+
+  function clusterHidden() {
+    return document.documentElement.classList.contains("server-cluster-hidden");
+  }
+
+  function paintClusterToggle() {
+    var btn = $("server-cluster-toggle");
+    if (!btn) return;
+    var hidden = clusterHidden();
+    btn.setAttribute("aria-expanded", hidden ? "false" : "true");
+    btn.title = hidden ? "Show last generated" : "Hide last generated";
+  }
+
+  function setClusterHidden(hidden) {
+    document.documentElement.classList.toggle("server-cluster-hidden", !!hidden);
+    try {
+      localStorage.setItem(CLUSTER_KEY, hidden ? "hidden" : "shown");
+    } catch (e) {}
+    if (hidden) closeStage();
+    paintClusterToggle();
+  }
+
+  function bindClusterToggle() {
+    var btn = $("server-cluster-toggle");
+    if (!btn || btn.dataset.bound) return;
+    btn.dataset.bound = "1";
+    paintClusterToggle();
+    btn.addEventListener("click", function () {
+      setClusterHidden(!clusterHidden());
+    });
+  }
+
   function init() {
     selfId = sessionId();
     installFetch();
@@ -535,6 +568,7 @@
     recall();
     booted = true;
     paintOnline(1);
+    bindClusterToggle();
     start();
     var openBtn = $("server-window-open");
     if (openBtn) openBtn.addEventListener("click", openCorner);

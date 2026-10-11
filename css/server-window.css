@@ -201,7 +201,8 @@ body.server-stage-open {
 }
 
 body.an-theater-active .server-window,
-body.an-theater-active .server-people {
+body.an-theater-active .server-people,
+body.an-theater-active .server-cluster-toggle {
   display: none;
 }
 
@@ -438,5 +439,89 @@ body:not(.is-public-site) .server-people {
 @media (max-width: 2200px) and (min-width: 1100px) {
   body .site-header {
     padding-left: 42.2rem;
+  }
+}
+
+.server-cluster-toggle {
+  position: fixed;
+  z-index: 10046;
+  top: max(0.45rem, env(safe-area-inset-top, 0px));
+  left: calc(max(0.5rem, env(safe-area-inset-left, 0px)) + 22rem - 4.4rem);
+  margin: 0;
+  padding: 0.18rem 0.45rem;
+  border: 1px solid rgba(244, 236, 216, 0.7);
+  border-radius: 999px;
+  background: rgba(6, 8, 12, 0.82);
+  color: #f4ecd8;
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  line-height: 1.2;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+body:not(.is-public-site) .server-cluster-toggle {
+  top: 3.5rem;
+}
+
+.server-cluster-toggle-show {
+  display: none;
+}
+
+html.server-cluster-hidden .server-window,
+html.server-cluster-hidden .server-people {
+  display: none;
+}
+
+html.server-cluster-hidden .server-cluster-toggle-hide {
+  display: none;
+}
+
+html.server-cluster-hidden .server-cluster-toggle-show {
+  display: inline;
+}
+
+html.server-cluster-hidden .server-cluster-toggle {
+  left: max(0.5rem, env(safe-area-inset-left, 0px));
+}
+
+html.server-cluster-hidden .site-header {
+  padding-left: 1.5rem;
+}
+
+html.server-cluster-hidden body.is-public-site .site-header {
+  padding-top: 2.4rem;
+}
+
+html.server-cluster-hidden body:not(.is-public-site) .site-header,
+html.server-cluster-hidden body.is-local-studio .site-header {
+  padding-top: 5.3rem;
+}
+
+@media (max-width: 768px) {
+  .server-cluster-toggle {
+    left: calc(max(0.5rem, env(safe-area-inset-left, 0px)) + 12rem - 4.4rem);
+  }
+
+  html.server-cluster-hidden .server-cluster-toggle {
+    left: max(0.5rem, env(safe-area-inset-left, 0px));
+  }
+
+  html.server-cluster-hidden .site-header,
+  html.server-cluster-hidden body.is-public-site .site-header {
+    padding-left: 0.85rem;
+  }
+}
+
+@media (max-width: 540px) {
+  html.server-cluster-hidden body .site-header,
+  html.server-cluster-hidden body.is-public-site .site-header {
+    padding-top: 2.4rem;
+    padding-left: max(0.65rem, env(safe-area-inset-left, 0.65rem));
+  }
+
+  html.server-cluster-hidden body:not(.is-public-site) .site-header,
+  html.server-cluster-hidden body.is-local-studio .site-header {
+    padding-top: 5.3rem;
   }
 }

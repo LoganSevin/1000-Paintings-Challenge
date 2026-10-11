@@ -25,7 +25,7 @@
   </style>
   <link rel="stylesheet" href="css/styles.css?v=23" />
   <link rel="stylesheet" href="css/site-nav.css?v=2" />
-  <link rel="stylesheet" href="css/mobile.css?v=8" />
+  <link rel="stylesheet" href="css/mobile.css?v=9" />
   <link rel="stylesheet" href="css/dream-stasis.css?v=19" />
   <link rel="stylesheet" href="css/maps.css?v=1" />
   <link rel="stylesheet" href="css/stare.css?v=15" />
@@ -73,7 +73,7 @@
   }
   </script>
   <link rel="stylesheet" href="css/stasis-skin.css?v=2" />
-  <link rel="stylesheet" href="css/spellforge.css?v=52" />
+  <link rel="stylesheet" href="css/spellforge.css?v=53" />
   <!-- Secondary tab CSS loads after first paint via lazy-assets.js -->
   <link rel="stylesheet" href="css/muralwalk.css?v=46" />
   <link rel="stylesheet" href="css/fleeting-idea.css?v=100" />
@@ -130,13 +130,24 @@
   <link rel="stylesheet" href="css/annotations.css?v=1" />
   <link rel="stylesheet" href="css/page-chat.css?v=1" />
   <link rel="stylesheet" href="css/tab-presence.css?v=1" />
-  <link rel="stylesheet" href="css/server-window.css?v=7" />
+  <link rel="stylesheet" href="css/server-window.css?v=8" />
+  <script>
+    try {
+      if (localStorage.getItem("l7in_server_cluster_v1") === "hidden") {
+        document.documentElement.classList.add("server-cluster-hidden");
+      }
+    } catch (e) {}
+  </script>
   <link rel="stylesheet" href="css/tab-debug.css?v=8" />
   <script defer src="js/lazy-assets.js?v=2"></script>
   <script defer src="js/fonts-desktop.js?v=1"></script>
 </head>
 <body>
   <a href="./">Welcome</a>
+  <button type="button" id="server-cluster-toggle" class="server-cluster-toggle" aria-controls="server-window" aria-expanded="true">
+    <span class="server-cluster-toggle-hide">Hide</span>
+    <span class="server-cluster-toggle-show">Last generated</span>
+  </button>
   <aside id="server-window" class="server-window" aria-label="Server">
     <p class="server-window-online" id="server-window-online" aria-live="polite">1 online</p>
     <figure class="server-window-frame">
@@ -9069,7 +9080,7 @@
   <script defer src="js/gallery-welcome.js?v=12"></script>
   <script defer src="js/page-chat.js?v=3"></script>
   <script defer src="js/tab-presence.js?v=3"></script>
-  <script defer src="js/server-window.js?v=5"></script>
+  <script defer src="js/server-window.js?v=6"></script>
   <script defer src="js/server-people.js?v=2"></script>
   <script defer src="js/time-clock.js?v=7"></script>
   <script defer src="js/gallery-shared.js?v=8"></script>

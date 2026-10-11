@@ -673,3 +673,20 @@
     grid-column: span 1;
   }
 }
+
+/* The title and the star sit on one line until the star is pushed past the screen. */
+@media (max-width: 540px) {
+  .brand-title-row {
+    flex-wrap: wrap;
+  }
+
+  .brand h1 {
+    max-width: 100%;
+  }
+
+  .star-run {
+    flex: 1 1 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+}
