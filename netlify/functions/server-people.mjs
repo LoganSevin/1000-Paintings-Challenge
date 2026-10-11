@@ -250,6 +250,36 @@ export default async function handler(request) {
 
   let roster = await prune(await readRoster(store), store);
 
+  if (body.drop != null) {
+    const dropSid = String(body.drop || "");
+    if (!SID_RE.test(dropSid)) return noStore({ ok: false, error: "Unknown person" }, 400);
+    const target = roster[dropSid];
+    if (target) {
+      const seen = parseInt(target.seen, 10) || 0;
+      const offline = target.offline === true || Date.now() - seen > TTL_MS;
+      if (!offline) {
+        return noStore({ ok: false, error: "Still online", people: toPeople(roster) }, 409);
+      }
+      delete roster[dropSid];
+    }
+    const mail = await readMail(store);
+    const nextMail = mail.filter((m) => m && m.from !== dropSid && m.to !== dropSid);
+    try {
+      await store.delete(stillKey(dropSid));
+    } catch (e) {}
+    try {
+      await store.setJSON(ROSTER_KEY, roster);
+      if (nextMail.length !== mail.length) await store.setJSON(MAIL_KEY, nextMail);
+    } catch (e) {
+      return noStore({ ok: false, error: "Store failed" }, 500);
+    }
+    return noStore({
+      ok: true,
+      people: toPeople(roster),
+      mail: mailFor(nextMail, sid),
+    });
+  }
+
   if (body.leave === true) {
     if (roster[sid]) roster[sid] = Object.assign({}, roster[sid], { offline: true });
     try {

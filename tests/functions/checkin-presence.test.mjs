@@ -270,6 +270,27 @@ test("server people keeps a name and a still for each console", async () => {
   res = await serverPeople(new Request("http://x/api/server-people?image=1&sid=session-beau1"));
   assert.equal(res.status, 200);
 
+  res = await serverPeople(post("http://x/api/server-people", { sid: "session-wxyz", drop: "session-abcd" }));
+  assert.equal(res.status, 409);
+  d = await res.json();
+  assert.equal(d.ok, false);
+  assert.equal(d.people.some((p) => p.sid === "session-abcd"), true);
+  res = await serverPeople(new Request("http://x/api/server-people?image=1&sid=session-abcd"));
+  assert.equal(res.status, 200);
+
+  res = await serverPeople(post("http://x/api/server-people", { sid: "session-abcd", drop: "nope" }));
+  assert.equal(res.status, 400);
+
+  res = await serverPeople(post("http://x/api/server-people", { sid: "session-abcd", drop: "session-beau1" }));
+  assert.equal(res.status, 200);
+  d = await res.json();
+  assert.equal(d.ok, true);
+  assert.equal(d.people.some((p) => p.sid === "session-beau1"), false);
+  assert.equal(d.people.some((p) => p.sid === "session-abcd"), true);
+  assert.equal(d.mail.length, 0);
+  res = await serverPeople(new Request("http://x/api/server-people?image=1&sid=session-beau1"));
+  assert.equal(res.status, 404);
+
   const now = Date.now();
   await store.set("still-session-old9", new Uint8Array([9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9]));
   const roster = {

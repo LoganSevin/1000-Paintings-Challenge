@@ -2,8 +2,9 @@
  * People beside the last-generated window.
  * The name is the page-chat name (pageChatName). Right-click your own tag
  * to rename it in both places. Each row shows that person's tab and a thumb
- * of their last still. Msg sends them a note. Closing the site moves the
- * row into Offline and keeps the record.
+ * of their last still. Click the thumb to open that still full screen.
+ * Right-click an offline name to delete that guest. Online guests stay.
+ * Msg sends them a note. Closing the site moves the row into Offline.
  */
 (function () {
   "use strict";
@@ -21,6 +22,7 @@
   var lastMail = [];
   var lastSig = "";
   var postedImageKey = "";
+  var dropping = {};
 
   function $(id) {
     return document.getElementById(id);
@@ -202,13 +204,24 @@
     if (!src) return el("span", "server-person-still is-empty");
     var img = el("img", "server-person-still");
     img.alt = "Last still";
+    img.title = "Open full screen";
+    img.tabIndex = 0;
+    img.setAttribute("aria-label", "Open full screen");
     img.src = src;
     img.addEventListener("error", function () {
       img.classList.add("is-empty");
       img.removeAttribute("src");
     });
-    img.addEventListener("click", function (ev) {
+    function openIt(ev) {
       ev.preventDefault();
+      ev.stopPropagation();
+      var shown = img.getAttribute("src");
+      if (!shown || !window.L7inServer || typeof window.L7inServer.openStill !== "function") return;
+      window.L7inServer.openStill(shown);
+    }
+    img.addEventListener("click", openIt);
+    img.addEventListener("keydown", function (ev) {
+      if (ev.key === "Enter" || ev.key === " ") openIt(ev);
     });
     return img;
   }
@@ -229,6 +242,9 @@
         ev.preventDefault();
         beginRename(nameBtn, person.name);
       });
+    } else if (!online) {
+      nameBtn.title = "Right-click to delete";
+      nameBtn.setAttribute("aria-label", (person.name || "Guest") + ", right-click to delete");
     } else {
       nameBtn.title = person.name || "";
       nameBtn.addEventListener("contextmenu", function (ev) {
@@ -261,6 +277,12 @@
       });
       row.appendChild(btn);
     });
+    if (!self && !online) {
+      row.addEventListener("contextmenu", function (ev) {
+        ev.preventDefault();
+        dropPerson(person);
+      });
+    }
     if (!self) {
       var msg = el("button", "server-person-msg", "Msg");
       msg.type = "button";
@@ -271,6 +293,17 @@
       row.appendChild(msg);
     }
     return row;
+  }
+
+  function dropPerson(person) {
+    if (!person || person.sid === selfId || personOnline(person) || dropping[person.sid]) return;
+    dropping[person.sid] = true;
+    lastPeople = (lastPeople || []).filter(function (p) {
+      return !p || p.sid !== person.sid;
+    });
+    lastSig = "";
+    postRoster({ drop: person.sid });
+    paint(lastPeople);
   }
 
   function toggleCompose(row, person) {
@@ -450,12 +483,14 @@
 
   function postRoster(extra) {
     if (!selfId) return;
-    if (document.hidden && !(extra && extra.leave)) return;
+    if (document.hidden && !(extra && (extra.leave || extra.drop))) return;
     var body = { sid: selfId, name: myName(), tab: currentTab() };
     if (extra && extra.image) body.image = extra.image;
     if (extra && extra.leave) body.leave = true;
     if (extra && extra.to) body.to = extra.to;
     if (extra && extra.text) body.text = extra.text;
+    if (extra && extra.drop) body.drop = extra.drop;
+    var dropSid = extra && extra.drop;
     fetch("/api/server-people", {
       method: "POST",
       cache: "no-store",
@@ -464,10 +499,22 @@
       body: JSON.stringify(body),
     })
       .then(function (r) {
-        return r.ok ? r.json() : null;
+        return r.json().catch(function () {
+          return null;
+        });
       })
-      .then(applyRoster)
-      .catch(function () {});
+      .then(function (data) {
+        if (dropSid) delete dropping[dropSid];
+        if (data && data.ok) applyRoster(data);
+        else if (dropSid && data && Array.isArray(data.people)) {
+          lastPeople = data.people;
+          lastSig = "";
+          paint(data.people);
+        }
+      })
+      .catch(function () {
+        if (dropSid) delete dropping[dropSid];
+      });
   }
 
   function noteStill(dataUrl) {
