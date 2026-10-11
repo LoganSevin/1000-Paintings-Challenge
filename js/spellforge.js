@@ -1,6 +1,6 @@
 /**
  * Spellforge: shuffled grid, spell slots, fused text, interaction preview, optional fusion video.
- * Cache bust v127: opening Spellforge keeps the other equipped spells.
+ * Cache bust v128: a still from someone here equips into one Spell I, II, or III slot.
  */
 (function () {
   var PAGE_SIZE = 25;
@@ -20,6 +20,11 @@
   var INV_SKETCH_BASE = 300000;
   var NOTE_BASE = 400000;
   var NOTES_KEY = "spellforge_notes_v1";
+  /** Stills borrowed from someone at the console. 500000 is the exchange color range. */
+  var VISITOR_BASE = 600000;
+  var VISITOR_SPAN = 100000;
+  var VISITOR_KEY = "spellforge_visitors_v1";
+  var VISITOR_KEEP = 4;
   var ASPECT_OPTIONS = ["1:1", "4:3", "3:4", "16:9", "9:16", "3:2", "2:3"];
   var TOME_STOP = {
     a: 1, an: 1, the: 1, and: 1, or: 1, but: 1, nor: 1, so: 1, if: 1,
@@ -61,6 +66,8 @@
   /** False until the saved trio is read, so an early paint cannot store blanks over it. */
   var equippedSlotsReady = false;
   var spellNotes = { notes: {}, nextNoteId: NOTE_BASE + 1 };
+  var visitorSpells = { next: VISITOR_BASE + 1, items: {} };
+  var visitorSpellsReady = false;
   var activePage = 0;
   var pickerQuery = "";
   /** "all" is the mixed spellbook (paintings + shuffle). "generated" is the G# view. */
@@ -1167,6 +1174,123 @@
     return spellNotes.notes[String(num)] || spellNotes.notes[num] || null;
   }
 
+  function loadVisitorSpells() {
+    if (visitorSpellsReady) return;
+    visitorSpellsReady = true;
+    try {
+      var raw = localStorage.getItem(VISITOR_KEY);
+      if (!raw) return;
+      var parsed = JSON.parse(raw);
+      var items = {};
+      var incoming = parsed && parsed.items;
+      if (incoming && typeof incoming === "object") {
+        Object.keys(incoming).forEach(function (k) {
+          var it = incoming[k];
+          var id = parseInt(it && it.id != null ? it.id : k, 10);
+          if (!id || id <= VISITOR_BASE || id >= VISITOR_BASE + VISITOR_SPAN) return;
+          var url = String((it && it.url) || "");
+          if (!/^data:image\/(?:jpeg|png|webp);base64,/i.test(url)) return;
+          items[String(id)] = {
+            id: id,
+            url: url,
+            name: String((it && it.name) || "Guest").replace(/\s+/g, " ").trim().slice(0, 24) || "Guest",
+            sid: String((it && it.sid) || "").slice(0, 80),
+            at: parseInt(it && it.at, 10) || 0,
+          };
+        });
+      }
+      var next = parseInt(parsed && parsed.next, 10) || VISITOR_BASE + 1;
+      if (next <= VISITOR_BASE || next >= VISITOR_BASE + VISITOR_SPAN) next = VISITOR_BASE + 1;
+      visitorSpells = { next: next, items: items };
+    } catch (e) {}
+  }
+
+  function visitorOf(num) {
+    num = parseInt(num, 10);
+    if (!num || !visitorSpells || !visitorSpells.items) return null;
+    return visitorSpells.items[String(num)] || null;
+  }
+
+  function saveVisitorSpells() {
+    var items = (visitorSpells && visitorSpells.items) || {};
+    var keep = {};
+    var i;
+    for (i = 0; i < 3; i++) {
+      var equipped = visitorOf(spells[i]);
+      if (equipped) keep[String(equipped.id)] = equipped;
+    }
+    var rest = [];
+    Object.keys(items).forEach(function (k) {
+      if (keep[k]) return;
+      rest.push(items[k]);
+    });
+    rest.sort(function (a, b) {
+      return (b.at || 0) - (a.at || 0);
+    });
+    for (i = 0; i < rest.length && i < VISITOR_KEEP; i++) keep[String(rest[i].id)] = rest[i];
+    visitorSpells.items = keep;
+    try {
+      localStorage.setItem(VISITOR_KEY, JSON.stringify({ next: visitorSpells.next, items: keep }));
+    } catch (e) {
+      var only = {};
+      for (i = 0; i < 3; i++) {
+        var eq = visitorOf(spells[i]);
+        if (eq) only[String(eq.id)] = eq;
+      }
+      visitorSpells.items = only;
+      try {
+        localStorage.setItem(VISITOR_KEY, JSON.stringify({ next: visitorSpells.next, items: only }));
+      } catch (e2) {}
+    }
+  }
+
+  function equipVisitorStill(slotIndex, info) {
+    slotIndex = parseInt(slotIndex, 10);
+    if (slotIndex < 0 || slotIndex > 2 || isNaN(slotIndex)) {
+      return { ok: false, error: "Pick Spell I–III." };
+    }
+    var url = String((info && info.url) || "");
+    if (!/^data:image\/(?:jpeg|png|webp);base64,/i.test(url)) {
+      return { ok: false, error: "Still missing." };
+    }
+    loadVisitorSpells();
+    if (!visitorSpells.items) visitorSpells.items = {};
+    var name = String((info && info.name) || "Guest").replace(/\s+/g, " ").trim().slice(0, 24) || "Guest";
+    var sid = String((info && info.sid) || "").slice(0, 80);
+    var id = 0;
+    var keys = Object.keys(visitorSpells.items);
+    for (var i = 0; i < keys.length; i++) {
+      var existing = visitorSpells.items[keys[i]];
+      if (existing && existing.url === url) {
+        id = existing.id;
+        break;
+      }
+    }
+    if (!id) {
+      id = Number(visitorSpells.next) || VISITOR_BASE + 1;
+      if (id <= VISITOR_BASE || id >= VISITOR_BASE + VISITOR_SPAN) id = VISITOR_BASE + 1;
+      while (visitorSpells.items[String(id)] && id < VISITOR_BASE + VISITOR_SPAN - 1) id += 1;
+      visitorSpells.next = id + 1;
+    }
+    visitorSpells.items[String(id)] = {
+      id: id,
+      url: url,
+      name: name,
+      sid: sid,
+      at: Date.now(),
+    };
+    spells[slotIndex] = id;
+    clearSpellSlotBody(slotIndex);
+    saveVisitorSpells();
+    if (spellforgeReady) {
+      renderSlots();
+      renderGrid();
+    } else {
+      saveEquippedSpells();
+    }
+    return { ok: true, slot: slotIndex, id: id, slots: [spells[0], spells[1], spells[2]] };
+  }
+
   function isNoteId(n) {
     return !!noteOf(n);
   }
@@ -1176,6 +1300,7 @@
     if (!n || n < 1) return 0;
     if (extraSpells[n] || extraSpells[String(n)]) return n;
     if (noteOf(n)) return n;
+    if (visitorOf(n)) return n;
     if (n <= TOTAL) return n;
     var asGen = GEN_BASE + n;
     if (extraSpells[asGen] || extraSpells[String(asGen)]) return asGen;
@@ -1187,11 +1312,13 @@
     if (!n || n < 1) return false;
     if (n <= TOTAL) return true;
     if (noteOf(n)) return true;
+    if (visitorOf(n)) return true;
     if (extraSpells[n] || extraSpells[String(n)]) return true;
     return !!(extraSpells[GEN_BASE + n] || extraSpells[String(GEN_BASE + n)]);
   }
 
   function spellKindLabel(num) {
+    if (visitorOf(num)) return "Here";
     if (noteOf(num)) return "Tome";
     var extra = extraSpells[num] || extraSpells[String(num)];
     if (!extra) return "#" + num;
@@ -1215,6 +1342,8 @@
     num = resolveArsenalNum(num) || num;
     var noteThumb = noteOf(num);
     if (noteThumb) return tomeCoverUrl(noteThumb);
+    var visitorThumb = visitorOf(num);
+    if (visitorThumb && visitorThumb.url) return visitorThumb.url;
     var extra = extraSpells[num] || extraSpells[String(num)];
     if (extra && extra.url) return assetUrl(extra.url);
     if (window.getPaintingUrl) return window.getPaintingUrl(num);
@@ -1231,6 +1360,14 @@
         description: notePrompt,
         prompt: notePrompt,
         tags: note.tags && note.tags.length ? note.tags.slice() : deriveTomeTags(notePrompt),
+      };
+    }
+    var visitor = visitorOf(num);
+    if (visitor) {
+      var who = visitor.name || "someone here";
+      return {
+        title: who,
+        description: "A still from " + who + ".",
       };
     }
     var extra = extraSpells[num] || extraSpells[String(num)];
@@ -2392,6 +2529,7 @@
   }
 
   function revalidateEquippedSpells() {
+    loadVisitorSpells();
     var changed = false;
     for (var i = 0; i < 3; i++) {
       if (!spells[i] || isValidSpellNum(spells[i])) continue;
@@ -6669,6 +6807,7 @@
     function ready() {
       spellforgeReady = true;
       loadSpellNotes();
+      loadVisitorSpells();
       buildManifestMap();
       // Paintings + phone uploads + generated stills (mixed shuffle)
       loadSpellAssets().then(function () {
@@ -6794,6 +6933,7 @@
       syncBookViewUi();
       bindAnimateHandoff();
       loadSpellNotes();
+      loadVisitorSpells();
       loadEquippedSpells();
       window.equipSpellPainting = function (num) {
         ensureSpellforgeStarted();
@@ -6834,6 +6974,9 @@
         },
         equipNote: function (slotIndex, text) {
           return equipNote(slotIndex, text);
+        },
+        equipVisitorStill: function (slotIndex, info) {
+          return equipVisitorStill(slotIndex, info);
         },
         softenPromptForModeration: softenPromptForModeration,
         showModerationStrike: function (result) {

@@ -126,6 +126,12 @@
   force = true
 
 [[redirects]]
+  from = "/api/server-people"
+  to = "/.netlify/functions/server-people"
+  status = 200
+  force = true
+
+[[redirects]]
   from = "/api/pulse/feed"
   to = "/.netlify/functions/pulse-feed"
   status = 200

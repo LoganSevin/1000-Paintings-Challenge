@@ -15,6 +15,7 @@ let dir;
 let checkin;
 let presence;
 let serverWindow;
+let serverPeople;
 
 test.before(async () => {
   dir = await mkdtemp(join(tmpdir(), "blobs-"));
@@ -25,6 +26,7 @@ test.before(async () => {
   checkin = (await import("../../netlify/functions/gallery-checkin.mjs")).default;
   presence = (await import("../../netlify/functions/presence.mjs")).default;
   serverWindow = (await import("../../netlify/functions/server-window.mjs")).default;
+  serverPeople = (await import("../../netlify/functions/server-people.mjs")).default;
 });
 
 test.after(async () => {
@@ -171,6 +173,98 @@ test("server window accepts a sharp still and refuses one past the cap", async (
   res = await serverWindow(new Request("http://x/api/server-window?image=1"));
   const kept = new Uint8Array(await res.arrayBuffer());
   assert.equal(kept.length, 120000, "a too-large post leaves the sharp still");
+});
+
+function tinyJpeg(tailByte) {
+  return (
+    "data:image/jpeg;base64," +
+    Buffer.from([
+      0xff, 0xd8, 0xff, 0xd9, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, tailByte,
+    ]).toString("base64")
+  );
+}
+
+test("server people keeps a name and a still for each console", async () => {
+  const store = getStore({ name: "server-people", consistency: "strong" });
+  let res = await serverPeople(
+    post("http://x/api/server-people", {
+      sid: "session-abcd",
+      name: "  Ada\u0000  Lovelace the very long name  ",
+    })
+  );
+  let d = await res.json();
+  assert.equal(res.headers.get("cache-control"), "no-store, no-cache, must-revalidate");
+  assert.equal(d.ok, true);
+  assert.equal(d.people.length, 1);
+  assert.equal(d.people[0].sid, "session-abcd");
+  assert.equal(d.people[0].name, "Ada Lovelace the very lo");
+  assert.equal(d.people[0].stillAt, 0);
+  assert.equal(d.people[0].image, undefined);
+
+  res = await serverPeople(
+    post("http://x/api/server-people", { sid: "session-wxyz", name: "   " })
+  );
+  d = await res.json();
+  assert.equal(d.people.find((p) => p.sid === "session-wxyz").name, "Guest wxyz");
+
+  res = await serverPeople(post("http://x/api/server-people", { sid: "short", name: "Nope" }));
+  assert.equal(res.status, 400);
+
+  const ada = tinyJpeg(12);
+  const beau = tinyJpeg(13);
+  res = await serverPeople(
+    post("http://x/api/server-people", { sid: "session-abcd", name: "Ada", image: ada })
+  );
+  d = await res.json();
+  assert.equal(res.status, 200);
+  const adaRow = d.people.find((p) => p.sid === "session-abcd");
+  assert.equal(adaRow.name, "Ada");
+  assert.ok(adaRow.stillAt > 0);
+
+  res = await serverPeople(
+    post("http://x/api/server-people", { sid: "session-beau1", name: "Beau", image: beau })
+  );
+  assert.equal(res.status, 200);
+
+  res = await serverPeople(
+    post("http://x/api/server-people", { sid: "session-abcd", name: "Ada", image: "data:text/plain;base64,aGVsbG8=" })
+  );
+  assert.equal(res.status, 400);
+  res = await serverPeople(new Request("http://x/api/server-people?image=1&sid=session-abcd"));
+  assert.equal(res.status, 200);
+  assert.equal(res.headers.get("content-type"), "image/jpeg");
+  let buf = new Uint8Array(await res.arrayBuffer());
+  assert.equal(buf[buf.length - 1], 12, "a refused post leaves Ada's still");
+
+  res = await serverPeople(new Request("http://x/api/server-people?image=1&sid=session-beau1"));
+  buf = new Uint8Array(await res.arrayBuffer());
+  assert.equal(buf[buf.length - 1], 13, "Beau's still is separate");
+
+  res = await serverPeople(post("http://x/api/server-people", { sid: "session-beau1", leave: true }));
+  d = await res.json();
+  assert.equal(d.people.some((p) => p.sid === "session-beau1"), false);
+  res = await serverPeople(new Request("http://x/api/server-people?image=1&sid=session-beau1"));
+  assert.equal(res.status, 404);
+
+  const now = Date.now();
+  await store.set("still-session-old9", new Uint8Array([9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9]));
+  const roster = {
+    "session-abcd": { name: "Ada", seen: now, stillAt: now, type: "image/jpeg" },
+  };
+  for (let i = 0; i < 40; i++) {
+    const sid = "session-cap" + String(i).padStart(2, "0");
+    roster[sid] = { name: "Cap " + i, seen: now - i - 1, stillAt: 0, type: "" };
+  }
+  roster["session-old9"] = { name: "Old", seen: now - 120000, stillAt: now, type: "image/jpeg" };
+  await store.setJSON("roster", roster);
+
+  res = await serverPeople(new Request("http://x/api/server-people"));
+  d = await res.json();
+  assert.equal(d.people.some((p) => p.sid === "session-old9"), false);
+  assert.equal(d.people.length, 36);
+  assert.equal(d.people.some((p) => p.sid === "session-abcd"), true);
+  const gone = await store.get("still-session-old9", { type: "arrayBuffer" });
+  assert.equal(gone, null);
 });
 
 test("deploy gate: previews always build, production needs [deploy]", () => {

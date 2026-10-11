@@ -86,8 +86,9 @@
     root.classList.add("has-image");
     var openBtn = $("server-window-open");
     if (openBtn) openBtn.hidden = false;
+    var stage = $("server-window-stage");
     var stageImg = $("server-window-stage-img");
-    if (stageImg && changed) stageImg.src = src;
+    if (stageImg && changed && !(stage && stage.dataset.pinned === "1")) stageImg.src = src;
     if (tab) root.setAttribute("data-from", tab);
     if (booted && changed && !quiet) {
       var box = frame();
@@ -282,6 +283,7 @@
         remember(dataUrl, now, tab);
         postChannel({ type: "image", id: selfId, at: now, tab: tab, image: dataUrl });
         postStill({ image: dataUrl, tab: tab });
+        if (window.L7inPeople && window.L7inPeople.noteStill) window.L7inPeople.noteStill(dataUrl);
       },
       function () {
         if (/^https:\/\//i.test(url)) {
@@ -461,13 +463,26 @@
     return stage;
   }
 
-  function openStage() {
-    var img = $("server-window-img");
-    var src = img && !img.hidden && img.getAttribute("src");
-    if (!src) return;
+  function openCorner() {
+    openStage("");
+  }
+
+  function openStage(src) {
+    var pinned = typeof src === "string" && !!src;
+    if (!pinned) {
+      var img = $("server-window-img");
+      src = img && !img.hidden && img.getAttribute("src");
+    }
+    if (!src || typeof src !== "string") return;
     var stage = stageEl();
     var big = $("server-window-stage-img");
     if (big.getAttribute("src") !== src) big.src = src;
+    if (pinned) stage.dataset.pinned = "1";
+    else delete stage.dataset.pinned;
+    stage.setAttribute(
+      "aria-label",
+      pinned ? "Last still" : "Last generated, full screen"
+    );
     stage.hidden = false;
     stage.classList.add("is-open");
     document.body.classList.add("server-stage-open");
@@ -495,6 +510,8 @@
     }
     stage.classList.remove("is-open");
     stage.hidden = true;
+    delete stage.dataset.pinned;
+    stage.setAttribute("aria-label", "Last generated, full screen");
     document.body.classList.remove("server-stage-open");
   }
 
@@ -520,7 +537,7 @@
     paintOnline(1);
     start();
     var openBtn = $("server-window-open");
-    if (openBtn) openBtn.addEventListener("click", openStage);
+    if (openBtn) openBtn.addEventListener("click", openCorner);
     document.addEventListener("fullscreenchange", onFullscreenChange);
     document.addEventListener("webkitfullscreenchange", onFullscreenChange);
     document.addEventListener("keydown", function (e) {
@@ -537,7 +554,7 @@
     });
   }
 
-  window.L7inServer = { share: share };
+  window.L7inServer = { share: share, openStill: openStage };
   installFetch();
 
   if (document.readyState === "loading") {
