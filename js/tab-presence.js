@@ -97,8 +97,28 @@
     });
   }
 
+  // online-users.js owns the visitor's name and last still; the beat carries
+  // them so everyone's online list shows the current name.
+  function identityFields(body) {
+    var id = window.L7inIdentity;
+    if (!id) return body;
+    try {
+      body.name = id.name();
+      var last = id.last();
+      if (last) body.last = last;
+    } catch (e) {}
+    return body;
+  }
+
   function applyPayload(data) {
     if (data && data.ok && data.counts) paintAll(data.counts);
+    if (data && data.ok && Array.isArray(data.users)) {
+      try {
+        window.dispatchEvent(
+          new CustomEvent("presence-users", { detail: { users: data.users, you: data.you || "" } })
+        );
+      } catch (e) {}
+    }
     // presence.mjs also returns tab-open totals; gallery-welcome.js paints the
     // eye counts from this instead of running its own poll loop.
     if (data && data.ok && data.opens && typeof data.opens === "object") {
@@ -123,7 +143,7 @@
       method: "POST",
       cache: "no-store",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ sid: sessionId(), tab: tab }),
+      body: JSON.stringify(identityFields({ sid: sessionId(), tab: tab })),
       keepalive: true,
     })
       .then(function (r) {
@@ -210,6 +230,14 @@
       paintAll(counts);
     }, 15000);
   }
+
+  // Send a beat now (rename, new still) instead of waiting for the next tick.
+  window.L7inPresence = {
+    beat: function () {
+      heartbeat(currentTab, false);
+    },
+    sid: sessionId,
+  };
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", init);

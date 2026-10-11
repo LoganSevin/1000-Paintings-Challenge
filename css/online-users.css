@@ -1,0 +1,463 @@
+/* Online users: name tags beside "Last generated" (server-window). Dark / cream / gold. */
+
+.server-window-row {
+  display: flex;
+  align-items: stretch;
+  gap: 0.5rem;
+}
+
+.online-users {
+  display: flex;
+  flex-direction: column;
+  width: 17rem;
+  height: 16.5rem;
+  margin: 0;
+  border: 2px solid rgba(244, 236, 216, 0.82);
+  border-radius: 2px;
+  background: rgba(10, 12, 16, 0.86);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(8px);
+  color: #e8d5a3;
+  font-family: var(--font-ui, system-ui, sans-serif);
+  font-size: 0.72rem;
+  line-height: 1.3;
+  overflow: hidden;
+  pointer-events: auto;
+}
+
+.online-users-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.4rem;
+  padding: 0.3rem 0.5rem 0.28rem;
+  border-bottom: 1px solid rgba(201, 162, 39, 0.28);
+  background: rgba(20, 18, 12, 0.55);
+  flex: 0 0 auto;
+}
+
+.online-users-title {
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 1.05rem;
+  color: #f4ecd8;
+  white-space: nowrap;
+}
+
+.online-users-count {
+  font-family: var(--font-ui, system-ui, sans-serif);
+  font-size: 0.66rem;
+  color: rgba(232, 213, 163, 0.75);
+}
+
+.online-users-hint {
+  font-size: 0.6rem;
+  color: rgba(232, 213, 163, 0.55);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.online-users-list {
+  flex: 1 1 auto;
+  min-height: 0;
+  margin: 0;
+  padding: 0.3rem;
+  list-style: none;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(201, 162, 39, 0.4) transparent;
+}
+
+.ou-user {
+  display: flex;
+  gap: 0.45rem;
+  padding: 0.35rem;
+  margin: 0 0 0.3rem;
+  border: 1px solid rgba(201, 162, 39, 0.26);
+  border-radius: 6px;
+  background: rgba(26, 23, 16, 0.6);
+}
+
+.ou-user:last-child {
+  margin-bottom: 0;
+}
+
+.ou-user.is-self {
+  border-color: rgba(240, 215, 138, 0.62);
+  background: rgba(48, 40, 18, 0.55);
+}
+
+.ou-thumb {
+  position: relative;
+  flex: 0 0 auto;
+  width: 2.7rem;
+  height: 2.7rem;
+  margin: 0;
+  padding: 0;
+  border: 1px solid rgba(244, 236, 216, 0.45);
+  border-radius: 4px;
+  overflow: hidden;
+  background: rgba(244, 236, 216, 0.08);
+  cursor: zoom-in;
+}
+
+.ou-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ou-thumb img[hidden],
+.ou-initial[hidden] {
+  display: none !important;
+}
+
+.ou-initial {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 1.35rem;
+  color: rgba(244, 236, 216, 0.8);
+}
+
+.ou-main {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.18rem;
+}
+
+.ou-tag {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  min-width: 0;
+}
+
+.ou-name {
+  min-width: 0;
+  padding: 0.04rem 0.4rem;
+  border-radius: 999px;
+  background: rgba(244, 236, 216, 0.92);
+  color: #16130d;
+  font-weight: 600;
+  font-size: 0.72rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ou-user.is-self .ou-name {
+  background: #f0d78a;
+  cursor: context-menu;
+}
+
+.ou-name[hidden],
+.ou-you[hidden] {
+  display: none !important;
+}
+
+.ou-you {
+  flex: 0 0 auto;
+  font-size: 0.6rem;
+  color: rgba(240, 215, 138, 0.85);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.ou-name-input {
+  flex: 1 1 auto;
+  min-width: 0;
+  width: 100%;
+  padding: 0.08rem 0.4rem;
+  border: 1px solid #f0d78a;
+  border-radius: 999px;
+  background: #0d0f13;
+  color: #f4ecd8;
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 600;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(201, 162, 39, 0.3);
+}
+
+.ou-meta {
+  font-size: 0.6rem;
+  color: rgba(232, 213, 163, 0.62);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ou-actions,
+.ou-spells {
+  display: flex;
+  gap: 0.2rem;
+}
+
+.ou-btn {
+  flex: 1 1 0;
+  min-width: 0;
+  margin: 0;
+  padding: 0.14rem 0.2rem;
+  border: 1px solid rgba(201, 162, 39, 0.45);
+  border-radius: 4px;
+  background: rgba(20, 18, 12, 0.75);
+  color: #ffe9b0;
+  font: inherit;
+  font-size: 0.62rem;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.ou-btn:hover:not(:disabled),
+.ou-btn:focus-visible {
+  border-color: #f0d78a;
+  background: rgba(201, 162, 39, 0.22);
+  color: #fff4d0;
+  outline: none;
+}
+
+.ou-btn:disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+}
+
+.online-users-status {
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 0.25rem 0.5rem;
+  border-top: 1px solid rgba(201, 162, 39, 0.28);
+  background: rgba(20, 18, 12, 0.75);
+  color: #f0d78a;
+  font-size: 0.64rem;
+}
+
+.online-users-status[hidden] {
+  display: none !important;
+}
+
+/* Lightbox: one person's last generated still. */
+.ou-stage {
+  position: fixed;
+  inset: 0;
+  z-index: 10170;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.84);
+}
+
+.ou-stage.is-open {
+  display: flex;
+}
+
+.ou-stage[hidden] {
+  display: none !important;
+}
+
+.ou-stage-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: min(92vw, 70rem);
+  max-height: 92vh;
+  border: 2px solid rgba(244, 236, 216, 0.82);
+  border-radius: 4px;
+  background: #0c0d11;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+  color: #e8d5a3;
+  font-family: var(--font-ui, system-ui, sans-serif);
+  overflow: hidden;
+}
+
+.ou-stage-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: min(80vw, 24rem);
+  min-height: 10rem;
+  background: #000;
+}
+
+.ou-stage-img {
+  display: block;
+  max-width: 100%;
+  max-height: calc(92vh - 5.5rem);
+  object-fit: contain;
+}
+
+.ou-stage-img[hidden],
+.ou-stage-empty[hidden] {
+  display: none !important;
+}
+
+.ou-stage-empty {
+  max-width: 24rem;
+  margin: 0;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 1.25rem;
+  color: rgba(244, 236, 216, 0.85);
+}
+
+.ou-stage-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.55rem 0.7rem;
+  border-top: 1px solid rgba(201, 162, 39, 0.3);
+}
+
+.ou-stage-caption {
+  flex: 1 1 14rem;
+  margin: 0;
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 1.05rem;
+  color: #f4ecd8;
+}
+
+.ou-stage-spells {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.ou-stage-spells .ou-btn {
+  flex: 0 0 auto;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.8rem;
+}
+
+.ou-stage-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 1;
+  margin: 0;
+  padding: 0.3rem 0.7rem;
+  border: 1px solid rgba(244, 236, 216, 0.7);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #f4ecd8;
+  font: inherit;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+body.ou-stage-open {
+  overflow: hidden;
+}
+
+/* Mid widths: keep clear of the page chat in the top-right corner, and keep the
+   title clear of the wider window (server-window.css handles 768px and below). */
+@media (min-width: 881px) and (max-width: 1000px) {
+  body .site-header {
+    padding-left: 37rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 880px) {
+  body .site-header {
+    padding-left: 34.5rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  .online-users {
+    width: 13rem;
+  }
+
+  .online-users-hint {
+    display: none;
+  }
+}
+
+@media (max-width: 880px) {
+  .online-users {
+    width: 10.5rem;
+  }
+
+  .ou-meta {
+    display: none;
+  }
+
+  .ou-btn {
+    font-size: 0.56rem;
+    padding: 0.1rem 0.12rem;
+  }
+
+  .ou-view {
+    font-size: 0;
+  }
+
+  .ou-view::after {
+    content: "View last";
+    font-size: 0.56rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .online-users {
+    width: 10.5rem;
+    height: 9rem;
+    font-size: 0.66rem;
+  }
+
+  .online-users-hint {
+    display: none;
+  }
+
+  .online-users-title {
+    font-size: 0.85rem;
+  }
+
+  .ou-user {
+    gap: 0.3rem;
+    padding: 0.25rem;
+  }
+
+  .ou-thumb {
+    width: 1.9rem;
+    height: 1.9rem;
+  }
+
+  .ou-initial {
+    font-size: 1rem;
+  }
+
+  .ou-meta {
+    display: none;
+  }
+
+  .ou-btn {
+    font-size: 0.56rem;
+    padding: 0.1rem 0.12rem;
+  }
+
+  .ou-view {
+    font-size: 0;
+  }
+
+  .ou-view::after {
+    content: "View last";
+    font-size: 0.56rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .online-users {
+    width: calc(100vw - 13.6rem);
+  }
+}

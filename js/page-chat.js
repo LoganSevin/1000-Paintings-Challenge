@@ -61,6 +61,12 @@
   }
 
   function saveName(n) {
+    // online-users.js shares this name (online list, generations); let it
+    // clean, store and announce it so the name tag updates too.
+    if (window.L7inIdentity && window.L7inIdentity.setName) {
+      window.L7inIdentity.setName(n);
+      return;
+    }
     try {
       localStorage.setItem(NAME_KEY, String(n || "").trim().slice(0, 32));
     } catch (e) {}
@@ -405,8 +411,15 @@
     if (nameInput) {
       nameInput.addEventListener("change", function () {
         saveName(nameInput.value);
+        nameInput.value = loadName();
       });
     }
+
+    // Renamed from the online list (right-click your name tag).
+    window.addEventListener("l7in-name-changed", function (e) {
+      var n = e && e.detail && e.detail.name;
+      if (n && nameInput && document.activeElement !== nameInput) nameInput.value = n;
+    });
 
     window.addEventListener("tab-changed", function (e) {
       var next = (e && e.detail && e.detail.tab) || hashTab();

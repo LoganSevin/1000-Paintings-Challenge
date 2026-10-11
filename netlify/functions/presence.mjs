@@ -1,5 +1,6 @@
 import { getStore } from "@netlify/blobs";
 import { jsonResponse, corsPreflight } from "./_lib.mjs";
+import { cleanName, cleanLast, isPid, pidOf, usersOf } from "./_online.mjs";
 
 const TAB_RE = /^[a-z0-9-]{1,40}$/;
 const SID_RE = /^[A-Za-z0-9._-]{8,80}$/;
@@ -40,7 +41,17 @@ function prune(map, now) {
     const tab = normalizeTab(info.tab);
     if (!ts || now - ts > TTL_MS) continue;
     if (!TAB_RE.test(tab)) continue;
-    out[sid] = { tab, ts };
+    const entry = { tab, ts };
+    // Online list (online-users.js): public id, chosen name, first-seen time and
+    // the last generated still ride along in the same record.
+    if (isPid(info.pid)) {
+      entry.pid = info.pid;
+      entry.name = cleanName(info.name) || "guest";
+      entry.since = parseInt(info.since, 10) || ts;
+      const last = cleanLast(info.last, now);
+      if (last) entry.last = last;
+    }
+    out[sid] = entry;
     if (Object.keys(out).length >= MAX_SIDS) break;
   }
   return out;
@@ -126,7 +137,7 @@ export default async function handler(request) {
   if (request.method === "GET") {
     const [raw, opens] = await Promise.all([loadMap(store), loadOpens()]);
     const map = prune(raw, now);
-    return noStore(withOpens({ ok: true, counts: countsOf(map) }, opens));
+    return noStore(withOpens({ ok: true, counts: countsOf(map), users: usersOf(map) }, opens));
   }
 
   if (request.method !== "POST") {
@@ -142,6 +153,7 @@ export default async function handler(request) {
   // Read-modify-write. Low traffic: last writer wins after prune+merge.
   const opensPromise = body.leave ? Promise.resolve(null) : loadOpens();
   let map = prune(await loadMap(store), now);
+  let pid = "";
 
   if (body.leave) {
     if (map[sid]) delete map[sid];
@@ -150,7 +162,22 @@ export default async function handler(request) {
     if (!TAB_RE.test(tab)) {
       return noStore({ ok: false, error: "Invalid tab" }, 400);
     }
-    map[sid] = { tab, ts: now };
+    const prev = map[sid] || {};
+    pid = await pidOf(sid);
+    const entry = {
+      tab,
+      ts: now,
+      pid,
+      name: cleanName(body.name) || cleanName(prev.name) || "guest",
+      since: parseInt(prev.since, 10) || now,
+    };
+    // The client echoes its last still on every beat; keep whichever is newer
+    // (an older page sends none, or the beat raced the upload).
+    const sent = cleanLast(body.last, now);
+    const kept = cleanLast(prev.last, now);
+    const last = sent && kept ? (kept.at > sent.at ? kept : sent) : sent || kept;
+    if (last) entry.last = last;
+    map[sid] = entry;
   }
 
   map = prune(map, now);
@@ -160,5 +187,7 @@ export default async function handler(request) {
     return noStore({ ok: false, error: "Store failed" }, 500);
   }
 
-  return noStore(withOpens({ ok: true, counts: countsOf(map) }, await opensPromise));
+  const out = { ok: true, counts: countsOf(map), users: usersOf(map) };
+  if (pid) out.you = pid;
+  return noStore(withOpens(out, await opensPromise));
 }

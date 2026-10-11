@@ -5,7 +5,7 @@
   top: max(0.45rem, env(safe-area-inset-top, 0px));
   left: max(0.5rem, env(safe-area-inset-left, 0px));
   z-index: 10045;
-  width: 22rem;
+  width: auto;
   pointer-events: none;
 }
 
@@ -153,15 +153,15 @@ body.server-stage-open {
   overflow: hidden;
 }
 
-/* Keep the title and tabs clear of the window when the column reaches the corner. */
+/* Keep the title and tabs clear of the window (still + online list, see
+   online-users.css) when the column reaches the corner. */
 @media (max-width: 2200px) {
   body .site-header {
-    padding-left: 23.4rem;
+    padding-left: 40.9rem;
   }
 }
 
 @media (max-width: 768px) {
-  .server-window,
   .server-window-frame {
     width: 12rem;
   }
@@ -184,7 +184,7 @@ body.server-stage-open {
   }
 
   body .site-header {
-    padding-left: 13rem;
+    padding-left: 24rem;
   }
 }
 
