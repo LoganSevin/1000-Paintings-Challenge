@@ -69,6 +69,8 @@
   var selectedInvItem = null;
   var selectedBankItem = null;
   var forgeSlots = [null, null, null];
+  /** True only after this session changes that Grand Exchange slot. */
+  var forgeSlotDirty = [false, false, false];
   var lastForgeResult = null;
   var autoForgeTimer = null;
   var autoForgeBusy = false;
@@ -2593,19 +2595,34 @@
       if (!raw || raw.length < PERSIST_LS_SOFT_BYTES / 2) return;
       var store = JSON.parse(raw);
       if (!store || !store.notes) return;
+      var equipped = {};
+      try {
+        var rawEq = JSON.parse(localStorage.getItem("spellforge_equipped_v1") || "null");
+        if (Array.isArray(rawEq)) {
+          rawEq.forEach(function (n) {
+            if (n) equipped[String(Number(n))] = 1;
+          });
+        }
+      } catch (eEq) {}
       var ids = Object.keys(store.notes).sort(function (a, b) {
         return Number(a) - Number(b);
       });
       var keep = Math.min(PERSIST_MAX_NOTES, 40);
-      while (ids.length > keep) {
-        delete store.notes[ids.shift()];
+      var kept = 0;
+      var i = 0;
+      while (i < ids.length && Object.keys(store.notes).length > keep) {
+        var drop = ids[i];
+        if (equipped[drop]) {
+          i += 1;
+          continue;
+        }
+        delete store.notes[drop];
+        ids.splice(i, 1);
+        kept += 1;
+        if (kept > 500) break;
       }
       localStorage.setItem("spellforge_notes_v1", JSON.stringify(store));
-    } catch (e) {
-      try {
-        localStorage.removeItem("spellforge_notes_v1");
-      } catch (e2) {}
-    }
+    } catch (e) {}
   }
 
   function saveState() {
@@ -4122,9 +4139,49 @@
   }
 
 
+  function currentSpellforgeSlots() {
+    try {
+      if (window.SpellforgeAPI && typeof window.SpellforgeAPI.getEquippedSlots === "function") {
+        var s = window.SpellforgeAPI.getEquippedSlots();
+        if (Array.isArray(s)) {
+          return [0, 1, 2].map(function (i) {
+            var n = parseInt(s[i], 10);
+            return n > 0 && !isNaN(n) ? n : null;
+          });
+        }
+      }
+      var raw = JSON.parse(localStorage.getItem("spellforge_equipped_v1") || "null");
+      if (Array.isArray(raw)) {
+        return [0, 1, 2].map(function (i) {
+          var n = parseInt(raw[i], 10);
+          return n > 0 && !isNaN(n) ? n : null;
+        });
+      }
+    } catch (eSlots) {}
+    return [null, null, null];
+  }
+
+  function refreshUndirtyForgeSlots() {
+    var cur = currentSpellforgeSlots();
+    for (var i = 0; i < 3; i++) {
+      if (!forgeSlotDirty[i]) forgeSlots[i] = cur[i];
+    }
+  }
+
+  function markForgeSlotDirty(slotIndex) {
+    slotIndex = Number(slotIndex);
+    if (slotIndex >= 0 && slotIndex <= 2) forgeSlotDirty[slotIndex] = true;
+  }
+
+  function markAllForgeSlotsDirty() {
+    forgeSlotDirty = [true, true, true];
+  }
+
   function syncForgeToSpellforge() {
     try {
       if (!window.SpellforgeAPI) return;
+      // Slots the artist did not change here stay as they are in Spellforge.
+      refreshUndirtyForgeSlots();
       var panel = document.getElementById("panel-spellforge");
       var visible = panel && !panel.hidden;
       if (typeof window.SpellforgeAPI.equipSlots === "function") {
@@ -4143,6 +4200,7 @@
   }
 
   function renderForgeSlots() {
+    refreshUndirtyForgeSlots();
     for (var i = 0; i < 3; i++) {
       var btn = $("ge-forge-slot-" + i);
       if (!btn) continue;
@@ -4216,6 +4274,7 @@
       if (slot < 0) return { ok: false, error: "Spellforge slots are full — clear one first." };
     }
     forgeSlots[slot] = itemId;
+    markForgeSlotDirty(slot);
     // Do NOT call SpellforgeAPI here — live equip re-renders Spellforge and can blank its UI
     // while you're still on Grand Exchange. Sync happens on Open Spellforge / Combine.
     return { ok: true, slot: slot, itemId: itemId };
@@ -4310,15 +4369,7 @@
       return { ok: false, error: "Pick slot 1–3." };
     }
     if (!state.notes) state.notes = {};
-    var id = Number(state.nextNoteId) || NOTE_BASE + 1;
-    try {
-      var rawShared = localStorage.getItem("spellforge_notes_v1");
-      if (rawShared) {
-        var shared = JSON.parse(rawShared);
-        id = Math.max(id, Number(shared && shared.nextNoteId) || NOTE_BASE + 1);
-      }
-    } catch (eShared) {}
-    state.nextNoteId = id + 1;
+    var id = allocateNoteId();
     var entry = {
       id: id,
       title: title || "Note",
@@ -4327,6 +4378,7 @@
     };
     state.notes[String(id)] = entry;
     forgeSlots[slot] = id;
+    markForgeSlotDirty(slot);
     syncNoteToSpellforgeStore(entry);
     saveState();
     return { ok: true, slot: slot, itemId: id };
@@ -4870,6 +4922,7 @@
     slotIndex = Number(slotIndex);
     if (slotIndex < 0 || slotIndex > 2) return;
     forgeSlots[slotIndex] = null;
+    markForgeSlotDirty(slotIndex);
     renderForgeSlots();
     setForgeStatus("Cleared Spellforge slot " + (slotIndex + 1) + ".");
   }
@@ -5250,13 +5303,34 @@
   function allocateNoteId() {
     if (!state.notes) state.notes = {};
     var id = Number(state.nextNoteId) || NOTE_BASE + 1;
+    var sharedNotes = null;
     try {
       var rawShared = localStorage.getItem("spellforge_notes_v1");
       if (rawShared) {
         var shared = JSON.parse(rawShared);
         id = Math.max(id, Number(shared && shared.nextNoteId) || NOTE_BASE + 1);
+        sharedNotes = shared && shared.notes;
+        if (sharedNotes) {
+          Object.keys(sharedNotes).forEach(function (k) {
+            var n = Number(k);
+            if (n >= id) id = n + 1;
+          });
+        }
       }
     } catch (eShared) {}
+    Object.keys(state.notes).forEach(function (k) {
+      var n = Number(k);
+      if (n >= id) id = n + 1;
+    });
+    if (id <= NOTE_BASE) id = NOTE_BASE + 1;
+    var guard = 0;
+    while (
+      guard < 100000 &&
+      (state.notes[String(id)] || (sharedNotes && sharedNotes[String(id)]))
+    ) {
+      id += 1;
+      guard += 1;
+    }
     state.nextNoteId = id + 1;
     return id;
   }
@@ -5382,6 +5456,7 @@
       addInv(PLAYER_ID, id, 1);
     }
     forgeSlots = [null, null, null];
+    markAllForgeSlotsDirty();
     renderForgeSlots();
     hideForgeResult();
     pendingGenerateId = null;
@@ -5577,6 +5652,7 @@
     }
     addInv(PLAYER_ID, id, 1);
     forgeSlots = [null, null, null];
+    markAllForgeSlotsDirty();
     lastForgeResult = id;
     pendingGenerateId = id;
     grantXp(Math.max(10, Math.round(FORGE_XP / 2)));
@@ -5740,6 +5816,7 @@
       }
       addInv(PLAYER_ID, id, 1);
       forgeSlots = [null, null, null];
+      markAllForgeSlotsDirty();
       lastForgeResult = id;
       entry.pendingGenerate = false;
       if (pendingGenerateId === id) pendingGenerateId = null;
@@ -7523,6 +7600,7 @@
   }
 
   function onShow() {
+    refreshUndirtyForgeSlots();
     bind();
     initNpcs();
     applyPlayerDom();

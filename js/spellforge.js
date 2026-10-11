@@ -1,6 +1,7 @@
 /**
  * Spellforge: shuffled grid, spell slots, fused text, interaction preview, optional fusion video.
- * Cache bust v131: changing one spell leaves the other two spells' wording alone.
+ * Cache bust v132: each Spell I–III card keeps its own tome. Equipping one slot
+ * does not rewrite the other two.
  */
 (function () {
   var PAGE_SIZE = 25;
@@ -20,6 +21,8 @@
   var INV_SKETCH_BASE = 300000;
   var NOTE_BASE = 400000;
   var NOTES_KEY = "spellforge_notes_v1";
+  /** Frozen card text for Spell I–III. Keyed by slot, not by a shared note id. */
+  var SLOT_TEXT_KEY = "spellforge_slot_text_v1";
   /** Stills borrowed from someone at the console. 500000 is the exchange color range. */
   var VISITOR_BASE = 600000;
   var VISITOR_SPAN = 100000;
@@ -111,10 +114,11 @@
   var suppressAutoVision = false;
   var skipLocalFuse = false;
   /**
-   * Per-slot spell text overrides (color name → hex edits).
-   * null = use default analysis text for that painting.
+   * Per-slot card text. A frozen record stays until THIS slot is equipped,
+   * edited, or cleared. Another slot cannot rewrite it.
    */
-  var spellSlotBodyOverride = [null, null, null];
+  var spellSlotText = [null, null, null];
+  var slotTextsReady = false;
   /**
    * Named hues for bold color rewrite / nearest-name.
    * Keep reference hexes fairly pure so Lab matching does not collapse to beige/navy.
@@ -1147,37 +1151,108 @@
   }
 
   function loadSpellNotes() {
+    var prev = spellNotes && spellNotes.notes ? spellNotes : { notes: {}, nextNoteId: NOTE_BASE + 1 };
+    var merged = {};
+    Object.keys(prev.notes).forEach(function (k) {
+      merged[String(k)] = prev.notes[k];
+    });
+    var storedNext = NOTE_BASE + 1;
     try {
       var raw = localStorage.getItem(NOTES_KEY);
-      if (!raw) {
-        spellNotes = { notes: {}, nextNoteId: NOTE_BASE + 1 };
-        return;
+      if (raw) {
+        var parsed = JSON.parse(raw);
+        storedNext = Number(parsed && parsed.nextNoteId) || NOTE_BASE + 1;
+        var notesIn = (parsed && parsed.notes) || {};
+        Object.keys(notesIn).forEach(function (k) {
+          var norm = normalizeSpellNoteEntry(notesIn[k], Number(k));
+          if (!norm) return;
+          if (norm.id == null) norm.id = Number(k);
+          var key = String(norm.id);
+          // Keep a tome already in memory. A stale disk copy must not overwrite it.
+          if (merged[key]) return;
+          merged[key] = norm;
+        });
       }
-      var parsed = JSON.parse(raw);
-      var notesIn = (parsed && parsed.notes) || {};
-      var notesOut = {};
-      Object.keys(notesIn).forEach(function (k) {
-        var norm = normalizeSpellNoteEntry(notesIn[k], Number(k));
-        if (!norm) return;
-        if (norm.id == null) norm.id = Number(k);
-        notesOut[String(norm.id)] = norm;
-      });
-      spellNotes = {
-        notes: notesOut,
-        nextNoteId: Math.max(
-          NOTE_BASE + 1,
-          Number(parsed && parsed.nextNoteId) || NOTE_BASE + 1
-        ),
-      };
-    } catch (e) {
-      spellNotes = { notes: {}, nextNoteId: NOTE_BASE + 1 };
+    } catch (e) {}
+    var maxId = NOTE_BASE;
+    Object.keys(merged).forEach(function (k) {
+      var n = Number(merged[k] && merged[k].id != null ? merged[k].id : k);
+      if (n > maxId) maxId = n;
+    });
+    spellNotes = {
+      notes: merged,
+      nextNoteId: Math.max(
+        NOTE_BASE + 1,
+        storedNext,
+        Number(prev.nextNoteId) || NOTE_BASE + 1,
+        maxId + 1
+      ),
+    };
+  }
+
+  function highestSpellNoteId() {
+    var maxId = NOTE_BASE;
+    var notes = (spellNotes && spellNotes.notes) || {};
+    Object.keys(notes).forEach(function (k) {
+      var n = Number(notes[k] && notes[k].id != null ? notes[k].id : k);
+      if (n > maxId) maxId = n;
+    });
+    return maxId;
+  }
+
+  /** A new tome always gets a free id. It never replaces a tome another slot still shows. */
+  function allocSpellNoteId() {
+    if (!spellNotes.notes) spellNotes.notes = {};
+    var id = Math.max(
+      Number(spellNotes.nextNoteId) || NOTE_BASE + 1,
+      highestSpellNoteId() + 1,
+      NOTE_BASE + 1
+    );
+    var guard = 0;
+    while (guard < 100000) {
+      var taken = !!spellNotes.notes[String(id)];
+      if (!taken) {
+        for (var s = 0; s < 3; s++) {
+          if (Number(spells[s]) === id) taken = true;
+        }
+      }
+      if (!taken) break;
+      id += 1;
+      guard += 1;
     }
+    spellNotes.nextNoteId = id + 1;
+    return id;
+  }
+
+  function pruneSpellNotesForSave() {
+    if (!spellNotes.notes) spellNotes.notes = {};
+    var keep = {};
+    for (var i = 0; i < 3; i++) {
+      if (spells[i]) keep[String(Number(spells[i]))] = 1;
+    }
+    var ids = Object.keys(spellNotes.notes).sort(function (a, b) {
+      return Number(b) - Number(a);
+    });
+    var next = {};
+    var extra = 0;
+    for (var j = 0; j < ids.length; j++) {
+      if (keep[ids[j]] || extra < 40) {
+        next[ids[j]] = spellNotes.notes[ids[j]];
+        if (!keep[ids[j]]) extra += 1;
+      }
+    }
+    spellNotes.notes = next;
   }
 
   function saveSpellNotes() {
     try {
       localStorage.setItem(NOTES_KEY, JSON.stringify(spellNotes));
-    } catch (e) {}
+    } catch (e) {
+      try {
+        pruneSpellNotesForSave();
+        localStorage.setItem(NOTES_KEY, JSON.stringify(spellNotes));
+      } catch (e2) {}
+    }
   }
 
   function noteOf(num) {
@@ -1291,12 +1366,17 @@
       sid: sid,
       at: Date.now(),
     };
+    var keptVisitor = [spells[0], spells[1], spells[2]];
     spells[slotIndex] = id;
+    pinOtherSlots(slotIndex, keptVisitor);
     clearSpellSlotBody(slotIndex);
     saveVisitorSpells();
     if (spellforgeReady) {
       renderSlots();
       renderGrid();
+      pinOtherSlots(slotIndex, keptVisitor);
+      spells[slotIndex] = id;
+      saveEquippedSpells();
     } else {
       saveEquippedSpells();
     }
@@ -1428,12 +1508,17 @@
       tags: tags,
       at: Date.now(),
     };
+    var keptPhoto = [spells[0], spells[1], spells[2]];
     spells[slotIndex] = id;
+    pinOtherSlots(slotIndex, keptPhoto);
     clearSpellSlotBody(slotIndex);
     savePhotoSpells();
     if (spellforgeReady) {
       renderSlots();
       renderGrid();
+      pinOtherSlots(slotIndex, keptPhoto);
+      spells[slotIndex] = id;
+      saveEquippedSpells();
     } else {
       saveEquippedSpells();
     }
@@ -2673,6 +2758,50 @@
     } catch (e) {}
   }
 
+  function loadSlotTexts() {
+    if (slotTextsReady) return;
+    slotTextsReady = true;
+    try {
+      var raw = localStorage.getItem(SLOT_TEXT_KEY);
+      if (!raw) return;
+      var saved = JSON.parse(raw);
+      if (!Array.isArray(saved)) return;
+      for (var i = 0; i < 3; i++) {
+        var rec = saved[i];
+        if (!rec || Number(rec.id) !== Number(spells[i])) continue;
+        var tags = [];
+        if (Array.isArray(rec.tags)) {
+          rec.tags.forEach(function (tag) {
+            var s = String(tag || "").replace(/\s+/g, " ").trim();
+            if (s && tags.length < 6) tags.push(s);
+          });
+        }
+        spellSlotText[i] = {
+          id: Number(rec.id),
+          text: String(rec.text || ""),
+          original: String(rec.original != null ? rec.original : rec.text || ""),
+          title: String(rec.title || ""),
+          tags: tags,
+          kind: rec.kind === "note" ? "note" : "",
+          frozen: !!rec.frozen,
+        };
+      }
+    } catch (e) {}
+  }
+
+  function saveSlotTexts() {
+    if (!slotTextsReady) return;
+    try {
+      localStorage.setItem(SLOT_TEXT_KEY, JSON.stringify(spellSlotText));
+    } catch (e) {}
+  }
+
+  function pinOtherSlots(slotIndex, kept) {
+    for (var i = 0; i < 3; i++) {
+      if (i !== slotIndex) spells[i] = kept[i];
+    }
+  }
+
   function loadEquippedSpells() {
     // Once. A later call would put back whatever was saved at boot and drop
     // a tome the artist just equipped into one slot.
@@ -3057,26 +3186,162 @@
     return "#" + hx(r) + hx(g) + hx(b);
   }
 
+  function sourceBodyForId(num) {
+    var note = noteOf(num);
+    if (note) return String(note.text || "");
+    var photo = photoOf(num);
+    if (photo) return String(photo.description || "");
+    return analysisSpellText(num);
+  }
+
+  function slotTextRecord(slotIndex) {
+    var rec = spellSlotText[slotIndex];
+    if (!rec || !rec.frozen) return null;
+    if (Number(rec.id) !== Number(spells[slotIndex])) return null;
+    return rec;
+  }
+
   function getSpellSlotBody(slotIndex) {
     if (!spells[slotIndex]) return "";
-    if (spellSlotBodyOverride[slotIndex] != null) return spellSlotBodyOverride[slotIndex];
-    var note = noteOf(spells[slotIndex]);
-    if (note) return String(note.text || "");
-    var photo = photoOf(spells[slotIndex]);
-    if (photo) return String(photo.description || "");
-    return analysisSpellText(spells[slotIndex]);
+    var frozen = slotTextRecord(slotIndex);
+    if (frozen && frozen.text != null) return String(frozen.text);
+    return sourceBodyForId(spells[slotIndex]);
+  }
+
+  function noteSharedWithOtherSlot(slotIndex) {
+    var id = Number(spells[slotIndex]);
+    if (!id || !noteOf(id)) return false;
+    for (var i = 0; i < 3; i++) {
+      if (i !== slotIndex && Number(spells[i]) === id) return true;
+    }
+    return false;
+  }
+
+  /** Copy a shared tome so this slot can change without rewriting the other card. */
+  function isolateSlotNote(slotIndex) {
+    if (!noteSharedWithOtherSlot(slotIndex)) return;
+    var id = Number(spells[slotIndex]);
+    var note = noteOf(id);
+    if (!note) return;
+    var fresh = allocSpellNoteId();
+    spellNotes.notes[String(fresh)] = {
+      id: fresh,
+      title: note.title,
+      text: String(note.text || ""),
+      tags: (note.tags || []).slice(),
+      createdAt: Date.now(),
+    };
+    spells[slotIndex] = fresh;
+    var rec = spellSlotText[slotIndex];
+    if (rec && Number(rec.id) === id) rec.id = fresh;
+    saveSpellNotes();
+    saveEquippedSpells();
+  }
+
+  function freezeSlotNote(slotIndex) {
+    var id = Number(spells[slotIndex]);
+    var note = noteOf(id);
+    if (!id || !note) return null;
+    var text = String(note.text || "");
+    var tags = (note.tags && note.tags.length ? note.tags : deriveTomeTags(text)).slice(0, 6);
+    var rec = {
+      id: id,
+      text: text,
+      original: text,
+      title: String(note.title || deriveNoteTitle(text) || "Tome"),
+      tags: tags,
+      kind: "note",
+      frozen: true,
+    };
+    spellSlotText[slotIndex] = rec;
+    saveSlotTexts();
+    return rec;
+  }
+
+  function ensureNoteFrozen(slotIndex) {
+    var id = Number(spells[slotIndex]);
+    if (!noteOf(id)) return slotTextRecord(slotIndex);
+    var rec = slotTextRecord(slotIndex);
+    if (rec && rec.kind === "note") return rec;
+    if (noteSharedWithOtherSlot(slotIndex)) {
+      for (var i = 0; i < 3; i++) {
+        if (i === slotIndex) continue;
+        var other = slotTextRecord(i);
+        if (other && Number(other.id) === id) {
+          isolateSlotNote(slotIndex);
+          break;
+        }
+      }
+    }
+    return freezeSlotNote(slotIndex);
   }
 
   function setSpellSlotBody(slotIndex, text) {
-    spellSlotBodyOverride[slotIndex] = String(text || "");
+    var id = Number(spells[slotIndex]);
+    if (!id) return;
+    if (noteOf(id)) isolateSlotNote(slotIndex);
+    id = Number(spells[slotIndex]);
+    var prev = spellSlotText[slotIndex];
+    var same = prev && Number(prev.id) === id;
+    var original = same && prev.original != null ? String(prev.original) : sourceBodyForId(id);
+    text = String(text || "");
+    var note = noteOf(id);
+    var title = same ? String(prev.title || "") : "";
+    var tags = same && prev.tags ? prev.tags.slice(0, 6) : [];
+    var kind = note ? "note" : same ? prev.kind || "" : "";
+    if (note) {
+      note.text = text;
+      note.title = deriveNoteTitle(text);
+      note.tags = deriveTomeTags(text);
+      title = note.title;
+      tags = note.tags.slice(0, 6);
+      kind = "note";
+      saveSpellNotes();
+    }
+    spellSlotText[slotIndex] = {
+      id: id,
+      text: text,
+      original: original,
+      title: title,
+      tags: tags,
+      kind: kind,
+      frozen: true,
+    };
+    saveSlotTexts();
   }
 
   function resetSpellSlotBody(slotIndex) {
-    spellSlotBodyOverride[slotIndex] = null;
+    var id = Number(spells[slotIndex]);
+    var rec = spellSlotText[slotIndex];
+    if (rec && id && Number(rec.id) === id && rec.kind === "note") {
+      rec.text = String(rec.original || "");
+      rec.title = deriveNoteTitle(rec.text);
+      rec.tags = deriveTomeTags(rec.text);
+      rec.frozen = true;
+      var note = noteOf(id);
+      if (note && !noteSharedWithOtherSlot(slotIndex)) {
+        note.text = rec.text;
+        note.title = rec.title;
+        note.tags = rec.tags.slice();
+        saveSpellNotes();
+      }
+      spellSlotText[slotIndex] = rec;
+    } else {
+      spellSlotText[slotIndex] = null;
+    }
+    saveSlotTexts();
   }
 
   function clearSpellSlotBody(slotIndex) {
-    spellSlotBodyOverride[slotIndex] = null;
+    if (spellSlotText[slotIndex] == null) return;
+    spellSlotText[slotIndex] = null;
+    saveSlotTexts();
+  }
+
+  function slotTextDirty(slotIndex) {
+    var rec = slotTextRecord(slotIndex);
+    if (!rec) return false;
+    return String(rec.text || "") !== String(rec.original || "");
   }
 
   /**
@@ -3171,7 +3436,7 @@
   }
 
   function spellSlotActionBar(slotIndex, colorCount) {
-    var dirty = spellSlotBodyOverride[slotIndex] != null;
+    var dirty = slotTextDirty(slotIndex);
     var n = colorCount != null ? colorCount : 0;
     return (
       '<div class="spell-slot-color-bar">' +
@@ -3385,9 +3650,22 @@
    * When user edits slot text, push obvious title/description/prompt fixes
    * into the in-memory analysis so the head label and future defaults improve.
    */
+  function anotherSlotShowsLiveSource(slotIndex, num) {
+    num = Number(num);
+    for (var i = 0; i < 3; i++) {
+      if (i === slotIndex || Number(spells[i]) !== num) continue;
+      var rec = slotTextRecord(i);
+      if (!(rec && Number(rec.id) === num)) return true;
+    }
+    return false;
+  }
+
   function patchAnalysisFromSlotBody(slotIndex, body) {
     var num = spells[slotIndex];
     if (!num) return;
+    // A shared painting analysis would rewrite the other card. This slot's
+    // frozen text already holds the edit.
+    if (anotherSlotShowsLiveSource(slotIndex, num)) return;
     body = String(body || "");
     var a = getAnalysis(num);
     if (!a) {
@@ -6828,22 +7106,31 @@
         clearSpellSlotBody(s);
         continue;
       }
+      if (noteOf(num)) ensureNoteFrozen(s);
+      num = spells[s];
+      var frozen = slotTextRecord(s);
       var a = getAnalysis(num);
       var extra = extraSpells[num] || extraSpells[String(num)];
+      var tome = noteOf(num);
       var title =
-        a && a.title
-          ? a.title
-          : noteOf(num)
-            ? "Tome"
-            : extra
-              ? spellKindLabel(num)
-              : "Painting #" + num;
+        frozen && frozen.kind === "note" && frozen.title
+          ? frozen.title
+          : a && a.title
+            ? a.title
+            : tome
+              ? "Tome"
+              : extra
+                ? spellKindLabel(num)
+                : "Painting #" + num;
       var body = getSpellSlotBody(s);
       var head = spellKindLabel(num) + " · " + title;
-      var tome = noteOf(num);
       var tagHtml = "";
-      if (tome) {
-        var tomeTags = (tome.tags && tome.tags.length ? tome.tags : deriveTomeTags(tome.text)).slice(0, 6);
+      var showTome = !!(tome || (frozen && frozen.kind === "note"));
+      if (showTome) {
+        var tomeTags =
+          frozen && frozen.kind === "note" && frozen.tags && frozen.tags.length
+            ? frozen.tags.slice(0, 6)
+            : (tome && tome.tags && tome.tags.length ? tome.tags : deriveTomeTags((tome && tome.text) || body)).slice(0, 6);
         if (tomeTags.length) {
           tagHtml =
             '<div class="spell-tome-tags">' +
@@ -6856,7 +7143,7 @@
         }
       }
       el.classList.add("filled");
-      el.classList.toggle("spell-slot-tome", !!tome);
+      el.classList.toggle("spell-slot-tome", showTome);
       el.innerHTML =
         '<div class="spell-slot-inner">' +
         '<img src="' +
@@ -6899,8 +7186,8 @@
     if (!text) return { ok: false, error: "Write a note first." };
     loadSpellNotes();
     if (!spellNotes.notes) spellNotes.notes = {};
-    var id = Number(spellNotes.nextNoteId) || NOTE_BASE + 1;
-    spellNotes.nextNoteId = id + 1;
+    var kept = [spells[0], spells[1], spells[2]];
+    var id = allocSpellNoteId();
     var tags = deriveTomeTags(text);
     spellNotes.notes[String(id)] = {
       id: id,
@@ -6911,10 +7198,15 @@
     };
     saveSpellNotes();
     spells[slotIndex] = id;
+    pinOtherSlots(slotIndex, kept);
     clearSpellSlotBody(slotIndex);
+    freezeSlotNote(slotIndex);
     if (spellforgeReady) {
       renderSlots();
       renderGrid();
+      pinOtherSlots(slotIndex, kept);
+      spells[slotIndex] = id;
+      saveEquippedSpells();
     } else {
       saveEquippedSpells();
     }
@@ -6922,11 +7214,17 @@
   }
 
   function equipToSlot(num, slotIndex) {
+    slotIndex = parseInt(slotIndex, 10);
+    if (slotIndex < 0 || slotIndex > 2 || isNaN(slotIndex)) return;
+    var kept = [spells[0], spells[1], spells[2]];
     spells[slotIndex] = num;
-    // New painting in slot → start from default description (colors as names)
+    pinOtherSlots(slotIndex, kept);
     clearSpellSlotBody(slotIndex);
+    if (noteOf(num) && noteSharedWithOtherSlot(slotIndex)) isolateSlotNote(slotIndex);
+    if (noteOf(spells[slotIndex])) freezeSlotNote(slotIndex);
     renderSlots();
     renderGrid();
+    pinOtherSlots(slotIndex, kept);
     saveEquippedSpells();
   }
 
@@ -6941,9 +7239,13 @@
       var i;
       for (i = 0; i < 3; i++) {
         var n = next && next[i] != null ? parseInt(next[i], 10) : 0;
-        spells[i] = n && !isNaN(n) ? n : null;
-        clearSpellSlotBody(i);
+        var id = n && !isNaN(n) ? n : null;
+        if (Number(spells[i] || 0) !== Number(id || 0)) {
+          spells[i] = id;
+          spellSlotText[i] = null;
+        }
       }
+      saveSlotTexts();
       saveEquippedSpells();
       if (spellforgeReady && !opts.skipRender) {
         renderSlots();
@@ -7418,6 +7720,7 @@
       loadVisitorSpells();
       loadPhotoSpells();
       loadEquippedSpells();
+      loadSlotTexts();
       window.equipSpellPainting = function (num) {
         ensureSpellforgeStarted();
         openSlotDialog(num);

@@ -421,7 +421,14 @@
   }
 
   function writeForgeSlots(slots) {
-    state.forgeSlots = slots.slice(0, 3);
+    var base = (state.forgeSlots || [null, null, null]).slice();
+    var fresh = readForgeSlots();
+    var next = fresh.slice();
+    var i;
+    for (i = 0; i < 3; i++) {
+      if (Number(slots[i] || 0) !== Number(base[i] || 0)) next[i] = slots[i] || null;
+    }
+    state.forgeSlots = next.slice(0, 3);
     try {
       localStorage.setItem("spellforge_equipped_v1", JSON.stringify(state.forgeSlots));
     } catch (e) {}
