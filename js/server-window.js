@@ -21,9 +21,11 @@
   var posting = false;
   var pendingBody = null;
   var postedKey = "";
-  // Prompt of the newest generate-stasis-vision request, recorded with the
+  // Prompts of recent generate-stasis-vision requests, recorded with the
   // visitor's still so Spellforge gets its text when someone borrows it.
-  var lastPrompt = { text: "", at: 0 };
+  var promptsByTab = {}; // tab -> { text, at }: the prompt each tab last asked for
+  var promptsByJob = {}; // job id -> { text, tab, at }: which prompt made which job
+  var jobOrder = [];
   var PROMPT_FRESH_MS = 15 * 60 * 1000;
 
   function $(id) {
@@ -274,12 +276,19 @@
 
   // Who made this still: session id (hashed by the server), the name in use
   // right now, and the prompt if this page just asked for one.
-  function withOwner(body) {
+  function withOwner(body, prompt) {
     body.sid = selfId || sessionId();
     try {
       if (window.L7inIdentity) body.name = window.L7inIdentity.name();
     } catch (e) {}
-    if (lastPrompt.text && Date.now() - lastPrompt.at < PROMPT_FRESH_MS) body.prompt = lastPrompt.text;
+    // The job's own prompt when known; else the newest prompt from the tab
+    // that made the still, so a forge in another tab can't label it.
+    if (prompt) {
+      body.prompt = prompt;
+      return body;
+    }
+    var asked = promptsByTab[String(body.tab || currentTab() || "")];
+    if (asked && asked.text && Date.now() - asked.at < PROMPT_FRESH_MS) body.prompt = asked.text;
     return body;
   }
 
@@ -296,7 +305,15 @@
         if (p && parts.indexOf(p) < 0) parts.push(p);
       });
       var text = parts.join("\n\n");
-      if (text) lastPrompt = { text: text.slice(0, 800), at: Date.now() };
+      if (!text) return;
+      var asked = { text: text.slice(0, 800), tab: String(currentTab() || ""), at: Date.now() };
+      promptsByTab[asked.tab] = asked;
+      var job = body && typeof body.job_id === "string" ? body.job_id.slice(0, 80) : "";
+      if (job) {
+        promptsByJob[job] = asked;
+        jobOrder.push(job);
+        while (jobOrder.length > 24) delete promptsByJob[jobOrder.shift()];
+      }
     } catch (e) {}
   }
 
@@ -322,13 +339,13 @@
         postedKey = keyOf(dataUrl);
         remember(dataUrl, now, tab);
         postChannel({ type: "image", id: selfId, at: now, tab: tab, image: dataUrl });
-        postStill(withOwner({ image: dataUrl, tab: tab }));
+        postStill(withOwner({ image: dataUrl, tab: tab }, meta.prompt));
       },
       function () {
         if (/^https:\/\//i.test(url)) {
           showImage(url, now, tab);
           postChannel({ type: "remote", id: selfId, at: now, tab: tab, remote: url });
-          postStill(withOwner({ remote: url, tab: tab }));
+          postStill(withOwner({ remote: url, tab: tab }, meta.prompt));
         }
       }
     );
@@ -407,7 +424,12 @@
         if (job.status && job.status !== "done") return;
         var img = job.image || (job.images && job.images[0]);
         var src = img && (img.url || img.remote_url);
-        if (src) share(src, { tab: currentTab() });
+        if (!src) return;
+        // Credit the prompt (and tab) of the request that started this job.
+        var m = /\/api\/jobs\/([^/?#]+)/.exec(url);
+        var id = (m && decodeURIComponent(m[1])) || job.job_id || job.id || "";
+        var asked = id ? promptsByJob[String(id)] : null;
+        share(src, asked ? { tab: asked.tab || currentTab(), prompt: asked.text } : { tab: currentTab() });
       })
       .catch(function () {});
   }

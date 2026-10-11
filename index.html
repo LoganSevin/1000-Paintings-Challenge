@@ -130,8 +130,8 @@
   <link rel="stylesheet" href="css/annotations.css?v=1" />
   <link rel="stylesheet" href="css/page-chat.css?v=1" />
   <link rel="stylesheet" href="css/tab-presence.css?v=1" />
-  <link rel="stylesheet" href="css/server-window.css?v=6" />
-  <link rel="stylesheet" href="css/online-users.css?v=1" />
+  <link rel="stylesheet" href="css/server-window.css?v=7" />
+  <link rel="stylesheet" href="css/online-users.css?v=2" />
   <link rel="stylesheet" href="css/tab-debug.css?v=8" />
   <script defer src="js/lazy-assets.js?v=2"></script>
   <script defer src="js/fonts-desktop.js?v=1"></script>
@@ -147,12 +147,14 @@
         <figcaption class="server-window-caption" id="server-window-caption">Last generated</figcaption>
       </figure>
       <section class="online-users" id="online-users" aria-label="Who is online">
-        <header class="online-users-head">
-          <span class="online-users-title">Here now <span class="online-users-count" id="online-users-count"></span></span>
-          <span class="online-users-hint">right-click your name to rename</span>
-        </header>
-        <ul class="online-users-list" id="online-users-list"></ul>
-        <p class="online-users-status" id="online-users-status" role="status" aria-live="polite" hidden></p>
+        <button type="button" class="online-users-chip" id="online-users-chip" aria-expanded="false" aria-controls="online-users-body"><span class="ou-chip-dot" aria-hidden="true"></span>Here now <span class="ou-chip-count" id="online-users-chip-count">1</span><span class="ou-chip-caret" aria-hidden="true"></span></button>
+        <div class="online-users-body" id="online-users-body">
+          <header class="online-users-head" title="Right-click your name to rename (long-press on touch screens)">
+            <span class="online-users-title">Here now <span class="online-users-count" id="online-users-count"></span></span>
+          </header>
+          <ul class="online-users-list" id="online-users-list"></ul>
+          <p class="online-users-status" id="online-users-status" role="status" aria-live="polite" hidden></p>
+        </div>
       </section>
     </div>
   </aside>
@@ -9052,10 +9054,10 @@
   <script defer src="js/account-gate.js?v=5"></script>
   <script defer src="js/annotations.js?v=3"></script>
   <script defer src="js/gallery-welcome.js?v=12"></script>
-  <script defer src="js/online-users.js?v=1"></script>
+  <script defer src="js/online-users.js?v=2"></script>
   <script defer src="js/page-chat.js?v=4"></script>
   <script defer src="js/tab-presence.js?v=4"></script>
-  <script defer src="js/server-window.js?v=5"></script>
+  <script defer src="js/server-window.js?v=6"></script>
   <script defer src="js/time-clock.js?v=7"></script>
   <script defer src="js/gallery-shared.js?v=8"></script>
   <script defer src="js/gallery-save-video.js?v=1"></script>

@@ -132,6 +132,7 @@
   var statusEl = null;
   var statusTimer = null;
   var stageUser = null;
+  var rootEl = null;
 
   function $(id) {
     return document.getElementById(id);
@@ -204,6 +205,19 @@
     }
   }
 
+  var EYE_SVG =
+    '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M1.8 12C4 7.6 7.7 5.2 12 5.2s8 2.4 10.2 6.8C20 16.4 16.3 18.8 12 18.8S4 16.4 1.8 12z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3.2" fill="currentColor"/></svg>';
+
+  function iconButton(cls, label, html) {
+    var b = el("button", "ou-btn " + cls);
+    b.type = "button";
+    b.setAttribute("aria-label", label);
+    b.title = label;
+    b.innerHTML = html;
+    return b;
+  }
+
+  // One compact row: thumbnail (opens the still), name, and four tiny buttons.
   function buildRow(id) {
     var li = el("li", "ou-user");
     li.setAttribute("data-id", id);
@@ -215,33 +229,27 @@
     img.loading = "lazy";
     img.hidden = true;
     var initial = el("span", "ou-initial");
+    initial.setAttribute("aria-hidden", "true");
     thumb.appendChild(img);
     thumb.appendChild(initial);
 
     var main = el("div", "ou-main");
     var tag = el("div", "ou-tag");
     var name = el("span", "ou-name");
-    var you = el("span", "ou-you", "you");
+    var you = el("span", "ou-you", " (you)");
     tag.appendChild(name);
     tag.appendChild(you);
-    var meta = el("div", "ou-meta");
 
     var actions = el("div", "ou-actions");
-    var view = el("button", "ou-btn ou-view", "View last generated");
-    view.type = "button";
-    actions.appendChild(view);
-    var spellsRow = el("div", "ou-spells");
+    actions.appendChild(iconButton("ou-view", "View last generated", EYE_SVG));
     for (var s = 0; s < 3; s++) {
-      var b = el("button", "ou-btn ou-spell", "Spell " + (s + 1));
-      b.type = "button";
+      var b = iconButton("ou-spell", "Use as Spell " + (s + 1), String(s + 1));
       b.setAttribute("data-slot", String(s));
-      spellsRow.appendChild(b);
+      actions.appendChild(b);
     }
 
     main.appendChild(tag);
-    main.appendChild(meta);
     main.appendChild(actions);
-    main.appendChild(spellsRow);
     li.appendChild(thumb);
     li.appendChild(main);
     return li;
@@ -253,21 +261,20 @@
     li.classList.toggle("has-last", !!user.last);
     var name = li.querySelector(".ou-name");
     if (!(self && editing) && name && name.textContent !== user.name) name.textContent = user.name;
-    if (name) {
-      name.title = self ? "Right-click to rename" : user.name;
-    }
-    var tagEl = li.querySelector(".ou-tag");
-    if (tagEl) tagEl.title = self ? "You \u2014 right-click your name to rename" : "";
-    var you = li.querySelector(".ou-you");
-    if (you) you.hidden = !self;
 
-    var meta = li.querySelector(".ou-meta");
     var bits = [];
     if (user.tab) bits.push("#" + user.tab);
     if (user.last) bits.push("made " + ago(user.last.at));
     else bits.push("nothing generated yet");
-    var metaText = bits.join(" \u00b7 ");
-    if (meta && meta.textContent !== metaText) meta.textContent = metaText;
+    var info = bits.join(" \u00b7 ");
+    li.setAttribute("data-info", info);
+    if (name) {
+      name.title = self
+        ? user.name + " (you) \u00b7 " + info + "\nRight-click (or long-press) to rename"
+        : user.name + " \u00b7 " + info;
+    }
+    var you = li.querySelector(".ou-you");
+    if (you) you.hidden = !self;
 
     var src = stillUrl(user);
     var img = li.querySelector(".ou-thumb img");
@@ -286,15 +293,22 @@
       initial.textContent = Array.from(user.name || "?")[0].toUpperCase();
       initial.hidden = !!src;
     }
-    if (thumb) thumb.setAttribute("aria-label", "View " + user.name + "\u2019s last generated");
+    var viewLabel = "View " + (self ? "your" : user.name + "\u2019s") + " last generated";
+    if (thumb) {
+      thumb.setAttribute("aria-label", viewLabel);
+      thumb.title = viewLabel + " \u00b7 " + info;
+    }
     var view = li.querySelector(".ou-view");
-    if (view) view.setAttribute("aria-label", "View " + user.name + "\u2019s last generated");
+    if (view) {
+      view.setAttribute("aria-label", viewLabel);
+      view.title = "View last generated";
+    }
     var spellBtns = li.querySelectorAll(".ou-spell");
     for (var i = 0; i < spellBtns.length; i++) {
       spellBtns[i].disabled = !user.last;
       spellBtns[i].title = user.last
-        ? "Use " + user.name + "\u2019s last generated as Spell " + (i + 1) + " in Spellforge"
-        : user.name + " has not generated anything yet";
+        ? "Use as Spell " + (i + 1)
+        : "Use as Spell " + (i + 1) + " (" + user.name + " has not generated anything yet)";
     }
   }
 
@@ -321,7 +335,11 @@
       delete rows[k];
     }
     var head = $("online-users-count");
-    if (head) head.textContent = list.length > 1 ? String(list.length) : "";
+    if (head) head.textContent = String(list.length);
+    var chipCount = $("online-users-chip-count");
+    if (chipCount) chipCount.textContent = String(list.length);
+    var chip = $("online-users-chip");
+    if (chip) chip.setAttribute("aria-label", "Here now: " + list.length + (list.length === 1 ? " person" : " people") + ". Show who is online");
     if (stageUser) {
       var fresh = findUser(stageUser.id);
       if (fresh && (!stageUser.last || (fresh.last && fresh.last.at !== stageUser.last.at) || fresh.name !== stageUser.name)) {
@@ -579,6 +597,7 @@
           });
           if (!res || !res.ok) throw new Error((res && res.error) || "Could not equip.");
           closeStage();
+          setOpen(false);
           if (window.GalleryTabs && window.GalleryTabs.showTab) window.GalleryTabs.showTab("spellforge");
           else location.hash = "spellforge";
           say(who + " image is now Spell " + (slot + 1) + ".");
@@ -593,6 +612,21 @@
   }
 
   // ---------------------------------------------------------------- wiring
+
+  // Phones / tablets / touch: the list folds into a "Here now N" chip.
+  function setOpen(open) {
+    if (!rootEl) return;
+    rootEl.classList.toggle("is-open", !!open);
+    // Lift the window above the page chat / sign-in card while the list is open.
+    var win = rootEl.closest && rootEl.closest(".server-window");
+    if (win) win.classList.toggle("ou-list-open", !!open);
+    var chip = $("online-users-chip");
+    if (chip) chip.setAttribute("aria-expanded", open ? "true" : "false");
+  }
+
+  function isOpen() {
+    return !!(rootEl && rootEl.classList.contains("is-open"));
+  }
 
   function onListClick(e) {
     var li = e.target.closest && e.target.closest(".ou-user");
@@ -664,8 +698,26 @@
         beat();
       }
     });
+    rootEl = $("online-users");
+    var chip = $("online-users-chip");
+    if (chip) {
+      chip.addEventListener("click", function () {
+        setOpen(!isOpen());
+      });
+    }
+    document.addEventListener("pointerdown", function (e) {
+      if (!isOpen() || editing) return;
+      var t = e.target;
+      if (rootEl.contains(t)) return;
+      var stage = $("online-users-stage");
+      if (stage && stage.contains(t)) return;
+      setOpen(false);
+    });
     document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape") closeStage();
+      if (e.key !== "Escape") return;
+      var stage = $("online-users-stage");
+      if (stage && !stage.hidden) closeStage();
+      else if (isOpen() && !editing) setOpen(false);
     });
     setInterval(function () {
       if (!document.hidden && !editing) render();

@@ -153,11 +153,10 @@ body.server-stage-open {
   overflow: hidden;
 }
 
-/* Keep the title and tabs clear of the window (still + online list, see
-   online-users.css) when the column reaches the corner. */
+/* Keep the title and tabs clear of the window when the column reaches the corner. */
 @media (max-width: 2200px) {
   body .site-header {
-    padding-left: 40.9rem;
+    padding-left: 23.4rem;
   }
 }
 
@@ -184,7 +183,7 @@ body.server-stage-open {
   }
 
   body .site-header {
-    padding-left: 24rem;
+    padding-left: 13rem;
   }
 }
 
