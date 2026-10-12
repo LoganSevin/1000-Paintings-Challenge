@@ -408,7 +408,14 @@
     return arr[Math.floor(Math.random() * arr.length)];
   }
 
+  // Sim stock per edition is sized from the pre-cap list price, so the $15
+  // gallery cap does not change the supermarket simulation.
   function galleryPrice(collection) {
+    if (window.GalleryShop && GalleryShop.getOriginalCollectionPrice) {
+      try {
+        return Math.max(1, Math.round(Number(GalleryShop.getOriginalCollectionPrice(collection)) || 1));
+      } catch (e) {}
+    }
     if (window.GalleryShop && GalleryShop.getCollectionPrice) {
       try {
         return Math.max(1, Math.round(Number(GalleryShop.getCollectionPrice(collection)) || 1));
@@ -423,9 +430,10 @@
         return r.ok ? r.json() : null;
       })
       .then(function (d) {
-        if (d && d.prices_usd) {
-          Object.keys(d.prices_usd).forEach(function (k) {
-            prices[k] = d.prices_usd[k];
+        var src = d && (d.prices_usd_original || d.prices_usd);
+        if (src) {
+          Object.keys(src).forEach(function (k) {
+            prices[k] = src[k];
           });
         }
       })

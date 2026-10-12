@@ -6,6 +6,8 @@
   "redbubble_shop_url": "",
   "etsy_open": "https://www.etsy.com/sell",
   "redbubble_open": "https://www.redbubble.com/portfolio/images/new",
-  "default_price_usd": 45,
+  "default_price_usd": 15,
+  "default_price_usd_original": 45,
+  "price_cap_usd": 15,
   "listing_limit": 24
 }
