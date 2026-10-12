@@ -15,6 +15,10 @@
   var cur = { b: 0, c: 1 }; // book position in index.books, 1-based chapter
   var sizeIdx = 1;
   var searching = false;
+  var searchTimer = 0;
+  var searchGen = 0;
+  var wordIndex = null;
+  var wordKeys = null;
 
   var el = {};
 
@@ -70,10 +74,13 @@
       });
   }
 
+  var bookFlight = {};
+
   function loadBook(i) {
     var meta = index.books[i];
     if (cache[meta.f]) return Promise.resolve(cache[meta.f]);
-    return fetch(DATA + meta.f)
+    if (bookFlight[meta.f]) return bookFlight[meta.f];
+    var flight = fetch(DATA + meta.f)
       .then(function (r) {
         if (!r.ok) throw new Error(meta.n + " " + r.status);
         return r.json();
@@ -82,6 +89,16 @@
         cache[meta.f] = j;
         return j;
       });
+    bookFlight[meta.f] = flight;
+    flight.then(
+      function () {
+        delete bookFlight[meta.f];
+      },
+      function () {
+        delete bookFlight[meta.f];
+      }
+    );
+    return flight;
   }
 
   function loadAll(onProgress) {
@@ -422,6 +439,7 @@
         wordifyChapter();
         ensureScan();
         injectTitleTransport();
+        preloadBible();
         if (pendingVerse) {
           var v = pendingVerse;
           pendingVerse = 0;
@@ -513,34 +531,207 @@
 
   /* ---------- search ---------- */
 
-  function runSearch(raw) {
-    var q = String(raw).trim();
-    if (!q) return;
+  function plainVerse(raw) {
+    return String(raw || "")
+      .replace(/^#/, "")
+      .replace(/\[|\]/g, "")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+
+  function quoteLine(hit) {
+    return hit.t + " — " + hit.n + " " + hit.c + ":" + hit.v + " (KJV)";
+  }
+
+  function preloadBible() {
+    if (!index || allLoaded) return;
+    loadAll()
+      .then(function () {
+        if (!wordIndex) buildWordIndex();
+      })
+      .catch(function () {});
+  }
+
+  function buildWordIndex() {
+    var map = {};
+    for (var i = 0; i < index.books.length; i++) {
+      var book = cache[index.books[i].f];
+      if (!book) continue;
+      for (var c = 0; c < book.c.length; c++) {
+        var ch = book.c[c];
+        for (var v = 0; v < ch.length; v++) {
+          var words = plainVerse(ch[v]).toLowerCase().match(/[a-z0-9']+/g);
+          if (!words) continue;
+          var seen = {};
+          var id = i * 1000000 + (c + 1) * 1000 + (v + 1);
+          for (var w = 0; w < words.length; w++) {
+            var word = words[w];
+            if (seen[word]) continue;
+            seen[word] = 1;
+            if (!map[word]) map[word] = [];
+            map[word].push(id);
+          }
+        }
+      }
+    }
+    wordIndex = map;
+    wordKeys = Object.keys(map).sort();
+  }
+
+  function lowerBound(keys, word) {
+    var lo = 0;
+    var hi = keys.length;
+    while (lo < hi) {
+      var mid = (lo + hi) >> 1;
+      if (keys[mid] < word) lo = mid + 1;
+      else hi = mid;
+    }
+    return lo;
+  }
+
+  function unionSorted(lists) {
+    var tagged = [];
+    for (var i = 0; i < lists.length; i++) {
+      var list = lists[i];
+      for (var j = 0; j < list.length; j++) tagged.push(list[j]);
+    }
+    tagged.sort(function (a, b) {
+      return a - b;
+    });
+    var out = [];
+    for (var k = 0; k < tagged.length; k++) {
+      if (!out.length || out[out.length - 1] !== tagged[k]) out.push(tagged[k]);
+    }
+    return out;
+  }
+
+  function intersectSorted(a, b) {
+    var out = [];
+    var i = 0;
+    var j = 0;
+    while (i < a.length && j < b.length) {
+      if (a[i] === b[j]) {
+        out.push(a[i]);
+        i++;
+        j++;
+      } else if (a[i] < b[j]) i++;
+      else j++;
+    }
+    return out;
+  }
+
+  function postingsFor(word) {
+    if (!wordIndex) return [];
+    if (word.length < 4) return wordIndex[word] || [];
+    var lo = lowerBound(wordKeys, word);
+    var lists = [];
+    for (var i = lo; i < wordKeys.length; i++) {
+      if (wordKeys[i].indexOf(word) !== 0) break;
+      lists.push(wordIndex[wordKeys[i]]);
+    }
+    if (!lists.length) return [];
+    if (lists.length === 1) return lists[0];
+    return unionSorted(lists);
+  }
+
+  function unpackId(id) {
+    var b = Math.floor(id / 1000000);
+    var rest = id % 1000000;
+    var c = Math.floor(rest / 1000);
+    var v = rest % 1000;
+    var meta = index.books[b];
+    var book = meta && cache[meta.f];
+    var raw = book && book.c[c - 1] ? book.c[c - 1][v - 1] : "";
+    return { b: b, c: c, v: v, n: meta ? meta.n : "", t: plainVerse(raw) };
+  }
+
+  function queryWords(q) {
+    var found = String(q).toLowerCase().match(/[a-z][a-z']*/g) || [];
+    var out = [];
+    var seen = {};
+    for (var i = 0; i < found.length; i++) {
+      if (seen[found[i]]) continue;
+      seen[found[i]] = 1;
+      out.push(found[i]);
+    }
+    return out;
+  }
+
+  function findHits(q) {
+    var LIMIT = 80;
+    var quoted = String(q).match(/^["“](.+)["”]$/);
+    var phrase = quoted ? quoted[1].toLowerCase().replace(/\s+/g, " ").trim() : "";
+    var words = queryWords(phrase || q);
+    if (!words.length) return { total: 0, hits: [], words: [] };
+    var lists = [];
+    for (var i = 0; i < words.length; i++) {
+      var list = postingsFor(words[i]);
+      if (!list.length) return { total: 0, hits: [], words: words };
+      lists.push(list);
+    }
+    lists.sort(function (a, b) {
+      return a.length - b.length;
+    });
+    var acc = lists[0];
+    for (var n = 1; n < lists.length; n++) {
+      acc = intersectSorted(acc, lists[n]);
+      if (!acc.length) break;
+    }
+    var hits = [];
+    var total = 0;
+    for (var h = 0; h < acc.length; h++) {
+      var hit = unpackId(acc[h]);
+      if (phrase && hit.t.toLowerCase().indexOf(phrase) === -1) continue;
+      total++;
+      if (hits.length < LIMIT) hits.push(hit);
+    }
+    return { total: total, hits: hits, words: words };
+  }
+
+  function runSearch(raw, jumpIfRef) {
+    clearTimeout(searchTimer);
+    var q = String(raw || "").trim();
+    var gen = ++searchGen;
+    if (!q || q.length < 2) {
+      if (searching) {
+        searching = false;
+        render();
+      }
+      return;
+    }
 
     var ref = parseRef(q);
-    if (ref) {
+    if (jumpIfRef && ref) {
+      searching = false;
       go(ref.b, ref.c);
-      if (ref.v) setTimeout(function () { highlightVerse(ref.v); }, 220);
+      if (ref.v) {
+        setTimeout(function () {
+          highlightVerse(ref.v);
+        }, 220);
+      }
       el.search.blur();
       return;
     }
 
-    if (q.length < 2) return;
     searching = true;
-    el.where.textContent = "Search";
-    el.read.innerHTML = '<div class="bib-page"><div class="bib-status">Loading the full text…</div></div>';
+    el.where.textContent = "Index";
+    if (!allLoaded) {
+      el.read.innerHTML = '<div class="bib-page"><div class="bib-status">Indexing the Bible…</div></div>';
+    }
 
     loadAll(function (done, total) {
       var s = el.read.querySelector(".bib-status");
-      if (s && searching) {
-        s.textContent = "Loading the full text… " + done + " of " + total + " books";
+      if (s && searching && gen === searchGen) {
+        s.textContent = "Indexing the Bible… " + done + " of " + total + " books";
       }
     })
       .then(function () {
-        if (!searching) return;
-        showResults(q);
+        if (gen !== searchGen || !searching) return;
+        if (!wordIndex) buildWordIndex();
+        showResults(q, ref && /\d/.test(q) ? ref : null);
       })
       .catch(function (err) {
+        if (gen !== searchGen) return;
         el.read.innerHTML =
           '<div class="bib-page"><div class="bib-status">Search failed. ' +
           esc(err && err.message ? err.message : "") +
@@ -548,99 +739,188 @@
       });
   }
 
+  function attr(s) {
+    return esc(s).replace(/"/g, "&quot;");
+  }
+
+  function refLabel(ref) {
+    var meta = index.books[ref.b];
+    var label = (meta ? meta.n : "") + " " + ref.c;
+    if (ref.v) label += ":" + ref.v;
+    return label;
+  }
+
+  function markWords(text, words) {
+    var parts = String(text).split(/([A-Za-z][A-Za-z']*)/);
+    return parts
+      .map(function (part) {
+        var low = part.toLowerCase();
+        for (var i = 0; i < words.length; i++) {
+          var w = words[i];
+          var hit = w.length < 4 ? low === w : low.indexOf(w) === 0;
+          if (hit) return "<mark>" + esc(part) + "</mark>";
+        }
+        return esc(part);
+      })
+      .join("");
+  }
+
+  function openHit(node) {
+    clearTimeout(searchTimer);
+    var b = Number(node.getAttribute("data-b"));
+    var c = Number(node.getAttribute("data-c"));
+    var v = Number(node.getAttribute("data-v"));
+    go(b, c);
+    if (v) {
+      setTimeout(function () {
+        highlightVerse(v);
+      }, 220);
+    }
+  }
+
+  function copyQuote(btn) {
+    var text = btn.getAttribute("data-quote") || "";
+    function done() {
+      btn.textContent = "Copied";
+      btn.classList.add("is-copied");
+      setTimeout(function () {
+        if (!btn.isConnected) return;
+        btn.textContent = "Copy";
+        btn.classList.remove("is-copied");
+      }, 1200);
+    }
+    function fallback() {
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      ta.setAttribute("readonly", "");
+      ta.style.position = "fixed";
+      ta.style.left = "-9999px";
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      var ok = false;
+      try {
+        ok = document.execCommand("copy");
+      } catch (e) {
+        ok = false;
+      }
+      document.body.removeChild(ta);
+      if (ok) done();
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } else {
+      fallback();
+    }
+  }
+
   function wireCloseSearch() {
     var btn = el.read.querySelector("[data-close-search]");
     if (!btn) return;
     btn.addEventListener("click", function () {
+      clearTimeout(searchTimer);
       el.search.value = "";
       searching = false;
       render();
     });
   }
 
-  function showResults(q) {
-    var needle = q.toLowerCase();
-    var hits = [];
-    var LIMIT = 300;
-    var total = 0;
-
-    for (var i = 0; i < index.books.length; i++) {
-      var meta = index.books[i];
-      var book = cache[meta.f];
-      if (!book) continue;
-      for (var c = 0; c < book.c.length; c++) {
-        var ch = book.c[c];
-        for (var v = 0; v < ch.length; v++) {
-          var plain = ch[v].replace(/[#\[\]]/g, "");
-          if (plain.toLowerCase().indexOf(needle) === -1) continue;
-          total++;
-          if (hits.length < LIMIT) {
-            hits.push({ b: i, c: c + 1, v: v + 1, t: plain, n: meta.n });
-          }
-        }
-      }
-    }
-
+  function showResults(q, refHit) {
+    var found = findHits(q);
+    var hits = found.hits;
+    var total = found.total;
     var back = index.books[cur.b].n + " " + cur.c;
+    var count =
+      total === 0
+        ? "no verses"
+        : total + (total === 1 ? " verse" : " verses") + (total > hits.length ? " · showing first " + hits.length : "");
     var head =
       '<div class="bib-page">' +
       '<div class="bib-results-head"><h3>' +
       esc(q) +
       "</h3><span>" +
-      (total === 0
-        ? "no verses"
-        : total + (total === 1 ? " verse" : " verses") + (total > LIMIT ? " · showing first " + LIMIT : "")) +
+      count +
       ' &nbsp; <button type="button" class="bib-btn" data-close-search="1">Back to ' +
       esc(back) +
       "</button></span></div>";
 
-    if (!hits.length) {
-      el.read.innerHTML =
-        head +
-        '<div class="bib-status">Nothing found. Try another word, or type a reference like “John 3:16”.</div></div>';
-      wireCloseSearch();
-      return;
+    var body = "";
+    if (refHit) {
+      var label = refLabel(refHit);
+      body +=
+        '<article class="bib-hit bib-hit-goto">' +
+        '<div class="bib-hit-top"><button type="button" class="bib-hit-ref" data-b="' +
+        refHit.b +
+        '" data-c="' +
+        refHit.c +
+        '" data-v="' +
+        (refHit.v || 0) +
+        '">Open ' +
+        esc(label) +
+        "</button></div>" +
+        '<button type="button" class="bib-hit-text" data-b="' +
+        refHit.b +
+        '" data-c="' +
+        refHit.c +
+        '" data-v="' +
+        (refHit.v || 0) +
+        '">Go to this passage</button></article>';
     }
 
-    var rx = new RegExp("(" + q.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + ")", "ig");
-    var body = hits
+    body += hits
       .map(function (h) {
-        var text = esc(h.t).replace(rx, "<mark>$1</mark>");
+        var quote = quoteLine(h);
         return (
-          '<button type="button" class="bib-hit" data-b="' +
+          '<article class="bib-hit">' +
+          '<div class="bib-hit-top">' +
+          '<button type="button" class="bib-hit-ref" data-b="' +
           h.b +
           '" data-c="' +
           h.c +
           '" data-v="' +
           h.v +
           '">' +
-          '<span class="bib-hit-ref">' +
           esc(h.n) +
           " " +
           h.c +
           ":" +
           h.v +
-          "</span>" +
-          '<span class="bib-hit-text">' +
-          text +
-          "</span></button>"
+          "</button>" +
+          '<button type="button" class="bib-hit-copy" data-quote="' +
+          attr(quote) +
+          '">Copy</button></div>' +
+          '<button type="button" class="bib-hit-text" data-b="' +
+          h.b +
+          '" data-c="' +
+          h.c +
+          '" data-v="' +
+          h.v +
+          '">' +
+          markWords(h.t, found.words) +
+          "</button></article>"
         );
       })
       .join("");
+
+    if (!hits.length && !refHit) {
+      body +=
+        '<div class="bib-status">Nothing found. Try another word, or type a reference like “John 3:16”.</div>';
+    }
 
     el.read.innerHTML = head + body + "</div>";
     el.read.scrollTop = 0;
     wireCloseSearch();
 
-    el.read.querySelectorAll(".bib-hit").forEach(function (btn) {
+    el.read.querySelectorAll(".bib-hit-ref, .bib-hit-text").forEach(function (btn) {
       btn.addEventListener("click", function () {
-        var b = Number(btn.dataset.b);
-        var c = Number(btn.dataset.c);
-        var v = Number(btn.dataset.v);
-        go(b, c);
-        setTimeout(function () {
-          highlightVerse(v);
-        }, 220);
+        openHit(btn);
+      });
+    });
+    el.read.querySelectorAll(".bib-hit-copy").forEach(function (btn) {
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        copyQuote(btn);
       });
     });
   }
@@ -1358,14 +1638,23 @@
     el.search.addEventListener("keydown", function (e) {
       if (e.key === "Enter") {
         e.preventDefault();
-        runSearch(el.search.value);
+        clearTimeout(searchTimer);
+        runSearch(el.search.value, true);
       } else if (e.key === "Escape") {
+        clearTimeout(searchTimer);
         el.search.value = "";
         if (searching) {
           searching = false;
           render();
         }
       }
+    });
+    el.search.addEventListener("input", function () {
+      clearTimeout(searchTimer);
+      var q = el.search.value;
+      searchTimer = setTimeout(function () {
+        runSearch(q, false);
+      }, 180);
     });
 
     el.read.addEventListener("mouseup", function () {

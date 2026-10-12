@@ -224,6 +224,7 @@ body.bib-tab-active .site-header {
   flex: 0 0 auto;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 0.5rem;
   padding: 0.55rem 1rem;
   border-bottom: 1px solid var(--bib-rule);
@@ -274,15 +275,16 @@ body.bib-tab-active .site-header {
 }
 
 .bib-search {
-  flex: 0 0 auto;
-  width: 13rem;
-  max-width: 34vw;
+  flex: 1 1 16rem;
+  width: auto;
+  min-width: 10rem;
+  max-width: none;
   border: 1px solid var(--bib-rule);
   background: rgba(0, 0, 0, 0.3);
   color: var(--bib-ink);
   font: inherit;
   font-size: 0.82rem;
-  padding: 0.32rem 0.6rem;
+  padding: 0.32rem 0.7rem;
   border-radius: 999px;
 }
 
@@ -609,24 +611,64 @@ body.bib-tab-active .site-header {
   color: var(--bib-ink);
   font: inherit;
   padding: 0.75rem 0.4rem;
-  cursor: pointer;
 }
 
 .bib-hit:hover {
   background: rgba(201, 162, 39, 0.07);
 }
 
+.bib-hit-goto {
+  background: rgba(201, 162, 39, 0.05);
+}
+
+.bib-hit-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  margin-bottom: 0.2rem;
+}
+
+.bib-hit-ref,
+.bib-hit-text,
+.bib-hit-copy {
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+
 .bib-hit-ref {
   display: block;
+  padding: 0;
   font-size: 0.72rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--bib-gold);
-  margin-bottom: 0.2rem;
+}
+
+.bib-hit-copy {
+  flex: 0 0 auto;
+  border: 1px solid var(--bib-rule);
+  color: var(--bib-gold);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.16rem 0.5rem;
+  border-radius: 999px;
+}
+
+.bib-hit-copy.is-copied {
+  border-color: var(--bib-gold);
+  background: rgba(201, 162, 39, 0.16);
 }
 
 .bib-hit-text {
   display: block;
+  width: 100%;
+  padding: 0;
   font-family: Georgia, "Times New Roman", serif;
   font-size: 0.97rem;
   line-height: 1.6;
@@ -674,7 +716,10 @@ body.bib-tab-active .site-header {
   }
 
   .bib-search {
-    width: 7.5rem;
+    flex: 1 1 100%;
+    width: 100%;
+    min-width: 0;
+    order: 5;
   }
 
   .bib-sizes {
