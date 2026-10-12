@@ -7568,8 +7568,11 @@
             return r.ok ? r.json() : null;
           })
           .then(function (cfg) {
-            if (cfg && cfg.prices_usd && cfg.prices_usd.paintings) {
-              GUIDE_BASE = Number(cfg.prices_usd.paintings) || GUIDE_BASE;
+            // SIM market: guide off the pre-cap list price so the $15 gallery
+            // cap does not reprice the Exchange simulation.
+            var list = cfg && (cfg.prices_usd_original || cfg.prices_usd);
+            if (list && list.paintings) {
+              GUIDE_BASE = Number(list.paintings) || GUIDE_BASE;
             }
           })
           .catch(function () {});

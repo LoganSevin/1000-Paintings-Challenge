@@ -30,11 +30,19 @@
     return "Logan7in";
   }
 
+  // Gallery items are $15 or less (was $89 for a painting before the cap).
+  var PRICE_CAP_USD = 15;
+
+  function capPrice(n) {
+    if (window.GalleryShop && GalleryShop.capPrice) return GalleryShop.capPrice(n, "paintings");
+    return Math.min(Number(n) || 0, PRICE_CAP_USD);
+  }
+
   function priceFor() {
     if (window.GalleryShop && GalleryShop.getCollectionPrice) {
       return GalleryShop.getCollectionPrice("paintings");
     }
-    return 89;
+    return PRICE_CAP_USD;
   }
 
   function setStatus(msg, isErr) {
@@ -63,7 +71,7 @@
 
   function xCaption(item) {
     var n = item.number;
-    var price = item.price_usd != null ? item.price_usd : priceFor();
+    var price = item.price_usd != null ? capPrice(item.price_usd) : priceFor();
     var site = siteUrl();
     return (
       "FOR SALE — Painting #" +

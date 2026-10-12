@@ -24,7 +24,28 @@
     "note": "Monthly creator stipend for Logan Sevin — website + art. All art credited to Logan Sevin, not AI. Do NOT store bank/card numbers in this repo.",
     "credits_path": "https://console.x.ai/team/default/billing"
   },
+  "gallery_price_cap_usd": 15,
+  "gallery_price_cap_note": "Every gallery item is $15 or less (Logan, Oct 2026). Pre-cap list prices are kept in prices_usd_original; freelance_* are commissioned services, not gallery items, and are not capped.",
   "prices_usd": {
+    "paintings": 15,
+    "generated": 15,
+    "commercial": 15,
+    "characters": 15,
+    "objects": 15,
+    "places": 15,
+    "rooms": 15,
+    "stasis": 15,
+    "fallout": 15,
+    "videos": 15,
+    "game-bosses": 15,
+    "tabloid-print": 15,
+    "custom": 15,
+    "freelance_still": 75,
+    "freelance_character": 120,
+    "freelance_brand_pack": 250,
+    "freelance_week": 400
+  },
+  "prices_usd_original": {
     "paintings": 89,
     "generated": 45,
     "commercial": 55,

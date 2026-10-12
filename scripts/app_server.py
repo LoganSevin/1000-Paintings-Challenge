@@ -1219,6 +1219,59 @@ AppHandler.do_GET = _app_handler_do_get_with_lod1_manifest
 # --- Gallery shop order log + payment config ---
 
 GALLERY_ORDERS_PATH = GALLERY / "data" / "gallery-orders.json"
+# Every gallery item is $15 or less (Logan, Oct 2026). Pre-cap list prices stay
+# in payment-config.json "prices_usd_original". Tips (donations) and freelance_*
+# commissions are not gallery items and are not capped.
+GALLERY_PRICE_CAP_USD = 15.0
+
+
+def _price_is_capped(key) -> bool:
+    k = str(key or "").lower()
+    return k != "tip" and not k.startswith("freelance_")
+
+
+def _cap_gallery_price(amount, collection=None):
+    try:
+        n = float(amount)
+    except (TypeError, ValueError):
+        return amount
+    if collection is not None and not _price_is_capped(collection):
+        return n
+    return min(n, GALLERY_PRICE_CAP_USD)
+
+
+def _gauge_base_prices(cfg: dict) -> dict:
+    """Pre-cap list prices for the market gauge (the cap is applied after)."""
+    for key in ("prices_usd_original", "prices_usd"):
+        v = cfg.get(key) if isinstance(cfg, dict) else None
+        if isinstance(v, dict) and v:
+            return v
+    return {}
+
+
+def _cap_order_items(items, order_type="sale"):
+    """Clamp each sale item's price to the cap; return (items, total)."""
+    out = []
+    total = 0.0
+    for it in items if isinstance(items, list) else []:
+        if not isinstance(it, dict):
+            continue
+        row = dict(it)
+        coll = row.get("collection")
+        if order_type != "tip" and row.get("price") is not None:
+            capped = _cap_gallery_price(row.get("price"), coll)
+            try:
+                if float(row["price"]) != capped and row.get("original_price") is None:
+                    row["original_price"] = float(row["price"])
+            except (TypeError, ValueError):
+                pass
+            row["price"] = capped
+        try:
+            total += float(row.get("price") or 0)
+        except (TypeError, ValueError):
+            pass
+        out.append(row)
+    return out, round(total, 2)
 PAYMENT_CONFIG_PATH = GALLERY / "data" / "payment-config.json"
 CREATOR_PAYOUTS_PATH = GALLERY / "data" / "creator-payouts.json"
 MARKET_SIM_PATH = GALLERY / "data" / "market-sim.json"
@@ -1308,7 +1361,12 @@ def _load_payment_config() -> dict:
         out = dict(defaults)
         for k, v in data.items():
             if k == "prices_usd" and isinstance(v, dict):
-                out["prices_usd"] = v
+                if "prices_usd_original" not in data:
+                    out["prices_usd_original"] = dict(v)
+                out["prices_usd"] = {
+                    kk: (_cap_gallery_price(vv, kk) if _price_is_capped(kk) else vv)
+                    for kk, vv in v.items()
+                }
             elif k == "creator_payout" and isinstance(v, dict):
                 base = dict(defaults["creator_payout"])
                 safe = {
@@ -1716,9 +1774,14 @@ def _market_marketing_hook(heat: float, change_pct: float) -> str:
 
 
 def _gauged_shop_price(base: float, heat: float, change_pct: float, gauging: dict) -> dict:
+    # Gauge off the pre-cap list price, then cap: anything that would land over
+    # $15 is $15; heat may still discount a piece below that.
+    list_usd = float(base)
+    base = min(list_usd, GALLERY_PRICE_CAP_USD)
     if not gauging.get("enabled", True):
         return {
             "base_usd": round(base, 2),
+            "list_usd": round(list_usd, 2),
             "gauged_usd": round(base, 2),
             "premium_pct": 0.0,
             "hook": "",
@@ -1734,7 +1797,8 @@ def _gauged_shop_price(base: float, heat: float, change_pct: float, gauging: dic
         prem = min(max_prem, raw * max_prem)
     else:
         prem = max(-max_disc, raw * max_disc)
-    gauged = max(1.0, base * (1.0 + prem))
+    gauged = max(1.0, list_usd * (1.0 + prem))
+    gauged = min(gauged, GALLERY_PRICE_CAP_USD)
     # Psychological marketing price: .99 / round
     if gauged >= 20:
         gauged = math.floor(gauged) - 0.01 if gauged - math.floor(gauged) < 0.5 else round(gauged)
@@ -1744,6 +1808,7 @@ def _gauged_shop_price(base: float, heat: float, change_pct: float, gauging: dic
         gauged = round(gauged, 2)
     return {
         "base_usd": round(base, 2),
+        "list_usd": round(list_usd, 2),
         "gauged_usd": round(float(gauged), 2),
         "premium_pct": round(prem * 100.0, 2),
         "hook": _market_marketing_hook(heat, change_pct) if gauging.get("marketing_hooks", True) else "",
@@ -1787,7 +1852,7 @@ def _market_tick(force_sales: int = 0) -> dict:
         state = _load_market_sim()
         _ensure_market_month(state)
         cfg = _load_payment_config()
-        base_prices = cfg.get("prices_usd") if isinstance(cfg.get("prices_usd"), dict) else {}
+        base_prices = _gauge_base_prices(cfg)
         gauging = cfg.get("price_gauging") if isinstance(cfg.get("price_gauging"), dict) else {}
         # Live quotes are optional; never hold the lock while waiting on network
         now = time.time()
@@ -1923,7 +1988,7 @@ def _market_tick(force_sales: int = 0) -> dict:
 def _market_gauged_prices(state=None) -> dict:
     state = state or _load_market_sim()
     cfg = _load_payment_config()
-    base_prices = cfg.get("prices_usd") if isinstance(cfg.get("prices_usd"), dict) else {}
+    base_prices = _gauge_base_prices(cfg)
     gauging = cfg.get("price_gauging") if isinstance(cfg.get("price_gauging"), dict) else {}
     symbols = state.get("symbols") or {}
     out = {}
@@ -2288,11 +2353,16 @@ def _app_handler_do_post_with_gallery_orders(self):
         items = body.get("items") or []
         if not items:
             return self._json({"ok": False, "error": "Cart is empty"}, 400)
+        order_type = body.get("order_type") or "sale"
+        # The recorded total is rebuilt from capped item prices, never trusted
+        # from the client, so a sale is never logged above $15 per item.
+        items, capped_total = _cap_order_items(items, order_type)
+        total = body.get("total") if order_type == "tip" else capped_total
         entry = {
             "id": str(uuid.uuid4()),
             "items": items,
             "item_count": len(items),
-            "total": body.get("total"),
+            "total": total,
             "cashtag": body.get("cashtag"),
             "payment_method": body.get("payment_method") or "cash_app",
             "order_type": body.get("order_type") or "sale",

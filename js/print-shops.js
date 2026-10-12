@@ -5,7 +5,9 @@
   var cfg = {
     etsy_shop_url: "",
     redbubble_shop_url: "",
-    default_price_usd: 45,
+    // Prints of gallery items are $15 or less (was $45 before the cap).
+    default_price_usd: 15,
+    price_cap_usd: 15,
     listing_limit: 24,
   };
 
@@ -102,7 +104,7 @@
       description: desc,
       tags: tags.join(","),
       image: generatedUrl(n),
-      price: cfg.default_price_usd || 45,
+      price: Math.min(Number(cfg.default_price_usd) || 15, Number(cfg.price_cap_usd) || 15),
     };
   }
 

@@ -24,24 +24,68 @@
       cash_app: DEFAULT_CASH_APP,
       monthly_usd: 300,
     },
+    // Every gallery item is $15 or less (Logan, Oct 2026). The list prices
+    // before the cap are kept in ORIGINAL_PRICES_USD so they can be restored.
     prices_usd: {
-      paintings: 89,
-      generated: 45,
-      sketches: 29,
-      commercial: 55,
-      characters: 35,
-      objects: 29,
-      places: 39,
-      rooms: 39,
-      stasis: 19,
+      paintings: 15,
+      generated: 15,
+      sketches: 15,
+      commercial: 15,
+      characters: 15,
+      objects: 15,
+      places: 15,
+      rooms: 15,
+      stasis: 15,
       fallout: 15,
-      videos: 29,
-      "game-bosses": 25,
-      "tabloid-print": 49,
-      custom: 35,
+      videos: 15,
+      "game-bosses": 15,
+      "tabloid-print": 15,
+      custom: 15,
       tip: 5,
     },
   };
+
+  // Highest real-dollar price for any gallery item (paintings, generated,
+  // uploads, commercial, videos, prints...). Clamped wherever a price is made,
+  // read from a saved cart, or totalled, so new items are capped too.
+  // Fan tips are donations, not items, and are not capped.
+  var GALLERY_PRICE_CAP_USD = 15;
+  var UNCAPPED_COLLECTIONS = { tip: true };
+
+  // List prices before the $15 cap (restore by copying these back into
+  // prices_usd and raising GALLERY_PRICE_CAP_USD).
+  var ORIGINAL_PRICES_USD = {
+    paintings: 89,
+    generated: 45,
+    sketches: 29,
+    commercial: 55,
+    characters: 35,
+    objects: 29,
+    places: 39,
+    rooms: 39,
+    stasis: 19,
+    fallout: 15,
+    videos: 29,
+    "game-bosses": 25,
+    "tabloid-print": 49,
+    custom: 35,
+    tip: 5,
+  };
+
+  function capPrice(amount, collection) {
+    var n = Number(amount);
+    if (!isFinite(n)) return amount;
+    if (collection && UNCAPPED_COLLECTIONS[collection]) return n;
+    return Math.min(n, GALLERY_PRICE_CAP_USD);
+  }
+
+  // Dollar amount for a Cash App / Venmo / PayPal link: never above the
+  // shown total (cents kept, no rounding up), at least $1.
+  function payAmount(amount) {
+    var n = Math.round((Number(amount) || 0) * 100) / 100;
+    n = Math.max(1, n);
+    return n % 1 === 0 ? String(n) : n.toFixed(2);
+  }
 
   var cart = [];
   var pendingOrderId = null;
@@ -76,9 +120,16 @@
 
   function getCollectionPrice(collection) {
     var g = gaugedPrices[collection];
-    if (g && g.gauged_usd != null) return Number(g.gauged_usd);
+    if (g && g.gauged_usd != null) return capPrice(Number(g.gauged_usd), collection);
     var p = payConfig.prices_usd || {};
-    return p[collection] != null ? p[collection] : p.custom != null ? p.custom : 25;
+    var raw = p[collection] != null ? p[collection] : p.custom != null ? p.custom : 25;
+    return capPrice(raw, collection);
+  }
+
+  /** Pre-cap list price (for simulations that size stock from it). */
+  function getOriginalCollectionPrice(collection) {
+    var o = ORIGINAL_PRICES_USD;
+    return o[collection] != null ? o[collection] : o.custom;
   }
 
   function applyGaugedPrices(map) {
@@ -198,7 +249,7 @@
       title: title,
       subtitle: subtitle,
       imageUrl: resolveImageUrl(item.url),
-      price: item.price != null ? item.price : getCollectionPrice(collection),
+      price: item.price != null ? capPrice(item.price, collection) : getCollectionPrice(collection),
       number: item.number != null ? item.number : null,
       assetId: item.id || null,
       version: item.version != null ? item.version : null,
@@ -227,7 +278,7 @@
       title: title,
       subtitle: opts.subtitle || collection,
       imageUrl: u,
-      price: opts.price != null ? opts.price : getCollectionPrice(collection),
+      price: opts.price != null ? capPrice(opts.price, collection) : getCollectionPrice(collection),
       number: opts.number != null ? opts.number : null,
       assetId: opts.assetId || null,
     };
@@ -240,6 +291,22 @@
     } catch (e) {
       cart = [];
     }
+    // Carts saved before the cap still hold the old prices; clamp them.
+    var changed = false;
+    cart.forEach(function (item) {
+      if (!item || item.price == null) return;
+      var capped = capPrice(item.price, item.collection);
+      if (capped !== Number(item.price)) {
+        if (item.original_price == null) item.original_price = Number(item.price);
+        item.price = capped;
+        changed = true;
+      }
+    });
+    if (changed) {
+      try {
+        localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
+      } catch (e) {}
+    }
   }
 
   function saveCart() {
@@ -250,7 +317,7 @@
 
   function cartTotal() {
     return cart.reduce(function (sum, item) {
-      return sum + (Number(item.price) || 0);
+      return sum + (Number(capPrice(item.price, item.collection)) || 0);
     }, 0);
   }
 
@@ -269,7 +336,7 @@
       title: shopItem.title,
       subtitle: shopItem.subtitle || "",
       imageUrl: shopItem.imageUrl,
-      price: shopItem.price,
+      price: capPrice(shopItem.price, shopItem.collection),
       number: shopItem.number,
       assetId: shopItem.assetId || null,
       version: shopItem.version != null ? shopItem.version : null,
@@ -293,14 +360,14 @@
   }
 
   function cashAppPayUrl(amount) {
-    var total = Math.max(1, Math.round(Number(amount) || 0));
+    var total = payAmount(amount);
     return "https://cash.app/$" + cashAppTag() + "/" + total;
   }
 
   function venmoPayUrl(amount, note) {
     var user = String(payConfig.venmo || "").replace(/^@/, "").trim();
     if (!user) return "";
-    var total = Math.max(1, Math.round(Number(amount) || 0));
+    var total = payAmount(amount);
     var n = encodeURIComponent(String(note || payConfig.order_note_prefix || "Gallery").slice(0, 200));
     return (
       "https://venmo.com/" +
@@ -318,14 +385,14 @@
       .replace(/^\//, "")
       .trim();
     if (!me) return "";
-    var total = Math.max(1, Math.round(Number(amount) || 0));
+    var total = payAmount(amount);
     return "https://www.paypal.me/" + me.replace(/\/$/, "") + "/" + total;
   }
 
   function buildOrderNote(extra) {
     var lines = cart.map(function (item, i) {
       var label = item.subtitle ? item.title + " (" + item.subtitle + ")" : item.title;
-      return i + 1 + ". " + label + " — " + formatPrice(item.price);
+      return i + 1 + ". " + label + " — " + formatPrice(capPrice(item.price, item.collection));
     });
     if (extra) lines.unshift(String(extra));
     lines.push("Total: " + formatPrice(cartTotal()));
@@ -351,11 +418,20 @@
 
   function postOrderToServer(opts) {
     opts = opts || {};
-    var items = opts.items || cart;
+    var items = (opts.items || cart).map(function (item) {
+      var out = Object.assign({}, item);
+      out.price = capPrice(item.price, item.collection);
+      return out;
+    });
     if (!items.length && !opts.allowEmpty) return Promise.resolve(null);
     var payload = {
       items: items,
-      total: opts.total != null ? opts.total : cartTotal(),
+      total:
+        opts.total != null
+          ? opts.total
+          : items.reduce(function (sum, item) {
+              return sum + (Number(item.price) || 0);
+            }, 0),
       cashtag: "$" + cashAppTag(),
       payment_method: opts.payment_method || "cash_app",
       order_type: opts.order_type || "sale",
@@ -614,7 +690,7 @@
       escapeHtml(shopItem.id) +
       '">' +
       '<span class="card-price">' +
-      escapeHtml(formatPrice(shopItem.price)) +
+      escapeHtml(formatPrice(capPrice(shopItem.price, shopItem.collection))) +
       "</span>" +
       '<button type="button" class="btn-card-buy' +
       (inCart ? " in-cart" : "") +
@@ -668,13 +744,14 @@
     var priceEl = $("lightbox-price");
     var addBtn = $("lightbox-add-cart");
     var buyBtn = $("lightbox-buy-now");
-    if (priceEl) priceEl.textContent = formatPrice(shopItem.price);
+    var shown = capPrice(shopItem.price, shopItem.collection);
+    if (priceEl) priceEl.textContent = formatPrice(shown);
     var inCart = isInCart(shopItem.id);
     if (addBtn) {
       addBtn.textContent = inCart ? "In cart — view checkout" : "Add to cart";
       addBtn.dataset.inCart = inCart ? "1" : "0";
     }
-    if (buyBtn) buyBtn.textContent = "Buy now — " + formatPrice(shopItem.price);
+    if (buyBtn) buyBtn.textContent = "Buy now — " + formatPrice(shown);
     block.dataset.shopId = shopItem.id;
     block._shopItem = shopItem;
   }
@@ -720,7 +797,7 @@
         "</div>" +
         "</div>" +
         '<div class="gallery-cart-item-price">' +
-        escapeHtml(formatPrice(item.price)) +
+        escapeHtml(formatPrice(capPrice(item.price, item.collection))) +
         "</div>" +
         '<button type="button" class="gallery-cart-remove" data-remove-id="' +
         escapeHtml(item.id) +
@@ -1124,6 +1201,9 @@
     isInCart: isInCart,
     formatPrice: formatPrice,
     getCollectionPrice: getCollectionPrice,
+    getOriginalCollectionPrice: getOriginalCollectionPrice,
+    capPrice: capPrice,
+    PRICE_CAP_USD: GALLERY_PRICE_CAP_USD,
     cardPurchaseHtml: cardPurchaseHtml,
     bindCardPurchase: bindCardPurchase,
     updateLightbox: updateLightbox,
