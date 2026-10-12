@@ -1,0 +1,448 @@
+/* History shelf — reader, concordance, right-click generate */
+
+#panel-history.panel[hidden] {
+  display: none !important;
+}
+
+#panel-history.panel.active {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100dvh - 5rem);
+  max-height: calc(100dvh - 5rem);
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+body.hist-tab-active #panel-history.panel.active {
+  min-height: 100dvh;
+  max-height: 100dvh;
+}
+
+body.hist-tab-active .site-footer,
+body.hist-tab-active .site-header .subtitle {
+  display: none;
+}
+
+body.hist-tab-active .site-header {
+  padding-top: 0.35rem;
+  padding-bottom: 0.35rem;
+}
+
+.hist-shell {
+  position: relative;
+  --hist-ink: #ece4d4;
+  --hist-ink-dim: #9d9384;
+  --hist-gold: #c9a227;
+  --hist-surface: #14120f;
+  --hist-rule: rgba(236, 228, 212, 0.1);
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  background:
+    radial-gradient(ellipse 60% 45% at 50% 0%, rgba(201, 162, 39, 0.07), transparent 60%),
+    var(--hist-surface);
+  color: var(--hist-ink);
+  font-family: var(--font-ui, system-ui, sans-serif);
+}
+
+.hist-nav {
+  width: 17.5rem;
+  flex: 0 0 auto;
+  border-right: 1px solid var(--hist-rule);
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background: rgba(0, 0, 0, 0.22);
+}
+
+.hist-nav-head {
+  padding: 0.85rem 1rem 0.7rem;
+  border-bottom: 1px solid var(--hist-rule);
+}
+
+.hist-nav-head h2 {
+  margin: 0;
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+
+.hist-nav-head p {
+  margin: 0.2rem 0 0;
+  font-size: 0.72rem;
+  color: var(--hist-ink-dim);
+}
+
+.hist-nav-scroll {
+  flex: 1 1 auto;
+  overflow: auto;
+  padding: 0.4rem 0 1.2rem;
+  min-height: 0;
+}
+
+.hist-group {
+  margin: 0.85rem 1rem 0.25rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--hist-gold);
+}
+
+.hist-book {
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: 0;
+  background: none;
+  color: var(--hist-ink);
+  font: inherit;
+  font-size: 0.84rem;
+  line-height: 1.35;
+  padding: 0.32rem 1rem;
+  cursor: pointer;
+}
+
+.hist-book:hover,
+.hist-book.is-on {
+  background: rgba(201, 162, 39, 0.1);
+  color: #f3e6c0;
+}
+
+.hist-main {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.hist-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+  padding: 0.55rem 0.8rem;
+  border-bottom: 1px solid var(--hist-rule);
+}
+
+.hist-where {
+  flex: 1 1 auto;
+  min-width: 0;
+  text-align: center;
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 1rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hist-btn,
+.hist-menu {
+  border: 1px solid var(--hist-rule);
+  background: rgba(0, 0, 0, 0.25);
+  color: var(--hist-ink);
+  font: inherit;
+  font-size: 0.82rem;
+  padding: 0.28rem 0.65rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.hist-btn:hover,
+.hist-menu:hover {
+  border-color: var(--hist-gold);
+  color: var(--hist-gold);
+}
+
+.hist-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.hist-menu {
+  display: none;
+}
+
+.hist-search {
+  flex: 1 1 16rem;
+  width: auto;
+  min-width: 10rem;
+  max-width: none;
+  border: 1px solid var(--hist-rule);
+  background: rgba(0, 0, 0, 0.3);
+  color: var(--hist-ink);
+  font: inherit;
+  font-size: 0.82rem;
+  padding: 0.32rem 0.7rem;
+  border-radius: 999px;
+}
+
+.hist-search:focus {
+  outline: none;
+  border-color: var(--hist-gold);
+}
+
+.hist-search::placeholder {
+  color: var(--hist-ink-dim);
+}
+
+.hist-read {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  padding: 1.6rem 1.4rem 4rem;
+}
+
+.hist-entry {
+  max-width: 42rem;
+  margin: 0 auto;
+}
+
+.hist-entry h2 {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 1.7rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.hist-when,
+.hist-kicker,
+.hist-note {
+  margin: 0 0 0.45rem;
+  color: var(--hist-ink-dim);
+  font-size: 0.82rem;
+}
+
+.hist-note {
+  line-height: 1.45;
+}
+
+.hist-p {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.08rem;
+  line-height: 1.65;
+  margin: 0 0 0.9rem;
+}
+
+.hist-p.is-hit {
+  background: rgba(201, 162, 39, 0.28);
+  border-radius: 3px;
+}
+
+.hist-hint {
+  margin-top: 1.6rem;
+  color: var(--hist-ink-dim);
+  font-size: 0.78rem;
+}
+
+.hist-results-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid var(--hist-rule);
+}
+
+.hist-results-head h3 {
+  margin: 0;
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 1.25rem;
+}
+
+.hist-hit {
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: 0;
+  border-bottom: 1px solid var(--hist-rule);
+  background: none;
+  color: var(--hist-ink);
+  padding: 0.75rem 0.2rem;
+}
+
+.hist-hit-goto {
+  background: rgba(201, 162, 39, 0.05);
+}
+
+.hist-hit-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  margin-bottom: 0.2rem;
+}
+
+.hist-hit-ref,
+.hist-hit-text,
+.hist-hit-copy {
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+
+.hist-hit-ref {
+  color: var(--hist-gold);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+}
+
+.hist-hit-copy {
+  flex: 0 0 auto;
+  border: 1px solid var(--hist-rule);
+  color: var(--hist-gold);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.16rem 0.5rem;
+  border-radius: 999px;
+}
+
+.hist-hit-copy.is-copied {
+  border-color: var(--hist-gold);
+  background: rgba(201, 162, 39, 0.16);
+}
+
+.hist-hit-text {
+  display: block;
+  width: 100%;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+
+.hist-hit mark {
+  background: rgba(201, 162, 39, 0.28);
+  color: inherit;
+  border-radius: 2px;
+}
+
+.hist-status {
+  padding: 2rem 0;
+  text-align: center;
+  color: var(--hist-ink-dim);
+}
+
+.hist-ctx {
+  position: fixed;
+  z-index: 40;
+  min-width: 11rem;
+  padding: 0.28rem;
+  background: #1a1713;
+  border: 1px solid rgba(201, 162, 39, 0.4);
+  border-radius: 8px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+}
+
+.hist-ctx[hidden] {
+  display: none !important;
+}
+
+.hist-ctx button {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0.48rem 0.7rem;
+  text-align: left;
+  font: inherit;
+  font-size: 0.84rem;
+  color: var(--hist-ink, #ece4d4);
+  background: transparent;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.hist-ctx button:hover {
+  background: rgba(201, 162, 39, 0.18);
+}
+
+.hist-vision {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(8, 7, 6, 0.62);
+}
+
+.hist-vision[hidden] {
+  display: none !important;
+}
+
+.hist-vision-card {
+  width: min(40rem, 94%);
+  max-height: 90%;
+  overflow: auto;
+  padding: 0.85rem 1rem 1rem;
+  background: #16130f;
+  border: 1px solid rgba(201, 162, 39, 0.35);
+  border-radius: 10px;
+}
+
+.hist-vision-status {
+  margin: 0 0 0.55rem;
+  font-size: 0.86rem;
+  color: var(--hist-ink-dim);
+}
+
+.hist-vision-card img {
+  display: none;
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.hist-vision-card img.is-on {
+  display: block;
+}
+
+.hist-vision-actions {
+  margin-top: 0.7rem;
+}
+
+@media (max-width: 760px) {
+  .hist-nav {
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 16rem;
+    transform: translateX(-100%);
+    transition: transform 0.18s ease;
+    background: #100e0c;
+  }
+
+  .hist-shell.nav-open .hist-nav {
+    transform: translateX(0);
+  }
+
+  .hist-shell {
+    position: relative;
+  }
+
+  .hist-menu {
+    display: inline-block;
+  }
+
+  .hist-search {
+    flex: 1 1 100%;
+    width: 100%;
+    min-width: 0;
+    order: 5;
+  }
+
+  .hist-read {
+    padding: 1.2rem 1rem 5rem;
+  }
+}

@@ -50,6 +50,7 @@
   <link rel="stylesheet" href="css/az.css?v=10" />
   <link rel="stylesheet" href="css/engrams.css?v=11" />
   <link rel="stylesheet" href="css/bible.css?v=8" />
+  <link rel="stylesheet" href="css/history.css?v=1" />
   <link rel="stylesheet" href="css/slots.css?v=4" />
   <link rel="stylesheet" href="css/colors.css?v=6" />
   <link rel="stylesheet" href="css/hours.css?v=1" />
@@ -351,6 +352,7 @@
         <button type="button" class="tab" data-tab="az">0–Z</button>
         <button type="button" class="tab" data-tab="engrams">Engrams</button>
         <button type="button" class="tab" data-tab="bible">Bible</button>
+        <button type="button" class="tab" data-tab="history">History</button>
         <button type="button" class="tab" data-tab="slots">Slots</button>
         <button type="button" class="tab" data-tab="colors">Colors</button>
         <button type="button" class="tab" data-tab="hours">24 Hours</button>
@@ -7623,6 +7625,40 @@
     </div>
   </section>
 
+  <section id="panel-history" class="panel" hidden>
+    <div class="hist-shell">
+      <aside class="hist-nav">
+        <div class="hist-nav-head">
+          <h2>History</h2>
+          <p id="hist-count">The shelf</p>
+        </div>
+        <div class="hist-nav-scroll" id="hist-nav"></div>
+      </aside>
+      <div class="hist-main">
+        <div class="hist-bar">
+          <button type="button" class="hist-menu" id="hist-menu">Shelves</button>
+          <button type="button" class="hist-btn" id="hist-prev" aria-label="Previous entry">&lsaquo;</button>
+          <div class="hist-where" id="hist-where">History</div>
+          <button type="button" class="hist-btn" id="hist-next" aria-label="Next entry">&rsaquo;</button>
+          <input type="search" class="hist-search" id="hist-search" placeholder="Find words, or the Constitution" aria-label="Search history" autocomplete="off" spellcheck="false" />
+        </div>
+        <div class="hist-read" id="hist-read"></div>
+      </div>
+      <div id="hist-ctx" class="hist-ctx" hidden>
+        <button type="button" data-hist-ctx="generate">Generate</button>
+      </div>
+      <div id="hist-vision" class="hist-vision" hidden>
+        <div class="hist-vision-card">
+          <p id="hist-vision-status" class="hist-vision-status">Painting the passage…</p>
+          <img id="hist-vision-img" alt="Generated from the passage" />
+          <div class="hist-vision-actions">
+            <button type="button" class="hist-btn" id="hist-vision-close">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 
   <section id="panel-slots" class="panel" hidden>
     <div class="sl-shell">
@@ -9092,11 +9128,11 @@
   <script defer src="js/xai-credits.js?v=5"></script>
   <script defer src="js/account-gate.js?v=6"></script>
   <script defer src="js/annotations.js?v=3"></script>
-  <script defer src="js/gallery-welcome.js?v=12"></script>
-  <script defer src="js/page-chat.js?v=3"></script>
-  <script defer src="js/tab-presence.js?v=3"></script>
-  <script defer src="js/server-window.js?v=6"></script>
-  <script defer src="js/server-people.js?v=4"></script>
+  <script defer src="js/gallery-welcome.js?v=13"></script>
+  <script defer src="js/page-chat.js?v=4"></script>
+  <script defer src="js/tab-presence.js?v=4"></script>
+  <script defer src="js/server-window.js?v=7"></script>
+  <script defer src="js/server-people.js?v=5"></script>
   <script defer src="js/time-clock.js?v=7"></script>
   <script defer src="js/gallery-shared.js?v=8"></script>
   <script defer src="js/gallery-save-video.js?v=1"></script>
@@ -9152,6 +9188,7 @@
   <script defer src="js/az.js?v=14"></script>
   <script defer src="js/engrams.js?v=15"></script>
   <script defer src="js/bible.js?v=12"></script>
+  <script defer src="js/history.js?v=1"></script>
   <script defer src="js/slots.js?v=5"></script>
   <script defer src="js/colors.js?v=4"></script>
   <script defer src="js/colors-gen.js?v=5"></script>
@@ -9168,9 +9205,9 @@
   <script defer src="js/site-nav.js?v=5"></script>
   <script defer src="js/kids.js?v=4"></script>
   <script defer src="js/kids-art.js?v=7"></script>
-  <script defer src="js/tabs.js?v=118"></script>
+  <script defer src="js/tabs.js?v=119"></script>
   <script defer src="js/source-tabs.js?v=5"></script>
-  <script defer src="js/studio-tab.js?v=13"></script>
+  <script defer src="js/studio-tab.js?v=14"></script>
   <script defer src="js/grok-tab.js?v=1"></script>
   <script defer src="js/tokens-tab.js?v=1"></script>
   <script defer src="js/vendor-tab.js?v=4"></script>

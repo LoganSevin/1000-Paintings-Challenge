@@ -18,6 +18,7 @@
     { group: "Look", name: "Codes", note: "Eight-character references from 00000000 to zzzzzzzz", href: "#codes" },
     { group: "Look", name: "Periodic table", note: "Set elements on a bench, bond them, and heat a sample", href: "#periodic" },
     { group: "Look", name: "Math", note: "Set a range, make a geometry, sculpt it, and apply a function", href: "#math" },
+    { group: "Look", name: "Read history", note: "The Constitution and the shelf a person should know", href: "#history" },
     { group: "Language", name: "API How it works", note: "Highlight, Define, Suggest for fix", href: "#api" },
     { group: "Language", name: "JS source", note: "Read every file in js/", href: "#js" },
     { group: "Language", name: "CSS source", note: "Read every file in css/", href: "#css" },

@@ -93,6 +93,7 @@
     az: document.getElementById("panel-az"),
     engrams: document.getElementById("panel-engrams"),
     bible: document.getElementById("panel-bible"),
+    history: document.getElementById("panel-history"),
     slots: document.getElementById("panel-slots"),
     colors: document.getElementById("panel-colors"),
     hours: document.getElementById("panel-hours"),
@@ -206,6 +207,7 @@
     az: "0–Z — vertical scale, 0 highest, Z lowest",
     engrams: "Engrams — surreal acronyms; each letter blooms into a word",
     bible: "Bible \u2014 the King James Version, all 66 books",
+    history: "History \u2014 the documents and the shelf a person should know",
     slots: "Slots — spin painting reels for play credits (no cash value)",
     colors: "Colors — page through all 16,777,216 RGB colors, 64 per page",
     hours: "24 Hours — 86,400 seconds, nested rings, a unique still every second",
@@ -322,6 +324,7 @@
     if (name === "cameo") name = "cameos";
     if (name === "code") name = "codes";
     if (name === "dictionary") name = "diction";
+    if (name === "hist" || name === "historia") name = "history";
     if (name === "elements" || name === "element" || name === "periodictable" || name === "periodic-table") name = "periodic";
     if (name === "mathematics" || name === "maths") name = "math";
     if (name === "anthropic") name = "claude";
@@ -539,6 +542,9 @@
     if (name !== "bible") {
       window.dispatchEvent(new Event("bible-hide"));
     }
+    if (name !== "history") {
+      window.dispatchEvent(new Event("history-hide"));
+    }
     if (name !== "slots") {
       window.dispatchEvent(new Event("slots-hide"));
     }
@@ -576,6 +582,7 @@
     document.body.classList.toggle("az-tab-active", name === "az");
     document.body.classList.toggle("engrams-tab-active", name === "engrams");
     document.body.classList.toggle("bib-tab-active", name === "bible");
+    document.body.classList.toggle("hist-tab-active", name === "history");
     document.body.classList.toggle("sl-tab-active", name === "slots");
     document.body.classList.toggle("clr-tab-active", name === "colors");
     document.body.classList.toggle("hr-tab-active", name === "hours");
@@ -1041,6 +1048,12 @@
         window.BibleReader.onShow();
       }
       hideOtherTabs(name);
+    } else if (name === "history") {
+      window.dispatchEvent(new Event("history-show"));
+      if (window.HistoryShelf && window.HistoryShelf.onShow) {
+        window.HistoryShelf.onShow();
+      }
+      hideOtherTabs(name);
     } else if (name === "slots") {
       window.dispatchEvent(new Event("slots-show"));
       if (window.Slots && window.Slots.onShow) {
@@ -1179,6 +1192,7 @@
     if (tabName === "cloud-xai" || tabName === "xaicloud") tabName = "xai";
     if (tabName === "engram" || tabName === "acronym") tabName = "engrams";
     if (tabName === "kjv" || tabName === "scripture") tabName = "bible";
+    if (tabName === "hist" || tabName === "historia") tabName = "history";
     if (tabName === "slot" || tabName === "slot-machine") tabName = "slots";
     if (tabName === "color" || tabName === "colours" || tabName === "colour") tabName = "colors";
     if (tabName === "printshops" || tabName === "etsy" || tabName === "redbubble") tabName = "print-shops";
