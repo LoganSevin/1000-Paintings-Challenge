@@ -1,0 +1,22 @@
+/* Government tab — compact, phone friendly */
+#panel-government .gov-shell { max-width: 860px; margin: 0 auto; padding: 12px 14px 40px; line-height: 1.5; font-size: 15px; }
+#panel-government h2 { margin: 0 0 4px; font-size: 1.4rem; }
+#panel-government .gov-hint { margin: 0 0 12px; opacity: .8; font-size: .9rem; }
+#panel-government details { border: 1px solid rgba(127,127,127,.35); border-radius: 10px; margin: 8px 0; padding: 0 12px; background: rgba(127,127,127,.06); }
+#panel-government summary { cursor: pointer; font-weight: 600; padding: 10px 0; list-style-position: inside; }
+#panel-government details[open] summary { border-bottom: 1px solid rgba(127,127,127,.25); margin-bottom: 8px; }
+#panel-government ul, #panel-government ol { padding-left: 1.2em; margin: 6px 0 10px; }
+#panel-government li { margin: 3px 0; }
+#panel-government a { color: inherit; text-decoration: underline; }
+#panel-government .gov-jobs { margin-top: 18px; padding: 12px; border-radius: 12px; border: 1px solid rgba(127,127,127,.4); }
+#panel-government .gov-jobs h3 { margin: 0 0 8px; }
+#panel-government .gov-form { display: flex; flex-wrap: wrap; gap: 8px; }
+#panel-government .gov-form input { flex: 1 1 180px; min-width: 0; padding: 10px; font-size: 16px; border-radius: 8px; border: 1px solid rgba(127,127,127,.5); }
+#panel-government .gov-form button { flex: 0 0 auto; padding: 10px 16px; font-size: 16px; border-radius: 8px; cursor: pointer; }
+#panel-government .gov-chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 0; }
+#panel-government .gov-chips button { padding: 5px 10px; border-radius: 999px; font-size: .85rem; cursor: pointer; border: 1px solid rgba(127,127,127,.5); background: transparent; color: inherit; }
+#panel-government .gov-resume { margin-top: 12px; padding: 10px; border: 1px dashed rgba(127,127,127,.6); border-radius: 10px; font-size: .9rem; opacity: .9; }
+@media (max-width: 520px) {
+  #panel-government .gov-shell { padding: 8px 10px 32px; font-size: 14px; }
+  #panel-government .gov-form button { width: 100%; }
+}
