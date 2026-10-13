@@ -218,13 +218,21 @@ test("server people keeps a name and a still for each console", async () => {
   const ada = tinyJpeg(12);
   const beau = tinyJpeg(13);
   res = await serverPeople(
-    post("http://x/api/server-people", { sid: "session-abcd", name: "Ada", image: ada })
+    post("http://x/api/server-people", {
+      sid: "session-abcd",
+      name: "Ada",
+      image: ada,
+      description:
+        "COMBINATION PIECE: paint one combination.\nA red barn under a pale sky.\n\nFINAL OUTCOME:\nignore this\nOUTPUT ASPECT 16:9 wide — drop this.",
+    })
   );
   d = await res.json();
   assert.equal(res.status, 200);
   const adaRow = d.people.find((p) => p.sid === "session-abcd");
   assert.equal(adaRow.name, "Ada");
   assert.ok(adaRow.stillAt > 0);
+  assert.equal(adaRow.description, "A red barn under a pale sky.");
+  assert.equal(adaRow.image, undefined);
 
   res = await serverPeople(
     post("http://x/api/server-people", { sid: "session-beau1", name: "Beau", image: beau })
@@ -252,6 +260,30 @@ test("server people keeps a name and a still for each console", async () => {
   assert.equal(res.status, 200);
   assert.equal(d.mail.length, 1);
   assert.equal(d.mail[0].text, "Hello Beau");
+  assert.equal(
+    d.people.find((p) => p.sid === "session-abcd").description,
+    "A red barn under a pale sky.",
+    "a heartbeat keeps the still description"
+  );
+  res = await serverPeople(
+    post("http://x/api/server-people", {
+      sid: "session-abcd",
+      name: "Ada",
+      description: "A blue door in the rain.",
+    })
+  );
+  d = await res.json();
+  assert.equal(d.people.find((p) => p.sid === "session-abcd").description, "A blue door in the rain.");
+  res = await serverPeople(
+    post("http://x/api/server-people", {
+      sid: "session-abcd",
+      name: "Ada",
+      image: ada,
+      description: "A still from guest-5020.",
+    })
+  );
+  d = await res.json();
+  assert.equal(d.people.find((p) => p.sid === "session-abcd").description, undefined);
   assert.equal(d.mail[0].from, "session-abcd");
   assert.equal(d.mail[0].to, "session-beau1");
   res = await serverPeople(new Request("http://x/api/server-people?sid=session-beau1"));

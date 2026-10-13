@@ -21,6 +21,8 @@
   var posting = false;
   var pendingBody = null;
   var postedKey = "";
+  var pendingByJob = {};
+  var pendingOrder = [];
 
   function $(id) {
     return document.getElementById(id);
@@ -101,13 +103,73 @@
     }
   }
 
-  function remember(dataUrl, at, tab) {
+  function cleanStillDescription(raw) {
+    var text = String(raw || "")
+      .replace(/[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/g, " ")
+      .replace(/\r\n/g, "\n")
+      .trim();
+    if (!text) return "";
+    text = text.split(/\n(?:FINAL OUTCOME:|OUTPUT ASPECT\b|IN-CANVAS SIGNATURE\b)/i)[0];
+    text = text.replace(/^COMBINATION PIECE:[^\n]*\n?/i, "");
+    text = text.replace(/[ \t]+\n/g, "\n").replace(/\n{3,}/g, "\n\n").trim();
+    if (/^A still from \S.{0,40}\.$/.test(text) && text.length < 64) return "";
+    if (/cloud caption is optional and was skipped/i.test(text)) return "";
+    if (text.length > 2000) {
+      var cut = text.slice(0, 2000);
+      var sp = cut.lastIndexOf(" ");
+      if (sp > 1600) cut = cut.slice(0, sp);
+      text = cut.trim();
+    }
+    return text;
+  }
+
+  function descriptionFromPayload(body) {
+    if (!body || typeof body !== "object") return "";
+    var fields = ["description", "stasis", "fused_prompt", "prompt"];
+    for (var i = 0; i < fields.length; i++) {
+      var text = cleanStillDescription(body[fields[i]]);
+      if (text) return text;
+    }
+    return "";
+  }
+
+  function rememberJobDescription(jobId, text) {
+    jobId = String(jobId || "");
+    text = cleanStillDescription(text);
+    if (!jobId || !text) return;
+    if (!pendingByJob[jobId]) pendingOrder.push(jobId);
+    pendingByJob[jobId] = text;
+    while (pendingOrder.length > 8) {
+      var old = pendingOrder.shift();
+      delete pendingByJob[old];
+    }
+  }
+
+  function jobIdOf(url, job) {
+    if (job && (job.id || job.job_id)) return String(job.id || job.job_id);
+    var m = String(url || "").match(/\/api\/jobs\/([^/?#]+)/);
+    if (m) {
+      try {
+        return decodeURIComponent(m[1]);
+      } catch (e) {
+        return m[1];
+      }
+    }
+    return "";
+  }
+
+  function remember(dataUrl, at, tab, description) {
+    var prev = null;
     try {
-      localStorage.setItem(
-        STORE_KEY,
-        JSON.stringify({ at: at, tab: tab || "", image: dataUrl })
-      );
+      prev = JSON.parse(localStorage.getItem(STORE_KEY) || "null");
     } catch (e) {}
+    var rec = { at: at, tab: tab || "", image: dataUrl };
+    var desc = cleanStillDescription(description);
+    if (!desc && prev && prev.image === dataUrl) desc = cleanStillDescription(prev.description);
+    if (desc) rec.description = desc;
+    try {
+      localStorage.setItem(STORE_KEY, JSON.stringify(rec));
+    } catch (e2) {}
   }
 
   function recall() {
@@ -266,7 +328,13 @@
     if (!looksLikeStill(url)) return;
     var key = keyOf(url);
     var now = Date.now();
-    if (key && key === lastKey && now - lastKeyAt < DEDUPE_MS) return;
+    if (key && key === lastKey && now - lastKeyAt < DEDUPE_MS) {
+      var again = cleanStillDescription(meta && meta.description);
+      if (again && window.L7inPeople && window.L7inPeople.noteDescription) {
+        window.L7inPeople.noteDescription(again);
+      }
+      return;
+    }
     lastKey = key;
     lastKeyAt = now;
     meta = meta || {};
@@ -281,10 +349,17 @@
         if (shareKey !== lastKey) return;
         if (!dataUrl || dataUrlBytes(dataUrl) < 16 || dataUrlBytes(dataUrl) > SHARE_MAX_BYTES) return;
         postedKey = keyOf(dataUrl);
-        remember(dataUrl, now, tab);
+        var desc = cleanStillDescription(meta.description);
+        remember(dataUrl, now, tab, desc);
         postChannel({ type: "image", id: selfId, at: now, tab: tab, image: dataUrl });
         postStill({ image: dataUrl, tab: tab });
-        if (window.L7inPeople && window.L7inPeople.noteStill) window.L7inPeople.noteStill(dataUrl);
+        if (window.L7inPeople && window.L7inPeople.noteStill) {
+          var stillMeta = {};
+          if (meta && Object.prototype.hasOwnProperty.call(meta, "description")) {
+            stillMeta.description = desc;
+          }
+          window.L7inPeople.noteStill(dataUrl, stillMeta);
+        }
       },
       function () {
         if (/^https:\/\//i.test(url)) {
@@ -346,13 +421,33 @@
       });
   }
 
-  function noteResponse(input, res) {
-    var url = "";
+  function requestUrl(input) {
     try {
-      url = typeof input === "string" ? input : (input && input.url) || String(input || "");
+      return typeof input === "string" ? input : (input && input.url) || String(input || "");
+    } catch (e) {
+      return "";
+    }
+  }
+
+  function noteRequest(input, init) {
+    var url = requestUrl(input);
+    if (!/\/api\/jobs\/|\/api\/generate-stasis-vision|job-status/.test(url)) return;
+    var raw = init && init.body;
+    if (!raw || typeof raw !== "string") return;
+    var body;
+    try {
+      body = JSON.parse(raw);
     } catch (e) {
       return;
     }
+    var text = descriptionFromPayload(body);
+    if (!text) return;
+    var jobId = body.job_id || body.jobId || jobIdOf(url, body);
+    rememberJobDescription(jobId || "__last__", text);
+  }
+
+  function noteResponse(input, res) {
+    var url = requestUrl(input);
     if (!/\/api\/jobs\/|\/api\/generate-stasis-vision|job-status/.test(url)) return;
     if (!res || !res.ok) return;
     var copy;
@@ -368,7 +463,10 @@
         if (job.status && job.status !== "done") return;
         var img = job.image || (job.images && job.images[0]);
         var src = img && (img.url || img.remote_url);
-        if (src) share(src, { tab: currentTab() });
+        if (!src) return;
+        var jobId = jobIdOf(url, job);
+        var desc = (jobId && pendingByJob[jobId]) || pendingByJob.__last__ || "";
+        share(src, { tab: currentTab(), description: desc });
       })
       .catch(function () {});
   }
@@ -377,6 +475,9 @@
     if (!window.fetch || window.fetch.__l7inServer) return;
     var orig = window.fetch;
     var wrapped = function (input, init) {
+      try {
+        noteRequest(input, init);
+      } catch (e0) {}
       return orig.apply(this, arguments).then(function (res) {
         try {
           noteResponse(input, res);
@@ -421,9 +522,10 @@
 
   function onGenerated(ev) {
     var detail = (ev && ev.detail) || {};
-    share(detail.imageUrl || detail.url || detail.src || "", {
-      tab: detail.tab || currentTab(),
-    });
+    var shareMeta = { tab: detail.tab || currentTab() };
+    var desc = cleanStillDescription(detail.description || detail.stasis || detail.prompt || "");
+    if (desc) shareMeta.description = desc;
+    share(detail.imageUrl || detail.url || detail.src || "", shareMeta);
   }
 
   function stop() {

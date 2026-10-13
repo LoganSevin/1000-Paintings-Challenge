@@ -5,6 +5,7 @@
  * of their last still. Click the thumb to open that still full screen.
  * Right-click an offline name to delete that guest. Online guests stay.
  * Msg sends them a note. Closing the site moves the row into Offline.
+ * Spell I, II, and III equip that person's still with the image description.
  */
 (function () {
   "use strict";
@@ -23,6 +24,8 @@
   var lastSig = "";
   var postedImageKey = "";
   var dropping = {};
+  var selfDescription = "";
+  var descEpoch = 0;
 
   function $(id) {
     return document.getElementById(id);
@@ -93,11 +96,35 @@
     if (input && input.value !== name) input.value = name;
   }
 
+  function cleanPersonDesc(raw) {
+    var text = String(raw || "")
+      .replace(/[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/g, " ")
+      .replace(/\r\n/g, "\n")
+      .trim();
+    if (!text) return "";
+    text = text.split(/\n(?:FINAL OUTCOME:|OUTPUT ASPECT\b|IN-CANVAS SIGNATURE\b)/i)[0];
+    text = text.replace(/^COMBINATION PIECE:[^\n]*\n?/i, "");
+    text = text.replace(/[ \t]+\n/g, "\n").replace(/\n{3,}/g, "\n\n").trim();
+    if (/^A still from \S.{0,40}\.$/.test(text) && text.length < 64) return "";
+    if (/cloud caption is optional and was skipped/i.test(text)) return "";
+    if (text.length > 2000) {
+      var cut = text.slice(0, 2000);
+      var sp = cut.lastIndexOf(" ");
+      if (sp > 1600) cut = cut.slice(0, sp);
+      text = cut.trim();
+    }
+    return text;
+  }
+
   function readLocalStill() {
     try {
       var raw = JSON.parse(localStorage.getItem(STILL_KEY) || "null");
       var image = raw && raw.image;
-      if (/^data:image\/(?:jpeg|png|webp);base64,/i.test(image || "")) return image;
+      if (/^data:image\/(?:jpeg|png|webp);base64,/i.test(image || "")) {
+        var saved = cleanPersonDesc(raw.description);
+        if (saved) selfDescription = saved;
+        return image;
+      }
     } catch (e) {}
     return "";
   }
@@ -133,6 +160,7 @@
       else if (personOnline(person)) online.push(person);
       else offline.push(person);
     }
+    var ownDesc = selfDescription || (self && self.description) || "";
     if (!self) {
       self = {
         sid: selfId,
@@ -141,6 +169,7 @@
         stillAt: selfImage ? Date.now() : 0,
         tab: currentTab(),
         online: true,
+        description: ownDesc,
       };
     } else {
       self = {
@@ -150,6 +179,7 @@
         stillAt: self.stillAt || (selfImage ? Date.now() : 0),
         tab: currentTab(),
         online: true,
+        description: ownDesc,
       };
     }
     online.sort(function (a, b) {
@@ -162,8 +192,22 @@
   }
 
   function signature(groups) {
+    function descMark(text) {
+      text = String(text || "");
+      if (!text) return "";
+      var h = 0;
+      for (var i = 0; i < text.length; i++) h = (h * 33 + text.charCodeAt(i)) >>> 0;
+      return text.length + ":" + h.toString(16);
+    }
     function line(p) {
-      return [p.sid, p.name, p.tab || "", personOnline(p) ? "1" : "0", hasStill(p) ? "1" : "0"].join("\t");
+      return [
+        p.sid,
+        p.name,
+        p.tab || "",
+        personOnline(p) ? "1" : "0",
+        hasStill(p) ? "1" : "0",
+        descMark(p.description),
+      ].join("\t");
     }
     return groups.online.map(line).join("\n") + "\n--\n" + groups.offline.map(line).join("\n");
   }
@@ -475,10 +519,12 @@
   function equipPerson(person, slot) {
     return stillUrl(person).then(function (url) {
       if (!url) throw new Error("still");
+      var description = person.sid === selfId ? selfDescription || person.description || "" : person.description || "";
       return equipWhenReady(slot, {
         url: url,
         name: person.sid === selfId ? myName() : person.name,
         sid: person.sid,
+        description: description,
       });
     }).then(function (result) {
       if (!result || !result.ok) throw new Error("equip");
@@ -523,6 +569,9 @@
     if (document.hidden && !(extra && (extra.leave || extra.drop))) return;
     var body = { sid: selfId, name: myName(), tab: currentTab() };
     if (extra && extra.image) body.image = extra.image;
+    if (extra && Object.prototype.hasOwnProperty.call(extra, "description")) {
+      body.description = String(extra.description || "");
+    }
     if (extra && extra.leave) body.leave = true;
     if (extra && extra.to) body.to = extra.to;
     if (extra && extra.text) body.text = extra.text;
@@ -554,16 +603,39 @@
       });
   }
 
-  function noteStill(dataUrl) {
+  function noteDescription(text) {
+    text = cleanPersonDesc(text);
+    if (!text || text === selfDescription) return;
+    descEpoch += 1;
+    selfDescription = text;
+    lastSig = "";
+    paint(lastPeople);
+    postRoster({ description: text });
+  }
+
+  function noteStill(dataUrl, meta) {
     dataUrl = String(dataUrl || "");
     if (!/^data:image\/(?:jpeg|png|webp);base64,/i.test(dataUrl)) return;
     selfImage = dataUrl;
+    var epoch = descEpoch;
+    var described = meta && Object.prototype.hasOwnProperty.call(meta, "description");
+    if (described) {
+      var next = cleanPersonDesc(meta.description);
+      if (next) {
+        selfDescription = next;
+        descEpoch += 1;
+      } else if (epoch === descEpoch) {
+        selfDescription = "";
+      }
+    }
     lastSig = "";
     paint(lastPeople);
     var key = imageKey(dataUrl);
-    if (!key || key === postedImageKey) return;
+    var extra = { image: dataUrl };
+    if (described) extra.description = selfDescription;
+    if (!key || (key === postedImageKey && !described)) return;
     postedImageKey = key;
-    postRoster({ image: dataUrl });
+    postRoster(extra);
   }
 
   function syncFromChat(post) {
@@ -590,7 +662,9 @@
     selfImage = readLocalStill();
     bindPeopleToggle();
     paint([]);
-    if (selfImage) noteStill(selfImage);
+    if (selfImage) {
+      noteStill(selfImage, selfDescription ? { description: selfDescription } : undefined);
+    }
     start();
     document.addEventListener("input", function (e) {
       if (e.target && e.target.id === "page-chat-name") syncFromChat(false);
@@ -624,7 +698,7 @@
     });
   }
 
-  window.L7inPeople = { noteStill: noteStill };
+  window.L7inPeople = { noteStill: noteStill, noteDescription: noteDescription };
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", init);

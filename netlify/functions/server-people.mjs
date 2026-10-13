@@ -14,6 +14,7 @@ const MAIL_KEEP = 200;
 const MAIL_COOLDOWN_MS = 1500;
 const MAX_NAME = 32;
 const MAX_TEXT = 200;
+const MAX_DESC = 2000;
 const SID_RE = /^[A-Za-z0-9._-]{8,80}$/;
 const MAX_IMAGE_BYTES = 670000;
 
@@ -64,6 +65,28 @@ function cleanText(raw) {
     .replace(/\s+/g, " ")
     .trim()
     .slice(0, MAX_TEXT);
+}
+
+// The picture's own description, kept with the still so a Here spell can
+// bring that text back. Instructions after the picture are dropped.
+function cleanDesc(raw) {
+  let text = String(raw || "")
+    .replace(/[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/g, " ")
+    .replace(/\r\n/g, "\n")
+    .trim();
+  if (!text) return "";
+  text = text.split(/\n(?:FINAL OUTCOME:|OUTPUT ASPECT\b|IN-CANVAS SIGNATURE\b)/i)[0];
+  text = text.replace(/^COMBINATION PIECE:[^\n]*\n?/i, "");
+  text = text.replace(/[ \t]+\n/g, "\n").replace(/\n{3,}/g, "\n\n").trim();
+  if (/^A still from \S.{0,40}\.$/.test(text) && text.length < 64) return "";
+  if (/cloud caption is optional and was skipped/i.test(text)) return "";
+  if (text.length > MAX_DESC) {
+    let cut = text.slice(0, MAX_DESC);
+    const sp = cut.lastIndexOf(" ");
+    if (sp > 1600) cut = cut.slice(0, sp);
+    text = cut.trim();
+  }
+  return text;
 }
 
 function b64ToBytes(b64) {
@@ -118,14 +141,19 @@ async function readMail(store) {
 
 function toPeople(roster) {
   return Object.entries(roster)
-    .map(([sid, info]) => ({
-      sid,
-      name: info.name,
-      seen: info.seen,
-      stillAt: info.stillAt || 0,
-      tab: info.tab || "gallery",
-      online: !info.offline,
-    }))
+    .map(([sid, info]) => {
+      const row = {
+        sid,
+        name: info.name,
+        seen: info.seen,
+        stillAt: info.stillAt || 0,
+        tab: info.tab || "gallery",
+        online: !info.offline,
+      };
+      const description = cleanDesc(info.description);
+      if (description) row.description = description;
+      return row;
+    })
     .sort((a, b) => Number(b.online) - Number(a.online) || b.seen - a.seen || a.name.localeCompare(b.name));
 }
 
@@ -152,18 +180,18 @@ async function prune(roster, store) {
     const seen = parseInt(info.seen, 10) || 0;
     if (!seen) continue;
     const offline = info.offline === true || now - seen > TTL_MS;
-    entries.push([
-      sid,
-      {
-        name: cleanName(info.name, sid),
-        seen,
-        stillAt: parseInt(info.stillAt, 10) || 0,
-        type: String(info.type || ""),
-        tab: cleanTab(info.tab || "gallery"),
-        offline,
-        mailAt: parseInt(info.mailAt, 10) || 0,
-      },
-    ]);
+    const row = {
+      name: cleanName(info.name, sid),
+      seen,
+      stillAt: parseInt(info.stillAt, 10) || 0,
+      type: String(info.type || ""),
+      tab: cleanTab(info.tab || "gallery"),
+      offline,
+      mailAt: parseInt(info.mailAt, 10) || 0,
+    };
+    const description = cleanDesc(info.description);
+    if (description) row.description = description;
+    entries.push([sid, row]);
   }
   const online = entries.filter((entry) => !entry[1].offline).sort((a, b) => b[1].seen - a[1].seen);
   const offline = entries.filter((entry) => entry[1].offline).sort((a, b) => b[1].seen - a[1].seen);
@@ -325,10 +353,16 @@ export default async function handler(request) {
     offline: false,
     mailAt: wantsMail ? now : parseInt(prev.mailAt, 10) || 0,
   };
+  let description = cleanDesc(prev.description);
+  const describes = Object.prototype.hasOwnProperty.call(body, "description");
   if (image) {
     nextInfo.stillAt = now;
     nextInfo.type = image.type;
+    if (describes) description = cleanDesc(body.description);
+  } else if (describes) {
+    description = cleanDesc(body.description);
   }
+  if (description) nextInfo.description = description;
   roster[sid] = nextInfo;
   roster = await prune(roster, store);
 

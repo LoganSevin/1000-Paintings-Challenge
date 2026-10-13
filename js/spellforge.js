@@ -1,6 +1,7 @@
 /**
  * Spellforge: shuffled grid, spell slots, fused text, interaction preview, optional fusion video.
- * Cache bust v133: Spell I, Spell II, and Spell III each own their tome.
+ * Cache bust v134: a Here still equips that image's description.
+ * Spell I, Spell II, and Spell III each own their tome.
  * The Spell I button writes slot I only. A shared tome is copied apart
  * so one slot cannot overwrite the other two.
  */
@@ -1262,6 +1263,26 @@
     return spellNotes.notes[String(num)] || spellNotes.notes[num] || null;
   }
 
+  function visitorSpellText(visitor) {
+    var text = String((visitor && visitor.description) || "")
+      .replace(/[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/g, " ")
+      .replace(/\r\n/g, "\n")
+      .trim();
+    if (!text) return "";
+    text = text.split(/\n(?:FINAL OUTCOME:|OUTPUT ASPECT\b|IN-CANVAS SIGNATURE\b)/i)[0];
+    text = text.replace(/^COMBINATION PIECE:[^\n]*\n?/i, "");
+    text = text.replace(/[ \t]+\n/g, "\n").replace(/\n{3,}/g, "\n\n").trim();
+    if (/^A still from \S.{0,40}\.$/.test(text) && text.length < 64) return "";
+    if (/cloud caption is optional and was skipped/i.test(text)) return "";
+    if (text.length > 2000) {
+      var cut = text.slice(0, 2000);
+      var sp = cut.lastIndexOf(" ");
+      if (sp > 1600) cut = cut.slice(0, sp);
+      text = cut.trim();
+    }
+    return text;
+  }
+
   function loadVisitorSpells() {
     if (visitorSpellsReady) return;
     visitorSpellsReady = true;
@@ -1283,6 +1304,7 @@
             url: url,
             name: String((it && it.name) || "Guest").replace(/\s+/g, " ").trim().slice(0, 24) || "Guest",
             sid: String((it && it.sid) || "").slice(0, 80),
+            description: visitorSpellText(it),
             at: parseInt(it && it.at, 10) || 0,
           };
         });
@@ -1345,15 +1367,19 @@
     if (!visitorSpells.items) visitorSpells.items = {};
     var name = String((info && info.name) || "Guest").replace(/\s+/g, " ").trim().slice(0, 24) || "Guest";
     var sid = String((info && info.sid) || "").slice(0, 80);
+    var description = visitorSpellText(info);
     var id = 0;
+    var previous = "";
     var keys = Object.keys(visitorSpells.items);
     for (var i = 0; i < keys.length; i++) {
       var existing = visitorSpells.items[keys[i]];
       if (existing && existing.url === url) {
         id = existing.id;
+        previous = visitorSpellText(existing);
         break;
       }
     }
+    if (!description) description = previous;
     if (!id) {
       id = Number(visitorSpells.next) || VISITOR_BASE + 1;
       if (id <= VISITOR_BASE || id >= VISITOR_BASE + VISITOR_SPAN) id = VISITOR_BASE + 1;
@@ -1365,6 +1391,7 @@
       url: url,
       name: name,
       sid: sid,
+      description: description,
       at: Date.now(),
     };
     var beforeVisitor = captureSlotSnapshot();
@@ -1591,9 +1618,10 @@
     var visitor = visitorOf(num);
     if (visitor) {
       var who = visitor.name || "someone here";
+      var visitorDesc = visitorSpellText(visitor);
       return {
         title: who,
-        description: "A still from " + who + ".",
+        description: visitorDesc || "A still from " + who + ".",
       };
     }
     var photo = photoOf(num);
@@ -1638,6 +1666,11 @@
   function analysisSpellText(num) {
     var note = noteOf(num);
     if (note) return String(note.text || "");
+    var visitorText = visitorOf(num);
+    if (visitorText) {
+      var brought = visitorSpellText(visitorText);
+      if (brought) return brought;
+    }
     var a = getAnalysis(num);
     var extra = extraSpells[num] || extraSpells[String(num)];
     if (!a) {
@@ -5702,7 +5735,11 @@
         }
         window.dispatchEvent(
           new CustomEvent("spellforge-job-done", {
-            detail: { imageUrl: imageUrl, spells: (nums || []).slice() },
+            detail: {
+              imageUrl: imageUrl,
+              spells: (nums || []).slice(),
+              description: String(lastFusedPrompt || spellStasis || ""),
+            },
           })
         );
       } catch (e) {}
