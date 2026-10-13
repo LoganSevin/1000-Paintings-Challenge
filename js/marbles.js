@@ -54,9 +54,15 @@
     return b;
   }
 
+  // A marble may only END a turn in its own home point or the one directly opposite;
+  // other star points may be passed through during a jump chain but not stopped in.
+  function canEndAt(p, i) {
+    var z = CELLS[i].zone;
+    return z < 0 || z === p || z === (p + 3) % 6;
+  }
   function stepMoves(b, from) {
-    var out = [];
-    NEIGH[from].forEach(function (n) { if (n >= 0 && b[n] < 0) out.push(n); });
+    var out = [], p = b[from];
+    NEIGH[from].forEach(function (n) { if (n >= 0 && b[n] < 0 && canEndAt(p, n)) out.push(n); });
     return out;
   }
   // Single jumps from `from`, excluding cells in `visited`. Pieces jump over any one adjacent marble.
@@ -72,6 +78,33 @@
     });
     return out;
   }
+  // Can a chain that is sitting at `at` (cells in `visited` already used) still
+  // reach a cell where player p may stop? `b` must not contain the moving marble.
+  function chainCanEnd(b, at, visited, p) {
+    var seen = {}; for (var v in visited) seen[v] = true; seen[at] = true;
+    var queue = [at];
+    while (queue.length) {
+      var cur = queue.shift(), next = jumpMoves(b, cur, seen);
+      for (var k = 0; k < next.length; k++) {
+        if (canEndAt(p, next[k])) return true;
+        seen[next[k]] = true; queue.push(next[k]);
+      }
+    }
+    return false;
+  }
+  // Jumps the marble at `from` (owned by p) may take now: the landing cell must be a
+  // legal stop, or the chain must be able to continue from it to a legal stop.
+  function legalJumps(b, from, visited, p) {
+    var owner = b[from];
+    b[from] = -1;
+    var out = jumpMoves(b, from, visited).filter(function (n) {
+      if (canEndAt(p, n)) return true;
+      var v = {}; for (var x in visited) v[x] = true; v[from] = true; v[n] = true;
+      return chainCanEnd(b, n, v, p);
+    });
+    b[from] = owner;
+    return out;
+  }
   // All final destinations reachable this turn (steps + chained jumps). Map dest -> path.
   function allDestinations(b, from) {
     var res = {};
@@ -85,7 +118,7 @@
       jumpMoves(b, at, visited).forEach(function (n) {
         visited[n] = true;
         var np = path.concat([n]);
-        if (!res[n]) res[n] = np;
+        if (!res[n] && canEndAt(owner, n)) res[n] = np; // pass through, but never stop in, other points
         queue.push(np);
       });
     }
@@ -140,7 +173,7 @@
   var Engine = {
     CELLS: CELLS, NEIGH: NEIGH, ZONE: ZONE, POINTS: POINTS, INDEX: INDEX, N: N,
     seatsFor: seatsFor, newBoard: newBoard, stepMoves: stepMoves, jumpMoves: jumpMoves,
-    allDestinations: allDestinations, hasWon: hasWon, aiMove: aiMove
+    allDestinations: allDestinations, canEndAt: canEndAt, legalJumps: legalJumps, hasWon: hasWon, aiMove: aiMove
   };
   root.MarblesEngine = Engine;
   if (typeof module !== "undefined" && module.exports) module.exports = Engine;
@@ -250,18 +283,19 @@
     function snapshot() { return { board: G.board.slice(), turn: G.turn, winner: G.winner, moves: G.moves }; }
 
     function legalFor(i) {
-      if (G.jumping) return jumpMoves(G.board, i, G.visited);
+      if (G.jumping) return legalJumps(G.board, i, G.visited, cur());
       return stepMoves(G.board, i).concat(jumpMovesFresh(i));
     }
-    function jumpMovesFresh(i) { var v = {}; v[i] = true; return jumpMoves(G.board, i, v); }
+    function jumpMovesFresh(i) { var v = {}; v[i] = true; return legalJumps(G.board, i, v, cur()); }
+    function canStop() { return G.jumping && canEndAt(cur(), G.sel); }
 
     function onTap(e) {
       if (!G || busy || G.winner >= 0) return;
       var p = cur(); if (!isHuman(p)) return;
       var i = +e.currentTarget.getAttribute("data-i");
       if (G.jumping) {
-        if (i === G.sel) { endTurn(); return; }
-        if (jumpMoves(G.board, G.sel, G.visited).indexOf(i) >= 0) doJump(i);
+        if (i === G.sel) { if (canStop()) endTurn(); return; }
+        if (legalJumps(G.board, G.sel, G.visited, p).indexOf(i) >= 0) doJump(i);
         return;
       }
       if (G.board[i] === p) { G.sel = G.sel === i ? -1 : i; render(); return; }
@@ -282,7 +316,7 @@
     function doJump(i) {
       var p = cur();
       G.board[i] = p; G.board[G.sel] = -1; G.sel = i; G.visited[i] = true;
-      if (jumpMoves(G.board, i, G.visited).length === 0) { endTurn(); return; }
+      if (legalJumps(G.board, i, G.visited, p).length === 0 && canEndAt(p, i)) { endTurn(); return; }
       render();
     }
     function endTurn() {
@@ -346,15 +380,16 @@
         statusEl.className = "mb-status mb-win";
       } else {
         var who = isHuman(p0) ? (G.mode === "pass" ? pt.name + "'s turn" : "Your turn (" + pt.name + ")") : pt.name + " (computer) is thinking…";
-        if (G.jumping) who += " — keep jumping, or tap End turn";
+        if (G.jumping) who += canStop() ? " — keep jumping, or tap End turn" : " — you can't stop in another player's point; keep jumping";
         statusEl.innerHTML = '<span class="mb-dot" style="background:' + pt.fill + '"></span> ' + who;
         statusEl.className = "mb-status";
       }
       endBtn.hidden = !G.jumping;
+      endBtn.disabled = G.jumping && !canStop();
       undoBtn.disabled = !history.length;
     }
 
-    endBtn.addEventListener("click", function () { if (G && G.jumping) endTurn(); });
+    endBtn.addEventListener("click", function () { if (G && G.jumping && canStop()) endTurn(); });
     undoBtn.addEventListener("click", undo);
     newBtn.addEventListener("click", newGame);
     [modeSel, countSel, colorSel].forEach(function (s) { s.addEventListener("change", newGame); });
