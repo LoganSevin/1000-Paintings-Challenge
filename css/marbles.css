@@ -1,0 +1,13 @@
+#panel-marbles .mb-shell { max-width: 720px; margin: 0 auto; padding: 12px; color: #f4ecd6; }
+#panel-marbles h2 { margin: 0 0 6px; }
+.mb-hint { opacity: .8; margin: 0 0 10px; font-size: .95rem; }
+.mb-controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 8px; }
+.mb-controls label { display: flex; gap: 4px; align-items: center; font-size: .95rem; }
+.mb-controls select, .mb-controls button { min-height: 40px; padding: 6px 12px; border-radius: 8px; border: 1px solid #e8c14a; background: #1a1410; color: #f4ecd6; font-size: 1rem; }
+.mb-controls button:disabled { opacity: .45; }
+#mb-end { background: #b3121b; }
+.mb-status { min-height: 1.6em; margin: 6px 0; font-weight: 600; display: flex; align-items: center; gap: 6px; }
+.mb-status.mb-win { color: #f2cf1d; font-size: 1.15rem; }
+.mb-dot { width: 14px; height: 14px; border-radius: 50%; display: inline-block; border: 1px solid #000; flex: none; }
+#mb-board { width: 100%; height: auto; display: block; touch-action: manipulation; -webkit-tap-highlight-color: transparent; user-select: none; }
+#mb-board .mb-hit { cursor: pointer; }
