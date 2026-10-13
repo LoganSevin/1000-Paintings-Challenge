@@ -57,7 +57,7 @@
   <link rel="stylesheet" href="css/sine.css?v=8" />
   <link rel="stylesheet" href="css/cameos.css?v=3" />
   <link rel="stylesheet" href="css/codes.css?v=3" />
-  <link rel="stylesheet" href="css/diction.css?v=5" />
+  <link rel="stylesheet" href="css/diction.css?v=6" />
   <link rel="stylesheet" href="css/periodic.css?v=6" />
   <link rel="stylesheet" href="css/math.css?v=3" />
   <link rel="stylesheet" href="css/print-shops.css?v=2" />
@@ -8027,7 +8027,12 @@
       <div class="dict-letters" id="dict-letters" role="tablist" aria-label="Letters"></div>
       <div class="dict-body">
         <div class="dict-list-col">
-          <input id="dict-search" class="dict-search" type="search" placeholder="Find a word" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Find a word" />
+          <input id="dict-search" class="dict-search" type="search" placeholder="Find a word, or B 152 / #152" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Find a word" />
+          <div class="dict-numbar">
+            <input id="dict-num" class="dict-num-input" type="number" inputmode="numeric" min="1" step="1" placeholder="#" aria-label="Word number" />
+            <button type="button" id="dict-random" class="dict-random">Random</button>
+          </div>
+          <p class="dict-num-msg" id="dict-num-msg" aria-live="polite"></p>
           <p class="dict-count" id="dict-count"></p>
           <div class="dict-words" id="dict-words">
             <div class="dict-words-inner" id="dict-words-inner"></div>
@@ -9218,7 +9223,7 @@
   <script defer src="js/sine.js?v=13"></script>
   <script defer src="js/cameos.js?v=4"></script>
   <script defer src="js/codes.js?v=2"></script>
-  <script defer src="js/diction.js?v=5"></script>
+  <script defer src="js/diction.js?v=6"></script>
   <script defer src="js/periodic.js?v=7"></script>
   <script defer src="js/math.js?v=4"></script>
   <script defer src="js/profit.js?v=2"></script>

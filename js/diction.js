@@ -20,6 +20,29 @@
   var STORE = "l7in_diction_inventory_v1";
   var inventory = {};
   var picked = {};
+  var numOf = {};
+  var hitWord = "";
+
+  // Number lookups: every word in a letter is numbered 1..N in the letter's
+  // sorted list order. Filters never change a word's number.
+  function buildNumbers(rows) {
+    var map = {};
+    for (var i = 0; i < rows.length; i++) map[rows[i]] = i + 1;
+    return map;
+  }
+
+  // "152", "#152", "B 152", "b152", "B #152" -> { letter: "b" or "", n: 152 }
+  function parseNumberQuery(q) {
+    var m = /^\s*([a-z])?\s*#?\s*(\d+)\s*$/i.exec(String(q || ""));
+    if (!m) return null;
+    return { letter: (m[1] || "").toLowerCase(), n: parseInt(m[2], 10) };
+  }
+
+  function wordAt(rows, n) {
+    n = Number(n);
+    if (!rows || !(n >= 1 && n <= rows.length) || Math.floor(n) !== n) return "";
+    return rows[n - 1];
+  }
 
   function $(id) {
     return document.getElementById(id);
@@ -172,6 +195,9 @@
       })
       .then(function (text) {
         var rows = text.split(/\r?\n/).filter(Boolean);
+        rows = rows.map(function (w) {
+          return w.trim();
+        }).filter(Boolean);
         lists[ch] = rows;
         return rows;
       });
@@ -181,7 +207,7 @@
     var q = "";
     var input = $("dict-search");
     if (input) q = String(input.value || "").trim().toLowerCase();
-    if (!q) {
+    if (!q || parseNumberQuery(q)) {
       filtered = words;
       return;
     }
@@ -198,7 +224,10 @@
     if (!host || !inner) return;
     var total = filtered.length;
     if (count) {
-      count.textContent = total.toLocaleString() + " words in " + letter.toUpperCase();
+      count.textContent =
+        total === words.length
+          ? words.length.toLocaleString() + " words in " + letter.toUpperCase()
+          : total.toLocaleString() + " of " + words.length.toLocaleString() + " words in " + letter.toUpperCase();
     }
     inner.style.height = total * ROW + "px";
     var top = host.scrollTop || 0;
@@ -211,13 +240,16 @@
       html.push(
         '<button type="button" class="dict-word' +
           (w === activeWord ? " is-on" : "") +
+          (w === hitWord ? " is-hit" : "") +
           '" data-word="' +
           w +
           '" style="top:' +
           i * ROW +
-          'px">' +
+          'px"><span class="dict-num">' +
+          (numOf[w] || "") +
+          '</span><span class="dict-w">' +
           w +
-          "</button>"
+          "</span></button>"
       );
     }
     inner.innerHTML = html.join("");
@@ -242,11 +274,56 @@
     }
     return loadLetter(ch).then(function (rows) {
       words = rows;
+      numOf = buildNumbers(rows);
+      hitWord = "";
+      var nb = $("dict-num");
+      if (nb) {
+        nb.max = String(rows.length);
+        nb.placeholder = "1–" + rows.length;
+      }
       applyFilter();
       var host = $("dict-words");
       if (host) host.scrollTop = 0;
       paintList();
     });
+  }
+
+  function setNumMsg(text) {
+    var el = $("dict-num-msg");
+    if (el) el.textContent = text || "";
+  }
+
+  // Jump to word number n in the current letter: clears any word filter so the
+  // full list shows, scrolls it to the middle, and highlights it.
+  function jumpTo(n, open, keepSearch) {
+    var w = wordAt(words, n);
+    var L = letter.toUpperCase();
+    if (!w) {
+      setNumMsg("No #" + n + " in " + L + ". Pick 1–" + words.length.toLocaleString() + ".");
+      return "";
+    }
+    var input = $("dict-search");
+    if (input && !keepSearch) input.value = "";
+    filtered = words;
+    hitWord = w;
+    var host = $("dict-words");
+    if (host) {
+      var h = host.clientHeight || 480;
+      host.scrollTop = Math.max(0, (n - 1) * ROW - (h - ROW) / 2);
+    }
+    setNumMsg(L + " #" + n.toLocaleString() + " of " + words.length.toLocaleString() + ": " + w);
+    if (open) openWord(w);
+    else paintList();
+    return w;
+  }
+
+  function jumpLetterNumber(ch, n, open, keepSearch) {
+    if (ch && ch !== letter) {
+      return showLetter(ch).then(function () {
+        return jumpTo(n, open, keepSearch);
+      });
+    }
+    return Promise.resolve(jumpTo(n, open, keepSearch));
   }
 
   function plainDefinition(html) {
@@ -701,6 +778,9 @@
         if (!btn) return;
         var input = $("dict-search");
         if (input) input.value = "";
+        var nbox = $("dict-num");
+        if (nbox) nbox.value = "";
+        setNumMsg("");
         showLetter(btn.getAttribute("data-letter")).catch(function () {
           setStatus("That letter did not load.");
         });
@@ -723,6 +803,14 @@
       search.dataset.bound = "1";
       search.addEventListener("input", function () {
         var q = String(search.value || "").trim().toLowerCase();
+        var nq = parseNumberQuery(q);
+        if (nq) {
+          jumpLetterNumber(nq.letter, nq.n, false, true).catch(function () {
+            setStatus("That letter did not load.");
+          });
+          return;
+        }
+        hitWord = "";
         var next = q && /[a-z]/.test(q.charAt(0)) ? q.charAt(0) : letter;
         var run = function () {
           applyFilter();
@@ -739,10 +827,54 @@
         run();
       });
       search.addEventListener("keydown", function (e) {
+        var nq = parseNumberQuery(search.value);
+        if (e.key === "Enter" && nq) {
+          e.preventDefault();
+          jumpLetterNumber(nq.letter, nq.n, true, true);
+          return;
+        }
         if (e.key === "Enter" && filtered[0]) {
           e.preventDefault();
           openWord(filtered[0]);
         }
+      });
+    }
+
+    var numBox = $("dict-num");
+    if (numBox && !numBox.dataset.bound) {
+      numBox.dataset.bound = "1";
+      var goNum = function (open) {
+        var raw = String(numBox.value || "").trim();
+        if (!raw) {
+          setNumMsg("");
+          return;
+        }
+        var n = parseInt(raw, 10);
+        if (!(n >= 1) || String(n) !== raw.replace(/^0+(?=\d)/, "")) {
+          setNumMsg("Type a whole number 1–" + words.length.toLocaleString() + ".");
+          return;
+        }
+        jumpTo(n, open);
+      };
+      numBox.addEventListener("input", function () {
+        goNum(false);
+      });
+      numBox.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          goNum(true);
+        }
+      });
+    }
+
+    var rnd = $("dict-random");
+    if (rnd && !rnd.dataset.bound) {
+      rnd.dataset.bound = "1";
+      rnd.addEventListener("click", function () {
+        if (!words.length) return;
+        var n = 1 + Math.floor(Math.random() * words.length);
+        if (numBox) numBox.value = String(n);
+        jumpTo(n, true);
       });
     }
 
@@ -812,7 +944,10 @@
   }
 
   loadInventory();
-  window.Diction = { onShow: onShow };
+  window.Diction = {
+    onShow: onShow,
+    _num: { buildNumbers: buildNumbers, parseNumberQuery: parseNumberQuery, wordAt: wordAt },
+  };
   document.addEventListener("diction-show", onShow);
 
   if (document.readyState === "loading") {

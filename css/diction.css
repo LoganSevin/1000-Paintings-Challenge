@@ -339,3 +339,67 @@
     height: 240px;
   }
 }
+
+.dict-numbar {
+  display: flex;
+  gap: 0.35rem;
+  margin-bottom: 0.25rem;
+}
+
+.dict-num-input {
+  flex: 1 1 auto;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 0.45rem 0.55rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-elevated);
+  color: var(--text);
+  font: inherit;
+}
+
+.dict-random {
+  flex: 0 0 auto;
+  padding: 0.45rem 0.8rem;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  color: var(--accent);
+  font: inherit;
+  cursor: pointer;
+}
+
+.dict-num-msg {
+  margin: 0 0 0.3rem;
+  min-height: 1.1em;
+  color: var(--accent);
+  font-size: 0.85rem;
+  overflow-wrap: anywhere;
+}
+
+.dict-word {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.dict-num {
+  flex: 0 0 3.6em;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.dict-w {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dict-word.is-hit {
+  background: var(--bg-elevated);
+  box-shadow: inset 3px 0 0 var(--accent);
+  color: var(--accent);
+}
