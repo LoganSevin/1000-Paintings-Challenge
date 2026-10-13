@@ -1,7 +1,8 @@
 /**
  * Spellforge: shuffled grid, spell slots, fused text, interaction preview, optional fusion video.
- * Cache bust v132: each Spell I–III card keeps its own tome. Equipping one slot
- * does not rewrite the other two.
+ * Cache bust v133: Spell I, Spell II, and Spell III each own their tome.
+ * The Spell I button writes slot I only. A shared tome is copied apart
+ * so one slot cannot overwrite the other two.
  */
 (function () {
   var PAGE_SIZE = 25;
@@ -1366,20 +1367,13 @@
       sid: sid,
       at: Date.now(),
     };
+    var beforeVisitor = captureSlotSnapshot();
     var keptVisitor = [spells[0], spells[1], spells[2]];
     spells[slotIndex] = id;
     pinOtherSlots(slotIndex, keptVisitor);
     clearSpellSlotBody(slotIndex);
     saveVisitorSpells();
-    if (spellforgeReady) {
-      renderSlots();
-      renderGrid();
-      pinOtherSlots(slotIndex, keptVisitor);
-      spells[slotIndex] = id;
-      saveEquippedSpells();
-    } else {
-      saveEquippedSpells();
-    }
+    finishSingleSlotEquip(slotIndex, beforeVisitor, id);
     return { ok: true, slot: slotIndex, id: id, slots: [spells[0], spells[1], spells[2]] };
   }
 
@@ -1508,20 +1502,13 @@
       tags: tags,
       at: Date.now(),
     };
+    var beforePhoto = captureSlotSnapshot();
     var keptPhoto = [spells[0], spells[1], spells[2]];
     spells[slotIndex] = id;
     pinOtherSlots(slotIndex, keptPhoto);
     clearSpellSlotBody(slotIndex);
     savePhotoSpells();
-    if (spellforgeReady) {
-      renderSlots();
-      renderGrid();
-      pinOtherSlots(slotIndex, keptPhoto);
-      spells[slotIndex] = id;
-      saveEquippedSpells();
-    } else {
-      saveEquippedSpells();
-    }
+    finishSingleSlotEquip(slotIndex, beforePhoto, id);
     return { ok: true, slot: slotIndex, id: id, slots: [spells[0], spells[1], spells[2]] };
   }
 
@@ -2802,6 +2789,142 @@
     }
   }
 
+  function cloneSlotTextRec(rec) {
+    if (!rec) return null;
+    return {
+      id: Number(rec.id),
+      text: String(rec.text || ""),
+      original: String(rec.original != null ? rec.original : rec.text || ""),
+      title: String(rec.title || ""),
+      tags: Array.isArray(rec.tags) ? rec.tags.slice(0, 6) : [],
+      kind: rec.kind === "note" ? "note" : "",
+      frozen: !!rec.frozen,
+    };
+  }
+
+  function captureSlotSnapshot() {
+    var snap = [];
+    for (var i = 0; i < 3; i++) {
+      snap.push({
+        id: spells[i],
+        text: cloneSlotTextRec(spellSlotText[i]),
+        body: String(getSpellSlotBody(i) || ""),
+      });
+    }
+    return snap;
+  }
+
+  /**
+   * One tome id can sit in only one slot. Later slots get a private copy
+   * of the text they were already showing.
+   */
+  function forkSharedSlotNotes() {
+    var owner = {};
+    var changed = false;
+    for (var i = 0; i < 3; i++) {
+      var id = Number(spells[i]);
+      var note = noteOf(id);
+      if (!id || !note) continue;
+      if (owner[id] == null) {
+        owner[id] = i;
+        continue;
+      }
+      var rec = spellSlotText[i];
+      var body =
+        rec && Number(rec.id) === id && rec.text != null
+          ? String(rec.text)
+          : String(note.text || "");
+      var fresh = allocSpellNoteId();
+      var tags = (
+        rec && rec.tags && rec.tags.length ? rec.tags : note.tags || []
+      ).slice(0, 6);
+      var title = String(
+        (rec && rec.title) || note.title || deriveNoteTitle(body) || "Tome"
+      );
+      spellNotes.notes[String(fresh)] = {
+        id: fresh,
+        title: title,
+        text: body,
+        tags: tags.slice(),
+        createdAt: Date.now(),
+      };
+      spells[i] = fresh;
+      spellSlotText[i] = {
+        id: fresh,
+        text: body,
+        original: rec && rec.original != null ? String(rec.original) : body,
+        title: title,
+        tags: tags.slice(),
+        kind: "note",
+        frozen: true,
+      };
+      changed = true;
+    }
+    if (changed) {
+      saveSpellNotes();
+      saveEquippedSpells();
+      saveSlotTexts();
+    }
+    return changed;
+  }
+
+  /** Put the other two slots back if this equip rewrote their id or their text. */
+  function restoreDamagedSlots(slotIndex, before, newId) {
+    var changed = false;
+    for (var i = 0; i < 3; i++) {
+      if (i === slotIndex || !before[i]) continue;
+      var idNow = Number(spells[i] || 0);
+      var bodyNow = String(getSpellSlotBody(i) || "");
+      var bodyWas = String(before[i].body || "");
+      var tookNew =
+        newId &&
+        idNow === Number(newId) &&
+        Number(before[i].id || 0) !== Number(newId);
+      if (!tookNew && bodyNow === bodyWas) continue;
+      spells[i] = before[i].id;
+      if (before[i].text) {
+        spellSlotText[i] = cloneSlotTextRec(before[i].text);
+      } else if (before[i].id && bodyWas) {
+        spellSlotText[i] = {
+          id: Number(before[i].id),
+          text: bodyWas,
+          original: bodyWas,
+          title: "",
+          tags: [],
+          kind: noteOf(before[i].id) ? "note" : "",
+          frozen: true,
+        };
+      } else {
+        spellSlotText[i] = null;
+      }
+      changed = true;
+    }
+    spells[slotIndex] = newId;
+    if (forkSharedSlotNotes()) changed = true;
+    spells[slotIndex] = newId;
+    if (changed) {
+      saveEquippedSpells();
+      saveSlotTexts();
+    }
+    return changed;
+  }
+
+  function finishSingleSlotEquip(slotIndex, before, newId) {
+    if (spellforgeReady) {
+      renderSlots();
+      renderGrid();
+      if (restoreDamagedSlots(slotIndex, before, newId)) {
+        spells[slotIndex] = newId;
+        renderSlots();
+        renderGrid();
+      }
+    } else {
+      restoreDamagedSlots(slotIndex, before, newId);
+    }
+    spells[slotIndex] = newId;
+    saveEquippedSpells();
+  }
+
   function loadEquippedSpells() {
     // Once. A later call would put back whatever was saved at boot and drop
     // a tome the artist just equipped into one slot.
@@ -3279,6 +3402,9 @@
   function setSpellSlotBody(slotIndex, text) {
     var id = Number(spells[slotIndex]);
     if (!id) return;
+    // Split a tome that other slots still show before this edit writes it.
+    forkSharedSlotNotes();
+    id = Number(spells[slotIndex]);
     if (noteOf(id)) isolateSlotNote(slotIndex);
     id = Number(spells[slotIndex]);
     var prev = spellSlotText[slotIndex];
@@ -7091,6 +7217,7 @@
   }
 
   function renderSlots() {
+    forkSharedSlotNotes();
     closeSpellColorPopover();
     var slots = document.querySelectorAll("#panel-spellforge .spell-slots-stack > .spell-slot");
     var names = ["I", "II", "III"];
@@ -7186,6 +7313,10 @@
     if (!text) return { ok: false, error: "Write a note first." };
     loadSpellNotes();
     if (!spellNotes.notes) spellNotes.notes = {};
+    // A tome already sitting in the other slots gets its own copy first,
+    // so this new note cannot rewrite them.
+    forkSharedSlotNotes();
+    var before = captureSlotSnapshot();
     var kept = [spells[0], spells[1], spells[2]];
     var id = allocSpellNoteId();
     var tags = deriveTomeTags(text);
@@ -7201,31 +7332,22 @@
     pinOtherSlots(slotIndex, kept);
     clearSpellSlotBody(slotIndex);
     freezeSlotNote(slotIndex);
-    if (spellforgeReady) {
-      renderSlots();
-      renderGrid();
-      pinOtherSlots(slotIndex, kept);
-      spells[slotIndex] = id;
-      saveEquippedSpells();
-    } else {
-      saveEquippedSpells();
-    }
-    return { ok: true, slot: slotIndex, id: id, tags: tags };
+    finishSingleSlotEquip(slotIndex, before, id);
+    return { ok: true, slot: slotIndex, id: id, tags: tags, slots: [spells[0], spells[1], spells[2]] };
   }
 
   function equipToSlot(num, slotIndex) {
     slotIndex = parseInt(slotIndex, 10);
     if (slotIndex < 0 || slotIndex > 2 || isNaN(slotIndex)) return;
+    forkSharedSlotNotes();
+    var before = captureSlotSnapshot();
     var kept = [spells[0], spells[1], spells[2]];
     spells[slotIndex] = num;
     pinOtherSlots(slotIndex, kept);
     clearSpellSlotBody(slotIndex);
     if (noteOf(num) && noteSharedWithOtherSlot(slotIndex)) isolateSlotNote(slotIndex);
     if (noteOf(spells[slotIndex])) freezeSlotNote(slotIndex);
-    renderSlots();
-    renderGrid();
-    pinOtherSlots(slotIndex, kept);
-    saveEquippedSpells();
+    finishSingleSlotEquip(slotIndex, before, spells[slotIndex]);
   }
 
   function setEquippedSlots(next, opts) {
@@ -7245,6 +7367,8 @@
           spellSlotText[i] = null;
         }
       }
+      // The same tome must not stay writable from every slot.
+      forkSharedSlotNotes();
       saveSlotTexts();
       saveEquippedSpells();
       if (spellforgeReady && !opts.skipRender) {
