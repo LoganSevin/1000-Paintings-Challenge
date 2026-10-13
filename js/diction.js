@@ -639,7 +639,7 @@
     var gloss = entryText(entry);
     if (gloss) parts.push(gloss);
     var out = parts.join(" ");
-    if (out.length > 7000) out = out.slice(0, 7000);
+    if (out.length > 1800) out = out.slice(0, 1800);
     return out;
   }
 
@@ -665,12 +665,16 @@
       .then(function (job) {
         var st = String((job && job.status) || "").toLowerCase();
         if (st === "done" || st === "completed" || st === "success") {
+          if (job && job.moderated) {
+            return { moderated: true, dropped: Array.isArray(job.dropped) ? job.dropped : [] };
+          }
           var url = extractImageUrl(job);
           if (url) return url;
           throw new Error("The painting finished without an image.");
         }
         if (st === "failed" || st === "error" || st === "expired") {
-          throw new Error((job && job.error) || "The painting did not finish.");
+          var e = job && job.error;
+          throw new Error((e && (e.message || (typeof e === "string" ? e : ""))) || "The painting did not finish.");
         }
         return new Promise(function (resolve) {
           setTimeout(resolve, 1500);
@@ -682,24 +686,33 @@
 
   function quietError(err) {
     var msg = String((err && err.message) || err || "");
-    if (/api key|capacity|pollinations|cloudflare|incorrect api|insufficient balance/i.test(msg)) {
+    if (/combination-still-painting|quota|neuron|credits|capacity|rate limit|too many requests|insufficient balance|daily|4006/i.test(msg)) {
+      return "Today's free image quota is used up. It resets at 6 PM (UTC-6). Try again after that.";
+    }
+    if (/api key|pollinations|cloudflare|incorrect api/i.test(msg)) {
       return "The painting did not start. Try the phrase again.";
     }
     return msg.slice(0, 180) || "The painting did not start.";
   }
 
-  function generate(phrase) {
-    if (busy || !phrase) return;
-    var word = activeWord || (currentEntry && currentEntry.word) || "";
-    busy = true;
-    hideMenu();
-    var prompt = buildPrompt(phrase, currentEntry);
-    var jobId =
-      typeof crypto !== "undefined" && crypto.randomUUID
-        ? crypto.randomUUID()
-        : "diction-" + Date.now();
-    setStatus("Painting the meaning of “" + phrase.slice(0, 80) + "”…");
-    fetch(apiUrl("/api/generate-stasis-vision"), {
+  function softenPrompt(prompt, phrase, word, dropped) {
+    var out = String(prompt || "");
+    (dropped || []).forEach(function (w) {
+      w = String(w || "").trim();
+      if (!w) return;
+      var esc = w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+      out = out.replace(new RegExp("\\b" + esc + "\\b", "gi"), " ");
+    });
+    out = out.replace(/\s{2,}/g, " ").trim();
+    if (out.length > 900) out = out.slice(0, 900);
+    return (
+      "Paint one tasteful, non-graphic, symbolic image of this dictionary meaning. Fully clothed figures, no violence or gore. " +
+      out
+    );
+  }
+
+  function requestImage(jobId, prompt) {
+    return fetch(apiUrl("/api/generate-stasis-vision"), {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -722,10 +735,43 @@
       })
       .then(function (res) {
         var d = res.d || {};
+        if (d.moderated) return { moderated: true, dropped: d.dropped || [] };
         var url = extractImageUrl(d);
         if (url) return url;
-        if (res.status === 202 || d.job_id || jobId) return pollImageJob(d.job_id || jobId);
-        throw new Error((d && d.error) || "The painting did not start.");
+        if (!res.ok && res.status !== 202) {
+          var e = d.error;
+          throw new Error((e && (e.message || (typeof e === "string" ? e : ""))) || "The painting did not start.");
+        }
+        return pollImageJob(d.job_id || jobId);
+      });
+  }
+
+  function newJobId() {
+    return typeof crypto !== "undefined" && crypto.randomUUID
+      ? crypto.randomUUID()
+      : "diction-" + Date.now() + "-" + Math.floor(Math.random() * 1e6);
+  }
+
+  function generate(phrase) {
+    if (busy || !phrase) return;
+    var word = activeWord || (currentEntry && currentEntry.word) || "";
+    busy = true;
+    hideMenu();
+    var prompt = buildPrompt(phrase, currentEntry);
+    setStatus("Painting the meaning of “" + phrase.slice(0, 80) + "”…");
+    requestImage(newJobId(), prompt)
+      .then(function (out) {
+        if (out && out.moderated) {
+          setStatus("The image filter declined that wording. Trying a gentler version…");
+          return requestImage(newJobId(), softenPrompt(prompt, phrase, word, out.dropped));
+        }
+        return out;
+      })
+      .then(function (out) {
+        if (out && out.moderated) {
+          throw new Error("The image filter declined this meaning. Try highlighting a different phrase.");
+        }
+        return out;
       })
       .then(function (url) {
         showImage(word, phrase, url);
