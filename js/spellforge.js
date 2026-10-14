@@ -3603,9 +3603,15 @@
     if (!spells[slotIndex]) return "";
     var busy = slotBusy[slotIndex] ? " disabled" : "";
     if (slotTomeInfo(slotIndex)) {
-      return '<button type="button" class="spell-slot-generate btn-secondary" data-slot="' + slotIndex + '"' + busy +
+      var genHtml = '<button type="button" class="spell-slot-generate btn-secondary" data-slot="' + slotIndex + '"' + busy +
         ' title="Paint this tome on its own. Each one is saved to Generated as the next #">' +
-        (slotBusy[slotIndex] ? "Generating…" : "Generate") + "</button>";
+        (slotBusy[slotIndex] === "gen" ? "Generating…" : "Generate") + "</button>";
+      if (slotLastGen(slotIndex)) {
+        genHtml += '<button type="button" class="spell-slot-describe btn-secondary" data-slot="' + slotIndex + '"' + busy +
+          ' title="Describe the generated image and use it as the spell text">' +
+          (slotBusy[slotIndex] === "desc" ? "Describing…" : "Describe") + "</button>";
+      }
+      return genHtml;
     }
     return '<button type="button" class="spell-slot-describe btn-secondary" data-slot="' + slotIndex + '"' + busy +
       ' title="Describe this image and use it as the spell text">' +
@@ -3616,12 +3622,6 @@
     if (slotMsgNum[slotIndex] !== (Number(spells[slotIndex]) || 0)) slotMsg[slotIndex] = "";
     var html = '<div class="spell-slot-msg' + (slotMsgErr[slotIndex] ? " is-error" : "") + '"' +
       (slotMsg[slotIndex] ? "" : " hidden") + ' role="status">' + escapeHtml(slotMsg[slotIndex]) + "</div>";
-    var last = slotLastGen(slotIndex);
-    if (last) {
-      html += '<a class="spell-slot-gen-thumb" href="' + escapeAttr(last.url) + '" target="_blank" rel="noopener">' +
-        '<img src="' + escapeAttr(last.url) + '" alt="' + escapeAttr(last.title + " #" + last.n) + '" loading="lazy" />' +
-        "<span>" + escapeHtml(last.title + " #" + last.n) + "</span></a>";
-    }
     return html;
   }
 
@@ -7343,6 +7343,9 @@
       .then(function (list) {
         slotGens = list.sort(function (a, b) { return a.seq - b.seq; });
         ingestSlotGens();
+        if (slotGens.length && (spells[0] || spells[1] || spells[2])) {
+          try { renderSlots(); } catch (e) {}
+        }
         return slotGens;
       });
     return slotGensLoaded;
@@ -7554,7 +7557,7 @@
       setSlotMsg(slotIndex, "This tome has no text yet. Press Edit text first.", true);
       return;
     }
-    slotBusy[slotIndex] = true;
+    slotBusy[slotIndex] = "gen";
     renderSlots();
     setSlotMsg(slotIndex, "Painting “" + info.title.slice(0, 60) + "”…");
     var prompt = buildTomePrompt(info);
@@ -7582,6 +7585,7 @@
         var rec = {
           seq: seq,
           key: slotGenKey(info.title),
+          tome: Number(spells[slotIndex]) || 0,
           title: info.title,
           n: n,
           url: url,
@@ -7640,10 +7644,15 @@
     if (slotBusy[slotIndex] || !spells[slotIndex]) return;
     var num = spells[slotIndex];
     var photo = photoOf(num);
-    slotBusy[slotIndex] = true;
+    var tomeGen = slotLastGen(slotIndex);
+    slotBusy[slotIndex] = "desc";
     renderSlots();
     setSlotMsg(slotIndex, "Writing the description…");
-    var bodyP = photo && photo.id
+    var bodyP = tomeGen
+      ? imageToDataUrl(tomeGen.url).then(function (dataUrl) {
+          return { image_base64: dataUrl, name: "tome-" + tomeGen.key.replace(/\s+/g, "-") + "-" + tomeGen.n + ".jpg", force: true };
+        })
+      : photo && photo.id
       ? Promise.resolve({ id: photo.id, force: true })
       : imageToDataUrl(paintingUrl(num)).then(function (dataUrl) {
           return { image_base64: dataUrl, name: "spell-" + num + ".jpg", force: true };
@@ -7684,9 +7693,15 @@
   function slotLastGen(slotIndex) {
     var info = slotTomeInfo(slotIndex);
     if (!info) return null;
+    // Keyed per tome (spell number) so Describe/Edit text renaming the tome keeps its image;
+    // older records without a tome id fall back to the title key.
+    var num = Number(spells[slotIndex]) || 0;
     var key = slotGenKey(info.title);
     var last = null;
-    slotGens.forEach(function (g) { if (g.key === key && (!last || g.n > last.n)) last = g; });
+    slotGens.forEach(function (g) {
+      var hit = g.tome ? g.tome === num : g.key === key;
+      if (hit && (!last || g.seq > last.seq)) last = g;
+    });
     return last;
   }
 
@@ -7745,11 +7760,13 @@
       }
       el.classList.add("filled");
       el.classList.toggle("spell-slot-tome", showTome);
+      var tomeGenLast = showTome ? slotLastGen(s) : null;
+      el.classList.toggle("spell-slot-has-gen", !!tomeGenLast);
       el.innerHTML =
         '<div class="spell-slot-inner">' +
         '<img src="' +
-        escapeAttr(paintingUrl(num)) +
-        '" alt="' +
+        escapeAttr(tomeGenLast ? tomeGenLast.url : paintingUrl(num)) +
+        '"' + (tomeGenLast ? ' class="spell-slot-gen-img" title="' + escapeAttr(tomeGenLast.title + " #" + tomeGenLast.n) + '"' : "") + ' alt="' +
         escapeAttr(head) +
         '" />' +
         '<div class="spell-slot-copy">' +
