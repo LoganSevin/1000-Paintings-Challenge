@@ -2420,20 +2420,7 @@ button.spell-chip.spell-chip-toggle.is-on:hover {
 .spell-slot-msg.is-error {
   color: #ffb3a8;
 }
-.spell-slot-gen-thumb {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  margin-top: 0.35rem;
-  font-size: 0.72rem;
-  color: inherit;
-  text-decoration: none;
-  max-width: 100%;
-}
-.spell-slot-gen-thumb img {
-  width: 56px !important;
-  height: 56px !important;
-  object-fit: cover;
-  border-radius: 6px;
-  flex: none;
+.spell-slot-actions .spell-slot-generate,
+.spell-slot-actions .spell-slot-describe {
+  white-space: nowrap;
 }
