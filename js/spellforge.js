@@ -1967,7 +1967,8 @@
         ex &&
         ex.source === "generated" &&
         ex.genNum > generatedCeiling &&
-        !confirmed[ex.genNum]
+        !confirmed[ex.genNum] &&
+        !ex.localGen
       ) {
         delete extraSpells[n];
         delete extraSpells[String(n)];
@@ -2215,6 +2216,9 @@
   function loadSpellAssets(opts) {
     function done(count) {
       return settleGeneratedPresentation().then(function () {
+        slotGensLoaded = null;
+        return loadSlotGens();
+      }).then(function () {
         return typeof count === "number" ? count : arsenalExtraNums.length;
       });
     }
@@ -2286,7 +2290,8 @@
       if (
         generatedCeiling != null &&
         ex.genNum > generatedCeiling &&
-        !confirmed[ex.genNum]
+        !confirmed[ex.genNum] &&
+        !ex.localGen
       ) {
         continue;
       }
@@ -3594,6 +3599,32 @@
     return scanColorSpans(text).length;
   }
 
+  function slotExtraButtons(slotIndex) {
+    if (!spells[slotIndex]) return "";
+    var busy = slotBusy[slotIndex] ? " disabled" : "";
+    if (slotTomeInfo(slotIndex)) {
+      return '<button type="button" class="spell-slot-generate btn-secondary" data-slot="' + slotIndex + '"' + busy +
+        ' title="Paint this tome on its own. Each one is saved to Generated as the next #">' +
+        (slotBusy[slotIndex] ? "Generating…" : "Generate") + "</button>";
+    }
+    return '<button type="button" class="spell-slot-describe btn-secondary" data-slot="' + slotIndex + '"' + busy +
+      ' title="Describe this image and use it as the spell text">' +
+      (slotBusy[slotIndex] ? "Describing…" : "Describe") + "</button>";
+  }
+
+  function slotExtraResult(slotIndex) {
+    if (slotMsgNum[slotIndex] !== (Number(spells[slotIndex]) || 0)) slotMsg[slotIndex] = "";
+    var html = '<div class="spell-slot-msg' + (slotMsgErr[slotIndex] ? " is-error" : "") + '"' +
+      (slotMsg[slotIndex] ? "" : " hidden") + ' role="status">' + escapeHtml(slotMsg[slotIndex]) + "</div>";
+    var last = slotLastGen(slotIndex);
+    if (last) {
+      html += '<a class="spell-slot-gen-thumb" href="' + escapeAttr(last.url) + '" target="_blank" rel="noopener">' +
+        '<img src="' + escapeAttr(last.url) + '" alt="' + escapeAttr(last.title + " #" + last.n) + '" loading="lazy" />' +
+        "<span>" + escapeHtml(last.title + " #" + last.n) + "</span></a>";
+    }
+    return html;
+  }
+
   function spellSlotActionBar(slotIndex, colorCount) {
     var dirty = slotTextDirty(slotIndex);
     var n = colorCount != null ? colorCount : 0;
@@ -3613,8 +3644,10 @@
       '"' +
       (dirty ? "" : " disabled") +
       ' title="Restore original spell description (undo color + text edits)">Default text</button>' +
+      slotExtraButtons(slotIndex) +
       "</span>" +
-      "</div>"
+      "</div>" +
+      slotExtraResult(slotIndex)
     );
   }
 
@@ -4072,6 +4105,22 @@
         e.preventDefault();
         e.stopPropagation();
         openSlotTextEditor(slotIndex, editBtn);
+      });
+    }
+    var genBtn = slotEl.querySelector(".spell-slot-generate");
+    if (genBtn) {
+      genBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        generateSlotTome(slotIndex);
+      });
+    }
+    var descBtn = slotEl.querySelector(".spell-slot-describe");
+    if (descBtn) {
+      descBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        describeSlotImage(slotIndex);
       });
     }
     var resetBtn = slotEl.querySelector(".spell-slot-color-reset");
@@ -7251,6 +7300,394 @@
       })(i);
     }
     syncPhotoEquipButtons();
+  }
+
+  /* ---- Slot card Generate (tomes) + Describe (image spells) ---- */
+  var SLOT_GEN_DB = "spellforge_slot_gens_v1";
+  var SLOT_GEN_SEQ_BASE = 90000; // GEN_BASE + 90000+ : never collides with gallery files
+  var slotGens = []; // { seq, key, title, n, url, prompt, created }
+  var slotGensLoaded = null;
+  var slotBusy = [false, false, false];
+  var slotMsg = ["", "", ""];
+  var slotMsgErr = [false, false, false];
+  var slotMsgNum = [0, 0, 0];
+
+  function slotGenDb() {
+    return new Promise(function (resolve, reject) {
+      if (typeof indexedDB === "undefined") return reject(new Error("no idb"));
+      var req = indexedDB.open(SLOT_GEN_DB, 1);
+      req.onupgradeneeded = function () {
+        req.result.createObjectStore("gens", { keyPath: "seq" });
+      };
+      req.onsuccess = function () { resolve(req.result); };
+      req.onerror = function () { reject(req.error); };
+    });
+  }
+
+  function loadSlotGens() {
+    if (slotGensLoaded) return slotGensLoaded;
+    slotGensLoaded = slotGenDb()
+      .then(function (db) {
+        return new Promise(function (resolve) {
+          var out = [];
+          var tx = db.transaction("gens", "readonly");
+          var cur = tx.objectStore("gens").openCursor();
+          cur.onsuccess = function () {
+            var c = cur.result;
+            if (c) { out.push(c.value); c.continue(); } else resolve(out);
+          };
+          cur.onerror = function () { resolve(out); };
+        });
+      })
+      .catch(function () { return []; })
+      .then(function (list) {
+        slotGens = list.sort(function (a, b) { return a.seq - b.seq; });
+        ingestSlotGens();
+        return slotGens;
+      });
+    return slotGensLoaded;
+  }
+
+  function storeSlotGen(rec) {
+    return slotGenDb()
+      .then(function (db) {
+        return new Promise(function (resolve) {
+          var tx = db.transaction("gens", "readwrite");
+          tx.objectStore("gens").put(rec);
+          tx.oncomplete = function () { resolve(true); };
+          tx.onerror = function () { resolve(false); };
+        });
+      })
+      .catch(function () { return false; });
+  }
+
+  function ingestSlotGens() {
+    if (!slotGens.length) return;
+    ingestSpellAssets(
+      slotGens.map(function (g) {
+        return {
+          number: g.seq,
+          url: g.url,
+          source: "generated",
+          title: g.title + " #" + g.n,
+          analysis: { title: g.title + " #" + g.n, description: g.prompt || "", tags: g.tags || [] },
+        };
+      }),
+      { append: true }
+    );
+    slotGens.forEach(function (g) {
+      var ex = extraSpells[GEN_BASE + g.seq];
+      if (ex) ex.localGen = true;
+    });
+    generatedOrderCache = null;
+  }
+
+  function slotGenKey(title) {
+    return String(title || "").toLowerCase().replace(/\s+#\d+\s*$/, "").replace(/[^a-z0-9]+/g, " ").trim();
+  }
+
+  /** Highest "#N" already used for this piece: saved slot gens + any Generated titled "Title #N". */
+  function nextSlotGenCount(title) {
+    var key = slotGenKey(title);
+    var max = 0;
+    slotGens.forEach(function (g) {
+      if (g.key === key && g.n > max) max = g.n;
+    });
+    for (var i = 0; i < arsenalExtraNums.length; i++) {
+      var ex = extraSpells[arsenalExtraNums[i]];
+      if (!ex || ex.source !== "generated") continue;
+      var m = /^(.*?)\s*#(\d+)\s*$/.exec(String(ex.title || ""));
+      if (m && slotGenKey(m[1]) === key && +m[2] > max) max = +m[2];
+    }
+    return max + 1;
+  }
+
+  function slotTomeInfo(slotIndex) {
+    var num = spells[slotIndex];
+    if (!num) return null;
+    var rec = slotTextRecord(slotIndex);
+    var tome = noteOf(num);
+    if (!tome && !(rec && rec.kind === "note")) return null;
+    var text = String(getSpellSlotBody(slotIndex) || (tome && tome.text) || "").trim();
+    var title = String((rec && rec.kind === "note" && rec.title) || (tome && tome.title) || deriveNoteTitle(text) || "Tome");
+    var tags = ((rec && rec.tags && rec.tags.length ? rec.tags : tome && tome.tags) || deriveTomeTags(text)).slice(0, 6);
+    return { title: title, text: text, tags: tags };
+  }
+
+  function buildTomePrompt(info) {
+    var head = "Original painting of this tome: " + info.title + ".";
+    var tagLine = info.tags.length ? " Themes: " + info.tags.join(", ") + "." : "";
+    var room = 1800 - head.length - tagLine.length - 1;
+    var body = String(info.text || "").replace(/\s+/g, " ").trim();
+    if (body.length > room) body = body.slice(0, Math.max(0, room)).replace(/\s+\S*$/, "");
+    var out = (head + " " + body + tagLine).trim();
+    return out.length > 1800 ? out.slice(0, 1800) : out;
+  }
+
+  function softenTomePrompt(prompt, dropped) {
+    var out = String(prompt || "");
+    (dropped || []).forEach(function (w) {
+      w = String(w || "").trim();
+      if (!w) return;
+      var esc = w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+      out = out.replace(new RegExp("\\b" + esc + "\\b", "gi"), " ");
+    });
+    if (autoSoftenEnabled()) out = softenPromptForModeration(out);
+    out = out.replace(/\s{2,}/g, " ").trim();
+    var lead = "Tasteful, non-graphic, symbolic painting. Fully clothed figures, no violence or gore. ";
+    return (lead + out).slice(0, 1800);
+  }
+
+  function slotGenMessage(err) {
+    var msg = String((err && err.message) || err || "");
+    if (/combination-still-painting|quota|neuron|credits|capacity|rate limit|too many requests|insufficient balance|daily|4006|429/i.test(msg)) {
+      return "Today's free image quota is used up. It resets at 6 PM (UTC-6). Try again after that.";
+    }
+    if (/timed out/i.test(msg)) return "The painting took too long. Press Generate again.";
+    if (/api key|pollinations|cloudflare|incorrect api|failed to fetch|networkerror|load failed/i.test(msg)) {
+      return "The painting did not start. Press Generate again.";
+    }
+    return msg.slice(0, 180) || "The painting did not start.";
+  }
+
+  function newSlotJobId() {
+    return typeof crypto !== "undefined" && crypto.randomUUID
+      ? crypto.randomUUID()
+      : "tome-" + Date.now() + "-" + Math.floor(Math.random() * 1e6);
+  }
+
+  function requestTomeImage(prompt, tags) {
+    var jobId = newSlotJobId();
+    return fetch(apiUrl("/api/generate-stasis-vision"), {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      cache: "no-store",
+      body: JSON.stringify({
+        job_id: jobId,
+        stasis: prompt,
+        prompt: prompt,
+        fused_prompt: prompt,
+        buzz_words: (tags || []).slice(0, 6).concat(["original painting"]),
+        spells: [],
+        aspect_ratio: getAspectRatio(),
+        mag_fresh: true,
+        fresh_variation: true,
+        spell_cast: false,
+        attach_references: false,
+        source: "spellforge",
+        product_mode: "tome_single",
+      }),
+    })
+      .then(function (r) {
+        return r.json().catch(function () { return {}; }).then(function (d) {
+          return { ok: r.ok, status: r.status, d: d || {} };
+        });
+      })
+      .then(function (res) {
+        var d = res.d;
+        if (d.moderated) return { moderated: true, dropped: d.dropped || [] };
+        var img = d.image || (d.images && d.images[0]);
+        if (img && img.url) return img.url;
+        if (!res.ok && res.status !== 202) {
+          var e = d.error;
+          throw new Error((e && (e.message || (typeof e === "string" ? e : ""))) || "The painting did not start (HTTP " + res.status + ").");
+        }
+        return pollImageJob(d.job_id || jobId, null, 150).then(function (images) {
+          if (images && images.moderated) return images;
+          var first = images && images[0];
+          if (first && first.url) return first.url;
+          throw new Error("The painting did not finish.");
+        });
+      });
+  }
+
+  /** Same PC save the main Generate uses; silent when the studio PC is not reachable. */
+  function saveSlotGenToStudio(url, title, prompt) {
+    var payload = {
+      source: "spellforge",
+      collection: "generated",
+      reveal: false,
+      title: title,
+      description: String(prompt || "").slice(0, 800),
+      meta: { source: "spellforge-tome", title: title },
+    };
+    return urlToBlob(url)
+      .then(function (blob) {
+        return new Promise(function (resolve) {
+          var fr = new FileReader();
+          fr.onload = function () { resolve(fr.result); };
+          fr.onerror = function () { resolve(""); };
+          fr.readAsDataURL(blob);
+        });
+      })
+      .catch(function () { return ""; })
+      .then(function (dataUrl) {
+        if (dataUrl) payload.image_base64 = dataUrl;
+        else if (String(url).indexOf("data:") !== 0) payload.image_url = url;
+        else return null;
+        var bases = pcSaveBases();
+        function tryNext(i) {
+          if (i >= bases.length) return null;
+          return postSaveGenerated(bases[i], payload).catch(function () { return tryNext(i + 1); });
+        }
+        return tryNext(0);
+      })
+      .catch(function () { return null; });
+  }
+
+  function setSlotMsg(slotIndex, msg, isErr) {
+    slotMsg[slotIndex] = msg || "";
+    slotMsgNum[slotIndex] = Number(spells[slotIndex]) || 0;
+    slotMsgErr[slotIndex] = !!isErr;
+    var el = document.querySelector('#panel-spellforge .spell-slot[data-slot="' + slotIndex + '"] .spell-slot-msg');
+    if (el) {
+      el.textContent = slotMsg[slotIndex];
+      el.hidden = !slotMsg[slotIndex];
+      el.classList.toggle("is-error", !!isErr);
+    }
+  }
+
+  function generateSlotTome(slotIndex) {
+    if (slotBusy[slotIndex]) return;
+    var info = slotTomeInfo(slotIndex);
+    if (!info || !info.text) {
+      setSlotMsg(slotIndex, "This tome has no text yet. Press Edit text first.", true);
+      return;
+    }
+    slotBusy[slotIndex] = true;
+    renderSlots();
+    setSlotMsg(slotIndex, "Painting “" + info.title.slice(0, 60) + "”…");
+    var prompt = buildTomePrompt(info);
+    loadSlotGens()
+      .then(function () {
+        return requestTomeImage(prompt, info.tags);
+      })
+      .then(function (out) {
+        if (out && out.moderated) {
+          setSlotMsg(slotIndex, "The image filter declined that wording. Trying a gentler version…");
+          prompt = softenTomePrompt(prompt, out.dropped);
+          return requestTomeImage(prompt, info.tags);
+        }
+        return out;
+      })
+      .then(function (out) {
+        if (out && out.moderated) {
+          throw new Error("The image filter declined this tome. Edit the text to soften it, then press Generate again.");
+        }
+        if (!out || typeof out !== "string") throw new Error("The painting did not finish.");
+        var url = out.indexOf("/") === 0 ? assetUrl(out) : out;
+        var n = nextSlotGenCount(info.title);
+        var seq = SLOT_GEN_SEQ_BASE + 1;
+        slotGens.forEach(function (g) { if (g.seq >= seq) seq = g.seq + 1; });
+        var rec = {
+          seq: seq,
+          key: slotGenKey(info.title),
+          title: info.title,
+          n: n,
+          url: url,
+          prompt: prompt,
+          tags: info.tags,
+          created: Date.now(),
+        };
+        slotGens.push(rec);
+        return storeSlotGen(rec).then(function () {
+          ingestSlotGens();
+          saveSlotGenToStudio(url, info.title + " #" + n, prompt);
+          return rec;
+        });
+      })
+      .then(function (rec) {
+        slotBusy[slotIndex] = false;
+        renderSlots();
+        if (bookView === "generated") renderGrid();
+        setSlotMsg(slotIndex, "Saved “" + rec.title + " #" + rec.n + "” to Generated.");
+      })
+      .catch(function (err) {
+        slotBusy[slotIndex] = false;
+        renderSlots();
+        setSlotMsg(slotIndex, slotGenMessage(err), true);
+      });
+  }
+
+  function imageToDataUrl(url) {
+    return urlToBlob(url).then(function (blob) {
+      return new Promise(function (resolve, reject) {
+        var objUrl = URL.createObjectURL(blob);
+        var img = new Image();
+        img.onload = function () {
+          var max = 1280;
+          var w = img.naturalWidth || img.width;
+          var h = img.naturalHeight || img.height;
+          var k = Math.min(1, max / Math.max(w, h));
+          var c = document.createElement("canvas");
+          c.width = Math.max(1, Math.round(w * k));
+          c.height = Math.max(1, Math.round(h * k));
+          c.getContext("2d").drawImage(img, 0, 0, c.width, c.height);
+          URL.revokeObjectURL(objUrl);
+          try { resolve(c.toDataURL("image/jpeg", 0.86)); } catch (e) { reject(e); }
+        };
+        img.onerror = function () {
+          URL.revokeObjectURL(objUrl);
+          reject(new Error("Could not read the image."));
+        };
+        img.src = objUrl;
+      });
+    });
+  }
+
+  /** Same /api/transfer/describe call the Photo frame's Describe uses; result becomes the slot text. */
+  function describeSlotImage(slotIndex) {
+    if (slotBusy[slotIndex] || !spells[slotIndex]) return;
+    var num = spells[slotIndex];
+    var photo = photoOf(num);
+    slotBusy[slotIndex] = true;
+    renderSlots();
+    setSlotMsg(slotIndex, "Writing the description…");
+    var bodyP = photo && photo.id
+      ? Promise.resolve({ id: photo.id, force: true })
+      : imageToDataUrl(paintingUrl(num)).then(function (dataUrl) {
+          return { image_base64: dataUrl, name: "spell-" + num + ".jpg", force: true };
+        });
+    bodyP
+      .then(function (body) {
+        return fetch(apiUrl("/api/transfer/describe"), {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+        });
+      })
+      .then(function (res) {
+        return res.json().catch(function () { return {}; }).then(function (data) {
+          if (!res.ok || !data || data.ok === false) throw new Error("describe");
+          return data;
+        });
+      })
+      .then(function (data) {
+        var parsed = readPhotoPack(data);
+        var model = data && data.analysis && data.analysis.model;
+        if (model === "logan7in-unlimited-local" || isSkipPhotoCaption(parsed.description) || !parsed.description) {
+          throw new Error("describe");
+        }
+        if (Number(spells[slotIndex]) !== Number(num)) return;
+        setSpellSlotBody(slotIndex, parsed.description);
+        slotBusy[slotIndex] = false;
+        renderSlots();
+        setSlotMsg(slotIndex, "Description ready. It is this spell’s text now (Default text undoes it).");
+      })
+      .catch(function () {
+        slotBusy[slotIndex] = false;
+        renderSlots();
+        setSlotMsg(slotIndex, "The description could not be written. Press Describe again, or use Edit text.", true);
+      });
+  }
+
+  function slotLastGen(slotIndex) {
+    var info = slotTomeInfo(slotIndex);
+    if (!info) return null;
+    var key = slotGenKey(info.title);
+    var last = null;
+    slotGens.forEach(function (g) { if (g.key === key && (!last || g.n > last.n)) last = g; });
+    return last;
   }
 
   function renderSlots() {
