@@ -1,8 +1,8 @@
 /**
  * Spellforge: shuffled grid, spell slots, fused text, interaction preview, optional fusion video.
  * Cache bust v134: a Here still equips that image's description.
- * Spell I, Spell II, and Spell III each own their tome.
- * The Spell I button writes slot I only. A shared tome is copied apart
+ * Spell I, Spell II, and Spell III each own their Is slot.
+ * The Spell I button writes slot I only. A shared Is slot is copied apart
  * so one slot cannot overwrite the other two.
  */
 (function () {
@@ -36,11 +36,20 @@
   var PHOTO_KEY = "spellforge_photos_v1";
   var PHOTO_KEEP = 4;
   var ASPECT_OPTIONS = ["1:1", "4:3", "3:4", "16:9", "9:16", "3:2", "2:3"];
-  var TOME_STOP = {
+  /* "Is" = the slot is the subject's identity. It used to be called "tome", and that word
+   * leaked into image prompts and painted books. Old saved data keeps working:
+   * stored titles "Tome" read as "Is" and the IndexedDB records keep their id field. */
+  var IS_LABEL = "Is";
+  function isLegacyLabel(t) { return /^\s*(tome|is|note)\s*$/i.test(String(t || "")); }
+  function isTitle(t) { return /^\s*tome\s*$/i.test(String(t || "")) ? IS_LABEL : t; }
+  var BOOKISH_RE = /\b(tomes?|grimoires?|spell\s*books?|book\s*covers?|covers? of (?:a|the) book)\b/gi;
+  function scrubBookish(t) { return String(t || "").replace(BOOKISH_RE, " ").replace(/\s{2,}/g, " ").trim(); }
+  var IS_STOP = {
     a: 1, an: 1, the: 1, and: 1, or: 1, but: 1, nor: 1, so: 1, if: 1,
     of: 1, to: 1, in: 1, on: 1, at: 1, by: 1, for: 1, with: 1, from: 1,
     into: 1, over: 1, under: 1, about: 1, after: 1, before: 1, between: 1,
     through: 1, while: 1, where: 1, when: 1, what: 1, which: 1, who: 1,
+    tome: 1, tomes: 1, book: 1, books: 1, cover: 1, covers: 1, volume: 1, grimoire: 1,
     whom: 1, how: 1, that: 1, this: 1, these: 1, those: 1, it: 1, its: 1,
     their: 1, his: 1, her: 1, she: 1, he: 1, they: 1, them: 1, you: 1,
     your: 1, we: 1, our: 1, be: 1, been: 1, being: 1, is: 1, are: 1, was: 1,
@@ -1032,18 +1041,18 @@
     var t = String(prompt || "")
       .replace(/\s+/g, " ")
       .trim();
-    if (!t) return "Tome";
+    if (!t) return IS_LABEL;
     if (t.length <= 40) return t;
     return t.slice(0, 40) + "…";
   }
 
-  function deriveTomeTags(text) {
+  function deriveIsTags(text) {
     var words = String(text || "").toLowerCase().match(/[a-z][a-z'-]{2,}/g) || [];
     var counts = {};
     var order = [];
     words.forEach(function (word) {
       word = word.replace(/^['-]+|['-]+$/g, "");
-      if (word.length < 3 || TOME_STOP[word]) return;
+      if (word.length < 3 || IS_STOP[word]) return;
       if (!counts[word]) {
         counts[word] = 0;
         order.push(word);
@@ -1076,10 +1085,10 @@
       .replace(/"/g, "&quot;");
   }
 
-  function tomeCoverUrl(note) {
+  function isEmblemUrl(note) {
     var tags = (note && note.tags && note.tags.length
       ? note.tags
-      : deriveTomeTags(note && note.text)
+      : deriveIsTags(note && note.text)
     ).slice(0, 3);
     var lines = "";
     for (var i = 0; i < tags.length; i++) {
@@ -1097,15 +1106,15 @@
         '<rect x="20" y="34" width="20" height="1.2" fill="#e6c56a"/>' +
         '<rect x="23" y="40" width="14" height="1.2" fill="#e6c56a"/>';
     }
+    // Identity sigil (not a book): a glowing ring with "IS" and the subject's key words.
     var svg =
       '<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">' +
-      '<rect width="64" height="64" rx="6" fill="#140e0a"/>' +
-      '<rect x="16" y="6" width="42" height="52" fill="#efe2c4"/>' +
-      '<rect x="8" y="6" width="40" height="52" fill="#7a2e22"/>' +
-      '<rect x="8" y="6" width="7" height="52" fill="#4c1c16"/>' +
-      '<rect x="18" y="12" width="24" height="1.4" fill="#e6c56a"/>' +
-      '<text x="28" y="23" text-anchor="middle" font-family="Georgia, serif" font-size="7" fill="#f6e7c4">TOME</text>' +
-      lines +
+      '<defs><radialGradient id="g" cx="50%" cy="45%" r="60%"><stop offset="0" stop-color="#3a2a5c"/><stop offset="1" stop-color="#0d0a14"/></radialGradient></defs>' +
+      '<rect width="64" height="64" rx="6" fill="url(#g)"/>' +
+      '<circle cx="32" cy="30" r="22" fill="none" stroke="#e6c56a" stroke-width="1.4"/>' +
+      '<circle cx="32" cy="30" r="18" fill="none" stroke="#e6c56a" stroke-opacity="0.35" stroke-width="0.8"/>' +
+      '<text x="32" y="25" text-anchor="middle" font-family="Georgia, serif" font-size="9" font-weight="bold" fill="#f6e7c4">IS</text>' +
+      lines.replace(/y="(\d+(?:\.\d+)?)"/g, function (m, y) { return 'y="' + (Number(y) + 1) + '"'; }).replace(/x="30"/g, 'x="32"') +
       "</svg>";
     return "data:image/svg+xml," + encodeURIComponent(svg);
   }
@@ -1119,7 +1128,7 @@
         id: id || undefined,
         title: deriveNoteTitle(raw),
         text: String(raw),
-        tags: deriveTomeTags(raw),
+        tags: deriveIsTags(raw),
         createdAt: Date.now(),
       };
     }
@@ -1132,22 +1141,22 @@
           : raw.title != null && raw.text == null && raw.prompt == null
             ? String(raw.title)
             : String(raw.text || raw.prompt || "");
-    var title = String(raw.title || "")
+    var title = isTitle(String(raw.title || "")
       .replace(/\s+/g, " ")
-      .trim();
+      .trim());
     if (!title || (prompt && title === prompt && prompt.length > 40)) {
       title = deriveNoteTitle(prompt);
     }
-    if (!prompt && title && title !== "Tome" && title !== "Note") {
+    if (!prompt && title && !isLegacyLabel(title)) {
       prompt = title;
       title = deriveNoteTitle(prompt);
     }
     var body = String(prompt || "");
     return {
       id: id || Number(raw.id) || undefined,
-      title: title || "Tome",
+      title: title || IS_LABEL,
       text: body,
-      tags: deriveTomeTags(body),
+      tags: deriveIsTags(body),
       createdAt: raw.createdAt || Date.now(),
     };
   }
@@ -1170,7 +1179,7 @@
           if (!norm) return;
           if (norm.id == null) norm.id = Number(k);
           var key = String(norm.id);
-          // Keep a tome already in memory. A stale disk copy must not overwrite it.
+          // Keep a Is slot already in memory. A stale disk copy must not overwrite it.
           if (merged[key]) return;
           merged[key] = norm;
         });
@@ -1202,7 +1211,7 @@
     return maxId;
   }
 
-  /** A new tome always gets a free id. It never replaces a tome another slot still shows. */
+  /** A new Is slot always gets a free id. It never replaces an Is slot another slot still shows. */
   function allocSpellNoteId() {
     if (!spellNotes.notes) spellNotes.notes = {};
     var id = Math.max(
@@ -1570,7 +1579,7 @@
   function spellKindLabel(num) {
     if (photoOf(num)) return "Photo";
     if (visitorOf(num)) return "Here";
-    if (noteOf(num)) return "Tome";
+    if (noteOf(num)) return IS_LABEL;
     var extra = extraSpells[num] || extraSpells[String(num)];
     if (!extra) return "#" + num;
     var g = extra.genNum != null ? extra.genNum : num;
@@ -1592,7 +1601,7 @@
   function paintingUrl(num) {
     num = resolveArsenalNum(num) || num;
     var noteThumb = noteOf(num);
-    if (noteThumb) return tomeCoverUrl(noteThumb);
+    if (noteThumb) return isEmblemUrl(noteThumb);
     var visitorThumb = visitorOf(num);
     if (visitorThumb && visitorThumb.url) return visitorThumb.url;
     var photoThumb = photoOf(num);
@@ -1609,10 +1618,10 @@
     if (note) {
       var notePrompt = String(note.text || note.prompt || "");
       return {
-        title: note.title || deriveNoteTitle(notePrompt) || "Tome",
+        title: (isLegacyLabel(note.title) ? "" : scrubBookish(note.title)) || deriveNoteTitle(scrubBookish(notePrompt)) || IS_LABEL,
         description: notePrompt,
         prompt: notePrompt,
-        tags: note.tags && note.tags.length ? note.tags.slice() : deriveTomeTags(notePrompt),
+        tags: note.tags && note.tags.length ? note.tags.slice() : deriveIsTags(notePrompt),
       };
     }
     var visitor = visitorOf(num);
@@ -2853,7 +2862,7 @@
   }
 
   /**
-   * One tome id can sit in only one slot. Later slots get a private copy
+   * One Is slot id can sit in only one slot. Later slots get a private copy
    * of the text they were already showing.
    */
   function forkSharedSlotNotes() {
@@ -2877,7 +2886,7 @@
         rec && rec.tags && rec.tags.length ? rec.tags : note.tags || []
       ).slice(0, 6);
       var title = String(
-        (rec && rec.title) || note.title || deriveNoteTitle(body) || "Tome"
+        (rec && rec.title) || note.title || deriveNoteTitle(body) || IS_LABEL
       );
       spellNotes.notes[String(fresh)] = {
         id: fresh,
@@ -2965,7 +2974,7 @@
 
   function loadEquippedSpells() {
     // Once. A later call would put back whatever was saved at boot and drop
-    // a tome the artist just equipped into one slot.
+    // a Is slot the artist just equipped into one slot.
     if (equippedSlotsReady) return;
     equippedSlotsReady = true;
     try {
@@ -2975,7 +2984,7 @@
       if (!Array.isArray(saved) || saved.length !== 3) return;
       for (var i = 0; i < 3; i++) {
         var n = parseInt(saved[i], 10);
-        // Keep generated / sketch / tome ids even before that arsenal exists.
+        // Keep generated / sketch / Is slot ids even before that arsenal exists.
         // Rejecting them here used to blank the other two slots.
         spells[i] = n > 0 && !isNaN(n) ? n : null;
       }
@@ -3378,7 +3387,7 @@
     return false;
   }
 
-  /** Copy a shared tome so this slot can change without rewriting the other card. */
+  /** Copy a shared Is slot so this slot can change without rewriting the other card. */
   function isolateSlotNote(slotIndex) {
     if (!noteSharedWithOtherSlot(slotIndex)) return;
     var id = Number(spells[slotIndex]);
@@ -3404,12 +3413,12 @@
     var note = noteOf(id);
     if (!id || !note) return null;
     var text = String(note.text || "");
-    var tags = (note.tags && note.tags.length ? note.tags : deriveTomeTags(text)).slice(0, 6);
+    var tags = (note.tags && note.tags.length ? note.tags : deriveIsTags(text)).slice(0, 6);
     var rec = {
       id: id,
       text: text,
       original: text,
-      title: String(note.title || deriveNoteTitle(text) || "Tome"),
+      title: String(note.title || deriveNoteTitle(text) || IS_LABEL),
       tags: tags,
       kind: "note",
       frozen: true,
@@ -3440,7 +3449,7 @@
   function setSpellSlotBody(slotIndex, text) {
     var id = Number(spells[slotIndex]);
     if (!id) return;
-    // Split a tome that other slots still show before this edit writes it.
+    // Split a Is slot that other slots still show before this edit writes it.
     forkSharedSlotNotes();
     id = Number(spells[slotIndex]);
     if (noteOf(id)) isolateSlotNote(slotIndex);
@@ -3456,7 +3465,7 @@
     if (note) {
       note.text = text;
       note.title = deriveNoteTitle(text);
-      note.tags = deriveTomeTags(text);
+      note.tags = deriveIsTags(text);
       title = note.title;
       tags = note.tags.slice(0, 6);
       kind = "note";
@@ -3480,7 +3489,7 @@
     if (rec && id && Number(rec.id) === id && rec.kind === "note") {
       rec.text = String(rec.original || "");
       rec.title = deriveNoteTitle(rec.text);
-      rec.tags = deriveTomeTags(rec.text);
+      rec.tags = deriveIsTags(rec.text);
       rec.frozen = true;
       var note = noteOf(id);
       if (note && !noteSharedWithOtherSlot(slotIndex)) {
@@ -3602,9 +3611,9 @@
   function slotExtraButtons(slotIndex) {
     if (!spells[slotIndex]) return "";
     var busy = slotBusy[slotIndex] ? " disabled" : "";
-    if (slotTomeInfo(slotIndex)) {
+    if (slotIsInfo(slotIndex)) {
       var genHtml = '<button type="button" class="spell-slot-generate btn-secondary" data-slot="' + slotIndex + '"' + busy +
-        ' title="Paint this tome on its own. Each one is saved to Generated as the next #">' +
+        ' title="Paint this subject on its own. Each one is saved to Generated as the next #">' +
         (slotBusy[slotIndex] === "gen" ? "Generating…" : "Generate") + "</button>";
       if (slotLastGen(slotIndex)) {
         genHtml += '<button type="button" class="spell-slot-describe btn-secondary" data-slot="' + slotIndex + '"' + busy +
@@ -4112,7 +4121,7 @@
       genBtn.addEventListener("click", function (e) {
         e.preventDefault();
         e.stopPropagation();
-        generateSlotTome(slotIndex);
+        generateSlotIs(slotIndex);
       });
     }
     var descBtn = slotEl.querySelector(".spell-slot-describe");
@@ -6972,7 +6981,7 @@
             if (ta) ta.value = "";
             var named = res.tags && res.tags.length ? " Tags: " + res.tags.join(", ") + "." : "";
             setSpellGenerateStatus(
-              "Equipped a tome into Spell " + ["I", "II", "III"][slot] + "." + named
+              "Equipped an Is (subject identity) into Spell " + ["I", "II", "III"][slot] + "." + named
             );
           });
         }
@@ -7302,7 +7311,7 @@
     syncPhotoEquipButtons();
   }
 
-  /* ---- Slot card Generate (tomes) + Describe (image spells) ---- */
+  /* ---- Slot card Generate (Is slots) + Describe (image spells) ---- */
   var SLOT_GEN_DB = "spellforge_slot_gens_v1";
   var SLOT_GEN_SEQ_BASE = 90000; // GEN_BASE + 90000+ : never collides with gallery files
   var slotGens = []; // { seq, key, title, n, url, prompt, created }
@@ -7386,7 +7395,8 @@
   }
 
   function slotGenKey(title) {
-    return String(title || "").toLowerCase().replace(/\s+#\d+\s*$/, "").replace(/[^a-z0-9]+/g, " ").trim();
+    var k = String(title || "").toLowerCase().replace(/\s+#\d+\s*$/, "").replace(/[^a-z0-9]+/g, " ").trim();
+    return k === "tome" ? "is" : k;
   }
 
   /** Highest "#N" already used for this piece: saved slot gens + any Generated titled "Title #N". */
@@ -7405,29 +7415,32 @@
     return max + 1;
   }
 
-  function slotTomeInfo(slotIndex) {
+  function slotIsInfo(slotIndex) {
     var num = spells[slotIndex];
     if (!num) return null;
     var rec = slotTextRecord(slotIndex);
-    var tome = noteOf(num);
-    if (!tome && !(rec && rec.kind === "note")) return null;
-    var text = String(getSpellSlotBody(slotIndex) || (tome && tome.text) || "").trim();
-    var title = String((rec && rec.kind === "note" && rec.title) || (tome && tome.title) || deriveNoteTitle(text) || "Tome");
-    var tags = ((rec && rec.tags && rec.tags.length ? rec.tags : tome && tome.tags) || deriveTomeTags(text)).slice(0, 6);
+    var isNote = noteOf(num);
+    if (!isNote && !(rec && rec.kind === "note")) return null;
+    var text = String(getSpellSlotBody(slotIndex) || (isNote && isNote.text) || "").trim();
+    var title = String(isTitle((rec && rec.kind === "note" && rec.title) || (isNote && isNote.title)) || deriveNoteTitle(text) || IS_LABEL);
+    var tags = ((rec && rec.tags && rec.tags.length ? rec.tags : isNote && isNote.tags) || deriveIsTags(text)).slice(0, 6);
     return { title: title, text: text, tags: tags };
   }
 
-  function buildTomePrompt(info) {
-    var head = "Original painting of this tome: " + info.title + ".";
-    var tagLine = info.tags.length ? " Themes: " + info.tags.join(", ") + "." : "";
+  function buildIsPrompt(info) {
+    var body = scrubBookish(String(info.text || "").replace(/\s+/g, " "));
+    var title = scrubBookish(isLegacyLabel(info.title) ? "" : info.title);
+    if (title && body.toLowerCase().indexOf(title.replace(/…$/, "").toLowerCase()) === 0) title = "";
+    var tags = (info.tags || []).map(scrubBookish).filter(Boolean);
+    var head = "Original painting. Depict the subject itself, present in its own world" + (title ? ": " + title : "") + ".";
+    var tagLine = tags.length ? " Themes: " + tags.join(", ") + "." : "";
     var room = 1800 - head.length - tagLine.length - 1;
-    var body = String(info.text || "").replace(/\s+/g, " ").trim();
     if (body.length > room) body = body.slice(0, Math.max(0, room)).replace(/\s+\S*$/, "");
     var out = (head + " " + body + tagLine).trim();
     return out.length > 1800 ? out.slice(0, 1800) : out;
   }
 
-  function softenTomePrompt(prompt, dropped) {
+  function softenIsPrompt(prompt, dropped) {
     var out = String(prompt || "");
     (dropped || []).forEach(function (w) {
       w = String(w || "").trim();
@@ -7456,10 +7469,10 @@
   function newSlotJobId() {
     return typeof crypto !== "undefined" && crypto.randomUUID
       ? crypto.randomUUID()
-      : "tome-" + Date.now() + "-" + Math.floor(Math.random() * 1e6);
+      : "is-" + Date.now() + "-" + Math.floor(Math.random() * 1e6);
   }
 
-  function requestTomeImage(prompt, tags) {
+  function requestIsImage(prompt, tags) {
     var jobId = newSlotJobId();
     return fetch(apiUrl("/api/generate-stasis-vision"), {
       method: "POST",
@@ -7478,7 +7491,7 @@
         spell_cast: false,
         attach_references: false,
         source: "spellforge",
-        product_mode: "tome_single",
+        product_mode: "is_single",
       }),
     })
       .then(function (r) {
@@ -7512,7 +7525,7 @@
       reveal: false,
       title: title,
       description: String(prompt || "").slice(0, 800),
-      meta: { source: "spellforge-tome", title: title },
+      meta: { source: "spellforge-is", title: title },
     };
     return urlToBlob(url)
       .then(function (blob) {
@@ -7550,7 +7563,7 @@
     }
   }
 
-  /** External pieces (Splice tab) save to Generated as "Title #N", same records as tome Generate. */
+  /** External pieces (Splice tab) save to Generated as "Title #N", same records as Is slot Generate. */
   function saveExternalGen(opts) {
     opts = opts || {};
     var title = String(opts.title || "Splice").trim() || "Splice";
@@ -7574,32 +7587,32 @@
     });
   }
 
-  function generateSlotTome(slotIndex) {
+  function generateSlotIs(slotIndex) {
     if (slotBusy[slotIndex]) return;
-    var info = slotTomeInfo(slotIndex);
+    var info = slotIsInfo(slotIndex);
     if (!info || !info.text) {
-      setSlotMsg(slotIndex, "This tome has no text yet. Press Edit text first.", true);
+      setSlotMsg(slotIndex, "This Is slot has no text yet. Press Edit text first.", true);
       return;
     }
     slotBusy[slotIndex] = "gen";
     renderSlots();
     setSlotMsg(slotIndex, "Painting “" + info.title.slice(0, 60) + "”…");
-    var prompt = buildTomePrompt(info);
+    var prompt = buildIsPrompt(info);
     loadSlotGens()
       .then(function () {
-        return requestTomeImage(prompt, info.tags);
+        return requestIsImage(prompt, info.tags);
       })
       .then(function (out) {
         if (out && out.moderated) {
           setSlotMsg(slotIndex, "The image filter declined that wording. Trying a gentler version…");
-          prompt = softenTomePrompt(prompt, out.dropped);
-          return requestTomeImage(prompt, info.tags);
+          prompt = softenIsPrompt(prompt, out.dropped);
+          return requestIsImage(prompt, info.tags);
         }
         return out;
       })
       .then(function (out) {
         if (out && out.moderated) {
-          throw new Error("The image filter declined this tome. Edit the text to soften it, then press Generate again.");
+          throw new Error("The image filter declined this Is slot. Edit the text to soften it, then press Generate again.");
         }
         if (!out || typeof out !== "string") throw new Error("The painting did not finish.");
         var url = out.indexOf("/") === 0 ? assetUrl(out) : out;
@@ -7668,13 +7681,13 @@
     if (slotBusy[slotIndex] || !spells[slotIndex]) return;
     var num = spells[slotIndex];
     var photo = photoOf(num);
-    var tomeGen = slotLastGen(slotIndex);
+    var isGen = slotLastGen(slotIndex);
     slotBusy[slotIndex] = "desc";
     renderSlots();
     setSlotMsg(slotIndex, "Writing the description…");
-    var bodyP = tomeGen
-      ? imageToDataUrl(tomeGen.url).then(function (dataUrl) {
-          return { image_base64: dataUrl, name: "tome-" + tomeGen.key.replace(/\s+/g, "-") + "-" + tomeGen.n + ".jpg", force: true };
+    var bodyP = isGen
+      ? imageToDataUrl(isGen.url).then(function (dataUrl) {
+          return { image_base64: dataUrl, name: "is-" + isGen.key.replace(/\s+/g, "-") + "-" + isGen.n + ".jpg", force: true };
         })
       : photo && photo.id
       ? Promise.resolve({ id: photo.id, force: true })
@@ -7715,10 +7728,10 @@
   }
 
   function slotLastGen(slotIndex) {
-    var info = slotTomeInfo(slotIndex);
+    var info = slotIsInfo(slotIndex);
     if (!info) return null;
-    // Keyed per tome (spell number) so Describe/Edit text renaming the tome keeps its image;
-    // older records without a tome id fall back to the title key.
+    // Keyed per Is slot (spell number) so Describe/Edit text renaming the subject keeps its image;
+    // older records without a Is slot id fall back to the title key.
     var num = Number(spells[slotIndex]) || 0;
     var key = slotGenKey(info.title);
     var last = null;
@@ -7741,7 +7754,7 @@
       var num = spells[s];
       if (!num) {
         el.classList.remove("filled");
-        el.classList.remove("spell-slot-tome");
+        el.classList.remove("spell-slot-is");
         el.innerHTML = '<span class="slot-label">Spell ' + names[s] + "</span>";
         clearSpellSlotBody(s);
         continue;
@@ -7751,46 +7764,46 @@
       var frozen = slotTextRecord(s);
       var a = getAnalysis(num);
       var extra = extraSpells[num] || extraSpells[String(num)];
-      var tome = noteOf(num);
+      var isNote = noteOf(num);
       var title =
         frozen && frozen.kind === "note" && frozen.title
-          ? frozen.title
+          ? isTitle(frozen.title)
           : a && a.title
             ? a.title
-            : tome
-              ? "Tome"
+            : isNote
+              ? IS_LABEL
               : extra
                 ? spellKindLabel(num)
                 : "Painting #" + num;
       var body = getSpellSlotBody(s);
       var head = spellKindLabel(num) + " · " + title;
       var tagHtml = "";
-      var showTome = !!(tome || (frozen && frozen.kind === "note"));
-      if (showTome) {
-        var tomeTags =
+      var showIs = !!(isNote || (frozen && frozen.kind === "note"));
+      if (showIs) {
+        var isTags =
           frozen && frozen.kind === "note" && frozen.tags && frozen.tags.length
             ? frozen.tags.slice(0, 6)
-            : (tome && tome.tags && tome.tags.length ? tome.tags : deriveTomeTags((tome && tome.text) || body)).slice(0, 6);
-        if (tomeTags.length) {
+            : (isNote && isNote.tags && isNote.tags.length ? isNote.tags : deriveIsTags((isNote && isNote.text) || body)).slice(0, 6);
+        if (isTags.length) {
           tagHtml =
-            '<div class="spell-tome-tags">' +
-            tomeTags
+            '<div class="spell-is-tags">' +
+            isTags
               .map(function (tag) {
-                return '<span class="spell-tome-tag">' + escapeHtml(tag) + "</span>";
+                return '<span class="spell-is-tag">' + escapeHtml(tag) + "</span>";
               })
               .join("") +
             "</div>";
         }
       }
       el.classList.add("filled");
-      el.classList.toggle("spell-slot-tome", showTome);
-      var tomeGenLast = showTome ? slotLastGen(s) : null;
-      el.classList.toggle("spell-slot-has-gen", !!tomeGenLast);
+      el.classList.toggle("spell-slot-is", showIs);
+      var isGenLast = showIs ? slotLastGen(s) : null;
+      el.classList.toggle("spell-slot-has-gen", !!isGenLast);
       el.innerHTML =
         '<div class="spell-slot-inner">' +
         '<img src="' +
-        escapeAttr(tomeGenLast ? tomeGenLast.url : paintingUrl(num)) +
-        '"' + (tomeGenLast ? ' class="spell-slot-gen-img" title="' + escapeAttr(tomeGenLast.title + " #" + tomeGenLast.n) + '"' : "") + ' alt="' +
+        escapeAttr(isGenLast ? isGenLast.url : paintingUrl(num)) +
+        '"' + (isGenLast ? ' class="spell-slot-gen-img" title="' + escapeAttr(isGenLast.title + " #" + isGenLast.n) + '"' : "") + ' alt="' +
         escapeAttr(head) +
         '" />' +
         '<div class="spell-slot-copy">' +
@@ -7828,13 +7841,13 @@
     if (!text) return { ok: false, error: "Write a note first." };
     loadSpellNotes();
     if (!spellNotes.notes) spellNotes.notes = {};
-    // A tome already sitting in the other slots gets its own copy first,
+    // A Is slot already sitting in the other slots gets its own copy first,
     // so this new note cannot rewrite them.
     forkSharedSlotNotes();
     var before = captureSlotSnapshot();
     var kept = [spells[0], spells[1], spells[2]];
     var id = allocSpellNoteId();
-    var tags = deriveTomeTags(text);
+    var tags = deriveIsTags(text);
     spellNotes.notes[String(id)] = {
       id: id,
       title: deriveNoteTitle(text),
@@ -7882,7 +7895,7 @@
           spellSlotText[i] = null;
         }
       }
-      // The same tome must not stay writable from every slot.
+      // The same Is slot must not stay writable from every slot.
       forkSharedSlotNotes();
       saveSlotTexts();
       saveEquippedSpells();
@@ -7992,7 +8005,7 @@
         var title =
           a.title ||
           (extra && extra.title) ||
-          (noteOf(equipped) ? "Tome" : "");
+          (noteOf(equipped) ? IS_LABEL : "");
         var line = spellKindLabel(equipped);
         if (title && String(title) !== line) line += " · " + title;
         if (thumb) {

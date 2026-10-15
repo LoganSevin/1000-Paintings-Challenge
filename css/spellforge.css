@@ -157,14 +157,14 @@
   color: var(--accent);
 }
 
-.spell-tome-tags {
+.spell-is-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.25rem;
   margin: 0 0 0.35rem;
 }
 
-.spell-tome-tag {
+.spell-is-tag {
   font-size: 0.68rem;
   line-height: 1.3;
   letter-spacing: 0.02em;
@@ -2399,7 +2399,7 @@ button.spell-chip.spell-chip-toggle.is-on:hover {
   margin: 0.45rem 0 0.55rem;
 }
 
-/* Slot card Generate (tomes) / Describe (image spells) */
+/* Slot card Generate (Is slots) / Describe (image spells) */
 .spell-slot-generate,
 .spell-slot-describe {
   padding: 0.15rem 0.45rem !important;
