@@ -118,6 +118,7 @@
   <link rel="stylesheet" href="css/match.css?v=3" />
   <link rel="stylesheet" href="css/transfer.css?v=7" />
   <link rel="stylesheet" href="css/marbles.css?v=1" />
+  <link rel="stylesheet" href="css/splice.css?v=2" />
   <link rel="stylesheet" href="css/fight.css?v=12" />
   <link rel="stylesheet" href="css/citations.css?v=1" />
   <link rel="stylesheet" href="css/plasma.css?v=7" />
@@ -325,6 +326,7 @@
         <button type="button" class="tab" data-tab="match">Match</button>
         <button type="button" class="tab" data-tab="transfer">Transfer</button>
         <button type="button" class="tab" data-tab="marbles">Marbles</button>
+        <button type="button" class="tab" data-tab="splice">Splice</button>
         <button type="button" class="tab" data-tab="fight">Fight</button>
         <button type="button" class="tab" data-tab="citations">Citations</button>
         <button type="button" class="tab" data-tab="plasma">Plasma</button>
@@ -4262,6 +4264,51 @@
       <p class="mt-muted">
         Match 4 / 5 / T each drop <strong>one</strong> power-up where you scored. Rename yourself above to track scores across devices.
       </p>
+    </div>
+  </section>
+
+  <section id="panel-splice" class="panel" hidden>
+    <div class="sp-shell">
+      <h2>Splice</h2>
+      <p class="sp-hint">Cut a description into new sentences. Punctuation stays locked in place. Every space is a <b>?</b>, the start of a new idea. Each word slot is filled, left to right, with a real word made from the letters still left in the pool.</p>
+      <div class="sp-row">
+        <select id="sp-source" aria-label="Source text"></select>
+        <button type="button" id="sp-reload">Load from Spellforge</button>
+      </div>
+      <textarea id="sp-text" placeholder="Paste a description here, or load one from Spellforge." aria-label="Source text"></textarea>
+      <div class="sp-label">Strand: letters, <span class="sp-anchor">,</span> locked punctuation, <span class="sp-gap">?</span> new idea</div>
+      <div id="sp-strand" class="sp-strand"></div>
+      <div class="sp-label">Thought dial</div>
+      <div class="sp-dialbox">
+        <div id="sp-dial" class="engrams-radial" role="slider" tabindex="0" aria-label="Thought dial" aria-valuemin="0" aria-valuemax="100"><span class="engrams-radial-knob"></span><span class="engrams-radial-value"></span></div>
+        <span id="sp-dial-label" class="sp-dial-label"></span>
+        <button type="button" data-dial="literal">Literal</button>
+        <button type="button" data-dial="shifted">Shifted</button>
+        <button type="button" data-dial="wild">Wild</button>
+      </div>
+      <div class="sp-row">
+        <button type="button" id="sp-splice" class="sp-primary">Splice</button>
+        <button type="button" id="sp-guide" title="Lock the selected word so it is not re-cut">Guide</button>
+        <button type="button" id="sp-cut" title="Re-roll the selected word">Cut</button>
+        <button type="button" id="sp-copy">Copy</button>
+      </div>
+      <div class="sp-label">Result (tap a word to select it)</div>
+      <div id="sp-result" class="sp-result" aria-live="polite"></div>
+      <div class="sp-meter"><div id="sp-meter-fill" class="sp-meter-fill"></div></div>
+      <div id="sp-meter-label" class="sp-meter-label"></div>
+      <div id="sp-left" class="sp-left"></div>
+      <div class="sp-row">
+        <button type="button" data-send="0">To Spell I</button>
+        <button type="button" data-send="1">To Spell II</button>
+        <button type="button" data-send="2">To Spell III</button>
+        <button type="button" id="sp-generate" class="sp-primary">Generate</button>
+      </div>
+      <div id="sp-status" class="sp-status" aria-live="polite"></div>
+      <img id="sp-image" class="sp-image" alt="Painting of the spliced sentence" hidden />
+      <div class="sp-cols">
+        <div><div class="sp-label">Mutation log</div><ul id="sp-log" class="sp-list"></ul></div>
+        <div><div class="sp-label">History</div><ul id="sp-history" class="sp-list"></ul></div>
+      </div>
     </div>
   </section>
 
@@ -9179,6 +9226,8 @@
   <script defer src="js/match.js?v=7"></script>
   <script defer src="js/transfer.js?v=13"></script>
   <script defer src="js/marbles.js?v=2"></script>
+  <script defer src="js/splice-engine.js?v=2"></script>
+  <script defer src="js/splice.js?v=2"></script>
   <script defer src="js/fight.js?v=37"></script>
   <script defer src="js/citations.js?v=1"></script>
   <script defer src="js/plasma.js?v=7"></script>
@@ -9259,7 +9308,7 @@
   <script defer src="js/stasis-interface-skin.js?v=2"></script>
   <script defer src="js/stasis-floor-gen.js?v=8"></script>
   <script defer src="js/spellforge-config.js?v=5"></script>
-  <script defer src="js/spellforge.js?v=136"></script>
+  <script defer src="js/spellforge.js?v=137"></script>
   <script defer src="js/fix-webm-duration.js?v=1"></script>
   <script defer src="js/videofy-export.js?v=3"></script>
   <script defer src="js/viral.js?v=13"></script>

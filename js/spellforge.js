@@ -7550,6 +7550,30 @@
     }
   }
 
+  /** External pieces (Splice tab) save to Generated as "Title #N", same records as tome Generate. */
+  function saveExternalGen(opts) {
+    opts = opts || {};
+    var title = String(opts.title || "Splice").trim() || "Splice";
+    var raw = String(opts.url || "");
+    if (!raw) return Promise.resolve(null);
+    var url = raw.indexOf("/") === 0 ? assetUrl(raw) : raw;
+    var prompt = String(opts.prompt || "");
+    var tags = Array.isArray(opts.tags) ? opts.tags.slice(0, 6) : [];
+    return loadSlotGens().then(function () {
+      var n = nextSlotGenCount(title);
+      var seq = SLOT_GEN_SEQ_BASE + 1;
+      slotGens.forEach(function (g) { if (g.seq >= seq) seq = g.seq + 1; });
+      var rec = { seq: seq, key: slotGenKey(title), tome: 0, title: title, n: n, url: url, prompt: prompt, tags: tags, created: Date.now() };
+      slotGens.push(rec);
+      return storeSlotGen(rec).then(function () {
+        ingestSlotGens();
+        saveSlotGenToStudio(url, title + " #" + n, prompt);
+        try { if (bookView === "generated") renderGrid(); } catch (e) {}
+        return rec;
+      });
+    });
+  }
+
   function generateSlotTome(slotIndex) {
     if (slotBusy[slotIndex]) return;
     var info = slotTomeInfo(slotIndex);
@@ -8398,6 +8422,14 @@
         },
         generateFromSlots: function (slots, opts) {
           return generateFromSlots(slots, opts || {});
+        },
+        getSlotTexts: function () {
+          return [0, 1, 2].map(function (i) {
+            try { return String(getSpellSlotBody(i) || ""); } catch (e) { return ""; }
+          });
+        },
+        saveGenerated: function (opts) {
+          return saveExternalGen(opts);
         },
       };
       publishFusion();
