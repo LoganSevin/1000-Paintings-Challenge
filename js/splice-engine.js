@@ -169,6 +169,18 @@
       for (var d = L - 1; d >= 1 && !cands.length; d--) gather(d);
     }
     if (!cands.length) return null;
+    // Never hand back the source word (or an avoided word) while anything else fits.
+    var avoidSet = {};
+    if (srcLow) avoidSet[srcLow] = true;
+    (Array.isArray(avoid) ? avoid : avoid ? [avoid] : []).forEach(function (a) { if (a) avoidSet[String(a).toLowerCase()] = true; });
+    var fresh = cands.filter(function (c) { return !avoidSet[c.w]; });
+    if (!fresh.length) {
+      // widen the search before giving up: neighbour lengths, then anything shorter
+      [L + 1, L - 1].forEach(function (len) { if (len >= 1) gather(len); });
+      for (var d2 = L - 2; d2 >= 1; d2--) gather(d2);
+      fresh = cands.filter(function (c) { return !avoidSet[c.w]; });
+    }
+    if (fresh.length) cands = fresh;
     var best = null, bestScore = -Infinity;
     for (var c = 0; c < cands.length; c++) {
       var w = cands[c].w;
@@ -176,7 +188,6 @@
       if (lit > 0) score += lit * 14 * simFast(w, cands[c].g.counts, srcLow, srcCounts);
       if (FUNC[w] && L <= 4) score += 2.2;
       if (w.length !== L) score -= 0.8;
-      if (avoid && w === avoid) score -= 60;
       // Gumbel noise: sampling proportional to exp(score)
       var u = rng();
       score += -Math.log(-Math.log(u * 0.999998 + 0.000001));
@@ -231,7 +242,53 @@
         fill[idx] = { word: "", counts: new Array(26).fill(0), locked: false };
       }
     }
+    // The whole result must differ from the source and (ideally) from the previous result.
+    var srcNorm = norm(strand.tokens.map(function (t) { return t.type === "word" ? t.src : t.type === "anchor" ? t.ch : " "; }).join(""));
+    var prevNorm = opts.prev ? norm(opts.prev) : "";
+    var prevWords = String(opts.prev || "").match(/[A-Za-z]+|\?/g) || [];
+    if (prevWords.length !== n) prevWords = [];
+    for (var tries = 0; tries < 24; tries++) {
+      var cur = norm(render(strand, fill));
+      if (cur !== srcNorm && cur !== prevNorm) break;
+      var open = [];
+      for (var q = 0; q < n; q++) if (fill[q] && !fill[q].locked && (opts.only == null || opts.only === q)) open.push(q);
+      if (!open.length) break;
+      var slotI = open[Math.floor(rng() * open.length)];
+      var old = fill[slotI];
+      if (old.word) take(pool, old.counts, -1);
+      var np = pickWord(index, strand.slots[slotI], pool, Math.max(dial, 0.3), rng, [old.word, prevWords[slotI] || ""]);
+      if (np) { take(pool, np.counts, 1); fill[slotI] = { word: np.word, counts: np.counts, locked: false }; }
+      else if (old.word) { take(pool, old.counts, 1); }
+    }
     return { fill: fill, left: pool, total: sum(strand.pool), used: sum(strand.pool) - sum(pool) };
+  }
+
+  function norm(s) { return String(s || "").toLowerCase().replace(/\s+/g, " ").trim(); }
+
+  /** Deterministic 32-bit FNV-1a hash of a word's letters (drives its visual identity). */
+  function wordHash(w) {
+    w = String(w || "").toLowerCase();
+    var h = 0x811c9dc5;
+    for (var i = 0; i < w.length; i++) { h ^= w.charCodeAt(i); h = Math.imul(h, 0x01000193) >>> 0; }
+    h ^= h >>> 15; h = Math.imul(h, 0x2c1b3c6d) >>> 0; h ^= h >>> 12;
+    return h >>> 0;
+  }
+
+  /** Visual signature for a word: same letters in the same order -> same look. */
+  function wordLook(w) {
+    var h = wordHash(w);
+    var low = String(w || "").toLowerCase();
+    var vow = (low.match(/[aeiouy]/g) || []).length;
+    return {
+      hue: h % 360,
+      hue2: (h % 360 + 40 + ((h >>> 9) % 100)) % 360,
+      shape: (h >>> 3) % 6,
+      pattern: (h >>> 7) % 5,
+      spacing: ((h >>> 11) % 5) * 0.03,
+      rotate: (((h >>> 14) % 13) - 6) * (low.length > 6 ? 0.5 : 1),
+      weight: vow * 2 >= low.length ? 600 : 800,
+      italic: ((h >>> 19) % 4) === 0,
+    };
   }
 
   /** Assemble text: punctuation in place, gaps become spaces, open slots "?". */
@@ -257,6 +314,8 @@
     countLetters: countLetters,
     makeRng: makeRng,
     similarity: similarity,
+    wordHash: wordHash,
+    wordLook: wordLook,
     FUNCTION_WORDS: FUNCTION_WORDS,
   };
   if (typeof module !== "undefined" && module.exports) module.exports = api;

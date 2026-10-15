@@ -119,3 +119,83 @@ check("long strand (1000+ chars) stays linear", function () {
 
 console.log(results.join("\n"));
 console.log("words: " + words.length + ", index build " + buildMs + " ms, splice ms max " + Math.max.apply(null, times) + " avg " + (times.reduce(function (a, b) { return a + b; }, 0) / times.length).toFixed(1));
+
+/* ---- never the source text ---- */
+check("no unlocked slot keeps its source word, at every dial (Literal included)", function () {
+  var dials = [0, 0.05, 0.1, 0.25, 0.35, 0.5, 0.75, 0.9, 1];
+  dials.forEach(function (d) {
+    for (var s = 1; s <= 25; s++) {
+      var r = E.splice(strand, index, { fill: [] }, { dial: d, rng: E.makeRng(s * 31 + Math.round(d * 100)) });
+      r.fill.forEach(function (f, i) {
+        assert.notStrictEqual((f.word || "").toLowerCase(), strand.slots[i].src.toLowerCase(),
+          "slot " + i + " kept '" + strand.slots[i].src + "' at dial " + d + " seed " + s);
+      });
+      var out = E.render(strand, r.fill);
+      assert.notStrictEqual(out.toLowerCase(), DESC.toLowerCase());
+    }
+  });
+});
+
+check("short sentences are never returned unchanged (Literal)", function () {
+  ["The cat sat on the mat.", "I am here.", "Stop, look, listen!", "A red fox ran to the den at dawn."].forEach(function (txt) {
+    var st = E.parseStrand(txt);
+    var ix = E.buildIndex(words, st.pool);
+    for (var s = 1; s <= 40; s++) {
+      var r = E.splice(st, ix, { fill: [] }, { dial: 0, rng: E.makeRng(s) });
+      var out = E.render(st, r.fill);
+      assert.notStrictEqual(out.toLowerCase(), txt.toLowerCase(), "seed " + s + ": " + out);
+      r.fill.forEach(function (f, i) {
+        if (f.word) assert.notStrictEqual(f.word, st.slots[i].src.toLowerCase(), txt + " slot " + i + " seed " + s);
+      });
+    }
+  });
+});
+
+check("only-option fallback: a slot keeps its source word when nothing else fits", function () {
+  var st = E.parseStrand("Zyzzyva");
+  var ix = E.buildIndex(["zyzzyva"], st.pool);
+  var r = E.splice(st, ix, { fill: [] }, { dial: 0, rng: E.makeRng(1) });
+  assert.strictEqual(r.fill[0].word, "zyzzyva");
+});
+
+check("result differs from the previous result", function () {
+  var prev = "";
+  var txt = "I am a cat.";
+  var st = E.parseStrand(txt);
+  var ix = E.buildIndex(words, st.pool);
+  var fill = [];
+  for (var s = 1; s <= 40; s++) {
+    var r = E.splice(st, ix, { fill: fill }, { dial: 0, rng: E.makeRng(s), prev: prev });
+    var out = E.render(st, r.fill);
+    if (prev) assert.notStrictEqual(out, prev, "seed " + s);
+    prev = out; fill = r.fill;
+  }
+  // and on the long description, every dial
+  [0, 0.5, 1].forEach(function (d) {
+    var p = "";
+    for (var k = 1; k <= 10; k++) {
+      var o = E.render(strand, E.splice(strand, index, { fill: [] }, { dial: d, rng: E.makeRng(k), prev: p }).fill);
+      assert.notStrictEqual(o, p);
+      p = o;
+    }
+  });
+});
+
+check("locked slots are honoured even when they equal the source", function () {
+  var r = E.splice(strand, index, { fill: [] }, { dial: 0.5, rng: E.makeRng(2) });
+  r.fill[0] = { word: "a", counts: E.countLetters("a"), locked: true };
+  var r2 = E.splice(strand, index, r, { dial: 0, rng: E.makeRng(3) });
+  assert.strictEqual(r2.fill[0].word, "a");
+});
+
+check("word look is deterministic and distinct", function () {
+  assert.deepStrictEqual(E.wordLook("lamp"), E.wordLook("lamp"));
+  assert.deepStrictEqual(E.wordLook("Lamp"), E.wordLook("lamp"));
+  var ws = ["sea", "lamp", "palm", "gull", "coat", "north", "song", "ship", "dusk", "rocks", "brass", "winter"];
+  var sigs = {};
+  ws.forEach(function (w) { var l = E.wordLook(w); sigs[[l.hue, l.shape, l.pattern, l.rotate].join("|")] = true; });
+  assert.strictEqual(Object.keys(sigs).length, ws.length);
+  assert.notDeepStrictEqual(E.wordLook("lamp"), E.wordLook("palm"));
+});
+
+console.log(results.slice(-6).join("\n"));

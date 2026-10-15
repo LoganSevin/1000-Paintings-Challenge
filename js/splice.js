@@ -160,7 +160,7 @@
       .then(function (index) {
         var before = st.fill.map(function (f) { return f && f.word; });
         var t0 = performance.now();
-        var r = E.splice(st.strand, index, { fill: st.fill }, { dial: st.dial, only: only == null ? undefined : only });
+        var r = E.splice(st.strand, index, { fill: st.fill }, { dial: st.dial, only: only == null ? undefined : only, prev: currentSentence() });
         var ms = Math.round(performance.now() - t0);
         st.fill = r.fill;
         if (only != null) {
@@ -199,29 +199,165 @@
     return st.strand && st.fill.length ? E.render(st.strand, st.fill) : "";
   }
 
+  function shownWord(f, t) {
+    if (!f || !f.word) return "?";
+    return /[A-Z]/.test(t.src.charAt(0)) ? f.word.charAt(0).toUpperCase() + f.word.slice(1) : f.word;
+  }
+
+  /* Shape: longest word in the middle, longer words spiral around it,
+   * 3-letter-or-shorter words ring the outside. Positions are deterministic. */
+  function shapeItems() {
+    var items = [];
+    var toks = st.strand.tokens;
+    for (var i = 0; i < toks.length; i++) {
+      var t = toks[i];
+      if (t.type !== "word") continue;
+      var f = st.fill[t.slot];
+      var punct = "";
+      for (var j = i + 1; j < toks.length && toks[j].type === "anchor"; j++) punct += toks[j].ch;
+      var lead = "";
+      for (var k = i - 1; k >= 0 && toks[k].type === "anchor"; k--) lead = toks[k].ch + lead;
+      if (k >= 0 && toks[k].type === "word") lead = ""; // belongs to previous word
+      items.push({ slot: t.slot, text: shownWord(f, t), word: (f && f.word) || "", lead: lead, punct: punct, gapAfter: j < toks.length && toks[j].type === "gap", f: f });
+    }
+    return items;
+  }
+
+  function layoutShape(box) {
+    var host = box || document.querySelector("#sp-result .sp-shape");
+    if (!host || !host._items) return;
+    var W = host.clientWidth || Math.min(520, (window.innerWidth || 360) - 40);
+    if (W < 200) W = 200;
+    var items = host._items;
+    var n = items.length;
+    var H = Math.round(W * (n > 40 ? 1.08 : 0.92));
+    host.style.height = H + "px";
+    // font size: fit total tile area into ~52% of the box
+    var fs = W < 420 ? 15 : 17;
+    function est(it, f) {
+      var L = (it.lead + it.text + it.punct).length;
+      var look = it.look;
+      return { w: (L * (0.6 + look.spacing) + 1.3) * f * (it.big ? 1.12 : 1), h: f * (it.big ? 2.1 : 1.85) };
+    }
+    for (var g = 0; g < 20; g++) {
+      var area = 0;
+      items.forEach(function (it) { var e = est(it, fs); area += (e.w + 6) * (e.h + 6); });
+      if (area <= W * H * 0.5 || fs <= 9) break;
+      fs -= 0.5;
+    }
+    var cx = W / 2, cy = H / 2;
+    var shorts = items.filter(function (it) { return it.word.length <= 3; });
+    var longs = items.filter(function (it) { return it.word.length > 3; })
+      .sort(function (a, b) { return b.word.length - a.word.length || a.slot - b.slot; });
+    var placed = [];
+    function hit(r) {
+      if (r.x < 2 || r.y < 2 || r.x + r.w > W - 2 || r.y + r.h > H - 2) return true;
+      for (var q = 0; q < placed.length; q++) {
+        var o = placed[q];
+        if (r.x < o.x + o.w + 4 && r.x + r.w + 4 > o.x && r.y < o.y + o.h + 4 && r.y + r.h + 4 > o.y) return true;
+      }
+      return false;
+    }
+    function put(it, tx, ty, outward) {
+      it.el.style.fontSize = (it.big ? fs * 1.12 : fs) + "px";
+      var e = est(it, fs);
+      var ow = it.el.offsetWidth, oh = it.el.offsetHeight;
+      if (ow && oh) { // real size when visible, including the small rotation
+        var rad0 = Math.abs(it.look.rotate) * Math.PI / 180;
+        e = { w: ow * Math.cos(rad0) + oh * Math.sin(rad0), h: oh * Math.cos(rad0) + ow * Math.sin(rad0) };
+      }
+      var best = null;
+      for (var step = 0; step < 900 && !best; step++) {
+        var ang = step * 0.5;
+        var rad = step * 0.9;
+        var px = tx + Math.cos(ang) * rad, py = ty + Math.sin(ang) * rad * 0.8;
+        if (outward && step > 0) { // keep outer words hugging the rim
+          var dx = px - cx, dy = py - cy, d = Math.sqrt(dx * dx + dy * dy) || 1;
+          var rimD = Math.sqrt((tx - cx) * (tx - cx) + (ty - cy) * (ty - cy));
+          if (d < rimD * 0.72) continue;
+        }
+        var r = { x: px - e.w / 2, y: py - e.h / 2, w: e.w, h: e.h };
+        if (!hit(r)) best = r;
+      }
+      if (!best) best = { x: Math.max(2, Math.min(W - e.w - 2, tx - e.w / 2)), y: Math.max(2, Math.min(H - e.h - 2, ty - e.h / 2)), w: e.w, h: e.h };
+      placed.push(best);
+      it.el.style.left = (best.x + best.w / 2) + "px";
+      it.el.style.top = (best.y + best.h / 2) + "px";
+    }
+    var innerR = Math.min(W, H) * 0.3;
+    longs.forEach(function (it, i) {
+      if (i === 0) { put(it, cx, cy); return; }
+      var a = i * 2.39996 + (it.look.hue / 360) * 0.5; // golden angle spiral
+      var rr = innerR * Math.sqrt(i / Math.max(1, longs.length)) + 6;
+      put(it, cx + Math.cos(a) * rr * 1.15, cy + Math.sin(a) * rr);
+    });
+    var m = shorts.length;
+    shorts.forEach(function (it, i) {
+      var a = -Math.PI / 2 + (i / Math.max(1, m)) * Math.PI * 2;
+      var e = est(it, fs);
+      var rx = W / 2 - e.w / 2 - 6, ry = H / 2 - e.h / 2 - 6;
+      put(it, cx + Math.cos(a) * rx, cy + Math.sin(a) * ry, true);
+    });
+  }
+
+  function tileHtml(it) {
+    var lk = it.look;
+    var cls = "sp-tile sp-sh-" + lk.shape + " sp-pt-" + lk.pattern + (it.big ? " is-core" : "") +
+      (it.word.length <= 3 ? " is-short" : "") + (it.f && it.f.locked ? " is-locked" : "") +
+      (st.sel === it.slot ? " is-sel" : "") + (it.word ? "" : " is-open");
+    var style = "--h:" + lk.hue + ";--h2:" + lk.hue2 + ";--ls:" + lk.spacing.toFixed(2) + "em;--rot:" + lk.rotate + "deg;font-weight:" + lk.weight + (lk.italic ? ";font-style:italic" : "");
+    return '<button type="button" class="' + cls + '" data-slot="' + it.slot + '" style="' + style + '" title="' + esc(it.text) + '">' +
+      (it.lead ? '<span class="sp-punct">' + esc(it.lead) + "</span>" : "") + '<span class="sp-tile-w">' + esc(it.text) + "</span>" +
+      (it.punct ? '<span class="sp-punct">' + esc(it.punct) + "</span>" : "") + "</button>";
+  }
+
   function renderResult() {
     var host = $("sp-result");
     if (!host) return;
     if (!st.strand || !st.fill.length) {
       host.innerHTML = '<span class="sp-empty">Press Splice to cut a new sentence from these letters.</span>';
     } else {
-      var html = "";
+      var items = shapeItems();
+      var maxLen = 0;
+      items.forEach(function (it) { it.look = E.wordLook(it.word || "?"); if (it.word.length > maxLen) maxLen = it.word.length; });
+      var core = items.filter(function (it) { return it.word.length === maxLen && maxLen > 3; })[0];
+      if (core) core.big = true;
+      var line = "";
       st.strand.tokens.forEach(function (t) {
-        if (t.type === "gap") html += '<span class="sp-space"> </span>';
-        else if (t.type === "anchor") html += '<span class="sp-anchor">' + esc(t.ch) + "</span>";
+        if (t.type === "gap") line += '<span class="sp-space" title="New idea"> </span>';
+        else if (t.type === "anchor") line += '<span class="sp-anchor">' + esc(t.ch) + "</span>";
         else {
           var f = st.fill[t.slot];
           var cls = "sp-word" + (f && f.locked ? " is-locked" : "") + (st.sel === t.slot ? " is-sel" : "") + (f && f.word ? "" : " is-open");
-          var shown = f && f.word ? (/[A-Z]/.test(t.src.charAt(0)) ? f.word.charAt(0).toUpperCase() + f.word.slice(1) : f.word) : "?";
-          html += '<button type="button" class="' + cls + '" data-slot="' + t.slot + '">' + esc(shown) + "</button>";
+          line += '<button type="button" class="' + cls + '" data-slot="' + t.slot + '">' + esc(shownWord(f, t)) + "</button>";
         }
       });
-      host.innerHTML = html;
+      host.innerHTML =
+        '<div class="sp-shape" role="group" aria-label="Spliced words arranged by length">' + items.map(tileHtml).join("") + "</div>" +
+        '<div class="sp-label sp-line-label">Sentence</div><div class="sp-line">' + line + "</div>";
+      var box = host.querySelector(".sp-shape");
+      box._items = items;
+      var tiles = box.querySelectorAll(".sp-tile");
+      items.forEach(function (it, i) { it.el = tiles[i]; });
+      layoutShape(box);
+      watchShape(box);
     }
     renderMeter();
     var g = $("sp-guide");
     var f2 = st.fill[st.sel];
     if (g) g.textContent = f2 && f2.locked ? "Unguide" : "Guide";
+  }
+
+  var shapeObs = null, lastW = 0;
+  function watchShape(box) {
+    if (!window.ResizeObserver) return;
+    if (shapeObs) shapeObs.disconnect();
+    lastW = box.clientWidth;
+    shapeObs = new ResizeObserver(function () {
+      var w = box.clientWidth;
+      if (w && Math.abs(w - lastW) > 2) { lastW = w; layoutShape(box); }
+    });
+    shapeObs.observe(box);
   }
 
   function renderMeter() {
@@ -569,6 +705,7 @@
     window.addEventListener("tab-changed", function (e) {
       if (e.detail && e.detail.tab === "splice") {
         fillSourcePicker();
+        setTimeout(function () { layoutShape(); }, 0);
         if (st.strand) ensureIndex().then(function () { setStatus("Ready. Press Splice."); }).catch(function () {});
       }
     });
