@@ -2,23 +2,36 @@
  * Sprites: a survivor-game character at sprite size.
  * Spell I, Spell II, and Spell III are the creature.
  * Idle, walk, and burst each play as a loop.
- * Paint asks Spellforge for one sheet of stills: idle, walk, and burst together.
- * Playback shows one still at a time. It does not scan the sheet.
+ * Paint asks for eighteen separate stills: six idle, six walk, six burst.
+ * Those stills stack in one frame. One is visible at a time.
  */
 (function () {
   "use strict";
 
-  var ASPECT = "16:9";
-  var FRAMES = 8;
-  var COLS = 8;
-  var SHEET_ROWS = 3;
-  var FRAME_MS = 110;
-  var ROW = { idle: 0, walk: 1, burst: 2 };
-  var CYCLES = {
-    idle: "Top row, left to right, is the idle loop. Eight frames. The creature breathes, shifts its weight, blinks once, and the cape sways. The last frame matches the first.",
-    walk: "Middle row, left to right, is the walk loop. Eight frames, side view facing right: contact, down, passing, up, then the other foot. The arms swing opposite the legs. The last frame matches the first.",
-    burst: "Bottom row, left to right, is the burst loop. Eight frames: crouch, deeper crouch, launch, a bright pixel burst at the peak, fall, land, and recover. The last frame matches the first.",
-  };
+  var ASPECT = "1:1";
+  var FRAMES = 6;
+  var FRAME_MS = 140;
+  var STILLS = [
+    { cycle: "idle", frame: 0, pose: "Standing still, weight even, eyes open, cape hanging." },
+    { cycle: "idle", frame: 1, pose: "Breathing in. The chest is a little higher. The cape is still." },
+    { cycle: "idle", frame: 2, pose: "Weight shifted onto the back foot." },
+    { cycle: "idle", frame: 3, pose: "Eyes closed in one blink. The body stays in place." },
+    { cycle: "idle", frame: 4, pose: "The cape sways behind the body. The body is almost still." },
+    { cycle: "idle", frame: 5, pose: "The same stance as the first idle still, ready to repeat." },
+    { cycle: "walk", frame: 0, pose: "Side view facing right. Contact: the front foot is forward, the back foot trails, and the arms swing opposite the legs." },
+    { cycle: "walk", frame: 1, pose: "Side view facing right. Down: the weight is on the front foot." },
+    { cycle: "walk", frame: 2, pose: "Side view facing right. Passing: the back leg swings through." },
+    { cycle: "walk", frame: 3, pose: "Side view facing right. Up: the back foot leaves the ground." },
+    { cycle: "walk", frame: 4, pose: "Side view facing right. The other foot is now forward." },
+    { cycle: "walk", frame: 5, pose: "Side view facing right. Passing the other way, ready for the first walk still to follow." },
+    { cycle: "burst", frame: 0, pose: "Crouch, knees bent, still on the ground." },
+    { cycle: "burst", frame: 1, pose: "A deeper crouch." },
+    { cycle: "burst", frame: 2, pose: "Launch. The feet leave the ground." },
+    { cycle: "burst", frame: 3, pose: "The peak. A bright pixel burst around the body." },
+    { cycle: "burst", frame: 4, pose: "Falling back toward the ground." },
+    { cycle: "burst", frame: 5, pose: "Landing and recovering toward the crouch." },
+  ];
+  var CYCLES = { idle: 1, walk: 1, burst: 1 };
   var POSE = {
     idle: [
       { y: 0, x: 0, sq: 0, arm: 0, blink: 0, fx: 0, front: [0, 0], back: [0, 0] },
@@ -26,8 +39,6 @@
       { y: -1, x: 1, sq: -1, arm: 1, blink: 0, fx: 2, front: [1, -1], back: [0, 0] },
       { y: -1, x: 0, sq: -1, arm: 0, blink: 0, fx: 1, front: [0, 0], back: [-1, 0] },
       { y: 0, x: -1, sq: 0, arm: -1, blink: 1, fx: 0, front: [0, 0], back: [0, 0] },
-      { y: 0, x: -1, sq: 1, arm: -1, blink: 1, fx: 0, front: [0, 0], back: [1, 0] },
-      { y: -1, x: 0, sq: 0, arm: 0, blink: 0, fx: 1, front: [0, -1], back: [0, 0] },
       { y: 0, x: 0, sq: 0, arm: 0, blink: 0, fx: 0, front: [0, 0], back: [0, 0] },
     ],
     walk: [
@@ -37,8 +48,6 @@
       { y: -1, x: 0, sq: 0, arm: -2, blink: 0, fx: 1, front: [-1, -2], back: [3, 0] },
       { y: 0, x: 0, sq: 0, arm: -3, blink: 0, fx: 1, front: [-3, -4], back: [4, 0] },
       { y: 2, x: 0, sq: 1, arm: -2, blink: 0, fx: 0, front: [-1, -1], back: [3, 1] },
-      { y: -2, x: 0, sq: 0, arm: 0, blink: 0, fx: 2, front: [1, 0], back: [1, -5] },
-      { y: -1, x: 0, sq: 0, arm: 2, blink: 0, fx: 1, front: [3, 0], back: [-1, -2] },
     ],
     burst: [
       { y: 3, x: 0, sq: 2, arm: -2, blink: 0, fx: 2, front: [2, 2], back: [-2, 2] },
@@ -47,8 +56,6 @@
       { y: -16, x: 0, sq: -2, arm: 5, blink: 0, fx: 8, front: [1, -5], back: [-2, -5] },
       { y: -14, x: 0, sq: -1, arm: 4, blink: 0, fx: 7, front: [0, -4], back: [-1, -4] },
       { y: -6, x: 0, sq: 0, arm: 2, blink: 0, fx: 4, front: [1, -2], back: [-1, -1] },
-      { y: 3, x: 0, sq: 3, arm: 0, blink: 0, fx: 2, front: [3, 3], back: [-2, 3] },
-      { y: 0, x: 0, sq: 0, arm: 0, blink: 0, fx: 0, front: [0, 0], back: [0, 0] },
     ],
   };
   var ROMAN = ["I", "II", "III"];
@@ -58,8 +65,7 @@
   var painting = false;
   var timer = 0;
   var started = 0;
-  var sheet = null;
-  var layers = [];
+
   var pics = [null, null, null];
   var chips = [null, null, null];
 
@@ -302,42 +308,42 @@
     }
   }
 
-  function cutLayers(img) {
-    var sw = Math.floor(img.naturalWidth / COLS);
-    var sh = Math.floor(img.naturalHeight / SHEET_ROWS);
-    if (!(sw > 1) || !(sh > 1)) return [];
-    var out = [];
-    var row;
-    var col;
-    for (row = 0; row < SHEET_ROWS; row++) {
-      for (col = 0; col < COLS; col++) {
-        var still = document.createElement("canvas");
-        still.width = sw;
-        still.height = sh;
-        var g = still.getContext("2d");
-        g.imageSmoothingEnabled = false;
-        g.drawImage(img, col * sw, row * sh, sw, sh, 0, 0, sw, sh);
-        out.push(still);
-      }
+  function layerNode(host, cycleName, frame) {
+    if (!host) return null;
+    var nodes = host.querySelectorAll(".spr-layer");
+    var i;
+    for (i = 0; i < nodes.length; i++) {
+      if (nodes[i].dataset.cycle === cycleName && Number(nodes[i].dataset.frame) === frame) return nodes[i];
     }
-    return out;
+    return null;
   }
 
-  function drawStill(ctx, w, h, still) {
-    ctx.imageSmoothingEnabled = false;
-    ctx.fillStyle = "#12151e";
-    ctx.fillRect(0, 0, w, h);
-    var scale = Math.min(w / still.width, h / still.height);
-    var dw = Math.round(still.width * scale);
-    var dh = Math.round(still.height * scale);
-    var dx = Math.round((w - dw) / 2);
-    var dy = Math.round((h - dh) / 2);
-    ctx.drawImage(still, dx, dy, dw, dh);
-  }
-
-  function stillFor(frame) {
-    var row = ROW[cycle] || 0;
-    return layers[row * COLS + (frame % COLS)] || null;
+  function placeStill(cycleName, frame, img) {
+    if (!img || !img.naturalWidth || !CYCLES[cycleName]) return;
+    var hosts = [$("spr-layers"), $("spr-layers-mini")];
+    var h;
+    for (h = 0; h < hosts.length; h++) {
+      var host = hosts[h];
+      if (!host) continue;
+      var node = layerNode(host, cycleName, frame);
+      if (!node) {
+        node = document.createElement("canvas");
+        node.className = "spr-layer";
+        node.dataset.cycle = cycleName;
+        node.dataset.frame = String(frame);
+        node.hidden = true;
+        host.appendChild(node);
+      }
+      node.width = img.naturalWidth;
+      node.height = img.naturalHeight;
+      var g = node.getContext("2d");
+      g.imageSmoothingEnabled = false;
+      g.globalAlpha = 1;
+      g.fillStyle = "#12151e";
+      g.fillRect(0, 0, node.width, node.height);
+      g.drawImage(img, 0, 0);
+    }
+    draw();
   }
 
   function draw() {
@@ -348,35 +354,31 @@
     var frame = frameIndex(performance.now());
     stage.dataset.cycle = cycle;
     stage.dataset.frame = String(frame);
-    var still = stillFor(frame);
+    var showing = !!layerNode($("spr-layers"), cycle, frame);
     [stage, mini].forEach(function (canvas) {
       if (!canvas) return;
+      canvas.hidden = showing;
+      if (showing) return;
       var ctx = canvas.getContext("2d");
       if (!ctx) return;
-      if (still) drawStill(ctx, canvas.width, canvas.height, still);
-      else drawPuppet(ctx, canvas.width, canvas.height, frame, spells);
+      drawPuppet(ctx, canvas.width, canvas.height, frame, spells);
     });
+    var layers = document.querySelectorAll("#panel-sprites .spr-layer");
+    var i;
+    for (i = 0; i < layers.length; i++) {
+      var node = layers[i];
+      var on = showing && node.dataset.cycle === cycle && Number(node.dataset.frame) === frame;
+      node.hidden = !on;
+    }
   }
 
   function setCycle(next) {
     if (!CYCLES[next]) return;
     cycle = next;
-    var buttons = document.querySelectorAll("#panel-sprites [data-cycle]");
+    var buttons = document.querySelectorAll("#panel-sprites button[data-cycle]");
     for (var i = 0; i < buttons.length; i++) {
       buttons[i].classList.toggle("is-on", buttons[i].getAttribute("data-cycle") === cycle);
     }
-    var strip = $("spr-strip");
-    if (strip) {
-      strip.removeAttribute("src");
-      strip.hidden = true;
-    }
-    draw();
-  }
-
-  function useSheet(img) {
-    sheet = img || null;
-    layers = img && img.naturalWidth ? cutLayers(img) : [];
-    setCycle(cycle);
     draw();
   }
 
@@ -387,19 +389,13 @@
     el.classList.toggle("is-error", !!isError);
   }
 
-  function buildPrompt(spells) {
+  function buildFramePrompt(spells, job) {
     var lines = [
-      "One small survivor-game character, full body, side view facing right, readable at sprite size.",
-      "Chunky pixel art. Visible square pixels, a dark one-pixel outline, and a limited palette taken from the spells.",
-      "One picture with three rows and eight columns. Every cell is the same size.",
-      "Each cell is one flat still of the whole creature, centered, held in one pose.",
-      "The creature stays inside its own cell. It does not slide into the next cell, and it does not travel across the picture.",
-      "No smear, no motion blur, and no scan joining the stills. Paint idle, walk, and burst in this same image, at the same time, of the same creature.",
-      CYCLES.idle,
-      CYCLES.walk,
-      CYCLES.burst,
-      "The same creature, the same scale, the same pixel size, and the same ground line in every cell.",
-      "Flat solid dark backdrop. A hard oval shadow on the ground under the feet in every frame. No scenery.",
+      "One sprite still of one creature in one pose. This picture contains only this still.",
+      "Opaque chunky pixel art. Solid pixels, a dark one-pixel outline, and a limited palette taken from the spells. No transparency, no fade, and no ghosted body.",
+      "Do not make a character sheet, a film strip, or extra poses beside this one.",
+      "Full body, centered, feet on a hard oval shadow, flat solid dark backdrop, no scenery.",
+      "This still is " + job.cycle + " frame " + (job.frame + 1) + " of 6. " + job.pose,
       "The creature is one combination of Spell 1, Spell 2, and Spell 3. Do not paint Spell 1 by itself.",
       "Spell 1 is Spell I. Spell 2 is Spell II. Spell 3 is Spell III.",
       "",
@@ -413,7 +409,7 @@
       lines.push("");
     }
     var sig = stampLine();
-    lines.push("OUTPUT ASPECT " + ASPECT + " wide — this ratio is mandatory, not 1:1 unless the control is 1:1. Fill the canvas. Do not letterbox.");
+    lines.push("OUTPUT ASPECT 1:1 square — this ratio is mandatory. Fill the canvas. Do not letterbox.");
     lines.push("IN-CANVAS SIGNATURE (mandatory, small, painterly, lower corner): write exactly \"" + sig + "\".");
     return lines.join("\n").trim();
   }
@@ -444,26 +440,25 @@
       });
   }
 
-  function paintLoop() {
-    if (painting) return;
-    var spells = readSpells();
-    var filled = spells.filter(function (sp) { return sp.text; });
-    if (!filled.length) {
-      setStatus("Equip Spell I, Spell II, or Spell III in Spellforge first.", true);
-      return;
-    }
-    painting = true;
-    var btn = $("spr-paint");
-    if (btn) btn.disabled = true;
-    var prompt = buildPrompt(spells);
-    var jobId = (typeof crypto !== "undefined" && crypto.randomUUID) ? crypto.randomUUID() : "sprites-" + Date.now();
+  function loadImage(url) {
+    return new Promise(function (resolve, reject) {
+      var img = new Image();
+      img.onload = function () { resolve(img); };
+      img.onerror = function () { reject(new Error("The sprite image did not load.")); };
+      img.src = url;
+    });
+  }
+
+  function requestStill(spells, job) {
+    var prompt = buildFramePrompt(spells, job);
+    var jobId = (typeof crypto !== "undefined" && crypto.randomUUID) ? crypto.randomUUID() : "sprites-" + Date.now() + "-" + job.cycle + job.frame;
     var ids = [];
-    for (var i = 0; i < spells.length; i++) {
+    var i;
+    for (i = 0; i < spells.length; i++) {
       var n = Number(spells[i].id);
       if (n >= 1 && n <= 1000) ids.push(n);
     }
-    setStatus("Painting idle, walk, and burst together from Spell I, Spell II, and Spell III…");
-    fetch(apiUrl("/api/generate-stasis-vision"), {
+    return fetch(apiUrl("/api/generate-stasis-vision"), {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       cache: "no-store",
@@ -472,7 +467,7 @@
         stasis: prompt,
         prompt: prompt,
         fused_prompt: prompt,
-        buzz_words: ["sprite", "idle", "walk", "burst", "Spell I", "Spell II", "Spell III"],
+        buzz_words: ["sprite", job.cycle, "Spell I", "Spell II", "Spell III"],
         spells: ids,
         spell_details: spells.map(function (sp) {
           return { slot: sp.slot, id: sp.id, title: "Spell " + sp.roman, description: sp.text };
@@ -495,35 +490,63 @@
         var url = imageUrl(res.d);
         if (url) return url;
         if (res.status === 202 || (res.d && res.d.job_id)) return pollJob(res.d.job_id || jobId, 40);
-        throw new Error((res.d && res.d.error) || "The sprite did not start.");
+        var errText = res.d && (res.d.error && res.d.error.message ? res.d.error.message : res.d.error);
+        throw new Error(errText || "The sprite did not start. Press Paint again.");
       })
-      .then(function (url) {
-        return new Promise(function (resolve, reject) {
-          var img = new Image();
-          img.onload = function () { resolve(img); };
-          img.onerror = function () { reject(new Error("The sprite image did not load.")); };
-          img.src = url;
-        });
-      })
+      .then(loadImage)
       .then(function (img) {
-        useSheet(img);
-        setStatus("Idle, walk, and burst are ready. One still shows at a time.");
-        var api = window.SpellforgeAPI;
-        if (api && typeof api.saveGenerated === "function") {
-          api.saveGenerated({ title: "Sprite idle walk burst", url: img.src, prompt: prompt, tags: ["sprite", "idle", "walk", "burst"] }).catch(function () {});
-        }
-      })
-      .catch(function (err) {
-        var msg = String((err && err.message) || err || "");
-        if (/quota|neuron|credits|capacity|paywall|buy credits|balance|api key|failed to fetch|network/i.test(msg)) {
-          msg = "The sprite did not start. Press Paint again.";
-        }
-        setStatus(msg.slice(0, 180) || "The sprite did not start.", true);
-      })
-      .then(function () {
+        placeStill(job.cycle, job.frame, img);
+      });
+  }
+
+  function paintLoop() {
+    if (painting) return;
+    var spells = readSpells();
+    var filled = spells.filter(function (sp) { return sp.text; });
+    if (!filled.length) {
+      setStatus("Equip Spell I, Spell II, or Spell III in Spellforge first.", true);
+      return;
+    }
+    painting = true;
+    var btn = $("spr-paint");
+    if (btn) btn.disabled = true;
+    var next = 0;
+    var active = 0;
+    var finished = 0;
+    var failed = 0;
+    function pump() {
+      if (!painting) return;
+      if (finished === STILLS.length) {
         painting = false;
         if (btn) btn.disabled = false;
-      });
+        if (failed === STILLS.length) setStatus("The sprite did not start. Press Paint again.", true);
+        else if (failed) setStatus(finished - failed + " of 18 stills are in the frame. Press Paint the loops for the rest.", true);
+        else setStatus("Eighteen stills are stacked. One shows at a time.");
+        draw();
+        return;
+      }
+      while (active < 3 && next < STILLS.length) {
+        (function (job) {
+          active += 1;
+          setStatus("Painting " + job.cycle + " still " + (job.frame + 1) + " of 6…");
+          requestStill(spells, job).then(
+            function () {
+              active -= 1;
+              finished += 1;
+              pump();
+            },
+            function () {
+              active -= 1;
+              finished += 1;
+              failed += 1;
+              pump();
+            }
+          );
+        })(STILLS[next]);
+        next += 1;
+      }
+    }
+    pump();
   }
 
   function refreshFromSpells() {
@@ -630,5 +653,5 @@
   window.addEventListener("spellforge-local-fuse", function () {
     if (shown) refreshFromSpells();
   });
-  window.Sprites = { start: start, readSpells: readSpells, useSheet: useSheet };
+  window.Sprites = { start: start, readSpells: readSpells, placeStill: placeStill, framePrompt: buildFramePrompt };
 })();

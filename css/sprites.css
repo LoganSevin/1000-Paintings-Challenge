@@ -6,6 +6,44 @@
 
 #panel-sprites.panel.active {
   display: block;
+  position: relative;
+  z-index: 1;
+  min-height: calc(100dvh - 4.5rem);
+  background: #0c0e14;
+}
+
+/* The Spellforge vision is a full-page sheet at partial opacity. On Sprites it stays hidden, and the chrome stays solid. */
+body.spr-tab-active #stasis-lure-root {
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+body.spr-tab-active .site-header,
+body.spr-tab-active .site-tabs {
+  background: #0c0e14 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  opacity: 1;
+}
+
+body.spr-tab-active .site-tabs .tab {
+  color: #f5f0e8 !important;
+  text-shadow: none !important;
+  opacity: 1;
+}
+
+body.spr-tab-active[data-stasis-skin-active] :is(
+  .spellbook-panel,
+  .spell-fusion-panel,
+  .spell-slot,
+  .spell-stasis-vision-wrap,
+  .spell-loop-wrap
+) {
+  background: #161920 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: none !important;
+  opacity: 1;
 }
 
 .spr-shell {
@@ -13,12 +51,14 @@
   margin: 0 auto;
   padding: 0.6rem 0.7rem 0.4rem;
   color: #ece6d6;
+  background: #0c0e14;
 }
 
 .spr-forge {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 0.7rem 2.5rem;
+  background: #0c0e14;
 }
 
 .spr-forge .spellbook-panel {
@@ -33,7 +73,6 @@
   margin: 0 0 0.7rem;
   font-size: 0.86rem;
   line-height: 1.4;
-  opacity: 0.82;
 }
 
 .spr-stage-wrap {
@@ -47,23 +86,43 @@
   padding: 0.7rem;
 }
 
-.spr-stage {
+.spr-frame {
+  position: relative;
   width: 192px;
   height: 192px;
-  image-rendering: crisp-edges;
-  image-rendering: pixelated;
+  flex: 0 0 auto;
   background: #12151e;
-  border-radius: 0;
+  overflow: hidden;
 }
 
-.spr-mini {
+.spr-frame-mini {
   width: 64px;
   height: 64px;
+  border: 1px solid rgba(236, 230, 214, 0.15);
+}
+
+.spr-layers {
+  position: absolute;
+  inset: 0;
+}
+
+.spr-stage,
+.spr-mini,
+.spr-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  background: #12151e;
   image-rendering: crisp-edges;
   image-rendering: pixelated;
-  background: #12151e;
-  border-radius: 0;
-  border: 1px solid rgba(236, 230, 214, 0.15);
+}
+
+.spr-layer[hidden],
+.spr-stage[hidden],
+.spr-mini[hidden] {
+  display: none !important;
 }
 
 .spr-stage-copy {
@@ -74,7 +133,6 @@
 .spr-stage-copy p {
   margin: 0.2rem 0 0;
   font-size: 0.82rem;
-  opacity: 0.75;
 }
 
 .spr-row {
@@ -148,24 +206,14 @@
   color: #ff9c8a;
 }
 
-.spr-strip {
-  display: block;
-  width: 100%;
-  max-width: 640px;
-  height: auto;
-  margin-top: 0.4rem;
-  border-radius: 8px;
-  background: #0e1017;
-  image-rendering: auto;
-}
-
-.spr-strip[hidden] {
-  display: none;
-}
-
 @media (max-width: 540px) {
-  .spr-stage {
+  .spr-frame {
     width: 128px;
     height: 128px;
+  }
+
+  .spr-frame-mini {
+    width: 64px;
+    height: 64px;
   }
 }
