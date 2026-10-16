@@ -51,7 +51,7 @@
   <link rel="stylesheet" href="css/engrams.css?v=11" />
   <link rel="stylesheet" href="css/bible.css?v=8" />
   <link rel="stylesheet" href="css/history.css?v=1" />
-  <link rel="stylesheet" href="css/sprites.css?v=1" />
+  <link rel="stylesheet" href="css/sprites.css?v=2" />
   <link rel="stylesheet" href="css/slots.css?v=4" />
   <link rel="stylesheet" href="css/colors.css?v=6" />
   <link rel="stylesheet" href="css/hours.css?v=1" />
@@ -7698,12 +7698,12 @@
   <section id="panel-sprites" class="panel" hidden>
     <div class="spr-shell">
       <h2>Sprites</h2>
-      <p class="spr-hint">A sprite-sized character for a survivor game. Spell I, II, and III are its body. Idle, walk, and burst each loop.</p>
+      <p class="spr-hint">A pixel sprite for a survivor game. Spell I, II, and III are its body, cut from the stills. Idle, walk, and burst each loop, with a shadow on the ground.</p>
       <div class="spr-stage-wrap">
-        <canvas id="spr-stage" class="spr-stage" width="96" height="96" data-cycle="idle" data-frame="0" aria-label="Sprite preview, looping"></canvas>
+        <canvas id="spr-stage" class="spr-stage" width="64" height="64" data-cycle="idle" data-frame="0" aria-label="Sprite preview, looping"></canvas>
         <canvas id="spr-mini" class="spr-mini" width="64" height="64" aria-hidden="true"></canvas>
         <div class="spr-stage-copy">
-          <p>The large frame is the sprite. The small one is the same loop at game size.</p>
+          <p>The large frame is the pixel sprite. The small one is the same loop at game size.</p>
         </div>
       </div>
       <div class="spr-row">
@@ -9295,7 +9295,7 @@
   <script defer src="js/engrams.js?v=15"></script>
   <script defer src="js/bible.js?v=12"></script>
   <script defer src="js/history.js?v=1"></script>
-  <script defer src="js/sprites.js?v=1"></script>
+  <script defer src="js/sprites.js?v=2"></script>
   <script defer src="js/slots.js?v=5"></script>
   <script defer src="js/colors.js?v=4"></script>
   <script defer src="js/colors-gen.js?v=5"></script>

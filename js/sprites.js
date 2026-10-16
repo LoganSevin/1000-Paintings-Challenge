@@ -2,18 +2,52 @@
  * Sprites: a survivor-game character at sprite size.
  * Spell I, Spell II, and Spell III are the creature.
  * Idle, walk, and burst each play as a loop.
- * Paint asks Spellforge for one four-frame strip of the chosen loop.
+ * Paint asks Spellforge for one eight-frame pixel sheet of the chosen loop.
  */
 (function () {
   "use strict";
 
   var ASPECT = "16:9";
-  var FRAMES = 4;
-  var FRAME_MS = 160;
+  var FRAMES = 8;
+  var COLS = 4;
+  var ROWS = 2;
+  var FRAME_MS = 110;
   var CYCLES = {
-    idle: "Idle loop. Four beats of the creature breathing and shifting its weight. The last frame matches the first so the loop is seamless.",
-    walk: "Walk loop. Four beats of the same creature walking in place: contact, passing, contact, passing. The last frame matches the first.",
-    burst: "Burst loop. Four beats of the same creature gathering a bright pulse and releasing it, then returning to the start pose. The last frame matches the first.",
+    idle: "Idle loop. Eight pixel frames in two rows of four. The creature breathes, shifts its weight, blinks once, and the cape sways. A hard oval shadow stays on the ground under the feet. The last frame matches the first.",
+    walk: "Walk loop. Eight pixel frames in two rows of four, side view facing right: contact, down, passing, up, then the other foot. The arms swing opposite the legs. The hard oval shadow widens when the body is low and narrows when it is high. The last frame matches the first.",
+    burst: "Burst loop. Eight pixel frames in two rows of four: crouch, deeper crouch, launch, a bright pixel burst at the peak, fall, land, and recover. The shadow stays on the ground and shrinks while the creature is in the air. The last frame matches the first.",
+  };
+  var POSE = {
+    idle: [
+      { y: 0, x: 0, sq: 0, arm: 0, blink: 0, fx: 0, front: [0, 0], back: [0, 0] },
+      { y: 0, x: 1, sq: 0, arm: 1, blink: 0, fx: 1, front: [1, 0], back: [0, 0] },
+      { y: -1, x: 1, sq: -1, arm: 1, blink: 0, fx: 2, front: [1, -1], back: [0, 0] },
+      { y: -1, x: 0, sq: -1, arm: 0, blink: 0, fx: 1, front: [0, 0], back: [-1, 0] },
+      { y: 0, x: -1, sq: 0, arm: -1, blink: 1, fx: 0, front: [0, 0], back: [0, 0] },
+      { y: 0, x: -1, sq: 1, arm: -1, blink: 1, fx: 0, front: [0, 0], back: [1, 0] },
+      { y: -1, x: 0, sq: 0, arm: 0, blink: 0, fx: 1, front: [0, -1], back: [0, 0] },
+      { y: 0, x: 0, sq: 0, arm: 0, blink: 0, fx: 0, front: [0, 0], back: [0, 0] },
+    ],
+    walk: [
+      { y: 0, x: 0, sq: 0, arm: 3, blink: 0, fx: 1, front: [4, 0], back: [-3, -4] },
+      { y: 2, x: 0, sq: 1, arm: 2, blink: 0, fx: 0, front: [3, 1], back: [-1, -1] },
+      { y: -2, x: 0, sq: 0, arm: 0, blink: 0, fx: 2, front: [1, -5], back: [1, 0] },
+      { y: -1, x: 0, sq: 0, arm: -2, blink: 0, fx: 1, front: [-1, -2], back: [3, 0] },
+      { y: 0, x: 0, sq: 0, arm: -3, blink: 0, fx: 1, front: [-3, -4], back: [4, 0] },
+      { y: 2, x: 0, sq: 1, arm: -2, blink: 0, fx: 0, front: [-1, -1], back: [3, 1] },
+      { y: -2, x: 0, sq: 0, arm: 0, blink: 0, fx: 2, front: [1, 0], back: [1, -5] },
+      { y: -1, x: 0, sq: 0, arm: 2, blink: 0, fx: 1, front: [3, 0], back: [-1, -2] },
+    ],
+    burst: [
+      { y: 3, x: 0, sq: 2, arm: -2, blink: 0, fx: 2, front: [2, 2], back: [-2, 2] },
+      { y: 4, x: 0, sq: 3, arm: -3, blink: 0, fx: 3, front: [3, 3], back: [-2, 3] },
+      { y: -8, x: 0, sq: -2, arm: 3, blink: 0, fx: 6, front: [2, -4], back: [-3, -2] },
+      { y: -16, x: 0, sq: -2, arm: 5, blink: 0, fx: 8, front: [1, -5], back: [-2, -5] },
+      { y: -14, x: 0, sq: -1, arm: 4, blink: 0, fx: 7, front: [0, -4], back: [-1, -4] },
+      { y: -6, x: 0, sq: 0, arm: 2, blink: 0, fx: 4, front: [1, -2], back: [-1, -1] },
+      { y: 3, x: 0, sq: 3, arm: 0, blink: 0, fx: 2, front: [3, 3], back: [-2, 3] },
+      { y: 0, x: 0, sq: 0, arm: 0, blink: 0, fx: 0, front: [0, 0], back: [0, 0] },
+    ],
   };
   var ROMAN = ["I", "II", "III"];
 
@@ -24,6 +58,7 @@
   var started = 0;
   var sheets = { idle: null, walk: null, burst: null };
   var pics = [null, null, null];
+  var chips = [null, null, null];
 
   function $(id) {
     return document.getElementById(id);
@@ -92,16 +127,43 @@
     }
   }
 
+  function spellPictureUrl(id) {
+    id = Number(id);
+    if (!(id > 0)) return "";
+    if (typeof window.getSpellforgeSpellUrl === "function") {
+      try {
+        var u = String(window.getSpellforgeSpellUrl(id) || "");
+        if (u && u.indexOf("data:image/svg") !== 0) return u;
+      } catch (e) {}
+    }
+    if (id >= 1 && id <= 1000) return "paintings/" + id + ".jpg";
+    return "";
+  }
+
+  function quantize(img) {
+    var c = document.createElement("canvas");
+    c.width = 12;
+    c.height = 12;
+    var g = c.getContext("2d");
+    g.imageSmoothingEnabled = false;
+    g.drawImage(img, 0, 0, 12, 12);
+    return c;
+  }
+
   function loadPics(spells) {
     for (var i = 0; i < 3; i++) {
-      var id = Number(spells[i].id);
+      var src = spellPictureUrl(spells[i].id);
       pics[i] = null;
-      if (!(id >= 1 && id <= 1000)) continue;
-      (function (slot, num) {
+      chips[i] = null;
+      if (!src) continue;
+      (function (slot, url) {
         var img = new Image();
-        img.onload = function () { pics[slot] = img; };
-        img.src = "paintings/" + num + ".jpg";
-      })(i, id);
+        img.onload = function () {
+          pics[slot] = img;
+          chips[slot] = quantize(img);
+        };
+        img.src = url;
+      })(i, src);
     }
   }
 
@@ -109,68 +171,147 @@
     return Math.floor((now - started) / FRAME_MS) % FRAMES;
   }
 
-  function drawPuppet(ctx, w, h, frame, spells) {
-    ctx.clearRect(0, 0, w, h);
-    ctx.fillStyle = "#141820";
-    ctx.fillRect(0, 0, w, h);
-    var bob = cycle === "idle" ? [0, -3, -1, -3][frame] : [0, -2, 0, -2][frame];
-    var step = cycle === "walk" ? [-7, 0, 7, 0][frame] : 0;
-    var squash = cycle === "burst" ? [0.86, 1.2, 1.05, 1][frame] : 1;
-    var cx = w * 0.5;
-    var ground = h * 0.84 + bob;
-    var bodyH = 34 * squash;
-    var bodyW = 28 / squash;
-    ctx.fillStyle = "hsla(" + hueOf(spells[2].text || "feet") + ", 55%, 42%, 1)";
-    ctx.beginPath();
-    ctx.ellipse(cx - 8 + step * 0.3, ground, 6, 4, 0, 0, Math.PI * 2);
-    ctx.ellipse(cx + 8 - step * 0.3, ground, 6, 4, 0, 0, Math.PI * 2);
-    ctx.fill();
-    var bodyTop = ground - 8 - bodyH;
-    roundPart(ctx, pics[1], cx - bodyW / 2, bodyTop, bodyW, bodyH, hueOf(spells[1].text || "body"));
-    var head = 22;
-    roundPart(ctx, pics[0], cx - head / 2, bodyTop - head + 4, head, head, hueOf(spells[0].text || "head"));
-    ctx.fillStyle = "hsla(" + hueOf(spells[2].text || "spark") + ", 70%, 62%, 1)";
-    if (cycle === "burst" && frame === 1) {
-      ctx.beginPath();
-      ctx.arc(cx, bodyTop + bodyH * 0.45, 26, 0, Math.PI * 2);
-      ctx.globalAlpha = 0.55;
-      ctx.fill();
-      ctx.globalAlpha = 1;
-    } else {
-      ctx.beginPath();
-      ctx.arc(cx + 10, bodyTop + 8, 4, 0, Math.PI * 2);
-      ctx.fill();
-    }
-    ctx.fillStyle = "#1a1e28";
-    ctx.fillRect(cx - 5, bodyTop + 8, 3, 3);
-    ctx.fillRect(cx + 2, bodyTop + 8, 3, 3);
+  function hsl(h, s, l) {
+    return "hsl(" + (h % 360) + " " + s + "% " + l + "%)";
   }
 
-  function roundPart(ctx, img, x, y, w, h, hue) {
-    ctx.save();
-    ctx.beginPath();
-    ctx.ellipse(x + w / 2, y + h / 2, w / 2, h / 2, 0, 0, Math.PI * 2);
-    ctx.clip();
-    if (img && img.naturalWidth) {
-      ctx.drawImage(img, x, y, w, h);
-    } else {
-      ctx.fillStyle = "hsla(" + hue + ", 62%, 48%, 1)";
-      ctx.fillRect(x, y, w, h);
+  function colorsFrom(text) {
+    var h = hueOf(text || "sprite");
+    return {
+      dark: hsl(h, 42, 22),
+      mid: hsl(h, 56, 44),
+      light: hsl(h, 68, 66),
+      spot: hsl(h + 36, 62, 56),
+    };
+  }
+
+  function block(ctx, x, y, w, h, color) {
+    if (w < 1 || h < 1) return;
+    ctx.fillStyle = color;
+    ctx.fillRect(x | 0, y | 0, w | 0, h | 0);
+  }
+
+  var MASK = {
+    head: ["  ####  ", " ###### ", "########", "## #### ", "########", " ###### ", "  ####  "],
+    body: [" ###### ", "########", "########", "########", " ###### ", "  ####  "],
+    arm: ["##", "##", "##", "# "],
+    leg: ["##", "##", "##", "##", "##", "###"],
+    cape: ["##  ", "### ", " ## ", "  ##", "   #"],
+  };
+
+  function chipData(chip) {
+    if (!chip) return null;
+    if (!chip._px) chip._px = chip.getContext("2d").getImageData(0, 0, chip.width, chip.height).data;
+    return chip._px;
+  }
+
+  function paintMask(ctx, rows, ox, oy, chip, text) {
+    var scale = 2;
+    var pal = colorsFrom(text);
+    var data = chipData(chip);
+    var h = rows.length;
+    var w = 0;
+    var r;
+    var c;
+    for (r = 0; r < h; r++) if (rows[r].length > w) w = rows[r].length;
+    for (r = 0; r < h; r++) {
+      for (c = 0; c < rows[r].length; c++) {
+        if (rows[r].charAt(c) !== "#") continue;
+        block(ctx, ox + c * scale - 1, oy + r * scale - 1, scale + 2, scale + 2, "#07090e");
+      }
     }
-    ctx.restore();
+    for (r = 0; r < h; r++) {
+      for (c = 0; c < rows[r].length; c++) {
+        if (rows[r].charAt(c) !== "#") continue;
+        var x = ox + c * scale;
+        var y = oy + r * scale;
+        var color = pal.mid;
+        if (data && chip) {
+          var u = Math.max(0, Math.min(chip.width - 1, Math.floor(((c + 0.5) / w) * chip.width)));
+          var v = Math.max(0, Math.min(chip.height - 1, Math.floor(((r + 0.5) / h) * chip.height)));
+          var i = (v * chip.width + u) * 4;
+          color = "rgb(" + data[i] + "," + data[i + 1] + "," + data[i + 2] + ")";
+        } else if (r < 2) color = pal.light;
+        else if (r > h * 0.5 && ((r + c) & 1)) color = pal.dark;
+        block(ctx, x, y, scale, scale, color);
+        if (!data && r === 0) block(ctx, x, y, scale, 1, pal.light);
+        if (r > h * 0.62 && ((r + c) & 1)) block(ctx, x, y + scale - 1, scale, 1, "rgba(0,0,0,0.5)");
+      }
+    }
+  }
+
+  function drawShadow(ctx, cx, groundY, rx) {
+    var ry = Math.max(2, Math.round(rx * 0.28));
+    var py;
+    for (py = -ry; py <= ry; py++) {
+      var t = 1 - (py * py) / (ry * ry);
+      if (t <= 0) continue;
+      var span = Math.max(1, Math.round(rx * Math.sqrt(t)));
+      ctx.fillStyle = py === 0 ? "rgba(0,0,0,0.78)" : "rgba(0,0,0,0.55)";
+      ctx.fillRect((cx - span) | 0, (groundY + py) | 0, span * 2, 1);
+    }
+  }
+
+  function drawPuppet(ctx, w, h, frame, spells) {
+    var pose = (POSE[cycle] || POSE.idle)[frame] || POSE.idle[0];
+    ctx.imageSmoothingEnabled = false;
+    ctx.clearRect(0, 0, w, h);
+    block(ctx, 0, 0, w, h, "#12151e");
+    block(ctx, 0, 56, w, h - 56, "#2a3548");
+    block(ctx, 0, 56, w, 1, "#3d4d68");
+    var air = Math.max(0, -pose.y);
+    var shadowRx = Math.max(5, 14 + pose.sq - Math.floor(air / 2));
+    drawShadow(ctx, 32 + pose.x, 58, shadowRx);
+    var lean = pose.x * 2;
+    var bodyX = 22 + lean;
+    var bodyY = 32 + pose.y + Math.max(0, pose.sq);
+    var headX = bodyX + 2 + (pose.arm > 0 ? 2 : 0);
+    var headY = bodyY - 12;
+    var swing = Math.max(-3, Math.min(3, pose.arm));
+    paintMask(ctx, MASK.cape, bodyX - 6 - (pose.fx % 3), bodyY + 2 + (pose.fx % 2), chips[2], spells[2].text);
+    paintMask(ctx, MASK.leg, bodyX + 2 + pose.back[0], bodyY + 10 + pose.back[1], chips[2], spells[2].text);
+    paintMask(ctx, MASK.arm, bodyX - swing, bodyY + 2, chips[1], spells[1].text);
+    paintMask(ctx, MASK.body, bodyX, bodyY, chips[1], spells[1].text);
+    paintMask(ctx, MASK.leg, bodyX + 8 + pose.front[0], bodyY + 10 + pose.front[1], chips[2], spells[2].text);
+    paintMask(ctx, MASK.arm, bodyX + 12 + swing, bodyY + 1, chips[1], spells[1].text);
+    paintMask(ctx, MASK.head, headX, headY, chips[0], spells[0].text);
+    if (!chips[0]) {
+      var crest = colorsFrom(spells[0].text).light;
+      block(ctx, headX + 6, headY - 4, 2, 4, crest);
+      block(ctx, headX + 10, headY - 3, 2, 3, crest);
+    }
+    if (pose.blink) block(ctx, headX + 10, headY + 7, 4, 1, "#0c0e14");
+    else {
+      block(ctx, headX + 10, headY + 6, 2, 2, "#0c0e14");
+      block(ctx, headX + 11, headY + 6, 1, 1, "#f4f7ff");
+    }
+    if (cycle === "burst" && pose.fx > 0) {
+      var spark = colorsFrom(spells[2].text).light;
+      var n = pose.fx + 4;
+      var i;
+      for (i = 0; i < n; i++) {
+        var ang = (i / n) * Math.PI * 2 + frame * 0.8;
+        var rad = 8 + pose.fx * 2;
+        var sx = 32 + pose.x + Math.round(Math.cos(ang) * rad);
+        var sy = bodyY + 6 + Math.round(Math.sin(ang) * rad * 0.62);
+        block(ctx, sx, sy, 2, 2, spark);
+      }
+    }
   }
 
   function drawSheet(ctx, w, h, img, frame) {
-    var sw = img.naturalWidth / FRAMES;
-    var sh = img.naturalHeight;
+    var col = frame % COLS;
+    var row = Math.floor(frame / COLS) % ROWS;
+    var sw = img.naturalWidth / COLS;
+    var sh = img.naturalHeight / ROWS;
     if (!(sw > 1) || !(sh > 1)) return;
-    ctx.fillStyle = "#141820";
+    ctx.imageSmoothingEnabled = false;
+    ctx.fillStyle = "#12151e";
     ctx.fillRect(0, 0, w, h);
     var scale = Math.min(w / sw, h / sh);
     var dw = sw * scale;
     var dh = sh * scale;
-    ctx.imageSmoothingEnabled = false;
-    ctx.drawImage(img, frame * sw, 0, sw, sh, (w - dw) / 2, (h - dh) / 2, dw, dh);
+    ctx.drawImage(img, col * sw, row * sh, sw, sh, (w - dw) / 2, (h - dh) / 2, dw, dh);
   }
 
   function draw() {
@@ -221,10 +362,11 @@
 
   function buildPrompt(spells) {
     var lines = [
-      "One small survivor-game character, full body, readable at sprite size.",
-      "Four equal frames in a single row. The same creature, the same scale, and the same ground line in every frame.",
+      "One small survivor-game character, full body, side view facing right, readable at sprite size.",
+      "Chunky pixel art. Visible square pixels, a dark one-pixel outline, and a limited palette taken from the spells.",
+      "Eight equal frames in two rows of four. The same creature, the same scale, and the same ground line in every frame.",
       CYCLES[cycle],
-      "Flat solid dark backdrop. No scenery.",
+      "Flat solid dark backdrop. A hard oval shadow on the ground under the feet in every frame. No scenery.",
       "The creature is one combination of Spell 1, Spell 2, and Spell 3. Do not paint Spell 1 by itself.",
       "Spell 1 is Spell I. Spell 2 is Spell II. Spell 3 is Spell III.",
       "",

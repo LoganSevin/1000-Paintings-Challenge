@@ -40,17 +40,19 @@
 .spr-stage {
   width: 192px;
   height: 192px;
+  image-rendering: crisp-edges;
   image-rendering: pixelated;
-  background: #141820;
-  border-radius: 8px;
+  background: #12151e;
+  border-radius: 0;
 }
 
 .spr-mini {
   width: 64px;
   height: 64px;
+  image-rendering: crisp-edges;
   image-rendering: pixelated;
-  background: #0c0e14;
-  border-radius: 6px;
+  background: #12151e;
+  border-radius: 0;
   border: 1px solid rgba(236, 230, 214, 0.15);
 }
 
@@ -153,7 +155,7 @@
 
 @media (max-width: 540px) {
   .spr-stage {
-    width: 160px;
-    height: 160px;
+    width: 128px;
+    height: 128px;
   }
 }
