@@ -63,7 +63,7 @@
   <link rel="stylesheet" href="css/math.css?v=3" />
   <link rel="stylesheet" href="css/print-shops.css?v=2" />
   <link rel="stylesheet" href="css/subscribe.css?v=1" />
-  <link rel="stylesheet" href="css/gallery-welcome.css?v=10" />
+  <link rel="stylesheet" href="css/gallery-welcome.css?v=11" />
   <link rel="stylesheet" href="css/account-gate.css?v=2" />
   <link rel="stylesheet" href="css/profit.css?v=1" />
   <script type="importmap">
@@ -218,6 +218,19 @@
       <p>Prices per piece are subjective. They are really a donation, not a sales price. Logan is not looking to sell the art for those amounts. He is looking for donations to keep the generative process alive and strong.</p>
       <button type="button" class="btn-primary" data-welcome-dismiss>Enter the gallery</button>
     </div>
+  </div>
+  <div id="name-ask" class="name-ask" role="dialog" aria-modal="true" aria-labelledby="name-ask-title" hidden>
+    <form class="name-ask-card" id="name-ask-form">
+      <h2 id="name-ask-title">What should we call you?</h2>
+      <p>Your name shows while you are here, so Logan can tell who just arrived.</p>
+      <label for="name-ask-input">Name</label>
+      <input id="name-ask-input" type="text" maxlength="32" autocomplete="nickname" spellcheck="false" />
+      <p id="name-ask-status" class="name-ask-status" role="status"></p>
+      <div class="name-ask-actions">
+        <button type="submit" class="btn-primary">That's me</button>
+        <button type="button" class="btn-secondary" id="name-ask-skip">Skip for now</button>
+      </div>
+    </form>
   </div>
   <button type="button" id="gallery-megaphone" class="gallery-megaphone" title="Request a feature">&#128226;</button>
   <div id="gallery-feature" class="gallery-feature" hidden>
@@ -9231,11 +9244,11 @@
   <script defer src="js/xai-credits.js?v=5"></script>
   <script defer src="js/account-gate.js?v=6"></script>
   <script defer src="js/annotations.js?v=3"></script>
-  <script defer src="js/gallery-welcome.js?v=14"></script>
+  <script defer src="js/gallery-welcome.js?v=15"></script>
   <script defer src="js/page-chat.js?v=5"></script>
   <script defer src="js/tab-presence.js?v=5"></script>
   <script defer src="js/server-window.js?v=9"></script>
-  <script defer src="js/server-people.js?v=7"></script>
+  <script defer src="js/server-people.js?v=8"></script>
   <script defer src="js/time-clock.js?v=7"></script>
   <script defer src="js/gallery-shared.js?v=8"></script>
   <script defer src="js/gallery-save-video.js?v=1"></script>

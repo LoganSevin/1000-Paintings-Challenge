@@ -676,6 +676,10 @@
     window.addEventListener("storage", function (e) {
       if (e.key === CHAT_NAME_KEY) syncFromChat(false);
     });
+    window.addEventListener("page-chat-name", function () {
+      rememberName(myName());
+      syncFromChat(true);
+    });
     window.addEventListener("hashchange", function () {
       lastSig = "";
       paint(lastPeople);

@@ -2,6 +2,8 @@
   "use strict";
 
   var SEEN_KEY = "galleryWelcomeSeen";
+  var NAME_KEY = "pageChatName";
+  var NAME_SKIP = "pageChatNameSkipped";
   var TAB_KEY = "galleryTabOne";
   var TAB_RE = /^[a-z0-9-]{1,40}$/;
   var counts = {};
@@ -269,7 +271,103 @@
     }, PRESENCE_POST_MS);
   }
 
+  function storedName() {
+    try {
+      return String(localStorage.getItem(NAME_KEY) || "").replace(/\s+/g, " ").trim();
+    } catch (e) {
+      return "";
+    }
+  }
+
+  function isPlaceholder(name) {
+    return !name || /^guest(-\d+)?$/i.test(name);
+  }
+
+  function nameAskOpen() {
+    var ask = $("name-ask");
+    return !!(ask && !ask.hidden);
+  }
+
+  function needsName() {
+    if (!isPlaceholder(storedName())) return false;
+    try {
+      if (sessionStorage.getItem(NAME_SKIP) === "1") return false;
+    } catch (e) {}
+    return !!$("name-ask");
+  }
+
+  function cleanAskName(raw) {
+    return String(raw || "")
+      .replace(/[\u0000-\u001f\u007f]/g, " ")
+      .replace(/\s+/g, " ")
+      .trim()
+      .slice(0, 32)
+      .trim();
+  }
+
+  function saveAskedName(name) {
+    try {
+      localStorage.setItem(NAME_KEY, name);
+    } catch (e) {}
+    var input = $("page-chat-name");
+    if (input && input.value !== name) {
+      input.value = name;
+      input.dispatchEvent(new Event("change", { bubbles: true }));
+    }
+    window.dispatchEvent(new CustomEvent("page-chat-name", { detail: { name: name } }));
+  }
+
+  function closeNameAsk() {
+    var ask = $("name-ask");
+    if (ask) ask.hidden = true;
+    showWelcome();
+  }
+
+  function skipName() {
+    try {
+      sessionStorage.setItem(NAME_SKIP, "1");
+    } catch (e) {}
+    closeNameAsk();
+  }
+
+  function submitName(ev) {
+    if (ev) ev.preventDefault();
+    var input = $("name-ask-input");
+    var status = $("name-ask-status");
+    var name = cleanAskName(input && input.value);
+    if (!name || isPlaceholder(name)) {
+      if (status) status.textContent = "Leave the name you go by.";
+      if (input) input.focus();
+      return;
+    }
+    if (status) status.textContent = "";
+    saveAskedName(name);
+    closeNameAsk();
+  }
+
+  function openNameAsk() {
+    var ask = $("name-ask");
+    if (!ask) {
+      showWelcome();
+      return;
+    }
+    ask.hidden = false;
+    var input = $("name-ask-input");
+    if (input) {
+      input.value = "";
+      setTimeout(function () {
+        try { input.focus(); } catch (e) {}
+      }, 0);
+    }
+  }
+
+  function beginArrival() {
+    if (needsName()) openNameAsk();
+    else showWelcome();
+  }
+
   function showWelcome() {
+    if (nameAskOpen()) return;
     if (!isGalleryHome()) return;
     try {
       if (sessionStorage.getItem(SEEN_KEY) === "1") return;
@@ -362,7 +460,7 @@
     });
     // The bump POST answers with full counts, so no separate initial GET.
     postTab(hashTab(), true);
-    showWelcome();
+    beginArrival();
     document.addEventListener(
       "click",
       function (e) {
@@ -390,8 +488,23 @@
         }
       });
     }
+    var nameForm = $("name-ask-form");
+    if (nameForm) nameForm.addEventListener("submit", submitName);
+    var nameSkip = $("name-ask-skip");
+    if (nameSkip) nameSkip.addEventListener("click", skipName);
+    var nameAsk = $("name-ask");
+    if (nameAsk) {
+      nameAsk.addEventListener("click", function (e) {
+        if (e.target === nameAsk) skipName();
+      });
+    }
     document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape") dismissWelcome();
+      if (e.key !== "Escape") return;
+      if (nameAskOpen()) {
+        skipName();
+        return;
+      }
+      dismissWelcome();
     });
     window.addEventListener("hashchange", function () {
       var name = hashTab();
