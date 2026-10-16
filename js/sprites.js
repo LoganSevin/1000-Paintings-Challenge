@@ -2,8 +2,9 @@
  * Sprites: a survivor-game character at sprite size.
  * Spell I, Spell II, and Spell III are the creature.
  * Idle, walk, and burst each play as a loop.
- * Paint asks for eighteen separate stills: six idle, six walk, six burst.
- * Those stills stack in one frame. One is visible at a time.
+ * Paint asks for eighteen stills of one creature: six idle, six walk, six burst.
+ * The first still locks the creature. Each later still edits the previous pose.
+ * Those stills stack in one frame. One is visible at a time. The set is saved.
  */
 (function () {
   "use strict";
@@ -389,17 +390,29 @@
     el.classList.toggle("is-error", !!isError);
   }
 
-  function buildFramePrompt(spells, job) {
-    var lines = [
-      "One sprite still of one creature in one pose. This picture contains only this still.",
-      "Opaque chunky pixel art. Solid pixels, a dark one-pixel outline, and a limited palette taken from the spells. No transparency, no fade, and no ghosted body.",
-      "Do not make a character sheet, a film strip, or extra poses beside this one.",
-      "Full body, centered, feet on a hard oval shadow, flat solid dark backdrop, no scenery.",
-      "This still is " + job.cycle + " frame " + (job.frame + 1) + " of 6. " + job.pose,
-      "The creature is one combination of Spell 1, Spell 2, and Spell 3. Do not paint Spell 1 by itself.",
-      "Spell 1 is Spell I. Spell 2 is Spell II. Spell 3 is Spell III.",
-      "",
-    ];
+  function buildFramePrompt(spells, job, hasRef) {
+    var lines = hasRef
+      ? [
+          "The attached picture is this same creature. Keep the same face, the same colors, the same texture, the same outfit, the same proportions, the same outline, and the same flat backdrop.",
+          "Do not invent a new creature. Do not invent a new composition. Change only the pose, by one small step.",
+          "Opaque chunky pixel art. Solid pixels, a dark one-pixel outline, and a limited palette taken from the spells. No transparency, no fade, and no ghosted body.",
+          "Do not make a character sheet, a film strip, or extra poses beside this one.",
+          "Full body, centered, feet on a hard oval shadow, flat solid dark backdrop, no scenery.",
+          "This still is " + job.cycle + " frame " + (job.frame + 1) + " of 6. " + job.pose,
+          "The creature is one combination of Spell 1, Spell 2, and Spell 3. Do not paint Spell 1 by itself.",
+          "Spell 1 is Spell I. Spell 2 is Spell II. Spell 3 is Spell III.",
+          "",
+        ]
+      : [
+          "One sprite still of one creature in one pose. This picture is the character lock. Every later still must be this same creature, with the same texture.",
+          "Opaque chunky pixel art. Solid pixels, a dark one-pixel outline, and a limited palette taken from the spells. No transparency, no fade, and no ghosted body.",
+          "Do not make a character sheet, a film strip, or extra poses beside this one.",
+          "Full body, centered, feet on a hard oval shadow, flat solid dark backdrop, no scenery.",
+          "This still is " + job.cycle + " frame " + (job.frame + 1) + " of 6. " + job.pose,
+          "The creature is one combination of Spell 1, Spell 2, and Spell 3. Do not paint Spell 1 by itself.",
+          "Spell 1 is Spell I. Spell 2 is Spell II. Spell 3 is Spell III.",
+          "",
+        ];
     for (var i = 0; i < spells.length; i++) {
       var sp = spells[i];
       var body = sp.text || "(empty)";
@@ -414,10 +427,11 @@
     return lines.join("\n").trim();
   }
 
-  function imageUrl(payload) {
-    if (!payload) return "";
-    var img = payload.image || (payload.images && payload.images[0]);
-    return (img && (img.url || img.download_url || img.uri)) || payload.image_url || payload.output_url || "";
+  function imageRecord(payload) {
+    var img = (payload && (payload.image || (payload.images && payload.images[0]))) || {};
+    var url = (img && (img.url || img.download_url || img.uri)) || (payload && (payload.image_url || payload.output_url)) || "";
+    var remote = (img && img.remote_url) || "";
+    return { url: String(url || ""), remote: String(remote || "") };
   }
 
   function pollJob(jobId, left) {
@@ -427,8 +441,8 @@
       .then(function (job) {
         var st = String((job && job.status) || "").toLowerCase();
         if (st === "done" || st === "completed" || st === "success") {
-          var url = imageUrl(job);
-          if (url) return url;
+          var rec = imageRecord(job);
+          if (rec.url) return rec;
           throw new Error("The sprite finished without an image.");
         }
         if (st === "failed" || st === "error" || st === "expired") {
@@ -449,8 +463,97 @@
     });
   }
 
-  function requestStill(spells, job) {
-    var prompt = buildFramePrompt(spells, job);
+  function shrinkData(url) {
+    return loadImage(url).then(function (img) {
+      var max = 768;
+      var w = img.naturalWidth || 1;
+      var h = img.naturalHeight || 1;
+      var k = Math.min(1, max / Math.max(w, h));
+      var c = document.createElement("canvas");
+      c.width = Math.max(1, Math.round(w * k));
+      c.height = Math.max(1, Math.round(h * k));
+      var g = c.getContext("2d");
+      g.fillStyle = "#12151e";
+      g.fillRect(0, 0, c.width, c.height);
+      g.drawImage(img, 0, 0, c.width, c.height);
+      try { return c.toDataURL("image/jpeg", 0.85); }
+      catch (e) { return url; }
+    }).catch(function () { return url; });
+  }
+
+  function referenceFrom(rec) {
+    if (rec.remote && /^https?:\/\//i.test(rec.remote)) return Promise.resolve(rec.remote);
+    return shrinkData(rec.url);
+  }
+
+  function spriteDb() {
+    return new Promise(function (resolve, reject) {
+      if (typeof indexedDB === "undefined") return reject(new Error("no idb"));
+      var req = indexedDB.open("l7in-sprite-loops", 1);
+      req.onupgradeneeded = function () {
+        var db = req.result;
+        if (!db.objectStoreNames.contains("loops")) db.createObjectStore("loops", { keyPath: "id" });
+      };
+      req.onsuccess = function () { resolve(req.result); };
+      req.onerror = function () { reject(req.error); };
+    });
+  }
+
+  function saveLoop(frames) {
+    return spriteDb().then(function (db) {
+      return new Promise(function (resolve) {
+        var tx = db.transaction("loops", "readwrite");
+        tx.objectStore("loops").put({ id: "latest", saved: Date.now(), frames: frames });
+        tx.oncomplete = function () { resolve(true); };
+        tx.onerror = function () { resolve(false); };
+      });
+    }).catch(function () { return false; });
+  }
+
+  function loadLoop() {
+    return spriteDb().then(function (db) {
+      return new Promise(function (resolve) {
+        var tx = db.transaction("loops", "readonly");
+        var req = tx.objectStore("loops").get("latest");
+        req.onsuccess = function () { resolve(req.result || null); };
+        req.onerror = function () { resolve(null); };
+      });
+    }).catch(function () { return null; });
+  }
+
+  function fileStill(job, stored, prompt) {
+    var api = window.SpellforgeAPI;
+    if (!api || typeof api.saveGenerated !== "function" || !stored) return;
+    var title = "Sprite " + job.cycle + " " + (job.frame + 1);
+    api.saveGenerated({
+      title: title,
+      url: stored,
+      prompt: prompt || "",
+      tags: ["sprite", job.cycle],
+    }).catch(function () {});
+  }
+
+  function restoreLoop() {
+    return loadLoop().then(function (rec) {
+      if (!rec || !rec.frames || !rec.frames.length || painting) return 0;
+      var jobs = rec.frames.map(function (fr) {
+        if (!fr || !fr.url) return Promise.resolve();
+        return loadImage(fr.url).then(function (img) {
+          placeStill(fr.cycle, fr.frame, img);
+        }).catch(function () {});
+      });
+      return Promise.all(jobs).then(function () {
+        if (!painting && rec.frames.length) {
+          setStatus(rec.frames.length + " saved stills of one creature. One shows at a time.");
+        }
+        return rec.frames.length;
+      });
+    });
+  }
+
+  function requestStill(spells, job, referenceUrl) {
+    var hasRef = !!referenceUrl;
+    var prompt = buildFramePrompt(spells, job, hasRef);
     var jobId = (typeof crypto !== "undefined" && crypto.randomUUID) ? crypto.randomUUID() : "sprites-" + Date.now() + "-" + job.cycle + job.frame;
     var ids = [];
     var i;
@@ -458,28 +561,30 @@
       var n = Number(spells[i].id);
       if (n >= 1 && n <= 1000) ids.push(n);
     }
+    var payload = {
+      job_id: jobId,
+      stasis: prompt,
+      prompt: prompt,
+      fused_prompt: prompt,
+      buzz_words: ["sprite", job.cycle, "Spell I", "Spell II", "Spell III"],
+      spells: ids,
+      spell_details: spells.map(function (sp) {
+        return { slot: sp.slot, id: sp.id, title: "Spell " + sp.roman, description: sp.text };
+      }),
+      aspect_ratio: ASPECT,
+      signature: stampLine(),
+      mag_fresh: !hasRef,
+      fresh_variation: false,
+      spell_cast: false,
+      attach_references: false,
+      source: "sprites",
+    };
+    if (hasRef) payload.reference_image = referenceUrl;
     return fetch(apiUrl("/api/generate-stasis-vision"), {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       cache: "no-store",
-      body: JSON.stringify({
-        job_id: jobId,
-        stasis: prompt,
-        prompt: prompt,
-        fused_prompt: prompt,
-        buzz_words: ["sprite", job.cycle, "Spell I", "Spell II", "Spell III"],
-        spells: ids,
-        spell_details: spells.map(function (sp) {
-          return { slot: sp.slot, id: sp.id, title: "Spell " + sp.roman, description: sp.text };
-        }),
-        aspect_ratio: ASPECT,
-        signature: stampLine(),
-        mag_fresh: true,
-        fresh_variation: true,
-        spell_cast: false,
-        attach_references: false,
-        source: "sprites",
-      }),
+      body: JSON.stringify(payload),
     })
       .then(function (r) {
         return r.json().catch(function () { return {}; }).then(function (d) {
@@ -487,15 +592,24 @@
         });
       })
       .then(function (res) {
-        var url = imageUrl(res.d);
-        if (url) return url;
+        var rec = imageRecord(res.d);
+        if (rec.url) return rec;
         if (res.status === 202 || (res.d && res.d.job_id)) return pollJob(res.d.job_id || jobId, 40);
         var errText = res.d && (res.d.error && res.d.error.message ? res.d.error.message : res.d.error);
         throw new Error(errText || "The sprite did not start. Press Paint again.");
       })
-      .then(loadImage)
-      .then(function (img) {
-        placeStill(job.cycle, job.frame, img);
+      .then(function (rec) {
+        return loadImage(rec.url).then(function (img) {
+          placeStill(job.cycle, job.frame, img);
+          return rec;
+        });
+      })
+      .then(function (rec) {
+        return referenceFrom(rec).then(function (ref) {
+          return shrinkData(rec.url).then(function (stored) {
+            return { url: rec.url, remote: rec.remote, ref: ref, stored: stored, prompt: prompt };
+          });
+        });
       });
   }
 
@@ -510,43 +624,58 @@
     painting = true;
     var btn = $("spr-paint");
     if (btn) btn.disabled = true;
-    var next = 0;
-    var active = 0;
-    var finished = 0;
+    var index = 0;
     var failed = 0;
-    function pump() {
+    var saved = [];
+    var lock = "";
+    var last = { idle: "", walk: "", burst: "" };
+    function finish() {
+      painting = false;
+      if (btn) btn.disabled = false;
+      var kept = saved.length;
+      if (!kept) setStatus("The sprite did not start. Press Paint again.", true);
+      else if (failed) setStatus(kept + " of 18 stills are saved. Press Paint the loops for the rest.", true);
+      else setStatus("Eighteen stills of one creature are saved. One shows at a time.");
+      draw();
+    }
+    function step() {
       if (!painting) return;
-      if (finished === STILLS.length) {
-        painting = false;
-        if (btn) btn.disabled = false;
-        if (failed === STILLS.length) setStatus("The sprite did not start. Press Paint again.", true);
-        else if (failed) setStatus(finished - failed + " of 18 stills are in the frame. Press Paint the loops for the rest.", true);
-        else setStatus("Eighteen stills are stacked. One shows at a time.");
-        draw();
+      if (index >= STILLS.length) {
+        saveLoop(saved).then(finish, finish);
         return;
       }
-      while (active < 3 && next < STILLS.length) {
-        (function (job) {
-          active += 1;
-          setStatus("Painting " + job.cycle + " still " + (job.frame + 1) + " of 6…");
-          requestStill(spells, job).then(
-            function () {
-              active -= 1;
-              finished += 1;
-              pump();
-            },
-            function () {
-              active -= 1;
-              finished += 1;
-              failed += 1;
-              pump();
-            }
-          );
-        })(STILLS[next]);
-        next += 1;
+      var job = STILLS[index];
+      var ref = "";
+      if (!(job.cycle === "idle" && job.frame === 0)) {
+        ref = job.frame === 0 ? lock : (last[job.cycle] || lock);
       }
+      setStatus("Painting " + job.cycle + " still " + (job.frame + 1) + " of 6, same creature…");
+      requestStill(spells, job, ref).then(
+        function (got) {
+          var nextRef = got.ref || got.stored || got.url;
+          last[job.cycle] = nextRef;
+          if (job.cycle === "idle" && job.frame === 0) lock = nextRef;
+          var stored = got.stored || got.url;
+          saved.push({ cycle: job.cycle, frame: job.frame, url: stored });
+          fileStill(job, stored, got.prompt);
+          saveLoop(saved);
+          index += 1;
+          step();
+        },
+        function () {
+          failed += 1;
+          index += 1;
+          if (job.cycle === "idle" && job.frame === 0) {
+            painting = false;
+            if (btn) btn.disabled = false;
+            setStatus("The sprite did not start. Press Paint again.", true);
+            return;
+          }
+          step();
+        }
+      );
     }
-    pump();
+    step();
   }
 
   function refreshFromSpells() {
@@ -618,6 +747,7 @@
     refreshFromSpells();
     if (!timer) timer = setInterval(function () { if (shown) draw(); }, 50);
     if (!(window.SpellforgeAPI && window.SpellforgeAPI.getSlotTexts)) waitForSpells();
+    restoreLoop();
     draw();
   }
 

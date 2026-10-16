@@ -7711,7 +7711,7 @@
   <section id="panel-sprites" class="panel" hidden>
     <div class="spr-shell">
       <h2>Sprites</h2>
-      <p class="spr-hint">A pixel sprite for a survivor game. Spell I, II, and III are its body. Idle, walk, and burst are six opaque stills each. They stack in this frame, and one replaces the next. The slots, prompt boxes, and spellbook below are Spellforge, so you can change them here.</p>
+      <p class="spr-hint">A pixel sprite for a survivor game. Spell I, II, and III are its body. Idle, walk, and burst are six stills of that same creature. Each still moves one pose from the last, and the texture stays. They stack in this frame. The set is saved on this browser. The slots, prompt boxes, and spellbook below are Spellforge, so you can change them here.</p>
       <div class="spr-stage-wrap">
         <div class="spr-frame" id="spr-frame">
           <canvas id="spr-stage" class="spr-stage" width="64" height="64" data-cycle="idle" data-frame="0" aria-label="Sprite preview, looping"></canvas>
@@ -7722,7 +7722,7 @@
           <div class="spr-layers" id="spr-layers-mini"></div>
         </div>
         <div class="spr-stage-copy">
-          <p>Eighteen separate stills stack here. The frame shows one of them, fully opaque.</p>
+          <p>One creature, eighteen poses. The frame shows one still, fully opaque.</p>
         </div>
       </div>
       <div class="spr-row">
@@ -9308,7 +9308,7 @@
   <script defer src="js/engrams.js?v=15"></script>
   <script defer src="js/bible.js?v=12"></script>
   <script defer src="js/history.js?v=1"></script>
-  <script defer src="js/sprites.js?v=6"></script>
+  <script defer src="js/sprites.js?v=7"></script>
   <script defer src="js/slots.js?v=5"></script>
   <script defer src="js/colors.js?v=4"></script>
   <script defer src="js/colors-gen.js?v=5"></script>

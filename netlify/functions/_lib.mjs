@@ -1059,6 +1059,19 @@ function xaiImageFromResponse(data, prompt) {
   throw new Error("No image data in xAI response.");
 }
 
+/** Pose step for a sprite loop. The attached still stays the same creature; only the pose moves. */
+export function buildSpritePosePrompt(stasis, aspectRatio) {
+  const frame = aspectPhrase(aspectRatio);
+  const aspectLine = `${frame} canvas — output this exact aspect ratio, not square unless the ratio is 1:1.`;
+  const prefix =
+    "Edit the attached picture of one sprite creature. " +
+    "Keep this exact creature: the same face, the same colors, the same texture, the same outfit, the same proportions, the same outline, the same flat backdrop, and the same painted signature. " +
+    "Do not invent a new creature. Do not invent a new composition. " +
+    "Change only the pose, by one small step of the same loop.\n\n";
+  const raw = String(stasis || "").trim();
+  return fitPromptKeepingTail(aspectLine + "\n\n" + prefix + raw, GEN_PROMPT_SAFE_MAX);
+}
+
 export function buildFlashProjectPrompt(stasis, buzzWords, aspectRatio, opts = {}) {
   const buzz =
     buzzWords?.length > 0
@@ -1121,7 +1134,9 @@ export async function generateXaiStasisImage(stasis, buzzWords, aspectRatio, ref
       source: cfOpts.source || "",
     };
     const fullPrompt = ref
-      ? buildFlashProjectPrompt(stasis, buzzWords, aspect, wrapOpts)
+      ? wrapOpts.source === "sprites"
+        ? buildSpritePosePrompt(stasis, aspect)
+        : buildFlashProjectPrompt(stasis, buzzWords, aspect, wrapOpts)
       : buildStasisVisionPrompt(stasis, buzzWords, aspect, wrapOpts);
     const base = {
       model: IMAGE_MODEL,

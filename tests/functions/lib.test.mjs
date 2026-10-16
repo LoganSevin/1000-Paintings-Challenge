@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import {
   buildCloudflarePrompt,
+  buildSpritePosePrompt,
   buildStasisVisionPrompt,
   cloudflareImagePayload,
   dropModerationTriggerWords,
@@ -143,6 +144,26 @@ test("a signed Spellforge prompt keeps Spell III and the signature under the cap
   assert.match(prompt, /coastal roller coaster winding above the sea/);
   const brushwork = (prompt.match(/Brushwork continues/g) || []).length;
   assert.ok(brushwork >= 1 && brushwork < 20);
+});
+
+test("a sprite pose edit keeps the same creature and does not ask for fresh brushwork", () => {
+  const stasis = [
+    "The attached picture is this same creature.",
+    "This still is walk frame 3 of 6. Side view facing right. Passing: the back leg swings through.",
+    "Spell 1 is Spell I. Spell 2 is Spell II. Spell 3 is Spell III.",
+    "OUTPUT ASPECT 1:1 square — this ratio is mandatory. Fill the canvas. Do not letterbox.",
+    'IN-CANVAS SIGNATURE (mandatory, small, painterly, lower corner): write exactly "Logan Sevin".',
+  ].join("\n");
+  const prompt = buildSpritePosePrompt(stasis, "1:1");
+  assert.match(prompt, /^1:1 square canvas/);
+  assert.match(prompt, /same texture/i);
+  assert.match(prompt, /one small step/i);
+  assert.match(prompt, /Spell 1 is Spell I/);
+  assert.match(prompt, /Logan Sevin/);
+  assert.match(prompt, /walk frame 3 of 6/);
+  assert.doesNotMatch(prompt, /fresh brushwork/i);
+  assert.doesNotMatch(prompt, /\blandscape\b/i);
+  assert.doesNotMatch(prompt, /omit the signature/i);
 });
 
 test("Cloudflare fallback does not ask for a landscape or forbid the signature", () => {
