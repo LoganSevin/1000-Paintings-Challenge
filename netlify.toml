@@ -114,6 +114,12 @@
   force = true
 
 [[redirects]]
+  from = "/api/sprite-dungeon"
+  to = "/.netlify/functions/sprite-dungeon"
+  status = 200
+  force = true
+
+[[redirects]]
   from = "/api/presence"
   to = "/.netlify/functions/presence"
   status = 200

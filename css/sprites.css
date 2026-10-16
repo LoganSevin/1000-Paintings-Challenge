@@ -206,6 +206,125 @@ body.spr-tab-active[data-stasis-skin-active] :is(
   color: #ff9c8a;
 }
 
+.spr-playfield {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.7rem;
+  align-items: center;
+  margin-top: 0.35rem;
+}
+
+.spr-send {
+  width: 72px;
+  height: 72px;
+  box-sizing: border-box;
+  padding: 0;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  background: #1c1f2b;
+  border: 1px solid rgba(230, 211, 161, 0.7);
+  position: relative;
+}
+
+.spr-send-icon {
+  width: 0;
+  height: 0;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-left: 20px solid #f0e2c0;
+  margin-left: 4px;
+}
+
+.spr-send::after {
+  content: "→";
+  position: absolute;
+  right: -0.85rem;
+  color: #f0e2c0;
+  font-size: 1.3rem;
+}
+
+.spr-game {
+  min-width: 0;
+  background: #0c0e14;
+  border: 2px solid #e6d3a1;
+  border-radius: 18px 26px 16px 22px;
+  padding: 0.35rem 0.55rem 0.7rem;
+  position: relative;
+  z-index: 1;
+}
+
+.spr-game h3 {
+  margin: 0.1rem 0 0.25rem;
+  text-align: center;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 500;
+  font-size: 2.2rem;
+  letter-spacing: 0.02em;
+  color: #f0e2c0;
+}
+
+.spr-game-stage {
+  position: relative;
+}
+
+#spr-game-canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #12151e;
+  image-rendering: pixelated;
+  touch-action: none;
+}
+
+.spr-hud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+  margin-top: 0.4rem;
+  color: #f0e2c0;
+  font-size: 0.85rem;
+}
+
+.spr-hud button {
+  margin-left: auto;
+}
+
+.spr-game-note {
+  margin: 0.35rem 0 0;
+  color: #ece6d6;
+  font-size: 0.82rem;
+}
+
+.spr-level {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.8rem;
+  background: rgba(12, 14, 20, 0.92);
+}
+
+.spr-level[hidden] {
+  display: none !important;
+}
+
+.spr-level p {
+  margin: 0;
+  text-align: center;
+  color: #f0e2c0;
+}
+
+.spr-level button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  margin-top: 0.3rem;
+}
+
 @media (max-width: 540px) {
   .spr-frame {
     width: 128px;
@@ -215,5 +334,18 @@ body.spr-tab-active[data-stasis-skin-active] :is(
   .spr-frame-mini {
     width: 64px;
     height: 64px;
+  }
+
+  .spr-playfield {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: start;
+  }
+
+  #spr-game-canvas {
+    max-width: 100%;
+  }
+
+  .spr-game h3 {
+    font-size: 1.8rem;
   }
 }
