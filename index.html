@@ -51,6 +51,7 @@
   <link rel="stylesheet" href="css/engrams.css?v=11" />
   <link rel="stylesheet" href="css/bible.css?v=8" />
   <link rel="stylesheet" href="css/history.css?v=1" />
+  <link rel="stylesheet" href="css/sprites.css?v=1" />
   <link rel="stylesheet" href="css/slots.css?v=4" />
   <link rel="stylesheet" href="css/colors.css?v=6" />
   <link rel="stylesheet" href="css/hours.css?v=1" />
@@ -357,6 +358,7 @@
         <button type="button" class="tab" data-tab="engrams">Engrams</button>
         <button type="button" class="tab" data-tab="bible">Bible</button>
         <button type="button" class="tab" data-tab="history">History</button>
+        <button type="button" class="tab" data-tab="sprites">Sprites</button>
         <button type="button" class="tab" data-tab="slots">Slots</button>
         <button type="button" class="tab" data-tab="colors">Colors</button>
         <button type="button" class="tab" data-tab="hours">24 Hours</button>
@@ -7693,6 +7695,34 @@
     </div>
   </section>
 
+  <section id="panel-sprites" class="panel" hidden>
+    <div class="spr-shell">
+      <h2>Sprites</h2>
+      <p class="spr-hint">A sprite-sized character for a survivor game. Spell I, II, and III are its body. Idle, walk, and burst each loop.</p>
+      <div class="spr-stage-wrap">
+        <canvas id="spr-stage" class="spr-stage" width="96" height="96" data-cycle="idle" data-frame="0" aria-label="Sprite preview, looping"></canvas>
+        <canvas id="spr-mini" class="spr-mini" width="64" height="64" aria-hidden="true"></canvas>
+        <div class="spr-stage-copy">
+          <p>The large frame is the sprite. The small one is the same loop at game size.</p>
+        </div>
+      </div>
+      <div class="spr-row">
+        <button type="button" data-cycle="idle" class="is-on">Idle</button>
+        <button type="button" data-cycle="walk">Walk</button>
+        <button type="button" data-cycle="burst">Burst</button>
+        <button type="button" id="spr-paint" class="spr-primary">Paint this loop</button>
+      </div>
+      <div id="spr-status" class="spr-status" aria-live="polite"></div>
+      <div class="spr-label">From Spellforge</div>
+      <div class="spr-spells">
+        <div class="spr-spell" id="spr-spell-0"></div>
+        <div class="spr-spell" id="spr-spell-1"></div>
+        <div class="spr-spell" id="spr-spell-2"></div>
+      </div>
+      <img id="spr-strip" class="spr-strip" alt="" hidden />
+    </div>
+  </section>
+
   <section id="panel-history" class="panel" hidden>
     <div class="hist-shell">
       <aside class="hist-nav">
@@ -9201,11 +9231,11 @@
   <script defer src="js/xai-credits.js?v=5"></script>
   <script defer src="js/account-gate.js?v=6"></script>
   <script defer src="js/annotations.js?v=3"></script>
-  <script defer src="js/gallery-welcome.js?v=13"></script>
-  <script defer src="js/page-chat.js?v=4"></script>
-  <script defer src="js/tab-presence.js?v=4"></script>
-  <script defer src="js/server-window.js?v=8"></script>
-  <script defer src="js/server-people.js?v=6"></script>
+  <script defer src="js/gallery-welcome.js?v=14"></script>
+  <script defer src="js/page-chat.js?v=5"></script>
+  <script defer src="js/tab-presence.js?v=5"></script>
+  <script defer src="js/server-window.js?v=9"></script>
+  <script defer src="js/server-people.js?v=7"></script>
   <script defer src="js/time-clock.js?v=7"></script>
   <script defer src="js/gallery-shared.js?v=8"></script>
   <script defer src="js/gallery-save-video.js?v=1"></script>
@@ -9265,6 +9295,7 @@
   <script defer src="js/engrams.js?v=15"></script>
   <script defer src="js/bible.js?v=12"></script>
   <script defer src="js/history.js?v=1"></script>
+  <script defer src="js/sprites.js?v=1"></script>
   <script defer src="js/slots.js?v=5"></script>
   <script defer src="js/colors.js?v=4"></script>
   <script defer src="js/colors-gen.js?v=5"></script>
@@ -9281,9 +9312,9 @@
   <script defer src="js/site-nav.js?v=5"></script>
   <script defer src="js/kids.js?v=4"></script>
   <script defer src="js/kids-art.js?v=7"></script>
-  <script defer src="js/tabs.js?v=119"></script>
+  <script defer src="js/tabs.js?v=120"></script>
   <script defer src="js/source-tabs.js?v=5"></script>
-  <script defer src="js/studio-tab.js?v=14"></script>
+  <script defer src="js/studio-tab.js?v=15"></script>
   <script defer src="js/grok-tab.js?v=1"></script>
   <script defer src="js/tokens-tab.js?v=1"></script>
   <script defer src="js/vendor-tab.js?v=4"></script>

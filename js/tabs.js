@@ -96,6 +96,7 @@
     engrams: document.getElementById("panel-engrams"),
     bible: document.getElementById("panel-bible"),
     history: document.getElementById("panel-history"),
+    sprites: document.getElementById("panel-sprites"),
     slots: document.getElementById("panel-slots"),
     colors: document.getElementById("panel-colors"),
     hours: document.getElementById("panel-hours"),
@@ -212,6 +213,7 @@
     engrams: "Engrams — surreal acronyms; each letter blooms into a word",
     bible: "Bible \u2014 the King James Version, all 66 books",
     history: "History \u2014 the documents and the shelf a person should know",
+    sprites: "Sprites \u2014 a sprite-sized survivor character from Spell I, II, and III, with idle, walk, and burst loops",
     slots: "Slots — spin painting reels for play credits (no cash value)",
     colors: "Colors — page through all 16,777,216 RGB colors, 64 per page",
     hours: "24 Hours — 86,400 seconds, nested rings, a unique still every second",
@@ -329,6 +331,7 @@
     if (name === "code") name = "codes";
     if (name === "dictionary") name = "diction";
     if (name === "hist" || name === "historia") name = "history";
+    if (name === "sprite" || name === "burst") name = "sprites";
     if (name === "elements" || name === "element" || name === "periodictable" || name === "periodic-table") name = "periodic";
     if (name === "mathematics" || name === "maths") name = "math";
     if (name === "anthropic") name = "claude";
@@ -549,6 +552,9 @@
     if (name !== "history") {
       window.dispatchEvent(new Event("history-hide"));
     }
+    if (name !== "sprites") {
+      window.dispatchEvent(new Event("sprites-hide"));
+    }
     if (name !== "slots") {
       window.dispatchEvent(new Event("slots-hide"));
     }
@@ -587,6 +593,7 @@
     document.body.classList.toggle("engrams-tab-active", name === "engrams");
     document.body.classList.toggle("bib-tab-active", name === "bible");
     document.body.classList.toggle("hist-tab-active", name === "history");
+    document.body.classList.toggle("spr-tab-active", name === "sprites");
     document.body.classList.toggle("sl-tab-active", name === "slots");
     document.body.classList.toggle("clr-tab-active", name === "colors");
     document.body.classList.toggle("hr-tab-active", name === "hours");
@@ -1058,6 +1065,12 @@
         window.HistoryShelf.onShow();
       }
       hideOtherTabs(name);
+    } else if (name === "sprites") {
+      window.dispatchEvent(new Event("sprites-show"));
+      if (window.Sprites && window.Sprites.start) {
+        window.Sprites.start();
+      }
+      hideOtherTabs(name);
     } else if (name === "slots") {
       window.dispatchEvent(new Event("slots-show"));
       if (window.Slots && window.Slots.onShow) {
@@ -1197,6 +1210,7 @@
     if (tabName === "engram" || tabName === "acronym") tabName = "engrams";
     if (tabName === "kjv" || tabName === "scripture") tabName = "bible";
     if (tabName === "hist" || tabName === "historia") tabName = "history";
+    if (tabName === "sprite" || tabName === "burst") tabName = "sprites";
     if (tabName === "slot" || tabName === "slot-machine") tabName = "slots";
     if (tabName === "color" || tabName === "colours" || tabName === "colour") tabName = "colors";
     if (tabName === "printshops" || tabName === "etsy" || tabName === "redbubble") tabName = "print-shops";
@@ -1230,6 +1244,7 @@
   } else {
     openFromHash();
   }
+  window.addEventListener("hashchange", openFromHash);
   window.addEventListener("spellforge-ready", openFromHash, { once: true });
   window.addEventListener("muralwalk-ready", openFromHash, { once: true });
   window.addEventListener("fleeting-idea-ready", openFromHash, { once: true });

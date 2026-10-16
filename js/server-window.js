@@ -42,6 +42,7 @@
     if (h === "0-z" || h === "zeroz" || h === "0z") return "az";
     if (h === "kjv" || h === "scripture") return "bible";
     if (h === "hist" || h === "historia") return "history";
+    if (h === "sprite" || h === "burst") return "sprites";
     if (h === "rooms") return "places";
     return h.replace(/[^a-z0-9-]/g, "").slice(0, 40) || "gallery";
   }
