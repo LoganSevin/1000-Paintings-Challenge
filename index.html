@@ -51,7 +51,7 @@
   <link rel="stylesheet" href="css/engrams.css?v=11" />
   <link rel="stylesheet" href="css/bible.css?v=8" />
   <link rel="stylesheet" href="css/history.css?v=1" />
-  <link rel="stylesheet" href="css/sprites.css?v=6" />
+  <link rel="stylesheet" href="css/sprites.css?v=7" />
   <link rel="stylesheet" href="css/slots.css?v=4" />
   <link rel="stylesheet" href="css/colors.css?v=6" />
   <link rel="stylesheet" href="css/hours.css?v=1" />
@@ -7739,7 +7739,7 @@
         <section id="spr-game" class="spr-game" aria-label="Dungeon">
           <h3>Sprites</h3>
           <div class="spr-game-stage">
-            <canvas id="spr-game-canvas" width="768" height="512" aria-label="Dungeon room. Move with W A S D. Burst with Space."></canvas>
+            <canvas id="spr-game-canvas" width="768" height="512" aria-label="Dungeon room. Move with the arrow keys. Letter keys act while the prompt is not focused."></canvas>
             <div id="spr-level" class="spr-level" hidden>
               <p>Level up. The first number is the rate now. The second is the rate with that choice.</p>
               <div id="spr-level-choices"></div>
@@ -7751,7 +7751,13 @@
             <span id="spr-hud-party">Just you</span>
             <button type="button" id="spr-burst">Burst</button>
           </div>
-          <p id="spr-game-note" class="spr-game-note">Send the finished sprite in. Anyone on this tab shares the dungeon. Move with W A S D. Burst with Space, or the Burst button.</p>
+          <p id="spr-key-mode" class="spr-key-mode">Arrow keys move. Space bursts. Letter keys act. Click the prompt to type.</p>
+          <form id="spr-prompt-form" class="spr-prompt" autocomplete="off">
+            <label for="spr-prompt">Prompt</label>
+            <input id="spr-prompt" type="text" maxlength="32" placeholder="Click to type an action, then Enter. Escape leaves the bar." aria-label="Dungeon prompt" />
+          </form>
+          <div id="spr-keys" class="spr-keys"></div>
+          <p id="spr-game-note" class="spr-game-note">Send the finished sprite in. Anyone on this tab shares the dungeon.</p>
         </section>
       </div>
     </div>
@@ -9331,7 +9337,7 @@
   <script defer src="js/bible.js?v=12"></script>
   <script defer src="js/history.js?v=1"></script>
   <script defer src="js/sprites.js?v=7"></script>
-  <script defer src="js/sprite-dungeon.js?v=2"></script>
+  <script defer src="js/sprite-dungeon.js?v=3"></script>
   <script defer src="js/slots.js?v=5"></script>
   <script defer src="js/colors.js?v=4"></script>
   <script defer src="js/colors-gen.js?v=5"></script>

@@ -41,6 +41,40 @@
   var enterLatch = false;
   var known = {};
   var note = "";
+  var aimShot = false;
+  var guardLeft = 0;
+  var hurryLeft = 0;
+  var shield = 0;
+  var cooldowns = {};
+  var lastAction = "";
+  var ACTIONS = [
+    ["A", "Aim", "Next shot deals 8 times Might instead of 4."],
+    ["B", "Burst", "Spends 100 meter. Reach is 2.3 plus Burst. Damage is 10 times Might times Burst."],
+    ["C", "Cure", "Heal 8. Ready again after 6s."],
+    ["D", "Dash", "Move 2 tiles the way you face. Ready again after 1.2s."],
+    ["E", "Expel", "Push foes within 2.4 tiles back by 1.8. Ready again after 2.5s."],
+    ["F", "Fill", "Meter gains 30. Ready again after 4s."],
+    ["G", "Guard", "The next contact hit within 3s deals 0. Ready again after 4s."],
+    ["H", "Hurry", "Shots come 1.5 times sooner for 3s. Ready again after 5s."],
+    ["I", "Inspect", "Name the nearest foe's life and distance."],
+    ["J", "Jab", "Foes within 1.3 tiles take 6 times Might. Ready again after 0.6s."],
+    ["K", "Knock", "Foes within 1.6 tiles take 4 times Might and are pushed 1.2 tiles. Ready again after 1s."],
+    ["L", "Leech", "The nearest foe within 2 tiles takes 5 times Might, and you heal that much. Ready again after 2s."],
+    ["M", "Mend", "Heal 4. Ready again after 3s."],
+    ["N", "Nova", "Foes within 1.8 tiles take 7 times Might. Ready again after 3s."],
+    ["O", "Open", "Step 1.5 tiles toward the door. Ready again after 1s."],
+    ["P", "Pulse", "Fire one shot now. Ready again after 0.8s."],
+    ["Q", "Quicken", "The next shot is immediate, then shots are hurried for 2s. Ready again after 3s."],
+    ["R", "Rally", "Meter gains 50. Ready again after 5s."],
+    ["S", "Shield", "Shield gains 10, up to 20. Contact hits the shield first. Ready again after 4s."],
+    ["T", "Turn", "Face the other way."],
+    ["U", "Surge", "Move 3.5 tiles the way you face. Ready again after 2s."],
+    ["V", "Veer", "Step 1.4 tiles down. Ready again after 0.8s."],
+    ["W", "Ward", "Ignore contact hits for 2s and heal 4. Ready again after 6s."],
+    ["X", "Hex", "The nearest foe takes 8 times Might. Ready again after 1.5s."],
+    ["Y", "Yield", "A full meter drops to 0 and you heal 12."],
+    ["Z", "Zap", "A heavy shot deals 12 times Might. Ready again after 2s."]
+  ];
 
   function resetMe() {
     return {
@@ -376,8 +410,9 @@
       y: me.y - 0.4,
       vx: (dx / dist) * 9,
       vy: (dy / dist) * 9,
-      dmg: 4 * me.might,
+      dmg: 4 * me.might * (aimShot ? 2 : 1),
     });
+    aimShot = false;
   }
 
   function doBurst() {
@@ -409,6 +444,8 @@
     if (!running) return;
     me.meter = Math.min(100, me.meter + dt * 22 * me.haste);
     if (hurt > 0) hurt -= dt;
+    if (guardLeft > 0) guardLeft -= dt;
+    if (hurryLeft > 0) hurryLeft -= dt;
     if (burstLeft > 0) {
       burstLeft -= dt;
       me.cycle = "burst";
@@ -416,10 +453,10 @@
     var ax = 0;
     var ay = 0;
     if (!paused) {
-      if (keys.KeyW || keys.KeyK) ay -= 1;
-      if (keys.KeyS || keys.KeyJ) ay += 1;
-      if (keys.KeyA) ax -= 1;
-      if (keys.KeyD) ax += 1;
+      if (keys.ArrowUp) ay -= 1;
+      if (keys.ArrowDown) ay += 1;
+      if (keys.ArrowLeft) ax -= 1;
+      if (keys.ArrowRight) ax += 1;
       if (pointer.on) {
         ax += pointer.x;
         ay += pointer.y;
@@ -442,7 +479,7 @@
       me.frame = Math.floor(performance.now() / 140) % 6;
       shot -= dt;
       if (shot <= 0) {
-        shot = 0.7 / me.haste;
+        shot = 0.7 / (me.haste * (hurryLeft > 0 ? 1.5 : 1));
         fire();
       }
     }
@@ -488,7 +525,18 @@
         var dx3 = foe3.x - me.x;
         var dy3 = foe3.y - me.y;
         if (dx3 * dx3 + dy3 * dy3 < 0.55) {
-          me.hp -= 5 + floorN;
+          var blow = 5 + floorN;
+          if (guardLeft > 0) {
+            guardLeft = 0;
+            blow = 0;
+            setNote("Guard took that hit. Damage 0.");
+          } else if (shield > 0) {
+            var used = Math.min(shield, blow);
+            shield -= used;
+            blow -= used;
+            setNote("Shield took " + used + ". Shield " + shield + " left.");
+          }
+          if (blow > 0) me.hp -= blow;
           hurt = 0.7;
           break;
         }
@@ -758,6 +806,13 @@
       me = resetMe();
       floorN = 1;
       mode = "solo";
+      aimShot = false;
+      guardLeft = 0;
+      hurryLeft = 0;
+      shield = 0;
+      cooldowns = {};
+      lastAction = "";
+      keys = {};
       spawnWave();
       running = true;
       var shown = document.getElementById("panel-sprites");
@@ -770,18 +825,396 @@
     draw();
   }
 
-  function onKey(e, down) {
-    var tag = (e.target && e.target.tagName || "").toLowerCase();
-    if (tag === "input" || tag === "textarea" || tag === "select") return;
-    if (!running) return;
-    if (e.code === "KeyW" || e.code === "KeyA" || e.code === "KeyS" || e.code === "KeyD" || e.code === "Space") {
-      if (down) e.preventDefault();
+  function isTypingEl(el) {
+    if (!el || el === window || el === document) return false;
+    var tag = (el.tagName || "").toLowerCase();
+    if (tag === "input" || tag === "textarea" || tag === "select") return true;
+    return !!el.isContentEditable;
+  }
+
+  function actionName(letter) {
+    var i;
+    for (i = 0; i < ACTIONS.length; i++) {
+      if (ACTIONS[i][0] === letter) return ACTIONS[i][1];
     }
-    if (e.code === "Space") {
+    return "";
+  }
+
+  function findAction(raw) {
+    var text = String(raw || "").trim().toUpperCase();
+    if (!text) return null;
+    var i;
+    for (i = 0; i < ACTIONS.length; i++) {
+      if (ACTIONS[i][0] === text || ACTIONS[i][1].toUpperCase() === text) return ACTIONS[i];
+    }
+    return null;
+  }
+
+  function clampPos() {
+    me.x = Math.max(1.2, Math.min(ROOM_W - 1.2, me.x));
+    me.y = Math.max(1.2, Math.min(ROOM_H - 1.2, me.y));
+  }
+
+  function foesWithin(radius) {
+    var list = [];
+    var r2 = radius * radius;
+    var i;
+    for (i = enemies.length - 1; i >= 0; i--) {
+      var foe = enemies[i];
+      var dx = foe.x - me.x;
+      var dy = foe.y - me.y;
+      if (dx * dx + dy * dy <= r2) list.push({ e: foe, i: i });
+    }
+    return list;
+  }
+
+  function nearestEntry() {
+    var best = null;
+    var bestD = 1e9;
+    var i;
+    for (i = enemies.length - 1; i >= 0; i--) {
+      var foe = enemies[i];
+      var dx = foe.x - me.x;
+      var dy = foe.y - me.y;
+      var d = dx * dx + dy * dy;
+      if (d < bestD) {
+        bestD = d;
+        best = { e: foe, i: i, dist: Math.sqrt(d) };
+      }
+    }
+    return best;
+  }
+
+  function strike(entry, dmg) {
+    if (mode === "live") hits.push({ id: entry.e.id, dmg: dmg });
+    else hurtEnemy(entry.e, dmg, entry.i);
+  }
+
+  function shove(entry, dist) {
+    var dx = entry.e.x - me.x;
+    var dy = entry.e.y - me.y;
+    var len = Math.sqrt(dx * dx + dy * dy) || 1;
+    entry.e.x = Math.max(1.2, Math.min(ROOM_W - 1.2, entry.e.x + (dx / len) * dist));
+    entry.e.y = Math.max(1.2, Math.min(ROOM_H - 1.2, entry.e.y + (dy / len) * dist));
+  }
+
+  function heal(amount) {
+    var before = me.hp;
+    me.hp = Math.min(me.maxHp, me.hp + amount);
+    return me.hp - before;
+  }
+
+  function cooling(letter, seconds) {
+    var left = ((cooldowns[letter] || 0) - performance.now()) / 1000;
+    if (left > 0) {
+      setNote(actionName(letter) + " is ready in " + one(left) + "s.");
+      return true;
+    }
+    cooldowns[letter] = performance.now() + seconds * 1000;
+    return false;
+  }
+
+  function runAction(letter) {
+    if (!running || paused) return false;
+    letter = String(letter || "").toUpperCase();
+    if (!actionName(letter)) return false;
+    if (letter === "A") {
+      aimShot = true;
+      lastAction = "Aim";
+      setNote("Aim. Next shot deals " + one(8 * me.might) + " instead of " + one(4 * me.might) + ".");
+      return true;
+    }
+    if (letter === "B") {
+      lastAction = "Burst";
+      if (me.meter < 100) {
+        setNote("Burst wants a full meter. It is " + one(me.meter) + " now.");
+        return true;
+      }
+      doBurst();
+      setNote("Burst. Reach " + one(2.3 + me.burstPow) + ". Damage " + one(10 * me.might * me.burstPow) + ".");
+      return true;
+    }
+    if (letter === "C") {
+      if (cooling("C", 6)) return true;
+      lastAction = "Cure";
+      setNote("Cure. Healed " + one(heal(8)) + ". Life " + one(me.hp) + "/" + one(me.maxHp) + ".");
+      return true;
+    }
+    if (letter === "D") {
+      if (cooling("D", 1.2)) return true;
+      lastAction = "Dash";
+      me.x += me.face * 2;
+      clampPos();
+      setNote("Dash. Moved 2 tiles " + (me.face < 0 ? "left" : "right") + ".");
+      return true;
+    }
+    if (letter === "E") {
+      if (cooling("E", 2.5)) return true;
+      lastAction = "Expel";
+      var pushed = foesWithin(2.4);
+      var pi;
+      for (pi = 0; pi < pushed.length; pi++) shove(pushed[pi], 1.8);
+      setNote("Expel. Pushed " + pushed.length + " foes back 1.8 tiles.");
+      return true;
+    }
+    if (letter === "F") {
+      if (cooling("F", 4)) return true;
+      lastAction = "Fill";
+      me.meter = Math.min(100, me.meter + 30);
+      setNote("Fill. Meter " + one(me.meter) + ".");
+      return true;
+    }
+    if (letter === "G") {
+      if (cooling("G", 4)) return true;
+      lastAction = "Guard";
+      guardLeft = 3;
+      setNote("Guard. The next contact hit within 3s deals 0.");
+      return true;
+    }
+    if (letter === "H") {
+      if (cooling("H", 5)) return true;
+      lastAction = "Hurry";
+      hurryLeft = 3;
+      setNote("Hurry. Shot gap " + one(0.7 / (me.haste * 1.5)) + "s for 3s, from " + one(0.7 / me.haste) + "s.");
+      return true;
+    }
+    if (letter === "I") {
+      lastAction = "Inspect";
+      var seen = nearestEntry();
+      if (!seen) setNote("The room is empty.");
+      else setNote("Inspect. " + one(seen.e.hp) + " life, " + one(seen.dist) + " tiles away.");
+      return true;
+    }
+    if (letter === "J") {
+      if (cooling("J", 0.6)) return true;
+      lastAction = "Jab";
+      var jab = foesWithin(1.3);
+      var jd = 6 * me.might;
+      var ji;
+      for (ji = 0; ji < jab.length; ji++) strike(jab[ji], jd);
+      setNote("Jab. " + jab.length + " foes take " + one(jd) + ".");
+      return true;
+    }
+    if (letter === "K") {
+      if (cooling("K", 1)) return true;
+      lastAction = "Knock";
+      var knock = foesWithin(1.6);
+      var kd = 4 * me.might;
+      var ki;
+      for (ki = 0; ki < knock.length; ki++) {
+        shove(knock[ki], 1.2);
+        strike(knock[ki], kd);
+      }
+      setNote("Knock. " + knock.length + " foes take " + one(kd) + " and move 1.2 tiles.");
+      return true;
+    }
+    if (letter === "L") {
+      if (cooling("L", 2)) return true;
+      lastAction = "Leech";
+      var leech = nearestEntry();
+      if (!leech || leech.dist > 2) {
+        setNote("Leech. No foe within 2 tiles.");
+        return true;
+      }
+      var ld = 5 * me.might;
+      strike(leech, ld);
+      setNote("Leech. " + one(ld) + " from the nearest foe. Healed " + one(heal(ld)) + ".");
+      return true;
+    }
+    if (letter === "M") {
+      if (cooling("M", 3)) return true;
+      lastAction = "Mend";
+      setNote("Mend. Healed " + one(heal(4)) + ".");
+      return true;
+    }
+    if (letter === "N") {
+      if (cooling("N", 3)) return true;
+      lastAction = "Nova";
+      var nova = foesWithin(1.8);
+      var nd = 7 * me.might;
+      var ni;
+      for (ni = 0; ni < nova.length; ni++) strike(nova[ni], nd);
+      setNote("Nova. " + nova.length + " foes take " + one(nd) + ".");
+      return true;
+    }
+    if (letter === "O") {
+      if (cooling("O", 1)) return true;
+      lastAction = "Open";
+      me.x += 1.5;
+      clampPos();
+      setNote("Open. Stepped 1.5 tiles toward the door. You are at " + one(me.x) + ".");
+      return true;
+    }
+    if (letter === "P") {
+      if (cooling("P", 0.8)) return true;
+      lastAction = "Pulse";
+      var pulseDmg = 4 * me.might * (aimShot ? 2 : 1);
+      if (!nearestEnemy()) setNote("Pulse. The room is empty.");
+      else setNote("Pulse. Shot damage " + one(pulseDmg) + ".");
+      fire();
+      return true;
+    }
+    if (letter === "Q") {
+      if (cooling("Q", 3)) return true;
+      lastAction = "Quicken";
+      shot = 0;
+      hurryLeft = Math.max(hurryLeft, 2);
+      setNote("Quicken. The next shot is now. Shot gap " + one(0.7 / (me.haste * 1.5)) + "s for 2s.");
+      return true;
+    }
+    if (letter === "R") {
+      if (cooling("R", 5)) return true;
+      lastAction = "Rally";
+      me.meter = Math.min(100, me.meter + 50);
+      setNote("Rally. Meter " + one(me.meter) + ".");
+      return true;
+    }
+    if (letter === "S") {
+      if (cooling("S", 4)) return true;
+      lastAction = "Shield";
+      shield = Math.min(20, shield + 10);
+      setNote("Shield. Shield " + shield + ", up to 20.");
+      return true;
+    }
+    if (letter === "T") {
+      lastAction = "Turn";
+      me.face = me.face < 0 ? 1 : -1;
+      setNote("Turn. Facing " + (me.face < 0 ? "left" : "right") + ".");
+      return true;
+    }
+    if (letter === "U") {
+      if (cooling("U", 2)) return true;
+      lastAction = "Surge";
+      me.x += me.face * 3.5;
+      clampPos();
+      setNote("Surge. Moved 3.5 tiles " + (me.face < 0 ? "left" : "right") + ".");
+      return true;
+    }
+    if (letter === "V") {
+      if (cooling("V", 0.8)) return true;
+      lastAction = "Veer";
+      me.y += 1.4;
+      clampPos();
+      setNote("Veer. Stepped 1.4 tiles down.");
+      return true;
+    }
+    if (letter === "W") {
+      if (cooling("W", 6)) return true;
+      lastAction = "Ward";
+      guardLeft = 2;
+      setNote("Ward. Contact hits deal 0 for 2s. Healed " + one(heal(4)) + ".");
+      return true;
+    }
+    if (letter === "X") {
+      if (cooling("X", 1.5)) return true;
+      lastAction = "Hex";
+      var hex = nearestEntry();
+      if (!hex) setNote("Hex. The room is empty.");
+      else {
+        var xd = 8 * me.might;
+        strike(hex, xd);
+        setNote("Hex. Nearest foe takes " + one(xd) + ".");
+      }
+      return true;
+    }
+    if (letter === "Y") {
+      lastAction = "Yield";
+      if (me.meter < 100) {
+        setNote("Yield wants 100. It is " + one(me.meter) + " now.");
+        return true;
+      }
+      me.meter = 0;
+      setNote("Yield. Meter 0. Healed " + one(heal(12)) + ".");
+      return true;
+    }
+    if (letter === "Z") {
+      if (cooling("Z", 2)) return true;
+      lastAction = "Zap";
+      var zap = nearestEntry();
+      if (!zap) {
+        setNote("Zap. The room is empty.");
+        return true;
+      }
+      var zx = zap.e.x - me.x;
+      var zy = zap.e.y - me.y;
+      var zd = Math.sqrt(zx * zx + zy * zy) || 1;
+      var zapDmg = 12 * me.might;
+      bolts.push({
+        x: me.x,
+        y: me.y - 0.4,
+        vx: (zx / zd) * 12,
+        vy: (zy / zd) * 12,
+        dmg: zapDmg,
+      });
+      setNote("Zap. Shot damage " + one(zapDmg) + ".");
+      return true;
+    }
+    return false;
+  }
+
+  function submitPrompt() {
+    var prompt = $("spr-prompt");
+    if (!prompt || submitPrompt.busy) return;
+    submitPrompt.busy = true;
+    try {
+      var raw = prompt.value;
+      if (!String(raw).trim()) {
+        prompt.blur();
+        return;
+      }
+      var found = findAction(raw);
+      if (!found) {
+        setNote("No action named " + String(raw).trim() + ".");
+        return;
+      }
+      if (!runAction(found[0])) return;
+      prompt.value = "";
+      prompt.focus();
+    } finally {
+      submitPrompt.busy = false;
+    }
+  }
+
+  function onKey(e, down) {
+    if (isTypingEl(e.target)) {
+      if (down && e.target.id === "spr-prompt" && (e.key === "Escape" || e.key === "Enter")) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (e.key === "Escape") e.target.blur();
+        else submitPrompt();
+      }
+      return;
+    }
+    if (!running) return;
+    var arrow = e.key === "ArrowUp" || e.key === "ArrowDown" || e.key === "ArrowLeft" || e.key === "ArrowRight";
+    var letter = /^Key[A-Z]$/.test(e.code || "");
+    var space = e.code === "Space";
+    if (!(arrow || letter || space)) return;
+    e.preventDefault();
+    e.stopPropagation();
+    if (paused) {
+      if (arrow && !down) keys[e.key] = false;
+      return;
+    }
+    if (space) {
       if (down) doBurst();
       return;
     }
-    keys[e.code] = down;
+    if (letter) {
+      if (down && !e.repeat) runAction(e.code.charAt(3));
+      return;
+    }
+    keys[e.key] = down;
+  }
+
+  function setKeyMode(typing) {
+    var el = $("spr-key-mode");
+    var form = $("spr-prompt-form");
+    if (form) form.classList.toggle("is-typing", !!typing);
+    if (!el) return;
+    el.textContent = typing
+      ? "Typing. Letter keys write in the prompt. Escape leaves the bar."
+      : "Arrow keys move. Space bursts. Letter keys act. Click the prompt to type.";
   }
 
   function bindPointer() {
@@ -803,8 +1236,10 @@
       pointer.y = Math.max(-1, Math.min(1, dy / 48));
     }
     canvas.addEventListener("pointerdown", function (ev) {
+      var prompt = $("spr-prompt");
+      if (prompt && document.activeElement === prompt) prompt.blur();
       origin = { x: ev.clientX, y: ev.clientY };
-      canvas.setPointerCapture(ev.pointerId);
+      try { canvas.setPointerCapture(ev.pointerId); } catch (err) {}
     });
     canvas.addEventListener("pointermove", setFrom);
     function end() {
@@ -822,8 +1257,35 @@
     if (send) send.addEventListener("click", sendIn);
     var burst = $("spr-burst");
     if (burst) burst.addEventListener("click", doBurst);
-    window.addEventListener("keydown", function (e) { onKey(e, true); });
-    window.addEventListener("keyup", function (e) { onKey(e, false); });
+    var keyHost = $("spr-keys");
+    if (keyHost && !keyHost.dataset.built) {
+      keyHost.dataset.built = "1";
+      ACTIONS.forEach(function (row) {
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.textContent = row[0] + " " + row[1] + ". " + row[2];
+        btn.addEventListener("click", function () { runAction(row[0]); });
+        keyHost.appendChild(btn);
+      });
+    }
+    var form = $("spr-prompt-form");
+    var prompt = $("spr-prompt");
+    if (form && prompt && !form.dataset.bound) {
+      form.dataset.bound = "1";
+      form.addEventListener("submit", function (ev) {
+        ev.preventDefault();
+        submitPrompt();
+      });
+      prompt.addEventListener("focus", function () {
+        keys = {};
+        setKeyMode(true);
+      });
+      prompt.addEventListener("blur", function () {
+        setKeyMode(false);
+      });
+    }
+    window.addEventListener("keydown", function (e) { onKey(e, true); }, true);
+    window.addEventListener("keyup", function (e) { onKey(e, false); }, true);
     window.addEventListener("sprites-hide", stopLoops);
     window.addEventListener("sprites-show", function () {
       if (running) startLoops();
@@ -857,6 +1319,11 @@
         stride: me.stride,
         burst: me.burstPow,
         maxHp: me.maxHp,
+        meter: me.meter,
+        lastAction: lastAction,
+        shield: shield,
+        aim: aimShot,
+        typing: !!(document.activeElement && document.activeElement.id === "spr-prompt"),
       };
     },
   };
