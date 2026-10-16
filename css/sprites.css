@@ -306,6 +306,7 @@ body.spr-tab-active[data-stasis-skin-active] :is(
   gap: 0.45rem;
   padding: 0.8rem;
   background: rgba(12, 14, 20, 0.92);
+  overflow: auto;
 }
 
 .spr-level[hidden] {
@@ -323,6 +324,9 @@ body.spr-tab-active[data-stasis-skin-active] :is(
   width: 100%;
   text-align: left;
   margin-top: 0.3rem;
+  white-space: normal;
+  line-height: 1.35;
+  font-size: 0.82rem;
 }
 
 @media (max-width: 540px) {

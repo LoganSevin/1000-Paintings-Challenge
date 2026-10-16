@@ -9,13 +9,12 @@
   var ROOM_W = 22;
   var ROOM_H = 14;
   var TILE = 32;
-  var OFFERS = [
-    { id: "might", name: "Might", note: "Hits land harder." },
-    { id: "haste", name: "Haste", note: "The next shot comes sooner." },
-    { id: "stride", name: "Stride", note: "You cover the room faster." },
-    { id: "vitality", name: "Vitality", note: "More life, and some of it back." },
-    { id: "burst", name: "Burst", note: "The burst reaches farther and hits harder." },
-  ];
+  var MIGHT_STEP = 0.28;
+  var HASTE_STEP = 0.18;
+  var STRIDE_STEP = 0.14;
+  var BURST_STEP = 0.3;
+  var VITAL_STEP = 8;
+  var OFFERS = ["might", "haste", "stride", "vitality", "burst"];
 
   var me = resetMe();
   var frames = { idle: [], walk: [], burst: [] };
@@ -112,6 +111,144 @@
     return frames.idle.length + frames.walk.length + frames.burst.length;
   }
 
+  function one(n) {
+    return (Math.round(n * 10) / 10).toFixed(1);
+  }
+
+  function offerText(id) {
+    if (id === "might") {
+      var next = me.might + MIGHT_STEP;
+      return "Might. Shot damage " + one(4 * me.might) + " now, " + one(4 * next) + " with this. Burst damage " + one(10 * me.might * me.burstPow) + " now, " + one(10 * next * me.burstPow) + " with this.";
+    }
+    if (id === "haste") {
+      var nextH = me.haste + HASTE_STEP;
+      return "Haste. Time between shots " + one(0.7 / me.haste) + "s now, " + one(0.7 / nextH) + "s with this. Meter gain " + one(22 * me.haste) + " a second now, " + one(22 * nextH) + " with this.";
+    }
+    if (id === "stride") {
+      var nextS = me.stride + STRIDE_STEP;
+      return "Stride. Move speed " + one(4.4 * me.stride) + " tiles a second now, " + one(4.4 * nextS) + " with this.";
+    }
+    if (id === "vitality") {
+      var max = me.maxHp + VITAL_STEP;
+      var hp = Math.min(max, me.hp + VITAL_STEP);
+      return "Vitality. Life " + Math.round(me.hp) + "/" + me.maxHp + " now, " + Math.round(hp) + "/" + max + " with this.";
+    }
+    var nextB = me.burstPow + BURST_STEP;
+    return "Burst. Reach " + one(2.3 + me.burstPow) + " tiles now, " + one(2.3 + nextB) + " with this. Burst damage " + one(10 * me.might * me.burstPow) + " now, " + one(10 * me.might * nextB) + " with this.";
+  }
+
+  function scaleCanvas(node, size) {
+    var c = document.createElement("canvas");
+    c.width = size;
+    c.height = size;
+    var g = c.getContext("2d");
+    g.imageSmoothingEnabled = false;
+    g.drawImage(node, 0, 0, size, size);
+    return c;
+  }
+
+  function knockOut(source) {
+    var w = source.width;
+    var h = source.height;
+    if (w < 2 || h < 2) return source;
+    var c = document.createElement("canvas");
+    c.width = w;
+    c.height = h;
+    var g = c.getContext("2d");
+    g.imageSmoothingEnabled = false;
+    g.drawImage(source, 0, 0);
+    var image = g.getImageData(0, 0, w, h);
+    var d = image.data;
+    var samples = [];
+    var step = Math.max(1, Math.floor(Math.max(w, h) / 24));
+    var x;
+    var y;
+    for (x = 0; x < w; x += step) {
+      samples.push(x * 4);
+      samples.push(((h - 1) * w + x) * 4);
+    }
+    for (y = step; y < h - 1; y += step) {
+      samples.push(y * w * 4);
+      samples.push((y * w + w - 1) * 4);
+    }
+    function mid(channel) {
+      var vals = [];
+      var i;
+      for (i = 0; i < samples.length; i++) vals.push(d[samples[i] + channel]);
+      vals.sort(function (a, b) { return a - b; });
+      return vals[Math.floor(vals.length / 2)];
+    }
+    var kr = mid(0);
+    var kg = mid(1);
+    var kb = mid(2);
+    function dist2(i) {
+      var dr = d[i] - kr;
+      var dg = d[i + 1] - kg;
+      var db = d[i + 2] - kb;
+      return dr * dr + dg * dg + db * db;
+    }
+    function flood(limit2) {
+      var alpha = new Uint8Array(w * h);
+      var seen = new Uint8Array(w * h);
+      var stack = [];
+      var i;
+      for (i = 0; i < w * h; i++) alpha[i] = d[i * 4 + 3];
+      function push(x0, y0) {
+        if (x0 < 0 || y0 < 0 || x0 >= w || y0 >= h) return;
+        var p = y0 * w + x0;
+        if (seen[p]) return;
+        seen[p] = 1;
+        if (dist2(p * 4) > limit2) return;
+        alpha[p] = 0;
+        stack.push(p);
+      }
+      for (x = 0; x < w; x++) {
+        push(x, 0);
+        push(x, h - 1);
+      }
+      for (y = 1; y < h - 1; y++) {
+        push(0, y);
+        push(w - 1, y);
+      }
+      var n = 0;
+      while (stack.length && n < w * h) {
+        var p = stack.pop();
+        n += 1;
+        var px = p % w;
+        var py = (p / w) | 0;
+        push(px + 1, py);
+        push(px - 1, py);
+        push(px, py + 1);
+        push(px, py - 1);
+      }
+      var cleared = 0;
+      for (i = 0; i < alpha.length; i++) if (alpha[i] === 0) cleared += 1;
+      return { alpha: alpha, share: cleared / alpha.length };
+    }
+    var pass = flood(32 * 32);
+    if (pass.share < 0.12) pass = flood(56 * 56);
+    if (pass.share > 0.97 || pass.share < 0.05) return source;
+    var alpha = pass.alpha;
+    var round;
+    for (round = 0; round < 3; round++) {
+      var next = new Uint8Array(alpha);
+      for (y = 1; y < h - 1; y++) {
+        for (x = 1; x < w - 1; x++) {
+          var p = y * w + x;
+          if (alpha[p] === 0) continue;
+          var edge = alpha[p - 1] < 28 || alpha[p + 1] < 28 || alpha[p - w] < 28 || alpha[p + w] < 28;
+          if (!edge) continue;
+          var dist = Math.sqrt(dist2(p * 4));
+          if (dist < 100) next[p] = Math.min(alpha[p], Math.round(255 * dist / 100));
+        }
+      }
+      alpha = next;
+    }
+    for (var p = 0; p < w * h; p++) d[p * 4 + 3] = alpha[p];
+    g.putImageData(image, 0, 0);
+    return c;
+  }
+
   function capture() {
     var out = { idle: [], walk: [], burst: [] };
     var nodes = document.querySelectorAll("#spr-layers .spr-layer");
@@ -121,13 +258,8 @@
       var cycle = node.getAttribute("data-cycle");
       var index = parseInt(node.getAttribute("data-frame"), 10) || 0;
       if (!out[cycle] || node.width < 2) continue;
-      var c = document.createElement("canvas");
-      c.width = 96;
-      c.height = 96;
-      var g = c.getContext("2d");
-      g.imageSmoothingEnabled = false;
-      g.drawImage(node, 0, 0, 96, 96);
-      out[cycle][index] = c;
+      var fitted = node.width > 192 ? scaleCanvas(node, 192) : node;
+      out[cycle][index] = scaleCanvas(knockOut(fitted), 96);
     }
     ["idle", "walk", "burst"].forEach(function (key) {
       out[key] = out[key].filter(Boolean);
@@ -139,23 +271,16 @@
     var list = [];
     function push(img) {
       if (!img || list.length >= 4) return;
-      var c = document.createElement("canvas");
-      c.width = 40;
-      c.height = 40;
-      var g = c.getContext("2d");
-      g.fillStyle = "#12151e";
-      g.fillRect(0, 0, 40, 40);
-      g.drawImage(img, 0, 0, 40, 40);
+      var size = 64;
       var url = "";
-      var q = 0.62;
-      try {
-        url = c.toDataURL("image/jpeg", q);
-        while (url.length > 9000 && q > 0.28) {
-          q -= 0.12;
-          url = c.toDataURL("image/jpeg", q);
-        }
-      } catch (e) { url = ""; }
-      if (url && url.length <= 9000) list.push(url);
+      while (size >= 24) {
+        var c = scaleCanvas(img, size);
+        try { url = c.toDataURL("image/png"); } catch (e) { url = ""; }
+        if (url && url.length <= 16000) break;
+        size -= 16;
+        url = "";
+      }
+      if (url && url.length <= 16000) list.push(url);
     }
     frames.idle.slice(0, 2).forEach(push);
     frames.walk.slice(0, 2).forEach(push);
@@ -193,9 +318,9 @@
     picks.forEach(function (pick) {
       var btn = document.createElement("button");
       btn.type = "button";
-      btn.textContent = pick.name + " — " + pick.note;
+      btn.textContent = offerText(pick);
       btn.addEventListener("click", function () {
-        applyOffer(pick.id);
+        applyOffer(pick);
         paused = false;
         box.hidden = true;
       });
@@ -205,13 +330,13 @@
   }
 
   function applyOffer(id) {
-    if (id === "might") me.might += 0.28;
-    if (id === "haste") me.haste += 0.18;
-    if (id === "stride") me.stride += 0.14;
-    if (id === "burst") me.burstPow += 0.3;
+    if (id === "might") me.might += MIGHT_STEP;
+    if (id === "haste") me.haste += HASTE_STEP;
+    if (id === "stride") me.stride += STRIDE_STEP;
+    if (id === "burst") me.burstPow += BURST_STEP;
     if (id === "vitality") {
-      me.maxHp += 8;
-      me.hp = Math.min(me.maxHp, me.hp + 8);
+      me.maxHp += VITAL_STEP;
+      me.hp = Math.min(me.maxHp, me.hp + VITAL_STEP);
     }
     me.level += 1;
     me.xp = 0;
@@ -727,6 +852,11 @@
         others: Object.keys(others).length,
         frames: frameCount(),
         paused: paused,
+        might: me.might,
+        haste: me.haste,
+        stride: me.stride,
+        burst: me.burstPow,
+        maxHp: me.maxHp,
       };
     },
   };

@@ -37,7 +37,7 @@ function cleanSprite(list) {
   for (let i = 0; i < list.length && out.length < 4; i++) {
     const s = String(list[i] || "");
     if (!/^data:image\/(?:png|jpeg);base64,[a-z0-9+/=]+$/i.test(s)) continue;
-    if (s.length > 9000) continue;
+    if (s.length > 16000) continue;
     out.push(s);
   }
   return out;
