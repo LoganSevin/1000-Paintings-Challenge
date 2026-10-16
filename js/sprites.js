@@ -2,20 +2,21 @@
  * Sprites: a survivor-game character at sprite size.
  * Spell I, Spell II, and Spell III are the creature.
  * Idle, walk, and burst each play as a loop.
- * Paint asks Spellforge for one eight-frame pixel sheet of the chosen loop.
+ * Paint asks Spellforge for one sheet: idle, walk, and burst together.
  */
 (function () {
   "use strict";
 
   var ASPECT = "16:9";
   var FRAMES = 8;
-  var COLS = 4;
-  var ROWS = 2;
+  var COLS = 8;
+  var SHEET_ROWS = 3;
   var FRAME_MS = 110;
+  var ROW = { idle: 0, walk: 1, burst: 2 };
   var CYCLES = {
-    idle: "Idle loop. Eight pixel frames in two rows of four. The creature breathes, shifts its weight, blinks once, and the cape sways. A hard oval shadow stays on the ground under the feet. The last frame matches the first.",
-    walk: "Walk loop. Eight pixel frames in two rows of four, side view facing right: contact, down, passing, up, then the other foot. The arms swing opposite the legs. The hard oval shadow widens when the body is low and narrows when it is high. The last frame matches the first.",
-    burst: "Burst loop. Eight pixel frames in two rows of four: crouch, deeper crouch, launch, a bright pixel burst at the peak, fall, land, and recover. The shadow stays on the ground and shrinks while the creature is in the air. The last frame matches the first.",
+    idle: "Top row, left to right, is the idle loop. Eight frames. The creature breathes, shifts its weight, blinks once, and the cape sways. The last frame matches the first.",
+    walk: "Middle row, left to right, is the walk loop. Eight frames, side view facing right: contact, down, passing, up, then the other foot. The arms swing opposite the legs. The last frame matches the first.",
+    burst: "Bottom row, left to right, is the burst loop. Eight frames: crouch, deeper crouch, launch, a bright pixel burst at the peak, fall, land, and recover. The last frame matches the first.",
   };
   var POSE = {
     idle: [
@@ -56,7 +57,7 @@
   var painting = false;
   var timer = 0;
   var started = 0;
-  var sheets = { idle: null, walk: null, burst: null };
+  var sheet = null;
   var pics = [null, null, null];
   var chips = [null, null, null];
 
@@ -299,11 +300,10 @@
     }
   }
 
-  function drawSheet(ctx, w, h, img, frame) {
+  function drawSheet(ctx, w, h, img, frame, row) {
     var col = frame % COLS;
-    var row = Math.floor(frame / COLS) % ROWS;
     var sw = img.naturalWidth / COLS;
-    var sh = img.naturalHeight / ROWS;
+    var sh = img.naturalHeight / SHEET_ROWS;
     if (!(sw > 1) || !(sh > 1)) return;
     ctx.imageSmoothingEnabled = false;
     ctx.fillStyle = "#12151e";
@@ -322,12 +322,11 @@
     var frame = frameIndex(performance.now());
     stage.dataset.cycle = cycle;
     stage.dataset.frame = String(frame);
-    var sheet = sheets[cycle];
     [stage, mini].forEach(function (canvas) {
       if (!canvas) return;
       var ctx = canvas.getContext("2d");
       if (!ctx) return;
-      if (sheet && sheet.naturalWidth) drawSheet(ctx, canvas.width, canvas.height, sheet, frame);
+      if (sheet && sheet.naturalWidth) drawSheet(ctx, canvas.width, canvas.height, sheet, frame, ROW[cycle] || 0);
       else drawPuppet(ctx, canvas.width, canvas.height, frame, spells);
     });
   }
@@ -341,10 +340,10 @@
     }
     var strip = $("spr-strip");
     if (strip) {
-      var sheet = sheets[cycle];
       if (sheet && sheet.src) {
         strip.src = sheet.src;
         strip.hidden = false;
+        strip.alt = "Idle, walk, and burst, eight frames each";
       } else {
         strip.removeAttribute("src");
         strip.hidden = true;
@@ -364,8 +363,12 @@
     var lines = [
       "One small survivor-game character, full body, side view facing right, readable at sprite size.",
       "Chunky pixel art. Visible square pixels, a dark one-pixel outline, and a limited palette taken from the spells.",
-      "Eight equal frames in two rows of four. The same creature, the same scale, and the same ground line in every frame.",
-      CYCLES[cycle],
+      "One sprite sheet. Three rows and eight columns. No lines between the frames. Every cell is the same size.",
+      "Paint idle, walk, and burst in this same image, at the same time, of the same creature.",
+      CYCLES.idle,
+      CYCLES.walk,
+      CYCLES.burst,
+      "The same creature, the same scale, the same pixel size, and the same ground line in every cell.",
       "Flat solid dark backdrop. A hard oval shadow on the ground under the feet in every frame. No scenery.",
       "The creature is one combination of Spell 1, Spell 2, and Spell 3. Do not paint Spell 1 by itself.",
       "Spell 1 is Spell I. Spell 2 is Spell II. Spell 3 is Spell III.",
@@ -429,7 +432,7 @@
       var n = Number(spells[i].id);
       if (n >= 1 && n <= 1000) ids.push(n);
     }
-    setStatus("Painting the " + cycle + " loop from Spell I, Spell II, and Spell III…");
+    setStatus("Painting idle, walk, and burst together from Spell I, Spell II, and Spell III…");
     fetch(apiUrl("/api/generate-stasis-vision"), {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -439,7 +442,7 @@
         stasis: prompt,
         prompt: prompt,
         fused_prompt: prompt,
-        buzz_words: ["sprite", "loop", cycle, "Spell I", "Spell II", "Spell III"],
+        buzz_words: ["sprite", "idle", "walk", "burst", "Spell I", "Spell II", "Spell III"],
         spells: ids,
         spell_details: spells.map(function (sp) {
           return { slot: sp.slot, id: sp.id, title: "Spell " + sp.roman, description: sp.text };
@@ -473,18 +476,13 @@
         });
       })
       .then(function (img) {
-        sheets[cycle] = img;
-        var strip = $("spr-strip");
-        if (strip) {
-          strip.src = img.src;
-          strip.hidden = false;
-          strip.alt = cycle + " sprite strip, four frames";
-        }
-        setStatus(cycle.charAt(0).toUpperCase() + cycle.slice(1) + " loop is ready.");
+        sheet = img;
+        setCycle(cycle);
+        setStatus("Idle, walk, and burst are ready.");
         draw();
         var api = window.SpellforgeAPI;
         if (api && typeof api.saveGenerated === "function") {
-          api.saveGenerated({ title: "Sprite " + cycle, url: img.src, prompt: prompt, tags: ["sprite", cycle] }).catch(function () {});
+          api.saveGenerated({ title: "Sprite idle walk burst", url: img.src, prompt: prompt, tags: ["sprite", "idle", "walk", "burst"] }).catch(function () {});
         }
       })
       .catch(function (err) {
