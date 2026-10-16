@@ -7555,7 +7555,7 @@
     slotMsg[slotIndex] = msg || "";
     slotMsgNum[slotIndex] = Number(spells[slotIndex]) || 0;
     slotMsgErr[slotIndex] = !!isErr;
-    var el = document.querySelector('#panel-spellforge .spell-slot[data-slot="' + slotIndex + '"] .spell-slot-msg');
+    var el = document.querySelector('.spell-slots-stack > .spell-slot[data-slot="' + slotIndex + '"] .spell-slot-msg');
     if (el) {
       el.textContent = slotMsg[slotIndex];
       el.hidden = !slotMsg[slotIndex];
@@ -7745,7 +7745,7 @@
   function renderSlots() {
     forkSharedSlotNotes();
     closeSpellColorPopover();
-    var slots = document.querySelectorAll("#panel-spellforge .spell-slots-stack > .spell-slot");
+    var slots = document.querySelectorAll(".spell-slots-stack > .spell-slot");
     var names = ["I", "II", "III"];
     for (var si = 0; si < slots.length; si++) {
       var el = slots[si];
@@ -8223,16 +8223,19 @@
       shareBtn.addEventListener("click", copyShareSpellLink);
     }
 
-    var panel = document.getElementById("panel-spellforge");
-    if (panel) {
-      panel.addEventListener("keydown", function (e) {
-        if (searchIsActive()) return;
-        var tag = (e.target.tagName || "").toLowerCase();
-        if (tag === "input" || tag === "textarea") return;
-        if (e.key === "ArrowLeft") { e.preventDefault(); goPrevPage(); }
-        if (e.key === "ArrowRight") { e.preventDefault(); goNextPage(); }
-      });
-    }
+    document.addEventListener("keydown", function (e) {
+      if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+      if (searchIsActive()) return;
+      var book = document.querySelector(".spellbook-panel");
+      if (!book) return;
+      var host = book.closest("#panel-spellforge, #panel-sprites");
+      if (!host || host.hidden) return;
+      var tag = (e.target.tagName || "").toLowerCase();
+      if (tag === "input" || tag === "textarea" || tag === "select") return;
+      if (e.target && e.target.isContentEditable) return;
+      if (e.key === "ArrowLeft") { e.preventDefault(); goPrevPage(); }
+      if (e.key === "ArrowRight") { e.preventDefault(); goNextPage(); }
+    });
   }
 
   function loadAndStart() {
@@ -8452,7 +8455,7 @@
         embedSf = new URLSearchParams(location.search).get("embed") === "spellforge";
       } catch (eEmb) {}
       // Embed (Studio 3D plane) or direct hash — always boot arsenal
-      if (hash === "spellforge" || embedSf) {
+      if (hash === "spellforge" || hash === "sprites" || embedSf) {
         ensureSpellforgeStarted();
         if (embedSf) {
           // tabs.js may have already fired show; ensure grid fills after assets

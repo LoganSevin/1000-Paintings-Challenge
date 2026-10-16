@@ -817,7 +817,10 @@
 
   function spellforgePanelVisible() {
     var panel = document.getElementById("panel-spellforge");
-    return !!(panel && !panel.hidden);
+    if (panel && !panel.hidden) return true;
+    var sprites = document.getElementById("panel-sprites");
+    var book = document.querySelector(".spellbook-panel");
+    return !!(sprites && !sprites.hidden && book && sprites.contains(book));
   }
 
   tl.scheduleVideoBuild = function (force) {

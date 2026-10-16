@@ -505,6 +505,25 @@
     setCycle(cycle);
   }
 
+  function dockForge() {
+    var host = $("spr-forge");
+    var book = document.querySelector(".spellbook-panel");
+    if (!host || !book || book.parentNode === host) return;
+    if (!book._sprMark || !book._sprMark.parentNode) {
+      var mark = document.createComment("spr-forge-home");
+      book.parentNode.insertBefore(mark, book);
+      book._sprMark = mark;
+    }
+    host.appendChild(book);
+  }
+
+  function undockForge() {
+    var book = document.querySelector(".spellbook-panel");
+    if (!book || !book._sprMark || !book._sprMark.parentNode) return;
+    if (book.parentNode === book._sprMark.parentNode) return;
+    book._sprMark.parentNode.insertBefore(book, book._sprMark);
+  }
+
   var spellWait = 0;
 
   function waitForSpells() {
@@ -521,8 +540,29 @@
     }, 50);
   }
 
+  function wakeForge() {
+    if (window.SpellforgeAPI && typeof window.SpellforgeAPI.onShow === "function") {
+      try { window.SpellforgeAPI.onShow(); } catch (e) {}
+      return;
+    }
+    var n = 0;
+    var wait = setInterval(function () {
+      n += 1;
+      if (!shown || n > 80) {
+        clearInterval(wait);
+        return;
+      }
+      if (window.SpellforgeAPI && typeof window.SpellforgeAPI.onShow === "function") {
+        clearInterval(wait);
+        try { window.SpellforgeAPI.onShow(); } catch (e2) {}
+      }
+    }, 50);
+  }
+
   function start() {
     shown = true;
+    dockForge();
+    wakeForge();
     if (!started) started = performance.now();
     refreshFromSpells();
     if (!timer) timer = setInterval(function () { if (shown) draw(); }, 50);
@@ -532,6 +572,7 @@
 
   function stop() {
     shown = false;
+    undockForge();
     if (timer) {
       clearInterval(timer);
       timer = 0;
@@ -555,5 +596,11 @@
   bind();
   window.addEventListener("sprites-show", start);
   window.addEventListener("sprites-hide", stop);
+  window.addEventListener("spellforge-fusion", function () {
+    if (shown) refreshFromSpells();
+  });
+  window.addEventListener("spellforge-local-fuse", function () {
+    if (shown) refreshFromSpells();
+  });
   window.Sprites = { start: start, readSpells: readSpells };
 })();

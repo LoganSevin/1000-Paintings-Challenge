@@ -9,10 +9,20 @@
 }
 
 .spr-shell {
-  max-width: 880px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0.6rem 0.7rem 2rem;
+  padding: 0.6rem 0.7rem 0.4rem;
   color: #ece6d6;
+}
+
+.spr-forge {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 0.7rem 2.5rem;
+}
+
+.spr-forge .spellbook-panel {
+  width: 100%;
 }
 
 .spr-shell h2 {

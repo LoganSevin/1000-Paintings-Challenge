@@ -51,7 +51,7 @@
   <link rel="stylesheet" href="css/engrams.css?v=11" />
   <link rel="stylesheet" href="css/bible.css?v=8" />
   <link rel="stylesheet" href="css/history.css?v=1" />
-  <link rel="stylesheet" href="css/sprites.css?v=2" />
+  <link rel="stylesheet" href="css/sprites.css?v=3" />
   <link rel="stylesheet" href="css/slots.css?v=4" />
   <link rel="stylesheet" href="css/colors.css?v=6" />
   <link rel="stylesheet" href="css/hours.css?v=1" />
@@ -75,7 +75,7 @@
   }
   </script>
   <link rel="stylesheet" href="css/stasis-skin.css?v=2" />
-  <link rel="stylesheet" href="css/spellforge.css?v=56" />
+  <link rel="stylesheet" href="css/spellforge.css?v=57" />
   <!-- Secondary tab CSS loads after first paint via lazy-assets.js -->
   <link rel="stylesheet" href="css/muralwalk.css?v=46" />
   <link rel="stylesheet" href="css/fleeting-idea.css?v=100" />
@@ -7711,7 +7711,7 @@
   <section id="panel-sprites" class="panel" hidden>
     <div class="spr-shell">
       <h2>Sprites</h2>
-      <p class="spr-hint">A pixel sprite for a survivor game. Spell I, II, and III are its body, cut from the stills. Idle, walk, and burst each loop, with a shadow on the ground. One paint makes all three at the same time.</p>
+      <p class="spr-hint">A pixel sprite for a survivor game. Spell I, II, and III are its body. Idle, walk, and burst each loop, with a shadow on the ground. One paint makes all three at the same time. The slots, prompt boxes, and spellbook below are Spellforge, so you can change them here.</p>
       <div class="spr-stage-wrap">
         <canvas id="spr-stage" class="spr-stage" width="64" height="64" data-cycle="idle" data-frame="0" aria-label="Sprite preview, looping"></canvas>
         <canvas id="spr-mini" class="spr-mini" width="64" height="64" aria-hidden="true"></canvas>
@@ -7726,14 +7726,9 @@
         <button type="button" id="spr-paint" class="spr-primary">Paint the loops</button>
       </div>
       <div id="spr-status" class="spr-status" aria-live="polite"></div>
-      <div class="spr-label">From Spellforge</div>
-      <div class="spr-spells">
-        <div class="spr-spell" id="spr-spell-0"></div>
-        <div class="spr-spell" id="spr-spell-1"></div>
-        <div class="spr-spell" id="spr-spell-2"></div>
-      </div>
       <img id="spr-strip" class="spr-strip" alt="" hidden />
     </div>
+    <div id="spr-forge" class="spr-forge"></div>
   </section>
 
   <section id="panel-history" class="panel" hidden>
@@ -9308,7 +9303,7 @@
   <script defer src="js/engrams.js?v=15"></script>
   <script defer src="js/bible.js?v=12"></script>
   <script defer src="js/history.js?v=1"></script>
-  <script defer src="js/sprites.js?v=3"></script>
+  <script defer src="js/sprites.js?v=4"></script>
   <script defer src="js/slots.js?v=5"></script>
   <script defer src="js/colors.js?v=4"></script>
   <script defer src="js/colors-gen.js?v=5"></script>
@@ -9345,14 +9340,14 @@
   <script defer src="js/api-chain.js?v=11"></script>
   <script defer src="js/pulse.js?v=3"></script>
   <script defer src="js/app.js?v=26"></script>
-  <script defer src="js/spell-timelapse.js?v=9"></script>
+  <script defer src="js/spell-timelapse.js?v=10"></script>
   <script defer src="js/stasis-vision-compose.js?v=6"></script>
   <script defer src="js/stasis-walk-floor.js?v=10"></script>
   <script defer src="js/muralwalk-coords.js?v=1"></script>
   <script defer src="js/stasis-interface-skin.js?v=2"></script>
   <script defer src="js/stasis-floor-gen.js?v=8"></script>
   <script defer src="js/spellforge-config.js?v=5"></script>
-  <script defer src="js/spellforge.js?v=138"></script>
+  <script defer src="js/spellforge.js?v=139"></script>
   <script defer src="js/fix-webm-duration.js?v=1"></script>
   <script defer src="js/videofy-export.js?v=3"></script>
   <script defer src="js/viral.js?v=13"></script>
