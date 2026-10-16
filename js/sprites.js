@@ -2,7 +2,8 @@
  * Sprites: a survivor-game character at sprite size.
  * Spell I, Spell II, and Spell III are the creature.
  * Idle, walk, and burst each play as a loop.
- * Paint asks Spellforge for one sheet: idle, walk, and burst together.
+ * Paint asks Spellforge for one sheet of stills: idle, walk, and burst together.
+ * Playback shows one still at a time. It does not scan the sheet.
  */
 (function () {
   "use strict";
@@ -58,6 +59,7 @@
   var timer = 0;
   var started = 0;
   var sheet = null;
+  var layers = [];
   var pics = [null, null, null];
   var chips = [null, null, null];
 
@@ -300,18 +302,42 @@
     }
   }
 
-  function drawSheet(ctx, w, h, img, frame, row) {
-    var col = frame % COLS;
-    var sw = img.naturalWidth / COLS;
-    var sh = img.naturalHeight / SHEET_ROWS;
-    if (!(sw > 1) || !(sh > 1)) return;
+  function cutLayers(img) {
+    var sw = Math.floor(img.naturalWidth / COLS);
+    var sh = Math.floor(img.naturalHeight / SHEET_ROWS);
+    if (!(sw > 1) || !(sh > 1)) return [];
+    var out = [];
+    var row;
+    var col;
+    for (row = 0; row < SHEET_ROWS; row++) {
+      for (col = 0; col < COLS; col++) {
+        var still = document.createElement("canvas");
+        still.width = sw;
+        still.height = sh;
+        var g = still.getContext("2d");
+        g.imageSmoothingEnabled = false;
+        g.drawImage(img, col * sw, row * sh, sw, sh, 0, 0, sw, sh);
+        out.push(still);
+      }
+    }
+    return out;
+  }
+
+  function drawStill(ctx, w, h, still) {
     ctx.imageSmoothingEnabled = false;
     ctx.fillStyle = "#12151e";
     ctx.fillRect(0, 0, w, h);
-    var scale = Math.min(w / sw, h / sh);
-    var dw = sw * scale;
-    var dh = sh * scale;
-    ctx.drawImage(img, col * sw, row * sh, sw, sh, (w - dw) / 2, (h - dh) / 2, dw, dh);
+    var scale = Math.min(w / still.width, h / still.height);
+    var dw = Math.round(still.width * scale);
+    var dh = Math.round(still.height * scale);
+    var dx = Math.round((w - dw) / 2);
+    var dy = Math.round((h - dh) / 2);
+    ctx.drawImage(still, dx, dy, dw, dh);
+  }
+
+  function stillFor(frame) {
+    var row = ROW[cycle] || 0;
+    return layers[row * COLS + (frame % COLS)] || null;
   }
 
   function draw() {
@@ -322,11 +348,12 @@
     var frame = frameIndex(performance.now());
     stage.dataset.cycle = cycle;
     stage.dataset.frame = String(frame);
+    var still = stillFor(frame);
     [stage, mini].forEach(function (canvas) {
       if (!canvas) return;
       var ctx = canvas.getContext("2d");
       if (!ctx) return;
-      if (sheet && sheet.naturalWidth) drawSheet(ctx, canvas.width, canvas.height, sheet, frame, ROW[cycle] || 0);
+      if (still) drawStill(ctx, canvas.width, canvas.height, still);
       else drawPuppet(ctx, canvas.width, canvas.height, frame, spells);
     });
   }
@@ -340,15 +367,16 @@
     }
     var strip = $("spr-strip");
     if (strip) {
-      if (sheet && sheet.src) {
-        strip.src = sheet.src;
-        strip.hidden = false;
-        strip.alt = "Idle, walk, and burst, eight frames each";
-      } else {
-        strip.removeAttribute("src");
-        strip.hidden = true;
-      }
+      strip.removeAttribute("src");
+      strip.hidden = true;
     }
+    draw();
+  }
+
+  function useSheet(img) {
+    sheet = img || null;
+    layers = img && img.naturalWidth ? cutLayers(img) : [];
+    setCycle(cycle);
     draw();
   }
 
@@ -363,8 +391,10 @@
     var lines = [
       "One small survivor-game character, full body, side view facing right, readable at sprite size.",
       "Chunky pixel art. Visible square pixels, a dark one-pixel outline, and a limited palette taken from the spells.",
-      "One sprite sheet. Three rows and eight columns. No lines between the frames. Every cell is the same size.",
-      "Paint idle, walk, and burst in this same image, at the same time, of the same creature.",
+      "One picture with three rows and eight columns. Every cell is the same size.",
+      "Each cell is one flat still of the whole creature, centered, held in one pose.",
+      "The creature stays inside its own cell. It does not slide into the next cell, and it does not travel across the picture.",
+      "No smear, no motion blur, and no scan joining the stills. Paint idle, walk, and burst in this same image, at the same time, of the same creature.",
       CYCLES.idle,
       CYCLES.walk,
       CYCLES.burst,
@@ -476,10 +506,8 @@
         });
       })
       .then(function (img) {
-        sheet = img;
-        setCycle(cycle);
-        setStatus("Idle, walk, and burst are ready.");
-        draw();
+        useSheet(img);
+        setStatus("Idle, walk, and burst are ready. One still shows at a time.");
         var api = window.SpellforgeAPI;
         if (api && typeof api.saveGenerated === "function") {
           api.saveGenerated({ title: "Sprite idle walk burst", url: img.src, prompt: prompt, tags: ["sprite", "idle", "walk", "burst"] }).catch(function () {});
@@ -602,5 +630,5 @@
   window.addEventListener("spellforge-local-fuse", function () {
     if (shown) refreshFromSpells();
   });
-  window.Sprites = { start: start, readSpells: readSpells };
+  window.Sprites = { start: start, readSpells: readSpells, useSheet: useSheet };
 })();
