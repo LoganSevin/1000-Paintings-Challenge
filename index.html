@@ -51,7 +51,7 @@
   <link rel="stylesheet" href="css/engrams.css?v=11" />
   <link rel="stylesheet" href="css/bible.css?v=8" />
   <link rel="stylesheet" href="css/history.css?v=1" />
-  <link rel="stylesheet" href="css/sprites.css?v=9" />
+  <link rel="stylesheet" href="css/sprites.css?v=10" />
   <link rel="stylesheet" href="css/slots.css?v=4" />
   <link rel="stylesheet" href="css/colors.css?v=6" />
   <link rel="stylesheet" href="css/hours.css?v=1" />
@@ -7741,6 +7741,9 @@
           <h3>Room</h3>
           <div class="spr-game-stage">
             <canvas id="spr-game-canvas" width="768" height="512" aria-label="Social room. Arrow keys play Walk. Space holds the picture up."></canvas>
+            <button type="button" id="spr-burst" class="spr-picture" hidden title="The picture this entity holds. Click to open it full screen. Space holds it up when the meter is full." aria-label="Open this entity's picture full screen">
+              <img id="spr-outcome" alt="" />
+            </button>
             <div id="spr-level" class="spr-level" hidden>
               <p>Level up. Each choice changes a different part of you. The first number is now. The second is with that choice.</p>
               <div id="spr-level-choices"></div>
@@ -7750,9 +7753,6 @@
             <span id="spr-hud-level">Level 1</span>
             <span id="spr-hud-floor">Floor 1</span>
             <span id="spr-hud-party">Just you</span>
-            <button type="button" id="spr-burst" class="spr-picture" title="The picture this entity holds. Click to open it full screen. Space holds it up when the meter is full." aria-label="Open this entity's picture full screen">
-              <img id="spr-outcome" alt="" />
-            </button>
           </div>
           <ul id="spr-stats" class="spr-stats"></ul>
           <p id="spr-key-mode" class="spr-key-mode">Arrow keys play Walk. Letting go plays Idle. Space holds the picture up.</p>
@@ -9358,7 +9358,7 @@
   <script defer src="js/bible.js?v=12"></script>
   <script defer src="js/history.js?v=1"></script>
   <script defer src="js/sprites.js?v=11"></script>
-  <script defer src="js/sprite-dungeon.js?v=7"></script>
+  <script defer src="js/sprite-dungeon.js?v=8"></script>
   <script defer src="js/slots.js?v=5"></script>
   <script defer src="js/colors.js?v=4"></script>
   <script defer src="js/colors-gen.js?v=5"></script>

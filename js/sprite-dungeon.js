@@ -4,6 +4,7 @@
  * Paint the loops also paints the projectile, and that projectile stays on the entity.
  * Saved enemies replace the red marks. With none saved, those marks stay red.
  * Burst is the creature holding a picture frame. The frame shows the Spellforge outcome.
+ * The frame button sits in that frame, on the character, and the frame surrounds it.
  * The room uses only those saves. Space holds the frame up.
  * The frame button opens that picture full screen.
  * Levels come from clears. Anyone on the tab shares the same room.
@@ -495,6 +496,7 @@
       if (mode === "live") hits.push({ id: e.id, dmg: dmg });
       else hurtEnemy(e, dmg, i);
     }
+    draw();
   }
 
   function hurtEnemy(e, dmg, index) {
@@ -678,18 +680,50 @@
     g.restore();
   }
 
-  function drawPicture(g, img, x, y, size, lift) {
+  function drawPicture(g, img, x, y, size, lift, frameOnly) {
     if (!img || !img.width) return null;
     var s = size;
+    var border = 3;
     var left = worldX(x) - s / 2;
     var top = worldY(y) - lift - s;
     g.fillStyle = "#c9a227";
-    g.fillRect(left - 3, top - 3, s + 6, s + 6);
+    g.fillRect(left - border, top - border, s + border * 2, s + border * 2);
     g.fillStyle = "#12151e";
     g.fillRect(left, top, s, s);
-    g.imageSmoothingEnabled = false;
-    g.drawImage(img, left, top, s, s);
-    return { x: left - 3, y: top - 3, w: s + 6, h: s + 6 };
+    if (!frameOnly) {
+      g.imageSmoothingEnabled = false;
+      g.drawImage(img, left, top, s, s);
+    }
+    return { x: left - border, y: top - border, w: s + border * 2, h: s + border * 2, pad: border };
+  }
+
+  function placeFrameButton() {
+    var btn = $("spr-burst");
+    var canvas = $("spr-game-canvas");
+    if (!btn || !canvas) return;
+    if (!running || !heldFrame) {
+      btn.hidden = true;
+      return;
+    }
+    var rect = canvas.getBoundingClientRect();
+    var stage = canvas.parentNode.getBoundingClientRect();
+    if (!rect.width || !rect.height) {
+      btn.hidden = true;
+      return;
+    }
+    var sx = rect.width / canvas.width;
+    var sy = rect.height / canvas.height;
+    var pad = heldFrame.pad || 0;
+    btn.hidden = false;
+    btn.style.setProperty("margin", "0", "important");
+    btn.style.setProperty("padding", "0", "important");
+    btn.style.setProperty("border", "0", "important");
+    btn.style.setProperty("min-width", "0", "important");
+    btn.style.setProperty("min-height", "0", "important");
+    btn.style.left = ((heldFrame.x + pad) * sx + (rect.left - stage.left)) + "px";
+    btn.style.top = ((heldFrame.y + pad) * sy + (rect.top - stage.top)) + "px";
+    btn.style.width = ((heldFrame.w - pad * 2) * sx) + "px";
+    btn.style.height = ((heldFrame.h - pad * 2) * sy) + "px";
   }
 
   function drawBolt(g, bolt) {
@@ -741,6 +775,7 @@
       g.textAlign = "center";
       g.fillText("Save an entity, then step into the room.", canvas.width / 2, canvas.height / 2);
       g.textAlign = "left";
+      placeFrameButton();
       return;
     }
     var i;
@@ -789,7 +824,8 @@
     g.fillStyle = "#c9a227";
     g.fillRect(worldX(me.x) - 16, worldY(me.y) + 6, 32 * (me.meter / 100), 3);
     var channel = burstLeft > 0;
-    heldFrame = drawPicture(g, outcomeImg, me.x, me.y, channel ? 20 + me.burstPow * 6 : 14, channel ? 6 : 22);
+    heldFrame = drawPicture(g, outcomeImg, me.x, me.y, channel ? 20 + me.burstPow * 6 : 14, channel ? 6 : 22, true);
+    placeFrameButton();
   }
 
   function loadOtherSprite(id, rev, list) {

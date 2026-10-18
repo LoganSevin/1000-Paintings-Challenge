@@ -294,26 +294,34 @@ body.spr-tab-active[data-stasis-skin-active] :is(
   font-size: 0.85rem;
 }
 
-.spr-hud button {
-  margin-left: auto;
+.spr-shell button.spr-picture {
+  position: absolute;
+  z-index: 2;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  box-sizing: border-box;
+  min-width: 0;
+  min-height: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  background: #12151e;
+  overflow: hidden;
+  font-size: 0;
+  line-height: 0;
 }
 
-.spr-picture {
-  width: 76px;
-  height: 76px;
-  flex: 0 0 auto;
-  box-sizing: border-box;
-  padding: 8px;
-  border: 4px solid #c9a227;
-  border-radius: 4px;
-  background: #2a2418;
-  overflow: hidden;
+.spr-picture[hidden] {
+  display: none !important;
 }
 
 .spr-picture img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: fill;
   display: block;
   image-rendering: pixelated;
   background: #12151e;
@@ -514,6 +522,7 @@ body.spr-picture-open {
 
 .spr-level {
   position: absolute;
+  z-index: 4;
   inset: 0;
   display: flex;
   flex-direction: column;
