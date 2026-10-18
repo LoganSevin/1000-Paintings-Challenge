@@ -1,7 +1,8 @@
 /**
- * Dungeon on the Sprites tab.
- * A sprite becomes an entity when it is saved in the side panel.
- * Send uses that saved entity. Its moves are idle, walk, and burst.
+ * Social room on the Sprites tab.
+ * A painted sprite is saved as an entity, an enemy, or a projectile.
+ * The room uses only those saves. Space holds up the entity's picture.
+ * The frame button opens that picture full screen.
  * Levels come from clears. Anyone on the tab shares the same room.
  */
 (function () {
@@ -10,11 +11,11 @@
   var ROOM_W = 22;
   var ROOM_H = 14;
   var TILE = 32;
-  var MIGHT_STEP = 0.28;
-  var HASTE_STEP = 0.18;
-  var STRIDE_STEP = 0.14;
-  var BURST_STEP = 0.3;
-  var VITAL_STEP = 8;
+  var MIGHT_STEP = 0.5;
+  var HASTE_STEP = 0.25;
+  var STRIDE_STEP = 0.45;
+  var BURST_STEP = 0.55;
+  var VITAL_STEP = 12;
   var OFFERS = ["might", "haste", "stride", "vitality", "burst"];
 
   var me = resetMe();
@@ -35,6 +36,7 @@
   var netTimer = 0;
   var last = 0;
   var shot = 0;
+  var fired = 0;
   var hurt = 0;
   var burstLeft = 0;
   var spriteRev = 0;
@@ -49,8 +51,16 @@
   var cooldowns = {};
   var lastAction = "";
   var roster = [];
+  var enemyRoster = [];
+  var shotRoster = [];
   var pickedId = "";
+  var pickedShotId = "";
   var sentEntityId = "";
+  var shotFrames = { idle: [], walk: [], burst: [] };
+  var outcomeUrl = "";
+  var outcomeImg = null;
+  var heldFrame = null;
+  var pictureOpen = false;
 
   function resetMe() {
     return {
@@ -125,26 +135,69 @@
     return (Math.round(n * 10) / 10).toFixed(1);
   }
 
+  function holdTime(pow) {
+    return 1.2 + pow * 0.8;
+  }
+
+  function reachTiles(pow) {
+    return 1.6 + pow * 0.8;
+  }
+
+  function frameMs() {
+    return Math.max(70, 140 / me.haste);
+  }
+
+  function bodyScale() {
+    return 1 + Math.max(0, me.maxHp - 30) / 40;
+  }
+
+  function boltSize() {
+    return 16 + (me.might - 1) * 14;
+  }
+
   function offerText(id) {
     if (id === "might") {
       var next = me.might + MIGHT_STEP;
-      return "Might. Shot damage " + one(4 * me.might) + " now, " + one(4 * next) + " with this. Burst damage " + one(10 * me.might * me.burstPow) + " now, " + one(10 * next * me.burstPow) + " with this.";
+      return "Might. A shot hits for " + one(4 * me.might) + " now, " + one(4 * next) + " with this. The projectile sprite draws at " + Math.round(boltSize()) + " px now, " + Math.round(16 + (next - 1) * 14) + " px with this.";
     }
     if (id === "haste") {
       var nextH = me.haste + HASTE_STEP;
-      return "Haste. Time between shots " + one(0.7 / me.haste) + "s now, " + one(0.7 / nextH) + "s with this. Meter gain " + one(22 * me.haste) + " a second now, " + one(22 * nextH) + " with this.";
+      return "Haste. A shot leaves every " + one(0.7 / me.haste) + "s now, every " + one(0.7 / nextH) + "s with this. Walk frames flip every " + Math.round(frameMs()) + " ms now, every " + Math.round(Math.max(70, 140 / nextH)) + " ms with this.";
     }
     if (id === "stride") {
       var nextS = me.stride + STRIDE_STEP;
-      return "Stride. Move speed " + one(4.4 * me.stride) + " tiles a second now, " + one(4.4 * nextS) + " with this.";
+      return "Stride. You cross " + one(4.4 * me.stride) + " tiles a second now, " + one(4.4 * nextS) + " with this.";
     }
     if (id === "vitality") {
       var max = me.maxHp + VITAL_STEP;
       var hp = Math.min(max, me.hp + VITAL_STEP);
-      return "Vitality. Life " + Math.round(me.hp) + "/" + me.maxHp + " now, " + Math.round(hp) + "/" + max + " with this.";
+      var scaleNow = Math.round(bodyScale() * 100);
+      var scaleNext = Math.round((1 + Math.max(0, max - 30) / 40) * 100);
+      return "Vitality. Life " + Math.round(me.hp) + "/" + me.maxHp + " now, " + Math.round(hp) + "/" + max + " with this. You stand at " + scaleNow + " percent size now, " + scaleNext + " percent with this.";
     }
     var nextB = me.burstPow + BURST_STEP;
-    return "Burst. Reach " + one(2.3 + me.burstPow) + " tiles now, " + one(2.3 + nextB) + " with this. Burst damage " + one(10 * me.might * me.burstPow) + " now, " + one(10 * me.might * nextB) + " with this.";
+    return "Frame. The picture stays up " + one(holdTime(me.burstPow)) + "s now, " + one(holdTime(nextB)) + "s with this. The clear around you reaches " + one(reachTiles(me.burstPow)) + " tiles now, " + one(reachTiles(nextB)) + " tiles with this.";
+  }
+
+  function paintStats() {
+    var host = $("spr-stats");
+    if (!host) return;
+    var lines = [
+      "Might " + one(me.might) + ". A shot hits for " + one(4 * me.might) + ". The projectile draws at " + Math.round(boltSize()) + " px.",
+      "Haste " + one(me.haste) + ". A shot leaves every " + one(0.7 / me.haste) + "s. Walk frames flip every " + Math.round(frameMs()) + " ms.",
+      "Stride " + one(me.stride) + ". You cross " + one(4.4 * me.stride) + " tiles a second.",
+      "Vitality. Life " + Math.round(me.hp) + "/" + me.maxHp + ". You stand at " + Math.round(bodyScale() * 100) + " percent size.",
+      "Frame " + one(me.burstPow) + ". The picture stays up " + one(holdTime(me.burstPow)) + "s. The clear reaches " + one(reachTiles(me.burstPow)) + " tiles.",
+    ];
+    if (host.childElementCount !== lines.length) {
+      host.innerHTML = "";
+      lines.forEach(function () {
+        host.appendChild(document.createElement("li"));
+      });
+    }
+    var items = host.children;
+    var i;
+    for (i = 0; i < lines.length; i++) items[i].textContent = lines[i];
   }
 
   function scaleCanvas(node, size) {
@@ -297,6 +350,19 @@
     return list;
   }
 
+  function packPicture() {
+    if (!outcomeImg || !outcomeImg.width) return "";
+    var size = 48;
+    while (size >= 24) {
+      var c = scaleCanvas(outcomeImg, size);
+      var url = "";
+      try { url = c.toDataURL("image/jpeg", 0.7); } catch (e) { url = ""; }
+      if (url && url.length <= 16000) return url;
+      size -= 12;
+    }
+    return "";
+  }
+
   function spawnWave() {
     enemies = [];
     gems = [];
@@ -310,9 +376,18 @@
       if (edge === 2) { x = 4 + (i % 10); y = 1.6; }
       if (edge === 3) { x = 4 + (i % 10); y = ROOM_H - 1.8; }
       var hp = 6 + floorN * 4;
-      var looks = otherLooks();
-      var look = looks.length ? looks[i % looks.length].frames : null;
-      enemies.push({ id: "local" + floorN + "n" + i, x: x, y: y, hp: hp, maxHp: hp, spd: 1.15 + floorN * 0.05, look: look });
+      var looks = enemyLooks();
+      var look = looks.length ? looks[i % looks.length] : null;
+      enemies.push({
+        id: "local" + floorN + "n" + i,
+        x: x,
+        y: y,
+        hp: hp,
+        maxHp: hp,
+        spd: 1.15 + floorN * 0.05,
+        look: look ? look.frames : null,
+        lookId: look ? look.id : "",
+      });
     }
   }
 
@@ -389,26 +464,28 @@
       vx: (dx / dist) * 9,
       vy: (dy / dist) * 9,
       dmg: 4 * me.might * (aimShot ? 2 : 1),
+      look: shotFrames,
     });
+    fired += 1;
     aimShot = false;
   }
 
   function doBurst() {
     if (!running) {
-      setNote("Send a saved entity in. Then Burst plays its loop.");
+      setNote("Step into the room with a saved entity. Then Space holds the picture up.");
       return;
     }
     if (paused) return;
     if (me.meter < 100) {
-      setNote("Burst plays when the meter is full. It is " + one(me.meter) + " now.");
+      setNote("The picture lifts when the meter is full. It is " + one(me.meter) + " now.");
       return;
     }
     me.meter = 0;
-    burstLeft = 0.55;
+    burstLeft = holdTime(me.burstPow);
     me.cycle = "burst";
-    setNote("Burst. The burst loop is playing.");
-    var radius = 2.3 + me.burstPow;
-    var dmg = 10 * me.might * me.burstPow;
+    setNote("You hold the picture up. Click the frame to open it full screen.");
+    var radius = reachTiles(me.burstPow);
+    var dmg = 8 + me.burstPow * 6;
     var i;
     for (i = enemies.length - 1; i >= 0; i--) {
       var e = enemies[i];
@@ -463,7 +540,7 @@
       }
       me.x = Math.max(1.2, Math.min(ROOM_W - 1.2, me.x));
       me.y = Math.max(1.2, Math.min(ROOM_H - 1.2, me.y));
-      me.frame = Math.floor(performance.now() / 140) % 6;
+      me.frame = Math.floor(performance.now() / frameMs()) % 6;
       shot -= dt;
       if (shot <= 0) {
         shot = 0.7 / (me.haste * (hurryLeft > 0 ? 1.5 : 1));
@@ -571,25 +648,27 @@
     if (hudF) hudF.textContent = "Floor " + floorN;
     var party = Object.keys(others).length;
     if (hudP) hudP.textContent = party ? "With " + party + (party === 1 ? " other" : " others") : (mode === "live" ? "The room is open" : "Just you");
+    paintStats();
     draw();
   }
 
   function worldX(tile) { return tile * TILE + 16; }
   function worldY(tile) { return tile * TILE + 16; }
 
-  function drawCreature(g, set, cycle, frame, x, y, face) {
+  function drawCreature(g, set, cycle, frame, x, y, face, scale) {
     var list = set && set[cycle] && set[cycle].length ? set[cycle] : (set && set.idle);
+    var s = 42 * (scale || 1);
     g.save();
     g.translate(worldX(x), worldY(y));
     g.fillStyle = "rgba(0,0,0,0.45)";
     g.beginPath();
-    g.ellipse(0, 2, 12, 4, 0, 0, Math.PI * 2);
+    g.ellipse(0, 2, 12 * (scale || 1), 4, 0, 0, Math.PI * 2);
     g.fill();
     if (list && list.length) {
       var img = list[Math.abs(frame) % list.length];
       if (face < 0) g.scale(-1, 1);
       g.imageSmoothingEnabled = false;
-      g.drawImage(img, -21, -40, 42, 42);
+      g.drawImage(img, -s / 2, -s + 2, s, s);
     } else {
       g.fillStyle = "#f0d78a";
       g.fillRect(-8, -28, 16, 18);
@@ -599,9 +678,47 @@
     g.restore();
   }
 
+  function drawPicture(g, img, x, y, size, lift) {
+    if (!img || !img.width) return null;
+    var s = size;
+    var left = worldX(x) - s / 2;
+    var top = worldY(y) - lift - s;
+    g.fillStyle = "#c9a227";
+    g.fillRect(left - 3, top - 3, s + 6, s + 6);
+    g.fillStyle = "#12151e";
+    g.fillRect(left, top, s, s);
+    g.imageSmoothingEnabled = false;
+    g.drawImage(img, left, top, s, s);
+    return { x: left - 3, y: top - 3, w: s + 6, h: s + 6 };
+  }
+
+  function drawBolt(g, bolt) {
+    var set = bolt.look;
+    var list = set && set.walk && set.walk.length ? set.walk : (set && set.burst && set.burst.length ? set.burst : (set && set.idle));
+    var s = boltSize();
+    if (list && list.length) {
+      var img = list[Math.floor(performance.now() / 90) % list.length];
+      g.save();
+      g.translate(worldX(bolt.x), worldY(bolt.y));
+      g.rotate(Math.atan2(bolt.vy, bolt.vx));
+      g.imageSmoothingEnabled = false;
+      g.drawImage(img, -s / 2, -s / 2, s, s);
+      g.restore();
+      return;
+    }
+    g.fillStyle = "#f0d78a";
+    g.beginPath();
+    g.moveTo(worldX(bolt.x), worldY(bolt.y) - 4);
+    g.lineTo(worldX(bolt.x) + 4, worldY(bolt.y));
+    g.lineTo(worldX(bolt.x), worldY(bolt.y) + 4);
+    g.lineTo(worldX(bolt.x) - 4, worldY(bolt.y));
+    g.fill();
+  }
+
   function draw() {
     var canvas = $("spr-game-canvas");
     if (!canvas) return;
+    heldFrame = null;
     var g = canvas.getContext("2d");
     g.imageSmoothingEnabled = false;
     g.fillStyle = "#12151e";
@@ -623,7 +740,7 @@
       g.fillStyle = "#f0e2c0";
       g.font = "20px Georgia, serif";
       g.textAlign = "center";
-      g.fillText("Save an entity, then send it in.", canvas.width / 2, canvas.height / 2);
+      g.fillText("Save an entity, then step into the room.", canvas.width / 2, canvas.height / 2);
       g.textAlign = "left";
       return;
     }
@@ -648,14 +765,13 @@
       g.fillStyle = "#8fd0ea";
       g.fillRect(worldX(e.x) - 12, worldY(e.y) - 22, 24 * Math.max(0, e.hp / e.maxHp), 3);
     }
-    for (i = 0; i < bolts.length; i++) {
-      g.fillStyle = "#f0d78a";
-      g.fillRect(worldX(bolts[i].x) - 3, worldY(bolts[i].y) - 3, 6, 6);
-    }
+    for (i = 0; i < bolts.length; i++) drawBolt(g, bolts[i]);
     var ids = Object.keys(others);
     for (i = 0; i < ids.length; i++) {
       var o = others[ids[i]];
       drawCreature(g, o.frames, o.cycle, o.frame, o.x, o.y, o.face);
+      var up = o.cycle === "burst";
+      drawPicture(g, o.pictureImg, o.x, o.y, up ? 34 : 18, up ? 78 : 56);
       g.fillStyle = "#f0e2c0";
       g.font = "12px sans-serif";
       g.textAlign = "center";
@@ -663,7 +779,7 @@
       g.textAlign = "left";
     }
     if (hurt > 0.45) g.globalAlpha = 0.55;
-    drawCreature(g, frames, me.cycle, me.frame, me.x, me.y, me.face);
+    drawCreature(g, frames, me.cycle, me.frame, me.x, me.y, me.face, bodyScale());
     g.globalAlpha = 1;
     g.fillStyle = "#241418";
     g.fillRect(worldX(me.x) - 16, worldY(me.y) - 48, 32, 4);
@@ -673,6 +789,8 @@
     g.fillRect(worldX(me.x) - 16, worldY(me.y) + 6, 32, 3);
     g.fillStyle = "#c9a227";
     g.fillRect(worldX(me.x) - 16, worldY(me.y) + 6, 32 * (me.meter / 100), 3);
+    var channel = burstLeft > 0;
+    heldFrame = drawPicture(g, outcomeImg, me.x, me.y, channel ? 34 + me.burstPow * 12 : 22, channel ? 86 : 62);
   }
 
   function loadOtherSprite(id, rev, list) {
@@ -691,9 +809,23 @@
       });
     });
     Promise.all(pending).then(function () {
-      spriteCache[id] = { rev: rev, frames: frameset };
+      var prev = spriteCache[id] || {};
+      spriteCache[id] = { rev: rev, frames: frameset, picture: prev.picture || null, pictureUrl: prev.pictureUrl || "" };
       if (others[id]) others[id].frames = frameset;
     });
+  }
+
+  function loadOtherPicture(id, url) {
+    if (!url) return;
+    var img = new Image();
+    img.onload = function () {
+      var prev = spriteCache[id] || { rev: 0, frames: null };
+      prev.picture = img;
+      prev.pictureUrl = url;
+      spriteCache[id] = prev;
+      if (others[id]) others[id].pictureImg = img;
+    };
+    img.src = url;
   }
 
   function syncNet() {
@@ -716,6 +848,8 @@
     if (spriteRev !== sentRev) {
       body.spriteRev = spriteRev;
       body.sprite = packSprite();
+      var pic = packPicture();
+      if (pic) body.picture = pic;
     }
     fetch(apiUrl("/api/sprite-dungeon"), {
       method: "POST",
@@ -739,6 +873,7 @@
       (data.players || []).forEach(function (p) {
         var cached = spriteCache[p.id];
         if (p.sprite && p.sprite.length && (!cached || cached.rev !== p.spriteRev)) loadOtherSprite(p.id, p.spriteRev, p.sprite);
+        if (p.picture && (!cached || cached.pictureUrl !== p.picture)) loadOtherPicture(p.id, p.picture);
         known[p.id] = p.spriteRev || 0;
         next[p.id] = {
           name: p.name || "guest",
@@ -749,6 +884,7 @@
           frame: p.frame || 0,
           level: p.level || 1,
           frames: cached ? cached.frames : null,
+          pictureImg: cached && cached.picture ? cached.picture : null,
         };
       });
       others = next;
@@ -788,11 +924,12 @@
     var ent = pickedEntity();
     if (!ent || !frameTotal(ent.frames)) {
       setStatus("Save the sprite in the side panel first.", true);
-      setNote("The dungeon uses a saved entity. An unsaved paint stays on the stage.");
+      setNote("The room uses a saved entity. An unsaved paint stays on the stage.");
       return;
     }
     frames = ent.frames;
     sentEntityId = ent.id;
+    showOutcome(ent.outcome || "");
     spriteRev += 1;
     if (!running) {
       me = resetMe();
@@ -810,8 +947,8 @@
       var shown = document.getElementById("panel-sprites");
       if (shown && !shown.hidden) startLoops();
     }
-    setStatus(ent.name + " is in the dungeon.");
-    setNote(ent.name + " uses " + moveLabel(ent.frames) + ". Arrows play Walk. Letting go plays Idle. Space plays Burst.");
+    setStatus(ent.name + " is in the room.");
+    setNote(ent.name + " uses " + moveLabel(ent.frames) + ". Arrows play Walk. Letting go plays Idle. Space holds the picture up.");
     var game = $("spr-game");
     if (game && game.scrollIntoView) game.scrollIntoView({ block: "nearest" });
     draw();
@@ -827,11 +964,13 @@
   function openSpriteDb() {
     return new Promise(function (resolve, reject) {
       if (typeof indexedDB === "undefined") return reject(new Error("no idb"));
-      var req = indexedDB.open("l7in-sprite-loops", 2);
+      var req = indexedDB.open("l7in-sprite-loops", 3);
       req.onupgradeneeded = function () {
         var db = req.result;
         if (!db.objectStoreNames.contains("loops")) db.createObjectStore("loops", { keyPath: "id" });
         if (!db.objectStoreNames.contains("entities")) db.createObjectStore("entities", { keyPath: "id" });
+        if (!db.objectStoreNames.contains("enemies")) db.createObjectStore("enemies", { keyPath: "id" });
+        if (!db.objectStoreNames.contains("projectiles")) db.createObjectStore("projectiles", { keyPath: "id" });
       };
       req.onsuccess = function () { resolve(req.result); };
       req.onerror = function () { reject(req.error); };
@@ -859,15 +998,52 @@
     return null;
   }
 
-  function otherLooks() {
+  function enemyLooks() {
     var list = [];
     var i;
-    for (i = 0; i < roster.length; i++) {
-      if (roster[i].id === pickedId) continue;
-      if (!frameTotal(roster[i].frames)) continue;
-      list.push(roster[i]);
+    for (i = 0; i < enemyRoster.length; i++) {
+      if (!frameTotal(enemyRoster[i].frames)) continue;
+      list.push(enemyRoster[i]);
     }
     return list;
+  }
+
+  function storeName(kind) {
+    if (kind === "enemy") return "enemies";
+    if (kind === "shot") return "projectiles";
+    return "entities";
+  }
+
+  function rosterOf(kind) {
+    if (kind === "enemy") return enemyRoster;
+    if (kind === "shot") return shotRoster;
+    return roster;
+  }
+
+  function setRoster(kind, list) {
+    if (kind === "enemy") enemyRoster = list;
+    else if (kind === "shot") shotRoster = list;
+    else roster = list;
+  }
+
+  function findIn(list, id) {
+    var i;
+    for (i = 0; i < list.length; i++) {
+      if (list[i].id === id) return list[i];
+    }
+    return null;
+  }
+
+  function listId(kind) {
+    if (kind === "enemy") return "spr-enemy-list";
+    if (kind === "shot") return "spr-projectile-list";
+    return "spr-entity-list";
+  }
+
+  function emptyLabel(kind) {
+    if (kind === "enemy") return "No saved enemies yet.";
+    if (kind === "shot") return "No saved projectiles yet.";
+    return "No saved entities yet.";
   }
 
   function framesFromUrls(urls) {
@@ -902,54 +1078,56 @@
     });
   }
 
-  function putEntity(rec) {
+  function putRecord(store, rec) {
     return openSpriteDb().then(function (db) {
       return new Promise(function (resolve, reject) {
-        var tx = db.transaction("entities", "readwrite");
-        tx.objectStore("entities").put(rec);
+        var tx = db.transaction(store, "readwrite");
+        tx.objectStore(store).put(rec);
         tx.oncomplete = function () { resolve(true); };
         tx.onerror = function () { reject(tx.error); };
       });
     });
   }
 
-  function deleteEntity(id) {
+  function deleteRecord(store, id) {
     return openSpriteDb().then(function (db) {
       return new Promise(function (resolve) {
-        var tx = db.transaction("entities", "readwrite");
-        tx.objectStore("entities").delete(id);
+        var tx = db.transaction(store, "readwrite");
+        tx.objectStore(store).delete(id);
         tx.oncomplete = function () { resolve(true); };
         tx.onerror = function () { resolve(false); };
       });
     }).catch(function () { return false; });
   }
 
-  function loadRoster() {
+  function loadStore(store) {
     return openSpriteDb().then(function (db) {
       return new Promise(function (resolve) {
-        var tx = db.transaction("entities", "readonly");
-        var req = tx.objectStore("entities").getAll();
+        var tx = db.transaction(store, "readonly");
+        var req = tx.objectStore(store).getAll();
         req.onsuccess = function () { resolve(req.result || []); };
         req.onerror = function () { resolve([]); };
       });
     }).catch(function () { return []; });
   }
 
-  function renderRoster() {
-    var host = $("spr-entity-list");
+  function renderCards(kind) {
+    var host = $(listId(kind));
     if (!host) return;
+    var list = rosterOf(kind);
     host.innerHTML = "";
-    if (!roster.length) {
+    if (!list.length) {
       var empty = document.createElement("p");
       empty.className = "spr-entity-empty";
-      empty.textContent = "No saved entities yet.";
+      empty.textContent = emptyLabel(kind);
       host.appendChild(empty);
       return;
     }
-    roster.forEach(function (ent) {
+    list.forEach(function (ent) {
       var btn = document.createElement("button");
       btn.type = "button";
-      btn.className = "spr-entity" + (ent.id === pickedId ? " is-on" : "");
+      var on = kind === "enemy" || ent.id === (kind === "shot" ? pickedShotId : pickedId);
+      btn.className = "spr-entity" + (on ? " is-on" : "");
       btn.dataset.id = ent.id;
       var img = document.createElement("img");
       img.alt = "";
@@ -960,7 +1138,7 @@
       name.textContent = ent.name;
       var moves = document.createElement("span");
       moves.className = "spr-entity-moves";
-      moves.textContent = moveLabel(ent.frames);
+      moves.textContent = kind === "shot" ? "Projectile" : kind === "enemy" ? "Enemy" : moveLabel(ent.frames);
       text.appendChild(name);
       text.appendChild(moves);
       var drop = document.createElement("span");
@@ -972,61 +1150,153 @@
       btn.appendChild(drop);
       btn.addEventListener("click", function (ev) {
         if (ev.target.classList && ev.target.classList.contains("spr-entity-drop")) {
-          dropEntity(ent.id);
+          dropKind(kind, ent.id);
           return;
         }
-        pickEntity(ent.id);
+        if (kind === "shot") pickShot(ent.id);
+        else if (kind === "entity") pickEntity(ent.id);
       });
       host.appendChild(btn);
     });
   }
 
-  function pickEntity(id) {
-    var ent = null;
-    var i;
-    for (i = 0; i < roster.length; i++) {
-      if (roster[i].id === id) ent = roster[i];
+  function renderRoster() {
+    renderCards("entity");
+  }
+
+  function showOutcome(url) {
+    outcomeUrl = url || "";
+    var img = $("spr-outcome");
+    var btn = $("spr-burst");
+    if (img) {
+      if (outcomeUrl) img.src = outcomeUrl;
+      else img.removeAttribute("src");
     }
+    if (btn) btn.classList.toggle("has-picture", !!outcomeUrl);
+    if (!outcomeUrl) {
+      outcomeImg = null;
+      return;
+    }
+    var drawn = new Image();
+    drawn.onload = function () { outcomeImg = drawn; if (running) draw(); };
+    drawn.src = outcomeUrl;
+  }
+
+  function outcomeUrlFromPage(caught) {
+    var nodes = document.querySelectorAll(".spell-slot-inner img");
+    var i;
+    for (i = 0; i < nodes.length; i++) {
+      var node = nodes[i];
+      if (!node.complete || node.naturalWidth < 8) continue;
+      try {
+        var c = document.createElement("canvas");
+        c.width = 96;
+        c.height = 96;
+        var g = c.getContext("2d");
+        g.drawImage(node, 0, 0, 96, 96);
+        var url = c.toDataURL("image/jpeg", 0.8);
+        if (url && url.indexOf("data:image") === 0) return url;
+      } catch (e) {}
+    }
+    var src = (caught.burst && caught.burst[0]) || (caught.idle && caught.idle[0]);
+    if (!src) return "";
+    try { return src.toDataURL("image/png"); } catch (e2) { return ""; }
+  }
+
+  function openPicture() {
+    if (!outcomeUrl) {
+      setNote("Save an entity. The frame shows the picture from that save.");
+      return;
+    }
+    var stage = $("spr-picture-stage");
+    var img = $("spr-picture-full");
+    if (!stage || !img) return;
+    img.src = outcomeUrl;
+    stage.hidden = false;
+    pictureOpen = true;
+    document.body.classList.add("spr-picture-open");
+    if (stage.requestFullscreen) stage.requestFullscreen().catch(function () {});
+  }
+
+  function closePicture() {
+    var stage = $("spr-picture-stage");
+    if (stage) stage.hidden = true;
+    pictureOpen = false;
+    document.body.classList.remove("spr-picture-open");
+    if (document.fullscreenElement && document.exitFullscreen) document.exitFullscreen().catch(function () {});
+  }
+
+  function pickEntity(id) {
+    var ent = findIn(roster, id);
     if (!ent) return;
     pickedId = ent.id;
     try { localStorage.setItem("sprPickedEntity", ent.id); } catch (e) {}
-    renderRoster();
-    setNote(ent.name + " is selected. Send uses this saved entity. Moves: " + moveLabel(ent.frames) + ".");
+    if (ent.outcome) showOutcome(ent.outcome);
+    renderCards("entity");
+    setNote(ent.name + " is selected. Send uses this saved entity. The frame shows its picture. Moves: " + moveLabel(ent.frames) + ".");
   }
 
-  function dropEntity(id) {
-    var ent = null;
-    var i;
-    for (i = 0; i < roster.length; i++) {
-      if (roster[i].id === id) ent = roster[i];
+  function pickShot(id) {
+    var ent = findIn(shotRoster, id);
+    if (!ent) return;
+    pickedShotId = ent.id;
+    shotFrames = ent.frames;
+    try { localStorage.setItem("sprPickedProjectile", ent.id); } catch (e) {}
+    renderCards("shot");
+    setNote(ent.name + " is the shot. The room uses this projectile.");
+  }
+
+  function dropKind(kind, id) {
+    var list = rosterOf(kind);
+    var ent = findIn(list, id);
+    var name = ent ? ent.name : "That sprite";
+    setRoster(kind, list.filter(function (item) { return item.id !== id; }));
+    if (kind === "entity") {
+      if (pickedId === id) {
+        pickedId = "";
+        try { localStorage.removeItem("sprPickedEntity"); } catch (e) {}
+      }
+      if (sentEntityId === id) {
+        frames = { idle: [], walk: [], burst: [] };
+        sentEntityId = "";
+        spriteRev += 1;
+        showOutcome("");
+      }
+      setNote(name + " left the panel, so the room will not use that entity.");
+    } else if (kind === "shot") {
+      if (pickedShotId === id) {
+        pickedShotId = "";
+        shotFrames = { idle: [], walk: [], burst: [] };
+        try { localStorage.removeItem("sprPickedProjectile"); } catch (e2) {}
+      }
+      setNote(name + " left the panel, so shots will not use it.");
+    } else {
+      var n;
+      for (n = 0; n < enemies.length; n++) {
+        if (enemies[n].lookId === id) {
+          enemies[n].look = null;
+          enemies[n].lookId = "";
+        }
+      }
+      setNote(name + " left the panel, so the room will not use that enemy.");
     }
-    roster = roster.filter(function (item) { return item.id !== id; });
-    if (pickedId === id) {
-      pickedId = "";
-      try { localStorage.removeItem("sprPickedEntity"); } catch (e) {}
-    }
-    if (sentEntityId === id) {
-      frames = { idle: [], walk: [], burst: [] };
-      sentEntityId = "";
-      spriteRev += 1;
-    }
-    renderRoster();
-    deleteEntity(id);
-    setNote((ent ? ent.name : "That sprite") + " left the panel, so the dungeon will not use it.");
+    renderCards(kind);
+    deleteRecord(storeName(kind), id);
     if (running) draw();
   }
 
-  function saveEntity() {
+  function saveKind(kind) {
     var prompt = $("spr-prompt");
     var name = String((prompt && prompt.value) || "").trim().slice(0, 32);
     var now = Date.now();
+    var key = kind + "\n" + name;
     if (!name) {
       setNote("Name the sprite in the bar, then save it.");
       setStatus("The side panel needs a name.", true);
       if (prompt) prompt.focus();
       return;
     }
-    if (saveEntity.last && now - saveEntity.last < 400 && saveEntity.lastName === name) return;
+    if (saveKind.last && now - saveKind.last < 400 && saveKind.lastKey === key) return;
     var caught = capture();
     if (!frameTotal(caught)) {
       setNote("Paint the loops first. Then save the sprite in the side panel.");
@@ -1034,68 +1304,111 @@
       return;
     }
     var urls = { idle: [], walk: [], burst: [] };
-    ["idle", "walk", "burst"].forEach(function (key) {
-      caught[key].forEach(function (canvas) {
+    ["idle", "walk", "burst"].forEach(function (cycle) {
+      caught[cycle].forEach(function (canvas) {
         var url = "";
         try { url = canvas.toDataURL("image/png"); } catch (e) { url = ""; }
-        if (url) urls[key].push(url);
+        if (url) urls[cycle].push(url);
       });
     });
     if (!frameTotal(urls)) {
       setNote("The stills could not be saved.");
       return;
     }
-    saveEntity.last = now;
-    saveEntity.lastName = name;
-    var id = "e" + now.toString(36) + Math.random().toString(36).slice(2, 6);
+    saveKind.last = now;
+    saveKind.lastKey = key;
+    var prefix = kind === "enemy" ? "n" : kind === "shot" ? "s" : "e";
+    var id = prefix + now.toString(36) + Math.random().toString(36).slice(2, 6);
+    var outcome = kind === "entity" ? outcomeUrlFromPage(caught) : "";
     var rec = { id: id, name: name, saved: now, frames: urls };
+    if (outcome) rec.outcome = outcome;
     var item = {
       id: id,
       name: name,
       saved: now,
       frames: caught,
       thumb: urls.idle[0] || urls.walk[0] || urls.burst[0] || "",
+      outcome: outcome,
     };
-    roster.push(item);
-    pickedId = id;
-    try { localStorage.setItem("sprPickedEntity", id); } catch (e) {}
-    renderRoster();
-    setStatus(name + " is in the side panel.");
-    setNote(name + " is saved. " + moveLabel(caught) + " are its moves. Send uses this entity.");
-    putEntity(rec).catch(function () {
+    rosterOf(kind).push(item);
+    if (kind === "entity") {
+      pickedId = id;
+      try { localStorage.setItem("sprPickedEntity", id); } catch (e) {}
+      showOutcome(outcome);
+      setStatus(name + " is in the side panel.");
+      setNote(name + " is saved. " + moveLabel(caught) + " are its moves. The frame shows this picture. Send steps into the room with this entity.");
+    } else if (kind === "shot") {
+      pickedShotId = id;
+      shotFrames = caught;
+      try { localStorage.setItem("sprPickedProjectile", id); } catch (e2) {}
+      setStatus(name + " is the projectile.");
+      setNote(name + " is saved. Shots in the room use this sprite.");
+    } else {
+      setStatus(name + " is an enemy.");
+      setNote(name + " is saved. The room can use this enemy.");
+    }
+    renderCards(kind);
+    putRecord(storeName(kind), rec).catch(function () {
       setNote(name + " is in the panel for this visit. The browser did not keep the file.");
     });
   }
 
-  function restoreRoster() {
+  function saveEntity() {
+    saveKind("entity");
+  }
+
+  function restoreKind(kind, storageKey) {
     var stored = "";
-    try { stored = localStorage.getItem("sprPickedEntity") || ""; } catch (e) {}
-    loadRoster().then(function (rows) {
+    try { if (storageKey) stored = localStorage.getItem(storageKey) || ""; } catch (e) {}
+    return loadStore(storeName(kind)).then(function (rows) {
       rows.sort(function (a, b) { return (a.saved || 0) - (b.saved || 0); });
       return Promise.all(rows.map(function (rec) {
-        return framesFromUrls(rec.frames || {}).then(function (frames) {
+        return framesFromUrls(rec.frames || {}).then(function (frameset) {
           var urls = rec.frames || {};
           return {
             id: rec.id,
             name: rec.name || "Sprite",
             saved: rec.saved || 0,
-            frames: frames,
+            frames: frameset,
             thumb: (urls.idle && urls.idle[0]) || (urls.walk && urls.walk[0]) || (urls.burst && urls.burst[0]) || "",
+            outcome: rec.outcome || "",
           };
         });
       }));
     }).then(function (items) {
-      if (roster.length) return;
-      roster = items.filter(function (item) { return item && item.id && frameTotal(item.frames); });
-      if (roster.some(function (item) { return item.id === stored; })) pickedId = stored;
-      renderRoster();
+      if (rosterOf(kind).length) return;
+      var clean = items.filter(function (item) { return item && item.id && frameTotal(item.frames); });
+      setRoster(kind, clean);
+      if (kind === "entity" && clean.some(function (item) { return item.id === stored; })) {
+        pickedId = stored;
+        var ent = pickedEntity();
+        if (ent && ent.outcome) showOutcome(ent.outcome);
+      }
+      if (kind === "shot" && clean.some(function (item) { return item.id === stored; })) {
+        pickedShotId = stored;
+        var shot = findIn(shotRoster, stored);
+        if (shot) shotFrames = shot.frames;
+      }
+      renderCards(kind);
     }).catch(function () {
-      renderRoster();
+      renderCards(kind);
     });
+  }
+
+  function restoreRoster() {
+    restoreKind("entity", "sprPickedEntity");
+    restoreKind("enemy", "");
+    restoreKind("shot", "sprPickedProjectile");
   }
 
 
   function onKey(e, down) {
+    if (down && e.key === "Escape" && pictureOpen) {
+      e.preventDefault();
+      e.stopPropagation();
+      closePicture();
+      return;
+    }
     if (isTypingEl(e.target)) {
       if (down && e.target.id === "spr-prompt" && (e.key === "Escape" || e.key === "Enter")) {
         e.preventDefault();
@@ -1128,8 +1441,8 @@
     if (form) form.classList.toggle("is-typing", !!typing);
     if (!el) return;
     el.textContent = typing
-      ? "Typing the entity name. Enter saves it in the side panel. Escape leaves the bar."
-      : "Arrow keys play Walk. Letting go plays Idle. Space plays Burst.";
+      ? "Typing the name. Enter saves an entity. Escape leaves the bar."
+      : "Arrow keys play Walk. Letting go plays Idle. Space holds the picture up.";
   }
 
   function bindPointer() {
@@ -1157,7 +1470,23 @@
       try { canvas.setPointerCapture(ev.pointerId); } catch (err) {}
     });
     canvas.addEventListener("pointermove", setFrom);
-    function end() {
+    function canvasPoint(ev) {
+      var rect = canvas.getBoundingClientRect();
+      var sx = rect.width ? canvas.width / rect.width : 1;
+      var sy = rect.height ? canvas.height / rect.height : 1;
+      return { x: (ev.clientX - rect.left) * sx, y: (ev.clientY - rect.top) * sy };
+    }
+    function end(ev) {
+      if (origin && ev && heldFrame) {
+        var dx = ev.clientX - origin.x;
+        var dy = ev.clientY - origin.y;
+        if (dx * dx + dy * dy < 64) {
+          var p = canvasPoint(ev);
+          if (p.x >= heldFrame.x && p.y >= heldFrame.y && p.x <= heldFrame.x + heldFrame.w && p.y <= heldFrame.y + heldFrame.h) {
+            openPicture();
+          }
+        }
+      }
       origin = null;
       pointer.on = false;
       pointer.x = 0;
@@ -1171,9 +1500,15 @@
     var send = $("spr-send");
     if (send) send.addEventListener("click", sendIn);
     var burst = $("spr-burst");
-    if (burst) burst.addEventListener("click", doBurst);
+    if (burst) burst.addEventListener("click", openPicture);
     var save = $("spr-save-entity");
     if (save) save.addEventListener("click", saveEntity);
+    var saveEnemy = $("spr-save-enemy");
+    if (saveEnemy) saveEnemy.addEventListener("click", function () { saveKind("enemy"); });
+    var saveShot = $("spr-save-projectile");
+    if (saveShot) saveShot.addEventListener("click", function () { saveKind("shot"); });
+    var stage = $("spr-picture-stage");
+    if (stage) stage.addEventListener("click", closePicture);
     var form = $("spr-prompt-form");
     var prompt = $("spr-prompt");
     if (form && prompt && !form.dataset.bound) {
@@ -1198,8 +1533,11 @@
       else draw();
     });
     bindPointer();
-    renderRoster();
+    renderCards("entity");
+    renderCards("enemy");
+    renderCards("shot");
     restoreRoster();
+    paintStats();
     draw();
   }
 
@@ -1235,6 +1573,18 @@
           return ent ? ent.name : "";
         })(),
         typing: !!(document.activeElement && document.activeElement.id === "spr-prompt"),
+        outcome: !!outcomeUrl,
+        pictureOpen: pictureOpen,
+        enemiesSaved: enemyRoster.length,
+        projectiles: shotRoster.length,
+        projectile: (function () {
+          var shot = findIn(shotRoster, pickedShotId);
+          return shot ? shot.name : "";
+        })(),
+        foeSprites: enemies.filter(function (e) { return !!e.look; }).length,
+        bolts: bolts.length,
+        fired: fired,
+        shotFrames: frameTotal(shotFrames),
       };
     },
   };

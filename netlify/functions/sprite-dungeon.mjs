@@ -43,6 +43,13 @@ function cleanSprite(list) {
   return out;
 }
 
+function cleanPicture(v) {
+  const s = String(v || "");
+  if (!/^data:image\/(?:png|jpeg);base64,[a-z0-9+/=]+$/i.test(s)) return "";
+  if (s.length > 16000) return "";
+  return s;
+}
+
 function capFor(floor) {
   return Math.min(12, 3 + floor * 2);
 }
@@ -173,6 +180,7 @@ function publicPlayer(p, includeSprite) {
     spriteRev: p.spriteRev || 0,
   };
   if (includeSprite && p.sprite && p.sprite.length) out.sprite = p.sprite;
+  if (includeSprite && p.picture) out.picture = p.picture;
   return out;
 }
 
@@ -199,12 +207,15 @@ export default async function handler(request) {
   const known = body.known && typeof body.known === "object" ? body.known : {};
   let sprite = prev.sprite || [];
   let spriteRev = prev.spriteRev || 0;
+  let picture = prev.picture || "";
   const nextRev = parseInt(body.spriteRev, 10) || 0;
   if (nextRev && nextRev !== spriteRev) {
     const packed = cleanSprite(body.sprite);
     if (packed.length) {
       sprite = packed;
       spriteRev = nextRev;
+      const pic = cleanPicture(body.picture);
+      if (pic) picture = pic;
     }
   }
 
@@ -221,6 +232,7 @@ export default async function handler(request) {
     maxHp: num(body.maxHp, 30, 1, 999),
     sprite: sprite,
     spriteRev: spriteRev,
+    picture: picture,
     ts: now,
   };
 

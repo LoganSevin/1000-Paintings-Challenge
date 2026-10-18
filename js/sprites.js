@@ -489,11 +489,13 @@
   function spriteDb() {
     return new Promise(function (resolve, reject) {
       if (typeof indexedDB === "undefined") return reject(new Error("no idb"));
-      var req = indexedDB.open("l7in-sprite-loops", 2);
+      var req = indexedDB.open("l7in-sprite-loops", 3);
       req.onupgradeneeded = function () {
         var db = req.result;
         if (!db.objectStoreNames.contains("loops")) db.createObjectStore("loops", { keyPath: "id" });
         if (!db.objectStoreNames.contains("entities")) db.createObjectStore("entities", { keyPath: "id" });
+        if (!db.objectStoreNames.contains("enemies")) db.createObjectStore("enemies", { keyPath: "id" });
+        if (!db.objectStoreNames.contains("projectiles")) db.createObjectStore("projectiles", { keyPath: "id" });
       };
       req.onsuccess = function () { resolve(req.result); };
       req.onerror = function () { reject(req.error); };
