@@ -208,9 +208,9 @@ body.spr-tab-active[data-stasis-skin-active] :is(
 
 .spr-playfield {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-columns: auto minmax(0, 1fr) 13.5rem;
   gap: 0.7rem;
-  align-items: center;
+  align-items: start;
   margin-top: 0.35rem;
 }
 
@@ -334,6 +334,90 @@ body.spr-tab-active[data-stasis-skin-active] :is(
   box-shadow: 0 0 0 2px rgba(240, 226, 192, 0.35);
 }
 
+.spr-moves,
+.spr-entities-note {
+  margin: 0.35rem 0 0;
+  color: #ece6d6;
+  font-size: 0.8rem;
+  line-height: 1.35;
+}
+
+.spr-entities h3 {
+  margin: 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: #f0e2c0;
+}
+
+.spr-entities {
+  min-width: 0;
+  background: #0c0e14;
+  border: 1px solid rgba(230, 211, 161, 0.45);
+  border-radius: 12px;
+  padding: 0.45rem 0.5rem 0.6rem;
+}
+
+.spr-entities-note {
+  margin-top: 0.2rem;
+}
+
+#spr-save-entity {
+  width: 100%;
+  margin: 0.35rem 0;
+}
+
+.spr-entity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  max-height: 28rem;
+  overflow: auto;
+}
+
+.spr-entity-empty {
+  margin: 0.2rem 0 0;
+  color: #8fd0ea;
+  font-size: 0.78rem;
+}
+
+.spr-entity {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr) auto;
+  gap: 0.35rem;
+  align-items: center;
+  width: 100%;
+  text-align: left;
+}
+
+.spr-entity img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  background: #12151e;
+}
+
+.spr-entity-name,
+.spr-entity-moves {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.spr-entity-moves {
+  font-size: 0.72rem;
+  font-weight: 500;
+}
+
+.spr-entity-drop {
+  font-size: 1rem;
+  line-height: 1;
+  padding: 0 0.15rem;
+}
+
 .spr-keys {
   display: flex;
   flex-wrap: wrap;
@@ -394,7 +478,7 @@ body.spr-tab-active[data-stasis-skin-active] :is(
 
   .spr-playfield {
     grid-template-columns: minmax(0, 1fr);
-    justify-items: start;
+    justify-items: stretch;
   }
 
   #spr-game-canvas {

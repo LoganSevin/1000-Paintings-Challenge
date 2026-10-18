@@ -1,6 +1,7 @@
 /**
  * Dungeon on the Sprites tab.
- * Send copies the finished stills into the room.
+ * A sprite becomes an entity when it is saved in the side panel.
+ * Send uses that saved entity. Its moves are idle, walk, and burst.
  * Levels come from clears. Anyone on the tab shares the same room.
  */
 (function () {
@@ -47,34 +48,9 @@
   var shield = 0;
   var cooldowns = {};
   var lastAction = "";
-  var ACTIONS = [
-    ["A", "Aim", "Next shot deals 8 times Might instead of 4."],
-    ["B", "Burst", "Spends 100 meter. Reach is 2.3 plus Burst. Damage is 10 times Might times Burst."],
-    ["C", "Cure", "Heal 8. Ready again after 6s."],
-    ["D", "Dash", "Move 2 tiles the way you face. Ready again after 1.2s."],
-    ["E", "Expel", "Push foes within 2.4 tiles back by 1.8. Ready again after 2.5s."],
-    ["F", "Fill", "Meter gains 30. Ready again after 4s."],
-    ["G", "Guard", "The next contact hit within 3s deals 0. Ready again after 4s."],
-    ["H", "Hurry", "Shots come 1.5 times sooner for 3s. Ready again after 5s."],
-    ["I", "Inspect", "Name the nearest foe's life and distance."],
-    ["J", "Jab", "Foes within 1.3 tiles take 6 times Might. Ready again after 0.6s."],
-    ["K", "Knock", "Foes within 1.6 tiles take 4 times Might and are pushed 1.2 tiles. Ready again after 1s."],
-    ["L", "Leech", "The nearest foe within 2 tiles takes 5 times Might, and you heal that much. Ready again after 2s."],
-    ["M", "Mend", "Heal 4. Ready again after 3s."],
-    ["N", "Nova", "Foes within 1.8 tiles take 7 times Might. Ready again after 3s."],
-    ["O", "Open", "Step 1.5 tiles toward the door. Ready again after 1s."],
-    ["P", "Pulse", "Fire one shot now. Ready again after 0.8s."],
-    ["Q", "Quicken", "The next shot is immediate, then shots are hurried for 2s. Ready again after 3s."],
-    ["R", "Rally", "Meter gains 50. Ready again after 5s."],
-    ["S", "Shield", "Shield gains 10, up to 20. Contact hits the shield first. Ready again after 4s."],
-    ["T", "Turn", "Face the other way."],
-    ["U", "Surge", "Move 3.5 tiles the way you face. Ready again after 2s."],
-    ["V", "Veer", "Step 1.4 tiles down. Ready again after 0.8s."],
-    ["W", "Ward", "Ignore contact hits for 2s and heal 4. Ready again after 6s."],
-    ["X", "Hex", "The nearest foe takes 8 times Might. Ready again after 1.5s."],
-    ["Y", "Yield", "A full meter drops to 0 and you heal 12."],
-    ["Z", "Zap", "A heavy shot deals 12 times Might. Ready again after 2s."]
-  ];
+  var roster = [];
+  var pickedId = "";
+  var sentEntityId = "";
 
   function resetMe() {
     return {
@@ -334,7 +310,9 @@
       if (edge === 2) { x = 4 + (i % 10); y = 1.6; }
       if (edge === 3) { x = 4 + (i % 10); y = ROOM_H - 1.8; }
       var hp = 6 + floorN * 4;
-      enemies.push({ id: "local" + floorN + "n" + i, x: x, y: y, hp: hp, maxHp: hp, spd: 1.15 + floorN * 0.05 });
+      var looks = otherLooks();
+      var look = looks.length ? looks[i % looks.length].frames : null;
+      enemies.push({ id: "local" + floorN + "n" + i, x: x, y: y, hp: hp, maxHp: hp, spd: 1.15 + floorN * 0.05, look: look });
     }
   }
 
@@ -416,10 +394,19 @@
   }
 
   function doBurst() {
-    if (me.meter < 100 || paused) return;
+    if (!running) {
+      setNote("Send a saved entity in. Then Burst plays its loop.");
+      return;
+    }
+    if (paused) return;
+    if (me.meter < 100) {
+      setNote("Burst plays when the meter is full. It is " + one(me.meter) + " now.");
+      return;
+    }
     me.meter = 0;
     burstLeft = 0.55;
     me.cycle = "burst";
+    setNote("Burst. The burst loop is playing.");
     var radius = 2.3 + me.burstPow;
     var dmg = 10 * me.might * me.burstPow;
     var i;
@@ -636,7 +623,7 @@
       g.fillStyle = "#f0e2c0";
       g.font = "20px Georgia, serif";
       g.textAlign = "center";
-      g.fillText("Send the finished sprite in.", canvas.width / 2, canvas.height / 2);
+      g.fillText("Save an entity, then send it in.", canvas.width / 2, canvas.height / 2);
       g.textAlign = "left";
       return;
     }
@@ -647,11 +634,15 @@
     }
     for (i = 0; i < enemies.length; i++) {
       var e = enemies[i];
-      g.fillStyle = "#c4493a";
-      g.fillRect(worldX(e.x) - 10, worldY(e.y) - 18, 20, 16);
-      g.fillStyle = "#1a0c0c";
-      g.fillRect(worldX(e.x) - 6, worldY(e.y) - 14, 3, 3);
-      g.fillRect(worldX(e.x) + 2, worldY(e.y) - 14, 3, 3);
+      if (e.look) {
+        drawCreature(g, e.look, "walk", Math.floor(performance.now() / 140) % 6, e.x, e.y, e.x < me.x ? 1 : -1);
+      } else {
+        g.fillStyle = "#c4493a";
+        g.fillRect(worldX(e.x) - 10, worldY(e.y) - 18, 20, 16);
+        g.fillStyle = "#1a0c0c";
+        g.fillRect(worldX(e.x) - 6, worldY(e.y) - 14, 3, 3);
+        g.fillRect(worldX(e.x) + 2, worldY(e.y) - 14, 3, 3);
+      }
       g.fillStyle = "#3a1210";
       g.fillRect(worldX(e.x) - 12, worldY(e.y) - 22, 24, 3);
       g.fillStyle = "#8fd0ea";
@@ -794,13 +785,14 @@
   }
 
   function sendIn() {
-    var caught = capture();
-    if (!caught.idle.length && !caught.walk.length && !caught.burst.length) {
-      setStatus("Paint the loops first. Then send the finished sprite in.", true);
-      setNote("The dungeon is waiting for a finished sprite.");
+    var ent = pickedEntity();
+    if (!ent || !frameTotal(ent.frames)) {
+      setStatus("Save the sprite in the side panel first.", true);
+      setNote("The dungeon uses a saved entity. An unsaved paint stays on the stage.");
       return;
     }
-    frames = caught;
+    frames = ent.frames;
+    sentEntityId = ent.id;
     spriteRev += 1;
     if (!running) {
       me = resetMe();
@@ -818,8 +810,8 @@
       var shown = document.getElementById("panel-sprites");
       if (shown && !shown.hidden) startLoops();
     }
-    setStatus("The sprite is in the dungeon.");
-    setNote("Floor " + floorN + ". Clear the room, step through the gold door, and level when the stills fall.");
+    setStatus(ent.name + " is in the dungeon.");
+    setNote(ent.name + " uses " + moveLabel(ent.frames) + ". Arrows play Walk. Letting go plays Idle. Space plays Burst.");
     var game = $("spr-game");
     if (game && game.scrollIntoView) game.scrollIntoView({ block: "nearest" });
     draw();
@@ -832,348 +824,276 @@
     return !!el.isContentEditable;
   }
 
-  function actionName(letter) {
-    var i;
-    for (i = 0; i < ACTIONS.length; i++) {
-      if (ACTIONS[i][0] === letter) return ACTIONS[i][1];
-    }
-    return "";
+  function openSpriteDb() {
+    return new Promise(function (resolve, reject) {
+      if (typeof indexedDB === "undefined") return reject(new Error("no idb"));
+      var req = indexedDB.open("l7in-sprite-loops", 2);
+      req.onupgradeneeded = function () {
+        var db = req.result;
+        if (!db.objectStoreNames.contains("loops")) db.createObjectStore("loops", { keyPath: "id" });
+        if (!db.objectStoreNames.contains("entities")) db.createObjectStore("entities", { keyPath: "id" });
+      };
+      req.onsuccess = function () { resolve(req.result); };
+      req.onerror = function () { reject(req.error); };
+    });
   }
 
-  function findAction(raw) {
-    var text = String(raw || "").trim().toUpperCase();
-    if (!text) return null;
+  function frameTotal(set) {
+    if (!set) return 0;
+    return (set.idle ? set.idle.length : 0) + (set.walk ? set.walk.length : 0) + (set.burst ? set.burst.length : 0);
+  }
+
+  function moveLabel(set) {
+    var bits = [];
+    if (set && set.idle && set.idle.length) bits.push("Idle");
+    if (set && set.walk && set.walk.length) bits.push("Walk");
+    if (set && set.burst && set.burst.length) bits.push("Burst");
+    return bits.join(", ") || "No loops";
+  }
+
+  function pickedEntity() {
     var i;
-    for (i = 0; i < ACTIONS.length; i++) {
-      if (ACTIONS[i][0] === text || ACTIONS[i][1].toUpperCase() === text) return ACTIONS[i];
+    for (i = 0; i < roster.length; i++) {
+      if (roster[i].id === pickedId) return roster[i];
     }
     return null;
   }
 
-  function clampPos() {
-    me.x = Math.max(1.2, Math.min(ROOM_W - 1.2, me.x));
-    me.y = Math.max(1.2, Math.min(ROOM_H - 1.2, me.y));
-  }
-
-  function foesWithin(radius) {
+  function otherLooks() {
     var list = [];
-    var r2 = radius * radius;
     var i;
-    for (i = enemies.length - 1; i >= 0; i--) {
-      var foe = enemies[i];
-      var dx = foe.x - me.x;
-      var dy = foe.y - me.y;
-      if (dx * dx + dy * dy <= r2) list.push({ e: foe, i: i });
+    for (i = 0; i < roster.length; i++) {
+      if (roster[i].id === pickedId) continue;
+      if (!frameTotal(roster[i].frames)) continue;
+      list.push(roster[i]);
     }
     return list;
   }
 
-  function nearestEntry() {
-    var best = null;
-    var bestD = 1e9;
-    var i;
-    for (i = enemies.length - 1; i >= 0; i--) {
-      var foe = enemies[i];
-      var dx = foe.x - me.x;
-      var dy = foe.y - me.y;
-      var d = dx * dx + dy * dy;
-      if (d < bestD) {
-        bestD = d;
-        best = { e: foe, i: i, dist: Math.sqrt(d) };
-      }
-    }
-    return best;
-  }
-
-  function strike(entry, dmg) {
-    if (mode === "live") hits.push({ id: entry.e.id, dmg: dmg });
-    else hurtEnemy(entry.e, dmg, entry.i);
-  }
-
-  function shove(entry, dist) {
-    var dx = entry.e.x - me.x;
-    var dy = entry.e.y - me.y;
-    var len = Math.sqrt(dx * dx + dy * dy) || 1;
-    entry.e.x = Math.max(1.2, Math.min(ROOM_W - 1.2, entry.e.x + (dx / len) * dist));
-    entry.e.y = Math.max(1.2, Math.min(ROOM_H - 1.2, entry.e.y + (dy / len) * dist));
-  }
-
-  function heal(amount) {
-    var before = me.hp;
-    me.hp = Math.min(me.maxHp, me.hp + amount);
-    return me.hp - before;
-  }
-
-  function cooling(letter, seconds) {
-    var left = ((cooldowns[letter] || 0) - performance.now()) / 1000;
-    if (left > 0) {
-      setNote(actionName(letter) + " is ready in " + one(left) + "s.");
-      return true;
-    }
-    cooldowns[letter] = performance.now() + seconds * 1000;
-    return false;
-  }
-
-  function runAction(letter) {
-    if (!running || paused) return false;
-    letter = String(letter || "").toUpperCase();
-    if (!actionName(letter)) return false;
-    if (letter === "A") {
-      aimShot = true;
-      lastAction = "Aim";
-      setNote("Aim. Next shot deals " + one(8 * me.might) + " instead of " + one(4 * me.might) + ".");
-      return true;
-    }
-    if (letter === "B") {
-      lastAction = "Burst";
-      if (me.meter < 100) {
-        setNote("Burst wants a full meter. It is " + one(me.meter) + " now.");
-        return true;
-      }
-      doBurst();
-      setNote("Burst. Reach " + one(2.3 + me.burstPow) + ". Damage " + one(10 * me.might * me.burstPow) + ".");
-      return true;
-    }
-    if (letter === "C") {
-      if (cooling("C", 6)) return true;
-      lastAction = "Cure";
-      setNote("Cure. Healed " + one(heal(8)) + ". Life " + one(me.hp) + "/" + one(me.maxHp) + ".");
-      return true;
-    }
-    if (letter === "D") {
-      if (cooling("D", 1.2)) return true;
-      lastAction = "Dash";
-      me.x += me.face * 2;
-      clampPos();
-      setNote("Dash. Moved 2 tiles " + (me.face < 0 ? "left" : "right") + ".");
-      return true;
-    }
-    if (letter === "E") {
-      if (cooling("E", 2.5)) return true;
-      lastAction = "Expel";
-      var pushed = foesWithin(2.4);
-      var pi;
-      for (pi = 0; pi < pushed.length; pi++) shove(pushed[pi], 1.8);
-      setNote("Expel. Pushed " + pushed.length + " foes back 1.8 tiles.");
-      return true;
-    }
-    if (letter === "F") {
-      if (cooling("F", 4)) return true;
-      lastAction = "Fill";
-      me.meter = Math.min(100, me.meter + 30);
-      setNote("Fill. Meter " + one(me.meter) + ".");
-      return true;
-    }
-    if (letter === "G") {
-      if (cooling("G", 4)) return true;
-      lastAction = "Guard";
-      guardLeft = 3;
-      setNote("Guard. The next contact hit within 3s deals 0.");
-      return true;
-    }
-    if (letter === "H") {
-      if (cooling("H", 5)) return true;
-      lastAction = "Hurry";
-      hurryLeft = 3;
-      setNote("Hurry. Shot gap " + one(0.7 / (me.haste * 1.5)) + "s for 3s, from " + one(0.7 / me.haste) + "s.");
-      return true;
-    }
-    if (letter === "I") {
-      lastAction = "Inspect";
-      var seen = nearestEntry();
-      if (!seen) setNote("The room is empty.");
-      else setNote("Inspect. " + one(seen.e.hp) + " life, " + one(seen.dist) + " tiles away.");
-      return true;
-    }
-    if (letter === "J") {
-      if (cooling("J", 0.6)) return true;
-      lastAction = "Jab";
-      var jab = foesWithin(1.3);
-      var jd = 6 * me.might;
-      var ji;
-      for (ji = 0; ji < jab.length; ji++) strike(jab[ji], jd);
-      setNote("Jab. " + jab.length + " foes take " + one(jd) + ".");
-      return true;
-    }
-    if (letter === "K") {
-      if (cooling("K", 1)) return true;
-      lastAction = "Knock";
-      var knock = foesWithin(1.6);
-      var kd = 4 * me.might;
-      var ki;
-      for (ki = 0; ki < knock.length; ki++) {
-        shove(knock[ki], 1.2);
-        strike(knock[ki], kd);
-      }
-      setNote("Knock. " + knock.length + " foes take " + one(kd) + " and move 1.2 tiles.");
-      return true;
-    }
-    if (letter === "L") {
-      if (cooling("L", 2)) return true;
-      lastAction = "Leech";
-      var leech = nearestEntry();
-      if (!leech || leech.dist > 2) {
-        setNote("Leech. No foe within 2 tiles.");
-        return true;
-      }
-      var ld = 5 * me.might;
-      strike(leech, ld);
-      setNote("Leech. " + one(ld) + " from the nearest foe. Healed " + one(heal(ld)) + ".");
-      return true;
-    }
-    if (letter === "M") {
-      if (cooling("M", 3)) return true;
-      lastAction = "Mend";
-      setNote("Mend. Healed " + one(heal(4)) + ".");
-      return true;
-    }
-    if (letter === "N") {
-      if (cooling("N", 3)) return true;
-      lastAction = "Nova";
-      var nova = foesWithin(1.8);
-      var nd = 7 * me.might;
-      var ni;
-      for (ni = 0; ni < nova.length; ni++) strike(nova[ni], nd);
-      setNote("Nova. " + nova.length + " foes take " + one(nd) + ".");
-      return true;
-    }
-    if (letter === "O") {
-      if (cooling("O", 1)) return true;
-      lastAction = "Open";
-      me.x += 1.5;
-      clampPos();
-      setNote("Open. Stepped 1.5 tiles toward the door. You are at " + one(me.x) + ".");
-      return true;
-    }
-    if (letter === "P") {
-      if (cooling("P", 0.8)) return true;
-      lastAction = "Pulse";
-      var pulseDmg = 4 * me.might * (aimShot ? 2 : 1);
-      if (!nearestEnemy()) setNote("Pulse. The room is empty.");
-      else setNote("Pulse. Shot damage " + one(pulseDmg) + ".");
-      fire();
-      return true;
-    }
-    if (letter === "Q") {
-      if (cooling("Q", 3)) return true;
-      lastAction = "Quicken";
-      shot = 0;
-      hurryLeft = Math.max(hurryLeft, 2);
-      setNote("Quicken. The next shot is now. Shot gap " + one(0.7 / (me.haste * 1.5)) + "s for 2s.");
-      return true;
-    }
-    if (letter === "R") {
-      if (cooling("R", 5)) return true;
-      lastAction = "Rally";
-      me.meter = Math.min(100, me.meter + 50);
-      setNote("Rally. Meter " + one(me.meter) + ".");
-      return true;
-    }
-    if (letter === "S") {
-      if (cooling("S", 4)) return true;
-      lastAction = "Shield";
-      shield = Math.min(20, shield + 10);
-      setNote("Shield. Shield " + shield + ", up to 20.");
-      return true;
-    }
-    if (letter === "T") {
-      lastAction = "Turn";
-      me.face = me.face < 0 ? 1 : -1;
-      setNote("Turn. Facing " + (me.face < 0 ? "left" : "right") + ".");
-      return true;
-    }
-    if (letter === "U") {
-      if (cooling("U", 2)) return true;
-      lastAction = "Surge";
-      me.x += me.face * 3.5;
-      clampPos();
-      setNote("Surge. Moved 3.5 tiles " + (me.face < 0 ? "left" : "right") + ".");
-      return true;
-    }
-    if (letter === "V") {
-      if (cooling("V", 0.8)) return true;
-      lastAction = "Veer";
-      me.y += 1.4;
-      clampPos();
-      setNote("Veer. Stepped 1.4 tiles down.");
-      return true;
-    }
-    if (letter === "W") {
-      if (cooling("W", 6)) return true;
-      lastAction = "Ward";
-      guardLeft = 2;
-      setNote("Ward. Contact hits deal 0 for 2s. Healed " + one(heal(4)) + ".");
-      return true;
-    }
-    if (letter === "X") {
-      if (cooling("X", 1.5)) return true;
-      lastAction = "Hex";
-      var hex = nearestEntry();
-      if (!hex) setNote("Hex. The room is empty.");
-      else {
-        var xd = 8 * me.might;
-        strike(hex, xd);
-        setNote("Hex. Nearest foe takes " + one(xd) + ".");
-      }
-      return true;
-    }
-    if (letter === "Y") {
-      lastAction = "Yield";
-      if (me.meter < 100) {
-        setNote("Yield wants 100. It is " + one(me.meter) + " now.");
-        return true;
-      }
-      me.meter = 0;
-      setNote("Yield. Meter 0. Healed " + one(heal(12)) + ".");
-      return true;
-    }
-    if (letter === "Z") {
-      if (cooling("Z", 2)) return true;
-      lastAction = "Zap";
-      var zap = nearestEntry();
-      if (!zap) {
-        setNote("Zap. The room is empty.");
-        return true;
-      }
-      var zx = zap.e.x - me.x;
-      var zy = zap.e.y - me.y;
-      var zd = Math.sqrt(zx * zx + zy * zy) || 1;
-      var zapDmg = 12 * me.might;
-      bolts.push({
-        x: me.x,
-        y: me.y - 0.4,
-        vx: (zx / zd) * 12,
-        vy: (zy / zd) * 12,
-        dmg: zapDmg,
+  function framesFromUrls(urls) {
+    var out = { idle: [], walk: [], burst: [] };
+    var jobs = [];
+    ["idle", "walk", "burst"].forEach(function (key) {
+      var list = (urls && urls[key]) || [];
+      out[key] = new Array(list.length);
+      list.forEach(function (url, index) {
+        jobs.push(new Promise(function (resolve) {
+          var img = new Image();
+          img.onload = function () {
+            var c = document.createElement("canvas");
+            c.width = img.naturalWidth || 96;
+            c.height = img.naturalHeight || 96;
+            var g = c.getContext("2d");
+            g.imageSmoothingEnabled = false;
+            g.drawImage(img, 0, 0);
+            out[key][index] = c;
+            resolve();
+          };
+          img.onerror = function () { resolve(); };
+          img.src = url;
+        }));
       });
-      setNote("Zap. Shot damage " + one(zapDmg) + ".");
-      return true;
-    }
-    return false;
+    });
+    return Promise.all(jobs).then(function () {
+      ["idle", "walk", "burst"].forEach(function (key) {
+        out[key] = out[key].filter(Boolean);
+      });
+      return out;
+    });
   }
 
-  function submitPrompt() {
-    var prompt = $("spr-prompt");
-    if (!prompt || submitPrompt.busy) return;
-    submitPrompt.busy = true;
-    try {
-      var raw = prompt.value;
-      if (!String(raw).trim()) {
-        prompt.blur();
-        return;
-      }
-      var found = findAction(raw);
-      if (!found) {
-        setNote("No action named " + String(raw).trim() + ".");
-        return;
-      }
-      if (!runAction(found[0])) return;
-      prompt.value = "";
-      prompt.focus();
-    } finally {
-      submitPrompt.busy = false;
-    }
+  function putEntity(rec) {
+    return openSpriteDb().then(function (db) {
+      return new Promise(function (resolve, reject) {
+        var tx = db.transaction("entities", "readwrite");
+        tx.objectStore("entities").put(rec);
+        tx.oncomplete = function () { resolve(true); };
+        tx.onerror = function () { reject(tx.error); };
+      });
+    });
   }
+
+  function deleteEntity(id) {
+    return openSpriteDb().then(function (db) {
+      return new Promise(function (resolve) {
+        var tx = db.transaction("entities", "readwrite");
+        tx.objectStore("entities").delete(id);
+        tx.oncomplete = function () { resolve(true); };
+        tx.onerror = function () { resolve(false); };
+      });
+    }).catch(function () { return false; });
+  }
+
+  function loadRoster() {
+    return openSpriteDb().then(function (db) {
+      return new Promise(function (resolve) {
+        var tx = db.transaction("entities", "readonly");
+        var req = tx.objectStore("entities").getAll();
+        req.onsuccess = function () { resolve(req.result || []); };
+        req.onerror = function () { resolve([]); };
+      });
+    }).catch(function () { return []; });
+  }
+
+  function renderRoster() {
+    var host = $("spr-entity-list");
+    if (!host) return;
+    host.innerHTML = "";
+    if (!roster.length) {
+      var empty = document.createElement("p");
+      empty.className = "spr-entity-empty";
+      empty.textContent = "No saved entities yet.";
+      host.appendChild(empty);
+      return;
+    }
+    roster.forEach(function (ent) {
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "spr-entity" + (ent.id === pickedId ? " is-on" : "");
+      btn.dataset.id = ent.id;
+      var img = document.createElement("img");
+      img.alt = "";
+      if (ent.thumb) img.src = ent.thumb;
+      var text = document.createElement("span");
+      var name = document.createElement("span");
+      name.className = "spr-entity-name";
+      name.textContent = ent.name;
+      var moves = document.createElement("span");
+      moves.className = "spr-entity-moves";
+      moves.textContent = moveLabel(ent.frames);
+      text.appendChild(name);
+      text.appendChild(moves);
+      var drop = document.createElement("span");
+      drop.className = "spr-entity-drop";
+      drop.setAttribute("aria-label", "Remove " + ent.name);
+      drop.textContent = "\u00d7";
+      btn.appendChild(img);
+      btn.appendChild(text);
+      btn.appendChild(drop);
+      btn.addEventListener("click", function (ev) {
+        if (ev.target.classList && ev.target.classList.contains("spr-entity-drop")) {
+          dropEntity(ent.id);
+          return;
+        }
+        pickEntity(ent.id);
+      });
+      host.appendChild(btn);
+    });
+  }
+
+  function pickEntity(id) {
+    var ent = null;
+    var i;
+    for (i = 0; i < roster.length; i++) {
+      if (roster[i].id === id) ent = roster[i];
+    }
+    if (!ent) return;
+    pickedId = ent.id;
+    try { localStorage.setItem("sprPickedEntity", ent.id); } catch (e) {}
+    renderRoster();
+    setNote(ent.name + " is selected. Send uses this saved entity. Moves: " + moveLabel(ent.frames) + ".");
+  }
+
+  function dropEntity(id) {
+    var ent = null;
+    var i;
+    for (i = 0; i < roster.length; i++) {
+      if (roster[i].id === id) ent = roster[i];
+    }
+    roster = roster.filter(function (item) { return item.id !== id; });
+    if (pickedId === id) {
+      pickedId = "";
+      try { localStorage.removeItem("sprPickedEntity"); } catch (e) {}
+    }
+    if (sentEntityId === id) {
+      frames = { idle: [], walk: [], burst: [] };
+      sentEntityId = "";
+      spriteRev += 1;
+    }
+    renderRoster();
+    deleteEntity(id);
+    setNote((ent ? ent.name : "That sprite") + " left the panel, so the dungeon will not use it.");
+    if (running) draw();
+  }
+
+  function saveEntity() {
+    var prompt = $("spr-prompt");
+    var name = String((prompt && prompt.value) || "").trim().slice(0, 32);
+    var now = Date.now();
+    if (!name) {
+      setNote("Name the sprite in the bar, then save it.");
+      setStatus("The side panel needs a name.", true);
+      if (prompt) prompt.focus();
+      return;
+    }
+    if (saveEntity.last && now - saveEntity.last < 400 && saveEntity.lastName === name) return;
+    var caught = capture();
+    if (!frameTotal(caught)) {
+      setNote("Paint the loops first. Then save the sprite in the side panel.");
+      setStatus("Paint the loops first.", true);
+      return;
+    }
+    var urls = { idle: [], walk: [], burst: [] };
+    ["idle", "walk", "burst"].forEach(function (key) {
+      caught[key].forEach(function (canvas) {
+        var url = "";
+        try { url = canvas.toDataURL("image/png"); } catch (e) { url = ""; }
+        if (url) urls[key].push(url);
+      });
+    });
+    if (!frameTotal(urls)) {
+      setNote("The stills could not be saved.");
+      return;
+    }
+    saveEntity.last = now;
+    saveEntity.lastName = name;
+    var id = "e" + now.toString(36) + Math.random().toString(36).slice(2, 6);
+    var rec = { id: id, name: name, saved: now, frames: urls };
+    var item = {
+      id: id,
+      name: name,
+      saved: now,
+      frames: caught,
+      thumb: urls.idle[0] || urls.walk[0] || urls.burst[0] || "",
+    };
+    roster.push(item);
+    pickedId = id;
+    try { localStorage.setItem("sprPickedEntity", id); } catch (e) {}
+    renderRoster();
+    setStatus(name + " is in the side panel.");
+    setNote(name + " is saved. " + moveLabel(caught) + " are its moves. Send uses this entity.");
+    putEntity(rec).catch(function () {
+      setNote(name + " is in the panel for this visit. The browser did not keep the file.");
+    });
+  }
+
+  function restoreRoster() {
+    var stored = "";
+    try { stored = localStorage.getItem("sprPickedEntity") || ""; } catch (e) {}
+    loadRoster().then(function (rows) {
+      rows.sort(function (a, b) { return (a.saved || 0) - (b.saved || 0); });
+      return Promise.all(rows.map(function (rec) {
+        return framesFromUrls(rec.frames || {}).then(function (frames) {
+          var urls = rec.frames || {};
+          return {
+            id: rec.id,
+            name: rec.name || "Sprite",
+            saved: rec.saved || 0,
+            frames: frames,
+            thumb: (urls.idle && urls.idle[0]) || (urls.walk && urls.walk[0]) || (urls.burst && urls.burst[0]) || "",
+          };
+        });
+      }));
+    }).then(function (items) {
+      if (roster.length) return;
+      roster = items.filter(function (item) { return item && item.id && frameTotal(item.frames); });
+      if (roster.some(function (item) { return item.id === stored; })) pickedId = stored;
+      renderRoster();
+    }).catch(function () {
+      renderRoster();
+    });
+  }
+
 
   function onKey(e, down) {
     if (isTypingEl(e.target)) {
@@ -1181,15 +1101,14 @@
         e.preventDefault();
         e.stopPropagation();
         if (e.key === "Escape") e.target.blur();
-        else submitPrompt();
+        else saveEntity();
       }
       return;
     }
     if (!running) return;
     var arrow = e.key === "ArrowUp" || e.key === "ArrowDown" || e.key === "ArrowLeft" || e.key === "ArrowRight";
-    var letter = /^Key[A-Z]$/.test(e.code || "");
     var space = e.code === "Space";
-    if (!(arrow || letter || space)) return;
+    if (!(arrow || space)) return;
     e.preventDefault();
     e.stopPropagation();
     if (paused) {
@@ -1197,11 +1116,7 @@
       return;
     }
     if (space) {
-      if (down) doBurst();
-      return;
-    }
-    if (letter) {
-      if (down && !e.repeat) runAction(e.code.charAt(3));
+      if (down && !e.repeat) doBurst();
       return;
     }
     keys[e.key] = down;
@@ -1213,8 +1128,8 @@
     if (form) form.classList.toggle("is-typing", !!typing);
     if (!el) return;
     el.textContent = typing
-      ? "Typing. Letter keys write in the prompt. Escape leaves the bar."
-      : "Arrow keys move. Space bursts. Letter keys act. Click the prompt to type.";
+      ? "Typing the entity name. Enter saves it in the side panel. Escape leaves the bar."
+      : "Arrow keys play Walk. Letting go plays Idle. Space plays Burst.";
   }
 
   function bindPointer() {
@@ -1257,24 +1172,15 @@
     if (send) send.addEventListener("click", sendIn);
     var burst = $("spr-burst");
     if (burst) burst.addEventListener("click", doBurst);
-    var keyHost = $("spr-keys");
-    if (keyHost && !keyHost.dataset.built) {
-      keyHost.dataset.built = "1";
-      ACTIONS.forEach(function (row) {
-        var btn = document.createElement("button");
-        btn.type = "button";
-        btn.textContent = row[0] + " " + row[1] + ". " + row[2];
-        btn.addEventListener("click", function () { runAction(row[0]); });
-        keyHost.appendChild(btn);
-      });
-    }
+    var save = $("spr-save-entity");
+    if (save) save.addEventListener("click", saveEntity);
     var form = $("spr-prompt-form");
     var prompt = $("spr-prompt");
     if (form && prompt && !form.dataset.bound) {
       form.dataset.bound = "1";
       form.addEventListener("submit", function (ev) {
         ev.preventDefault();
-        submitPrompt();
+        saveEntity();
       });
       prompt.addEventListener("focus", function () {
         keys = {};
@@ -1292,6 +1198,8 @@
       else draw();
     });
     bindPointer();
+    renderRoster();
+    restoreRoster();
     draw();
   }
 
@@ -1320,9 +1228,12 @@
         burst: me.burstPow,
         maxHp: me.maxHp,
         meter: me.meter,
-        lastAction: lastAction,
-        shield: shield,
-        aim: aimShot,
+        cycle: me.cycle,
+        entities: roster.length,
+        entity: (function () {
+          var ent = pickedEntity();
+          return ent ? ent.name : "";
+        })(),
         typing: !!(document.activeElement && document.activeElement.id === "spr-prompt"),
       };
     },

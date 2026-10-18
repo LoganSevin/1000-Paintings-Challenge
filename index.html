@@ -51,7 +51,7 @@
   <link rel="stylesheet" href="css/engrams.css?v=11" />
   <link rel="stylesheet" href="css/bible.css?v=8" />
   <link rel="stylesheet" href="css/history.css?v=1" />
-  <link rel="stylesheet" href="css/sprites.css?v=7" />
+  <link rel="stylesheet" href="css/sprites.css?v=8" />
   <link rel="stylesheet" href="css/slots.css?v=4" />
   <link rel="stylesheet" href="css/colors.css?v=6" />
   <link rel="stylesheet" href="css/hours.css?v=1" />
@@ -7711,7 +7711,7 @@
   <section id="panel-sprites" class="panel" hidden>
     <div class="spr-shell">
       <h2>Sprites</h2>
-      <p class="spr-hint">A pixel sprite for a survivor game. Spell I, II, and III are its body. Idle, walk, and burst are six stills of that same creature. Each still moves one pose from the last, and the texture stays. They stack in this frame. The set is saved on this browser. The slots, prompt boxes, and spellbook below are Spellforge, so you can change them here.</p>
+      <p class="spr-hint">A pixel sprite for a survivor game. Spell I, II, and III are its body. Idle, walk, and burst are six stills of that same creature. Each still moves one pose from the last, and the texture stays. They stack in this frame. Save a finished sprite in the Entities panel. The dungeon uses a saved entity, and its moves are Idle, Walk, and Burst. The slots, prompt boxes, and spellbook below are Spellforge, so you can change them here.</p>
       <div class="spr-stage-wrap">
         <div class="spr-frame" id="spr-frame">
           <canvas id="spr-stage" class="spr-stage" width="64" height="64" data-cycle="idle" data-frame="0" aria-label="Sprite preview, looping"></canvas>
@@ -7726,20 +7726,20 @@
         </div>
       </div>
       <div class="spr-row">
-        <button type="button" data-cycle="idle" class="is-on">Idle</button>
-        <button type="button" data-cycle="walk">Walk</button>
-        <button type="button" data-cycle="burst">Burst</button>
+        <button type="button" data-cycle="idle" class="is-on" title="Preview the idle loop. It plays when the sprite stands.">Idle</button>
+        <button type="button" data-cycle="walk" title="Preview the walk loop. Arrow keys play this in the dungeon.">Walk</button>
+        <button type="button" data-cycle="burst" title="Preview the burst loop. Space plays this in the dungeon.">Burst</button>
         <button type="button" id="spr-paint" class="spr-primary">Paint the loops</button>
       </div>
       <div id="spr-status" class="spr-status" aria-live="polite"></div>
       <div class="spr-playfield">
-        <button type="button" id="spr-send" class="spr-send" aria-label="Send this sprite into the dungeon">
+        <button type="button" id="spr-send" class="spr-send" aria-label="Send the saved entity into the dungeon">
           <span class="spr-send-icon" aria-hidden="true"></span>
         </button>
         <section id="spr-game" class="spr-game" aria-label="Dungeon">
           <h3>Sprites</h3>
           <div class="spr-game-stage">
-            <canvas id="spr-game-canvas" width="768" height="512" aria-label="Dungeon room. Move with the arrow keys. Letter keys act while the prompt is not focused."></canvas>
+            <canvas id="spr-game-canvas" width="768" height="512" aria-label="Dungeon room. Arrow keys play Walk. Space plays Burst."></canvas>
             <div id="spr-level" class="spr-level" hidden>
               <p>Level up. The first number is the rate now. The second is the rate with that choice.</p>
               <div id="spr-level-choices"></div>
@@ -7749,16 +7749,22 @@
             <span id="spr-hud-level">Level 1</span>
             <span id="spr-hud-floor">Floor 1</span>
             <span id="spr-hud-party">Just you</span>
-            <button type="button" id="spr-burst">Burst</button>
+            <button type="button" id="spr-burst" title="Play the burst loop. The meter must be full.">Burst</button>
           </div>
-          <p id="spr-key-mode" class="spr-key-mode">Arrow keys move. Space bursts. Letter keys act. Click the prompt to type.</p>
+          <p id="spr-key-mode" class="spr-key-mode">Arrow keys play Walk. Letting go plays Idle. Space plays Burst.</p>
           <form id="spr-prompt-form" class="spr-prompt" autocomplete="off">
-            <label for="spr-prompt">Prompt</label>
-            <input id="spr-prompt" type="text" maxlength="32" placeholder="Click to type an action, then Enter. Escape leaves the bar." aria-label="Dungeon prompt" />
+            <label for="spr-prompt">Name</label>
+            <input id="spr-prompt" type="text" maxlength="32" placeholder="Name this sprite. Enter saves it in the side panel." aria-label="Entity name" />
           </form>
-          <div id="spr-keys" class="spr-keys"></div>
-          <p id="spr-game-note" class="spr-game-note">Send the finished sprite in. Anyone on this tab shares the dungeon.</p>
+          <p id="spr-moves" class="spr-moves">Idle plays when you stand. Walk plays while an arrow is held. Burst plays when you press Burst or Space.</p>
+          <p id="spr-game-note" class="spr-game-note">Save a sprite in the side panel. The dungeon uses that entity.</p>
         </section>
+        <aside id="spr-entities" class="spr-entities" aria-label="Saved entities">
+          <h3>Entities</h3>
+          <p class="spr-entities-note">A sprite is used in the dungeon after it is saved here.</p>
+          <button type="button" id="spr-save-entity">Save entity</button>
+          <div id="spr-entity-list" class="spr-entity-list"></div>
+        </aside>
       </div>
     </div>
     <div id="spr-forge" class="spr-forge"></div>
@@ -9336,8 +9342,8 @@
   <script defer src="js/engrams.js?v=15"></script>
   <script defer src="js/bible.js?v=12"></script>
   <script defer src="js/history.js?v=1"></script>
-  <script defer src="js/sprites.js?v=7"></script>
-  <script defer src="js/sprite-dungeon.js?v=3"></script>
+  <script defer src="js/sprites.js?v=8"></script>
+  <script defer src="js/sprite-dungeon.js?v=4"></script>
   <script defer src="js/slots.js?v=5"></script>
   <script defer src="js/colors.js?v=4"></script>
   <script defer src="js/colors-gen.js?v=5"></script>
