@@ -253,7 +253,7 @@
       comedy: "witty comedic production design, playful props, bright staging",
       romance: "romantic cinematic light, intimate sets, soft color",
       animation: "stylized animated production design, bold shapes, playful materials",
-      adventure: "epic adventure scale, journeys, dramatic landscapes",
+      adventure: "epic adventure scale, journeys, dramatic open country",
       war: "historical war-era production design, uniforms and vehicles as set dressing (no graphic violence)",
       musical: "theatrical musical staging, performance light, glamorous costume color",
       western: "frontier western atmosphere, dust light, rugged props",
@@ -264,36 +264,40 @@
     return map[g] || g + " cinematic mood";
   }
 
-  /** Generative brief — genre/era weather + freshly invented beings and props. */
+  /** Title brief keeps the name and the stated icons. */
   function titleSafePromptBrief(t, maxIcons) {
     maxIcons = maxIcons == null ? 4 : maxIcons;
-    var motifs = ((t && t.icons) || [])
-      .map(softenMotifForModeration)
+    var name = spellSuperMan((t && t.name) || "this title");
+    var icons = ((t && t.icons) || [])
+      .map(function (icon) {
+        return spellSuperMan(icon);
+      })
       .filter(Boolean)
       .slice(0, maxIcons);
-    var motifBit = motifs.length
-      ? "dream-set motifs to reimagine as one-of-a-kind artifacts: " + motifs.join(", ")
-      : "invented heraldry, never-seen wardrobe silhouettes, and architecture that only exists in this frame";
-    var kind = t && t.kind === "tv" ? "prestige television" : "feature-film";
+    var iconBit = icons.length
+      ? "Stated icons, kept as themselves and kept sharp: " + icons.join(", ")
+      : "Keep this title's stated marks sharp. Do not invent a replacement symbol.";
+    var kind = t && t.kind === "tv" ? "TV series" : "film";
     var era = titleEraLabel(t && t.year);
     var mood = genreMoodPhrase(t && t.genre);
     return (
+      name +
+      " (" +
+      (t && t.year ? t.year + " " : "") +
       kind +
-      " production design inspired by " +
+      ", " +
       era +
-      " " +
-      (t && t.genre ? t.genre + " " : "") +
-      "cinema — " +
+      "): " +
       mood +
-      "; " +
-      motifBit +
-      ". Birth a never-before-seen lead figure with a unique face, personal sigils, and couture that has no twin — pure generative myth."
+      ". " +
+      iconBit +
+      ". Paint this title's facts. Do not replace the title with a new story."
     );
   }
 
   function titlePlacementBlurb(t) {
-    // Intentionally omit exact film/show titles and IMDb IDs — they trip content moderation.
-    return "Cinematic story-world layer: " + titleSafePromptBrief(t, 5) + ".";
+    var name = spellSuperMan((t && t.name) || "this title");
+    return "Title facts for " + name + ": " + titleSafePromptBrief(t, 5) + ".";
   }
 
   function titlesPromptLine() {
@@ -568,19 +572,14 @@
   }
 
   /**
-   * Movie/TV brand string for API prompts:
-   * lowercase first; if that still flags, use antonym.
-   * Returns { phrase, mode: "lower"|"antonym", original }
+   * Movie/TV name for API prompts. Keep the title.
+   * spellSuperMan is the only rewrite. A moderation strike strips a blocked word after rejection.
+   * Returns { phrase, mode: "name"|"empty", original }
    */
   function titleBrandForPrompt(name) {
-    var original = String(name || "").trim();
+    var original = spellSuperMan(String(name || "").trim());
     if (!original) return { phrase: "", mode: "empty", original: "" };
-    var lower = original.toLowerCase();
-    if (!textTriggersModeration(lower)) {
-      return { phrase: lower, mode: "lower", original: original };
-    }
-    var ant = inventTitleAntonym(original);
-    return { phrase: ant, mode: "antonym", original: original };
+    return { phrase: original, mode: "name", original: original };
   }
 
   function titleBrandPhrase(name) {
@@ -593,10 +592,8 @@
     var phrases = (names || [])
       .map(function (n) {
         var r = titleBrandForPrompt(n);
-        if (r.mode === "antonym") {
-          notes.push(r.original + " → antonym");
-        } else if (r.mode === "lower") {
-          notes.push(r.original + " → lowercase");
+        if (r.mode === "name") {
+          notes.push(r.original + " → name kept");
         }
         return r.phrase;
       })
@@ -742,7 +739,9 @@
     if (!c) return "";
     var vibe = c.vibe || "star presence";
     var icons = (c.icons || [])
-      .map(softenMotifForModeration)
+      .map(function (icon) {
+        return spellSuperMan(icon);
+      })
       .filter(Boolean)
       .slice(0, 3)
       .join(", ");
@@ -771,7 +770,7 @@
       (icons ? "; red-carpet/set sparks: " + icons : "") +
       ". This figure SHOWCASES and sells the entertainment brand(s) " +
       brandLine +
-      " as the hero product of the commercial — premiere campaign energy, title key-art as living signage, diegetic posters/marquees/props for that show or film, the star presenting the title-brand to the spell-world. Mint a singular original face with that voltage (new bone structure, invented couture) who exists to champion that movie/TV brand myth."
+      " as the hero product of the commercial. Keep the title words and key art sharp and readable. Mint a singular original face with that voltage (new bone structure, invented couture) who exists to present that title."
     );
   }
 
@@ -1757,7 +1756,7 @@
       " as an enclosed indoor place — ceiling, walls, floor, interior lighting, " +
       "inside the premises (lobby, aisle, dining room, studio floor, checkout, guest room, or sales floor). " +
       "Not an outdoor street facade as the main subject; not a parking lot hero shot. " +
-      "If the spell-world is outdoors, grow an indoor pocket of this brand inside it (portal shop, pocket lobby, glass-roof arcade)."
+      "If the setting is outdoors, still show the interior of this place."
     );
   }
 
@@ -1770,10 +1769,10 @@
         (b.domain ? " (" + b.domain + ")" : "") +
         " (" +
         (b.category || "business") +
-        "): keep the real logo geometry and brand colors accurate and legible as diegetic " +
+        "): paint the real logo sharp and unblurred. Keep the true geometry and brand colors. The letters stay readable. Do not turn the logo into architecture, weather, or a monument. Place it as " +
         (indoor
-          ? "interior signage, menu boards, ceiling banners, counter logos, and in-store landmarks."
-          : "signage, marquees, livery, and landmarks."),
+          ? "interior signage, menu boards, and counter marks."
+          : "a readable mark, on a sign or on the product."),
     ];
     if (indoor) {
       bits.push(brandIndoorLine(b));
@@ -1786,14 +1785,13 @@
           prods +
           (indoor
             ? " inside the indoor venue — on shelves, counters, tables, racks, plates, machines, or display cases within the enclosed space."
-            : " as native objects in the spell world — held, worn, driven, eaten, packaged, displayed on shelves, pouring, glowing, monumental, or woven into architecture.") +
-          " Products must read as the real-world items associated with this company."
+            : " as the real items — held, worn, driven, eaten, packaged, or displayed. Do not turn them into monuments.") +
+          " Products must read as the named items from this company. The logo on them stays sharp."
       );
     } else {
       bits.push(
-        "PRODUCT PLACEMENT: invent iconic real-world products/services this company is famous for and place them diegetically " +
-          (indoor ? "inside the indoor brand space" : "in the world") +
-          " alongside the logo."
+        "No catalog product is named. Show the logo sharp. Do not invent a product" +
+          (indoor ? " inside the place." : ".")
       );
     }
     return bits.join(" ");
@@ -2491,13 +2489,7 @@
     // Show title brand transforms (lowercase / antonym)
     selectedTitlesList().forEach(function (t) {
       var r = titleBrandForPrompt(t.name);
-      addLine(
-        "Title brand",
-        t.name +
-          " → " +
-          (r.mode === "antonym" ? "ANTONYM: " : r.mode === "lower" ? "lower: " : "") +
-          r.phrase
-      );
+      addLine("Title", t.name + " stays in the prompt as " + r.phrase);
     });
     styles.forEach(function (s) {
       addLine("Style", s.name + (s.description ? " — " + clipText(s.description, 100) : ""));
@@ -2524,8 +2516,8 @@
       .map(function (b) {
         var p = brandProductsLine(b, 5);
         return p
-          ? b.name + " products in-world: " + p + "."
-          : b.name + " iconic products placed in-world.";
+          ? b.name + " products, shown as themselves: " + p + ". The logo stays sharp."
+          : b.name + " logo stays sharp. No product is named, so do not invent one.";
       })
       .join(" ");
   }
@@ -2586,7 +2578,7 @@
   function spellWorldBlurb(sp) {
     var a = analysisForSpell(sp);
     var label = sp.label || (sp.paintingNum ? "painting #" + sp.paintingNum : "spell world");
-    if (!a) return label + " as a fully realized imaginative world";
+    if (!a) return label + " as stated";
     var bits = [label];
     if (a.title) bits.push('"' + a.title + '"');
     if (a.description) bits.push(String(a.description).slice(0, 220));
@@ -2609,8 +2601,8 @@
   }
 
   /**
-   * Imaginative generation text — vivid commercial fantasy, length-capped,
-   * always inventing unique beings instead of cloning famous ones.
+   * Generation text keeps the stated names, products, and logos.
+   * Length-capped. spellSuperMan is the only name rewrite.
    */
   function composeCommercialPayload(userPrompt) {
     userPrompt = String(userPrompt || "").trim();
@@ -2634,24 +2626,26 @@
             return b.name;
           })
           .join(", ") +
-        " as enclosed interiors (ceiling, walls, floor, indoor light, aisles/counters/tables inside the venue). Prefer lobby, dining room, sales floor, gym floor, hotel corridor, café interior — not outdoor street façades or parking-lot hero shots. Spell-world outdoors may host these as indoor pocket realms."
+        " as enclosed interiors (ceiling, walls, floor, indoor light, aisles, counters, or tables). Prefer the lobby, dining room, sales floor, gym floor, hotel corridor, or café interior. If the setting is outdoors, still show the inside of this place."
       : "";
     var titleMoods = titles
       .map(function (t) {
         return (
+          spellSuperMan(t.name || "title") +
+          " (" +
           titleEraLabel(t.year) +
           " " +
           (t.genre || "drama") +
           " " +
-          (t.kind === "tv" ? "prestige-TV" : "feature-film") +
-          " dream-logic"
+          (t.kind === "tv" ? "TV" : "film") +
+          ")"
         );
       })
       .join(", ");
     var equippedTitlesForCelebs = selectedTitlesList();
     var celebEnergy = celebs
       .map(function (c) {
-        return clipText(celebSafePromptBrief(c, equippedTitlesForCelebs), 280);
+        return clipText(celebSafePromptBrief(c, equippedTitlesForCelebs), 520);
       })
       .join(" ");
     var showcaseTitlePack = (function () {
@@ -2691,38 +2685,37 @@
       })
       .join(" ");
 
-    // Seed variation so repeated generates feel less template-y
     var seeds = [
-      "Let brands bloom as living architecture and weather.",
-      "Treat products as mythical artifacts the world itself grew.",
-      "Stage a single impossible commercial myth — one breath, one light.",
-      "Surreal partnership spectacle: wonder first, logo legible second.",
-      "Dream-logic advertising: the storefront is a temple, the snack is a star.",
+      "Paint each real brand name and its real logo, sharp and unblurred.",
+      "The logo keeps its true geometry and brand colors, readable at a glance.",
+      "Stated products stay the products named here. Do not invent a stand-in.",
+      "Letters and numbers on a mark stay crisp. Do not melt them into the scene.",
+      "One continuous painting. The stated facts lead. A logo is a sharp mark.",
     ];
     var seed = seeds[(brands.length + titles.length + celebs.length + spells.length) % seeds.length];
 
     var stasisParts = [
-      "Imaginative brands-in-worlds commercial fantasy — one continuous painting of partnership wonder.",
+      "Commercial painting of the stated brands, products, and titles. Keep every stated fact. Keep every logo sharp.",
       seed,
-      "Craft a single seamless frame: no collage panels, no letterbox, no stacked photos, no double exposure.",
+      "One seamless frame: no collage panels, no letterbox, no stacked photos.",
     ];
     if (spells.length) {
       stasisParts.push(
-        "Spell-world environment from " +
+        "Spell-world setting from " +
           worldLabels +
           (spells.length > 1
-            ? ": braid them into one hybrid climate and architecture."
-            : ": expand it into a full living realm.")
+            ? ": one place that still shows each world's stated facts."
+            : ": keep this world's stated facts.")
       );
       stasisParts.push(clipText(worldBlurbs, 700));
     } else {
       stasisParts.push(
-        "Invent a bold impossible commercial realm — floating avenues, living signage, weather made of brand color."
+        "No spell world is equipped. Paint the stated brands in one place. Do not invent a myth realm in their place."
       );
     }
     if (brands.length) {
       stasisParts.push(
-        "Brand guests (true logos + signature products as diegetic wonders — temples, vehicles, feasts, monuments, neon fauna): " +
+        "Brands, with the true logo and the products named here. Each logo stays sharp, unblurred, with its real geometry and brand colors: " +
           brandProducts +
           "."
       );
@@ -2736,17 +2729,17 @@
     }
     if (titles.length) {
       stasisParts.push(
-        "Movie/TV entertainment brands in the air (" +
+        "Movie and TV titles, named as themselves (" +
           titleMoods +
-          (showcaseTitleNames ? "; title-brands: " + showcaseTitleNames : "") +
-          ") — marquees, key-art weather, premiere myth as diegetic architecture."
+          (showcaseTitleNames ? "; also " + showcaseTitleNames : "") +
+          "). Keep the title words readable. Do not replace a title with a new story."
       );
     }
     if (celebs.length) {
       stasisParts.push(
-        "Celebrities as brand ambassadors SHOWCASE the movie/TV brand" +
+        "Celebrities as brand ambassadors present the named movie or TV title" +
           (showcaseTitleNames ? " (" + showcaseTitleNames + ")" : "") +
-          " — red-carpet campaign inside the spell world, star presenting the title as the hero product: " +
+          ". The title stays readable: " +
           clipText(celebEnergy, 720) +
           "."
       );
@@ -2764,39 +2757,39 @@
     stasisParts.push(
       "Aspect " +
         state.aspect +
-        ". Full bleed edge-to-edge. One light setup, one perspective, story-rich commercial magic."
+        ". Full bleed edge to edge. One light, one perspective. The facts stay in the frame."
     );
     var stasis = spellSuperMan(clipText(stasisParts.join(" "), MAX_STASIS_CHARS));
 
     var promptParts = [
-      "Invent one continuous commercial myth-scene — inventive, surreal-capable, emotionally charged — not a bland product shot and not a collage.",
+      "Paint one continuous commercial scene from the facts below. Do not drop a stated name to invent a visual story.",
       worldLabels
-        ? "The universe grows from " + worldLabels + "; make geography, weather, and materials feel alive."
-        : "Invent a breathtaking commercial cosmos.",
-      worldBlurbs ? clipText("World DNA: " + worldBlurbs, 420) : "",
+        ? "The place comes from " + worldLabels + ". Keep that place's stated facts."
+        : "No spell world is equipped. Use one plain place for the stated brands.",
+      worldBlurbs ? clipText("World facts: " + worldBlurbs, 420) : "",
       brandNames
-        ? "Summon " +
+        ? "Show " +
           brandNames +
-          " as living guests — logos accurate and legible as architecture/signage/livery; products as legendary objects the world worships or wears." +
+          " with logos sharp and unblurred: true geometry, true brand colors, readable letters. Products stay the real named products." +
           (placeIndoorDirective
-            ? " Venue brands are indoor places: shoot inside the store/restaurant/gym/hotel/café — interior architecture and in-room product display."
+            ? " Venue brands are indoor places: show the interior, the counter, and the products in that room."
             : "")
         : "",
       titleMoods || showcaseTitleNames
-        ? "Entertainment brand identity for " +
+        ? "Keep these titles as themselves: " +
           (showcaseTitleNames || titleMoods) +
-          " lives as marquees, posters-as-architecture, and campaign weather (" +
-          (titleMoods || "cinematic") +
+          ". Title words stay sharp and readable (" +
+          (titleMoods || "as named") +
           ")."
         : "",
       celebEnergy
-        ? "Celebrity ambassadors showcase that movie/TV brand: " +
+        ? "Celebrity ambassadors present that named title: " +
           clipText(celebEnergy, 420) +
-          " The star is selling the show/film — not floating alone."
+          " The figure presents the title. The face is an original painting."
         : "",
-      styleNames ? "Visual dialect: " + styleNames + " across the entire frame." : "",
-      userPrompt ? "Obey this director note with flair: " + clipText(userPrompt, 220) : "",
-      "No stacked frames, soft-light mush, or pasted posters. Full bleed " + state.aspect + ". Make it unforgettable.",
+      styleNames ? "Visual style across the frame: " + styleNames + "." : "",
+      userPrompt ? "Director note, kept as written: " + clipText(userPrompt, 220) : "",
+      "No stacked frames. Full bleed " + state.aspect + ". Logos stay sharp.",
     ].filter(Boolean);
     var prompt = spellSuperMan(clipText(promptParts.join(" "), MAX_PROMPT_CHARS));
 
@@ -2807,13 +2800,14 @@
     }
 
     var buzz = [
-      "imaginative commercial fantasy",
+      "stated facts",
+      "sharp logos",
       "single seamless scene",
       "no collage",
       "full bleed",
-      brandNames ? "diegetic brand wonders" : "",
-      titleMoods ? "cinematic weather" : "",
-      celebs.length ? "star energy homage" : "",
+      brandNames ? "readable wordmarks" : "",
+      titleMoods ? "title names kept" : "",
+      celebs.length ? "original painted face" : "",
       styleNames ? styleNames.slice(0, 60) : "",
       "aspect " + state.aspect,
     ].filter(Boolean);
@@ -3098,14 +3092,7 @@
       if (flags.high) parts.push(flags.high + " high-risk");
       if (flags.med) parts.push(flags.med + " med-risk");
       var notes = (state.lastPayload && state.lastPayload.titleBrandNotes) || [];
-      if (notes.length) {
-        var antN = notes.filter(function (n) {
-          return String(n).indexOf("antonym") >= 0;
-        }).length;
-        var lowN = notes.length - antN;
-        if (lowN) parts.push(lowN + " title(s) lowercase");
-        if (antN) parts.push(antN + " title antonym(s)");
-      }
+      if (notes.length) parts.push(notes.length + " title name(s) kept");
       if (total > MAX_TOTAL_TEXT_CHARS) parts.push("OVER LIMIT");
       else if (flags.high) parts.push("moderation risk");
       else parts.push("OK");
@@ -3718,14 +3705,12 @@
       .then(function (compressed) {
         if (!compressed) throw new Error("Could not prepare still for video.");
         var life =
-          "IMAGE-TO-LIFE from this still only. Keep logos, products, and original cinematic set-dressing stable. " +
-          "Living world motion (lights, weather, subtle crowd/creature energy). Fixed camera, no Ken Burns. " +
+          "IMAGE-TO-LIFE from this still only. Keep logos, products, title words, and letters stable and sharp. Do not blur a logo. " +
+          "Motion may move lights and the crowd. Fixed camera, no Ken Burns. " +
           (brandNamesLine() ? "Brands: " + brandNamesLine() + ". " : "") +
           (productPlacementPromptLine() ? productPlacementPromptLine().slice(0, 320) + " " : "") +
           (titlesSafeShortLine()
-            ? "Cinematic mood: " +
-              titlesSafeShortLine() +
-              " — populate with never-before-seen heroes and personal sigils. "
+            ? "Keep the stated titles: " + titlesSafeShortLine() + ". "
             : "") +
           (userPrompt || "") +
           " Seamless loop.";
@@ -3737,7 +3722,7 @@
           productPlacementPromptLine().slice(0, 200) +
           ". " +
           titlesSafeShortLine() +
-          ". Original cinematic motifs only."
+          ". Keep logos and title words sharp."
         ).slice(0, 2500);
         setStatus("Starting video job (async)…", "pending");
         return fetchWithTimeout(
@@ -3759,7 +3744,7 @@
                 "brands in worlds",
                 "product placement",
                 "worldbuilding motion",
-                "diegetic logos",
+                "sharp logos",
                 "fixed camera",
                 "loop",
               ],
@@ -3899,7 +3884,7 @@
                     " in " +
                     (state.appliedSpells.length
                       ? state.appliedSpells.length + " spell world(s)"
-                      : "an invented commercial world") +
+                      : "no spell world") +
                     ". Open Gallery → Generated to browse.",
                   "ok"
                 );

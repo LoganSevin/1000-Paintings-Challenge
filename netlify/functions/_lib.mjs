@@ -819,6 +819,14 @@ export function buildAzLinePrompt(stasis) {
   );
 }
 
+const STATED_FACT_LINE =
+  "Paint the facts already stated. Keep every named subject, place, color, product, and mark. " +
+  "Logos, wordmarks, letters, and numbers that belong to the subject stay sharp and readable. " +
+  "Do not blur a logo, melt it into brushwork, or replace a stated fact with a new visual story.";
+
+const STATED_BRUSH_LINE =
+  "Museum-quality, cohesive composition. Brushwork may carry the scene. A logo, wordmark, or letter that belongs to the subject stays sharp.";
+
 export function buildStasisVisionPrompt(stasis, buzzWords, aspectRatio, opts = {}) {
   if (opts.source === "az") return buildAzLinePrompt(stasis);
   const buzz =
@@ -839,11 +847,12 @@ export function buildStasisVisionPrompt(stasis, buzzWords, aspectRatio, opts = {
     const outcomeTail = signed
       ? ""
       : "FINAL OUTCOME:\n" +
-        "Create one original fine-art painting that embodies this fused vision. " +
-        "Invent fresh imagery — not a photograph or collage of references.\n\n" +
-        `BUZZ WORDS (weave these into texture, motifs, palette accents, and micro-detail): ${buzz}\n\n` +
+        "Create one original fine-art painting of this fused vision. " +
+        STATED_FACT_LINE +
+        "\n\n" +
+        `BUZZ WORDS (weave these into texture and palette accents, not into a logo): ${buzz}\n\n` +
         "The image should read clearly at thumbnail scale yet reward close viewing. " +
-        "Museum-quality, cohesive composition, expressive brushwork." +
+        STATED_BRUSH_LINE +
         authorshipFooter(aspectRatio, opts.signature);
     const combined = outcomeTail ? raw + "\n\n" + outcomeTail : raw;
     return fitSpellforgePrompt(aspectLine + "\n\n" + combined, GEN_PROMPT_SAFE_MAX);
@@ -855,13 +864,14 @@ export function buildStasisVisionPrompt(stasis, buzzWords, aspectRatio, opts = {
   const footer = authorshipFooter(aspectRatio, opts.signature);
   const prefix =
     lead +
-    "Create one original fine-art painting that embodies this fused vision. " +
-    "Invent fresh imagery — not a photograph or collage of references.\n\n" +
-    "STASIS (locked fusion — the scene, mood, and narrative to paint):\n";
+    "Create one original fine-art painting of the facts stated below. " +
+    STATED_FACT_LINE +
+    "\n\n" +
+    "STASIS (locked facts — paint these):\n";
   const suffix =
-    `\n\nBUZZ WORDS (weave these into texture, motifs, palette accents, and micro-detail): ${buzz}\n\n` +
+    `\n\nBUZZ WORDS (weave these into texture and palette accents, not into a logo): ${buzz}\n\n` +
     "The image should read clearly at thumbnail scale yet reward close viewing. " +
-    "Museum-quality, cohesive composition, expressive brushwork." +
+    STATED_BRUSH_LINE +
     footer;
   const overhead = prefix.length + suffix.length;
   const bodyMax = Math.min(
@@ -1079,13 +1089,15 @@ export function buildFlashProjectPrompt(stasis, buzzWords, aspectRatio, opts = {
       : "rich painterly detail";
   const footer = authorshipFooter(aspectRatio, opts.signature);
   const prefix =
-    "Paint one NEW original fine-art still inspired by the attached overhead-projector composition. " +
+    "Paint one new fine-art still from the attached overhead-projector composition. " +
     "This must be a finished museum painting, not a photograph of acetate, glass, or the source collage. " +
-    "Keep the same subjects, spatial arrangement, and mood, but invent fresh brushwork and lighting.\n\n" +
-    "STASIS (scene to paint):\n";
+    "Keep the same subjects, spatial arrangement, and mood. " +
+    STATED_FACT_LINE +
+    "\n\n" +
+    "STASIS (facts to paint):\n";
   const suffix =
     `\n\nBUZZ WORDS: ${buzz}\n\n` +
-    "Museum-quality, cohesive composition, expressive brushwork." +
+    STATED_BRUSH_LINE +
     footer;
   const overhead = prefix.length + suffix.length;
   const bodyMax = Math.min(
@@ -1405,6 +1417,7 @@ export function buildCloudflarePrompt(stasis, buzzWords, aspect, opts = {}) {
   if (colors.length) tail.push("Dominant colors: " + colors.join(", ") + ".");
   if (moods.length) tail.push("Mood: " + moods.join(", ").toLowerCase().replace(/[.…]+$/, "") + ".");
   tail.push(fluxFraming(aspect));
+  tail.push("Stated facts stay. Logos, wordmarks, and letters stay sharp and readable.");
   const sig = String((opts && opts.signature) || "").trim();
   if (sig) {
     tail.push(`Small painted signature in the lower corner: "${sig}". No watermark.`);

@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import {
   buildCloudflarePrompt,
+  buildFlashProjectPrompt,
   buildSpritePosePrompt,
   buildStasisVisionPrompt,
   cloudflareImagePayload,
@@ -40,6 +41,9 @@ test("Spellforge stasis prompt explicitly preserves all three identities", () =>
   assert.match(prompt, /Spellforge three-spell fusion/);
   assert.match(prompt, /one combination painting/);
   assert.match(prompt, /Spell 1, Spell 2, and Spell 3/);
+  assert.match(prompt, /stay sharp and readable/);
+  assert.doesNotMatch(prompt, /Invent fresh imagery/);
+  assert.doesNotMatch(prompt, /narrative to paint/);
   assert.doesNotMatch(prompt, /SPELL I —/);
   assert.equal((prompt.match(/COMBINATION PIECE/g) || []).length, 1);
   assert.ok(combo >= 0 && detail > combo);
@@ -91,6 +95,45 @@ test("non-Spellforge stasis prompts keep the general framing", () => {
 
   assert.doesNotMatch(prompt, /Spellforge three-spell fusion/);
   assert.match(prompt, /A quiet field at dawn/);
+  assert.match(prompt, /locked facts/);
+  assert.doesNotMatch(prompt, /narrative to paint/);
+  assert.doesNotMatch(prompt, /Invent fresh imagery/);
+});
+
+test("a stated logo stays sharp and is not replaced by a visual story", () => {
+  const prompt = buildStasisVisionPrompt(
+    "Air Canada logo, maple leaf mark, wordmark AIR CANADA, on a white card.",
+    ["maple leaf"],
+    "1:1"
+  );
+
+  assert.match(prompt, /Air Canada logo/);
+  assert.match(prompt, /wordmark AIR CANADA/);
+  assert.match(prompt, /stay sharp and readable/);
+  assert.match(prompt, /Do not blur a logo/);
+  assert.match(prompt, /IN-CANVAS SIGNATURE/);
+  assert.doesNotMatch(prompt, /narrative to paint/);
+  assert.doesNotMatch(prompt, /Invent fresh imagery/);
+  assert.doesNotMatch(prompt, /\blandscape\b/i);
+  assert.doesNotMatch(prompt, /omit the signature/i);
+  assert.doesNotMatch(prompt, /no signature/i);
+});
+
+test("a flash still keeps stated facts and does not invent fresh brushwork", () => {
+  const prompt = buildFlashProjectPrompt(
+    "The Nike wordmark stays on the shoe.",
+    [],
+    "16:9",
+    { signature: "Logan Sevin" }
+  );
+
+  assert.match(prompt, /Nike wordmark/);
+  assert.match(prompt, /stay sharp and readable/);
+  assert.match(prompt, /Logan Sevin/);
+  assert.doesNotMatch(prompt, /invent fresh brushwork/i);
+  assert.doesNotMatch(prompt, /narrative to paint/);
+  assert.doesNotMatch(prompt, /\blandscape\b/i);
+  assert.doesNotMatch(prompt, /omit the signature/i);
 });
 
 test("a short spell does not trim the other two", () => {
