@@ -2,7 +2,9 @@
  * Social room on the Sprites tab.
  * A painted sprite is saved as an entity or an enemy.
  * Paint the loops also paints the projectile, and that projectile stays on the entity.
- * The room uses only those saves. Space holds up the entity's picture.
+ * Saved enemies replace the red marks. With none saved, those marks stay red.
+ * Burst is the creature holding a picture frame. The frame shows the Spellforge outcome.
+ * The room uses only those saves. Space holds the frame up.
  * The frame button opens that picture full screen.
  * Levels come from clears. Anyone on the tab shares the same room.
  */
@@ -375,8 +377,6 @@
       if (edge === 2) { x = 4 + (i % 10); y = 1.6; }
       if (edge === 3) { x = 4 + (i % 10); y = ROOM_H - 1.8; }
       var hp = 6 + floorN * 4;
-      var looks = enemyLooks();
-      var look = looks.length ? looks[i % looks.length] : null;
       enemies.push({
         id: "local" + floorN + "n" + i,
         x: x,
@@ -384,10 +384,11 @@
         hp: hp,
         maxHp: hp,
         spd: 1.15 + floorN * 0.05,
-        look: look ? look.frames : null,
-        lookId: look ? look.id : "",
+        look: null,
+        lookId: "",
       });
     }
+    dressEnemies();
   }
 
   function offerLevel() {
@@ -769,7 +770,7 @@
       var o = others[ids[i]];
       drawCreature(g, o.frames, o.cycle, o.frame, o.x, o.y, o.face);
       var up = o.cycle === "burst";
-      drawPicture(g, o.pictureImg, o.x, o.y, up ? 34 : 18, up ? 78 : 56);
+      drawPicture(g, o.pictureImg, o.x, o.y, up ? 28 : 14, up ? 6 : 22);
       g.fillStyle = "#f0e2c0";
       g.font = "12px sans-serif";
       g.textAlign = "center";
@@ -788,7 +789,7 @@
     g.fillStyle = "#c9a227";
     g.fillRect(worldX(me.x) - 16, worldY(me.y) + 6, 32 * (me.meter / 100), 3);
     var channel = burstLeft > 0;
-    heldFrame = drawPicture(g, outcomeImg, me.x, me.y, channel ? 34 + me.burstPow * 12 : 22, channel ? 86 : 62);
+    heldFrame = drawPicture(g, outcomeImg, me.x, me.y, channel ? 20 + me.burstPow * 6 : 14, channel ? 6 : 22);
   }
 
   function loadOtherSprite(id, rev, list) {
@@ -866,6 +867,7 @@
         enterLatch = true;
       }
       enemies = Array.isArray(data.enemies) ? data.enemies : [];
+      dressEnemies();
       if (Array.isArray(data.killed)) data.killed.forEach(function () { addXp(4); });
       var next = {};
       (data.players || []).forEach(function (p) {
@@ -1009,6 +1011,21 @@
       list.push(enemyRoster[i]);
     }
     return list;
+  }
+
+  function dressEnemies() {
+    var looks = enemyLooks();
+    var i;
+    for (i = 0; i < enemies.length; i++) {
+      if (!looks.length) {
+        enemies[i].look = null;
+        enemies[i].lookId = "";
+        continue;
+      }
+      var look = looks[i % looks.length];
+      enemies[i].look = look.frames;
+      enemies[i].lookId = look.id;
+    }
   }
 
   function storeName(kind) {
@@ -1252,13 +1269,7 @@
       }
       setNote(name + " left the panel, so the room will not use that entity.");
     } else {
-      var n;
-      for (n = 0; n < enemies.length; n++) {
-        if (enemies[n].lookId === id) {
-          enemies[n].look = null;
-          enemies[n].lookId = "";
-        }
-      }
+      dressEnemies();
       setNote(name + " left the panel, so the room will not use that enemy.");
     }
     renderCards(kind);
@@ -1320,7 +1331,8 @@
       setNote(name + " is saved. " + moveLabel(caught) + " are its moves. The frame shows this picture. Send steps into the room with this entity.");
     } else {
       setStatus(name + " is an enemy.");
-      setNote(name + " is saved. The room can use this enemy.");
+      setNote(name + " is saved. The red marks in the room use this sprite.");
+      dressEnemies();
     }
     renderCards(kind);
     putRecord(storeName(kind), rec).catch(function () {
@@ -1354,6 +1366,7 @@
       if (rosterOf(kind).length) return;
       var clean = items.filter(function (item) { return item && item.id && frameTotal(item.frames); });
       setRoster(kind, clean);
+      if (kind === "enemy") dressEnemies();
       if (kind === "entity" && clean.some(function (item) { return item.id === stored; })) {
         pickedId = stored;
         var ent = pickedEntity();

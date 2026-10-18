@@ -5,6 +5,7 @@
  * Paint asks for twenty-four stills: six idle, six walk, six burst, and six projectile stills.
  * The first still locks the creature. Each later body still edits the previous pose.
  * Each projectile still keeps that creature's colors and moves the flight by one small step.
+ * Burst is that creature holding up a picture frame. The picture is the Spellforge outcome.
  * Those stills stack in one frame. One is visible at a time. The set is saved.
  */
 (function () {
@@ -26,12 +27,12 @@
     { cycle: "walk", frame: 3, pose: "Side view facing right. Up: the back foot leaves the ground." },
     { cycle: "walk", frame: 4, pose: "Side view facing right. The other foot is now forward." },
     { cycle: "walk", frame: 5, pose: "Side view facing right. Passing the other way, ready for the first walk still to follow." },
-    { cycle: "burst", frame: 0, pose: "Crouch, knees bent, still on the ground." },
-    { cycle: "burst", frame: 1, pose: "A deeper crouch." },
-    { cycle: "burst", frame: 2, pose: "Launch. The feet leave the ground." },
-    { cycle: "burst", frame: 3, pose: "The peak. A bright pixel burst around the body." },
-    { cycle: "burst", frame: 4, pose: "Falling back toward the ground." },
-    { cycle: "burst", frame: 5, pose: "Landing and recovering toward the crouch." },
+    { cycle: "burst", frame: 0, pose: "Both hands lift a picture frame in front of the chest. The feet stay on the ground." },
+    { cycle: "burst", frame: 1, pose: "The same picture frame rises to face height. The feet stay on the ground." },
+    { cycle: "burst", frame: 2, pose: "The picture frame is held up above the head, facing the viewer. The picture inside is the Spellforge outcome." },
+    { cycle: "burst", frame: 3, pose: "The hold is steady. The frame is fully presented. The picture inside stays the same Spellforge outcome." },
+    { cycle: "burst", frame: 4, pose: "The same frame tilts one small step. Both hands stay on it. The feet stay on the ground." },
+    { cycle: "burst", frame: 5, pose: "The frame settles back toward the first raised hold so the loop repeats." },
     { cycle: "shot", frame: 0, pose: "One compact bolt, just formed, centered. It uses this creature's colors. The creature's body is not in the picture." },
     { cycle: "shot", frame: 1, pose: "The same bolt lengthens one step toward the right." },
     { cycle: "shot", frame: 2, pose: "A bright core leads. A short trail of the same pixels follows." },
@@ -58,12 +59,12 @@
       { y: 2, x: 0, sq: 1, arm: -2, blink: 0, fx: 0, front: [-1, -1], back: [3, 1] },
     ],
     burst: [
-      { y: 3, x: 0, sq: 2, arm: -2, blink: 0, fx: 2, front: [2, 2], back: [-2, 2] },
-      { y: 4, x: 0, sq: 3, arm: -3, blink: 0, fx: 3, front: [3, 3], back: [-2, 3] },
-      { y: -8, x: 0, sq: -2, arm: 3, blink: 0, fx: 6, front: [2, -4], back: [-3, -2] },
-      { y: -16, x: 0, sq: -2, arm: 5, blink: 0, fx: 8, front: [1, -5], back: [-2, -5] },
-      { y: -14, x: 0, sq: -1, arm: 4, blink: 0, fx: 7, front: [0, -4], back: [-1, -4] },
-      { y: -6, x: 0, sq: 0, arm: 2, blink: 0, fx: 4, front: [1, -2], back: [-1, -1] },
+      { y: 1, x: 0, sq: 1, arm: -1, blink: 0, fx: 0, front: [0, 0], back: [0, 0] },
+      { y: 0, x: 0, sq: 0, arm: 2, blink: 0, fx: 1, front: [0, 0], back: [0, 0] },
+      { y: 0, x: 0, sq: 0, arm: 4, blink: 0, fx: 2, front: [1, 0], back: [-1, 0] },
+      { y: -1, x: 0, sq: 0, arm: 5, blink: 0, fx: 3, front: [1, 0], back: [-1, 0] },
+      { y: 0, x: 1, sq: 0, arm: 4, blink: 0, fx: 2, front: [0, 0], back: [0, 0] },
+      { y: 0, x: 0, sq: 0, arm: 2, blink: 0, fx: 1, front: [0, 0], back: [0, 0] },
     ],
   };
   var ROMAN = ["I", "II", "III"];
@@ -311,17 +312,18 @@
       block(ctx, headX + 10, headY + 6, 2, 2, "#0c0e14");
       block(ctx, headX + 11, headY + 6, 1, 1, "#f4f7ff");
     }
-    if (cycle === "burst" && pose.fx > 0) {
-      var spark = colorsFrom(spells[2].text).light;
-      var n = pose.fx + 4;
-      var i;
-      for (i = 0; i < n; i++) {
-        var ang = (i / n) * Math.PI * 2 + frame * 0.8;
-        var rad = 8 + pose.fx * 2;
-        var sx = 32 + pose.x + Math.round(Math.cos(ang) * rad);
-        var sy = bodyY + 6 + Math.round(Math.sin(ang) * rad * 0.62);
-        block(ctx, sx, sy, 2, 2, spark);
-      }
+    if (cycle === "burst") {
+      var held = [8, 14, 20, 22, 18, 12][frame] || 14;
+      var framePal = colorsFrom(spells[1].text);
+      var pic = colorsFrom(spells[2].text);
+      var fw = 18;
+      var fh = 14;
+      var fx0 = 23;
+      var fy0 = bodyY - held;
+      block(ctx, fx0 - 1, fy0 - 1, fw + 2, fh + 2, framePal.light);
+      block(ctx, fx0, fy0, fw, fh, "#12151e");
+      block(ctx, fx0 + 2, fy0 + 2, fw - 4, fh - 4, pic.mid);
+      block(ctx, fx0 + 4, fy0 + 4, 4, 3, pic.light);
     }
   }
 
@@ -443,6 +445,12 @@
           "Spell 1 is Spell I. Spell 2 is Spell II. Spell 3 is Spell III.",
           "",
         ];
+    if (job.cycle === "burst") {
+      lines.pop();
+      lines.push("Both hands hold one picture frame up. The feet stay on the ground. Do not jump, do not crouch into a leap, and do not leave the ground.");
+      lines.push("The picture inside the frame is the Spellforge outcome, one combination of Spell 1, Spell 2, and Spell 3. Keep that picture sharp and readable.");
+      lines.push("");
+    }
     for (var i = 0; i < spells.length; i++) {
       var sp = spells[i];
       var body = sp.text || "(empty)";

@@ -7711,7 +7711,7 @@
   <section id="panel-sprites" class="panel" hidden>
     <div class="spr-shell">
       <h2>Sprites</h2>
-      <p class="spr-hint">A pixel sprite for a survivor game. Spell I, II, and III are its body. Idle, walk, burst, and the projectile are six stills each. Paint the loops paints the body and the projectile together. The projectile keeps the creature's colors and is not another body. They stack in this frame. Save a character in Entities and an enemy in Enemies. The room uses only those saves, and shots use the projectile painted with the entity. Space holds up the character's picture, and the frame button opens that picture full screen. The slots, prompt boxes, and spellbook below are Spellforge, so you can change them here.</p>
+      <p class="spr-hint">A pixel sprite for a survivor game. Spell I, II, and III are its body. Idle, walk, burst, and the projectile are six stills each. Paint the loops paints the body and the projectile together. The projectile keeps the creature's colors and is not another body. Burst is that creature holding up a picture frame, and the picture in the frame is the Spellforge outcome. They stack in this frame. Save a character in Entities and an enemy in Enemies. A saved enemy replaces the red marks. Shots use the projectile painted with the entity. Space holds the frame up, and the frame button opens that picture full screen. The slots, prompt boxes, and spellbook below are Spellforge, so you can change them here.</p>
       <div class="spr-stage-wrap">
         <div class="spr-frame" id="spr-frame">
           <canvas id="spr-stage" class="spr-stage" width="64" height="64" data-cycle="idle" data-frame="0" aria-label="Sprite preview, looping"></canvas>
@@ -7728,7 +7728,7 @@
       <div class="spr-row">
         <button type="button" data-cycle="idle" class="is-on" title="Preview the idle loop. It plays when the sprite stands.">Idle</button>
         <button type="button" data-cycle="walk" title="Preview the walk loop. Arrow keys play this in the room.">Walk</button>
-        <button type="button" data-cycle="burst" title="Preview the burst loop. Space holds the picture up in the room.">Burst</button>
+        <button type="button" data-cycle="burst" title="Preview the burst loop. The creature holds up a picture frame. Space shows the Spellforge outcome in that frame.">Burst</button>
         <button type="button" data-cycle="shot" title="Preview the projectile loop. The room fires this when the entity is saved.">Shot</button>
         <button type="button" id="spr-paint" class="spr-primary">Paint the loops</button>
       </div>
@@ -7772,7 +7772,7 @@
           </aside>
           <aside id="spr-enemies" class="spr-entities" aria-label="Saved enemies">
             <h3>Enemies</h3>
-            <p class="spr-entities-note">The room's creatures come from this panel. With none saved, they stay plain marks.</p>
+            <p class="spr-entities-note">The room's creatures come from this panel. Saving one replaces the red marks. With none saved, the marks stay red.</p>
             <button type="button" id="spr-save-enemy">Save enemy</button>
             <div id="spr-enemy-list" class="spr-entity-list"></div>
           </aside>
@@ -9357,8 +9357,8 @@
   <script defer src="js/engrams.js?v=15"></script>
   <script defer src="js/bible.js?v=12"></script>
   <script defer src="js/history.js?v=1"></script>
-  <script defer src="js/sprites.js?v=10"></script>
-  <script defer src="js/sprite-dungeon.js?v=6"></script>
+  <script defer src="js/sprites.js?v=11"></script>
+  <script defer src="js/sprite-dungeon.js?v=7"></script>
   <script defer src="js/slots.js?v=5"></script>
   <script defer src="js/colors.js?v=4"></script>
   <script defer src="js/colors-gen.js?v=5"></script>
