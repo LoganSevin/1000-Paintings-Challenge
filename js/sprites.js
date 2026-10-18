@@ -1,9 +1,10 @@
 /**
  * Sprites: a survivor-game character at sprite size.
  * Spell I, Spell II, and Spell III are the creature.
- * Idle, walk, and burst each play as a loop.
- * Paint asks for eighteen stills of one creature: six idle, six walk, six burst.
- * The first still locks the creature. Each later still edits the previous pose.
+ * Idle, walk, burst, and the projectile each play as a loop.
+ * Paint asks for twenty-four stills: six idle, six walk, six burst, and six projectile stills.
+ * The first still locks the creature. Each later body still edits the previous pose.
+ * Each projectile still keeps that creature's colors and moves the flight by one small step.
  * Those stills stack in one frame. One is visible at a time. The set is saved.
  */
 (function () {
@@ -31,8 +32,14 @@
     { cycle: "burst", frame: 3, pose: "The peak. A bright pixel burst around the body." },
     { cycle: "burst", frame: 4, pose: "Falling back toward the ground." },
     { cycle: "burst", frame: 5, pose: "Landing and recovering toward the crouch." },
+    { cycle: "shot", frame: 0, pose: "One compact bolt, just formed, centered. It uses this creature's colors. The creature's body is not in the picture." },
+    { cycle: "shot", frame: 1, pose: "The same bolt lengthens one step toward the right." },
+    { cycle: "shot", frame: 2, pose: "A bright core leads. A short trail of the same pixels follows." },
+    { cycle: "shot", frame: 3, pose: "The bolt is at its longest. The trail is clear." },
+    { cycle: "shot", frame: 4, pose: "The trail catches the core. The bolt shortens." },
+    { cycle: "shot", frame: 5, pose: "The bolt tightens back to the first shape so the loop repeats." },
   ];
-  var CYCLES = { idle: 1, walk: 1, burst: 1 };
+  var CYCLES = { idle: 1, walk: 1, burst: 1, shot: 1 };
   var POSE = {
     idle: [
       { y: 0, x: 0, sq: 0, arm: 0, blink: 0, fx: 0, front: [0, 0], back: [0, 0] },
@@ -272,6 +279,15 @@
     var air = Math.max(0, -pose.y);
     var shadowRx = Math.max(5, 14 + pose.sq - Math.floor(air / 2));
     drawShadow(ctx, 32 + pose.x, 58, shadowRx);
+    if (cycle === "shot") {
+      var bolt = colorsFrom(spells[0].text);
+      var span = frame < 3 ? 8 + frame * 4 : 8 + (5 - frame) * 4;
+      var bx = 32 - (span >> 1);
+      block(ctx, bx, 30, span, 4, bolt.mid);
+      block(ctx, bx + span - 3, 29, 4, 6, bolt.light);
+      block(ctx, bx, 31, 2, 2, bolt.dark);
+      return;
+    }
     var lean = pose.x * 2;
     var bodyX = 22 + lean;
     var bodyY = 32 + pose.y + Math.max(0, pose.sq);
@@ -391,7 +407,21 @@
   }
 
   function buildFramePrompt(spells, job, hasRef) {
-    var lines = hasRef
+    var lines = job.cycle === "shot"
+      ? [
+          hasRef
+            ? "The attached picture belongs to this creature. Keep the same colors, the same texture, the same palette, and the same painted signature."
+            : "One small projectile made from this creature's colors, texture, and palette.",
+          "Paint one small projectile. Do not paint the creature's body.",
+          "Opaque chunky pixel art. Solid pixels, a dark one-pixel outline, and a limited palette taken from the spells. No transparency, no fade, and no ghosted shape.",
+          "Do not make a character sheet, a film strip, or extra projectiles beside this one.",
+          "The projectile is centered on a flat solid dark backdrop, no scenery.",
+          "This still is projectile frame " + (job.frame + 1) + " of 6. " + job.pose,
+          "The projectile is one combination of Spell 1, Spell 2, and Spell 3. Do not paint Spell 1 by itself.",
+          "Spell 1 is Spell I. Spell 2 is Spell II. Spell 3 is Spell III.",
+          "",
+        ]
+      : hasRef
       ? [
           "The attached picture is this same creature. Keep the same face, the same colors, the same texture, the same outfit, the same proportions, the same outline, and the same flat backdrop.",
           "Do not invent a new creature. Do not invent a new composition. Change only the pose, by one small step.",
@@ -580,7 +610,7 @@
       fresh_variation: false,
       spell_cast: false,
       attach_references: false,
-      source: "sprites",
+      source: job.cycle === "shot" ? "sprites-shot" : "sprites",
     };
     if (hasRef) payload.reference_image = referenceUrl;
     return fetch(apiUrl("/api/generate-stasis-vision"), {
@@ -631,14 +661,14 @@
     var failed = 0;
     var saved = [];
     var lock = "";
-    var last = { idle: "", walk: "", burst: "" };
+    var last = { idle: "", walk: "", burst: "", shot: "" };
     function finish() {
       painting = false;
       if (btn) btn.disabled = false;
       var kept = saved.length;
       if (!kept) setStatus("The sprite did not start. Press Paint again.", true);
-      else if (failed) setStatus(kept + " of 18 stills are saved. Press Paint the loops for the rest.", true);
-      else setStatus("Eighteen stills of one creature are saved. One shows at a time.");
+      else if (failed) setStatus(kept + " of 24 stills are saved. Press Paint the loops for the rest.", true);
+      else setStatus("Twenty-four stills of one creature are saved. The projectile is included. One shows at a time.");
       draw();
     }
     function step() {
@@ -652,7 +682,9 @@
       if (!(job.cycle === "idle" && job.frame === 0)) {
         ref = job.frame === 0 ? lock : (last[job.cycle] || lock);
       }
-      setStatus("Painting " + job.cycle + " still " + (job.frame + 1) + " of 6, same creature…");
+      setStatus(job.cycle === "shot"
+        ? "Painting projectile still " + (job.frame + 1) + " of 6…"
+        : "Painting " + job.cycle + " still " + (job.frame + 1) + " of 6, same creature…");
       requestStill(spells, job, ref).then(
         function (got) {
           var nextRef = got.ref || got.stored || got.url;

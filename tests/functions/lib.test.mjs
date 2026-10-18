@@ -4,6 +4,7 @@ import {
   buildCloudflarePrompt,
   buildFlashProjectPrompt,
   buildSpritePosePrompt,
+  buildSpriteShotPrompt,
   buildStasisVisionPrompt,
   cloudflareImagePayload,
   dropModerationTriggerWords,
@@ -207,6 +208,31 @@ test("a sprite pose edit keeps the same creature and does not ask for fresh brus
   assert.doesNotMatch(prompt, /fresh brushwork/i);
   assert.doesNotMatch(prompt, /\blandscape\b/i);
   assert.doesNotMatch(prompt, /omit the signature/i);
+});
+
+test("a sprite projectile edit keeps the creature's colors and does not paint the body", () => {
+  const stasis = [
+    "The attached picture belongs to this creature. Keep the same colors, the same texture, the same palette, and the same painted signature.",
+    "Paint one small projectile. Do not paint the creature's body.",
+    "This still is projectile frame 1 of 6. One compact bolt, just formed, centered.",
+    "Spell 1 is Spell I. Spell 2 is Spell II. Spell 3 is Spell III.",
+    "OUTPUT ASPECT 1:1 square — this ratio is mandatory. Fill the canvas. Do not letterbox.",
+    'IN-CANVAS SIGNATURE (mandatory, small, painterly, lower corner): write exactly "Logan Sevin".',
+  ].join("\n");
+  const prompt = buildSpriteShotPrompt(stasis, "1:1");
+  assert.match(prompt, /^1:1 square canvas/);
+  assert.match(prompt, /same colors/i);
+  assert.match(prompt, /same texture/i);
+  assert.match(prompt, /one small projectile/i);
+  assert.match(prompt, /Do not paint the creature's body/);
+  assert.match(prompt, /one small step/i);
+  assert.match(prompt, /Spell 1 is Spell I/);
+  assert.match(prompt, /Logan Sevin/);
+  assert.match(prompt, /projectile frame 1 of 6/);
+  assert.doesNotMatch(prompt, /fresh brushwork/i);
+  assert.doesNotMatch(prompt, /\blandscape\b/i);
+  assert.doesNotMatch(prompt, /omit the signature/i);
+  assert.doesNotMatch(prompt, /pokemon/i);
 });
 
 test("Cloudflare fallback does not ask for a landscape or forbid the signature", () => {

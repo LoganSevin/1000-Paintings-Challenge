@@ -7711,7 +7711,7 @@
   <section id="panel-sprites" class="panel" hidden>
     <div class="spr-shell">
       <h2>Sprites</h2>
-      <p class="spr-hint">A pixel sprite for a survivor game. Spell I, II, and III are its body. Idle, walk, and burst are six stills of that same creature. Each still moves one pose from the last, and the texture stays. They stack in this frame. Save a character in Entities, an enemy in Enemies, and a shot in Projectiles. The room uses only those saves. Space holds up the character's picture, and the frame button opens that picture full screen. The slots, prompt boxes, and spellbook below are Spellforge, so you can change them here.</p>
+      <p class="spr-hint">A pixel sprite for a survivor game. Spell I, II, and III are its body. Idle, walk, burst, and the projectile are six stills each. Paint the loops paints the body and the projectile together. The projectile keeps the creature's colors and is not another body. They stack in this frame. Save a character in Entities and an enemy in Enemies. The room uses only those saves, and shots use the projectile painted with the entity. Space holds up the character's picture, and the frame button opens that picture full screen. The slots, prompt boxes, and spellbook below are Spellforge, so you can change them here.</p>
       <div class="spr-stage-wrap">
         <div class="spr-frame" id="spr-frame">
           <canvas id="spr-stage" class="spr-stage" width="64" height="64" data-cycle="idle" data-frame="0" aria-label="Sprite preview, looping"></canvas>
@@ -7722,13 +7722,14 @@
           <div class="spr-layers" id="spr-layers-mini"></div>
         </div>
         <div class="spr-stage-copy">
-          <p>One creature, eighteen poses. The frame shows one still, fully opaque.</p>
+          <p>One creature, twenty-four stills. Six of them are its projectile. The frame shows one still, fully opaque.</p>
         </div>
       </div>
       <div class="spr-row">
         <button type="button" data-cycle="idle" class="is-on" title="Preview the idle loop. It plays when the sprite stands.">Idle</button>
         <button type="button" data-cycle="walk" title="Preview the walk loop. Arrow keys play this in the room.">Walk</button>
         <button type="button" data-cycle="burst" title="Preview the burst loop. Space holds the picture up in the room.">Burst</button>
+        <button type="button" data-cycle="shot" title="Preview the projectile loop. The room fires this when the entity is saved.">Shot</button>
         <button type="button" id="spr-paint" class="spr-primary">Paint the loops</button>
       </div>
       <div id="spr-status" class="spr-status" aria-live="polite"></div>
@@ -7765,7 +7766,7 @@
         <div class="spr-side">
           <aside id="spr-entities" class="spr-entities" aria-label="Saved entities">
             <h3>Entities</h3>
-            <p class="spr-entities-note">An entity steps into the room only after it is saved here. The frame shows its picture.</p>
+            <p class="spr-entities-note">An entity steps into the room only after it is saved here. The frame shows its picture. Shots use the projectile painted with that entity.</p>
             <button type="button" id="spr-save-entity">Save entity</button>
             <div id="spr-entity-list" class="spr-entity-list"></div>
           </aside>
@@ -7774,12 +7775,6 @@
             <p class="spr-entities-note">The room's creatures come from this panel. With none saved, they stay plain marks.</p>
             <button type="button" id="spr-save-enemy">Save enemy</button>
             <div id="spr-enemy-list" class="spr-entity-list"></div>
-          </aside>
-          <aside id="spr-projectiles" class="spr-entities" aria-label="Saved projectiles">
-            <h3>Projectiles</h3>
-            <p class="spr-entities-note">Shots use a projectile saved here. With none saved, the shot stays a plain mark.</p>
-            <button type="button" id="spr-save-projectile">Save projectile</button>
-            <div id="spr-projectile-list" class="spr-entity-list"></div>
           </aside>
         </div>
       </div>
@@ -9362,8 +9357,8 @@
   <script defer src="js/engrams.js?v=15"></script>
   <script defer src="js/bible.js?v=12"></script>
   <script defer src="js/history.js?v=1"></script>
-  <script defer src="js/sprites.js?v=9"></script>
-  <script defer src="js/sprite-dungeon.js?v=5"></script>
+  <script defer src="js/sprites.js?v=10"></script>
+  <script defer src="js/sprite-dungeon.js?v=6"></script>
   <script defer src="js/slots.js?v=5"></script>
   <script defer src="js/colors.js?v=4"></script>
   <script defer src="js/colors-gen.js?v=5"></script>

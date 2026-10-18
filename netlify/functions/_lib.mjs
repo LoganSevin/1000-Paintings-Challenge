@@ -1082,6 +1082,20 @@ export function buildSpritePosePrompt(stasis, aspectRatio) {
   return fitPromptKeepingTail(aspectLine + "\n\n" + prefix + raw, GEN_PROMPT_SAFE_MAX);
 }
 
+/** Projectile step for a sprite loop. The attached still keeps this creature's colors; the picture is one projectile, not the body. */
+export function buildSpriteShotPrompt(stasis, aspectRatio) {
+  const frame = aspectPhrase(aspectRatio);
+  const aspectLine = `${frame} canvas — output this exact aspect ratio, not square unless the ratio is 1:1.`;
+  const prefix =
+    "Edit the attached picture into this creature's projectile. " +
+    "Keep the same colors, the same texture, the same palette, and the painted signature. " +
+    "Paint one small projectile. Do not paint the creature's body. " +
+    "Do not invent a new palette. " +
+    "Move only the flight, by one small step of the same projectile.\n\n";
+  const raw = String(stasis || "").trim();
+  return fitPromptKeepingTail(aspectLine + "\n\n" + prefix + raw, GEN_PROMPT_SAFE_MAX);
+}
+
 export function buildFlashProjectPrompt(stasis, buzzWords, aspectRatio, opts = {}) {
   const buzz =
     buzzWords?.length > 0
@@ -1146,9 +1160,11 @@ export async function generateXaiStasisImage(stasis, buzzWords, aspectRatio, ref
       source: cfOpts.source || "",
     };
     const fullPrompt = ref
-      ? wrapOpts.source === "sprites"
-        ? buildSpritePosePrompt(stasis, aspect)
-        : buildFlashProjectPrompt(stasis, buzzWords, aspect, wrapOpts)
+      ? wrapOpts.source === "sprites-shot"
+        ? buildSpriteShotPrompt(stasis, aspect)
+        : wrapOpts.source === "sprites"
+          ? buildSpritePosePrompt(stasis, aspect)
+          : buildFlashProjectPrompt(stasis, buzzWords, aspect, wrapOpts)
       : buildStasisVisionPrompt(stasis, buzzWords, aspect, wrapOpts);
     const base = {
       model: IMAGE_MODEL,

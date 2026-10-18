@@ -1,6 +1,7 @@
 /**
  * Social room on the Sprites tab.
- * A painted sprite is saved as an entity, an enemy, or a projectile.
+ * A painted sprite is saved as an entity or an enemy.
+ * Paint the loops also paints the projectile, and that projectile stays on the entity.
  * The room uses only those saves. Space holds up the entity's picture.
  * The frame button opens that picture full screen.
  * Levels come from clears. Anyone on the tab shares the same room.
@@ -52,11 +53,9 @@
   var lastAction = "";
   var roster = [];
   var enemyRoster = [];
-  var shotRoster = [];
   var pickedId = "";
-  var pickedShotId = "";
   var sentEntityId = "";
-  var shotFrames = { idle: [], walk: [], burst: [] };
+  var shotFrames = [];
   var outcomeUrl = "";
   var outcomeImg = null;
   var heldFrame = null;
@@ -313,7 +312,7 @@
   }
 
   function capture() {
-    var out = { idle: [], walk: [], burst: [] };
+    var out = { idle: [], walk: [], burst: [], shot: [] };
     var nodes = document.querySelectorAll("#spr-layers .spr-layer");
     var i;
     for (i = 0; i < nodes.length; i++) {
@@ -324,7 +323,7 @@
       var fitted = node.width > 192 ? scaleCanvas(node, 192) : node;
       out[cycle][index] = scaleCanvas(knockOut(fitted), 96);
     }
-    ["idle", "walk", "burst"].forEach(function (key) {
+    ["idle", "walk", "burst", "shot"].forEach(function (key) {
       out[key] = out[key].filter(Boolean);
     });
     return out;
@@ -693,11 +692,10 @@
   }
 
   function drawBolt(g, bolt) {
-    var set = bolt.look;
-    var list = set && set.walk && set.walk.length ? set.walk : (set && set.burst && set.burst.length ? set.burst : (set && set.idle));
+    var list = Array.isArray(bolt.look) ? bolt.look : [];
     var s = boltSize();
-    if (list && list.length) {
-      var img = list[Math.floor(performance.now() / 90) % list.length];
+    var img = list.length ? list[Math.floor(performance.now() / 90) % list.length] : null;
+    if (img) {
       g.save();
       g.translate(worldX(bolt.x), worldY(bolt.y));
       g.rotate(Math.atan2(bolt.vy, bolt.vx));
@@ -928,6 +926,7 @@
       return;
     }
     frames = ent.frames;
+    shotFrames = (ent.frames.shot || []).slice();
     sentEntityId = ent.id;
     showOutcome(ent.outcome || "");
     spriteRev += 1;
@@ -948,7 +947,10 @@
       if (shown && !shown.hidden) startLoops();
     }
     setStatus(ent.name + " is in the room.");
-    setNote(ent.name + " uses " + moveLabel(ent.frames) + ". Arrows play Walk. Letting go plays Idle. Space holds the picture up.");
+    var shotLine = shotFrames.length
+      ? " Shots use the projectile painted with this entity."
+      : " The shot stays a plain mark until Paint the loops.";
+    setNote(ent.name + " uses " + moveLabel(ent.frames) + ". Arrows play Walk. Letting go plays Idle. Space holds the picture up." + shotLine);
     var game = $("spr-game");
     if (game && game.scrollIntoView) game.scrollIntoView({ block: "nearest" });
     draw();
@@ -987,6 +989,7 @@
     if (set && set.idle && set.idle.length) bits.push("Idle");
     if (set && set.walk && set.walk.length) bits.push("Walk");
     if (set && set.burst && set.burst.length) bits.push("Burst");
+    if (set && set.shot && set.shot.length) bits.push("Shot");
     return bits.join(", ") || "No loops";
   }
 
@@ -1010,19 +1013,16 @@
 
   function storeName(kind) {
     if (kind === "enemy") return "enemies";
-    if (kind === "shot") return "projectiles";
     return "entities";
   }
 
   function rosterOf(kind) {
     if (kind === "enemy") return enemyRoster;
-    if (kind === "shot") return shotRoster;
     return roster;
   }
 
   function setRoster(kind, list) {
     if (kind === "enemy") enemyRoster = list;
-    else if (kind === "shot") shotRoster = list;
     else roster = list;
   }
 
@@ -1036,20 +1036,18 @@
 
   function listId(kind) {
     if (kind === "enemy") return "spr-enemy-list";
-    if (kind === "shot") return "spr-projectile-list";
     return "spr-entity-list";
   }
 
   function emptyLabel(kind) {
     if (kind === "enemy") return "No saved enemies yet.";
-    if (kind === "shot") return "No saved projectiles yet.";
     return "No saved entities yet.";
   }
 
   function framesFromUrls(urls) {
-    var out = { idle: [], walk: [], burst: [] };
+    var out = { idle: [], walk: [], burst: [], shot: [] };
     var jobs = [];
-    ["idle", "walk", "burst"].forEach(function (key) {
+    ["idle", "walk", "burst", "shot"].forEach(function (key) {
       var list = (urls && urls[key]) || [];
       out[key] = new Array(list.length);
       list.forEach(function (url, index) {
@@ -1071,7 +1069,7 @@
       });
     });
     return Promise.all(jobs).then(function () {
-      ["idle", "walk", "burst"].forEach(function (key) {
+      ["idle", "walk", "burst", "shot"].forEach(function (key) {
         out[key] = out[key].filter(Boolean);
       });
       return out;
@@ -1126,7 +1124,7 @@
     list.forEach(function (ent) {
       var btn = document.createElement("button");
       btn.type = "button";
-      var on = kind === "enemy" || ent.id === (kind === "shot" ? pickedShotId : pickedId);
+      var on = kind === "enemy" || ent.id === pickedId;
       btn.className = "spr-entity" + (on ? " is-on" : "");
       btn.dataset.id = ent.id;
       var img = document.createElement("img");
@@ -1138,7 +1136,7 @@
       name.textContent = ent.name;
       var moves = document.createElement("span");
       moves.className = "spr-entity-moves";
-      moves.textContent = kind === "shot" ? "Projectile" : kind === "enemy" ? "Enemy" : moveLabel(ent.frames);
+      moves.textContent = kind === "enemy" ? "Enemy" : moveLabel(ent.frames);
       text.appendChild(name);
       text.appendChild(moves);
       var drop = document.createElement("span");
@@ -1153,8 +1151,7 @@
           dropKind(kind, ent.id);
           return;
         }
-        if (kind === "shot") pickShot(ent.id);
-        else if (kind === "entity") pickEntity(ent.id);
+        if (kind === "entity") pickEntity(ent.id);
       });
       host.appendChild(btn);
     });
@@ -1236,16 +1233,6 @@
     setNote(ent.name + " is selected. Send uses this saved entity. The frame shows its picture. Moves: " + moveLabel(ent.frames) + ".");
   }
 
-  function pickShot(id) {
-    var ent = findIn(shotRoster, id);
-    if (!ent) return;
-    pickedShotId = ent.id;
-    shotFrames = ent.frames;
-    try { localStorage.setItem("sprPickedProjectile", ent.id); } catch (e) {}
-    renderCards("shot");
-    setNote(ent.name + " is the shot. The room uses this projectile.");
-  }
-
   function dropKind(kind, id) {
     var list = rosterOf(kind);
     var ent = findIn(list, id);
@@ -1258,18 +1245,12 @@
       }
       if (sentEntityId === id) {
         frames = { idle: [], walk: [], burst: [] };
+        shotFrames = [];
         sentEntityId = "";
         spriteRev += 1;
         showOutcome("");
       }
       setNote(name + " left the panel, so the room will not use that entity.");
-    } else if (kind === "shot") {
-      if (pickedShotId === id) {
-        pickedShotId = "";
-        shotFrames = { idle: [], walk: [], burst: [] };
-        try { localStorage.removeItem("sprPickedProjectile"); } catch (e2) {}
-      }
-      setNote(name + " left the panel, so shots will not use it.");
     } else {
       var n;
       for (n = 0; n < enemies.length; n++) {
@@ -1303,8 +1284,8 @@
       setStatus("Paint the loops first.", true);
       return;
     }
-    var urls = { idle: [], walk: [], burst: [] };
-    ["idle", "walk", "burst"].forEach(function (cycle) {
+    var urls = { idle: [], walk: [], burst: [], shot: [] };
+    ["idle", "walk", "burst", "shot"].forEach(function (cycle) {
       caught[cycle].forEach(function (canvas) {
         var url = "";
         try { url = canvas.toDataURL("image/png"); } catch (e) { url = ""; }
@@ -1317,7 +1298,7 @@
     }
     saveKind.last = now;
     saveKind.lastKey = key;
-    var prefix = kind === "enemy" ? "n" : kind === "shot" ? "s" : "e";
+    var prefix = kind === "enemy" ? "n" : "e";
     var id = prefix + now.toString(36) + Math.random().toString(36).slice(2, 6);
     var outcome = kind === "entity" ? outcomeUrlFromPage(caught) : "";
     var rec = { id: id, name: name, saved: now, frames: urls };
@@ -1337,12 +1318,6 @@
       showOutcome(outcome);
       setStatus(name + " is in the side panel.");
       setNote(name + " is saved. " + moveLabel(caught) + " are its moves. The frame shows this picture. Send steps into the room with this entity.");
-    } else if (kind === "shot") {
-      pickedShotId = id;
-      shotFrames = caught;
-      try { localStorage.setItem("sprPickedProjectile", id); } catch (e2) {}
-      setStatus(name + " is the projectile.");
-      setNote(name + " is saved. Shots in the room use this sprite.");
     } else {
       setStatus(name + " is an enemy.");
       setNote(name + " is saved. The room can use this enemy.");
@@ -1384,11 +1359,6 @@
         var ent = pickedEntity();
         if (ent && ent.outcome) showOutcome(ent.outcome);
       }
-      if (kind === "shot" && clean.some(function (item) { return item.id === stored; })) {
-        pickedShotId = stored;
-        var shot = findIn(shotRoster, stored);
-        if (shot) shotFrames = shot.frames;
-      }
       renderCards(kind);
     }).catch(function () {
       renderCards(kind);
@@ -1398,7 +1368,6 @@
   function restoreRoster() {
     restoreKind("entity", "sprPickedEntity");
     restoreKind("enemy", "");
-    restoreKind("shot", "sprPickedProjectile");
   }
 
 
@@ -1505,8 +1474,6 @@
     if (save) save.addEventListener("click", saveEntity);
     var saveEnemy = $("spr-save-enemy");
     if (saveEnemy) saveEnemy.addEventListener("click", function () { saveKind("enemy"); });
-    var saveShot = $("spr-save-projectile");
-    if (saveShot) saveShot.addEventListener("click", function () { saveKind("shot"); });
     var stage = $("spr-picture-stage");
     if (stage) stage.addEventListener("click", closePicture);
     var form = $("spr-prompt-form");
@@ -1535,7 +1502,6 @@
     bindPointer();
     renderCards("entity");
     renderCards("enemy");
-    renderCards("shot");
     restoreRoster();
     paintStats();
     draw();
@@ -1576,15 +1542,10 @@
         outcome: !!outcomeUrl,
         pictureOpen: pictureOpen,
         enemiesSaved: enemyRoster.length,
-        projectiles: shotRoster.length,
-        projectile: (function () {
-          var shot = findIn(shotRoster, pickedShotId);
-          return shot ? shot.name : "";
-        })(),
         foeSprites: enemies.filter(function (e) { return !!e.look; }).length,
         bolts: bolts.length,
         fired: fired,
-        shotFrames: frameTotal(shotFrames),
+        shotFrames: shotFrames.length,
       };
     },
   };
