@@ -1,0 +1,89 @@
+/* Logan's phone camera. Fixed on the page so it stays up on every tab. */
+
+.phone-cam {
+  position: fixed;
+  left: 0.6rem;
+  bottom: max(0.8rem, env(safe-area-inset-bottom));
+  z-index: 10042;
+  width: 9.5rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  background: rgba(10, 12, 16, 0.94);
+  border: 2px solid #c9a227;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  color: #f0e2c0;
+  overflow: hidden;
+  touch-action: none;
+}
+
+.phone-cam.is-placed {
+  bottom: auto;
+}
+
+.phone-cam-toggle,
+.phone-cam-bar button {
+  margin: 0;
+  border: 0;
+  background: transparent;
+  color: #f0d78a;
+  font: inherit;
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+
+.phone-cam-toggle {
+  padding: 0.55rem 0.7rem;
+  min-height: 2.6rem;
+  text-align: left;
+}
+
+.phone-cam-toggle:hover,
+.phone-cam-bar button:hover {
+  background: rgba(201, 162, 39, 0.16);
+}
+
+.phone-cam.is-on .phone-cam-toggle {
+  display: none;
+}
+
+.phone-cam:not(.is-on) .phone-cam-view,
+.phone-cam:not(.is-on) .phone-cam-bar,
+.phone-cam:not(.is-on) .phone-cam-note {
+  display: none;
+}
+
+.phone-cam-view {
+  width: 100%;
+  height: min(12.6rem, 36vh);
+  object-fit: cover;
+  display: block;
+  background: #12151e;
+  cursor: grab;
+}
+
+.phone-cam-note {
+  margin: 0;
+  padding: 0.35rem 0.5rem 0;
+  font-size: 0.72rem;
+  line-height: 1.3;
+  color: #f0e2c0;
+}
+
+.phone-cam-note:empty {
+  display: none;
+}
+
+.phone-cam-bar {
+  display: flex;
+}
+
+.phone-cam-bar button {
+  flex: 1;
+  min-height: 2.4rem;
+  border-top: 1px solid rgba(201, 162, 39, 0.35);
+}
+
+.phone-cam-bar button + button {
+  border-left: 1px solid rgba(201, 162, 39, 0.35);
+}
