@@ -132,6 +132,12 @@
   force = true
 
 [[redirects]]
+  from = "/api/phone-live"
+  to = "/.netlify/functions/phone-live"
+  status = 200
+  force = true
+
+[[redirects]]
   from = "/api/server-people"
   to = "/.netlify/functions/server-people"
   status = 200

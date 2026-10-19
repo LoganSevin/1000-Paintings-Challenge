@@ -2,10 +2,10 @@
 
 .phone-cam {
   position: fixed;
-  left: 3.6rem;
+  right: max(0.8rem, env(safe-area-inset-right));
   bottom: max(0.8rem, env(safe-area-inset-bottom));
-  z-index: 10042;
-  width: 9.5rem;
+  z-index: 10072;
+  width: 12.5rem;
   display: flex;
   flex-direction: column;
   border-radius: 10px;
@@ -43,19 +43,41 @@
   background: rgba(201, 162, 39, 0.16);
 }
 
-.phone-cam.is-on .phone-cam-toggle {
+.phone-cam.is-on .phone-cam-toggle,
+.phone-cam.is-live .phone-cam-toggle,
+.phone-cam.is-live .phone-cam-bar {
   display: none;
 }
 
-.phone-cam:not(.is-on) .phone-cam-view,
-.phone-cam:not(.is-on) .phone-cam-bar,
-.phone-cam:not(.is-on) .phone-cam-note {
+.phone-cam.is-remote video.phone-cam-view {
+  display: none;
+}
+
+.phone-cam.is-on::after,
+.phone-cam.is-live::after {
+  content: "Live";
+  position: absolute;
+  top: 0.35rem;
+  left: 0.35rem;
+  z-index: 1;
+  padding: 0.05rem 0.35rem;
+  border-radius: 999px;
+  background: rgba(20, 16, 8, 0.8);
+  color: #f0d78a;
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+  pointer-events: none;
+}
+
+.phone-cam:not(.is-on):not(.is-live) .phone-cam-view,
+.phone-cam:not(.is-on):not(.is-live) .phone-cam-bar,
+.phone-cam:not(.is-on):not(.is-live) .phone-cam-note {
   display: none;
 }
 
 .phone-cam-view {
   width: 100%;
-  height: min(12.6rem, 36vh);
+  height: min(18rem, 52vh);
   object-fit: cover;
   display: block;
   background: #12151e;
@@ -98,13 +120,13 @@
     z-index: 10055;
   }
 
-  .phone-cam:not(.is-on) {
+  .phone-cam:not(.is-on):not(.is-live) {
     width: 2.75rem;
     height: 2.75rem;
     border-radius: 999px;
   }
 
-  .phone-cam:not(.is-on) .phone-cam-toggle {
+  .phone-cam:not(.is-on):not(.is-live) .phone-cam-toggle {
     width: 2.75rem;
     height: 2.75rem;
     min-height: 0;
@@ -119,11 +141,13 @@
     line-height: 2.75rem;
   }
 
-  .phone-cam.is-on {
+  .phone-cam.is-on,
+  .phone-cam.is-live {
     width: 6.25rem;
   }
 
-  .phone-cam.is-on .phone-cam-view {
+  .phone-cam.is-on .phone-cam-view,
+  .phone-cam.is-live .phone-cam-view {
     height: 7.6rem;
   }
 
