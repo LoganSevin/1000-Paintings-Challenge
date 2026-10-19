@@ -1,8 +1,8 @@
 /**
  * Logan's phone camera, floating on every tab while the setting is on.
  * The picture stays in this browser. It is not uploaded and not shown to guests.
- * The switch is on this page only when the saved name is Logan, or the signed-in
- * account is the artist's.
+ * The public name is never read or changed. This phone is marked by opening
+ * #phone-cam once, or by the signed-in artist account.
  */
 (function () {
   "use strict";
@@ -10,6 +10,7 @@
   var SET_KEY = "l7in_phone_cam_v1";
   var POS_KEY = "l7in_phone_cam_pos_v1";
   var FACE_KEY = "l7in_phone_cam_face_v1";
+  var MINE_KEY = "l7in_phone_cam_mine_v1";
   var ARTIST_EMAIL = "lsevin71@gmail.com";
   var root = null;
   var video = null;
@@ -23,22 +24,30 @@
     return String(value || "").replace(/\s+/g, " ").trim().toLowerCase();
   }
 
-  function savedName() {
-    var input = document.getElementById("page-chat-name");
-    if (input && document.activeElement === input) {
-      var live = norm(input.value);
-      if (live) return live;
-    }
-    try {
-      return norm(localStorage.getItem("pageChatName") || "");
-    } catch (e) {
-      return "";
-    }
+  function rememberMine() {
+    try { localStorage.setItem(MINE_KEY, "1"); } catch (e) {}
+  }
+
+  function mineFlag() {
+    try { return localStorage.getItem(MINE_KEY) === "1"; } catch (e) { return false; }
+  }
+
+  function claimFromAddress() {
+    var url;
+    try { url = new URL(location.href); } catch (e) { return false; }
+    var hash = (url.hash || "").replace(/^#/, "").split("?")[0].toLowerCase();
+    var fromQuery = url.searchParams.get("phone-cam") === "1";
+    var fromHash = hash === "phone-cam";
+    if (!fromQuery && !fromHash) return false;
+    rememberMine();
+    if (fromQuery) url.searchParams.delete("phone-cam");
+    if (fromHash) url.hash = "";
+    try { history.replaceState(null, "", url.pathname + url.search + url.hash); } catch (e2) {}
+    return true;
   }
 
   function isOwner() {
-    var name = savedName();
-    if (/^logan(?:\b|7)/.test(name)) return true;
+    if (mineFlag()) return true;
     try {
       var user = window.AccountGate && AccountGate.getUser && AccountGate.getUser();
       if (user && norm(user.email) === ARTIST_EMAIL) return true;
@@ -282,6 +291,7 @@
   }
 
   function sync() {
+    claimFromAddress();
     if (!isOwner()) {
       shutdown();
       mark("guest");
@@ -296,12 +306,11 @@
     else stopStream();
   }
 
-  window.addEventListener("page-chat-name", sync);
-  document.addEventListener("change", function (e) {
-    if (e.target && e.target.id === "page-chat-name") sync();
+  window.addEventListener("hashchange", function () {
+    if (claimFromAddress()) sync();
   });
   window.addEventListener("storage", function (e) {
-    if (!e.key || e.key === "pageChatName" || e.key === SET_KEY) sync();
+    if (!e.key || e.key === MINE_KEY || e.key === SET_KEY) sync();
   });
   window.addEventListener("resize", settle);
   window.addEventListener("pagehide", stopStream);
