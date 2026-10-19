@@ -2,7 +2,7 @@
 
 .phone-cam {
   position: fixed;
-  left: 0.6rem;
+  left: 3.6rem;
   bottom: max(0.8rem, env(safe-area-inset-bottom));
   z-index: 10042;
   width: 9.5rem;
@@ -86,4 +86,49 @@
 
 .phone-cam-bar button + button {
   border-left: 1px solid rgba(201, 162, 39, 0.35);
+}
+
+/* Phones: a small button above the money bar, then a short picture. */
+@media (max-width: 640px) {
+  .phone-cam {
+    left: auto;
+    right: max(0.5rem, env(safe-area-inset-right));
+    bottom: calc(5.8rem + env(safe-area-inset-bottom));
+    width: auto;
+    z-index: 10055;
+  }
+
+  .phone-cam:not(.is-on) {
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 999px;
+  }
+
+  .phone-cam:not(.is-on) .phone-cam-toggle {
+    width: 2.75rem;
+    height: 2.75rem;
+    min-height: 0;
+    padding: 0;
+    font-size: 0;
+    text-align: center;
+  }
+
+  .phone-cam:not(.is-on) .phone-cam-toggle::before {
+    content: "📷";
+    font-size: 1.15rem;
+    line-height: 2.75rem;
+  }
+
+  .phone-cam.is-on {
+    width: 6.25rem;
+  }
+
+  .phone-cam.is-on .phone-cam-view {
+    height: 7.6rem;
+  }
+
+  .phone-cam-bar button {
+    min-height: 2rem;
+    font-size: 0.68rem;
+  }
 }

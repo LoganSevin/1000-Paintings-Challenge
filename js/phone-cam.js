@@ -93,19 +93,53 @@
     if (note) note.textContent = text || "";
   }
 
+  function bottomInset() {
+    if (window.innerWidth > 640) return 8;
+    var hud = document.getElementById("money-hud");
+    if (!hud) return 96;
+    var rect = hud.getBoundingClientRect();
+    if (rect.height < 8) return 96;
+    return Math.max(8, window.innerHeight - rect.top + 10);
+  }
+
   function place(left, top) {
     if (!root) return;
     var rect = root.getBoundingClientRect();
     var width = rect.width || 152;
     var height = rect.height || 48;
+    var inset = bottomInset();
     var maxLeft = Math.max(8, window.innerWidth - width - 8);
-    var maxTop = Math.max(8, window.innerHeight - height - 8);
+    var maxTop = Math.max(8, window.innerHeight - height - inset);
     left = Math.min(maxLeft, Math.max(8, left));
     top = Math.min(maxTop, Math.max(8, top));
     root.style.left = left + "px";
+    root.style.right = "auto";
     root.style.top = top + "px";
     root.style.bottom = "auto";
     root.classList.add("is-placed");
+  }
+
+  function park() {
+    if (!root || root.classList.contains("is-placed")) return;
+    if (window.innerWidth > 640) {
+      root.style.left = "";
+      root.style.right = "";
+      root.style.top = "";
+      root.style.bottom = "";
+      return;
+    }
+    root.style.left = "auto";
+    root.style.top = "auto";
+    root.style.right = "8px";
+    root.style.bottom = bottomInset() + "px";
+  }
+
+  function settle() {
+    if (!root) return;
+    if (root.classList.contains("is-placed")) {
+      var rect = root.getBoundingClientRect();
+      place(rect.left, rect.top);
+    } else park();
   }
 
   function savePos() {
@@ -164,6 +198,7 @@
         if (play && play.catch) play.catch(function () {});
       }
       setNote("");
+      settle();
     }).catch(function () {
       if (token !== request) return;
       setNote("The camera did not start. Tap the picture.");
@@ -224,7 +259,7 @@
     root.setAttribute("role", "region");
     root.setAttribute("aria-label", "Phone camera");
     root.innerHTML =
-      '<button type="button" class="phone-cam-toggle" title="Show your phone camera on every tab. It stays on your screen.">Phone camera</button>' +
+      '<button type="button" class="phone-cam-toggle" aria-label="Phone camera" title="Show your phone camera on every tab. It stays on your screen.">Phone camera</button>' +
       '<video class="phone-cam-view" autoplay muted playsinline aria-label="Your phone camera"></video>' +
       '<p class="phone-cam-note" role="status"></p>' +
       '<div class="phone-cam-bar">' +
@@ -255,6 +290,7 @@
     loadFacing();
     ensure();
     paint();
+    settle();
     mark("owner");
     if (settingOn()) start();
     else stopStream();
@@ -267,9 +303,7 @@
   window.addEventListener("storage", function (e) {
     if (!e.key || e.key === "pageChatName" || e.key === SET_KEY) sync();
   });
-  window.addEventListener("resize", function () {
-    if (root && root.classList.contains("is-placed")) place(root.offsetLeft, root.offsetTop);
-  });
+  window.addEventListener("resize", settle);
   window.addEventListener("pagehide", stopStream);
   window.addEventListener("pageshow", function () {
     if (isOwner() && settingOn()) start();
