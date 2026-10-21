@@ -3786,7 +3786,7 @@
     var meta = $("an-frame-meta");
     if (mode === "hone") {
       if (title) title.textContent = "Hone this box into a spell";
-      if (meta) meta.textContent = "Pick Spell 1, 2, or 3. That slot is described, tagged, and painted again from this box.";
+      if (meta) meta.textContent = "This is the box. Pick Spell 1, 2, or 3 to describe it, tag it, and paint it again.";
     } else if (mode === "end") {
       if (title) title.textContent = "Send the end frame";
       if (meta) meta.textContent = "Pick Spell 1, 2, or 3. The button shows what is in that spell now. The end frame replaces its picture.";
@@ -3875,14 +3875,46 @@
     if (boxBtn && layer && !boxBtn.dataset.bound) {
       boxBtn.dataset.bound = "1";
       var drag = null;
+      var previewUrl = "";
+      function setBoxMode(on) {
+        drag = null;
+        var zone = $("an-drop-zone");
+        boxBtn.setAttribute("aria-pressed", on ? "true" : "false");
+        boxBtn.classList.toggle("an-on", !!on);
+        layer.hidden = !on;
+        if (zone) zone.classList.toggle("an-box-on", !!on);
+        if (!on) {
+          if (band) band.hidden = true;
+          previewUrl = "";
+          var row = $("an-box-preview-row");
+          var img = $("an-box-preview");
+          if (row) row.hidden = true;
+          if (img) img.removeAttribute("src");
+        }
+      }
       boxBtn.addEventListener("click", function () {
+        if (boxBtn.getAttribute("aria-pressed") === "true") {
+          setBoxMode(false);
+          setStatus("Box select is off.", "ok");
+          return;
+        }
         if (!activePlayer()) {
           setStatus("Play a saved clip first, then drag a box on the picture.", "error");
           return;
         }
-        layer.hidden = false;
-        setStatus("Drag a box on the picture. That piece goes to Spell 1, 2, or 3.", "ok");
+        setBoxMode(true);
+        setStatus("Box select is on. Drag a box on the picture. Click Box select again to turn it off.", "ok");
       });
+      var sendBox = $("an-box-send");
+      if (sendBox) {
+        sendBox.addEventListener("click", function () {
+          if (!previewUrl) {
+            setStatus("Drag a box on the picture first.", "error");
+            return;
+          }
+          openFrameDialog(previewUrl, "hone");
+        });
+      }
       function placeBand(x0, y0, x1, y1) {
         if (!band) return;
         var host = layer.getBoundingClientRect();
@@ -3895,6 +3927,7 @@
         band.style.height = Math.abs(y1 - y0) + "px";
       }
       layer.addEventListener("pointerdown", function (e) {
+        if (layer.hidden) return;
         if (e.button != null && e.button !== 0) return;
         drag = { x: e.clientX, y: e.clientY };
         try { layer.setPointerCapture(e.pointerId); } catch (eCap) {}
@@ -3908,11 +3941,14 @@
         if (!drag) return;
         var start = drag;
         drag = null;
-        layer.hidden = true;
-        if (band) band.hidden = true;
         try {
           var url = cropPlayerBox(start.x, start.y, e.clientX, e.clientY);
-          openFrameDialog(url, "hone");
+          previewUrl = url;
+          var img = $("an-box-preview");
+          var row = $("an-box-preview-row");
+          if (img) img.src = url;
+          if (row) row.hidden = false;
+          setStatus("Preview is ready. Send this box when it looks right.", "ok");
         } catch (err) {
           setStatus((err && err.message) || "The box could not be copied.", "error");
         }
@@ -3920,8 +3956,6 @@
       layer.addEventListener("pointerup", endDrag);
       layer.addEventListener("pointercancel", function () {
         drag = null;
-        layer.hidden = true;
-        if (band) band.hidden = true;
       });
     }
   }
