@@ -8,6 +8,8 @@ export const STORE_NAME = "saved-videos";
 export const MAX_VIDEO_BYTES = 48 * 1024 * 1024;
 export const SLICE_BYTES = 4 * 1024 * 1024;
 export const FULL_MAX_BYTES = Math.floor(5.5 * 1024 * 1024);
+// gallery/saved-videos on disk already contains 1.mp4 through 501.mp4.
+export const NUMBER_FLOOR = 502;
 const INDEX_KEY = "index";
 
 let remoteFetch = null;
@@ -200,7 +202,7 @@ export async function storeClip(store, bytes, kind) {
   if (u.length > MAX_VIDEO_BYTES) throw fail("Video file is too large to save.", 413);
   if (kind !== "mp4" && kind !== "webm") throw fail("Not an mp4 or webm.", 415);
   const index = await readIndex(store);
-  let num = Math.max(1, parseInt(index.next, 10) || 1);
+  let num = Math.max(NUMBER_FLOOR, parseInt(index.next, 10) || 1);
   for (const item of index.items) {
     const n = parseInt(item && item.num, 10) || 0;
     if (n >= num) num = n + 1;

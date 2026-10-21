@@ -15,6 +15,7 @@ import {
   setRemoteFetchForTests,
   storeClip,
   STORE_NAME,
+  NUMBER_FLOOR,
 } from "../../netlify/functions/save-video.mjs";
 
 let server;
@@ -116,14 +117,14 @@ test("a remote clip is stored, served in ranges, and a private redirect is refus
   let data = await res.json();
   assert.equal(res.status, 200);
   assert.equal(data.ok, true);
-  assert.equal(data.num, 1);
-  assert.equal(data.name, "1.mp4");
-  assert.equal(data.url, "/saved-videos/1.mp4");
-  assert.equal(data.path, "saved-videos/1.mp4");
+  assert.equal(data.num, NUMBER_FLOOR);
+  assert.equal(data.name, NUMBER_FLOOR + ".mp4");
+  assert.equal(data.url, "/saved-videos/" + NUMBER_FLOOR + ".mp4");
+  assert.equal(data.path, "saved-videos/" + NUMBER_FLOOR + ".mp4");
   assert.equal(data.bytes, 80);
   assert.equal(hits, 1);
 
-  res = await savedVideo(new Request("http://x/saved-videos/1.mp4"));
+  res = await savedVideo(new Request("http://x/saved-videos/" + NUMBER_FLOOR + ".mp4"));
   const body = new Uint8Array(await res.arrayBuffer());
   assert.equal(res.status, 200);
   assert.equal(res.headers.get("content-type"), "video/mp4");
@@ -132,7 +133,7 @@ test("a remote clip is stored, served in ranges, and a private redirect is refus
   assert.equal(body[4], "f".charCodeAt(0));
 
   res = await savedVideo(
-    new Request("http://x/saved-videos/1.mp4", { headers: { range: "bytes=4-7" } })
+    new Request("http://x/saved-videos/" + NUMBER_FLOOR + ".mp4", { headers: { range: "bytes=4-7" } })
   );
   const slice = new Uint8Array(await res.arrayBuffer());
   assert.equal(res.status, 206);
@@ -140,10 +141,10 @@ test("a remote clip is stored, served in ranges, and a private redirect is refus
   assert.equal(Buffer.from(slice).toString("latin1"), "ftyp");
 
   hits = 0;
-  res = await saveVideo(post({ url: "https://cdn.example/saved-videos/1.mp4" }));
+  res = await saveVideo(post({ url: "https://cdn.example/saved-videos/" + NUMBER_FLOOR + ".mp4" }));
   data = await res.json();
   assert.equal(data.already_saved, true);
-  assert.equal(data.name, "1.mp4");
+  assert.equal(data.name, NUMBER_FLOOR + ".mp4");
   assert.equal(hits, 0);
 
   res = await saveVideo(post({ url: "https://logan7in.art/saved-videos/99.mp4" }));
@@ -152,7 +153,7 @@ test("a remote clip is stored, served in ranges, and a private redirect is refus
   setRemoteFetchForTests(async () => new Response(webm(), { status: 200 }));
   res = await saveVideo(post({ url: "https://cdn.example/clip.webm", force_mp4: true }));
   data = await res.json();
-  assert.equal(data.name, "2.webm");
+  assert.equal(data.name, NUMBER_FLOOR + 1 + ".webm");
   assert.equal(data.content_type, "video/webm");
 
   let redirected = 0;
