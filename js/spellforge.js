@@ -6813,19 +6813,218 @@
     };
   }
 
+  var spellAnimateBusy = false;
+
+  function setSpellAnimateStatus(msg, isErr) {
+    var statusEl = document.getElementById("spell-animate-status");
+    if (!statusEl) return;
+    statusEl.hidden = !msg;
+    statusEl.textContent = msg || "";
+    statusEl.className = "spell-generate-status" + (isErr ? " error" : "");
+  }
+
+  function spellAnimateDuration() {
+    var el = document.getElementById("spell-animate-dur");
+    var n = parseInt(el && el.value, 10);
+    if (n === 10 || n === 15) return n;
+    return 6;
+  }
+
+  function spellAnimateResolution() {
+    var el = document.getElementById("spell-animate-res");
+    return el && String(el.value) === "480p" ? "480p" : "720p";
+  }
+
+  function saveSpellAnimateProps() {
+    try {
+      localStorage.setItem(
+        "l7in_spell_animate_props_v1",
+        JSON.stringify({
+          duration: spellAnimateDuration(),
+          resolution: spellAnimateResolution(),
+        })
+      );
+    } catch (eProps) {}
+  }
+
+  function showSpellAnimatePlayer(url) {
+    var player = document.getElementById("spell-animate-player");
+    if (!player || !url) return;
+    player.hidden = false;
+    player.controls = true;
+    player.src = url;
+    player.play().catch(function () {});
+  }
+
+  function rememberSpellAnimate(url, saved) {
+    if (!url || String(url).indexOf("/saved-videos/") < 0) return;
+    try {
+      localStorage.setItem(
+        "l7in_spell_animate_last_v1",
+        JSON.stringify({
+          url: url,
+          name: (saved && saved.name) || "",
+          at: Date.now(),
+        })
+      );
+    } catch (eLast) {}
+  }
+
+  function loadSpellAnimateProps() {
+    var dur = document.getElementById("spell-animate-dur");
+    var res = document.getElementById("spell-animate-res");
+    try {
+      var raw = localStorage.getItem("l7in_spell_animate_props_v1");
+      var data = raw ? JSON.parse(raw) : null;
+      if (data && dur && (data.duration === 6 || data.duration === 10 || data.duration === 15)) {
+        dur.value = String(data.duration);
+      }
+      if (data && res && (data.resolution === "480p" || data.resolution === "720p")) {
+        res.value = data.resolution;
+      }
+    } catch (eLoad) {}
+    if (dur && !dur.dataset.bound) {
+      dur.dataset.bound = "1";
+      dur.addEventListener("change", saveSpellAnimateProps);
+    }
+    if (res && !res.dataset.bound) {
+      res.dataset.bound = "1";
+      res.addEventListener("change", saveSpellAnimateProps);
+    }
+    try {
+      var lastRaw = localStorage.getItem("l7in_spell_animate_last_v1");
+      var last = lastRaw ? JSON.parse(lastRaw) : null;
+      if (last && last.url && String(last.url).indexOf("/saved-videos/") >= 0) {
+        var player = document.getElementById("spell-animate-player");
+        if (player) {
+          player.hidden = false;
+          player.controls = true;
+          player.src = last.url;
+        }
+      }
+    } catch (eLastLoad) {}
+  }
+
+  function pollSpellAnimateJob(jobId, started) {
+    if (Date.now() - started > 12 * 60 * 1000) {
+      return Promise.reject(new Error("Animation timed out."));
+    }
+    return fetch(apiUrl("/api/jobs/" + encodeURIComponent(jobId)), { cache: "no-store" })
+      .then(function (r) {
+        return parseApiResponse(r).then(function (job) {
+          if (!r.ok) {
+            throw new Error((job && (job.error && (job.error.message || job.error))) || "Animation job lost.");
+          }
+          return job;
+        });
+      })
+      .then(function (job) {
+        var status = job && job.status;
+        if (status === "failed" || status === "expired") {
+          var msg = (job.error && (job.error.message || job.error)) || "Animation failed.";
+          throw new Error(typeof msg === "string" ? msg : "Animation failed.");
+        }
+        if (status === "done") {
+          var vid = job.video || {};
+          var url = vid.url || vid.download_url || vid.uri || "";
+          if (!url) throw new Error("No video URL returned.");
+          return url;
+        }
+        return new Promise(function (resolve) {
+          setTimeout(resolve, 800);
+        }).then(function () {
+          return pollSpellAnimateJob(jobId, started);
+        });
+      });
+  }
+
+  function animateSpellforgeHere() {
+    if (spellAnimateBusy) return Promise.resolve(null);
+    var payload = spellforgeAnimatePayload();
+    if (!payload.imageUrl) {
+      setSpellAnimateStatus("Generate a still on this tab, then Animate it here.", true);
+      return Promise.resolve(null);
+    }
+    var duration = spellAnimateDuration();
+    var resolution = spellAnimateResolution();
+    saveSpellAnimateProps();
+    var still = payload.imageUrl;
+    if (still.indexOf("data:") !== 0 && still.indexOf("blob:") !== 0 && still.indexOf("http") !== 0) {
+      still = assetUrl(still);
+    }
+    var body = {
+      prompt: payload.prompt,
+      duration: duration,
+      resolution: resolution,
+      aspect_ratio: payload.aspect || "16:9",
+      image_url: still,
+      reference_image: still,
+    };
+    spellAnimateBusy = true;
+    var btn = document.getElementById("spell-animate");
+    if (btn) btn.disabled = true;
+    setSpellAnimateStatus(
+      "Animating here · " + duration + "s · " + resolution + ". This stays on Spellforge."
+    );
+    return fetch(apiUrl("/api/animate-cast"), {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    })
+      .then(function (r) {
+        return parseApiResponse(r).then(function (data) {
+          if (!r.ok) throw new Error((data && data.error) || "Animation did not start.");
+          var jobId = data && (data.job_id || data.id);
+          if (!jobId) throw new Error("Animation did not start.");
+          return pollSpellAnimateJob(jobId, Date.now());
+        });
+      })
+      .then(function (url) {
+        showSpellAnimatePlayer(url);
+        setSpellAnimateStatus("Clip ready on Spellforge · " + duration + "s · " + resolution + ".");
+        if (!window.GallerySaveVideo || !window.GallerySaveVideo.save) {
+          setSpellAnimateStatus("Played here, but the clip was not saved. The temporary link will expire.", true);
+          return null;
+        }
+        return window.GallerySaveVideo.save(url).then(function (saved) {
+          if (!saved || !saved.url) {
+            setSpellAnimateStatus(
+              "Played here, but the clip was not saved. The temporary link will expire.",
+              true
+            );
+            return null;
+          }
+          var savedUrl = saved.url.indexOf("http") === 0 ? saved.url : assetUrl(saved.url);
+          showSpellAnimatePlayer(savedUrl);
+          rememberSpellAnimate(savedUrl, saved);
+          setSpellAnimateStatus("Saved on Spellforge as saved-videos/" + (saved.name || "clip") + ".");
+          return saved;
+        });
+      })
+      .catch(function (err) {
+        setSpellAnimateStatus((err && err.message) || "Animation failed.", true);
+        return null;
+      })
+      .finally(function () {
+        spellAnimateBusy = false;
+        if (btn) btn.disabled = false;
+      });
+  }
+
   function bindAnimateHandoff() {
+    loadSpellAnimateProps();
     var sendAn = document.getElementById("spell-send-animate");
     if (sendAn && !sendAn.dataset.bound) {
       sendAn.dataset.bound = "1";
       sendAn.addEventListener("click", function () {
-        sendSpellforgeToAnimate({ autoCast: false });
+        sendSpellforgeToAnimate();
       });
     }
-    var genAn = document.getElementById("spell-gen-video-animate");
-    if (genAn && !genAn.dataset.bound) {
-      genAn.dataset.bound = "1";
-      genAn.addEventListener("click", function () {
-        sendSpellforgeToAnimate({ autoCast: true });
+    var here = document.getElementById("spell-animate");
+    if (here && !here.dataset.bound) {
+      here.dataset.bound = "1";
+      here.addEventListener("click", function () {
+        animateSpellforgeHere();
       });
     }
   }
@@ -6838,41 +7037,32 @@
     statusEl.className = "spell-generate-status" + (isErr ? " error" : "");
   }
 
-  function sendSpellforgeToAnimate(opts) {
-    opts = opts || {};
+  function sendSpellforgeToAnimate() {
     var payload = spellforgeAnimatePayload();
+    if (!payload.imageUrl) {
+      setSpellAnimateStatus("Generate a still, then send that picture to Animate.", true);
+      return Promise.resolve(null);
+    }
     openAnimateTabFromSpellforge();
     return new Promise(function (resolve) {
       setTimeout(function () {
         try {
           if (!window.Animate || typeof window.Animate.seedFromSpellforge !== "function") {
-            setSpellGenerateStatus("Animate not ready — open Animate and paste the prompt.", true);
+            setSpellAnimateStatus("Animate is not ready yet. Open the Animate tab and try again.", true);
             resolve(null);
             return;
           }
           var seeded = window.Animate.seedFromSpellforge({
-            prompt: payload.prompt,
-            stasis: payload.stasis,
             imageUrl: payload.imageUrl,
             aspect: payload.aspect,
-            autoCast: !!opts.autoCast,
+            imageOnly: true,
           });
-          if (opts.autoCast) {
-            setSpellGenerateStatus(
-              payload.imageUrl
-                ? "Animating the Spellforge still."
-                : "Opened Animate with the motion prompt. Generate an image first to move that still."
-            );
-          } else {
-            setSpellGenerateStatus(
-              payload.imageUrl
-                ? "Sent the still to Animate. Press Cast to move it."
-                : "Sent the motion prompt to Animate."
-            );
-          }
+          setSpellAnimateStatus(
+            "Still is on the Animate stage. Cast there uses that tab's length, quality, and motion line."
+          );
           resolve(seeded);
         } catch (e) {
-          setSpellGenerateStatus("Could not hand off to Animate.", true);
+          setSpellAnimateStatus("Could not send the still to Animate.", true);
           resolve(null);
         }
       }, 60);
@@ -7848,9 +8038,22 @@
     var kept = [spells[0], spells[1], spells[2]];
     var id = allocSpellNoteId();
     var tags = deriveIsTags(text);
+    var title = deriveNoteTitle(text);
+    if (arguments.length > 2 && arguments[2]) {
+      var noteOpts = arguments[2];
+      if (Array.isArray(noteOpts.tags) && noteOpts.tags.length) {
+        tags = [];
+        noteOpts.tags.forEach(function (tag) {
+          var s = String(tag || "").replace(/\s+/g, " ").trim().slice(0, 24);
+          if (s && tags.length < 6) tags.push(s);
+        });
+        if (!tags.length) tags = deriveIsTags(text);
+      }
+      if (noteOpts.title) title = String(noteOpts.title).replace(/\s+/g, " ").trim().slice(0, 80) || title;
+    }
     spellNotes.notes[String(id)] = {
       id: id,
-      title: deriveNoteTitle(text),
+      title: title,
       text: text,
       tags: tags,
       createdAt: Date.now(),
@@ -7990,7 +8193,7 @@
   function fillEquipSlotChoices(pendingNum) {
     var names = ["Spell I", "Spell II", "Spell III"];
     for (var s = 0; s < 3; s++) {
-      var btn = document.querySelector('.btn-spell-slot[data-slot="' + s + '"]');
+      var btn = document.querySelector('#spell-slot-dialog .btn-spell-slot[data-slot="' + s + '"]');
       var thumb = document.getElementById("spell-slot-choice-thumb-" + s);
       var empty = document.getElementById("spell-slot-choice-empty-" + s);
       var label = document.getElementById("spell-slot-choice-label-" + s);
@@ -8071,7 +8274,7 @@
           else dialog.close();
         };
       }
-      var btns = document.querySelectorAll(".btn-spell-slot");
+      var btns = dialog.querySelectorAll(".btn-spell-slot");
       for (var b = 0; b < btns.length; b++) {
         btns[b].onclick = function () {
           if (pendingPickNumber == null) return;
@@ -8381,6 +8584,139 @@
         openSlotDialog(num);
       };
       window.spellforgeRefresh = renderGrid;
+      function slotCard(slotIndex) {
+        var names = ["1", "2", "3"];
+        var roman = ["I", "II", "III"];
+        var num = spells[slotIndex];
+        var text = num ? String(getSpellSlotBody(slotIndex) || "").replace(/\s+/g, " ").trim() : "";
+        var tags = [];
+        var title = "Empty";
+        var imageUrl = "";
+        if (num) {
+          var info = slotIsInfo(slotIndex);
+          var analysis = getAnalysis(num) || {};
+          if (info) {
+            title = info.title || title;
+            tags = info.tags || [];
+          } else {
+            title = analysis.title || spellKindLabel(num);
+            tags = analysis.tags || [];
+          }
+          var gen = slotLastGen(slotIndex);
+          imageUrl = gen && gen.url ? gen.url : paintingUrl(num);
+        }
+        return {
+          slot: slotIndex,
+          name: names[slotIndex],
+          roman: roman[slotIndex],
+          empty: !num,
+          title: title,
+          text: text.slice(0, 180),
+          tags: (tags || []).slice(0, 6),
+          imageUrl: imageUrl || "",
+        };
+      }
+
+      function attachSlotStill(slotIndex, dataUrl, text) {
+        return loadSlotGens().then(function () {
+          var info = slotIsInfo(slotIndex);
+          var title = (info && info.title) || "Animate";
+          var n = nextSlotGenCount(title);
+          var seq = SLOT_GEN_SEQ_BASE + 1;
+          slotGens.forEach(function (g) {
+            if (g.seq >= seq) seq = g.seq + 1;
+          });
+          var rec = {
+            seq: seq,
+            key: slotGenKey(title),
+            tome: Number(spells[slotIndex]) || 0,
+            title: title,
+            n: n,
+            url: dataUrl,
+            prompt: String(text || "").slice(0, 2000),
+            tags: info && info.tags ? info.tags.slice(0, 6) : [],
+            created: Date.now(),
+          };
+          slotGens.push(rec);
+          return storeSlotGen(rec).then(function () {
+            ingestSlotGens();
+            renderSlots();
+            return rec;
+          });
+        });
+      }
+
+      function placeSnapshot(slotIndex, dataUrl) {
+        slotIndex = parseInt(slotIndex, 10);
+        if (slotIndex < 0 || slotIndex > 2 || isNaN(slotIndex)) {
+          return Promise.resolve({ ok: false, error: "Pick Spell 1, 2, or 3." });
+        }
+        if (!/^data:image\/(?:jpeg|png|webp);base64,/i.test(String(dataUrl || ""))) {
+          return Promise.resolve({ ok: false, error: "The frame did not copy." });
+        }
+        ensureSpellforgeStarted();
+        var existing = String(getSpellSlotBody(slotIndex) || "").replace(/\s+/g, " ").trim();
+        if (!existing || isSkipPhotoCaption(existing) || /^Painting #\d+ \(no analysis/.test(existing)) {
+          existing = "Animate frame.";
+        }
+        existing = existing.slice(0, 2000);
+        var note = equipNote(slotIndex, existing);
+        if (!note.ok) return Promise.resolve(note);
+        return attachSlotStill(slotIndex, dataUrl, existing).then(function () {
+          return { ok: true, slot: slotIndex, card: slotCard(slotIndex) };
+        });
+      }
+
+      function honeFrame(slotIndex, dataUrl) {
+        slotIndex = parseInt(slotIndex, 10);
+        if (slotIndex < 0 || slotIndex > 2 || isNaN(slotIndex)) {
+          return Promise.resolve({ ok: false, error: "Pick Spell 1, 2, or 3." });
+        }
+        if (!/^data:image\/(?:jpeg|png|webp);base64,/i.test(String(dataUrl || ""))) {
+          return Promise.resolve({ ok: false, error: "The selection did not copy." });
+        }
+        ensureSpellforgeStarted();
+        setSlotMsg(slotIndex, "Describing the selection…");
+        return fetch(apiUrl("/api/transfer/describe"), {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            image_base64: dataUrl,
+            name: "animate-selection.jpg",
+            force: true,
+          }),
+        })
+          .then(function (res) {
+            return res.json().catch(function () { return {}; }).then(function (data) {
+              if (!res.ok || !data || data.ok === false) throw new Error("describe");
+              return data;
+            });
+          })
+          .then(function (data) {
+            var parsed = readPhotoPack(data);
+            if (!parsed.description || isSkipPhotoCaption(parsed.description)) {
+              throw new Error("describe");
+            }
+            var tags = parsed.tags && parsed.tags.length ? parsed.tags : deriveIsTags(parsed.description);
+            var note = equipNote(slotIndex, parsed.description, { tags: tags, title: parsed.title });
+            if (!note.ok) throw new Error(note.error || "Could not equip the spell.");
+            return attachSlotStill(slotIndex, dataUrl, parsed.description).then(function () {
+              generateSlotIs(slotIndex);
+              return {
+                ok: true,
+                slot: slotIndex,
+                description: parsed.description,
+                tags: tags,
+                card: slotCard(slotIndex),
+              };
+            });
+          })
+          .catch(function () {
+            setSlotMsg(slotIndex, "The selection could not be described. Try the box again.", true);
+            return { ok: false, error: "The selection could not be described." };
+          });
+      }
+
       window.SpellforgeAPI = {
         onShow: onShow,
         prevPage: goPrevPage,
@@ -8421,6 +8757,15 @@
         },
         equipPhoto: function (slotIndex, info) {
           return equipPhoto(slotIndex, info);
+        },
+        slotCards: function () {
+          return [0, 1, 2].map(slotCard);
+        },
+        placeSnapshot: function (slotIndex, dataUrl) {
+          return placeSnapshot(slotIndex, dataUrl);
+        },
+        honeFrame: function (slotIndex, dataUrl) {
+          return honeFrame(slotIndex, dataUrl);
         },
         softenPromptForModeration: softenPromptForModeration,
         showModerationStrike: function (result) {

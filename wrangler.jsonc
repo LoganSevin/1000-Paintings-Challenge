@@ -14,7 +14,7 @@
     "binding": "ASSETS",
     "html_handling": "auto-trailing-slash",
     "not_found_handling": "none",
-    "run_worker_first": ["/api/*", "/.netlify/*", "/sketches-meta/*", "/generated-meta/*", "/sketches/json/*", "/generated/*", "/", "/index.html", "/subscribe", "/subscribe.html"]
+    "run_worker_first": ["/api/*", "/.netlify/*", "/saved-videos/*", "/sketches-meta/*", "/generated-meta/*", "/sketches/json/*", "/generated/*", "/", "/index.html", "/subscribe", "/subscribe.html"]
   },
   // Netlify Blobs replacement: a SQLite Durable Object (free plan, no extra API
   // permission). To use D1 instead, add

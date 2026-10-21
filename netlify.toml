@@ -41,6 +41,12 @@
 [functions."animate-cast"]
   timeout = 60
 
+[functions."save-video"]
+  timeout = 90
+
+[functions."saved-video"]
+  timeout = 30
+
 [[redirects]]
   from = "/api/health"
   to = "/.netlify/functions/health"
@@ -194,6 +200,18 @@
 [[redirects]]
   from = "/api/animate-cast"
   to = "/.netlify/functions/animate-cast"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/save-video"
+  to = "/.netlify/functions/save-video"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/saved-videos/:name"
+  to = "/.netlify/functions/saved-video/:name"
   status = 200
   force = true
 

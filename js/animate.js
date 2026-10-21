@@ -15,6 +15,7 @@
   var POLL_FETCH_RETRIES = 5;
   var DUR_KEY = "animate_duration_sec_v2";
   var RES_KEY = "animate_resolution_v1";
+  var FILM_KEY = "l7in_animate_film_v1";
   var MORPH_REF_MAX_SEC = 8;
   /** Allowed cast lengths — must match xAI video API + server allow-list. */
   var ALLOWED_DURATIONS = [6, 10, 15];
@@ -1708,10 +1709,67 @@
     return startMs + durationSec * 1000 <= MAX_TIMELINE_MS;
   }
 
+  function persistFilm() {
+    try {
+      var rows = [];
+      state.segments.forEach(function (s) {
+        if (!s || s.pending || !s.url) return;
+        var url = String(s.url);
+        if (url.indexOf("data:") === 0 || url.indexOf("blob:") === 0 || url.length > 1800) return;
+        var thumb = String(s.thumbUrl || "");
+        if (thumb.indexOf("data:") === 0 || thumb.indexOf("blob:") === 0 || thumb.length > 400) thumb = "";
+        rows.push({
+          id: s.id,
+          startMs: s.startMs || 0,
+          durationSec: s.durationSec || 0,
+          url: url,
+          label: String(s.label || "").slice(0, 80),
+          savedName: s.savedName || "",
+          thumbUrl: thumb,
+          spells: Array.isArray(s.spells) ? s.spells.slice(0, 8) : [],
+        });
+      });
+      if (rows.length > 80) rows = rows.slice(rows.length - 80);
+      localStorage.setItem(
+        FILM_KEY,
+        JSON.stringify({ segments: rows, playheadMs: state.playheadMs || 0 })
+      );
+    } catch (eFilm) {}
+  }
+
+  function restoreFilm() {
+    try {
+      var raw = localStorage.getItem(FILM_KEY);
+      if (!raw) return;
+      var data = JSON.parse(raw);
+      if (!data || !Array.isArray(data.segments)) return;
+      state.segments = data.segments
+        .filter(function (s) {
+          return s && s.url && String(s.url).indexOf("data:") !== 0 && String(s.url).indexOf("blob:") !== 0;
+        })
+        .slice(0, 80);
+      state.playheadMs = parseInt(data.playheadMs, 10) || 0;
+      var last = null;
+      for (var i = state.segments.length - 1; i >= 0; i--) {
+        if (state.segments[i].url) {
+          last = state.segments[i];
+          break;
+        }
+      }
+      var player = $("an-player");
+      if (player && last && last.url) {
+        player.src = last.url;
+        player.hidden = false;
+        player.controls = true;
+      }
+    } catch (eRestore) {}
+  }
+
   function addSegment(seg) {
     state.segments.push(seg);
     renderTimeline();
     updateTimelineMeta();
+    persistFilm();
   }
 
   function removeSegmentById(id) {
@@ -1720,6 +1778,7 @@
     });
     renderTimeline();
     updateTimelineMeta();
+    persistFilm();
   }
 
   function updateSegmentById(id, patch) {
@@ -1732,6 +1791,7 @@
     });
     renderTimeline();
     updateTimelineMeta();
+    persistFilm();
   }
 
   function renderRuler() {
@@ -1769,7 +1829,9 @@
       el.dataset.id = seg.id;
       el.style.left = msToPx(seg.startMs) + "px";
       el.style.width = Math.max(28, msToPx(seg.durationSec * 1000)) + "px";
-      el.title = (seg.label || "Clip") + " · " + seg.durationSec + "s";
+      var savedNum = seg.savedName ? String(parseInt(seg.savedName, 10) || "") : "";
+      var caption = (savedNum ? savedNum + " · " : "") + (seg.label || "Clip") + " · " + seg.durationSec + "s";
+      el.title = caption;
 
       if (seg.thumbUrl) {
         var thumb = document.createElement("img");
@@ -1780,7 +1842,7 @@
       }
       var lbl = document.createElement("span");
       lbl.className = "an-seg-label";
-      lbl.textContent = (seg.label || "Clip") + " · " + seg.durationSec + "s";
+      lbl.textContent = caption;
       el.appendChild(lbl);
 
       el.addEventListener("click", function () {
@@ -1793,6 +1855,38 @@
 
     renderRuler();
     updatePlayheadUi();
+    renderSavedList();
+  }
+
+  function renderSavedList() {
+    var host = $("an-saved-list");
+    if (!host) return;
+    var rows = state.segments.filter(function (s) {
+      return s && s.savedName && s.url && !s.pending;
+    });
+    rows.sort(function (a, b) {
+      return (parseInt(a.savedName, 10) || 0) - (parseInt(b.savedName, 10) || 0);
+    });
+    host.innerHTML = "";
+    if (!rows.length) {
+      host.hidden = true;
+      return;
+    }
+    host.hidden = false;
+    rows.forEach(function (s) {
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "an-saved-num";
+      var n = parseInt(s.savedName, 10);
+      btn.textContent = String(n || s.savedName);
+      btn.title = "saved-videos/" + s.savedName;
+      btn.addEventListener("click", function () {
+        state.playheadMs = s.startMs || 0;
+        updatePlayheadUi();
+        showLatestVideo(s.url);
+      });
+      host.appendChild(btn);
+    });
   }
 
   function updatePlayheadUi() {
@@ -2366,14 +2460,35 @@
         );
         if (window.GallerySaveVideo && window.GallerySaveVideo.save && playUrl) {
           window.GallerySaveVideo.save(playUrl).then(function (saved) {
-            if (!saved || !saved.url) return;
-            var savedUrl = absoluteUrl(saved.url);
-            updateSegmentById(pendingId, { url: savedUrl, savedName: saved.name });
-            var player = $("an-player");
-            if (player && (player.error || player.readyState < 2)) {
-              player.src = savedUrl;
-              player.play().catch(function () {});
+            if (!saved || !saved.url) {
+              setStatus(
+                "Clip played, but it was not saved. The temporary link will expire.",
+                "error"
+              );
+              return;
             }
+            var savedUrl = absoluteUrl(saved.url);
+            var savedName = saved.name || (saved.num != null ? saved.num + ".mp4" : "");
+            updateSegmentById(pendingId, { url: savedUrl, savedName: savedName });
+            var player = $("an-player");
+            if (player) {
+              var keepAt = player.currentTime || 0;
+              player.src = savedUrl;
+              if (keepAt > 0.2) {
+                player.addEventListener(
+                  "loadeddata",
+                  function onSavedLoad() {
+                    player.removeEventListener("loadeddata", onSavedLoad);
+                    try { player.currentTime = keepAt; } catch (eKeep) {}
+                  }
+                );
+              }
+            }
+            var savedNum = saved.num != null ? saved.num : parseInt(savedName, 10);
+            setStatus(
+              "Saved as " + (savedNum || savedName || "the next number") + " in saved-videos/" + (savedName || "clip") + ".",
+              "ok"
+            );
           });
         }
       })
@@ -3402,12 +3517,344 @@
     });
   }
 
+  function activePlayer() {
+    var player = $("an-player");
+    if (player && !player.hidden && (player.currentSrc || player.src)) return player;
+    var alt = $("an-player-alt");
+    if (alt && (alt.currentSrc || alt.src) && alt.classList.contains("an-player-active")) return alt;
+    return player && (player.currentSrc || player.src) ? player : null;
+  }
+
+  function drawVideoFrame(video, sx, sy, sw, sh) {
+    var c = document.createElement("canvas");
+    var max = 1024;
+    var k = Math.min(1, max / Math.max(sw, sh, 1));
+    c.width = Math.max(1, Math.round(sw * k));
+    c.height = Math.max(1, Math.round(sh * k));
+    c.getContext("2d").drawImage(video, sx, sy, sw, sh, 0, 0, c.width, c.height);
+    try {
+      return c.toDataURL("image/jpeg", 0.86);
+    } catch (eDraw) {
+      throw new Error("Save the clip first. Snapshots use the numbered file.");
+    }
+  }
+
+  function videoContentBox(video) {
+    var box = video.getBoundingClientRect();
+    var vw = video.videoWidth || 0;
+    var vh = video.videoHeight || 0;
+    if (!vw || !vh || !box.width || !box.height) return null;
+    var scale = Math.min(box.width / vw, box.height / vh);
+    var w = vw * scale;
+    var h = vh * scale;
+    return {
+      left: box.left + (box.width - w) / 2,
+      top: box.top + (box.height - h) / 2,
+      width: w,
+      height: h,
+      vw: vw,
+      vh: vh,
+    };
+  }
+
+  function grabPlayerFrame(at) {
+    var shown = activePlayer();
+    if (!shown) return Promise.reject(new Error("Play a saved clip first."));
+    var src = shown.currentSrc || shown.src || "";
+    if (!src) return Promise.reject(new Error("Play a saved clip first."));
+    if (src.indexOf("/saved-videos/") < 0 && src.indexOf("blob:") !== 0 && src.indexOf("data:") !== 0) {
+      return Promise.reject(new Error("Save the clip first. Snapshots use the numbered file."));
+    }
+    return new Promise(function (resolve, reject) {
+      var probe = document.createElement("video");
+      probe.muted = true;
+      probe.playsInline = true;
+      probe.preload = "auto";
+      function fail(err) {
+        probe.removeAttribute("src");
+        try { probe.load(); } catch (eLoad) {}
+        reject(err);
+      }
+      probe.addEventListener("error", function () {
+        fail(new Error("The clip frame could not be read."));
+      });
+      probe.addEventListener("loadeddata", function onLoad() {
+        probe.removeEventListener("loadeddata", onLoad);
+        var settled = false;
+        var seekTimer = setTimeout(function () {
+          failSettled(new Error("The frame took too long to read."));
+        }, 4000);
+        function finish() {
+          if (settled) return;
+          settled = true;
+          clearTimeout(seekTimer);
+          var vw = probe.videoWidth || 0;
+          var vh = probe.videoHeight || 0;
+          if (!vw || !vh) {
+            fail(new Error("The picture is not ready yet."));
+            return;
+          }
+          try {
+            resolve(drawVideoFrame(probe, 0, 0, vw, vh));
+          } catch (eDraw) {
+            fail(new Error("Save the clip first. Snapshots use the numbered file."));
+          }
+          probe.removeAttribute("src");
+          try { probe.load(); } catch (eLoad2) {}
+        }
+        function failSettled(err) {
+          if (settled) return;
+          settled = true;
+          clearTimeout(seekTimer);
+          fail(err);
+        }
+        if (at == null) {
+          var now = shown.currentTime || 0;
+          if (now > 0.05) {
+            probe.addEventListener("seeked", function onNow() {
+              probe.removeEventListener("seeked", onNow);
+              finish();
+            });
+            try { probe.currentTime = now; } catch (eNow) { finish(); }
+            return;
+          }
+          finish();
+          return;
+        }
+        probe.addEventListener("seeked", function onEnd() {
+          probe.removeEventListener("seeked", onEnd);
+          finish();
+        });
+        try {
+          var end = Math.max(0, (probe.duration || 0) - 0.05);
+          if (!isFinite(end)) end = 0;
+          if (Math.abs((probe.currentTime || 0) - end) < 0.03) {
+            finish();
+            return;
+          }
+          probe.currentTime = end;
+        } catch (eEnd) {
+          failSettled(new Error("The end frame could not be read."));
+        }
+      });
+      probe.src = src;
+    });
+  }
+
+  function cropPlayerBox(x0, y0, x1, y1) {
+    var shown = activePlayer();
+    if (!shown) throw new Error("Play a saved clip first.");
+    var content = videoContentBox(shown);
+    if (!content) throw new Error("The picture is not ready yet.");
+    var left = Math.max(content.left, Math.min(x0, x1));
+    var right = Math.min(content.left + content.width, Math.max(x0, x1));
+    var top = Math.max(content.top, Math.min(y0, y1));
+    var bottom = Math.min(content.top + content.height, Math.max(y0, y1));
+    var sw = ((right - left) / content.width) * content.vw;
+    var sh = ((bottom - top) / content.height) * content.vh;
+    if (sw < 8 || sh < 8) throw new Error("Drag a larger box on the picture.");
+    var sx = ((left - content.left) / content.width) * content.vw;
+    var sy = ((top - content.top) / content.height) * content.vh;
+    return drawVideoFrame(shown, sx, sy, sw, sh);
+  }
+
+  function fillFrameChoices() {
+    var api = window.SpellforgeAPI;
+    var ready = api && api.whenReady ? api.whenReady() : Promise.resolve();
+    return ready.then(function () {
+      var cards = api && api.slotCards ? api.slotCards() : [];
+      cards.forEach(function (card) {
+        if (!card) return;
+        var thumb = $("an-slot-thumb-" + card.slot);
+        var empty = $("an-slot-empty-" + card.slot);
+        var label = $("an-slot-label-" + card.slot);
+        if (card.empty) {
+          if (thumb) {
+            thumb.hidden = true;
+            thumb.removeAttribute("src");
+          }
+          if (empty) empty.hidden = false;
+          if (label) label.textContent = "Empty — click to fill";
+          return;
+        }
+        if (thumb) {
+          thumb.hidden = false;
+          thumb.src = card.imageUrl || "";
+          thumb.alt = card.title || "";
+        }
+        if (empty) empty.hidden = true;
+        var line = card.title || "Spell";
+        if (card.text) line += " — " + card.text.slice(0, 80);
+        if (label) label.textContent = line;
+      });
+    }).catch(function () {});
+  }
+
+  function closeFrameDialog() {
+    var dialog = $("an-frame-dialog");
+    if (!dialog) return;
+    state.frameSend = null;
+    if (dialog.open && dialog.close) dialog.close();
+  }
+
+  function openFrameDialog(dataUrl, mode) {
+    var dialog = $("an-frame-dialog");
+    var preview = $("an-frame-preview");
+    if (!dialog || !preview || !dataUrl) return Promise.resolve();
+    state.frameSend = { url: dataUrl, mode: mode || "now" };
+    preview.src = dataUrl;
+    var title = $("an-frame-title");
+    var meta = $("an-frame-meta");
+    if (mode === "hone") {
+      if (title) title.textContent = "Hone this box into a spell";
+      if (meta) meta.textContent = "Pick Spell 1, 2, or 3. That slot is described, tagged, and painted again from this box.";
+    } else if (mode === "end") {
+      if (title) title.textContent = "Send the end frame";
+      if (meta) meta.textContent = "Pick Spell 1, 2, or 3. The button shows what is in that spell now. The end frame replaces its picture.";
+    } else {
+      if (title) title.textContent = "Send this frame";
+      if (meta) meta.textContent = "Pick Spell 1, 2, or 3. The button shows what is in that spell now. This frame replaces its picture.";
+    }
+    return fillFrameChoices().then(function () {
+      if (!dialog || dialog.open) return;
+      try {
+        if (dialog.showModal) {
+          dialog.showModal();
+          return;
+        }
+      } catch (eModal) {}
+      try {
+        if (dialog.show) dialog.show();
+      } catch (eShow) {}
+    });
+  }
+
+  function sendFrameToSlot(slot) {
+    var pending = state.frameSend;
+    if (!pending || !window.SpellforgeAPI) return;
+    var api = window.SpellforgeAPI;
+    var job = pending.mode === "hone"
+      ? api.honeFrame(slot, pending.url)
+      : api.placeSnapshot(slot, pending.url);
+    var meta = $("an-frame-meta");
+    if (meta) meta.textContent = pending.mode === "hone" ? "Describing and painting Spell " + (slot + 1) + "…" : "Sending the frame to Spell " + (slot + 1) + "…";
+    Promise.resolve(job).then(function (res) {
+      if (!res || !res.ok) {
+        if (meta) meta.textContent = (res && res.error) || "The spell did not take the frame.";
+        return;
+      }
+      closeFrameDialog();
+      if (pending.mode === "hone") {
+        setStatus("Spell " + (slot + 1) + " is describing the box and painting it again.", "ok");
+      } else {
+        setStatus("Spell " + (slot + 1) + " now shows this frame.", "ok");
+      }
+      var tab = document.querySelector('.tab[data-tab="spellforge"]');
+      if (tab) tab.click();
+    }).catch(function (err) {
+      if (meta) meta.textContent = (err && err.message) || "The spell did not take the frame.";
+    });
+  }
+
+  function bindFrameTools() {
+    var dialog = $("an-frame-dialog");
+    if (dialog && !dialog.dataset.bound) {
+      dialog.dataset.bound = "1";
+      var closeBtn = $("an-frame-close");
+      if (closeBtn) closeBtn.addEventListener("click", closeFrameDialog);
+      dialog.querySelectorAll("[data-an-slot]").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          sendFrameToSlot(parseInt(btn.getAttribute("data-an-slot"), 10));
+        });
+      });
+    }
+    var nowBtn = $("an-snap-now");
+    if (nowBtn && !nowBtn.dataset.bound) {
+      nowBtn.dataset.bound = "1";
+      nowBtn.addEventListener("click", function () {
+        grabPlayerFrame(null).then(function (url) {
+          return openFrameDialog(url, "now");
+        }).catch(function (err) {
+          setStatus((err && err.message) || "The frame could not be copied.", "error");
+        });
+      });
+    }
+    var endBtn = $("an-snap-end");
+    if (endBtn && !endBtn.dataset.bound) {
+      endBtn.dataset.bound = "1";
+      endBtn.addEventListener("click", function () {
+        grabPlayerFrame("end").then(function (url) {
+          return openFrameDialog(url, "end");
+        }).catch(function (err) {
+          setStatus((err && err.message) || "The end frame could not be copied.", "error");
+        });
+      });
+    }
+    var boxBtn = $("an-snap-box");
+    var layer = $("an-box-layer");
+    var band = $("an-box-band");
+    if (boxBtn && layer && !boxBtn.dataset.bound) {
+      boxBtn.dataset.bound = "1";
+      var drag = null;
+      boxBtn.addEventListener("click", function () {
+        if (!activePlayer()) {
+          setStatus("Play a saved clip first, then drag a box on the picture.", "error");
+          return;
+        }
+        layer.hidden = false;
+        setStatus("Drag a box on the picture. That piece goes to Spell 1, 2, or 3.", "ok");
+      });
+      function placeBand(x0, y0, x1, y1) {
+        if (!band) return;
+        var host = layer.getBoundingClientRect();
+        var left = Math.min(x0, x1) - host.left;
+        var top = Math.min(y0, y1) - host.top;
+        band.hidden = false;
+        band.style.left = left + "px";
+        band.style.top = top + "px";
+        band.style.width = Math.abs(x1 - x0) + "px";
+        band.style.height = Math.abs(y1 - y0) + "px";
+      }
+      layer.addEventListener("pointerdown", function (e) {
+        if (e.button != null && e.button !== 0) return;
+        drag = { x: e.clientX, y: e.clientY };
+        try { layer.setPointerCapture(e.pointerId); } catch (eCap) {}
+        placeBand(e.clientX, e.clientY, e.clientX, e.clientY);
+      });
+      layer.addEventListener("pointermove", function (e) {
+        if (!drag) return;
+        placeBand(drag.x, drag.y, e.clientX, e.clientY);
+      });
+      function endDrag(e) {
+        if (!drag) return;
+        var start = drag;
+        drag = null;
+        layer.hidden = true;
+        if (band) band.hidden = true;
+        try {
+          var url = cropPlayerBox(start.x, start.y, e.clientX, e.clientY);
+          openFrameDialog(url, "hone");
+        } catch (err) {
+          setStatus((err && err.message) || "The box could not be copied.", "error");
+        }
+      }
+      layer.addEventListener("pointerup", endDrag);
+      layer.addEventListener("pointercancel", function () {
+        drag = null;
+        layer.hidden = true;
+        if (band) band.hidden = true;
+      });
+    }
+  }
+
   function boot() {
     if (!$("panel-animate")) return;
+    restoreFilm();
     syncDurationUi();
     renderTimeline();
     updateTimelineMeta();
     bindUi();
+    bindFrameTools();
     window.dispatchEvent(new Event("animate-ready"));
   }
 
@@ -3459,6 +3906,19 @@
 
   function seedFromSpellforge(opts) {
     opts = opts || {};
+    if (opts.imageOnly) {
+      var onlyImage = String(opts.imageUrl || "").trim();
+      if (onlyImage) showGenPreview(onlyImage);
+      state.seedImageUrl = onlyImage;
+      if (opts.aspect) state.seedAspect = String(opts.aspect).trim() || state.seedAspect;
+      setStatus(
+        onlyImage
+          ? "Still is on the stage. Cast uses this tab's length, quality, and motion line."
+          : "Opened from Spellforge. Cast uses this tab's length, quality, and motion line.",
+        "ok"
+      );
+      return Promise.resolve({ imageUrl: onlyImage, imageOnly: true });
+    }
     var prompt = String(opts.prompt || opts.stasis || "").replace(/\s+/g, " ").trim();
     if (prompt.length > 900) prompt = prompt.slice(0, 899).trim() + "…";
     var stasis = String(opts.stasis || opts.prompt || "").trim();
@@ -3502,6 +3962,7 @@
     castSpell: castSpell,
     playTimeline: playTimeline,
     seedFromSpellforge: seedFromSpellforge,
+    openFrameSheet: openFrameDialog,
     getSegments: function () {
       return state.segments.slice();
     },

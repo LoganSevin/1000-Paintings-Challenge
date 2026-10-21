@@ -13,6 +13,10 @@ import { setBlobsBackendFromEnv, getStore } from "./blobs-d1.mjs";
 import { servePacked, PACKED_PREFIXES } from "./packs.mjs";
 
 import animateCast from "../netlify/functions/animate-cast.mjs";
+import phoneLive from "../netlify/functions/phone-live.mjs";
+import saveVideo from "../netlify/functions/save-video.mjs";
+import savedVideo from "../netlify/functions/saved-video.mjs";
+import spriteDungeon from "../netlify/functions/sprite-dungeon.mjs";
 import authConfig from "../netlify/functions/auth-config.mjs";
 import authGoogle from "../netlify/functions/auth-google.mjs";
 import blendSpells from "../netlify/functions/blend-spells.mjs";
@@ -40,6 +44,10 @@ export { BlobStoreDO } from "./blobs-do.mjs";
 // Function name -> handler (also reachable as /.netlify/functions/<name>).
 export const FUNCTIONS = {
   "animate-cast": animateCast,
+  "phone-live": phoneLive,
+  "save-video": saveVideo,
+  "saved-video": savedVideo,
+  "sprite-dungeon": spriteDungeon,
   "auth-config": authConfig,
   "auth-google": authGoogle,
   "blend-spells": blendSpells,
@@ -89,6 +97,10 @@ const API_ROUTES = [
   ["/api/openai-chat", "openai-chat"],
   ["/api/cameo-video", "cameo-video"],
   ["/api/animate-cast", "animate-cast"],
+  ["/api/phone-live", "phone-live"],
+  ["/api/save-video", "save-video"],
+  ["/api/sprite-dungeon", "sprite-dungeon"],
+  ["/saved-videos/:name", "saved-video"],
 ];
 
 export function matchRoute(pathname) {
@@ -97,6 +109,7 @@ export function matchRoute(pathname) {
   if (fn && FUNCTIONS[fn[1]]) {
     const params = {};
     if (fn[1] === "job-status" && fn[2]) params.jobId = decodeURIComponent(fn[2].slice(1).split("/")[0]);
+    if (fn[1] === "saved-video" && fn[2]) params.name = decodeURIComponent(fn[2].slice(1).split("/")[0]);
     return { name: fn[1], params };
   }
   for (const [pattern, name] of API_ROUTES) {

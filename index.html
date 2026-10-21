@@ -75,14 +75,14 @@
   }
   </script>
   <link rel="stylesheet" href="css/stasis-skin.css?v=2" />
-  <link rel="stylesheet" href="css/spellforge.css?v=57" />
+  <link rel="stylesheet" href="css/spellforge.css?v=58" />
   <!-- Secondary tab CSS loads after first paint via lazy-assets.js -->
   <link rel="stylesheet" href="css/muralwalk.css?v=46" />
   <link rel="stylesheet" href="css/fleeting-idea.css?v=100" />
   <link rel="stylesheet" href="css/tabloid-print.css?v=1" />
   <link rel="stylesheet" href="css/conceptualizer.css?v=8" />
   <link rel="stylesheet" href="css/mobile-art-gen.css?v=2" />
-  <link rel="stylesheet" href="css/animate.css?v=15" />
+  <link rel="stylesheet" href="css/animate.css?v=16" />
   <link rel="stylesheet" href="css/characters.css?v=12" />
   <link rel="stylesheet" href="css/studio-assets.css?v=5" />
   <link rel="stylesheet" href="css/assets-tab.css?v=1" />
@@ -643,9 +643,25 @@
             </div>
             <p class="spell-save-hint">logan7in.art cannot see your Desktop by itself. Click <strong>Link generated folder</strong> once and choose Desktop → 1000 Paintings Challenge → gallery → generated. If a still is already on screen, click <strong>Save this still to PC</strong> — do not Generate again.</p>
             <div class="spell-animate-row">
+              <label class="spell-aspect-label" for="spell-animate-dur">Length
+                <select id="spell-animate-dur" class="spell-aspect" aria-label="Spellforge animation length">
+                  <option value="6" selected>6s</option>
+                  <option value="10">10s</option>
+                  <option value="15">15s</option>
+                </select>
+              </label>
+              <label class="spell-aspect-label" for="spell-animate-res">Quality
+                <select id="spell-animate-res" class="spell-aspect" aria-label="Spellforge animation quality">
+                  <option value="480p">480p</option>
+                  <option value="720p" selected>720p</option>
+                </select>
+              </label>
+              <button type="button" id="spell-animate" class="btn-cast">Animate</button>
               <button type="button" id="spell-send-animate" class="btn-secondary">Send to Animate</button>
-              <button type="button" id="spell-gen-video-animate" class="btn-secondary">Generate video in Animate</button>
             </div>
+            <p class="spell-save-hint">Animate plays on this tab with this length and quality. Send to Animate only places the still there. Cast on Animate keeps that tab's length, quality, and motion line.</p>
+            <p id="spell-animate-status" class="spell-generate-status" hidden></p>
+            <video id="spell-animate-player" class="spell-animate-player" playsinline controls preload="metadata" hidden aria-label="Spellforge animation"></video>
             <button type="button" id="spell-send-muralwalk" class="btn-secondary" disabled>Walk fused floor in Muralwalk</button>
             <p id="spell-generate-status" class="spell-generate-status" hidden></p>
             <div class="spell-share-row">
@@ -1245,6 +1261,9 @@
                 <button type="button" id="an-cancel-gen" class="an-btn an-gen-cancel">Cancel</button>
               </div>
               <video id="an-player" class="an-player" playsinline controls hidden aria-label="Animate preview"></video>
+              <div id="an-box-layer" class="an-box-layer" hidden>
+                <div id="an-box-band" class="an-box-band" hidden></div>
+              </div>
               <video id="an-player-alt" class="an-player an-player-alt" playsinline hidden aria-hidden="true"></video>
               <div id="an-theater-bar" class="an-theater-bar" hidden>
                 <span id="an-theater-meta" class="an-theater-meta">Clip 1/1</span>
@@ -1260,6 +1279,13 @@
                 <button type="button" id="an-play-fullscreen" class="an-btn accent">Fullscreen film</button>
                 <button type="button" id="an-play-timeline" class="an-btn">Play timeline</button>
                 <button type="button" id="an-clear-timeline" class="an-btn">Clear</button>
+                <button type="button" id="an-snap-now" class="an-btn">Snapshot frame</button>
+                <button type="button" id="an-snap-end" class="an-btn">Snapshot end</button>
+                <button type="button" id="an-snap-box" class="an-btn">Box select</button>
+              </div>
+              <div id="an-saved-row" class="an-saved-row">
+                <span class="an-saved-label">Saved</span>
+                <div id="an-saved-list" class="an-saved-list" hidden aria-label="Saved clips by number"></div>
               </div>
             </div>
             <div id="an-timeline-scroll" class="an-timeline-scroll">
@@ -8458,7 +8484,7 @@
             <button type="button" id="co-save-video" class="co-btn" title="Save clip into gallery/saved-videos" disabled>Save video</button>
             <button type="button" id="co-sell" class="co-btn" title="Add current still to cart and open checkout" hidden>Sell this piece</button>
             <p id="co-status" class="co-status" aria-live="polite"></p>
-            <p class="co-save-hint">Stills auto-save to <strong>generated/</strong> · videos to <strong>saved-videos/</strong> when the local gallery server is running. Without the server, temporary CDN links expire and work is lost.</p>
+            <p class="co-save-hint">Stills auto-save to <strong>generated/</strong> · videos save to <strong>saved-videos/</strong> on this site. A temporary link is replaced when the save finishes.</p>
             <div class="co-prompt-inspect" id="co-prompt-inspect">
               <div class="co-selected-row" style="margin:0.35rem 0 0.2rem;flex-wrap:wrap;gap:0.35rem">
                 <span class="co-selected-label">API prompt <em>(editable · sent on Generate)</em></span>
@@ -8865,6 +8891,48 @@
         <img class="spell-stasis-vision-spell" id="spell-stasis-vision-spell-1" alt="" width="13" height="13" loading="lazy" />
         <img class="spell-stasis-vision-spell" id="spell-stasis-vision-spell-2" alt="" width="13" height="13" loading="lazy" />
       </div>
+    </div>
+  </dialog>
+
+  <dialog id="an-frame-dialog" class="spell-slot-dialog" aria-labelledby="an-frame-title">
+    <button type="button" class="spell-slot-dialog-close" id="an-frame-close" aria-label="Close">&times;</button>
+    <h3 id="an-frame-title">Send frame to a spell</h3>
+    <figure class="spell-preview-figure">
+      <img id="an-frame-preview" alt="Frame to send" />
+    </figure>
+    <p id="an-frame-meta" class="spell-preview-meta"></p>
+    <p class="spell-slot-prompt">Each button shows the spell that is there now.</p>
+    <div class="spell-slot-choices">
+      <button type="button" class="btn-spell-slot" data-an-slot="0">
+        <span class="spell-slot-choice-thumb-wrap">
+          <img class="spell-slot-choice-thumb" id="an-slot-thumb-0" alt="" />
+          <span class="spell-slot-choice-empty" id="an-slot-empty-0">Empty</span>
+        </span>
+        <span class="spell-slot-choice-copy">
+          <strong>Spell 1</strong>
+          <em id="an-slot-label-0">Empty</em>
+        </span>
+      </button>
+      <button type="button" class="btn-spell-slot" data-an-slot="1">
+        <span class="spell-slot-choice-thumb-wrap">
+          <img class="spell-slot-choice-thumb" id="an-slot-thumb-1" alt="" />
+          <span class="spell-slot-choice-empty" id="an-slot-empty-1">Empty</span>
+        </span>
+        <span class="spell-slot-choice-copy">
+          <strong>Spell 2</strong>
+          <em id="an-slot-label-1">Empty</em>
+        </span>
+      </button>
+      <button type="button" class="btn-spell-slot" data-an-slot="2">
+        <span class="spell-slot-choice-thumb-wrap">
+          <img class="spell-slot-choice-thumb" id="an-slot-thumb-2" alt="" />
+          <span class="spell-slot-choice-empty" id="an-slot-empty-2">Empty</span>
+        </span>
+        <span class="spell-slot-choice-copy">
+          <strong>Spell 3</strong>
+          <em id="an-slot-label-2">Empty</em>
+        </span>
+      </button>
     </div>
   </dialog>
 
@@ -9404,7 +9472,7 @@
   <script defer src="js/stasis-interface-skin.js?v=2"></script>
   <script defer src="js/stasis-floor-gen.js?v=8"></script>
   <script defer src="js/spellforge-config.js?v=5"></script>
-  <script defer src="js/spellforge.js?v=139"></script>
+  <script defer src="js/spellforge.js?v=140"></script>
   <script defer src="js/fix-webm-duration.js?v=1"></script>
   <script defer src="js/videofy-export.js?v=3"></script>
   <script defer src="js/viral.js?v=13"></script>
@@ -9423,7 +9491,7 @@
   <script defer src="js/characters.js?v=18"></script>
   <script defer src="js/objects.js?v=8"></script>
   <script defer src="js/rooms.js?v=4"></script>
-  <script defer src="js/animate.js?v=37"></script>
+  <script defer src="js/animate.js?v=38"></script>
   <script defer src="js/mobile.js?v=3"></script>
 </body>
 </html>
