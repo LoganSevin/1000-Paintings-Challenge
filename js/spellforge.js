@@ -6852,8 +6852,76 @@
     if (!player || !url) return;
     player.hidden = false;
     player.controls = true;
-    player.src = url;
-    player.play().catch(function () {});
+    var token = String(url).split("?")[0] + "#" + Date.now();
+    player.dataset.saveToken = token;
+    var saved =
+      window.GallerySaveVideo &&
+      GallerySaveVideo.isAlreadySaved &&
+      GallerySaveVideo.isAlreadySaved(url) &&
+      GallerySaveVideo.loadComplete;
+    var ready = saved ? GallerySaveVideo.loadComplete(url) : Promise.resolve(url);
+    ready.then(function (playUrl) {
+      if (!player.isConnected || player.dataset.saveToken !== token) return;
+      if (!playUrl) {
+        if (!player.getAttribute("src")) player.src = url;
+        return;
+      }
+      var srcNow = player.currentSrc || player.getAttribute("src") || "";
+      var at =
+        srcNow && srcNow.indexOf("blob:") !== 0 && srcNow.indexOf("/saved-videos/") < 0
+          ? player.currentTime || 0
+          : 0;
+      if (at > 0.2) {
+        player.addEventListener("loadeddata", function onSpellLoad() {
+          player.removeEventListener("loadeddata", onSpellLoad);
+          try {
+            player.currentTime = at;
+          } catch (eAt) {}
+        });
+      }
+      player.src = playUrl;
+      player.play().catch(function () {});
+    });
+  }
+
+  function renderSpellSavedList(items) {
+    var host = document.getElementById("spell-saved-list");
+    if (!host) return;
+    var rows = (items || [])
+      .filter(function (item) {
+        return item && item.url && (parseInt(item.num, 10) || 0);
+      })
+      .slice()
+      .sort(function (a, b) {
+        return (parseInt(a.num, 10) || 0) - (parseInt(b.num, 10) || 0);
+      });
+    host.innerHTML = "";
+    if (!rows.length) {
+      host.hidden = true;
+      return;
+    }
+    host.hidden = false;
+    var label = document.createElement("span");
+    label.className = "an-saved-label";
+    label.textContent = "Saved";
+    host.appendChild(label);
+    rows.forEach(function (item) {
+      var n = parseInt(item.num, 10) || 0;
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "an-saved-num";
+      btn.textContent = String(n);
+      btn.title = "saved-videos/" + (item.name || n + ".mp4");
+      btn.addEventListener("click", function () {
+        showSpellAnimatePlayer(item.url);
+      });
+      host.appendChild(btn);
+    });
+  }
+
+  function refreshSpellSavedList() {
+    if (!window.GallerySaveVideo || !GallerySaveVideo.listSaved) return Promise.resolve();
+    return GallerySaveVideo.listSaved().then(renderSpellSavedList).catch(function () {});
   }
 
   function rememberSpellAnimate(url, saved) {
@@ -6895,12 +6963,7 @@
       var lastRaw = localStorage.getItem("l7in_spell_animate_last_v1");
       var last = lastRaw ? JSON.parse(lastRaw) : null;
       if (last && last.url && String(last.url).indexOf("/saved-videos/") >= 0) {
-        var player = document.getElementById("spell-animate-player");
-        if (player) {
-          player.hidden = false;
-          player.controls = true;
-          player.src = last.url;
-        }
+        showSpellAnimatePlayer(last.url);
       }
     } catch (eLastLoad) {}
   }
@@ -6989,7 +7052,9 @@
         return window.GallerySaveVideo.save(url).then(function (saved) {
           if (!saved || !saved.url) {
             setSpellAnimateStatus(
-              "Played here, but the clip was not saved. The temporary link will expire.",
+              saved && saved.error
+                ? "Played here, but the clip was not saved. " + saved.error
+                : "Played here, but the clip was not saved. The temporary link will expire.",
               true
             );
             return null;
@@ -6998,6 +7063,7 @@
           showSpellAnimatePlayer(savedUrl);
           rememberSpellAnimate(savedUrl, saved);
           setSpellAnimateStatus("Saved on Spellforge as saved-videos/" + (saved.name || "clip") + ".");
+          refreshSpellSavedList();
           return saved;
         });
       })
@@ -7013,6 +7079,7 @@
 
   function bindAnimateHandoff() {
     loadSpellAnimateProps();
+    refreshSpellSavedList();
     var sendAn = document.getElementById("spell-send-animate");
     if (sendAn && !sendAn.dataset.bound) {
       sendAn.dataset.bound = "1";

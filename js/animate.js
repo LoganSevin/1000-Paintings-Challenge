@@ -34,6 +34,7 @@
     trayShowAll: false,
     trayRandomSlice: [],
     segments: [],
+    savedLibrary: [],
     playheadMs: 0,
     durationSec: 15,
     resolution: "720p",
@@ -1758,9 +1759,16 @@
       }
       var player = $("an-player");
       if (player && last && last.url) {
-        player.src = last.url;
         player.hidden = false;
         player.controls = true;
+        var zone = $("an-drop-zone");
+        if (zone) zone.classList.add("an-has-video");
+        if (window.GallerySaveVideo && GallerySaveVideo.isAlreadySaved(last.url)) {
+          playSaved(last.url);
+        } else {
+          player.dataset.saveToken = "restore";
+          player.src = last.url;
+        }
       }
     } catch (eRestore) {}
   }
@@ -1858,15 +1866,41 @@
     renderSavedList();
   }
 
+  function savedClipRows() {
+    var byNum = {};
+    (state.savedLibrary || []).forEach(function (item) {
+      var n = parseInt(item && item.num, 10) || 0;
+      if (!n || !item.url) return;
+      byNum[n] = {
+        num: n,
+        url: item.url,
+        name: item.name || n + ".mp4",
+        startMs: 0,
+      };
+    });
+    state.segments.forEach(function (s) {
+      if (!s || s.pending || !s.savedName || !s.url) return;
+      var n = parseInt(s.savedName, 10) || 0;
+      if (!n) return;
+      var prev = byNum[n] || { num: n, url: s.url, name: s.savedName, startMs: 0 };
+      prev.url = s.url || prev.url;
+      prev.name = s.savedName || prev.name;
+      prev.startMs = s.startMs || 0;
+      byNum[n] = prev;
+    });
+    return Object.keys(byNum)
+      .map(function (k) {
+        return byNum[k];
+      })
+      .sort(function (a, b) {
+        return a.num - b.num;
+      });
+  }
+
   function renderSavedList() {
     var host = $("an-saved-list");
     if (!host) return;
-    var rows = state.segments.filter(function (s) {
-      return s && s.savedName && s.url && !s.pending;
-    });
-    rows.sort(function (a, b) {
-      return (parseInt(a.savedName, 10) || 0) - (parseInt(b.savedName, 10) || 0);
-    });
+    var rows = savedClipRows();
     host.innerHTML = "";
     if (!rows.length) {
       host.hidden = true;
@@ -1877,16 +1911,25 @@
       var btn = document.createElement("button");
       btn.type = "button";
       btn.className = "an-saved-num";
-      var n = parseInt(s.savedName, 10);
-      btn.textContent = String(n || s.savedName);
-      btn.title = "saved-videos/" + s.savedName;
+      btn.textContent = String(s.num);
+      btn.title = "saved-videos/" + s.name;
       btn.addEventListener("click", function () {
         state.playheadMs = s.startMs || 0;
         updatePlayheadUi();
-        showLatestVideo(s.url);
+        playSaved(s.url);
       });
       host.appendChild(btn);
     });
+  }
+
+  function refreshSavedLibrary() {
+    if (!window.GallerySaveVideo || !GallerySaveVideo.listSaved) return Promise.resolve();
+    return GallerySaveVideo.listSaved()
+      .then(function (items) {
+        state.savedLibrary = items || [];
+        renderSavedList();
+      })
+      .catch(function () {});
   }
 
   function updatePlayheadUi() {
@@ -2316,14 +2359,52 @@
     });
   }
 
+  function playSaved(url, keepPlace) {
+    var player = $("an-player");
+    var zone = $("an-drop-zone");
+    if (!player || !url) return;
+    if (zone) zone.classList.add("an-has-video");
+    player.hidden = false;
+    player.controls = true;
+    var token = "saved:" + String(url).split("?")[0];
+    player.dataset.saveToken = token;
+    var ready =
+      window.GallerySaveVideo && GallerySaveVideo.loadComplete
+        ? GallerySaveVideo.loadComplete(url)
+        : Promise.resolve(absoluteUrl(url));
+    ready.then(function (playUrl) {
+      if (!player.isConnected || player.dataset.saveToken !== token) return;
+      if (!playUrl) {
+        if (!player.getAttribute("src")) player.src = absoluteUrl(url);
+        return;
+      }
+      var at = keepPlace ? player.currentTime || 0 : 0;
+      if (at > 0.2) {
+        player.addEventListener("loadeddata", function onSavedLoad() {
+          player.removeEventListener("loadeddata", onSavedLoad);
+          try {
+            player.currentTime = at;
+          } catch (eKeep) {}
+        });
+      }
+      player.src = playUrl;
+      player.play().catch(function () {});
+    });
+  }
+
   function previewSegment(seg) {
     var player = $("an-player");
     var zone = $("an-drop-zone");
     if (!player || !seg || !seg.url) return;
-    player.src = absoluteUrl(seg.url);
+    if (zone) zone.classList.add("an-has-video");
     player.hidden = false;
     player.controls = true;
-    if (zone) zone.classList.add("an-has-video");
+    if (window.GallerySaveVideo && GallerySaveVideo.isAlreadySaved(seg.url)) {
+      playSaved(seg.url);
+      return;
+    }
+    player.dataset.saveToken = "live";
+    player.src = absoluteUrl(seg.url);
     player.play().catch(function () {});
   }
 
@@ -2448,6 +2529,13 @@
         state.playheadMs = insertMs;
         updatePlayheadUi();
         showLatestVideo(playUrl);
+        var shown = $("an-player");
+        if (
+          shown &&
+          !(window.GallerySaveVideo && GallerySaveVideo.isAlreadySaved(playUrl))
+        ) {
+          shown.dataset.saveToken = "cast:" + pendingId;
+        }
         setStatus(
           "Clip ready · " +
             jobDur +
@@ -2462,7 +2550,9 @@
           window.GallerySaveVideo.save(playUrl).then(function (saved) {
             if (!saved || !saved.url) {
               setStatus(
-                "Clip played, but it was not saved. The temporary link will expire.",
+                saved && saved.error
+                  ? "Clip played, but it was not saved. " + saved.error
+                  : "Clip played, but it was not saved. The temporary link will expire.",
                 "error"
               );
               return;
@@ -2471,24 +2561,13 @@
             var savedName = saved.name || (saved.num != null ? saved.num + ".mp4" : "");
             updateSegmentById(pendingId, { url: savedUrl, savedName: savedName });
             var player = $("an-player");
-            if (player) {
-              var keepAt = player.currentTime || 0;
-              player.src = savedUrl;
-              if (keepAt > 0.2) {
-                player.addEventListener(
-                  "loadeddata",
-                  function onSavedLoad() {
-                    player.removeEventListener("loadeddata", onSavedLoad);
-                    try { player.currentTime = keepAt; } catch (eKeep) {}
-                  }
-                );
-              }
-            }
+            if (player && player.dataset.saveToken === "cast:" + pendingId) playSaved(savedUrl, true);
             var savedNum = saved.num != null ? saved.num : parseInt(savedName, 10);
             setStatus(
               "Saved as " + (savedNum || savedName || "the next number") + " in saved-videos/" + (savedName || "clip") + ".",
               "ok"
             );
+            refreshSavedLibrary();
           });
         }
       })
@@ -3855,6 +3934,7 @@
     updateTimelineMeta();
     bindUi();
     bindFrameTools();
+    refreshSavedLibrary();
     window.dispatchEvent(new Event("animate-ready"));
   }
 
@@ -3879,6 +3959,7 @@
   }
 
   function onShow() {
+    refreshSavedLibrary();
     consumeLoganHandoff();
     loadImagePool().then(function () {
       if (!state.trayItems.length) {

@@ -78,6 +78,11 @@
       });
     }
 
+    function failSave(err) {
+      console.warn("[gallery-save-video] save failed", err);
+      return { ok: false, error: (err && err.message) || "Save video failed." };
+    }
+
     if (String(url).indexOf("blob:") === 0) {
       return fetch(url)
         .then(function (r) {
@@ -94,10 +99,7 @@
           return fetch(apiUrl("/api/save-video"), { method: "POST", body: form });
         })
         .then(parseRes)
-        .catch(function (err) {
-          console.warn("[gallery-save-video] blob save failed", err);
-          return null;
-        });
+        .catch(failSave);
     }
 
     return fetch(apiUrl("/api/save-video"), {
@@ -106,10 +108,78 @@
       body: JSON.stringify({ url: absoluteUrl(url), force_mp4: true }),
     })
       .then(parseRes)
-      .catch(function (err) {
-        console.warn("[gallery-save-video] save failed", err);
-        return null;
+      .catch(failSave);
+  }
+
+  var SLICE = 4 * 1024 * 1024;
+  var blobCache = {};
+
+  function finishBlob(key, parts, total) {
+    var type = /\.webm(\?|$)/i.test(key) ? "video/webm" : "video/mp4";
+    var blob = new Blob(parts, { type: type });
+    if (blob.size !== total) throw new Error("short");
+    var obj = URL.createObjectURL(blob);
+    blobCache[key] = obj;
+    return obj;
+  }
+
+  /**
+   * A normal GET of a long saved clip is only the first 4MB.
+   * Walk Range slices and hand the player one complete blob URL.
+   */
+  function loadComplete(url) {
+    if (!url) return Promise.resolve("");
+    if (!isAlreadySaved(url)) return Promise.resolve(absoluteUrl(url));
+    var key = absoluteUrl(url).split("?")[0];
+    if (blobCache[key]) return Promise.resolve(blobCache[key]);
+    var fetchUrl = key + "?full=1";
+    return fetch(fetchUrl, { headers: { Range: "bytes=0-0" }, cache: "no-store" })
+      .then(function (res) {
+        var cr = res.headers.get("content-range") || "";
+        var m = /\/(\d+)\s*$/.exec(cr);
+        var total = m ? parseInt(m[1], 10) || 0 : 0;
+        if (!total && res.status === 200) {
+          var len = parseInt(res.headers.get("content-length") || "0", 10) || 0;
+          if (len > 0 && len <= SLICE) {
+            return res.arrayBuffer().then(function (buf) {
+              return finishBlob(key, [buf], len);
+            });
+          }
+        }
+        if (!total || res.status === 416) throw new Error("size");
+        return res.arrayBuffer().then(function () {
+          var jobs = [];
+          for (var start = 0; start < total; start += SLICE) {
+            (function (start) {
+              var end = Math.min(total - 1, start + SLICE - 1);
+              jobs.push(
+                fetch(fetchUrl, {
+                  headers: { Range: "bytes=" + start + "-" + end },
+                  cache: "no-store",
+                }).then(function (r) {
+                  if (!r.ok && r.status !== 206) throw new Error("slice");
+                  return r.arrayBuffer();
+                })
+              );
+            })(start);
+          }
+          return Promise.all(jobs).then(function (parts) {
+            return finishBlob(key, parts, total);
+          });
+        });
+      })
+      .catch(function () {
+        return "";
       });
+  }
+
+  function listSaved() {
+    return fetch(apiUrl("/api/saved-videos"), { cache: "no-store" }).then(function (r) {
+      if (!r.ok) throw new Error("list");
+      return r.json();
+    }).then(function (d) {
+      return (d && d.items) || [];
+    });
   }
 
   /**
@@ -139,5 +209,7 @@
     isAlreadySaved: isAlreadySaved,
     extractUrl: extractVideoUrl,
     absoluteUrl: absoluteUrl,
+    loadComplete: loadComplete,
+    listSaved: listSaved,
   };
 })();

@@ -11,6 +11,7 @@ import {
   planByteRange,
   FULL_MAX_BYTES,
   SLICE_BYTES,
+  MAX_VIDEO_BYTES,
   setRemoteFetchForTests,
   storeClip,
   STORE_NAME,
@@ -175,7 +176,7 @@ test("a remote clip is stored, served in ranges, and a private redirect is refus
   setRemoteFetchForTests(async () => {
     return new Response(new Uint8Array(8), {
       status: 200,
-      headers: { "content-length": String(19 * 1024 * 1024) },
+      headers: { "content-length": String(MAX_VIDEO_BYTES + 1024) },
     });
   });
   res = await saveVideo(post({ url: "https://cdn.example/huge.mp4" }));
@@ -196,4 +197,28 @@ test("a remote clip is stored, served in ranges, and a private redirect is refus
   assert.equal(part.length, SLICE_BYTES);
   assert.equal(res.headers.get("content-range"), "bytes 0-" + (SLICE_BYTES - 1) + "/" + big.length);
   assert.equal(part[4], "f".charCodeAt(0));
+  assert.equal(res.headers.get("cache-control"), "private, no-store");
+  assert.equal(res.headers.get("vary"), "Range");
+
+  const parts = [];
+  for (let start = 0; start < big.length; start += SLICE_BYTES) {
+    const end = Math.min(big.length - 1, start + SLICE_BYTES - 1);
+    const ranged = await savedVideo(
+      new Request("http://x/saved-videos/" + stored.name, {
+        headers: { range: "bytes=" + start + "-" + end },
+      })
+    );
+    assert.equal(ranged.status, 206);
+    parts.push(Buffer.from(await ranged.arrayBuffer()));
+  }
+  const joined = Buffer.concat(parts);
+  assert.equal(joined.length, big.length);
+  assert.equal(joined[SLICE_BYTES], 0x5a);
+  assert.equal(joined[4], "f".charCodeAt(0));
+
+  const listed = await saveVideo(new Request("http://x/api/saved-videos", { method: "GET" }));
+  const listData = await listed.json();
+  assert.equal(listed.status, 200);
+  assert.equal(listData.ok, true);
+  assert.equal(listData.items.some((item) => item.name === stored.name && item.bytes === big.length), true);
 });

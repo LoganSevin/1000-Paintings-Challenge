@@ -99,6 +99,7 @@ const API_ROUTES = [
   ["/api/animate-cast", "animate-cast"],
   ["/api/phone-live", "phone-live"],
   ["/api/save-video", "save-video"],
+  ["/api/saved-videos", "save-video"],
   ["/api/sprite-dungeon", "sprite-dungeon"],
   ["/saved-videos/:name", "saved-video"],
 ];

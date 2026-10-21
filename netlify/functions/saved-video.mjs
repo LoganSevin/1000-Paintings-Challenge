@@ -51,7 +51,8 @@ export default async function handler(request, context) {
     "Content-Type": clipContentType(name),
     "Content-Length": String(slice.byteLength),
     "Accept-Ranges": "bytes",
-    "Cache-Control": "public, max-age=31536000, immutable",
+    "Cache-Control": "private, no-store",
+    Vary: "Range",
     "Access-Control-Allow-Origin": "*",
   };
   if (plan.status === 206) {

@@ -5,7 +5,7 @@ import { jsonResponse, corsPreflight } from "./_lib.mjs";
 // The browser sends the remote https address. This function downloads it.
 // There is no ffmpeg here: mp4 bytes stay .mp4, webm bytes stay .webm.
 export const STORE_NAME = "saved-videos";
-export const MAX_VIDEO_BYTES = 18 * 1024 * 1024;
+export const MAX_VIDEO_BYTES = 48 * 1024 * 1024;
 export const SLICE_BYTES = 4 * 1024 * 1024;
 export const FULL_MAX_BYTES = Math.floor(5.5 * 1024 * 1024);
 const INDEX_KEY = "index";
@@ -163,6 +163,27 @@ function describeClip(num, name, bytes) {
   };
 }
 
+export async function listClips(store) {
+  const index = await readIndex(store);
+  return index.items
+    .map(function (item) {
+      const num = parseInt(item && item.num, 10) || 0;
+      const name = String((item && item.name) || "");
+      if (!num || !/^\d+\.(mp4|webm)$/i.test(name)) return null;
+      return {
+        num: num,
+        name: name,
+        bytes: item.bytes || 0,
+        url: "/saved-videos/" + name,
+        content_type: clipContentType(name),
+      };
+    })
+    .filter(Boolean)
+    .sort(function (a, b) {
+      return a.num - b.num;
+    });
+}
+
 export async function readClipBytes(store, name) {
   let data = null;
   try {
@@ -255,6 +276,11 @@ export async function fetchRemoteVideo(url, fetchImpl) {
 
 export default async function handler(request) {
   if (request.method === "OPTIONS") return corsPreflight();
+  if (request.method === "GET") {
+    const store = getStore({ name: STORE_NAME, consistency: "strong" });
+    const items = await listClips(store);
+    return jsonResponse({ ok: true, items: items });
+  }
   if (request.method !== "POST") return jsonResponse({ ok: false, error: "POST required" }, 405);
   let body;
   try {

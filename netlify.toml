@@ -210,6 +210,12 @@
   force = true
 
 [[redirects]]
+  from = "/api/saved-videos"
+  to = "/.netlify/functions/save-video"
+  status = 200
+  force = true
+
+[[redirects]]
   from = "/saved-videos/:name"
   to = "/.netlify/functions/saved-video/:name"
   status = 200

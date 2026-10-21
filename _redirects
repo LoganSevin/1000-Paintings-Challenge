@@ -7,4 +7,5 @@
 /api/server-window /.netlify/functions/server-window 200
 /api/server-people /.netlify/functions/server-people 200
 /api/save-video /.netlify/functions/save-video 200
+/api/saved-videos /.netlify/functions/save-video 200
 /saved-videos/* /.netlify/functions/saved-video/:splat 200
