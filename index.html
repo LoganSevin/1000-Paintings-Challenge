@@ -102,7 +102,7 @@
   <link rel="stylesheet" href="css/glimpse.css?v=5" />
   <link rel="stylesheet" href="css/brew.css?v=3" />
   <link rel="stylesheet" href="css/ears.css?v=17" />
-  <link rel="stylesheet" href="css/viral.css?v=7" />
+  <link rel="stylesheet" href="css/viral.css?v=8" />
   <link rel="stylesheet" href="css/logan.css?v=8" />
   <link rel="stylesheet" href="css/movie.css?v=4" />
   <link rel="stylesheet" href="css/book.css?v=7" />
@@ -2687,7 +2687,7 @@
     <div class="vi-shell">
       <header class="vi-top">
         <h2>Viral</h2>
-        <p class="vi-hint">Build <strong>multiple spell chains</strong> side by side — swap spells, fuse into <strong>new hybrid forms</strong>, then <strong>AI photo-to-life</strong> motion on each fused frame.</p>
+        <p class="vi-hint">Build <strong>multiple spell chains</strong> side by side — swap spells, fuse into <strong>new hybrid forms</strong>, then <strong>AI photo-to-life</strong> for the full clip. The PC studio joins clips and stills before publish.</p>
       </header>
       <div class="vi-body">
         <aside class="vi-sidebar" aria-label="Chain arcs and forge">
@@ -2751,7 +2751,7 @@
               <button type="button" id="vi-export-tiktok" class="vi-btn accent" disabled>Download TikTok MP4</button>
               <button type="button" id="vi-open-tiktok" class="vi-btn" disabled>Open TikTok upload</button>
             </div>
-            <p class="vi-upload-hint">Download TikTok MP4 saves the file and opens TikTok upload — drag the MP4 onto that page. TikTok drafts cannot be filled automatically from a browser.</p>
+            <p class="vi-upload-hint" id="vi-upload-hint">Download TikTok MP4 saves the full 15-second clip and opens TikTok upload. The file is not sped up. Drag the MP4 onto that page. TikTok drafts cannot be filled from the browser.</p>
             <article id="vi-detail" class="vi-detail" hidden>
               <h3 id="vi-detail-hook" class="vi-detail-hook"></h3>
               <p id="vi-detail-caption" class="vi-detail-caption"></p>
@@ -2760,6 +2760,33 @@
             <p class="vi-section-label">Session — past forges</p>
             <div id="vi-history" class="vi-history" aria-label="Past viral forges"></div>
           </div>
+          <section class="vi-studio" id="vi-studio" aria-label="PC studio">
+            <p class="vi-section-label">PC studio</p>
+            <div class="vi-studio-row">
+              <label class="vi-slider-row" for="vi-clip-sec">
+                <span>AI life length</span>
+                <select id="vi-clip-sec">
+                  <option value="6">6 seconds</option>
+                  <option value="10">10 seconds</option>
+                  <option value="15" selected>15 seconds</option>
+                </select>
+              </label>
+              <label class="vi-slider-row" for="vi-still-hold">
+                <span>Still hold</span>
+                <input type="number" id="vi-still-hold" min="1" max="15" step="1" value="3" />
+                <span>seconds</span>
+              </label>
+              <button type="button" id="vi-seq-add-clip" class="vi-btn" disabled>Add selected clip</button>
+              <button type="button" id="vi-seq-add-still" class="vi-btn" disabled>Add fused still</button>
+              <label class="vi-btn vi-file-btn">
+                Add image or video
+                <input type="file" id="vi-seq-file" accept="image/*,video/*" />
+              </label>
+              <button type="button" id="vi-seq-export" class="vi-btn accent" disabled>Download sequence MP4</button>
+            </div>
+            <ol id="vi-seq" class="vi-seq" aria-label="Publish sequence"></ol>
+            <p class="vi-upload-hint">Each clip plays at its full length. A still is an extra hold, not a replacement. Forge is the AI photo-to-life. Copy caption writes the post text.</p>
+          </section>
         </div>
       </div>
       <div class="st-tray vi-tray">
@@ -9483,7 +9510,7 @@
   <script defer src="js/spellforge.js?v=141"></script>
   <script defer src="js/fix-webm-duration.js?v=1"></script>
   <script defer src="js/videofy-export.js?v=3"></script>
-  <script defer src="js/viral.js?v=13"></script>
+  <script defer src="js/viral.js?v=14"></script>
   <script defer src="js/logan.js?v=12"></script>
   <script defer src="js/movie.js?v=13"></script>
   <script defer src="js/book.js?v=21"></script>

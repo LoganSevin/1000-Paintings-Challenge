@@ -10,9 +10,11 @@
   var FIRST_POLL_DELAY_MS = 600;
   var VIDEO_POLL_MS = 800;
   var VIDEO_POLL_MAX_MS = 12 * 60 * 1000;
-  var CLIP_SEC = 5;
+  // Provider lengths are 6, 10, or 15. Default 15. Do not re-record the file faster:
+  // a 5-second cast at 1.45x is what cut publishes down to about 3 seconds.
+  var CLIP_SEC = 15;
   var LIFE_CAST_RETRIES = 2;
-  var LIFE_PLAYBACK_ACCEL = 1.45;
+  var LIFE_PLAYBACK_ACCEL = 1;
   var LIFE_CAPTURE_FPS = 30;
 
   var LIFE_TEMPO_HINT =
@@ -84,6 +86,7 @@
     previewImageUrl: "",
     feedObserver: null,
     feedVariants: [],
+    sequence: [],
   };
 
   function $(id) {
@@ -675,6 +678,7 @@
       var btn = $(id);
       if (btn) btn.disabled = !enabled || state.forging || state.exporting;
     });
+    updateStudioButtons();
   }
 
   function getSelectedVariant() {
@@ -1390,7 +1394,7 @@
   function pickRecorderMime() {
     var mime = "";
     if (window.MediaRecorder && MediaRecorder.isTypeSupported) {
-      ["video/webm;codecs=vp9", "video/webm;codecs=vp8", "video/webm"].some(function (t) {
+      ["video/mp4", "video/webm;codecs=vp9", "video/webm;codecs=vp8", "video/webm"].some(function (t) {
         if (MediaRecorder.isTypeSupported(t)) {
           mime = t;
           return true;
@@ -1595,10 +1599,6 @@
     var motion = LIFE_PROMPTS[(hashStr(chain.id) + idx * 7) % LIFE_PROMPTS.length];
     var lifeLabel = LIFE_VARIANT_LABELS[idx % LIFE_VARIANT_LABELS.length];
     return generateChainVideoWithMotion(imageUrl, chain, fused, motion, idx)
-      .then(function (url) {
-        setStatus("Punching up motion tempo for clip " + (idx + 1) + "…", "pending");
-        return punchUpLifeCastVideo(url);
-      })
       .then(function (url) {
         return materializeVideoVariant(url, chain, idx, motion, {
           culminationUrl: imageUrl,
@@ -2152,6 +2152,523 @@
     };
   }
 
+  function applyClipSeconds(value) {
+    var n = parseInt(value, 10);
+    if (n !== 6 && n !== 10 && n !== 15) n = 15;
+    CLIP_SEC = n;
+    var studio = $("vi-studio");
+    if (studio) studio.dataset.clipSec = String(n);
+    var sel = $("vi-clip-sec");
+    if (sel && String(sel.value) !== String(n)) sel.value = String(n);
+    var hint = $("vi-upload-hint");
+    if (hint) {
+      hint.textContent =
+        "Download TikTok MP4 saves the full " +
+        n +
+        "-second clip and opens TikTok upload. The file is not sped up. Drag the MP4 onto that page. TikTok drafts cannot be filled from the browser.";
+    }
+  }
+
+  function stillHoldSec() {
+    var input = $("vi-still-hold");
+    var n = input ? parseInt(input.value, 10) : 3;
+    if (!isFinite(n)) n = 3;
+    return clamp(n, 1, 15);
+  }
+
+  function stillSourceUrl() {
+    if (state.previewImageUrl) return state.previewImageUrl;
+    if (state.post && state.post.imageUrl) return state.post.imageUrl;
+    var board = getActiveBoard();
+    if (board && board.post && board.post.imageUrl) return board.post.imageUrl;
+    return "";
+  }
+
+  function formatSeqTime(sec) {
+    if (!isFinite(sec) || sec <= 0) return "full clip";
+    var rounded = Math.round(sec * 10) / 10;
+    return rounded + "s";
+  }
+
+  function updateStudioButtons() {
+    var variant = getSelectedVariant();
+    var addClip = $("vi-seq-add-clip");
+    var addStill = $("vi-seq-add-still");
+    var exp = $("vi-seq-export");
+    if (addClip) addClip.disabled = !(variant && !variant.pending && !variant.failed) || state.exporting;
+    if (addStill) addStill.disabled = !stillSourceUrl() || state.exporting;
+    if (exp) exp.disabled = !state.sequence.length || state.exporting;
+  }
+
+  function renderSequence() {
+    var list = $("vi-seq");
+    if (!list) return;
+    if (!state.sequence.length) {
+      list.innerHTML = '<li class="vi-seq-empty">Nothing in the sequence yet. Add a clip, a still, or a file.</li>';
+      updateStudioButtons();
+      return;
+    }
+    list.innerHTML = state.sequence
+      .map(function (item, i) {
+        var time = item.kind === "image" ? "still · " + item.holdSec + "s" : "video · " + formatSeqTime(item.durationSec);
+        var thumb = item.thumb
+          ? '<img class="vi-seq-thumb" alt="" src="' + escapeHtml(item.thumb) + '" />'
+          : '<span class="vi-seq-thumb vi-seq-thumb-empty" aria-hidden="true"></span>';
+        return (
+          '<li class="vi-seq-item">' +
+          thumb +
+          '<span class="vi-seq-label">' +
+          escapeHtml(item.label) +
+          "<small>" +
+          escapeHtml(time) +
+          "</small></span>" +
+          '<button type="button" class="vi-btn" data-seq-up="' +
+          i +
+          '"' +
+          (i === 0 ? " disabled" : "") +
+          ">Up</button>" +
+          '<button type="button" class="vi-btn" data-seq-down="' +
+          i +
+          '"' +
+          (i === state.sequence.length - 1 ? " disabled" : "") +
+          ">Down</button>" +
+          '<button type="button" class="vi-btn" data-seq-remove="' +
+          i +
+          '">Remove</button></li>'
+        );
+      })
+      .join("");
+    updateStudioButtons();
+  }
+
+  function probeDuration(url) {
+    return new Promise(function (resolve, reject) {
+      var video = document.createElement("video");
+      video.preload = "metadata";
+      video.muted = true;
+      var settled = false;
+      function finish(d) {
+        if (settled) return;
+        settled = true;
+        video.onerror = null;
+        video.removeAttribute("src");
+        try {
+          video.load();
+        } catch (e) {}
+        if (!isFinite(d) || d <= 0) reject(new Error("That clip has no duration."));
+        else resolve(d);
+      }
+      video.onloadedmetadata = function () {
+        if (isFinite(video.duration) && video.duration > 0) {
+          finish(video.duration);
+          return;
+        }
+        var onSeeked = function () {
+          video.removeEventListener("seeked", onSeeked);
+          var d = video.duration;
+          if (!isFinite(d) || d <= 0 || d === Infinity) d = video.currentTime;
+          finish(d);
+        };
+        video.addEventListener("seeked", onSeeked);
+        try {
+          video.currentTime = 1e101;
+        } catch (eSeek) {
+          finish(NaN);
+        }
+      };
+      video.onerror = function () {
+        if (!settled) {
+          settled = true;
+          reject(new Error("Could not read that video."));
+        }
+      };
+      video.src = url;
+    });
+  }
+
+  function pushSequenceItem(item) {
+    state.sequence.push(item);
+    renderSequence();
+  }
+
+  function addSelectedClip() {
+    var variant = getSelectedVariant();
+    if (!variant || variant.pending || variant.failed) {
+      setStatus("Select a finished clip first.", "error");
+      return Promise.resolve();
+    }
+    setStatus("Adding the full clip…", "pending");
+    return ensureVariantBlob(variant)
+      .then(function (blob) {
+        var url = URL.createObjectURL(blob);
+        return probeDuration(url)
+          .then(function (dur) {
+            pushSequenceItem({
+              id: uniqueId(),
+              kind: "video",
+              label: (variant.lifeLabel || variant.label || "Clip") + " · full",
+              url: url,
+              thumb: variant.posterUrl || "",
+              holdSec: 0,
+              durationSec: dur,
+            });
+            setStatus("Clip added at " + formatSeqTime(dur) + ". It is not sped up.", "ok");
+          })
+          .catch(function (err) {
+            URL.revokeObjectURL(url);
+            throw err;
+          });
+      })
+      .catch(function (err) {
+        setStatus((err && err.message) || "Could not add that clip.", "error");
+      });
+  }
+
+  function addFusedStill() {
+    var src = stillSourceUrl();
+    if (!src) {
+      setStatus("Forge a frame first, or add an image file.", "error");
+      return Promise.resolve();
+    }
+    var hold = stillHoldSec();
+    setStatus("Adding the fused still…", "pending");
+    return fetch(src)
+      .then(function (r) {
+        if (!r.ok) throw new Error("Could not read the fused still.");
+        return r.blob();
+      })
+      .then(function (blob) {
+        var url = URL.createObjectURL(blob);
+        pushSequenceItem({
+          id: uniqueId(),
+          kind: "image",
+          label: "Fused still",
+          url: url,
+          thumb: url,
+          holdSec: hold,
+          durationSec: hold,
+        });
+        setStatus("Fused still added for " + hold + " seconds. It plays with the clips.", "ok");
+      })
+      .catch(function (err) {
+        setStatus((err && err.message) || "Could not add the still.", "error");
+      });
+  }
+
+  function addSequenceFile(file) {
+    if (!file) return Promise.resolve();
+    var isImage = /^image\//.test(file.type) || /\.(png|jpe?g|gif|webp|bmp)$/i.test(file.name);
+    var isVideo = /^video\//.test(file.type) || /\.(mp4|webm|mov|m4v)$/i.test(file.name);
+    if (!isImage && !isVideo) {
+      setStatus("Add an image or a video.", "error");
+      return Promise.resolve();
+    }
+    var url = URL.createObjectURL(file);
+    if (isImage) {
+      var hold = stillHoldSec();
+      pushSequenceItem({
+        id: uniqueId(),
+        kind: "image",
+        label: file.name || "Image",
+        url: url,
+        thumb: url,
+        holdSec: hold,
+        durationSec: hold,
+      });
+      setStatus("Still added for " + hold + " seconds. It does not replace a clip.", "ok");
+      return Promise.resolve();
+    }
+    return probeDuration(url)
+      .then(function (dur) {
+        pushSequenceItem({
+          id: uniqueId(),
+          kind: "video",
+          label: file.name || "Video",
+          url: url,
+          thumb: "",
+          holdSec: 0,
+          durationSec: dur,
+        });
+        setStatus("Clip added at full length (" + formatSeqTime(dur) + ").", "ok");
+      })
+      .catch(function (err) {
+        URL.revokeObjectURL(url);
+        setStatus((err && err.message) || "Could not read that video.", "error");
+      });
+  }
+
+  function moveSequence(index, dir) {
+    var next = index + dir;
+    if (next < 0 || next >= state.sequence.length) return;
+    var item = state.sequence[index];
+    state.sequence.splice(index, 1);
+    state.sequence.splice(next, 0, item);
+    renderSequence();
+  }
+
+  function removeSequence(index) {
+    var item = state.sequence[index];
+    if (!item) return;
+    if (item.url && item.url.indexOf("blob:") === 0) {
+      try {
+        URL.revokeObjectURL(item.url);
+      } catch (e) {}
+    }
+    state.sequence.splice(index, 1);
+    renderSequence();
+  }
+
+  function coverDraw(ctx, source, sw, sh, dw, dh) {
+    var scale = Math.max(dw / (sw || dw), dh / (sh || dh));
+    var w = (sw || dw) * scale;
+    var h = (sh || dh) * scale;
+    ctx.fillStyle = "#000";
+    ctx.fillRect(0, 0, dw, dh);
+    ctx.drawImage(source, (dw - w) / 2, (dh - h) / 2, w, h);
+  }
+
+  function recordSequence(items) {
+    if (!items.length) return Promise.reject(new Error("Add a clip or a still first."));
+    var mime = pickRecorderMime();
+    if (!mime || !window.MediaRecorder) {
+      return Promise.reject(new Error("This browser cannot record a sequence."));
+    }
+    var canvas = document.createElement("canvas");
+    canvas.width = 1080;
+    canvas.height = 1920;
+    canvas.setAttribute("aria-hidden", "true");
+    canvas.style.cssText = "position:fixed;left:-4000px;top:0;width:1px;height:1px;pointer-events:none";
+    document.body.appendChild(canvas);
+    var ctx = canvas.getContext("2d");
+    if (!ctx || !canvas.captureStream) {
+      canvas.remove();
+      return Promise.reject(new Error("This browser cannot record a sequence."));
+    }
+    var stream = canvas.captureStream(LIFE_CAPTURE_FPS);
+    var recorder;
+    try {
+      recorder = new MediaRecorder(stream, { mimeType: mime, videoBitsPerSecond: 6000000 });
+    } catch (errRec) {
+      canvas.remove();
+      return Promise.reject(new Error("This browser cannot record a sequence."));
+    }
+    var chunks = [];
+    var stopped = false;
+    recorder.ondataavailable = function (ev) {
+      if (ev.data && ev.data.size) chunks.push(ev.data);
+    };
+    var stopP = new Promise(function (resolve) {
+      recorder.onstop = function () {
+        stopped = true;
+        resolve(new Blob(chunks, { type: mime }));
+      };
+    });
+    function stopRecorder() {
+      if (recorder.state === "recording") {
+        try {
+          recorder.stop();
+        } catch (eStop) {}
+      }
+    }
+    function finish() {
+      if (canvas.parentNode) canvas.parentNode.removeChild(canvas);
+      stream.getTracks().forEach(function (track) {
+        try {
+          track.stop();
+        } catch (eTrack) {}
+      });
+    }
+    ctx.fillStyle = "#000";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    recorder.start(100);
+
+    function holdImage(item) {
+      return new Promise(function (resolve, reject) {
+        var img = new Image();
+        img.onload = function () {
+          var hold = clamp(item.holdSec || 3, 1, 15);
+          var start = performance.now();
+          var timer = setInterval(function () {
+            if (stopped) {
+              clearInterval(timer);
+              resolve();
+              return;
+            }
+            coverDraw(ctx, img, img.naturalWidth, img.naturalHeight, canvas.width, canvas.height);
+            if ((performance.now() - start) / 1000 >= hold) {
+              clearInterval(timer);
+              resolve();
+            }
+          }, 1000 / LIFE_CAPTURE_FPS);
+        };
+        img.onerror = function () {
+          reject(new Error("Could not draw a still."));
+        };
+        img.src = item.url;
+      });
+    }
+
+    function playVideo(item) {
+      return new Promise(function (resolve, reject) {
+        var video = document.createElement("video");
+        video.muted = true;
+        video.defaultMuted = true;
+        video.playsInline = true;
+        video.preload = "auto";
+        video.playbackRate = 1;
+        var cleaned = false;
+        function cleanup() {
+          if (cleaned) return;
+          cleaned = true;
+          try {
+            video.pause();
+          } catch (ePause) {}
+          video.removeAttribute("src");
+          try {
+            video.load();
+          } catch (eLoad) {}
+        }
+        video.onerror = function () {
+          cleanup();
+          reject(new Error("Could not play a clip in the sequence."));
+        };
+        video.onloadedmetadata = function () {
+          var duration = video.duration;
+          if (!isFinite(duration) || duration <= 0) duration = item.durationSec;
+          if (!isFinite(duration) || duration <= 0) {
+            cleanup();
+            reject(new Error("A clip in the sequence has no duration."));
+            return;
+          }
+          video.playbackRate = 1;
+          video.currentTime = 0;
+          var start = performance.now();
+          var timer = setInterval(function () {
+            if (stopped) {
+              clearInterval(timer);
+              cleanup();
+              resolve();
+              return;
+            }
+            if (video.readyState >= 2) {
+              coverDraw(ctx, video, video.videoWidth, video.videoHeight, canvas.width, canvas.height);
+            }
+            var elapsed = (performance.now() - start) / 1000;
+            if (video.ended || video.currentTime >= duration - 0.04 || elapsed >= duration + 1) {
+              clearInterval(timer);
+              cleanup();
+              resolve();
+            }
+          }, 1000 / LIFE_CAPTURE_FPS);
+          video.play().catch(function () {
+            clearInterval(timer);
+            cleanup();
+            reject(new Error("Could not play a clip in the sequence."));
+          });
+        };
+        video.src = item.url;
+      });
+    }
+
+    var total = 0;
+    items.forEach(function (item) {
+      total += item.kind === "image" ? clamp(item.holdSec || 3, 1, 15) : item.durationSec || CLIP_SEC;
+    });
+    var timedOut = false;
+    var timer = setTimeout(function () {
+      timedOut = true;
+      stopped = true;
+      stopRecorder();
+    }, Math.ceil((total + 8) * 1000));
+
+    var chain = Promise.resolve();
+    items.forEach(function (item) {
+      chain = chain.then(function () {
+        if (item.kind === "image") return holdImage(item);
+        return playVideo(item);
+      });
+    });
+
+    return chain
+      .then(function () {
+        stopRecorder();
+        return stopP;
+      })
+      .then(function (blob) {
+        clearTimeout(timer);
+        finish();
+        if (timedOut) throw new Error("Sequence recording stopped before the full length.");
+        if (!blob || !blob.size) throw new Error("Sequence recording was empty.");
+        return blob;
+      })
+      .catch(function (err) {
+        clearTimeout(timer);
+        stopRecorder();
+        finish();
+        throw err;
+      });
+  }
+
+  function withTimeout(promise, ms, message) {
+    return new Promise(function (resolve, reject) {
+      var timer = setTimeout(function () {
+        reject(new Error(message));
+      }, ms);
+      promise.then(
+        function (value) {
+          clearTimeout(timer);
+          resolve(value);
+        },
+        function (err) {
+          clearTimeout(timer);
+          reject(err);
+        }
+      );
+    });
+  }
+
+  function exportSequence() {
+    if (state.exporting || !state.sequence.length) return Promise.resolve();
+    state.exporting = true;
+    updateActions(hasExportablePost(state.post));
+    setStatus("Recording the full sequence at normal speed…", "pending");
+    var snapshot = state.sequence.slice();
+    return recordSequence(snapshot)
+      .then(function (blob) {
+        if (blob.type && blob.type.indexOf("mp4") >= 0) {
+          downloadBlob(blob, "1000-paintings-viral-sequence.mp4");
+          openTikTokUpload();
+          setStatus("Sequence MP4 saved. Each clip kept its full length. Drag it onto the TikTok upload page.", "ok");
+          return null;
+        }
+        if (!window.VideofyExport || !window.VideofyExport.toMp4) {
+          throw new Error("Video encoder not loaded — hard refresh (Ctrl+F5) and try again.");
+        }
+        setStatus("Encoding the sequence as a TikTok MP4…", "pending");
+        return withTimeout(
+          window.VideofyExport.toMp4(blob, {
+            onStatus: function (msg) {
+              setStatus(msg, "pending");
+            },
+          }),
+          90000,
+          "MP4 encode did not finish. The sequence was recorded, but this browser did not return an MP4."
+        ).then(function (mp4Blob) {
+          if (!mp4Blob || !mp4Blob.size) throw new Error("MP4 encode did not return a video.");
+          downloadBlob(mp4Blob, "1000-paintings-viral-sequence.mp4");
+          openTikTokUpload();
+          setStatus("Sequence MP4 saved. Each clip kept its full length. Drag it onto the TikTok upload page.", "ok");
+        });
+      })
+      .catch(function (err) {
+        setStatus((err && err.message) || "Sequence MP4 export failed.", "error");
+      })
+      .finally(function () {
+        state.exporting = false;
+        updateActions(hasExportablePost(state.post));
+      });
+  }
+
   function bindUi() {
     renderArcs();
     renderTopics();
@@ -2284,6 +2801,36 @@
       strip.addEventListener("pointerup", onPointerUp);
       strip.addEventListener("pointercancel", onPointerCancel);
     }
+
+    var clipSec = $("vi-clip-sec");
+    if (clipSec) {
+      clipSec.addEventListener("change", function () {
+        applyClipSeconds(clipSec.value);
+      });
+    }
+    $("vi-seq-add-clip") && $("vi-seq-add-clip").addEventListener("click", addSelectedClip);
+    $("vi-seq-add-still") && $("vi-seq-add-still").addEventListener("click", addFusedStill);
+    $("vi-seq-export") && $("vi-seq-export").addEventListener("click", exportSequence);
+    var seqFile = $("vi-seq-file");
+    if (seqFile) {
+      seqFile.addEventListener("change", function () {
+        var file = seqFile.files && seqFile.files[0];
+        seqFile.value = "";
+        if (file) addSequenceFile(file);
+      });
+    }
+    var seq = $("vi-seq");
+    if (seq) {
+      seq.addEventListener("click", function (e) {
+        var up = e.target.closest("[data-seq-up]");
+        var down = e.target.closest("[data-seq-down]");
+        var remove = e.target.closest("[data-seq-remove]");
+        if (up) moveSequence(parseInt(up.getAttribute("data-seq-up"), 10), -1);
+        else if (down) moveSequence(parseInt(down.getAttribute("data-seq-down"), 10), 1);
+        else if (remove) removeSequence(parseInt(remove.getAttribute("data-seq-remove"), 10));
+      });
+    }
+    applyClipSeconds(clipSec ? clipSec.value : 15);
   }
 
   function onPointerDown(e) {
@@ -2355,6 +2902,7 @@
     state.previewImageUrl = "";
     renderVariants([]);
     renderHistory();
+    renderSequence();
     loadPool().then(function () {
       ensureBoards(state.boardCount);
     });
