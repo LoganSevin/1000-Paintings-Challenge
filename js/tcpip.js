@@ -138,7 +138,7 @@
         var lamps = [];
         if (face) {
           // 3/4 turn: lens face foreshortened toward the traffic, the plain back shows on the far side.
-          var fw = bw * 0.72, bk = bw * 0.34, fx = hx - face * (bk / 2) - fw / 2;
+          var fw = bw * 0.72, bk = bw * 0.34, fx = hx - (fw + bk) / 2 + (face > 0 ? bk : 0); // whole housing centered on hx
           var backX = face < 0 ? fx + fw : fx - bk, inner = face < 0 ? fx + fw : fx;
           el("path", { d: "M" + inner + " " + top + " L" + (face < 0 ? backX + bk : backX) + " " + (top + 0.8) + " V" + (top + bh - 0.8) + " L" + inner + " " + (top + bh) + " Z", "class": "tcpip-light-back" }, g);
           el("rect", { x: fx, y: top, width: fw, height: bh, rx: 1, "class": "tcpip-light-box" }, g);
@@ -161,8 +161,9 @@
         }
         return lamps;
       }
-      // Main-road heads sit over each approach: left side faces rightbound, right side faces leftbound.
-      var mainHeads = [head(x - BOX - WALK / 2, 1, 4, -1), head(x + BOX + WALK / 2, 1, 4, 1)];
+      // Far-side signals, centered over each crosswalk: the left head faces right toward leftbound cars,
+      // the right head faces left toward rightbound cars.
+      var mainHeads = [head(x - BOX - WALK / 2, 1, 4, 1), head(x + BOX + WALK / 2, 1, 4, -1)];
       // Cross-street head hangs over the mouth of the vanishing road, smaller and higher for depth.
       var crossHeads = [head(x, 0.75, 2, 0)];
       lights.push({ x: x, s: x + 30, main: mainHeads, cross: crossHeads, glow: glow, state: "", cstate: "" });
