@@ -88,8 +88,8 @@
     var ang = Math.atan2(q.y - p0.y, q.x - p0.x);
     var off = c.dir > 0 ? 2.2 : -2.2; // two lanes, normal offset
     var x = p.x - Math.sin(ang) * off, y = p.y + Math.cos(ang) * off;
-    var deg = ang * 180 / Math.PI + (c.dir < 0 ? 180 : 0);
-    c.g.setAttribute("transform", "translate(" + x.toFixed(1) + " " + y.toFixed(1) + ") rotate(" + deg.toFixed(1) + ") scale(0.8)");
+    var deg = ang * 180 / Math.PI; // leftward cars are mirrored, never rotated
+    c.g.setAttribute("transform", "translate(" + x.toFixed(1) + " " + y.toFixed(1) + ") rotate(" + deg.toFixed(1) + ") scale(" + (c.dir < 0 ? "-0.8 0.8" : "0.8") + ")");
   }
 
   function tick(t) {
