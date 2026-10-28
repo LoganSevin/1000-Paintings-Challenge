@@ -129,18 +129,42 @@
     lx.forEach(function (x, i) {
       var g = el("g", { "class": "tcpip-light" }, svg);
       var glow = el("ellipse", { cx: x, cy: ROAD_Y - 2, rx: BOX + 2, ry: 4, "class": "tcpip-light-glow", fill: LAMP.off }, g);
-      // Hang a head from the middle power wire at hx; returns its three lamps.
-      function head(hx, sc, drop) {
-        var wy = wireY(hx), top = Math.max(wy + drop, ARM + 6), bw = 12 * sc, bh = 5.2 * sc; // horizontal head
+      // Hang a horizontal head from the middle power wire at hx; returns its three lamps.
+      // face: -1 turned 3/4 toward the left (faces rightbound cars), +1 toward the right, 0 face-on down the cross street.
+      function head(hx, sc, drop, face) {
+        var wy = wireY(hx), top = Math.max(wy + drop, ARM + 6), bw = 12 * sc, bh = 5.2 * sc;
         el("line", { x1: hx, y1: wy, x2: hx, y2: top, "class": "tcpip-light-hanger" }, g);
         el("circle", { cx: hx, cy: wy, r: 0.9, "class": "tcpip-light-clamp" }, g);
-        el("rect", { x: hx - bw / 2, y: top, width: bw, height: bh, rx: 1.2 * sc, "class": "tcpip-light-box" }, g);
-        return ["red", "yellow", "green"].map(function (c, k) { return el("circle", { cx: hx + (k - 1) * 3.6 * sc, cy: top + bh / 2, r: 1.25 * sc, fill: LAMP.off, "class": "tcpip-lamp" }, g); });
+        var lamps = [];
+        if (face) {
+          // 3/4 turn: lens face foreshortened toward the traffic, the plain back shows on the far side.
+          var fw = bw * 0.72, bk = bw * 0.34, fx = hx - face * (bk / 2) - fw / 2;
+          var backX = face < 0 ? fx + fw : fx - bk, inner = face < 0 ? fx + fw : fx;
+          el("path", { d: "M" + inner + " " + top + " L" + (face < 0 ? backX + bk : backX) + " " + (top + 0.8) + " V" + (top + bh - 0.8) + " L" + inner + " " + (top + bh) + " Z", "class": "tcpip-light-back" }, g);
+          el("rect", { x: fx, y: top, width: fw, height: bh, rx: 1, "class": "tcpip-light-box" }, g);
+          for (var k = 0; k < 3; k++) {
+            var lx2 = fx + fw * (0.2 + k * 0.3), ly = top + bh / 2;
+            lamps.push(el("ellipse", { cx: lx2, cy: ly, rx: 1.25 * sc * 0.72, ry: 1.25 * sc, fill: LAMP.off, "class": "tcpip-lamp" }, g));
+            // Visor: a hood over the lens projecting toward the traffic it faces.
+            var vx = lx2 + face * 1.9 * sc;
+            el("path", { d: "M" + (lx2 - face * 0.6) + " " + (ly - 1.6 * sc) + " Q" + (lx2 + face * 1.2 * sc) + " " + (ly - 2.2 * sc) + " " + vx + " " + (ly - 0.7 * sc), "class": "tcpip-visor" }, g);
+          }
+        } else {
+          // Face-on down the cross street, foreshortened (flatter) because it sits deeper in the scene.
+          bh *= 0.8;
+          el("rect", { x: hx - bw / 2, y: top, width: bw, height: bh, rx: 1.2 * sc, "class": "tcpip-light-box" }, g);
+          for (var j = 0; j < 3; j++) {
+            var cx2 = hx + (j - 1) * 3.6 * sc, cy2 = top + bh / 2;
+            lamps.push(el("ellipse", { cx: cx2, cy: cy2, rx: 1.25 * sc, ry: 1.05 * sc, fill: LAMP.off, "class": "tcpip-lamp" }, g));
+            el("path", { d: "M" + (cx2 - 1.5 * sc) + " " + (cy2 - 0.9 * sc) + " Q" + cx2 + " " + (cy2 - 2 * sc) + " " + (cx2 + 1.5 * sc) + " " + (cy2 - 0.9 * sc), "class": "tcpip-visor" }, g);
+          }
+        }
+        return lamps;
       }
       // Main-road heads sit over each approach: left side faces rightbound, right side faces leftbound.
-      var mainHeads = [head(x - BOX - WALK / 2, 1, 4), head(x + BOX + WALK / 2, 1, 4)];
+      var mainHeads = [head(x - BOX - WALK / 2, 1, 4, -1), head(x + BOX + WALK / 2, 1, 4, 1)];
       // Cross-street head hangs over the mouth of the vanishing road, smaller and higher for depth.
-      var crossHeads = [head(x, 0.75, 2)];
+      var crossHeads = [head(x, 0.75, 2, 0)];
       lights.push({ x: x, s: x + 30, main: mainHeads, cross: crossHeads, glow: glow, state: "", cstate: "" });
     });
     paintLights();
