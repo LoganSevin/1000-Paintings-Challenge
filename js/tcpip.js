@@ -7,7 +7,7 @@
   var KEY = "tcpip-road-hidden";
   // Pole x positions as fractions of tab-bar width, traced from the sketch.
   var POLES = [0.015, 0.13, 0.265, 0.34, 0.435, 0.525, 0.635, 0.75, 0.875, 0.985];
-  var H = 52, TOP = 6, GROUND = H - 1, SAG = 9;
+  var H = 60, TOP = 6, GROUND = H - 1, SAG = 9;
   var COLORS = ["#e8d5a3", "#d9774b", "#7fb3c9", "#c9a0dc", "#9cc58a", "#e0b84f", "#f2f2ee", "#d65a6f"];
   var nav, wrap, svg, roadPath, carLayer, cars = [], lights = [], clock = 0, len = 0, raf = 0, last = 0, spawnT = 0;
   // Traffic lights at these fractions of the width (between poles). Cycle seconds.
@@ -45,9 +45,36 @@
     var ARM = TOP + 2;
     var cross = el("g", { "class": "tcpip-cross" }, svg);
     var lx = LIGHTS.map(function (f) { return Math.round(f * w); });
+    // One-point perspective: every cross street recedes to a shared vanishing point.
+    var VPX = w / 2, VPY = TOP + 3, BASE = ROAD_Y - 4.5, HALF = 12, FAR = 0.78;
+    var defs = el("defs", {}, svg);
+    var gr = el("linearGradient", { id: "tcpip-fade", x1: 0, y1: 1, x2: 0, y2: 0 }, defs);
+    el("stop", { offset: 0, "stop-color": "#e8d5a3", "stop-opacity": 0.13 }, gr);
+    el("stop", { offset: 1, "stop-color": "#e8d5a3", "stop-opacity": 0 }, gr);
+    function lerp(p, q, t) { return [p[0] + (q[0] - p[0]) * t, p[1] + (q[1] - p[1]) * t]; }
+    // Perspective depth: equal steps in distance shrink toward the VP.
+    function tz(z) { return 1 - 1 / (1 + z); }
     lx.forEach(function (x) {
-      el("rect", { x: x - 7, y: TOP + 6, width: 14, height: ROAD_Y - TOP - 6, "class": "tcpip-cross-street" }, cross);
-      el("line", { x1: x, y1: TOP + 8, x2: x, y2: ROAD_Y - 6, "class": "tcpip-cross-line" }, cross);
+      var vp = [x + (VPX - x) * Math.min(0.3, 90 / Math.max(1, Math.abs(VPX - x))), VPY], L0 = [x - HALF, BASE], R0 = [x + HALF, BASE], C0 = [x, BASE];
+      var Lf = lerp(L0, vp, FAR), Rf = lerp(R0, vp, FAR);
+      el("polygon", { points: [L0, R0, Rf, Lf].map(function (p) { return p[0].toFixed(1) + "," + p[1].toFixed(1); }).join(" "), fill: "url(#tcpip-fade)" }, cross);
+      var eg = el("g", { "class": "tcpip-cross-edge" }, cross);
+      [[L0, Lf], [R0, Rf]].forEach(function (e) {
+        el("line", { x1: e[0][0], y1: e[0][1], x2: e[1][0], y2: e[1][1] }, eg);
+      });
+      // Dashed center line: dashes shrink and fade with depth.
+      for (var z = 0.25; z < 3.4; z += 0.5) {
+        var t1 = tz(z), t2 = tz(z + 0.25);
+        if (t2 > FAR) break;
+        var p1 = lerp(C0, vp, t1), p2 = lerp(C0, vp, t2);
+        el("line", { x1: p1[0].toFixed(1), y1: p1[1].toFixed(1), x2: p2[0].toFixed(1), y2: p2[1].toFixed(1), "class": "tcpip-cross-dash", "stroke-width": (1 - t1) * 1.1, opacity: (0.55 * (1 - t1 / FAR)).toFixed(2) }, cross);
+      }
+      // Foreshortened crosswalk across the cross street, just behind the corner.
+      for (var k = 0; k < 4; k++) {
+        var ta = tz(0.04 + k * 0.05), tb = tz(0.065 + k * 0.05);
+        var a1 = lerp(L0, vp, ta), a2 = lerp(R0, vp, ta), b1 = lerp(R0, vp, tb), b2 = lerp(L0, vp, tb);
+        el("polygon", { points: [a1, a2, b1, b2].map(function (p) { return p[0].toFixed(1) + "," + p[1].toFixed(1); }).join(" "), "class": "tcpip-walk" }, cross);
+      }
     });
     var poles = el("g", { "class": "tcpip-poles" }, svg);
     xs.forEach(function (x) {
