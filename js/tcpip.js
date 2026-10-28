@@ -9,7 +9,10 @@
   var POLES = [0.015, 0.13, 0.265, 0.34, 0.435, 0.525, 0.635, 0.75, 0.875, 0.985];
   var H = 52, TOP = 6, GROUND = H - 1, SAG = 9;
   var COLORS = ["#e8d5a3", "#d9774b", "#7fb3c9", "#c9a0dc", "#9cc58a", "#e0b84f", "#f2f2ee", "#d65a6f"];
-  var nav, wrap, svg, roadPath, carLayer, cars = [], len = 0, raf = 0, last = 0, spawnT = 0;
+  var nav, wrap, svg, roadPath, carLayer, cars = [], lights = [], clock = 0, len = 0, raf = 0, last = 0, spawnT = 0;
+  // Traffic lights at these fractions of the width (between poles). Cycle seconds.
+  var LIGHTS = [0.2, 0.48, 0.81], GREEN = 5, YELLOW = 1.4, RED = 4, CYCLE = GREEN + YELLOW + RED;
+  var LAMP = { red: "#ff4a3d", yellow: "#ffc93a", green: "#3ddc6a", off: "#2b2f33" };
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)");
 
   function el(tag, attrs, parent) {
@@ -40,6 +43,12 @@
     var xs = POLES.map(function (f) { return f * w; });
     var ROAD_Y = H - 6; // flat road center, just above the tab bar edge
     var ARM = TOP + 2;
+    var cross = el("g", { "class": "tcpip-cross" }, svg);
+    var lx = LIGHTS.map(function (f) { return Math.round(f * w); });
+    lx.forEach(function (x) {
+      el("rect", { x: x - 7, y: TOP + 6, width: 14, height: ROAD_Y - TOP - 6, "class": "tcpip-cross-street" }, cross);
+      el("line", { x1: x, y1: TOP + 8, x2: x, y2: ROAD_Y - 6, "class": "tcpip-cross-line" }, cross);
+    });
     var poles = el("g", { "class": "tcpip-poles" }, svg);
     xs.forEach(function (x) {
       el("line", { x1: x, y1: TOP - 3, x2: x, y2: ROAD_Y, "class": "tcpip-pole" }, poles);
@@ -62,6 +71,22 @@
     el("rect", { x: 0, y: ROAD_Y - 4.5, width: w, height: 9, "class": "tcpip-asphalt" }, svg);
     el("line", { x1: 0, y1: ROAD_Y - 4.5, x2: w, y2: ROAD_Y - 4.5, "class": "tcpip-edge" }, svg);
     el("path", { d: d, "class": "tcpip-center" }, svg);
+    var walks = el("g", { "class": "tcpip-walks" }, svg);
+    lx.forEach(function (x) {
+      [-10, 10].forEach(function (o) {
+        for (var k = 0; k < 4; k++) el("rect", { x: x + o - 1.5, y: ROAD_Y - 4 + k * 2.2, width: 3, height: 1.2, "class": "tcpip-walk" }, walks);
+      });
+    });
+    var prev = lights; lights = [];
+    lx.forEach(function (x, i) {
+      var g = el("g", { "class": "tcpip-light" }, svg);
+      var hx = x + 9; // signal stands at the corner
+      el("line", { x1: hx, y1: ROAD_Y - 4.5, x2: hx, y2: ROAD_Y - 12, "class": "tcpip-light-pole" }, g);
+      el("rect", { x: hx - 2.6, y: ROAD_Y - 23, width: 5.2, height: 12, rx: 1.2, "class": "tcpip-light-box" }, g);
+      var lamps = ["red", "yellow", "green"].map(function (c, k) { return el("circle", { cx: hx, cy: ROAD_Y - 20.6 + k * 3.6, r: 1.25, fill: LAMP.off }, g); });
+      lights.push({ x: x, s: x + 30, lamps: lamps, off: prev[i] ? prev[i].off : i * 3.1, state: "" });
+    });
+    paintLights();
     roadPath = el("path", { d: d, fill: "none", stroke: "none" }, svg);
     carLayer = el("g", { "class": "tcpip-cars" }, svg);
     len = roadPath.getTotalLength();
@@ -70,6 +95,40 @@
     var gap = nav.getBoundingClientRect().top - wrap.getBoundingClientRect().bottom;
     wrap.style.marginBottom = (-gap - 1) + "px";
     cars.forEach(function (c) { carLayer.appendChild(c.g); });
+  }
+
+  function lightState(L) {
+    if (reduce && reduce.matches) return "green";
+    var t = (clock + L.off) % CYCLE;
+    return t < GREEN ? "green" : t < GREEN + YELLOW ? "yellow" : "red";
+  }
+  function paintLights() {
+    lights.forEach(function (L) {
+      var st = lightState(L);
+      if (st === L.state) return;
+      L.state = st;
+      L.lamps[0].setAttribute("fill", st === "red" ? LAMP.red : LAMP.off);
+      L.lamps[1].setAttribute("fill", st === "yellow" ? LAMP.yellow : LAMP.off);
+      L.lamps[2].setAttribute("fill", st === "green" ? LAMP.green : LAMP.off);
+    });
+  }
+  // How far this car may travel (along its direction) before stopping.
+  function room(c) {
+    var lim = Infinity, GAP = 11;
+    for (var i = 0; i < cars.length; i++) {
+      var o = cars[i];
+      if (o === c || o.dir !== c.dir) continue;
+      var ahead = (o.s - c.s) * c.dir;
+      if (ahead > 0) lim = Math.min(lim, ahead - GAP);
+    }
+    for (var j = 0; j < lights.length; j++) {
+      var L = lights[j];
+      if (L.state === "green") continue;
+      var stopAt = (L.s - c.dir * 12 - c.s) * c.dir; // stop line before the crosswalk
+      // Yellow: only stop if there is room to; red: always stop before the line.
+      if (stopAt > -0.5 && (L.state === "red" || stopAt > 10)) lim = Math.min(lim, Math.max(0, stopAt));
+    }
+    return lim;
   }
 
   function spawn(dir, at) {
@@ -97,10 +156,18 @@
     var dt = Math.min(0.1, (t - (last || t)) / 1000); last = t;
     spawnT -= dt;
     var target = Math.max(3, Math.round(len / 110));
-    if (spawnT <= 0 && cars.length < target) { spawn(Math.random() < 0.5 ? 1 : -1); spawnT = 0.6 + Math.random() * 1.4; }
+    clock += dt; paintLights();
+    var clear = function (dir) { return !cars.some(function (o) { return o.dir === dir && (dir > 0 ? o.s < 16 : o.s > len - 16); }); };
+    var nd = Math.random() < 0.5 ? 1 : -1;
+    if (spawnT <= 0 && cars.length < target && clear(nd)) { spawn(nd); spawnT = 0.6 + Math.random() * 1.4; }
     for (var i = cars.length - 1; i >= 0; i--) {
       var c = cars[i];
-      c.s += c.dir * c.v * dt;
+      var r = room(c);
+      // Ease to a stop: speed scales down within ~20px of the limit.
+      var want = r === Infinity ? c.v : Math.min(c.v, Math.max(0, r) * 2.2);
+      c.cur = (c.cur == null ? c.v : c.cur) + (want - (c.cur == null ? c.v : c.cur)) * Math.min(1, dt * 6);
+      var step = Math.min(c.cur * dt, Math.max(0, r));
+      c.s += c.dir * step;
       if (c.s < -5 || c.s > len + 5) { c.g.remove(); cars.splice(i, 1); continue; }
       place(c);
     }
@@ -111,11 +178,12 @@
     if (!wrap || wrap.hidden) return;
     if (reduce && reduce.matches) {
       // Static: a few parked packets, no motion.
-      for (var i = 0; i < 4; i++) spawn(i % 2 ? -1 : 1, len * (0.15 + i * 0.22));
+      paintLights();
+      for (var i = 0; i < 4; i++) spawn(i % 2 ? -1 : 1, len * (0.1 + i * 0.22));
       return;
     }
     // Seed so the road isn't empty on load.
-    for (var j = 0; j < 4; j++) spawn(j % 2 ? -1 : 1, len * Math.random());
+    for (var j = 0; j < 4; j++) spawn(j % 2 ? -1 : 1, len * (0.1 + j * 0.23) + (j % 2 ? 6 : -6));
     last = 0; raf = requestAnimationFrame(tick);
   }
   function stop() {
@@ -157,7 +225,7 @@
       }, 120);
     }) : null;
     if (ro) ro.observe(nav); else window.addEventListener("resize", function () { build(); });
-    if (reduce && reduce.addEventListener) reduce.addEventListener("change", start);
+    if (reduce && reduce.addEventListener) reduce.addEventListener("change", function () { lights.forEach(function (L) { L.state = ""; }); start(); });
     document.addEventListener("visibilitychange", function () {
       if (document.hidden) { if (raf) cancelAnimationFrame(raf); raf = 0; }
       else if (!wrap.hidden && !raf && !(reduce && reduce.matches)) { last = 0; raf = requestAnimationFrame(tick); }
