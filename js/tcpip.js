@@ -1,5 +1,5 @@
-/* TCP/IP road: Logan's powerline sketch above the tab bar, redrawn as a sagging
-   road strung between utility poles. Cars are packets driving both ways.
+/* TCP/IP road: Logan's powerline sketch above the tab bar, with sagging wires
+   between poles and a flat road beneath. Cars are packets driving both ways.
    No network calls. Respects prefers-reduced-motion. Toggle lives in #tcpip. */
 (function () {
   "use strict";
@@ -7,7 +7,7 @@
   var KEY = "tcpip-road-hidden";
   // Pole x positions as fractions of tab-bar width, traced from the sketch.
   var POLES = [0.015, 0.13, 0.265, 0.34, 0.435, 0.525, 0.635, 0.75, 0.875, 0.985];
-  var H = 46, TOP = 9, GROUND = H - 1, SAG = 9;
+  var H = 52, TOP = 6, GROUND = H - 1, SAG = 9;
   var COLORS = ["#e8d5a3", "#d9774b", "#7fb3c9", "#c9a0dc", "#9cc58a", "#e0b84f", "#f2f2ee", "#d65a6f"];
   var nav, wrap, svg, roadPath, carLayer, cars = [], len = 0, raf = 0, last = 0, spawnT = 0;
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -38,24 +38,29 @@
     svg.setAttribute("width", w);
     while (svg.firstChild) svg.removeChild(svg.firstChild);
     var xs = POLES.map(function (f) { return f * w; });
-    // Road: extends off both edges so cars enter/leave out of frame.
-    var d = "M" + (-30) + " " + (TOP + SAG * 0.6) + " Q" + (xs[0] - 10) + " " + (TOP + 2) + " " + xs[0] + " " + TOP;
-    for (var i = 1; i < xs.length; i++) {
-      var mx = (xs[i - 1] + xs[i]) / 2, span = xs[i] - xs[i - 1];
-      var s = Math.min(SAG + 4, Math.max(4, span * 0.09));
-      d += " Q" + mx + " " + (TOP + s * 2) + " " + xs[i] + " " + TOP;
-    }
-    d += " Q" + (xs[xs.length - 1] + 10) + " " + (TOP + 2) + " " + (w + 30) + " " + (TOP + SAG * 0.6);
+    var ROAD_Y = H - 6; // flat road center, just above the tab bar edge
+    var ARM = TOP + 2;
     var poles = el("g", { "class": "tcpip-poles" }, svg);
     xs.forEach(function (x) {
-      el("line", { x1: x, y1: TOP - 3, x2: x, y2: GROUND, "class": "tcpip-pole" }, poles);
-      el("line", { x1: x - 7, y1: TOP - 1, x2: x + 7, y2: TOP - 1, "class": "tcpip-arm" }, poles);
-      el("line", { x1: x - 5, y1: TOP + 4, x2: x + 5, y2: TOP + 4, "class": "tcpip-arm tcpip-arm-lo" }, poles);
-      el("circle", { cx: x - 6, cy: TOP - 2, r: 1, "class": "tcpip-insul" }, poles);
-      el("circle", { cx: x + 6, cy: TOP - 2, r: 1, "class": "tcpip-insul" }, poles);
+      el("line", { x1: x, y1: TOP - 3, x2: x, y2: ROAD_Y, "class": "tcpip-pole" }, poles);
+      el("line", { x1: x - 8, y1: ARM, x2: x + 8, y2: ARM, "class": "tcpip-arm" }, poles);
+      [-6, 0, 6].forEach(function (o) { el("circle", { cx: x + o, cy: ARM - 1.4, r: 1.1, "class": "tcpip-insul" }, poles); });
     });
-    el("path", { d: d, "class": "tcpip-asphalt" }, svg);
-    el("path", { d: d, "class": "tcpip-edge" }, svg);
+    var wires = el("g", { "class": "tcpip-wires" }, svg);
+    [-6, 0, 6].forEach(function (o, k) {
+      var y0 = ARM - 1.6;
+      var wd = "M-30 " + (y0 + 6) + " Q" + (xs[0] + o - 12) + " " + (y0 + 1) + " " + (xs[0] + o) + " " + y0;
+      for (var i = 1; i < xs.length; i++) {
+        var span = xs[i] - xs[i - 1];
+        var sag = Math.min(14, Math.max(4, span * 0.09)) + k * 0.6;
+        wd += " Q" + ((xs[i - 1] + xs[i]) / 2 + o) + " " + (y0 + sag * 2) + " " + (xs[i] + o) + " " + y0;
+      }
+      wd += " Q" + (xs[xs.length - 1] + o + 12) + " " + (y0 + 1) + " " + (w + 30) + " " + (y0 + 6);
+      el("path", { d: wd, "class": "tcpip-wire" }, wires);
+    });
+    var d = "M-30 " + ROAD_Y + " H" + (w + 30);
+    el("rect", { x: 0, y: ROAD_Y - 4.5, width: w, height: 9, "class": "tcpip-asphalt" }, svg);
+    el("line", { x1: 0, y1: ROAD_Y - 4.5, x2: w, y2: ROAD_Y - 4.5, "class": "tcpip-edge" }, svg);
     el("path", { d: d, "class": "tcpip-center" }, svg);
     roadPath = el("path", { d: d, fill: "none", stroke: "none" }, svg);
     carLayer = el("g", { "class": "tcpip-cars" }, svg);
