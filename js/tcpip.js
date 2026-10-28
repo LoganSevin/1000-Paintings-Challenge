@@ -11,7 +11,10 @@
   var COLORS = ["#e8d5a3", "#d9774b", "#7fb3c9", "#c9a0dc", "#9cc58a", "#e0b84f", "#f2f2ee", "#d65a6f"];
   var nav, wrap, svg, roadPath, carLayer, cars = [], lights = [], clock = 0, len = 0, raf = 0, last = 0, spawnT = 0;
   // Traffic lights at these fractions of the width (between poles). Cycle seconds.
-  var LIGHTS = [0.2, 0.48, 0.81], GREEN = 5, YELLOW = 1.4, RED = 4, CYCLE = GREEN + YELLOW + RED;
+  var LIGHTS = [0.2, 0.48, 0.81];
+  // Synced phases: main road and cross street are always opposite, with an all-red clearance between.
+  var PHASES = [["green", "red", 5], ["yellow", "red", 1.4], ["red", "red", 0.8], ["red", "green", 3.2], ["red", "yellow", 1.1], ["red", "red", 0.8]];
+  var CYCLE = PHASES.reduce(function (a, p) { return a + p[2]; }, 0), BOX = 13, WALK = 6;
   var LAMP = { red: "#ff4a3d", yellow: "#ffc93a", green: "#3ddc6a", off: "#2b2f33" };
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)");
 
@@ -75,17 +78,19 @@
         el("line", { x1: e[0][0], y1: e[0][1], x2: e[1][0], y2: e[1][1] }, eg);
       });
       // Dashed center line: dashes shrink and fade with depth.
-      for (var z = 0.25; z < 3.4; z += 0.5) {
+      for (var z = 0.55; z < 3.6; z += 0.5) {
         var t1 = tz(z), t2 = tz(z + 0.25);
         if (t2 > FAR) break;
         var p1 = lerp(C0, vp, t1), p2 = lerp(C0, vp, t2);
         el("line", { x1: p1[0].toFixed(1), y1: p1[1].toFixed(1), x2: p2[0].toFixed(1), y2: p2[1].toFixed(1), "class": "tcpip-cross-dash", "stroke-width": (1 - t1) * 1.1, opacity: (0.55 * (1 - t1 / FAR)).toFixed(2) }, cross);
       }
-      // Foreshortened crosswalk across the cross street, just behind the corner.
-      for (var k = 0; k < 4; k++) {
-        var ta = tz(0.04 + k * 0.05), tb = tz(0.065 + k * 0.05);
-        var a1 = lerp(L0, vp, ta), a2 = lerp(R0, vp, ta), b1 = lerp(R0, vp, tb), b2 = lerp(L0, vp, tb);
-        el("polygon", { points: [a1, a2, b1, b2].map(function (p) { return p[0].toFixed(1) + "," + p[1].toFixed(1); }).join(" "), "class": "tcpip-walk" }, cross);
+      // Zebra crosswalk across the cross street mouth: bars run along the street, foreshortened.
+      var za = tz(0.06), zb = tz(0.2);
+      for (var k = 0; k < 6; k++) {
+        var u1 = (k + 0.2) / 6, u2 = (k + 0.7) / 6;
+        var A = lerp(L0, R0, u1), B = lerp(L0, R0, u2);
+        var pts = [lerp(A, vp, za), lerp(B, vp, za), lerp(B, vp, zb), lerp(A, vp, zb)];
+        el("polygon", { points: pts.map(function (p) { return p[0].toFixed(1) + "," + p[1].toFixed(1); }).join(" "), "class": "tcpip-walk" }, cross);
       }
     });
     var poles = el("g", { "class": "tcpip-poles" }, svg);
@@ -109,25 +114,34 @@
     var d = "M-30 " + ROAD_Y + " H" + (w + 30);
     el("rect", { x: 0, y: ROAD_Y - 4.5, width: w, height: 9, "class": "tcpip-asphalt" }, svg);
     el("line", { x1: 0, y1: ROAD_Y - 4.5, x2: w, y2: ROAD_Y - 4.5, "class": "tcpip-edge" }, svg);
-    el("path", { d: d, "class": "tcpip-center" }, svg);
+    var cd = "", cx0 = -30;
+    lx.forEach(function (x) { cd += "M" + cx0 + " " + ROAD_Y + " H" + (x - BOX - WALK - 1); cx0 = x + BOX + WALK + 1; });
+    cd += "M" + cx0 + " " + ROAD_Y + " H" + (w + 30);
+    el("path", { d: cd, "class": "tcpip-center" }, svg);
     var walks = el("g", { "class": "tcpip-walks" }, svg);
     lx.forEach(function (x) {
-      [-10, 10].forEach(function (o) {
-        for (var k = 0; k < 4; k++) el("rect", { x: x + o - 1.5, y: ROAD_Y - 4 + k * 2.2, width: 3, height: 1.2, "class": "tcpip-walk" }, walks);
+      [-1, 1].forEach(function (sd) {
+        var x0 = x + sd * (BOX + WALK / 2);
+        for (var k = 0; k < 4; k++) el("rect", { x: x0 - WALK / 2, y: ROAD_Y - 4 + k * 2.2, width: WALK, height: 1.2, "class": "tcpip-walk" }, walks);
       });
     });
     var prev = lights; lights = [];
     lx.forEach(function (x, i) {
       var g = el("g", { "class": "tcpip-light" }, svg);
-      // Hang the signal from the middle power wire, directly over the road.
-      var hx = x, wy = wireY(hx), top = Math.max(wy + 4, ARM + 9), boxH = 12;
-      el("line", { x1: hx, y1: wy, x2: hx, y2: top, "class": "tcpip-light-hanger" }, g);
-      el("circle", { cx: hx, cy: wy, r: 0.9, "class": "tcpip-light-clamp" }, g);
-      var glow = el("ellipse", { cx: hx, cy: ROAD_Y - 2, rx: 14, ry: 4, "class": "tcpip-light-glow", fill: LAMP.off }, g);
-      el("rect", { x: hx - 2.6, y: top, width: 5.2, height: boxH, rx: 1.2, "class": "tcpip-light-box" }, g);
-      var lamps = ["red", "yellow", "green"].map(function (c, k) { return el("circle", { cx: hx, cy: top + 2.4 + k * 3.6, r: 1.25, fill: LAMP.off }, g); });
-      lamps.glow = glow;
-      lights.push({ x: x, s: x + 30, lamps: lamps, off: prev[i] ? prev[i].off : i * 3.1, state: "" });
+      var glow = el("ellipse", { cx: x, cy: ROAD_Y - 2, rx: BOX + 2, ry: 4, "class": "tcpip-light-glow", fill: LAMP.off }, g);
+      // Hang a head from the middle power wire at hx; returns its three lamps.
+      function head(hx, sc, drop) {
+        var wy = wireY(hx), top = Math.max(wy + drop, ARM + 6), bw = 5.2 * sc, bh = 12 * sc;
+        el("line", { x1: hx, y1: wy, x2: hx, y2: top, "class": "tcpip-light-hanger" }, g);
+        el("circle", { cx: hx, cy: wy, r: 0.9, "class": "tcpip-light-clamp" }, g);
+        el("rect", { x: hx - bw / 2, y: top, width: bw, height: bh, rx: 1.2 * sc, "class": "tcpip-light-box" }, g);
+        return ["red", "yellow", "green"].map(function (c, k) { return el("circle", { cx: hx, cy: top + (2.4 + k * 3.6) * sc, r: 1.25 * sc, fill: LAMP.off, "class": "tcpip-lamp" }, g); });
+      }
+      // Main-road heads sit over each approach: left side faces rightbound, right side faces leftbound.
+      var mainHeads = [head(x - BOX - WALK / 2, 1, 4), head(x + BOX + WALK / 2, 1, 4)];
+      // Cross-street head hangs over the mouth of the vanishing road, smaller and higher for depth.
+      var crossHeads = [head(x, 0.75, 2)];
+      lights.push({ x: x, s: x + 30, main: mainHeads, cross: crossHeads, glow: glow, state: "", cstate: "" });
     });
     paintLights();
     roadPath = el("path", { d: d, fill: "none", stroke: "none" }, svg);
@@ -140,25 +154,31 @@
     cars.forEach(function (c) { carLayer.appendChild(c.g); });
   }
 
-  function lightState(L) {
-    if (reduce && reduce.matches) return "green";
-    var t = (clock + L.off) % CYCLE;
-    return t < GREEN ? "green" : t < GREEN + YELLOW ? "yellow" : "red";
+  function phase() {
+    if (reduce && reduce.matches) return PHASES[0];
+    var t = clock % CYCLE;
+    for (var i = 0; i < PHASES.length; i++) { if (t < PHASES[i][2]) return PHASES[i]; t -= PHASES[i][2]; }
+    return PHASES[0];
   }
+  function setHead(lamps, st) {
+    lamps[0].setAttribute("fill", st === "red" ? LAMP.red : LAMP.off);
+    lamps[1].setAttribute("fill", st === "yellow" ? LAMP.yellow : LAMP.off);
+    lamps[2].setAttribute("fill", st === "green" ? LAMP.green : LAMP.off);
+  }
+  // Every intersection shares one clock, so all heads change together.
   function paintLights() {
+    var p = phase();
     lights.forEach(function (L) {
-      var st = lightState(L);
-      if (st === L.state) return;
-      L.state = st;
-      L.lamps[0].setAttribute("fill", st === "red" ? LAMP.red : LAMP.off);
-      L.lamps[1].setAttribute("fill", st === "yellow" ? LAMP.yellow : LAMP.off);
-      L.lamps[2].setAttribute("fill", st === "green" ? LAMP.green : LAMP.off);
-      if (L.lamps.glow) L.lamps.glow.setAttribute("fill", LAMP[st]);
+      if (p[0] === L.state && p[1] === L.cstate) return;
+      L.state = p[0]; L.cstate = p[1];
+      L.main.forEach(function (h) { setHead(h, p[0]); });
+      L.cross.forEach(function (h) { setHead(h, p[1]); });
+      L.glow.setAttribute("fill", LAMP[p[0]]);
     });
   }
   // How far this car may travel (along its direction) before stopping.
   function room(c) {
-    var lim = Infinity, GAP = 11;
+    var lim = Infinity, GAP = 13;
     for (var i = 0; i < cars.length; i++) {
       var o = cars[i];
       if (o === c || o.dir !== c.dir) continue;
@@ -168,7 +188,7 @@
     for (var j = 0; j < lights.length; j++) {
       var L = lights[j];
       if (L.state === "green") continue;
-      var stopAt = (L.s - c.dir * 12 - c.s) * c.dir; // stop line before the crosswalk
+      var stopAt = (L.s - c.dir * (BOX + WALK + 7) - c.s) * c.dir; // stop line before the crosswalk
       // Yellow: only stop if there is room to; red: always stop before the line.
       if (stopAt > -0.5 && (L.state === "red" || stopAt > 10)) lim = Math.min(lim, Math.max(0, stopAt));
     }
