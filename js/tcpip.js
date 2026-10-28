@@ -131,11 +131,11 @@
       var glow = el("ellipse", { cx: x, cy: ROAD_Y - 2, rx: BOX + 2, ry: 4, "class": "tcpip-light-glow", fill: LAMP.off }, g);
       // Hang a head from the middle power wire at hx; returns its three lamps.
       function head(hx, sc, drop) {
-        var wy = wireY(hx), top = Math.max(wy + drop, ARM + 6), bw = 5.2 * sc, bh = 12 * sc;
+        var wy = wireY(hx), top = Math.max(wy + drop, ARM + 6), bw = 12 * sc, bh = 5.2 * sc; // horizontal head
         el("line", { x1: hx, y1: wy, x2: hx, y2: top, "class": "tcpip-light-hanger" }, g);
         el("circle", { cx: hx, cy: wy, r: 0.9, "class": "tcpip-light-clamp" }, g);
         el("rect", { x: hx - bw / 2, y: top, width: bw, height: bh, rx: 1.2 * sc, "class": "tcpip-light-box" }, g);
-        return ["red", "yellow", "green"].map(function (c, k) { return el("circle", { cx: hx, cy: top + (2.4 + k * 3.6) * sc, r: 1.25 * sc, fill: LAMP.off, "class": "tcpip-lamp" }, g); });
+        return ["red", "yellow", "green"].map(function (c, k) { return el("circle", { cx: hx + (k - 1) * 3.6 * sc, cy: top + bh / 2, r: 1.25 * sc, fill: LAMP.off, "class": "tcpip-lamp" }, g); });
       }
       // Main-road heads sit over each approach: left side faces rightbound, right side faces leftbound.
       var mainHeads = [head(x - BOX - WALK / 2, 1, 4), head(x + BOX + WALK / 2, 1, 4)];
