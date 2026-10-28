@@ -106,6 +106,7 @@
     diction: document.getElementById("panel-diction"),
     periodic: document.getElementById("panel-periodic"),
     math: document.getElementById("panel-math"),
+    tcpip: document.getElementById("panel-tcpip"),
     houma: document.getElementById("panel-houma"),
     thousand: document.getElementById("panel-thousand"),
     moba: document.getElementById("panel-moba"),
@@ -223,6 +224,7 @@
     diction: "Dictionary — every headword A to Z; highlight a definition and right-click to generate it",
     periodic: "Periodic Table — set elements on a bench, bond them, and heat a sample until it melts or boils",
     math: "Math — set a range, make a geometry, sculpt it, and apply a function",
+    tcpip: "TCP/IP — the powerline road above the tabs; cars are packets",
     houma: "Houma — GTA-style open world on the Terrebonne map: tunnel, bayou, Southland, port",
     thousand: "1000 — a thousand different game templates you can click and rewrite",
     moba: "MOBA — click-to-move lanes, towers, minions, QWER",
@@ -334,6 +336,7 @@
     if (name === "sprite" || name === "burst") name = "sprites";
     if (name === "elements" || name === "element" || name === "periodictable" || name === "periodic-table") name = "periodic";
     if (name === "mathematics" || name === "maths") name = "math";
+    if (name === "tcp" || name === "tcp-ip" || name === "ip") name = "tcpip";
     if (name === "anthropic") name = "claude";
     if (name === "openai" || name === "gpt") name = "chatgpt";
     if (name === "kids") {
@@ -1222,6 +1225,7 @@
     if (tabName === "code") tabName = "codes";
     if (tabName === "dictionary") tabName = "diction";
     if (tabName === "mathematics" || tabName === "maths") tabName = "math";
+    if (tabName === "tcp" || tabName === "tcp-ip" || tabName === "ip") tabName = "tcpip";
     if (tabName === "elements" || tabName === "element" || tabName === "periodictable" || tabName === "periodic-table") tabName = "periodic";
     if (tabName === "anthropic") tabName = "claude";
     if (tabName === "openai" || tabName === "gpt") tabName = "chatgpt";

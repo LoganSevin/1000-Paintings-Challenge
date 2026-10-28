@@ -1,0 +1,16 @@
+.tcpip-road { display: block; height: 46px; pointer-events: none; overflow: visible; max-width: 100%; position: relative; z-index: 2; }
+.tcpip-road[hidden] { display: none; }
+.tcpip-road-svg { display: block; overflow: visible; }
+.tcpip-pole { stroke: #e8d5a3; stroke-width: 2.2; stroke-linecap: round; }
+.tcpip-arm { stroke: #e8d5a3; stroke-width: 1.8; stroke-linecap: round; }
+.tcpip-arm-lo { stroke-width: 1.3; opacity: 0.8; }
+.tcpip-insul { fill: #7fb3c9; }
+.tcpip-asphalt { fill: none; stroke: #23292e; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; opacity: 0.95; }
+.tcpip-edge { fill: none; stroke: #e8d5a3; stroke-width: 10.5; stroke-linecap: round; opacity: 0.35; mix-blend-mode: screen; }
+.tcpip-center { fill: none; stroke: #f0c94a; stroke-width: 0.9; stroke-dasharray: 5 4; }
+@media (max-width: 720px) { .tcpip-road { height: 40px; } }
+.tcpip-panel { max-width: 46rem; margin: 1.5rem auto; padding: 1.25rem 1.5rem; background: rgba(10, 22, 30, 0.72); border: 1px solid rgba(232, 213, 163, 0.25); border-radius: 12px; color: #efe6cf; line-height: 1.55; }
+.tcpip-panel h2 { margin-top: 0; }
+.tcpip-panel dt { color: #e8d5a3; font-weight: 600; margin-top: 0.6rem; }
+.tcpip-panel dd { margin: 0.1rem 0 0 1rem; }
+.tcpip-toggle { display: inline-flex; gap: 0.5rem; align-items: center; margin-top: 1rem; cursor: pointer; }
