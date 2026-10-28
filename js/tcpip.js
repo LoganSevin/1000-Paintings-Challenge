@@ -41,6 +41,18 @@
     svg.setAttribute("width", w);
     while (svg.firstChild) svg.removeChild(svg.firstChild);
     var xs = POLES.map(function (f) { return f * w; });
+    // y of the middle wire (offset 0, sag index 1) at x; matches the drawn Bezier spans.
+    function wireY(x) {
+      var y0 = ARM - 1.6;
+      for (var i = 1; i < xs.length; i++) {
+        if (x >= xs[i - 1] && x <= xs[i]) {
+          var span = xs[i] - xs[i - 1], t = (x - xs[i - 1]) / span;
+          var sag = Math.min(14, Math.max(4, span * 0.09)) + 0.6;
+          return y0 + 4 * t * (1 - t) * sag;
+        }
+      }
+      return y0;
+    }
     var ROAD_Y = H - 6; // flat road center, just above the tab bar edge
     var ARM = TOP + 2;
     var cross = el("g", { "class": "tcpip-cross" }, svg);
@@ -107,10 +119,14 @@
     var prev = lights; lights = [];
     lx.forEach(function (x, i) {
       var g = el("g", { "class": "tcpip-light" }, svg);
-      var hx = x + 9; // signal stands at the corner
-      el("line", { x1: hx, y1: ROAD_Y - 4.5, x2: hx, y2: ROAD_Y - 12, "class": "tcpip-light-pole" }, g);
-      el("rect", { x: hx - 2.6, y: ROAD_Y - 23, width: 5.2, height: 12, rx: 1.2, "class": "tcpip-light-box" }, g);
-      var lamps = ["red", "yellow", "green"].map(function (c, k) { return el("circle", { cx: hx, cy: ROAD_Y - 20.6 + k * 3.6, r: 1.25, fill: LAMP.off }, g); });
+      // Hang the signal from the middle power wire, directly over the road.
+      var hx = x, wy = wireY(hx), top = Math.max(wy + 4, ARM + 9), boxH = 12;
+      el("line", { x1: hx, y1: wy, x2: hx, y2: top, "class": "tcpip-light-hanger" }, g);
+      el("circle", { cx: hx, cy: wy, r: 0.9, "class": "tcpip-light-clamp" }, g);
+      var glow = el("ellipse", { cx: hx, cy: ROAD_Y - 2, rx: 14, ry: 4, "class": "tcpip-light-glow", fill: LAMP.off }, g);
+      el("rect", { x: hx - 2.6, y: top, width: 5.2, height: boxH, rx: 1.2, "class": "tcpip-light-box" }, g);
+      var lamps = ["red", "yellow", "green"].map(function (c, k) { return el("circle", { cx: hx, cy: top + 2.4 + k * 3.6, r: 1.25, fill: LAMP.off }, g); });
+      lamps.glow = glow;
       lights.push({ x: x, s: x + 30, lamps: lamps, off: prev[i] ? prev[i].off : i * 3.1, state: "" });
     });
     paintLights();
@@ -137,6 +153,7 @@
       L.lamps[0].setAttribute("fill", st === "red" ? LAMP.red : LAMP.off);
       L.lamps[1].setAttribute("fill", st === "yellow" ? LAMP.yellow : LAMP.off);
       L.lamps[2].setAttribute("fill", st === "green" ? LAMP.green : LAMP.off);
+      if (L.lamps.glow) L.lamps.glow.setAttribute("fill", LAMP[st]);
     });
   }
   // How far this car may travel (along its direction) before stopping.

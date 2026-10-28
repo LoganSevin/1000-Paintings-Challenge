@@ -16,5 +16,7 @@
 .tcpip-cross-edge line { stroke: #e8d5a3; stroke-width: 0.6; opacity: 0.3; }
 .tcpip-cross-dash { stroke: #f0c94a; }
 .tcpip-walk { fill: #f2f2ee; opacity: 0.35; }
-.tcpip-light-pole { stroke: #9aa3a8; stroke-width: 1; }
 .tcpip-light-box { fill: #15191c; stroke: #e8d5a3; stroke-width: 0.5; stroke-opacity: 0.6; }
+.tcpip-light-hanger { stroke: #e8d5a3; stroke-width: 0.8; opacity: 0.9; }
+.tcpip-light-clamp { fill: #e8d5a3; }
+.tcpip-light-glow { opacity: 0.16; }
