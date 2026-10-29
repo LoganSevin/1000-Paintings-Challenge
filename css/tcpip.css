@@ -1,4 +1,4 @@
-.tcpip-road { display: block; height: 60px; pointer-events: none; overflow: visible; max-width: 100%; position: relative; z-index: 2; }
+.tcpip-road { display: block; height: 74px; pointer-events: none; overflow: visible; max-width: 100%; position: relative; z-index: 2; }
 .tcpip-road[hidden] { display: none; }
 .tcpip-road-svg { display: block; overflow: visible; }
 .tcpip-pole { stroke: #e8d5a3; stroke-width: 2.2; stroke-linecap: round; }
@@ -22,3 +22,7 @@
 .tcpip-light-glow { opacity: 0.16; }
 .tcpip-light-back { fill: #0c0f11; stroke: #e8d5a3; stroke-width: 0.4; stroke-opacity: 0.4; }
 .tcpip-visor { fill: none; stroke: #0a0c0e; stroke-width: 0.9; stroke-linecap: round; }
+
+/* Soft drifting clouds above the wires: cream at low opacity, blended on the dark studio sky. */
+.tcpip-cloud { fill: #e8d5a3; }
+.tcpip-cloud-layer { pointer-events: none; }

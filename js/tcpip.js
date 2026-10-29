@@ -7,7 +7,7 @@
   var KEY = "tcpip-road-hidden";
   // Pole x positions as fractions of tab-bar width, traced from the sketch.
   var POLES = [0.015, 0.13, 0.265, 0.34, 0.435, 0.525, 0.635, 0.75, 0.875, 0.985];
-  var H = 60, TOP = 6, GROUND = H - 1, SAG = 9;
+  var H = 74, TOP = 20, GROUND = H - 1, SAG = 9;
   var COLORS = ["#e8d5a3", "#d9774b", "#7fb3c9", "#c9a0dc", "#9cc58a", "#e0b84f", "#f2f2ee", "#d65a6f"];
   var nav, wrap, svg, roadPath, carLayer, cars = [], lights = [], clock = 0, len = 0, raf = 0, last = 0, spawnT = 0;
   // Traffic lights at these fractions of the width (between poles). Cycle seconds.
@@ -46,6 +46,7 @@
       return y0;
     }
     var ROAD_Y = H - 6; // flat road center, just above the tab bar edge
+    buildClouds(w);
     var ARM = TOP + 2;
     var cross = el("g", { "class": "tcpip-cross" }, svg);
     var lx = LIGHTS.map(function (f) { return Math.round(f * w); });
@@ -171,6 +172,44 @@
     cars.forEach(function (c) { carLayer.appendChild(c.g); placeMain(c); });
   }
 
+  // ---- Clouds: three parallax layers of soft puffs drifting above the wires ----
+  // Each layer holds two copies side by side (width 2w) and slides by one transform per frame.
+  var clouds = [], cloudT = 0;
+  var CLOUD_LAYERS = [
+    { y: 5, sc: 0.55, speed: 2.5, op: 0.12, n: 5 },
+    { y: 9, sc: 0.8, speed: 5, op: 0.18, n: 4 },
+    { y: 12, sc: 1.05, speed: 9, op: 0.24, n: 3 }
+  ];
+  function buildClouds(w) {
+    clouds = [];
+    var sky = el("g", { "class": "tcpip-clouds" }, svg);
+    CLOUD_LAYERS.forEach(function (Ly, li) {
+      var g = el("g", { "class": "tcpip-cloud-layer", opacity: Ly.op }, sky);
+      var seed = 7 + li * 13;
+      function rnd() { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; }
+      var puffs = [];
+      for (var i = 0; i < Ly.n; i++) puffs.push({ x: (i + 0.15 + rnd() * 0.7) / Ly.n * w, dy: (rnd() - 0.5) * 4, k: Ly.sc * (0.8 + rnd() * 0.5) });
+      [0, w].forEach(function (off) {
+        puffs.forEach(function (p) {
+          var cx = p.x + off, cy = Ly.y + p.dy, k = p.k;
+          // One cloud = a flat base plus three overlapping bumps.
+          el("ellipse", { cx: cx, cy: cy + 2 * k, rx: 16 * k, ry: 3.2 * k, "class": "tcpip-cloud" }, g);
+          el("ellipse", { cx: cx - 7 * k, cy: cy + 0.6 * k, rx: 7 * k, ry: 4 * k, "class": "tcpip-cloud" }, g);
+          el("ellipse", { cx: cx + 1 * k, cy: cy - 1 * k, rx: 8.5 * k, ry: 5.2 * k, "class": "tcpip-cloud" }, g);
+          el("ellipse", { cx: cx + 8.5 * k, cy: cy + 0.8 * k, rx: 6.5 * k, ry: 3.6 * k, "class": "tcpip-cloud" }, g);
+        });
+      });
+      clouds.push({ g: g, speed: Ly.speed, w: w });
+    });
+    moveClouds();
+  }
+  function moveClouds() {
+    clouds.forEach(function (c) {
+      var x = -((cloudT * c.speed) % c.w);
+      c.g.setAttribute("transform", "translate(" + x.toFixed(1) + " 0)");
+    });
+  }
+
   function phase() {
     if (reduce && reduce.matches) return PHASES[0];
     var t = clock % CYCLE;
@@ -197,7 +236,7 @@
   // Modes: "main" (on the flat road), "in" (coming down a cross street toward the road),
   // "arcIn" (turning from the cross street onto the road), "arcOut" (turning off the road
   // into a cross street), "out" (driving away toward the vanishing point).
-  var carId = 0, G = null, Z_SPAWN = 3.3, Z_STOP = 0.26, ZGAP = 0.55, MGAP = 13;
+  var carId = 0, lastTick = 0, G = null, Z_SPAWN = 3.3, Z_STOP = 0.26, ZGAP = 0.55, MGAP = 13;
 
   function carShape(color) {
     var g = el("g", { "class": "tcpip-car" });
@@ -326,7 +365,7 @@
     if (c.dir > 0 && !laneClear(-1, L.x - 30, L.x + 75)) return;
     var a = [c.s - 30, laneY(c.dir)], e = crossPt(L, true, Z_STOP), b = [e[0], a[1]];
     c.mode = "arcOut"; c.fromDir = c.dir; c.Lj = c.turn;
-    L.busy = { car: c, crossesDir: c.dir > 0 ? -1 : 0 };
+    L.busy = { car: c, crossesDir: c.dir > 0 ? -1 : 0, at: clock };
     startArc(c, L, a, b, e, 0.8, crossScale(Z_STOP), "out");
   }
   // A cross-street car at its stop line: may it turn onto the main road now?
@@ -335,20 +374,36 @@
     if (L.cstate === "red" || remaining(false) < 1.6 || L.busy) return;
     var toDir = Math.random() < 0.5 ? 1 : -1;
     if (c.pref) toDir = c.pref; else c.pref = toDir;
-    var ex = L.x + toDir * 30;
+    // Waited a whole cycle? Try turning the other way, and only need room right at the merge point.
+    if ((c.wait || 0) > CYCLE) toDir = Math.floor(c.wait / CYCLE) % 2 ? -c.pref : c.pref;
+    var ex = L.x + toDir * 30, ahead = (c.wait || 0) > CYCLE ? 22 : 40;
     // Merge only into a gap in the target lane.
-    if (!laneClear(toDir, ex - 18, ex + 18) || !laneClear(toDir, Math.min(ex, ex + toDir * 40), Math.max(ex, ex + toDir * 40))) return;
+    if (!laneClear(toDir, ex - 15, ex + 15) || !laneClear(toDir, Math.min(ex, ex + toDir * ahead), Math.max(ex, ex + toDir * ahead))) return;
     var a = crossPt(L, false, Z_STOP), e = [ex, laneY(toDir)], b = [a[0], e[1]];
     c.mode = "arcIn"; c.toDir = toDir; c.Lj = c.L;
-    L.busy = { car: c, crossesDir: toDir > 0 ? -1 : 0 };
+    L.busy = { car: c, crossesDir: toDir > 0 ? -1 : 0, at: clock };
     carLayer.appendChild(c.g);
     startArc(c, L, a, b, e, crossScale(Z_STOP), 0.8, "main");
   }
 
   function tick(t) {
     raf = requestAnimationFrame(tick);
-    var dt = Math.min(0.1, (t - (last || t)) / 1000); last = t;
-    clock += dt; paintLights();
+    lastTick = Date.now();
+    // Clamp the step: a hidden tab or a stalled frame must never teleport cars or skip phases.
+    var dt = Math.max(0, Math.min(0.05, (t - (last || t)) / 1000)); last = t;
+    try { step(dt); } catch (e) {
+      // One bad frame must not freeze the road: reset traffic and keep going.
+      if (window.console && !step.warned) { step.warned = true; console.warn("tcpip road reset", e); }
+      cars.forEach(function (c) { c.g.remove(); }); cars = [];
+      lights.forEach(function (L) { L.busy = null; });
+    }
+  }
+  function step(dt) {
+    clock += dt; cloudT += dt; moveClouds(); paintLights();
+    // A turn that never finished (e.g. its car vanished) must not hold the intersection.
+    lights.forEach(function (L) {
+      if (L.busy && (cars.indexOf(L.busy.car) < 0 || (L.busy.car.mode !== "arcIn" && L.busy.car.mode !== "arcOut") || clock - L.busy.at > 6)) L.busy = null;
+    });
     spawnT -= dt;
     var mains = cars.filter(function (c) { return c.mode === "main"; }).length;
     var target = Math.max(3, Math.round(len / 120));
@@ -368,7 +423,13 @@
         var r = room(c);
         var want = r === Infinity ? c.v : Math.min(c.v, Math.max(0, r) * 2.2);
         c.cur = (c.cur == null ? c.v : c.cur) + (want - (c.cur == null ? c.v : c.cur)) * Math.min(1, dt * 6);
-        c.s += c.dir * Math.min(c.cur * dt, Math.max(0, r));
+        var ds = Math.min(c.cur * dt, Math.max(0, r));
+        c.s += c.dir * ds;
+        c.wait = ds > 0.02 ? 0 : (c.wait || 0) + dt;
+        // Deadlock breakers: a turner that can't find a gap goes straight instead;
+        // anything parked for over two full light cycles is towed (removed).
+        if (c.turn >= 0 && c.wait > CYCLE) { c.turn = -1; c.wait = 0; }
+        if (c.wait > CYCLE * 1.9) { c.g.remove(); cars.splice(i, 1); continue; }
         if (c.turn >= 0 && Math.abs(c.s - stopS(lights[c.turn], c.dir)) < 0.6) tryTurnOff(c);
         if (c.mode === "main") {
           if (c.s < -45 || c.s > len + 45) { c.g.remove(); cars.splice(i, 1); continue; }
@@ -377,13 +438,19 @@
       } else if (c.mode === "in") {
         var lim = c.z - Z_STOP;
         cars.forEach(function (o) { if (o !== c && o.mode === "in" && o.L === c.L && o.z < c.z) lim = Math.min(lim, c.z - o.z - ZGAP); });
-        c.z -= Math.max(0, Math.min(c.v * dt, lim));
+        var dz = Math.max(0, Math.min(c.v * dt, lim));
+        c.z -= dz;
+        c.wait = dz > 0.0005 ? 0 : (c.wait || 0) + dt;
+        if (c.wait > CYCLE * 1.9) { c.g.remove(); cars.splice(i, 1); continue; }
         if (c.z - Z_STOP < 0.01) tryTurnOn(c);
         if (c.mode === "in") placeCross(c);
       } else if (c.mode === "out") {
         var limo = Infinity;
         cars.forEach(function (o) { if (o !== c && o.mode === "out" && o.L === c.L && o.z > c.z) limo = Math.min(limo, o.z - c.z - ZGAP); });
-        c.z += Math.max(0, Math.min(c.v * dt, limo));
+        var dzo = Math.max(0, Math.min(c.v * dt, limo));
+        c.z += dzo;
+        c.wait = dzo > 0.0005 ? 0 : (c.wait || 0) + dt;
+        if (c.wait > CYCLE) { c.g.remove(); cars.splice(i, 1); continue; }
         if (c.z >= Z_SPAWN) { c.g.remove(); cars.splice(i, 1); continue; }
         placeCross(c);
       } else {
@@ -456,6 +523,16 @@
       if (document.hidden) { if (raf) cancelAnimationFrame(raf); raf = 0; }
       else if (!wrap.hidden && !raf && !(reduce && reduce.matches)) { last = 0; raf = requestAnimationFrame(tick); }
     });
+    function kick() {
+      if (!wrap.hidden && !document.hidden && !(reduce && reduce.matches) && Date.now() - lastTick > 1500) {
+        if (raf) cancelAnimationFrame(raf);
+        if (!wrap.querySelector(".tcpip-cars")) build();
+        last = 0; raf = requestAnimationFrame(tick);
+      }
+    }
+    setInterval(kick, 2000);
+    window.addEventListener("pageshow", kick);
+    window.addEventListener("focus", kick);
     var t = document.getElementById("tcpip-road-toggle");
     if (t) {
       t.checked = !wrap.hidden;
@@ -473,7 +550,7 @@
       if (L.cstate === "green" && cars.some(function (c) { return c.mode === "main" && inBox(c); })) conflict++;
     });
     var arcs = cars.filter(function (c) { return c.mode === "arcIn" || c.mode === "arcOut"; }).map(function (c) { var r = c.g.getBoundingClientRect(); return { p: c.p, cx: r.left + r.width / 2 }; });
-    return { arcIn: ids("arcIn"), arcOut: ids("arcOut"), arcs: arcs, conflict: conflict };
+    return { arcIn: ids("arcIn"), arcOut: ids("arcOut"), arcs: arcs, conflict: conflict, maxWait: cars.reduce(function (m, c) { return Math.max(m, c.wait || 0); }, 0), cycle: CYCLE, lastTick: lastTick };
   }
   window.TcpIp = { onShow: function () {}, setHidden: setHidden, _debug: debug };
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
