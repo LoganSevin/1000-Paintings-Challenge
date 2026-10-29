@@ -530,7 +530,7 @@ function animateRt(rt, dt) {
     const pose = cas && sculpt.on ? "rest" : { stand: "idle", walk: "walk", sit: "sit", lie: "lie", paint: "paint", shower: "shower" }[rt.pose] || "idle";
     const look = cas ? camera.position : null;
     const mouth = cas && sculpt.mouth ? 1 : { o: 0.22, grin: 0.1 }[sim ? sim.mouth : ""] ?? 0;
-    m.rotation.x = 0; m.position.set(0, 0, 0);
+    m.rotation.x = 0; m.position.set(0, 0.04, 0); // stand on floor boards (top at 0.04)
     if (pose === "lie") { m.rotation.x = -Math.PI / 2; m.position.set(0, 0.1, -0.85); }
     Body.animate(m, pose, dt, reduceMotion, { lookAt: look, mouth, talk: !!(rt.say && rt.say.until > performance.now()), snap: cas && sculpt.on });
     return;
@@ -709,7 +709,7 @@ function walkToPoint(sim, p) {
 let follow = false, camPan = false; const keys = new Set();
 function followTick(dt) {
   const sim = getSim(selectedSimId), rt = sim && runtime.get(sim.id); if (!rt) return;
-  const p = myCar.state === "driving" ? myCar.obj.position : rt.holder.position;
+  const p0 = myCar.state === "driving" ? myCar.obj.position : rt.holder.position, w = world ? world.warpXZ(p0.x, p0.z) : [p0.x, p0.z], p = { x: w[0], z: w[1] };
   if (!follow) return; const t = controls.target, k = reduceMotion ? 1 : Math.min(1, dt * 4), dx = (p.x - t.x) * k, dz = (p.z - t.z) * k;
   t.x += dx; t.z += dz; camera.position.x += dx; camera.position.z += dz;
 }
@@ -792,12 +792,12 @@ function targetAt(ev) {
   if (world) {
     const ak = world.actorKinds ? world.actorKinds() : []; const set = new Map(ak.map((a) => [a[0], a]));
     h = first(ak.map((a) => a[0])); if (h) { const a = set.get(upTo(h.object, new Set(set.keys()))); if (a) return a[1] === "npc" ? { kind: "npc", name: a[2] || "Neighbor", point: h.point } : { kind: a[1], point: h.point }; }
-    h = first(world.houseSigns || []); if (h) { let o = h.object; while (o && !o.userData.house) o = o.parent; if (o) return houseTarget(o.userData.house.i, o.userData.house.j, h.point); }
+    h = first(world.houseSigns || []); if (h) { let o = h.object; while (o && !o.userData.house) o = o.parent; if (o) return houseTarget(o.userData.house.i, o.userData.house.j, toGrid(h.point)); }
     const sh = world.signs.length && pick(ev, world.signs); const sid = sh && world.lotOfSign(sh); if (sid) return { kind: "house", sid, name: "Shared lot", beds: "?", baths: "?", point: { x: sh.getWorldPosition(new THREE.Vector3()).x, z: sh.getWorldPosition(new THREE.Vector3()).z } };
   }
   const plotP = groundPoint(ev);
   if (plotP && own) { const [x, z] = tileAt(plotP); if (inLot(x, z) && Life.plotTiles().has(x + "," + z) && !Life.plotTiles().get(x + "," + z).bed) return { kind: "plot", key: x + "," + z }; }
-  if (world) { h = first(world.chunkMeshes()); if (h) { const p = h.point, z = world.zoneAt(p.x, p.z);
+  if (world) { h = first(world.chunkMeshes()); if (h) { const p = toGrid(h.point), z = world.zoneAt(p.x, p.z);
       if (z === "water" || p.y < -0.9) return { kind: "water", point: { x: p.x, z: p.z } };
       const loc = locate(p); if (loc.L && !loc.L.home) { const o = objAtTile(loc.L, loc.tile[0], loc.tile[1]); const hs = loc.L.plan.house;
         if (o && catInfo(o.type)) return { kind: "furniture", obj: o, L: loc.L, remote: true, houseName: lotName(loc.L) };
@@ -1011,7 +1011,9 @@ function frame(dt) { lastDt = dt; timeTick(dt);
   stepRemotes(dt); netTick(); followTick(dt);
   controls.update(); dayCycle(); world.setFocus(focusPoint(), camera.position); world.update(controls.target, dt); thumbTick();
   Life.farmTick(); if (performance.now() - lastLifeTick > 1000) { lastLifeTick = performance.now(); Life.pollTrades(); clockTick(); }
+  const bent = warpActors(); // the neighborhood's roads are bent; draw moving sims/cars at their bent spot
   if (Hifi) Hifi.render(renderer, scene, camera); else renderer.render(scene, camera);
+  for (const [o, p, q] of bent) { o.position.copy(p); o.quaternion.copy(q); }
   updateBubbles(); perfTick(dt);
   if (mode === "live" && !online.visiting && performance.now() - lastSave > 5000) { lastSave = performance.now(); save(); renderNeeds(); }
   else if (mode === "live") renderNeedsLight();
@@ -1019,9 +1021,17 @@ function frame(dt) { lastDt = dt; timeTick(dt);
 
 // ---------------- picking ----------------
 function ndc(ev) { const r = renderer.domElement.getBoundingClientRect(); return new THREE.Vector2(((ev.clientX - r.left) / r.width) * 2 - 1, -((ev.clientY - r.top) / r.height) * 2 + 1); }
+// winding roads: game logic lives on the straight grid, the world is drawn bent (see World.warpXZ)
+function toGrid(p) { if (!p || !world) return p; const [x, z] = world.unwarpXZ(p.x, p.z); return new THREE.Vector3(x, p.y, z); }
+function warpActors() {
+  const out = []; if (!world) return out;
+  const list = [...simGroup.children, ...(remoteGroup ? remoteGroup.children : [])]; if (myCar.obj) list.push(myCar.obj);
+  for (const o of list) { const x = o.position.x, z = o.position.z; if (Math.abs(x) < 30 && Math.abs(z) < 30) continue; out.push([o, o.position.clone(), o.quaternion.clone()]); World.warpObject(o); o.updateMatrixWorld(true); }
+  return out;
+}
 function groundPoint(ev) {
   raycaster.setFromCamera(ndc(ev), camera);
-  const p = new THREE.Vector3(); return raycaster.ray.intersectPlane(new THREE.Plane(new THREE.Vector3(0, 1, 0), 0), p) ? p : null;
+  const p = new THREE.Vector3(); return raycaster.ray.intersectPlane(new THREE.Plane(new THREE.Vector3(0, 1, 0), 0), p) ? toGrid(p) : null;
 }
 function pick(ev, groups) {
   raycaster.setFromCamera(ndc(ev), camera);
@@ -1187,7 +1197,7 @@ function tap(ev) {
     if (hit && hit.userData.objId) { commandSim(sim, { objId: hit.userData.objId }); return; }
     const stallHit = scene.getObjectByName("MarketStall") && pick(ev, [scene.getObjectByName("MarketStall")]); if (stallHit) { Life.goMarket(() => Life.openTab("market")); return; }
     const pl = Life.plotTiles(), gp = groundPoint(ev); if (gp) { const [x, z] = tileAt(gp); if (pl.has(x + "," + z)) { Life.openMenu({ kind: "plot", key: x + "," + z }, ev.clientX, ev.clientY); return; } }
-    if (world) { raycaster.setFromCamera(ndc(ev), camera); const h = raycaster.intersectObjects(world.chunkMeshes(), true)[0];
+    if (world) { raycaster.setFromCamera(ndc(ev), camera); const h = raycaster.intersectObjects(world.chunkMeshes(), true)[0]; if (h) h.point = toGrid(h.point);
       if (h && (world.zoneAt(h.point.x, h.point.z) === "water" || h.point.y < -0.9)) { lifeHost.fishAt({ x: h.point.x, z: h.point.z }); return; }
       if (h && !(Math.abs(h.point.x) < N / 2 && Math.abs(h.point.z) < N / 2)) { const rt = runtime.get(sim.id); endTask(sim, rt); rt.queue = null; walkToPoint(sim, h.point); return; } }
     const p = gp; if (p) { const [x, z] = tileAt(p); if (inLot(x, z)) commandSim(sim, { x, z }); }
@@ -1613,7 +1623,7 @@ window.SimsTab = { onShow: show, onHide: hide, get state() { return S; },
   setSpeed(v) { speed = v; }, setMode(m) { setMode(m); }, setHour(h) { const d = new Date(); d.setHours(Math.floor(h), Math.round((h % 1) * 60), 0, 0); tp().mode = "preview"; tp().t = d.getTime(); tp().play = false; renderTimebar(); },
   timePreview() { return tp(); }, simData() { const s = getSim(selectedSimId); return s && JSON.parse(JSON.stringify(s)); }, saveMoment(n) { saveMoment(n); }, jumpMoment(i) { jumpMoment(i); }, nightInfo() { return night && { k: night.nightK, realLights: night.lights(), cap: night.cap(), moon: lastClock && lastClock.moon, sources: world.lightSources().length }; },
   body() { const m = sculptModel(); return m && { report: Body.anatomyReport(m), post: Hifi && Hifi.postInfo(), lod: m.userData.body.lod }; },
-  casView(v) { casView(v); }, sculptProbeAll(x, y) { raycaster.setFromCamera(ndc({ clientX: x, clientY: y }), camera); const m = sculptModel(); const parts = Object.values(m.userData.body.parts); return { all: raycaster.intersectObject(scene, true).slice(0, 4).map((h) => h.object.name + ':' + h.object.type + ':' + h.distance.toFixed(2)), parts: parts.map((p) => p.name + ':' + p.type + ':' + !!p.geometry.boundingSphere + ':' + (p.geometry.boundingSphere ? p.geometry.boundingSphere.radius.toFixed(2) : '')), cam: camera.position.toArray().map((v) => +v.toFixed(2)), tgt: controls.target.toArray().map((v) => +v.toFixed(2)), all2: raycaster.intersectObject(scene, true).filter((h) => /Sim|Cloth/.test(h.object.name)).slice(0, 3).map((h) => h.object.name + ':' + h.distance.toFixed(2)), bs: parts.slice(0, 1).map((p) => { p.computeBoundingSphere(); const c = p.boundingSphere.center.clone().applyMatrix4(p.matrixWorld); return [c.toArray().map((v) => +v.toFixed(2)), p.boundingSphere.radius.toFixed(2), m.getWorldPosition(new THREE.Vector3()).toArray().map((v) => +v.toFixed(2)), p.visible, p.material.visible]; }), ray: raycaster.ray.direction.toArray().map((v) => +v.toFixed(2)) }; }, sculptProbe(x, y) { const h = sculptHit({ clientX: x, clientY: y }); return h ? { part: h.object.name, d: +h.distance.toFixed(3) } : null; }, sculptState() { return sculpt; }, get Body() { return Body; }, model() { return sculptModel(); },
+  casView(v) { casView(v); }, sculptState() { return sculpt; }, get Body() { return Body; }, model() { return sculptModel(); },
   worldToScreen(x, y, z) { const v = new THREE.Vector3(x, y, z).project(camera); const r = renderer.domElement.getBoundingClientRect(); return { x: r.left + (v.x + 1) / 2 * r.width, y: r.top + (1 - v.y) / 2 * r.height }; },
   targetAt(cx, cy) { const t = targetAt({ clientX: cx, clientY: cy }); return t && { kind: t.kind, name: t.name || (t.obj && t.obj.type) || (t.sim && t.sim.name) }; },
   // test helper: screen position of a tile corner/center

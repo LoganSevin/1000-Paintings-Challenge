@@ -263,7 +263,7 @@ function polygonize(sdf, part, h) {
   const F = new Float32Array(nx * ny * nz), id = (i, j, k) => (k * ny + j) * nx + i;
   const cs = 4, cnx = Math.ceil(nx / cs) + 1, cny = Math.ceil(ny / cs) + 1, cnz = Math.ceil(nz / cs) + 1, CF = new Float32Array(cnx * cny * cnz);
   for (let k = 0; k < cnz; k++) for (let j = 0; j < cny; j++) for (let i = 0; i < cnx; i++) CF[(k * cny + j) * cnx + i] = sdf(lo[0] + i * cs * h, lo[1] + j * cs * h, lo[2] + k * cs * h);
-  const lim = cs * h * 1.8;
+  const lim = cs * h * (part === "body" || part === "head" ? 1.8 : 3.2); // small parts: ellipsoid SDF bound is loose, sample finely to avoid holes
   for (let k = 0; k < nz; k++) for (let j = 0; j < ny; j++) for (let i = 0; i < nx; i++) {
     const c = CF[(Math.round(k / cs) * cny + Math.round(j / cs)) * cnx + Math.round(i / cs)];
     F[id(i, j, k)] = Math.abs(c) > lim ? c : sdf(lo[0] + i * h, lo[1] + j * h, lo[2] + k * h);
@@ -303,6 +303,14 @@ function polygonize(sdf, part, h) {
       if (d02 < d13) idx.push(Q[0], Q[1], Q[2], Q[0], Q[2], Q[3]); else idx.push(Q[0], Q[1], Q[3], Q[1], Q[2], Q[3]);
     }
   }
+  // orient outward: closed surfaces must have positive signed volume (some clip/box combos flip the winding)
+  let vol = 0;
+  for (let t = 0; t < idx.length; t += 3) {
+    const a = idx[t] * 3, b = idx[t + 1] * 3, c = idx[t + 2] * 3;
+    const bx = pos[b] - pos[a], by = pos[b + 1] - pos[a + 1], bz = pos[b + 2] - pos[a + 2], cx = pos[c] - pos[a], cy = pos[c + 1] - pos[a + 1], cz = pos[c + 2] - pos[a + 2];
+    vol += pos[a] * (by * cz - bz * cy) + pos[a + 1] * (bz * cx - bx * cz) + pos[a + 2] * (bx * cy - by * cx);
+  }
+  if (vol < 0) for (let t = 0; t < idx.length; t += 3) { const k = idx[t + 1]; idx[t + 1] = idx[t + 2]; idx[t + 2] = k; }
   return { pos: new Float32Array(pos), idx: new Uint32Array(idx) };
 }
 const dist2 = (a, b) => (a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2 + (a[2] - b[2]) ** 2;
@@ -534,6 +542,7 @@ function hairStrands(style, count, seed) {
     bun: { len: [0.04, 0.06], grav: 0.3, lay: 0.95, bun: [0, 1.755, -0.085] }, topknot: { len: [0.03, 0.05], grav: 0.6, lay: 0.95, bun: [0, 1.79, -0.02] },
   }[style];
   if (!S) return cards;
+  if (S.len[1] > 0.2) count = Math.round(count * 0.5); // long styles: fewer, wider cards read as hair instead of a bristle curtain
   const golden = Math.PI * (3 - Math.sqrt(5)), N = count * 3;
   for (let i = 0; i < N && cards.length < count; i++) {
     const y = 1 - (i / (N - 1)) * 2, rr = Math.sqrt(1 - y * y), th = golden * i;
@@ -547,6 +556,7 @@ function hairStrands(style, count, seed) {
     if (tgt) dir = v3.norm(v3.sub(tgt, root));
     else if (S.part != null) dir = v3.norm([(root[0] > S.part ? 1 : -1) * 0.8 + nx * 0.2, -0.2, -0.3 + nz * 0.3]);
     else dir = v3.norm([nx * (1 - S.lay), ny * (1 - S.lay) - S.lay * 0.7 + 0.3 * front * S.lay, nz * (1 - S.lay) - S.lay * front * 0.9]);
+    if (!tgt && S.part == null && S.len[1] > 0.1 && front > 0) dir = v3.norm(v3.add(dir, [Math.sign(nx || 1) * front * 1.1, 0.1 * front, -front * 0.6])); // longer hair sweeps back off the face from a centre part
     let p = v3.add(root, v3.mul(nrm, 0.001)); const pts = [p.slice()];
     for (let s = 1; s <= (tgt ? 8 : segs); s++) {
       if (tgt) { const d = v3.sub(tgt, p), dl = Math.hypot(...d); if (dl < 0.008) break; dir = v3.mul(d, 1 / dl); p = v3.add(p, v3.mul(dir, Math.min(0.02, dl))); pushOut(p, 0.005); pts.push(p.slice()); continue; }
@@ -871,7 +881,7 @@ export function buildBody(sim, opts = {}) {
   const outfit = OUTFIT_SPEC[sim.outfit] ? sim.outfit : "tee", bstyle = sim.bottomStyle || (outfit === "dress" ? "skirt" : "pants");
   if (!(outfit === "dress" || outfit === "robe")) { const [reg, kind, th] = BOTTOM_SPEC[bstyle] || BOTTOM_SPEC.pants; garment("body", reg, kind, colors.bottom, th, 0, null, 1); }
   OUTFIT_SPEC[outfit].forEach(([reg, kind, ck, th], i) => garment("body", reg, kind, colors[ck], th + (reg === "bib" ? 0.004 : 0), 0, ck === "top" ? pat : null, reg === "bib" ? 3 : 2));
-  for (const s of ["L", "R"]) garment("foot" + s, "shoes", "leather", sim.shoes || "#1d1a18", (x, y) => 0.0035 + (y < 0.022 ? (0.022 - y) * 0.45 : 0), 4);
+  for (const s of ["L", "R"]) garment("foot" + s, "shoes", "leather", sim.shoes || "#1d1a18", (x, y) => 0.0055 + (y < 0.022 ? (0.022 - y) * 0.45 : 0), 4);
   const A = new Set(sim.acc || []);
   if (A.has("gloves")) for (const s of ["L", "R"]) garment("hand" + s, "gloves", "leather", sim.accColor || "#3a2a20", 0.0013, 0);
   const skirtLen = outfit === "robe" ? 0.8 : outfit === "dress" ? 0.5 : bstyle === "skirt" ? 0.36 : 0;
