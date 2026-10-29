@@ -85,6 +85,7 @@
     chat: document.getElementById("panel-chat"),
     claude: document.getElementById("panel-claude"),
     chatgpt: document.getElementById("panel-chatgpt"),
+    sims: document.getElementById("panel-sims"),
     ragdoll: document.getElementById("panel-ragdoll"),
     particles: document.getElementById("panel-particles"),
     live: document.getElementById("panel-live"),
@@ -203,6 +204,7 @@
     chat: "Chat — studio Grok on the same xAI key as generate",
     claude: "Claude — Anthropic in the studio · your key, not the gallery’s bill",
     chatgpt: "ChatGPT — OpenAI in the studio · your key, not the gallery’s bill",
+    sims: "Sims — build a house, buy furniture, create sims, live · free, all in your browser",
     ragdoll: "Ragdoll — pose a paint-stained figure, generate from the pose",
     particles: "Particles — pour and stir paint-dust from a gallery still",
     live: "Live — puppet host on a real TikTok LIVE · comments, gifts, follows",
@@ -521,6 +523,9 @@
     }
     if (name !== "chatgpt") {
       window.dispatchEvent(new Event("chatgpt-hide"));
+    }
+    if (name !== "sims") {
+      window.dispatchEvent(new Event("sims-hide"));
     }
     if (name !== "ragdoll") {
       window.dispatchEvent(new Event("ragdoll-hide"));
@@ -1001,6 +1006,9 @@
       if (window.ChatGptChat && window.ChatGptChat.onShow) {
         window.ChatGptChat.onShow();
       }
+      hideOtherTabs(name);
+    } else if (name === "sims") {
+      window.dispatchEvent(new Event("sims-show"));
       hideOtherTabs(name);
     } else if (name === "ragdoll") {
       window.dispatchEvent(new Event("ragdoll-show"));

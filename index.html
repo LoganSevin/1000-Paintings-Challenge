@@ -41,6 +41,7 @@
   <link rel="stylesheet" href="css/chat.css?v=1" />
   <link rel="stylesheet" href="css/vendor-chats.css?v=1" />
   <link rel="stylesheet" href="css/ragdoll.css?v=3" />
+  <link rel="stylesheet" href="css/sims.css?v=1" />
   <link rel="stylesheet" href="css/particles.css?v=5" />
   <link rel="stylesheet" href="css/live.css?v=10" />
   <link rel="stylesheet" href="css/zoo.css?v=6" />
@@ -362,6 +363,7 @@
         <button type="button" class="tab" data-tab="chat">Chat</button>
         <button type="button" class="tab" data-tab="claude">Claude</button>
         <button type="button" class="tab" data-tab="chatgpt">ChatGPT</button>
+        <button type="button" class="tab" data-tab="sims">Sims</button>
         <button type="button" class="tab" data-tab="ragdoll">Ragdoll</button>
         <button type="button" class="tab" data-tab="particles">Particles</button>
         <button type="button" class="tab" data-tab="live">Live</button>
@@ -6989,6 +6991,109 @@
     </div>
   </section>
 
+  <section id="panel-sims" class="panel" hidden>
+    <div class="sims-shell">
+      <header class="sims-top">
+        <div class="sims-title">
+          <h2>Sims</h2>
+          <p class="sims-hint">Build a house, furnish it, make sims, then let them live. Runs entirely in your browser &mdash; free, no credits, no API calls.</p>
+        </div>
+        <nav class="sims-modes" aria-label="Sims modes">
+          <button type="button" data-sims-mode="build" aria-pressed="true">Build</button>
+          <button type="button" data-sims-mode="buy" aria-pressed="false">Buy</button>
+          <button type="button" data-sims-mode="cas" aria-pressed="false">Create-a-Sim</button>
+          <button type="button" data-sims-mode="live" aria-pressed="false">Live</button>
+        </nav>
+      </header>
+      <div class="sims-body">
+        <div id="sims-stage" class="sims-stage">
+          <div class="sims-overlay">
+            <span id="sims-clock" class="sims-clock">Day 1 &middot; 08:00</span>
+            <span class="sims-walls" role="group" aria-label="Wall view">
+              <button type="button" data-sims-walls="up" aria-pressed="true">Walls up</button>
+              <button type="button" data-sims-walls="cut" aria-pressed="false">Cutaway</button>
+              <button type="button" data-sims-walls="down" aria-pressed="false">Down</button>
+            </span>
+          </div>
+        </div>
+        <aside class="sims-side">
+          <div class="sims-pane" data-pane="build">
+            <h3>Build</h3>
+            <div class="sims-tools" role="group" aria-label="Build tools">
+              <button type="button" data-sims-tool="wall" aria-pressed="true">Wall</button>
+              <button type="button" data-sims-tool="floor" aria-pressed="false">Floor</button>
+              <button type="button" data-sims-tool="paint" aria-pressed="false">Paint</button>
+              <button type="button" data-sims-tool="door" aria-pressed="false">Door</button>
+              <button type="button" data-sims-tool="window" aria-pressed="false">Window</button>
+              <button type="button" data-sims-tool="delete" aria-pressed="false">Delete</button>
+              <button type="button" id="sims-undo">Undo</button>
+            </div>
+            <p class="sims-small">Wall: drag between grid corners. Floor: drag a rectangle. Paint: drag across walls. Door/Window: tap a wall. Camera: right-drag or two fingers; switch to Door/Delete to orbit with one finger.</p>
+            <label class="sims-label">Floor</label><div id="sims-floor-colors" class="sims-swatches"></div>
+            <label class="sims-label">Wall paint</label><div id="sims-wall-colors" class="sims-swatches"></div>
+          </div>
+          <div class="sims-pane" data-pane="buy" hidden>
+            <h3>Buy</h3>
+            <div id="sims-catalog" class="sims-catalog"></div>
+            <div class="sims-tools">
+              <button type="button" id="sims-rotate">Rotate (R)</button>
+              <button type="button" id="sims-sell" >Sell carried</button>
+              <button type="button" id="sims-undo2">Undo</button>
+              <label class="sims-file">Import .glb item<input type="file" id="sims-import-glb2" accept=".glb,model/gltf-binary" /></label>
+            </div>
+            <p id="sims-carry" class="sims-small" hidden>Carrying &mdash; tap a tile to drop it.</p>
+          </div>
+          <div class="sims-pane" data-pane="cas" hidden>
+            <h3>Create-a-Sim</h3>
+            <div id="sims-simlist" class="sims-simlist"></div>
+            <div class="sims-tools"><button type="button" id="sims-new">+ New sim</button><button type="button" id="sims-delete-sim">Delete sim</button></div>
+            <div id="sims-cas-fields">
+              <label class="sims-label" for="sims-name">Name</label><input id="sims-name" class="sims-input" maxlength="24" />
+              <label class="sims-label">Skin</label><div id="sims-skin" class="sims-swatches"></div>
+              <label class="sims-label">Hair</label><div id="sims-hair" class="sims-swatches"></div>
+              <label class="sims-label" for="sims-hairstyle">Hair style</label>
+              <select id="sims-hairstyle" class="sims-input"><option value="short">Short</option><option value="long">Long</option><option value="bun">Bun</option><option value="bald">Bald</option></select>
+              <label class="sims-label">Top</label><div id="sims-top" class="sims-swatches"></div>
+              <label class="sims-label">Bottom</label><div id="sims-bottom" class="sims-swatches"></div>
+              <label class="sims-label" for="sims-height">Height</label><input id="sims-height" type="range" min="0.8" max="1.2" step="0.01" />
+              <label class="sims-label" for="sims-build">Build</label><input id="sims-build" type="range" min="0.75" max="1.4" step="0.01" />
+              <h4>Blender</h4>
+              <p id="sims-glb-note" class="sims-small"></p>
+              <div class="sims-tools">
+                <button type="button" id="sims-export-sim">Export sim (.glb)</button>
+                <label class="sims-file">Import .glb<input type="file" id="sims-import-glb" accept=".glb,model/gltf-binary" /></label>
+              </div>
+              <p class="sims-small">Edit in Blender (File &rsaquo; Import &rsaquo; glTF 2.0), keep the Joint_* empties so the walk cycle still works, then export as .glb and import it back here.</p>
+            </div>
+          </div>
+          <div class="sims-pane" data-pane="live" hidden>
+            <h3>Live</h3>
+            <div id="sims-simlist-live" class="sims-simlist"></div>
+            <div class="sims-tools" role="group" aria-label="Speed">
+              <button type="button" data-sims-speed="0" aria-pressed="false">&#10074;&#10074; Pause</button>
+              <button type="button" data-sims-speed="1" aria-pressed="true">&#9654; 1&times;</button>
+              <button type="button" data-sims-speed="3" aria-pressed="false">&#9654;&#9654; 3&times;</button>
+              <button type="button" data-sims-speed="8" aria-pressed="false">&#9654;&#9654;&#9654; 8&times;</button>
+            </div>
+            <label class="sims-check"><input type="checkbox" id="sims-freewill" checked /> Free will (sims tend low needs on their own)</label>
+            <div id="sims-needs" class="sims-needs"></div>
+            <p id="sims-thought" class="sims-thought" aria-live="polite"></p>
+          </div>
+          <div class="sims-save">
+            <h4>Save</h4>
+            <p class="sims-small">Autosaves to this browser.</p>
+            <div class="sims-tools">
+              <button type="button" id="sims-export-json">Export save (.json)</button>
+              <label class="sims-file">Import save<input type="file" id="sims-import-json" accept=".json,application/json" /></label>
+              <button type="button" id="sims-export-lot">Export lot (.glb)</button>
+              <button type="button" id="sims-reset">Reset lot</button>
+            </div>
+          </div>
+          <p id="sims-status" class="sims-status" role="status"></p>
+        </aside>
+      </div>
+    </div>
+  </section>
   <section id="panel-ragdoll" class="panel" hidden>
     <div class="rd-shell">
       <header class="rd-top">
@@ -9466,6 +9571,7 @@
   <script defer src="js/demand.js?v=1"></script>
   <script defer src="js/chat.js?v=3"></script>
   <script defer src="js/vendor-chats.js?v=1"></script>
+  <script type="module" src="js/sims.js?v=1"></script>
   <script defer src="js/ragdoll.js?v=3"></script>
   <script defer src="js/particles.js?v=10"></script>
   <script defer src="js/live.js?v=25"></script>
