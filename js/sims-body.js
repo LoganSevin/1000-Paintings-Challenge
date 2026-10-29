@@ -671,7 +671,12 @@ function shellGeometry(base, part, mask, thick, smooth = 0) {
   g.morphTargetsRelative = true; g.userData.morphKeys = keys;
   // local neighbour list for smoothing (toe box / mitten softening)
   let nbr = null; if (smooth) { const s = Array.from({ length: m }, () => new Set()); for (let f = 0; f < idx.length; f += 3) for (let k = 0; k < 3; k++) { s[idx[f + k]].add(idx[f + (k + 1) % 3]); s[idx[f + k]].add(idx[f + (k + 2) % 3]); } nbr = s.map((x) => [...x]); }
-  g.userData.shell = { part, src: Int32Array.from(src), thick, smooth, nbr };
+  // open boundary loops (hems): leg hems are levelled so cuffs read as clean, straight edges instead of a staircase
+  const ec = new Map(); for (let f = 0; f < idx.length; f += 3) for (let k = 0; k < 3; k++) { const a = idx[f + k], b = idx[f + (k + 1) % 3], key = a < b ? a + "_" + b : b + "_" + a; ec.set(key, (ec.get(key) || 0) + 1); }
+  const par = new Map(), find = (v) => { while (par.get(v) !== v) { par.set(v, par.get(par.get(v))); v = par.get(v); } return v; };
+  for (const [key, n] of ec) if (n === 1) { const [a, b] = key.split("_").map(Number); if (!par.has(a)) par.set(a, a); if (!par.has(b)) par.set(b, b); par.set(find(a), find(b)); }
+  const hemV = [...par.keys()], roots = [...new Set(hemV.map(find))];
+  g.userData.shell = { part, src: Int32Array.from(src), thick, smooth, nbr, hem: { v: Int32Array.from(hemV), loop: Int32Array.from(hemV.map((v) => roots.indexOf(find(v)))), n: roots.length } };
   return g;
 }
 // thickness may be a number or fn(vertexIndex, pos) ; reads current skin positions/normals
@@ -686,6 +691,9 @@ export function refitShell(shellGeom, skinGeom) {
     const tmp = out.slice();
     for (let i = 0; i < S.src.length; i++) { const nb = S.nbr[i]; if (!nb.length) continue; let x = 0, y = 0, z = 0; for (const j of nb) { x += tmp[j * 3]; y += tmp[j * 3 + 1]; z += tmp[j * 3 + 2]; } const l = nb.length; out[i * 3] = tmp[i * 3] * 0.35 + x / l * 0.65; out[i * 3 + 1] = tmp[i * 3 + 1] * 0.35 + y / l * 0.65; out[i * 3 + 2] = tmp[i * 3 + 2] * 0.35 + z / l * 0.65; }
   }
+  if (S.hem && S.hem.n) { const sum = new Float64Array(S.hem.n), cnt = new Int32Array(S.hem.n);
+    for (let k = 0; k < S.hem.v.length; k++) { sum[S.hem.loop[k]] += out[S.hem.v[k] * 3 + 1]; cnt[S.hem.loop[k]]++; }
+    for (let k = 0; k < S.hem.v.length; k++) { const l = S.hem.loop[k], y = sum[l] / cnt[l]; if (cnt[l] >= 6 && y < 0.8) out[S.hem.v[k] * 3 + 1] = y; } }
   shellGeom.attributes.position.needsUpdate = true; shellGeom.attributes.normal.needsUpdate = true;
   if (S.smooth) shellGeom.computeVertexNormals();
   shellGeom.computeBoundingSphere(); shellGeom.boundingSphere.radius *= 1.6;
@@ -843,6 +851,72 @@ export function makeClips(dur = 2) {
   return clips;
 }
 
+// ---------------------------------------------------------------- footwear
+const sst01 = (a, b, v) => { const t = clamp((v - a) / (b - a), 0, 1); return t * t * (3 - 2 * t); };
+// a sneaker in rest/world space: crisp-edged sole slab, lofted upper with an ankle collar, tongue, laces and heel tab
+export function shoeGroup(J, S, color) {
+  const sd = S === "L" ? 1 : -1, x0 = J.foot[S].x0, zH = -0.104, zT = 0.172, Lz = zT - zH, ySole = 0.021;
+  const endF = (z) => { const t = (z - zH) / Lz; return Math.pow(Math.max(0, 1 - Math.abs(2 * t - 1) ** 3.4), 0.42); };
+  const W = (z) => (0.037 - 0.004 * Math.exp(-(((z - 0.02) / 0.035) ** 2)) + 0.012 * sst01(0.02, 0.105, z)) * endF(z);
+  const CX = (z) => x0 - sd * 0.006 * sst01(0.0, 0.13, z);
+  const toeSpring = (z) => 0.55 * Math.max(0, z - 0.112) ** 2 * 10;
+  // sole: top face, bottom face and side wall are separate so the edge stays sharp
+  const N = 30, zs = []; for (let k = 0; k <= N; k++) zs.push(zH + Lz * (0.5 - 0.5 * Math.cos(Math.PI * k / N)));
+  const ring = (y, grow) => { const R = [], Lf = []; for (const z of zs) { const w = W(z) * grow + (grow > 1 ? 0.0012 : 0); R.push([CX(z) + w, y + toeSpring(z), z]); Lf.push([CX(z) - w, y + toeSpring(z), z]); } return [R, Lf]; };
+  const face = (R, Lf, up) => { const P = []; for (let k = 0; k < N; k++) { const a = R[k], b = R[k + 1], c = Lf[k + 1], d = Lf[k]; if (up) P.push(...a, ...c, ...b, ...a, ...d, ...c); else P.push(...a, ...b, ...c, ...a, ...c, ...d); } return P; };
+  const [Rt, Lt] = ring(0.024, 1.03), [Rb, Lb] = ring(0.0, 1.0), [Rm, Lm] = ring(0.012, 1.06);
+  const loop = (R, Lf) => [...R, ...Lf.slice(1, -1).reverse()];
+  const wall = (A, B) => { const P = []; for (let k = 0; k < A.length; k++) { const a = A[k], b = A[(k + 1) % A.length], c = B[(k + 1) % B.length], d = B[k]; P.push(...a, ...b, ...c, ...a, ...c, ...d); } return P; };
+  const soleGeo = (P) => { const g = new THREE.BufferGeometry(); g.setAttribute("position", new THREE.Float32BufferAttribute(P, 3)); g.computeVertexNormals(); return g; };
+  const sideP = [...wall(loop(Rt, Lt), loop(Rm, Lm)), ...wall(loop(Rm, Lm), loop(Rb, Lb))];
+  const sideIdx = mergeVerts(soleGeo(sideP));
+  const soleTop = soleGeo(face(Rt, Lt, true)), soleBot = soleGeo(face(Rb, Lb, false));
+  // upper: cross-sections along the foot; behind the throat the top of each section is left open (the ankle collar)
+  const Hs = (z) => (0.15 + (0.068 - 0.03 * sst01(0.04, 0.125, z) - 0.008 * sst01(0.125, 0.17, z) - 0.15) * sst01(-0.02, 0.05, z)) * (z > 0.12 ? 0.4 + 0.6 * Math.sqrt(endF(z)) : 1);
+  const yc = (z) => 0.104 - 0.03 * sst01(-0.104, 0.0, z) + 0.07 * sst01(0.0, 0.04, z); // collar dips at the sides, then closes at the throat
+  const Hs0 = Hs; const HsC = (z) => Math.min(Hs0(z), yc(z) - ySole + 0.006 + 0.2 * Math.max(0, z + 0.075));
+  const aOpen = (z) => { const r = (yc(z) - ySole) / HsC(z); return r >= 1 ? 0 : Math.acos(Math.max(-1, r)); };
+  const NU = 16, up = [], ucol = [], uIdx = [], M = zs.length;
+  for (let k = 0; k < M; k++) { const z = Math.min(zT - 0.0015, Math.max(zH + 0.0015, zs[k])), ao = aOpen(z), w = W(z) * 0.985, h = HsC(z);
+    for (let i = 0; i < NU; i++) { const u = -1 + 2 * i / (NU - 1), au = Math.abs(u), sg = Math.sign(u), uu = (au - 1 / (NU - 1)) / (1 - 1 / (NU - 1)), a = sg * (ao + (Math.PI / 2 - ao) * Math.max(0, uu));
+      const y = ySole - 0.003 + h * Math.cos(a) + toeSpring(z), x = CX(z) + w * Math.sin(a);
+      up.push(x, y, z); const panel = (z > 0.118 ? 0.9 : 1) * (z < -0.045 && y < 0.075 ? 0.86 : 1) * (Math.abs(Math.abs(a) - ao) < 0.18 && ao > 0.05 ? 0.8 : 1); ucol.push(panel, panel, panel); } }
+  for (let k = 0; k < M - 1; k++) for (let i = 0; i < NU - 1; i++) { if (i === (NU - 1) / 2 - 0.5 || i === Math.floor((NU - 1) / 2)) { if (aOpen(zs[k]) > 0.06 && aOpen(zs[k + 1]) > 0.06) continue; }
+    const a = k * NU + i, b = a + 1, c = a + NU, d = c + 1; uIdx.push(a, c, b, b, c, d); }
+  const upper = new THREE.BufferGeometry(); upper.setAttribute("position", new THREE.Float32BufferAttribute(up, 3)); upper.setAttribute("color", new THREE.Float32BufferAttribute(ucol, 3)); upper.setIndex(uIdx); upper.computeVertexNormals();
+  const col = new THREE.Color(color), hsl = {}; col.getHSL(hsl); if (hsl.l < 0.17) col.setHSL(hsl.h, hsl.s * 0.5, 0.17);
+  const upM = new THREE.MeshStandardMaterial({ color: col, roughness: 0.62, vertexColors: true, side: THREE.DoubleSide, name: "Shoe_Upper" });
+  const soleM = new THREE.MeshStandardMaterial({ color: "#efebe2", roughness: 0.75, side: THREE.DoubleSide, name: "Shoe_Sole" }), lace = new THREE.MeshStandardMaterial({ color: "#f7f5ef", roughness: 0.7, name: "Shoe_Lace" });
+  const upPlain = new THREE.MeshStandardMaterial({ color: col.clone().multiplyScalar(0.92), roughness: 0.62, name: "Shoe_Tongue" });
+  const grp = new THREE.Group(); grp.name = "Shoe_" + S;
+  for (const [g, m] of [[upper, upM], [soleTop, soleM], [soleBot, soleM], [sideIdx, soleM]]) { const mesh = new THREE.Mesh(g, m); mesh.castShadow = true; mesh.receiveShadow = true; grp.add(mesh); }
+  // tongue, laces and heel pull tab
+  const topY = (z) => ySole - 0.003 + Hs(z) + toeSpring(z);
+  const tg = new THREE.Mesh(new THREE.BoxGeometry(0.034, 0.005, 0.05, 2, 1, 3), upPlain); tg.position.set(CX(0.012), 0.098, 0.012); tg.rotation.x = -0.75; grp.add(tg);
+  for (let k = 0; k < 4; k++) { const z = 0.03 + k * 0.02, slope = Math.atan2(topY(z + 0.005) - topY(z - 0.005), 0.01), wl = W(z) * 0.62;
+    for (const tw of [0.32, -0.32]) { const l = new THREE.Mesh(new THREE.BoxGeometry(wl * 2, 0.0028, 0.0042), lace); l.position.set(CX(z), topY(z) + 0.0018, z); l.rotation.set(-slope, tw, 0, "YXZ"); grp.add(l); } }
+  const tab = new THREE.Mesh(new THREE.BoxGeometry(0.018, 0.022, 0.004), upPlain); tab.position.set(CX(zH), yc(zH) - 0.002, zH + 0.006); tab.rotation.x = 0.25; grp.add(tab);
+  return grp;
+}
+function mergeVerts(g) { const n = g.attributes.position.count, idx = []; for (let i = 0; i < n; i++) idx.push(i); g.setIndex(idx); return g; }
+// sock: a smooth tube fitted to the (morphed) lower leg, skinned from the foot (bottom) to the shin (top)
+function sockGeometry(base, bodyMesh, J, S) {
+  const g = bodyMesh.geometry, P = g.attributes.position.array, mp = g.morphAttributes.position || [], inf = bodyMesh.morphTargetInfluences || [], an = J["foot" + S], sd = S === "L" ? 1 : -1;
+  const pos = (i) => { let x = P[i * 3], y = P[i * 3 + 1], z = P[i * 3 + 2]; for (let k = 0; k < mp.length; k++) if (inf[k]) { const a = mp[k].array; x += a[i * 3] * inf[k]; y += a[i * 3 + 1] * inf[k]; z += a[i * 3 + 2] * inf[k]; } return [x, y, z]; };
+  const rows = [0.06, 0.075, 0.09, 0.105, 0.12, 0.135, 0.15], NA = 28, buck = rows.map(() => []);
+  for (let i = 0; i < P.length / 3; i++) { const y = P[i * 3 + 1]; if (y > 0.17 || y < 0.04 || Math.sign(P[i * 3]) !== sd || Math.abs(P[i * 3] - an[0]) > 0.08) continue; const p = pos(i); rows.forEach((ry, r) => { if (Math.abs(p[1] - ry) < 0.009) buck[r].push(p); }); }
+  if (buck.some((b) => b.length < 8)) return null;
+  const V = [], si = [], sw = [], idx = [], shin = BI["shin" + S], foot = BI["foot" + S];
+  rows.forEach((ry, r) => { const b = buck[r], cx = b.reduce((s, p) => s + p[0], 0) / b.length, cz = b.reduce((s, p) => s + p[2], 0) / b.length, rad = new Float64Array(NA);
+    for (const p of b) { const a = Math.atan2(p[2] - cz, p[0] - cx), k = ((Math.round(a / (2 * Math.PI) * NA) % NA) + NA) % NA, d = Math.hypot(p[0] - cx, p[2] - cz); for (const kk of [k - 1, k, k + 1]) { const q = (kk + NA) % NA; rad[q] = Math.max(rad[q], d * (kk === k ? 1 : 0.985)); } }
+    const sm = Array.from(rad, (v, k) => (rad[(k + NA - 1) % NA] + 2 * v + rad[(k + 1) % NA]) / 4), mean = sm.reduce((a, c) => a + c, 0) / NA;
+    for (let k = 0; k < NA; k++) { const a = (k / NA) * Math.PI * 2, rr = (sm[k] || mean) + 0.0032; V.push(cx + Math.cos(a) * rr, ry, cz + Math.sin(a) * rr);
+      const t = sst01(0.07, 0.13, ry); si.push(shin, foot, 0, 0); sw.push(t, 1 - t, 0, 0); } });
+  for (let r = 0; r < rows.length - 1; r++) for (let k = 0; k < NA; k++) { const a = r * NA + k, b = r * NA + (k + 1) % NA, c = a + NA, d = b + NA; idx.push(a, b, c, b, d, c); }
+  const out = new THREE.BufferGeometry(); out.setAttribute("position", new THREE.Float32BufferAttribute(V, 3)); out.setAttribute("skinIndex", new THREE.Uint16BufferAttribute(si, 4)); out.setAttribute("skinWeight", new THREE.Float32BufferAttribute(sw, 4)); out.setIndex(idx); out.computeVertexNormals();
+  void base; return out;
+}
+
 // ---------------------------------------------------------------- build a whole Sim
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
 export function morphInfluencesFor(sim) {
@@ -881,7 +955,11 @@ export function buildBody(sim, opts = {}) {
   const outfit = OUTFIT_SPEC[sim.outfit] ? sim.outfit : "tee", bstyle = sim.bottomStyle || (outfit === "dress" ? "skirt" : "pants");
   if (!(outfit === "dress" || outfit === "robe")) { const [reg, kind, th] = BOTTOM_SPEC[bstyle] || BOTTOM_SPEC.pants; garment("body", reg, kind, colors.bottom, th, 0, null, 1); }
   OUTFIT_SPEC[outfit].forEach(([reg, kind, ck, th], i) => garment("body", reg, kind, colors[ck], th + (reg === "bib" ? 0.004 : 0), 0, ck === "top" ? pat : null, reg === "bib" ? 3 : 2));
-  for (const s of ["L", "R"]) garment("foot" + s, "shoes", "leather", sim.shoes || "#1d1a18", (x, y) => 0.0065 + (y < 0.022 ? (0.022 - y) * 0.45 : 0), 2);
+  for (const s of ["L", "R"]) { // clean modelled sneakers + a smooth sock; the bare foot underneath is hidden
+    parts["foot" + s].visible = false;
+    const sk = sockGeometry(base, parts.body, J, s); if (sk) { const m = new THREE.SkinnedMesh(sk, stdMat(sim.socks || "#f1eee8", { rough: 0.85, name: "Sock" })); m.name = "Cloth_sock_" + s; root.add(m); skinned.push(m); garments.push(m); }
+    const shoe = shoeGroup(J, s, sim.shoes || "#1d1a18"); shoe.position.set(...restWorld(J, "foot" + s).map((v) => -v)); B["foot" + s].add(shoe);
+  }
   const A = new Set(sim.acc || []);
   if (A.has("gloves")) for (const s of ["L", "R"]) garment("hand" + s, "gloves", "leather", sim.accColor || "#3a2a20", 0.0013, 0);
   const skirtLen = outfit === "robe" ? 0.8 : outfit === "dress" ? 0.5 : bstyle === "skirt" ? 0.36 : 0;

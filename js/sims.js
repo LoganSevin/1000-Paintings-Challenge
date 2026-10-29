@@ -660,7 +660,41 @@ function parkingFor(p) {
   const x = Math.max(i * CHW - 10, Math.min(i * CHW + 10, p.x)); return { x, z: j * CHW + 14.3, ry: 0, i, j };
 }
 const roadLine = (v) => Math.round((v - 18) / CHW) * CHW + 18;
+// route over the organic street network (Dijkstra over junction nodes), falling back to the simple L route
 function drivePoints(from, park) {
+  try { const r = routePoints(from, park); if (r) return r; } catch (e) { /* fall back */ }
+  return gridPoints(from, park);
+}
+function routePoints(from, park) {
+  const sgn = (v) => (v >= 0 ? 1 : -1), m0 = Math.round((roadLine(from.z + 2) - 18) / CHW), mD = park.j;
+  const nx = (n) => n * CHW + 18, na = Math.floor((from.x - 18) / CHW), nb = Math.floor((park.x - 18) / CHW);
+  if (!World.hOpen(na + 1, m0) || !World.hOpen(nb + 1, mD)) return null;
+  const key = (n, m) => n + "," + m, dist = new Map(), prev = new Map(), open = [];
+  for (const n of [na, na + 1]) { dist.set(key(n, m0), Math.abs(nx(n) - from.x)); open.push([n, m0]); }
+  const lim = 9, goal = new Set([key(nb, mD), key(nb + 1, mD)]); let end = null;
+  while (open.length) {
+    open.sort((a, b) => dist.get(key(...a)) - dist.get(key(...b))); const [n, m] = open.shift(), k = key(n, m), d = dist.get(k);
+    if (goal.has(k)) { end = [n, m]; break; }
+    const A = World.nodeArms(n, m);
+    [[1, 0], [-1, 0], [0, 1], [0, -1]].forEach(([dn, dm], a) => { if (!A[a]) return; const nn = n + dn, mm = m + dm; if (Math.abs(nn - na) > lim || Math.abs(mm - m0) > lim) return;
+      const kk = key(nn, mm), nd = d + CHW + (prev.has(k) && prev.get(k)[2] !== a ? 6 : 0); if (nd < (dist.get(kk) ?? Infinity)) { dist.set(kk, nd); prev.set(kk, [n, m, a]); if (!open.some((o) => o[0] === nn && o[1] === mm)) open.push([nn, mm]); } });
+  }
+  if (!end) return null;
+  const nodes = [end]; while (prev.has(key(...nodes[0]))) { const [n, m] = prev.get(key(...nodes[0])); nodes.unshift([n, m]); }
+  // moves: (axis, line, dir); lane is 1.5 m right of the centre line like traffic
+  const moves = [], add = (axis, line, dir) => { const l = moves[moves.length - 1]; if (l && l.axis === axis && l.line === line && l.dir === dir) return; moves.push({ axis, line, dir }); };
+  add("x", nx(m0), sgn(nx(nodes[0][0]) - from.x));
+  for (let k = 1; k < nodes.length; k++) { const [n1, m1] = nodes[k - 1], [n2, m2] = nodes[k]; if (n1 !== n2) add("x", nx(m1), sgn(n2 - n1)); else add("z", nx(n1), sgn(m2 - m1)); }
+  add("x", nx(mD), sgn(park.x - nx(nodes[nodes.length - 1][0])));
+  const laneZ = (mv) => mv.line + mv.dir * 1.5, laneX = (mv) => mv.line - mv.dir * 1.5, pts = [{ x: from.x, z: laneZ(moves[0]) }];
+  for (let k = 1; k < moves.length; k++) { const a = moves[k - 1], b = moves[k];
+    if (a.axis === b.axis) { const at = a.axis === "x" ? { x: pts[pts.length - 1].x, z: 0 } : null; // U-turn at a node
+      if (a.axis === "x") { const xn = nx(nodes.find((nd) => nx(nd[1]) === a.line)?.[0] ?? 0); pts.push({ x: xn, z: laneZ(a) }, { x: xn, z: laneZ(b) }); } else { const zn = pts[pts.length - 1].z; pts.push({ x: laneX(a), z: zn }, { x: laneX(b), z: zn }); } void at; }
+    else if (a.axis === "x") pts.push({ x: laneX(b), z: laneZ(a) }); else pts.push({ x: laneX(a), z: laneZ(b) }); }
+  pts.push({ x: park.x, z: laneZ(moves[moves.length - 1]) }, { x: park.x, z: park.z });
+  const out = []; for (const p of pts) { const q = out[out.length - 1]; if (!q || Math.hypot(q.x - p.x, q.z - p.z) > 0.3) out.push(p); } return out;
+}
+function gridPoints(from, park) {
   const sgn = (v) => (v >= 0 ? 1 : -1);
   const rz0 = roadLine(from.z + 2), rx = roadLine(park.x), rzD = park.j * CHW + 18;
   const dx1 = sgn(rx - from.x), lz1 = rz0 + dx1 * 1.5, dzv = sgn(rzD - rz0), lx = rx - dzv * 1.5;
@@ -1028,7 +1062,7 @@ function toGrid(p) { if (!p || !world) return p; const [x, z] = world.unwarpXZ(p
 function warpActors() {
   const out = []; if (!world) return out;
   const list = [...simGroup.children, ...(remoteGroup ? remoteGroup.children : [])]; if (myCar.obj) list.push(myCar.obj);
-  for (const o of list) { const x = o.position.x, z = o.position.z; if (Math.abs(x) < 30 && Math.abs(z) < 30) continue; out.push([o, o.position.clone(), o.quaternion.clone()]); World.warpObject(o); o.updateMatrixWorld(true); }
+  for (const o of list) { const x = o.position.x, z = o.position.z; if (Math.abs(x) < 30 && Math.abs(z) < 30) continue; out.push([o, o.position.clone(), o.quaternion.clone()]); World.warpObject(o, 0, 0, true); o.updateMatrixWorld(true); }
   return out;
 }
 function groundPoint(ev) {
