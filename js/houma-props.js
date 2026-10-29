@@ -13,7 +13,18 @@
   function isBiz(o) { return BIZ.test(o || ""); }
   function load() {
     if (loading) return loading;
-    loading = fetch("data/houma-parcels.json?v=1").then(function (r) { if (!r.ok) throw new Error("parcels " + r.status); return r.json(); })
+    var get = function (u) { return fetch(u).then(function (r) { if (!r.ok) throw new Error("parcels " + r.status); return r.json(); }); };
+    loading = get("data/houma-parcels/meta.json?v=1").then(function (meta) {
+      var parts = [], i;
+      for (i = 0; i < meta.parts; i++) parts.push(get("data/houma-parcels/part-" + i + ".json?v=1"));
+      return Promise.all(parts).then(function (ps) {
+        var all = [];
+        ps.forEach(function (part) {
+          part.rows.forEach(function (r) { var o = {}; part.fields.forEach(function (k, j) { o[k] = r[j]; }); all.push(o); });
+        });
+        return { meta: meta, parcels: all };
+      });
+    })
       .then(function (d) {
         d.parcels.forEach(function (p) { p._s = (p.owner + " " + p.site + " " + p.mail + " " + p.id + " " + p.subdiv).toUpperCase(); p.biz = isBiz(p.owner); });
         var g = {};

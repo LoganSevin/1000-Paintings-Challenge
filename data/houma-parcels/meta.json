@@ -1,0 +1,35 @@
+{
+ "fetched": "2026-10-29",
+ "area": "Houma city limits (FeatureServer/18)",
+ "sources": [
+  "https://gis.tpcg.org/server/rest/services/Assessor/Assessors_Map/FeatureServer/0",
+  "https://gis.tpcg.org/server/rest/services/Assessor/Assessors_Map/FeatureServer/18",
+  "https://terrebonnemaps.azurewebsites.net/Search/ExportToCsvWithExtraData"
+ ],
+ "note": "Public Terrebonne Parish Assessor data, informational only, provided as-is (see site disclaimer). Acres computed from parcel polygon area (ft^2/43560); sqft = building living area. Assessed values in USD (Louisiana assessed, not market).",
+ "count": 13929,
+ "skipped_server_errors": [
+  "24801",
+  "19633",
+  "18989",
+  "72718"
+ ],
+ "parts": 6,
+ "fields": [
+  "id",
+  "owner",
+  "site",
+  "street",
+  "mail",
+  "subdiv",
+  "book",
+  "page",
+  "assessed",
+  "land",
+  "bldg",
+  "sqft",
+  "acres",
+  "lat",
+  "lon"
+ ]
+}

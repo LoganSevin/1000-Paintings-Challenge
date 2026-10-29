@@ -4,7 +4,7 @@ Sources:
   geometry/centroids: https://gis.tpcg.org/server/rest/services/Assessor/Assessors_Map/FeatureServer/0 (Parcels)
   city limit polygon: .../FeatureServer/18 (Houma City Limit)
   owner/address/values: https://terrebonnemaps.azurewebsites.net/Search/ExportToCsvWithExtraData (the map's own Export feature)
-Polite: batches, sleeps between requests, single connection. Usage: python3 scripts/fetch_houma_parcels.py data/houma-parcels.json  (cache: export_cache.json in cwd, resumable)
+Polite: batches, sleeps between requests, single connection. Usage: python3 scripts/fetch_houma_parcels.py data/houma-parcels  (cache: export_cache.json in cwd, resumable)
 """
 import csv, io, json, sys, time, datetime, re, http.cookiejar, urllib.request, urllib.parse
 FS = "https://gis.tpcg.org/server/rest/services/Assessor/Assessors_Map/FeatureServer"
@@ -68,5 +68,12 @@ meta = {"fetched": datetime.date.today().isoformat(), "area": "Houma city limits
         "sources": [FS + "/0", FS + "/18", MAP + "/Search/ExportToCsvWithExtraData"],
         "note": "Public Terrebonne Parish Assessor data, informational only, provided as-is (see site disclaimer). Acres computed from parcel polygon area (ft^2/43560); sqft = building living area. Assessed values in USD (Louisiana assessed, not market).",
         "count": len(out), "skipped_server_errors": skipped}
-json.dump({"meta": meta, "parcels": out}, open(sys.argv[1], "w"), separators=(",", ":"))
+# Write as small shards (data/houma-parcels/meta.json + part-N.json) so each file stays well under 1 MB.
+import math
+outdir = sys.argv[1]; os.makedirs(outdir, exist_ok=True)
+F = ["id", "owner", "site", "street", "mail", "subdiv", "book", "page", "assessed", "land", "bldg", "sqft", "acres", "lat", "lon"]
+rows = [[p[k] for k in F] for p in out]; n = 6; sz = math.ceil(len(rows) / n)
+for i in range(n):
+    json.dump({"fields": F, "rows": rows[i * sz:(i + 1) * sz]}, open(f"{outdir}/part-{i}.json", "w"), separators=(",", ":"))
+meta.update(parts=n, fields=F); json.dump(meta, open(f"{outdir}/meta.json", "w"), indent=1)
 print("wrote", len(out), file=sys.stderr)
