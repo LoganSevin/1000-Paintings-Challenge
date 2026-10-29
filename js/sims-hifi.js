@@ -10,7 +10,7 @@ import { GTAOPass } from "three/addons/postprocessing/GTAOPass.js";
 import { UnrealBloomPass } from "three/addons/postprocessing/UnrealBloomPass.js";
 import { SMAAPass } from "three/addons/postprocessing/SMAAPass.js";
 import { OutputPass } from "three/addons/postprocessing/OutputPass.js";
-import { normalFromHeight, noise2, rng, FABRIC_NORMAL } from "./sims-body.js?v=1";
+import { normalFromHeight, noise2, rng, FABRIC_NORMAL } from "./sims-body.js?v=2";
 
 // ---------------------------------------------------------------- sky environment
 let pmrem = null, envRT = null, skyScene = null, skyMat = null, lastKey = "";
