@@ -10,6 +10,7 @@
   function $(id) { return document.getElementById(id); }
   function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
   function money(n) { return n == null ? "" : "$" + Math.round(n).toLocaleString(); }
+  function norm(s) { return String(s || "").toUpperCase().replace(/[.,#]/g, " ").replace(/\s+/g, " "); }
   function isBiz(o) { return BIZ.test(o || ""); }
   function load() {
     if (loading) return loading;
@@ -26,12 +27,12 @@
       });
     })
       .then(function (d) {
-        d.parcels.forEach(function (p) { p._s = (p.owner + " " + p.site + " " + p.mail + " " + p.id + " " + p.subdiv).toUpperCase(); p.biz = isBiz(p.owner); });
+        d.parcels.forEach(function (p) { p._s = norm([p.owner, p.site, p.street, p.mail, p.id, p.subdiv, p.city, p.zip].join(" | ")); p.biz = isBiz(p.owner); });
         var g = {};
         d.parcels.forEach(function (p) { (g[p.owner] = g[p.owner] || []).push(p); });
         d.owners = Object.keys(g).map(function (k) {
           var ps = g[k], tot = 0; ps.forEach(function (p) { tot += p.assessed || 0; });
-          return { owner: k, parcels: ps, n: ps.length, biz: isBiz(k), total: tot, _s: k.toUpperCase() };
+          return { owner: k, parcels: ps, n: ps.length, biz: isBiz(k), total: tot, _s: norm(k + " | " + ps.map(function (p) { return p._s; }).join(" | ")) };
         }).filter(function (o) { return o.n >= 2 || o.biz; })
           .sort(function (a, b) { return b.n - a.n || b.total - a.total || a.owner.localeCompare(b.owner); });
         data = d; window.HoumaParcels = d; return d;
@@ -51,7 +52,7 @@
   var rowsCache = null;
   function rows() {
     if (rowsCache) return rowsCache;
-    var q = st.q.trim().toUpperCase().split(/\s+/).filter(Boolean);
+    var q = norm(st.q).trim().split(" ").filter(Boolean);
     var r = data.parcels.filter(function (p) { return q.every(function (w) { return p._s.indexOf(w) >= 0; }); });
     r.sort(cmp(st.sort, st.dir));
     return (rowsCache = r);
@@ -83,12 +84,12 @@
     $("hp-sort").value = st.sort + ":" + st.dir;
   }
   function ownersList() {
-    var q = st.oq.trim().toUpperCase();
+    var q = norm(st.oq).trim().split(" ").filter(Boolean);
     return data.owners.filter(function (o) {
       if (st.ofilter === "biz" && !o.biz) return false;
       if (st.ofilter === "multi" && o.n < 2) return false;
       if (st.ofilter === "bizmulti" && !(o.biz && o.n >= 2)) return false;
-      return !q || o._s.indexOf(q) >= 0;
+      return q.every(function (w) { return o._s.indexOf(w) >= 0; });
     });
   }
   function renderOwners() {
@@ -104,6 +105,7 @@
   }
   function setView(v) {
     st.view = v;
+    if (v === "world" && document.activeElement && document.activeElement.blur) document.activeElement.blur();
     ["world", "table", "owners"].forEach(function (k) {
       var b = document.querySelector('[data-hpview="' + k + '"]'); if (b) b.classList.toggle("active", k === v);
     });

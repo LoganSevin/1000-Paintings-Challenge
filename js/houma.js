@@ -734,6 +734,21 @@
     canvas.style.height = viewH + "px";
   }
 
+  // World keys only when the Houma World view is showing and the user isn't typing in a field.
+  function isTypingTarget(t) {
+    if (!t || t === document || t === window) return false;
+    var tag = (t.tagName || "").toUpperCase();
+    return tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT" || !!t.isContentEditable;
+  }
+  function worldKeysActive(e) {
+    if (document.body.getAttribute("data-active-tab") !== "houma") return false;
+    if (isTypingTarget(e.target) || isTypingTarget(document.activeElement)) return false;
+    var stage = $("hm-stage");
+    if (!stage || stage.hidden) return false; // Properties / Multi-owners view open
+    if (e.ctrlKey || e.metaKey || e.altKey) return false;
+    return true;
+  }
+
   function onKey(e, down) {
     var k = e.key.length === 1 ? e.key.toLowerCase() : e.key;
     keys[k] = down;
@@ -904,12 +919,14 @@
     if (document.body.dataset.hmBound) return;
     document.body.dataset.hmBound = "1";
     window.addEventListener("keydown", function (e) {
-      if (document.body.getAttribute("data-active-tab") !== "houma") return;
+      if (!worldKeysActive(e)) { keys = {}; return; }
       onKey(e, true);
     });
     window.addEventListener("keyup", function (e) {
+      if (isTypingTarget(e.target)) return;
       onKey(e, false);
     });
+    window.addEventListener("blur", function () { keys = {}; });
     window.addEventListener("resize", function () {
       if (running) resize();
     });
