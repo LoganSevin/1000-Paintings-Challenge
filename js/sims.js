@@ -339,12 +339,26 @@ function applyBodyLegacy(root, sim) {
 
 // ---------------- lot rendering ----------------
 function disposeChildren(g) { while (g.children.length) { const c = g.children.pop(); c.traverse((o) => o.geometry && o.geometry.dispose()); } }
+// grass never grows through the house: floors (plus a wall margin), furniture and anything placed on the lot
+let _gmObjN = -1, _gmObj = new Set();
+function homeGrassMask(x, z) {
+  if (Math.abs(x) > N / 2 + 0.5 || Math.abs(z) > N / 2 + 0.5) return false;
+  if (_gmObjN !== S.objects.length) { _gmObjN = S.objects.length; _gmObj = new Set(S.objects.map((o) => o.x + "," + o.z)); }
+  const fx = x + N / 2, fz = z + N / 2;
+  for (const [dx, dz] of [[0, 0], [0.3, 0], [-0.3, 0], [0, 0.3], [0, -0.3]]) { const k = Math.floor(fx + dx) + "," + Math.floor(fz + dz); if (S.floors[k] || _gmObj.has(k)) return true; }
+  for (const k in S.walls) { const [o, xs, zs] = k.split(":"); const wx = +xs, wz = +zs; if (o === "h" ? (Math.abs(fz - wz) < 0.25 && fx > wx - 0.1 && fx < wx + 1.1) : (Math.abs(fx - wx) < 0.25 && fz > wz - 0.1 && fz < wz + 1.1)) return true; }
+  return false;
+}
 function rebuildLot() {
+  _gmObjN = -1; if (world && world.setGrassMask) world.setGrassMask(homeGrassMask);
   disposeChildren(floorGroup); disposeChildren(wallGroup);
   for (const k in S.floors) {
     const [x, z] = k.split(",").map(Number); const c = tileCenter(x, z);
     const m = part("Floor_" + k, box(1, 0.04, 1), G.floorMat(S.floors[k]), c.x, 0.02, c.z); m.castShadow = false; floorGroup.add(m);
   }
+  if (World && World.mergeByMaterial && floorGroup.children.length > 1) { // one draw per floor material instead of one per tile
+    floorGroup.updateMatrixWorld(true); const inv = floorGroup.matrixWorld.clone().invert(), m = World.mergeByMaterial(floorGroup); disposeChildren(floorGroup);
+    for (const c of [...m.children]) { c.geometry.applyMatrix4(inv); c.castShadow = false; c.receiveShadow = true; c.name = "Floor_" + (c.material.name || "merged"); floorGroup.add(c); } }
   const hScale = wallsMode === "down" ? 0.12 : wallsMode === "cut" ? 0.4 : 1;
   for (const k in S.walls) {
     const w = S.walls[k]; const [o, xs, zs] = k.split(":"); const x = +xs, z = +zs;
@@ -463,6 +477,21 @@ function endTask(sim, rt) {
   rt.task = null; rt.pose = "stand"; rt.path = [];
 }
 function thought(sim, t) { const rt = runtime.get(sim.id); if (rt) rt.thought = t; if (sim.id === selectedSimId) { const el = $("sims-thought"); if (el) el.textContent = sim.name + ": " + t; } }
+// seats: sit a little forward of the object's center (backrests), at the measured cushion height
+const SEAT_OFF = { sofa: 0.14, loveseat: 0.14, armchair: 0.12, dchair: 0.06, officechair: 0.06, stool: 0, toilet: 0.08, bench: 0.04, swing: 0 };
+let _seatRay = null;
+function seatHeight(g, x, z) {
+  if (!g) return 0.45; g.updateMatrixWorld(true); _seatRay ||= new THREE.Raycaster();
+  _seatRay.set(new THREE.Vector3(x, 1.2, z), new THREE.Vector3(0, -1, 0)); _seatRay.far = 1.25;
+  const meshes = []; g.traverse((o) => { if (o.isMesh && o.visible && !o.userData.decal && o.name !== "AO") meshes.push(o); });
+  for (const h of _seatRay.intersectObjects(meshes, false)) if (h.point.y > 0.2 && h.point.y < 0.8) return h.point.y;
+  return 0.45;
+}
+function sitAt(rt, type, g, cx, cz, fx, fz) {
+  const k = String(type).split(":")[1] || type, off = SEAT_OFF[k] ?? 0.1;
+  const x = cx + fx * off, z = cz + fz * off;
+  rt.holder.position.set(x, 0, z); rt.holder.rotation.y = Math.atan2(fx, fz); rt.seatY = seatHeight(g, x, z);
+}
 function startUse(sim, rt) {
   const o = S.objects.find((x) => x.id === rt.task.objId); if (!o) { rt.task = null; return; }
   const c = Object.assign({ dur: 5, use: { fun: 1 }, pose: "stand" }, catInfo(o.type) || {}, rt.task.over || {});
@@ -471,7 +500,7 @@ function startUse(sim, rt) {
   const ctr = g ? g.position.clone() : tileCenter(o.x, o.z);
   const [fx, fz] = FRONT[o.rot];
   if (c.toggle && !(rt.task.over && rt.task.over.use)) { o.on = o.on === false; if (g) g.traverse((l) => { if (l.name === "LampLight") l.visible = o.on !== false; }); save(); }
-  if (c.pose === "sit") { rt.holder.position.set(ctr.x + fx * 0.05, 0, ctr.z + fz * 0.05); rt.holder.rotation.y = Math.atan2(fx, fz); rt.pose = "sit"; }
+  if (c.pose === "sit") { sitAt(rt, o.type, g, ctr.x, ctr.z, fx, fz); rt.pose = "sit"; }
   else if (c.pose === "lie") { rt.holder.position.set(ctr.x, 0.55, ctr.z); rt.holder.rotation.y = Math.atan2(fx, fz) + Math.PI; rt.pose = "lie"; }
   else if (c.pose === "inside") { rt.holder.position.set(ctr.x, 0.08, ctr.z); rt.holder.rotation.y = Math.atan2(fx, fz); rt.pose = "shower"; }
   else { const p = rt.holder.position; rt.holder.rotation.y = Math.atan2(ctr.x - p.x, ctr.z - p.z); rt.pose = c.pose === "paint" || o.type === "easel" ? "paint" : "stand"; }
@@ -534,7 +563,7 @@ function animateRt(rt, dt) {
     const mouth = cas && sculpt.mouth ? 1 : { o: 0.22, grin: 0.1 }[sim ? sim.mouth : ""] ?? 0;
     m.rotation.x = 0; m.position.set(0, groundLift(rt.holder.position), 0); // stand on the surface underfoot
     if (pose === "lie") { m.rotation.x = -Math.PI / 2; m.position.set(0, 0.1, -0.85); }
-    Body.animate(m, pose, dt, reduceMotion, { lookAt: look, mouth, talk: !!(rt.say && rt.say.until > performance.now()), snap: cas && sculpt.on });
+    Body.animate(m, pose, dt, reduceMotion, { seatY: pose === "sit" ? (rt.seatY ?? 0.45) : null, lookAt: look, mouth, talk: !!(rt.say && rt.say.until > performance.now()), snap: cas && sculpt.on });
     return;
   }
   {
@@ -637,7 +666,7 @@ function useObjAt(sim, L, o, over, onDone) {
     const c = Object.assign({ dur: 6, use: { fun: 1 }, pose: "stand" }, catInfo(o.type) || {}, over || {});
     const { W, D } = footprint(o), base = tileWorld(L, 0, 0), cx = base.x - 0.5 + o.x + W / 2, cz = base.z - 0.5 + o.z + D / 2, [fx, fz] = FRONT[o.rot];
     const ret = rt.holder.position.clone(), job = { label: c.label || "Using", dur: c.dur, use: c.use, pose: c.pose, onDone, ret };
-    if (c.pose === "sit") { rt.holder.position.set(cx + fx * 0.05, 0, cz + fz * 0.05); rt.holder.rotation.y = Math.atan2(fx, fz); }
+    if (c.pose === "sit") { sitAt(rt, o.type, null, cx, cz, fx, fz); rt.seatY = ({ toilet: 0.42, stool: 0.62, bench: 0.44 })[String(o.type).split(":")[1]] ?? 0.44; }
     else if (c.pose === "lie") { rt.holder.position.set(cx, 0.55, cz); rt.holder.rotation.y = Math.atan2(fx, fz) + Math.PI; }
     else if (c.pose === "inside") { rt.holder.position.set(cx, 0.08, cz); rt.holder.rotation.y = Math.atan2(fx, fz); }
     else { face(rt, { x: cx, z: cz }); job.ret = null; }
@@ -708,7 +737,7 @@ function driveTo(dest) {
   const park = parkingFor(dest);
   const side = { x: car.position.x - Math.sin(car.rotation.y + Math.PI / 2) * 1.4, z: car.position.z - Math.cos(car.rotation.y + Math.PI / 2) * 1.4 };
   const board = () => {
-    rt.holder.visible = false; rt.driving = true; thought(sim, "Driving"); follow = true;
+    rt.holder.visible = true; rt.pose = "sit"; rt.seatY = 0.58; rt.driving = true; thought(sim, "Driving"); follow = true;
     myCar.pts = drivePoints(car.position, park); myCar.state = "driving"; myCar.v = 0; myCar.dest = dest; myCar.park = park; myCar.sim = sim; setStatus(sim.name + " is driving…");
   };
   endTask(sim, rt); rt.queue = null;
@@ -724,10 +753,10 @@ function stepCar(dt) {
   myCar.v += Math.max(-12 * dt, Math.min(4 * dt, want - myCar.v)); const step = Math.max(0, myCar.v) * dt * Math.max(1, Math.min(speed, 3));
   const yaw = Math.atan2(-dz, dx); let dy = ((yaw - car.rotation.y + Math.PI * 3) % (Math.PI * 2)) - Math.PI; car.rotation.y += dy * Math.min(1, dt * 6);
   if (d <= step || d < 0.15) { p.x = t.x; p.z = t.z; myCar.pts.shift(); } else { p.x += dx / d * step; p.z += dz / d * step; }
-  const rt = runtime.get(myCar.sim.id); if (rt) rt.holder.position.set(p.x, 0, p.z);
+  const rt = runtime.get(myCar.sim.id); if (rt) { const ry = car.rotation.y, c = Math.cos(ry), sn = Math.sin(ry), lx = -0.25, lz = -0.36; rt.holder.position.set(p.x + lx * c + lz * sn, 0, p.z - lx * sn + lz * c); rt.holder.rotation.y = ry + Math.PI / 2; rt.pose = "sit"; rt.seatY = 0.58; }
   if (!myCar.pts.length) {
     myCar.state = "parked"; car.rotation.y = myCar.park.ry; myCar.away = !(myCar.park.i === 0 && myCar.park.j === 0);
-    const sim = myCar.sim, r2 = runtime.get(sim.id); r2.driving = false; r2.holder.visible = true;
+    const sim = myCar.sim, r2 = runtime.get(sim.id); r2.driving = false; r2.holder.visible = true; r2.pose = "stand"; r2.seatY = null;
     r2.holder.position.set(p.x - Math.sin(car.rotation.y + Math.PI / 2) * 1.4, 0, p.z - Math.cos(car.rotation.y + Math.PI / 2) * 1.4); syncTile(sim, r2);
     thought(sim, "Arrived"); setStatus(sim.name + " parked. Walking to the door…");
     const dest = myCar.dest; const loc = locate(dest);
@@ -925,17 +954,17 @@ async function start() {
   [THREE, { OrbitControls }, { GLTFExporter }, { GLTFLoader }] = await Promise.all([
     import("three"), import("three/addons/controls/OrbitControls.js"), import("three/addons/exporters/GLTFExporter.js"), import("three/addons/loaders/GLTFLoader.js"),
   ]);
-  [G, World, Life, Plan] = await Promise.all([import("./sims-gen.js?v=3"), import("./sims-world.js?v=7"), import("./sims-life.js?v=4"), import("./sims-plan.js?v=1")]);
+  [G, World, Life, Plan] = await Promise.all([import("./sims-gen.js?v=3"), import("./sims-world.js?v=8"), import("./sims-life.js?v=4"), import("./sims-plan.js?v=1")]);
   quality = pickQuality(); G.setQuality({ tex: QUALITY[quality].tex, aniso: 4 });
   try {
-    [Body, Hifi, SkeletonUtils, NightMod] = await Promise.all([import("./sims-body.js?v=1"), import("./sims-hifi.js?v=1"), import("three/addons/utils/SkeletonUtils.js"), import("./sims-night.js?v=1")]);
+    [Body, Hifi, SkeletonUtils, NightMod] = await Promise.all([import("./sims-body.js?v=2"), import("./sims-hifi.js?v=2"), import("three/addons/utils/SkeletonUtils.js"), import("./sims-night.js?v=1")]);
     setStatus("Generating sculptable bodies…"); await new Promise((r) => setTimeout(r, 30)); Body.baseFor(bodyLod());
   } catch (e) { console.warn("hifi bodies unavailable", e); Body = null; Hifi = null; }
   const wrap = $("sims-stage");
   renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05;
-  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap; renderer.info.autoReset = false; // count every pass of a frame
   renderer.domElement.id = "sims-canvas"; renderer.domElement.setAttribute("aria-label", "Sims lot");
   wrap.appendChild(renderer.domElement);
   scene = new THREE.Scene(); scene.background = new THREE.Color("#141210"); scene.fog = new THREE.Fog("#141210", 30, 60);
@@ -949,6 +978,7 @@ async function start() {
   Object.assign(sun.shadow.camera, { left: -20, right: 20, top: 20, bottom: -20, near: 1, far: 120 }); scene.add(sun, sun.target);
   if (NightMod) { night = NightMod.createNight(scene, renderer); night.setQuality(quality); }
   world = World.createWorld(scene, { radius: QUALITY[quality].radius, npcs: QUALITY[quality].npcs, grass: QUALITY[quality].grass, cars: QUALITY[quality].cars, boats: QUALITY[quality].boats, reduceMotion });
+  if (world.setGrassMask) world.setGrassMask(homeGrassMask);
   applyQuality(quality);
   const grid = new THREE.GridHelper(N, N, "#c9a227", "#5a6a48"); grid.position.y = 0.045; grid.material.transparent = true; grid.material.opacity = 0.35; grid.name = "Grid";
   helperGroup = new THREE.Group(); helperGroup.add(grid); scene.add(helperGroup);
@@ -984,7 +1014,7 @@ function resize() {
 // ---------------- quality presets + day cycle ----------------
 const QUALITY = {
   low: { label: "Low", ratio: 1, shadows: false, map: 512, tex: 128, radius: 1, npcs: 3, grass: 2000, cars: 6, boats: 1 },
-  med: { label: "Med", ratio: 1.5, shadows: true, map: 1024, tex: 256, radius: 1, npcs: 6, grass: 7000, cars: 12, boats: 3 },
+  med: { label: "Med", ratio: 1.25, shadows: true, map: 1024, tex: 256, radius: 1, npcs: 6, grass: 7000, cars: 12, boats: 3 },
   high: { label: "High", ratio: 2, shadows: true, map: 2048, tex: 512, radius: 2, npcs: 12, grass: 14000, cars: 24, boats: 6 },
 };
 const QUALITY_KEY = "logan7in.sims.quality.v1";
@@ -1000,7 +1030,7 @@ function applyQuality(q) {
   quality = q; const Q = QUALITY[q];
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, Q.ratio));
   const had = renderer.shadowMap.enabled;
-  renderer.shadowMap.enabled = Q.shadows; renderer.shadowMap.type = q === "low" ? THREE.PCFShadowMap : THREE.PCFSoftShadowMap;
+  renderer.shadowMap.enabled = Q.shadows; renderer.shadowMap.type = q === "high" ? THREE.PCFSoftShadowMap : THREE.PCFShadowMap;
   if (sun) { sun.shadow.radius = q === "high" ? 4 : 2; sun.shadow.blurSamples = q === "high" ? 16 : 8; }
   if (Body && S && lastBodyLod && lastBodyLod !== bodyLod()) { lastBodyLod = bodyLod(); for (const sim of S.sims) { const rt = runtime.get(sim.id); if (rt && !sim.glb) setSimModel(rt, sim); } if (selectedSimId) selectSim(selectedSimId); }
   lastBodyLod = bodyLod();
@@ -1041,7 +1071,13 @@ function loop() {
 }
 let loopErr = false;
 function lotFixtures() { const out = []; if (lotGroup) lotGroup.traverse((o) => { if (o.userData.fixture) out.push({ obj: o, kind: o.userData.fixture.kind, on: World.NIGHT_K() }); }); return out; }
-function frame(dt) { lastDt = dt; timeTick(dt);
+// shadow budget: small parts (handles, trims, frames, knick-knacks) never render into the shadow map
+let _shT = 0; const _shS = new Set();
+function shadowBudget(dt) { if ((_shT -= dt) > 0) return; _shT = 1.5; const v = new THREE.Vector3();
+  scene.traverse((o) => { if (!o.isMesh || !o.castShadow || _shS.has(o.uuid) || o.isSkinnedMesh) return; _shS.add(o.uuid); if (!o.geometry.boundingSphere) o.geometry.computeBoundingSphere();
+    o.getWorldScale(v); const r = (o.geometry.boundingSphere ? o.geometry.boundingSphere.radius : 1) * Math.max(v.x, v.y, v.z); if (r < 0.22) o.castShadow = false; }); }
+let _shF = 0;
+function frame(dt) { lastDt = dt; timeTick(dt); shadowBudget(dt); renderer.shadowMap.autoUpdate = false; renderer.shadowMap.needsUpdate = quality === "high" || (_shF++ % 3 === 0); // Med/Low refresh the shadow map every third frame
   if (keyActive()) { cameraKeys(dt); if (mode === "live" || keys.size) wasdTick(dt); }
   if (mode === "live") stepSims(dt); else { animateSims(mode === "cas" ? dt : 0); stepCar(dt); }
   stepRemotes(dt); netTick(); followTick(dt);
@@ -1049,6 +1085,7 @@ function frame(dt) { lastDt = dt; timeTick(dt);
   Life.farmTick(); if (performance.now() - lastLifeTick > 1000) { lastLifeTick = performance.now(); Life.pollTrades(); clockTick(); }
   const bent = warpActors(); // the neighborhood's roads are bent; draw moving sims/cars at their bent spot
   if (scene.fog && scene.fog.isFog && controls) { const cd = camera.position.distanceTo(controls.target), fr = Math.max(110, (QUALITY[quality].radius + 0.6) * 60); scene.fog.near = 45 + cd * 0.9; scene.fog.far = fr + cd * 1.4; } // overhead views stay clear
+  renderer.info.reset();
   if (Hifi) Hifi.render(renderer, scene, camera); else renderer.render(scene, camera);
   for (const [o, p, q] of bent) { o.position.copy(p); o.quaternion.copy(q); }
   updateBubbles(); perfTick(dt);
@@ -1646,7 +1683,7 @@ function show() {
 function hide() { netLeave(); visible = false; if (rafId) cancelAnimationFrame(rafId); rafId = 0; const home = online.visiting ? online.homeS : S; if (home) try { localStorage.setItem(SAVE_KEY, JSON.stringify(home)); } catch (e) {} }
 window.addEventListener("sims-show", show);
 window.addEventListener("sims-hide", hide);
-window.SimsTab = { onShow: show, onHide: hide, get state() { return S; },
+window.SimsTab = { onShow: show, onHide: hide, get state() { return S; }, get scene() { return scene; }, get world() { return world; },
   perf() { return { fps: Math.round(perf.fps), history: perf.history.slice(), quality, pref: qualityPref, draws: renderer && renderer.info.render.calls, tris: renderer && renderer.info.render.triangles, world: world && world.stats(), shared: world && world.sharedSlots() }; },
   view(x, z, d = 1, az, el, y = 0) { const off = camera.position.clone().sub(controls.target).normalize().multiplyScalar(30 * d); if (az != null) off.set(Math.cos(el) * Math.sin(az), Math.sin(el), Math.cos(el) * Math.cos(az)).multiplyScalar(30 * d); controls.target.set(x, y, z); camera.position.set(x, y, z).add(off); controls.update(); },
   get world() { return world; },
@@ -1654,9 +1691,11 @@ window.SimsTab = { onShow: show, onHide: hide, get state() { return S; },
   exportLotBlob() { return new Promise((res, rej) => { const clone = lotGroup.clone(true); const drop = []; clone.traverse((o) => { if (o.userData.noExport || o.name === "SelectRing") drop.push(o); }); drop.forEach((o) => o.removeFromParent()); new GLTFExporter().parse(clone, res, rej, { binary: true, onlyVisible: true }); }); },
   get life() { return Life; }, get lifeHost() { return lifeHost; },
   sim() { const sim = getSim(selectedSimId), rt = sim && runtime.get(sim.id); if (!rt) return null; const p = rt.holder.position; return { id: sim.id, name: sim.name, x: +p.x.toFixed(2), z: +p.z.toFixed(2), tx: sim.x, tz: sim.z, away: !!rt.away, driving: !!rt.driving, legs: rt.legs ? rt.legs.length : 0, path: rt.path.length, job: rt.job && rt.job.label, task: !!rt.task, pose: rt.pose, thought: rt.thought, needs: sim.needs }; },
-  walk(x, z) { return lifeHost.walkTo({ x, z }); }, drive(x, z) { return driveTo({ x, z }); },
+  walk(x, z) { return lifeHost.walkTo({ x, z }); },
+  objects() { return S.objects.map((o) => ({ id: o.id, type: o.type, x: o.x, z: o.z, rot: o.rot })); }, // test helper
+  use(type, i = 0) { const sim = getSim(selectedSimId), o = S.objects.filter((x) => x.type === type)[i]; if (!sim || !o) return false; commandSim(sim, { objId: o.id }); return { x: o.x, z: o.z, rot: o.rot }; }, drive(x, z) { return driveTo({ x, z }); },
   car() { return myCar.obj && { state: myCar.state, x: +myCar.obj.position.x.toFixed(2), z: +myCar.obj.position.z.toFixed(2), pts: myCar.pts ? myCar.pts.length : 0, away: myCar.away }; },
-  cam() { return { tx: controls.target.x, tz: controls.target.z, x: camera.position.x, y: camera.position.y, z: camera.position.z, pan: camPan, follow }; },
+  cam() { return { tx: controls.target.x, ty: controls.target.y, tz: controls.target.z, x: camera.position.x, y: camera.position.y, z: camera.position.z, pan: camPan, follow }; },
   setSpeed(v) { speed = v; }, setMode(m) { setMode(m); }, setHour(h) { const d = new Date(); d.setHours(Math.floor(h), Math.round((h % 1) * 60), 0, 0); tp().mode = "preview"; tp().t = d.getTime(); tp().play = false; renderTimebar(); },
   timePreview() { return tp(); }, simData() { const s = getSim(selectedSimId); return s && JSON.parse(JSON.stringify(s)); }, saveMoment(n) { saveMoment(n); }, jumpMoment(i) { jumpMoment(i); }, nightInfo() { return night && { k: night.nightK, realLights: night.lights(), cap: night.cap(), moon: lastClock && lastClock.moon, sources: world.lightSources().length }; },
   body() { const m = sculptModel(); return m && { report: Body.anatomyReport(m), post: Hifi && Hifi.postInfo(), lod: m.userData.body.lod }; },

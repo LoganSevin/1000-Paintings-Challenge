@@ -15,11 +15,23 @@ export const CH = 36;          // chunk size (meters)
 // ---- winding roads: the whole neighborhood is laid out on a logical grid, then bent by a smooth, fold-free
 // warp so main roads, rivers and the blocks between them curve and loop. Simulation stays on the grid; anything
 // visible is drawn at warp(x, z). The player's own block (|r| < 30 m) is never bent.
-const WA = 12, sst = (a, b, v) => { const t = Math.max(0, Math.min(1, (v - a) / (b - a))); return t * t * (3 - 2 * t); };
-export function warpXZ(x, z) {
+const WA = 8, sst = (a, b, v) => { const t = Math.max(0, Math.min(1, (v - a) / (b - a))); return t * t * (3 - 2 * t); };
+function baseWarp(x, z) {
   const e = WA * sst(26, 62, Math.hypot(x, z)); // home block stays straight; neighbourhoods beyond wind
   if (!e) return [x, z];
-  return [x + e * (Math.sin(z * 0.046 + 1.3) + 0.3 * Math.sin(z * 0.081 + x * 0.012 + 0.7)), z + e * (Math.sin(x * 0.043 + 0.4) + 0.3 * Math.sin(x * 0.077 - z * 0.011 + 2.1))];
+  return [x + e * (Math.sin(z * 0.034 + 1.3) + 0.3 * Math.sin(z * 0.06 + x * 0.009 + 0.7)), z + e * (Math.sin(x * 0.032 + 0.4) + 0.3 * Math.sin(x * 0.057 - z * 0.008 + 2.1))];
+}
+// lots are rigid: everything within ~10 m of a lot centre (houses, trees, props) moves as one piece (turn + shift,
+// never sheared); only the ring toward the road eases into the bend, so roads curve but buildings stay square
+const _lotW = new Map();
+export function warpXZ(x, z) {
+  if (Math.hypot(x, z) < 20) return [x, z];
+  const ci = Math.round(x / CH), cj = Math.round(z / CH), lx = x - ci * CH, lz = z - cj * CH, w = sst(10, 16, Math.max(Math.abs(lx), Math.abs(lz)));
+  const b = baseWarp(x, z); if (w >= 1) return b;
+  const k = ci + "," + cj; let L = _lotW.get(k);
+  if (!L) { const cx = ci * CH, cz = cj * CH, c = baseWarp(cx, cz), a = baseWarp(cx + 0.5, cz), d = baseWarp(cx - 0.5, cz), th = Math.atan2(-(a[1] - d[1]), a[0] - d[0]); L = [c[0], c[1], Math.cos(th), Math.sin(th)]; _lotW.set(k, L); }
+  const rx = L[0] + lx * L[2] + lz * L[3], rz = L[1] - lx * L[3] + lz * L[2];
+  return [rx + w * (b[0] - rx), rz + w * (b[1] - rz)];
 }
 export function warpAngle(x, z) { const a = warpXZ(x + 0.5, z), b = warpXZ(x - 0.5, z); return Math.atan2(-(a[1] - b[1]), a[0] - b[0]); }
 export function unwarpXZ(x, z) { let px = x, pz = z; for (let k = 0; k < 6; k++) { const [wx, wz] = warpXZ(px, pz); px -= wx - x; pz -= wz - z; } return [px, pz]; }
@@ -267,6 +279,7 @@ export function zoneLocal(info, x, z) {
   for (const r of info.rects) if (Math.abs(x - r.x) < r.w / 2 && Math.abs(z - r.z) < r.d / 2) return r.k;
   if (ax < HILL_X + 0.5 && ((info.tunN && z > ROAD - HILL_U - 0.3) || (info.tunS && z < -(ROAD - HILL_U - 0.3)))) return "hill";
   if (info.biome === "home" && ax < 12.8 && az < 12.8) return "lot";
+  if (info.shared && info.floorSet) for (const [dx, dz] of [[0, 0], [0.3, 0], [-0.3, 0], [0, 0.3], [0, -0.3]]) if (info.floorSet.has(Math.floor(x + dx + 12) + "," + Math.floor(z + dz + 12))) return "building"; // no grass through a shared house
   if (info.shared && ax < 12.6 && az < 12.6) return "lot";
   const h = heightAt(info, x, z);
   if (h < WATER_Y + 0.15) return "water";
@@ -278,7 +291,7 @@ function addRect(info, k, x, z, w, d, ry = 0) { const [cx, cz] = rot90(x, z, ry)
 
 // ---------------- merge helper ----------------
 // merge every mesh under `src` into one mesh per material (fast to draw, cheap on phones)
-function mergeByMaterial(src, keepNames) {
+export function mergeByMaterial(src, keepNames) {
   src.updateMatrixWorld(true);
   const buckets = new Map(), keep = [];
   src.traverse((o) => {
@@ -295,7 +308,8 @@ function mergeByMaterial(src, keepNames) {
   const out = new T.Group();
   for (const [mat, geos] of buckets) {
     const merged = mergeGeometries(geos, false); geos.forEach((g) => g.dispose()); if (!merged) continue;
-    const m = new T.Mesh(merged, mat); m.castShadow = !mat.transparent; m.receiveShadow = true; m.name = "Merged_" + mat.name; out.add(m);
+    merged.computeBoundingBox(); const m = new T.Mesh(merged, mat); m.castShadow = !mat.transparent && merged.boundingBox.max.y - merged.boundingBox.min.y > 0.6; m.receiveShadow = true; // flat ground work (curbs, roads, paving) never casts
+    m.name = "Merged_" + mat.name; out.add(m);
   }
   for (const k of keep) { const wp = new T.Vector3(), wq = new T.Quaternion(), ws = new T.Vector3(); k.matrixWorld.decompose(wp, wq, ws); k.removeFromParent(); k.position.copy(wp); k.quaternion.copy(wq); k.scale.copy(ws); out.add(k); }
   return out;
@@ -815,21 +829,95 @@ function lakeLot(g, info, t) {
 
 // ---------------- vehicles ----------------
 const CAR_COLS = ["#c94a3a", "#3a6ea5", "#f2eee6", "#2b2b2b", "#8a8f96", "#c9a227", "#2f6b4f", "#6b2f3a", "#e07a2a", "#5a7aa0", "#d7c3a1", "#1d3a5a"];
-const CAR_KINDS = { sedan: { L: 4.3, h1: 0.55, h2: 0.5, cab: 2.2, off: -0.2 }, hatch: { L: 3.7, h1: 0.6, h2: 0.55, cab: 2.0, off: -0.4 }, van: { L: 4.9, h1: 1.2, h2: 0.0, cab: 0, off: 0 }, pickup: { L: 5.0, h1: 0.65, h2: 0.6, cab: 1.6, off: 0.9 }, bus: { L: 9.5, h1: 2.3, h2: 0, cab: 0, off: 0 }, taxi: { L: 4.3, h1: 0.55, h2: 0.5, cab: 2.2, off: -0.2 } };
+// side profiles (x forward, y up): bottom sill y0, beltline, hood/boot heights, glasshouse corners, roof, wheels
+const CAR_KINDS = {
+  sedan: { L: 4.5, W: 1.82, wr: 0.33, wx: [-1.38, 1.36], y0: 0.3, nose: 0.68, hood: 0.86, belt: 0.92, ws: 0.62, rf: -0.1, rr: -0.95, rb: -1.55, roof: 1.42, tail: 0.9, rc: 0.16 },
+  hatch: { L: 3.9, W: 1.76, wr: 0.31, wx: [-1.25, 1.2], y0: 0.3, nose: 0.66, hood: 0.84, belt: 0.92, ws: 0.6, rf: 0.0, rr: -1.45, rb: -1.85, roof: 1.48, tail: 0.95, rc: 0.15 },
+  coupe: { L: 4.4, W: 1.84, wr: 0.34, wx: [-1.3, 1.35], y0: 0.28, nose: 0.6, hood: 0.78, belt: 0.86, ws: 0.4, rf: -0.45, rr: -0.95, rb: -1.75, roof: 1.3, tail: 0.86, rc: 0.15 },
+  suv: { L: 4.7, W: 1.95, wr: 0.39, wx: [-1.45, 1.45], y0: 0.42, nose: 0.92, hood: 1.08, belt: 1.15, ws: 0.95, rf: 0.45, rr: -2.05, rb: -2.25, roof: 1.82, tail: 1.1, rc: 0.18 },
+  van: { L: 4.9, W: 1.95, wr: 0.35, wx: [-1.6, 1.55], y0: 0.34, nose: 0.85, hood: 1.0, belt: 1.12, ws: 1.55, rf: 1.0, rr: -2.3, rb: -2.42, roof: 2.0, tail: 1.1, rc: 0.2 },
+  pickup: { L: 5.2, W: 1.95, wr: 0.38, wx: [-1.65, 1.55], y0: 0.4, nose: 0.95, hood: 1.1, belt: 1.15, ws: 0.95, rf: 0.5, rr: -0.35, rb: -0.5, roof: 1.85, tail: 1.12, rc: 0.15, bed: true },
+  taxi: { L: 4.5, W: 1.82, wr: 0.33, wx: [-1.38, 1.36], y0: 0.3, nose: 0.68, hood: 0.86, belt: 0.92, ws: 0.62, rf: -0.1, rr: -0.95, rb: -1.55, roof: 1.42, tail: 0.9, rc: 0.16 },
+  bus: { L: 10, W: 2.5, wr: 0.5, wx: [-2.9, 3.2], y0: 0.38, bus: true },
+};
 const carCache = new Map();
+// a closed outline with every corner rounded (radius per point)
+function roundedShape(pts0) {
+  const pts = pts0.filter((p, i) => { const q = pts0[(i + 1) % pts0.length]; return Math.hypot(p[0] - q[0], p[1] - q[1]) > 1e-4; });
+  const s = new T.Shape(), n = pts.length, P = (i) => pts[(i + n) % n];
+  const cut = (a, b, r) => { const dx = b[0] - a[0], dy = b[1] - a[1], l = Math.hypot(dx, dy), k = Math.min(r, l / 2.2) / l; return [a[0] + dx * k, a[1] + dy * k]; };
+  for (let i = 0; i < n; i++) { const c = P(i), r = c[2] || 0, a = cut(c, P(i - 1), r), b = cut(c, P(i + 1), r);
+    if (i === 0) s.moveTo(a[0], a[1]); else s.lineTo(a[0], a[1]); if (r) s.quadraticCurveTo(c[0], c[1], b[0], b[1]); else s.lineTo(b[0], b[1]); }
+  s.closePath(); return s;
+}
+function extrudeSide(shape, W, bevel = 0.05) { const g = new T.ExtrudeGeometry(shape, { depth: W - bevel * 2, bevelEnabled: bevel > 0, bevelSize: bevel, bevelThickness: bevel, bevelSegments: 2, curveSegments: 4 }); g.translate(0, 0, -(W - bevel * 2) / 2); return g; }
+function carWheel(g, x, z, wr, mats, side) {
+  const t = G.mesh(new T.CylinderGeometry(wr, wr, 0.24, 16), mats.tyre, x, wr, z, g); t.rotation.x = Math.PI / 2;
+  const rim = G.mesh(new T.CylinderGeometry(wr * 0.66, wr * 0.66, 0.02, 14), mats.chrome, x, wr, z + side * 0.115, g); rim.rotation.x = Math.PI / 2;
+  const dish = G.mesh(new T.CylinderGeometry(wr * 0.5, wr * 0.5, 0.02, 12), mats.dark, x, wr, z + side * 0.122, g); dish.rotation.x = Math.PI / 2;
+  for (let k = 0; k < 5; k++) { const a = k * Math.PI * 2 / 5, sp = G.mesh(new T.BoxGeometry(0.055, wr * 0.98, 0.02), mats.chrome, x, wr, z + side * 0.13, g); sp.rotation.z = a; }
+  const hub = G.mesh(new T.CylinderGeometry(wr * 0.13, wr * 0.13, 0.05, 10), mats.chrome, x, wr, z + side * 0.13, g); hub.rotation.x = Math.PI / 2;
+}
 function carModel(kind, col) {
-  const key = kind + col; if (carCache.has(key)) { const m = carCache.get(key), k = m.userData.K; return carLights(m.clone(), CAR_KINDS[k.kind] || CAR_KINDS.sedan, k.wb, k.kind); }
-  const K = CAR_KINDS[kind] || CAR_KINDS.sedan, g = new T.Group(), wb = kind === "bus" ? 2.4 : 1.8, body = G.M(kind === "taxi" ? "#f2c32e" : kind === "bus" ? "#c9a227" : col, { rough: 0.35, metal: 0.4, name: "Car_Paint" });
-  const glass = G.M("#1e2830", { rough: 0.05, metal: 0.6, name: "Car_Glass" }), tyre = G.M("#141414", { rough: 0.9, name: "Tyre" }), tail = G.M("#8a1a1a", { emissive: "#ff2a2a", ei: 0.6, name: "Tail_Light" });
-  G.mesh(G.rbox(K.L, K.h1, wb, 0.18), body, 0, 0.3 + K.h1 / 2, 0, g);
-  if (K.cab) { G.mesh(G.rbox(K.cab, K.h2, wb - 0.16, 0.22), glass, K.off, 0.3 + K.h1 + K.h2 / 2 - 0.02, 0, g); G.mesh(G.rbox(K.cab - 0.3, 0.07, wb - 0.2, 0.03), body, K.off, 0.3 + K.h1 + K.h2, 0, g); }
-  else { for (const sz of [-1, 1]) G.mesh(G.rbox(K.L * 0.82, 0.45, 0.04, 0.01), glass, -K.L * 0.04, 0.3 + K.h1 * 0.68, sz * (wb / 2 + 0.005), g); G.mesh(G.rbox(0.04, 0.5, wb - 0.3, 0.01), glass, K.L / 2 + 0.005, 0.3 + K.h1 * 0.65, 0, g); }
-  if (kind === "taxi") G.mesh(G.rbox(0.5, 0.15, 0.25, 0.03), WINDOW_GLOW, K.off, 0.3 + K.h1 + K.h2 + 0.1, 0, g);
-  const wr = kind === "bus" ? 0.45 : 0.32;
-  for (const sx of [-1, 1]) for (const sz of [-1, 1]) { const w = G.mesh(G.cyl(wr, wr, 0.24, 12), tyre, sx * K.L * 0.32, wr, sz * (wb / 2 - 0.05), g); w.rotation.x = Math.PI / 2; }
-  for (const sz of [-1, 1]) { G.mesh(G.rbox(0.06, 0.14, 0.3, 0.02), HEAD_GLASS, K.L / 2, 0.55, sz * (wb / 2 - 0.3), g); G.mesh(G.rbox(0.06, 0.14, 0.3, 0.02), tail, -K.L / 2, 0.6, sz * (wb / 2 - 0.3), g); }
+  const key = kind + col; if (carCache.has(key)) { const m = carCache.get(key), k = m.userData.K; return carLights(m.clone(), { L: k.L }, k.wb, k.kind); }
+  const K = CAR_KINDS[kind] || CAR_KINDS.sedan, g = new T.Group(), L = K.L, W = K.W, hl = L / 2;
+  const mats = { paint: G.M(kind === "taxi" ? "#f2c32e" : kind === "bus" ? "#d9a42a" : col, { rough: 0.28, metal: 0.45, name: "Car_Paint" }),
+    glass: Object.assign(G.M("#1b2630", { rough: 0.04, metal: 0.6, name: "Car_Glass" }), { transparent: true, opacity: 0.62, depthWrite: false }), dark: G.M("#202224", { rough: 0.6, name: "Car_Trim" }), tyre: G.M("#131313", { rough: 0.92, name: "Tyre" }),
+    chrome: G.M("#cfd3d8", { rough: 0.2, metal: 0.95, name: "Car_Chrome" }), head: HEAD_GLASS, tail: G.M("#8a1a1a", { emissive: "#ff2a2a", ei: 0.6, rough: 0.2, name: "Tail_Light" }) };
+  const arch = (pts, wx, wr, y0) => { // bottom edge from front to rear with wheel-arch cut-outs (traced as polylines)
+    const R = wr + 0.07; for (const x of [...wx].sort((a, b) => b - a)) { pts.push([x + R, y0]); for (let k = 0; k <= 10; k++) { const t = (k / 10) * Math.PI; pts.push([x + Math.cos(t) * R, Math.max(y0, wr + Math.sin(t) * R)]); } pts.push([x - R, y0]); }
+  };
+  if (K.bus) {
+    const top = 3.05, y0 = K.y0, pts = [[-hl, top, 0.35], [hl - 0.15, top, 0.35], [hl, top - 0.5, 0.2], [hl, y0, 0.12]]; arch(pts, K.wx, K.wr, y0); pts.push([-hl, y0, 0.12]);
+    G.mesh(extrudeSide(roundedShape(pts), W, 0.08), mats.paint, 0, 0, 0, g);
+    // window band all round with frames, big windshield, rear glass, two glazed doors on the kerb side (+z)
+    for (const sz of [-1, 1]) {
+      G.mesh(G.rbox(L - 0.9, 0.95, 0.02, 0.01), mats.glass, -0.15, 2.1, sz * (W / 2 + 0.005), g);
+      G.mesh(G.rbox(L - 0.7, 0.07, 0.03, 0.01), mats.dark, -0.15, 1.6, sz * (W / 2 + 0.01), g); G.mesh(G.rbox(L - 0.7, 0.07, 0.03, 0.01), mats.dark, -0.15, 2.6, sz * (W / 2 + 0.01), g);
+      for (let x = -hl + 0.3; x <= hl - 0.5; x += 1.15) G.mesh(G.rbox(0.08, 1.0, 0.03, 0.01), mats.dark, x, 2.1, sz * (W / 2 + 0.012), g);
+      G.mesh(G.rbox(L + 0.02, 0.16, 0.02, 0.01), G.M("#f4f1ea", { rough: 0.4, name: "Bus_Stripe" }), 0, 1.25, sz * (W / 2 + 0.008), g);
+    }
+    for (const dx of [hl - 1.0, -0.6]) { G.mesh(G.rbox(1.1, 2.15, 0.03, 0.01), mats.dark, dx, 1.48, W / 2 + 0.012, g); for (const h of [-0.26, 0.26]) G.mesh(G.rbox(0.48, 1.95, 0.02, 0.01), mats.glass, dx + h, 1.5, W / 2 + 0.03, g); G.mesh(G.rbox(0.04, 1.95, 0.04, 0.005), mats.dark, dx, 1.5, W / 2 + 0.035, g); }
+    G.mesh(G.rbox(0.03, 1.55, W - 0.25, 0.02), mats.glass, hl + 0.012, 1.85, 0, g); G.mesh(G.rbox(0.03, 0.07, W - 0.2, 0.01), mats.dark, hl + 0.016, 1.85, 0, g);
+    G.mesh(G.rbox(0.04, 0.3, W - 0.6, 0.02), G.M("#1a1408", { emissive: "#ffb627", ei: 0.9, name: "Bus_Sign" }), hl - 0.02, 2.82, 0, g);
+    G.mesh(G.rbox(0.03, 0.8, W - 0.4, 0.02), mats.glass, -hl - 0.012, 2.1, 0, g);
+    G.mesh(G.rbox(0.12, 0.3, W + 0.04, 0.05), mats.dark, hl + 0.02, 0.55, 0, g); G.mesh(G.rbox(0.12, 0.3, W + 0.04, 0.05), mats.dark, -hl - 0.02, 0.55, 0, g);
+    for (const sz of [-1, 1]) { G.mesh(G.rbox(0.05, 0.18, 0.32, 0.03), mats.head, hl + 0.03, 0.95, sz * (W / 2 - 0.3), g); G.mesh(G.rbox(0.05, 0.4, 0.18, 0.03), mats.tail, -hl - 0.03, 1.05, sz * (W / 2 - 0.2), g); }
+  } else {
+    const y0 = K.y0, front = [[hl, K.nose, 0.18], [hl - 0.35, K.hood, 0.3], [K.ws, K.belt, 0.05]];
+    // lower body: nose -> hood -> belt -> boot -> tail, then the sill with arches back to the nose
+    const pts = [[hl, y0 + 0.08, 0.12], ...front, [K.rb, K.belt, 0.05], [-hl + 0.25, K.tail, 0.25], [-hl, K.tail - 0.25, 0.12], [-hl, y0 + 0.06, 0.1]];
+    const sill = []; arch(sill, K.wx, K.wr, y0); sill.reverse(); pts.push(...sill);
+    G.mesh(extrudeSide(roundedShape(pts), W, 0.07), mats.paint, 0, 0, 0, g);
+    // glasshouse: tinted glass volume, roof skin, pillars and a dark beltline seal
+    const gh = [[K.ws, K.belt, 0], [K.rf, K.roof, 0.12], [K.rr, K.roof, 0.12], [K.rb, K.belt, 0]], cw = W - 0.2;
+    G.mesh(extrudeSide(roundedShape(gh), cw, 0.03), mats.glass, 0, 0.005, 0, g);
+    const roofLen = K.rf - K.rr + 0.12; G.mesh(G.rbox(roofLen, 0.07, cw + 0.02, 0.035), mats.paint, (K.rf + K.rr) / 2, K.roof + 0.02, 0, g);
+    const pillar = (x0, y0p, x1, y1p, w) => { for (const sz of [-1, 1]) { const m = G.mesh(new T.BoxGeometry(Math.hypot(x1 - x0, y1p - y0p) + 0.04, w, 0.05), mats.paint, (x0 + x1) / 2, (y0p + y1p) / 2, sz * (cw / 2 + 0.008), g); m.rotation.z = Math.atan2(y1p - y0p, x1 - x0); } };
+    pillar(K.ws, K.belt, K.rf, K.roof, 0.08); pillar(K.rb, K.belt, K.rr, K.roof, 0.14);
+    const bx = K.rf - Math.min(1.15, (K.rf - K.rr) * 0.5); if (K.rf - K.rr > 1.0) pillar(bx, K.belt, bx - 0.02, K.roof, 0.09);
+    if (kind === "van" || kind === "suv") pillar(bx - 1.1, K.belt, bx - 1.12, K.roof, 0.09);
+    for (const sz of [-1, 1]) G.mesh(G.rbox(Math.abs(K.ws - K.rb) + 0.1, 0.04, 0.03, 0.01), mats.chrome, (K.ws + K.rb) / 2, K.belt + 0.01, sz * (cw / 2 + 0.01), g);
+    if (K.bed) { const bl = K.rb - 0.1 + hl - 0.15; G.mesh(G.rbox(bl, 0.05, W - 0.3, 0.02), mats.dark, (K.rb - 0.1 - hl + 0.15) / 2, K.belt + 0.01, 0, g); }
+    // face and tail: grille, bumpers, lamps, plates, mirrors, handles
+    G.mesh(G.rbox(0.06, 0.18, W * 0.42, 0.04), mats.dark, hl + 0.025, K.nose - 0.12, 0, g);
+    G.mesh(G.rbox(0.16, 0.16, W + 0.02, 0.07), mats.dark, hl - 0.02, y0 + 0.12, 0, g); G.mesh(G.rbox(0.16, 0.16, W + 0.02, 0.07), mats.dark, -hl + 0.02, y0 + 0.14, 0, g);
+    for (const sz of [-1, 1]) {
+      G.mesh(G.rbox(0.07, 0.11, 0.34, 0.035), mats.head, hl - 0.02, K.nose - 0.03, sz * (W / 2 - 0.25), g);
+      G.mesh(G.rbox(0.07, 0.12, 0.36, 0.035), mats.tail, -hl + 0.01, K.tail - 0.14, sz * (W / 2 - 0.24), g);
+      G.mesh(G.rbox(0.16, 0.09, 0.1, 0.03), mats.paint, K.ws - 0.18, K.belt + 0.1, sz * (W / 2 + 0.05), g);
+      for (const hx of [K.ws - 0.55, bx - 0.4]) if (hx > K.rb) G.mesh(G.rbox(0.16, 0.03, 0.03, 0.01), mats.chrome, hx, K.belt - 0.12, sz * (W / 2 + 0.005), g);
+    }
+    // cabin: dash, two rows of seats (driver sits at x -0.1, z -0.36), floor
+    G.mesh(G.rbox(0.35, 0.22, cw - 0.1, 0.05), mats.dark, K.ws - 0.15, K.belt - 0.05, 0, g);
+    for (const [sx, row] of [[-0.25, 0], [-1.15, 1]]) { if (sx - 0.3 < K.rb + 0.1) continue; for (const sz of row ? [0] : [-1, 1]) { const ww = row ? cw - 0.25 : 0.52;
+      G.mesh(G.rbox(0.5, 0.14, ww, 0.05), mats.dark, sx, y0 + 0.22, sz * 0.36, g); const bk = G.mesh(G.rbox(0.12, 0.62, ww, 0.05), mats.dark, sx - 0.28, y0 + 0.62, sz * 0.36, g); bk.rotation.z = 0.2; } }
+    G.mesh(G.rbox(0.06, 0.06, 0.06, 0.02), mats.dark, K.ws - 0.4, K.belt + 0.05, -0.36, g);
+    if (kind === "taxi") G.mesh(G.rbox(0.55, 0.16, 0.24, 0.04), WINDOW_GLOW, (K.rf + K.rr) / 2, K.roof + 0.13, 0, g);
+  }
+  for (const x of K.wx) for (const sz of [-1, 1]) { carWheel(g, x, sz * (W / 2 - 0.12), K.wr, mats, sz); G.mesh(new T.CylinderGeometry(K.wr + 0.06, K.wr + 0.06, W - 0.35, 10, 1, true, 0, Math.PI), mats.dark, x, K.wr, 0, g).rotation.x = Math.PI / 2; }
   const merged = mergeByMaterial(g); merged.traverse((o) => { if (o.isMesh) o.castShadow = true; });
-  merged.userData.K = { L: K.L, wb, kind }; carCache.set(key, merged); return carLights(merged.clone(), K, wb, kind);
+  merged.userData.K = { L, wb: W, kind }; carCache.set(key, merged); return carLights(merged.clone(), { L }, W, kind);
 }
 const HULL = new T.SphereGeometry(1, 14, 8, 0, Math.PI * 2, Math.PI / 2, Math.PI / 2);
 function boatModel(t, kind) {
@@ -890,7 +978,7 @@ export function createWorld(scene, opts = {}) {
     const near = Math.max(Math.abs(i - lodC[0]), Math.abs(j - lodC[1])) <= 1;
     const raw = new T.Group(); const t = streets(raw, info), extras = { roofs: [], doors: [], cars: [], signs: [] };
     if (info.biome === "home") { /* the player's own lot is drawn by the game */ }
-    else if (L) sharedLot(raw, L, t);
+    else if (L) { const lt = L.lot || {}; info.floorSet = new Set([...Object.keys(lt.floors || {}), ...(lt.objects || []).map((o) => o.x + "," + o.z)]); sharedLot(raw, L, t); }
     else if (info.biome === "house") planLot(raw, info, t, near, extras);
     else if (info.biome === "park") parkLot(raw, info, t);
     else if (info.biome === "court") courtLot(raw, info, t);
@@ -921,20 +1009,22 @@ export function createWorld(scene, opts = {}) {
   function groundAt(x, z) { const i = Math.round(x / CH), j = Math.round(z / CH), lx = x - i * CH, lz = z - j * CH; return Math.abs(lx) < LOT && Math.abs(lz) < LOT ? heightAt(chunkInfo(i, j), lx, lz) : 0; }
 
   // ---- instanced grass tufts near the camera ----
+  let grassMask = null;
   let grass = null, grassCenter = new T.Vector3(1e9, 0, 0), grassCount = 0;
   function makeGrass(n) {
     if (grass) { root.remove(grass); grass.geometry.dispose(); grass.dispose && grass.dispose(); grass = null; }
     if (n <= 0) return;
     // a soft clump: thin tapered blades that curve and droop outward, dark at the root and sunlit at the tip
-    const blades = [], SEG = 4;
-    for (let b = 0; b < 9; b++) {
-      const a = b * 2.39996 + 0.3, r0 = 0.012 + (b % 4) * 0.018, h = 0.17 + ((b * 7) % 5) * 0.045, w = 0.011 + (b % 3) * 0.004, bend = 0.05 + ((b * 5) % 4) * 0.035, twist = (b % 2 ? 0.5 : -0.4);
-      const ca = Math.cos(a), sa = Math.sin(a), px = -sa, pz = ca, P = [], N = [], C = [], tone = 0.85 + ((b * 3) % 4) * 0.07, dry = b % 5 === 0 ? 0.12 : 0;
-      for (let k = 0; k <= SEG; k++) { const t = k / SEG, y = h * (t - 0.18 * t * t), out = r0 + bend * t * t, ww = w * (1 - t) ** 0.8 + 0.0008, tw = twist * t;
+    // short, even turf: a low fan of 10 straight-ish blades spread wide so neighbouring tufts knit into a lawn
+    const blades = [], SEG = 1;
+    for (let b = 0; b < 12; b++) {
+      const a = b * 2.39996 + 0.3, r0 = 0.02 + (b % 6) * 0.028, h = 0.05 + ((b * 7) % 5) * 0.007, w = 0.016 + (b % 3) * 0.004, bend = 0.02 + ((b * 5) % 4) * 0.01, twist = (b % 2 ? 0.4 : -0.3);
+      const ca = Math.cos(a), sa = Math.sin(a), px = -sa, pz = ca, P = [], N = [], C = [], tone = 0.88 + ((b * 3) % 4) * 0.05, dry = 0;
+      for (let k = 0; k <= SEG; k++) { const t = k / SEG, y = h * t, out = r0 + bend * t, ww = w * (1 - t) + 0.0008, tw = twist * t;
         const cx = ca * out, cz = sa * out, ex = (px * Math.cos(tw) + ca * Math.sin(tw)) * ww, ez = (pz * Math.cos(tw) + sa * Math.sin(tw)) * ww;
         P.push(cx - ex, y, cz - ez, cx + ex, y, cz + ez);
-        const ny = 0.75, nx = ca * 0.5 * t, nz = sa * 0.5 * t; N.push(nx, ny, nz, nx, ny, nz);
-        const g0 = 0.22 + 0.38 * t, cr = (0.16 + 0.32 * t + dry * t) * tone, cg = (0.3 + g0) * tone, cb = (0.1 + 0.14 * t) * tone; C.push(cr, cg, cb, cr, cg, cb); }
+        const ny = 0.85, nx = ca * 0.3 * t, nz = sa * 0.3 * t; N.push(nx, ny, nz, nx, ny, nz);
+        const cr = (0.14 + 0.07 * t + dry * t) * tone, cg = (0.46 + 0.12 * t) * tone, cb = (0.08 + 0.06 * t) * tone; /* tips stay close to the lawn so the turf reads as one even carpet */ C.push(cr, cg, cb, cr, cg, cb); }
       const idx = []; for (let k = 0; k < SEG; k++) { const i0 = k * 2; idx.push(i0, i0 + 1, i0 + 3, i0, i0 + 3, i0 + 2); }
       const geo = new T.BufferGeometry(); geo.setAttribute("position", new T.Float32BufferAttribute(P, 3)); geo.setAttribute("normal", new T.Float32BufferAttribute(N, 3)); geo.setAttribute("color", new T.Float32BufferAttribute(C, 3)); geo.setIndex(idx);
       blades.push(geo.toNonIndexed()); geo.dispose(); }
@@ -946,16 +1036,16 @@ export function createWorld(scene, opts = {}) {
   const _m = new T.Matrix4(), _q = new T.Quaternion(), _p = new T.Vector3(), _s = new T.Vector3(), _c = new T.Color(), _e = new T.Euler();
   function scatterGrass(center) {
     if (!grass) return;
-    const n = detail.grass, R = n > 5000 ? 24 : n > 2000 ? 19 : 14, cell = Math.max(0.3, (2 * R) / Math.sqrt(n * 1.9));
+    const n = detail.grass, R = n > 9000 ? 20 : n > 5000 ? 14 : 11, cell = Math.max(0.24, Math.sqrt(Math.PI * R * R / n) * 0.92);
     const x0 = Math.floor((center.x - R) / cell), x1 = Math.ceil((center.x + R) / cell), z0 = Math.floor((center.z - R) / cell), z1 = Math.ceil((center.z + R) / cell);
     let k = 0;
     for (let a = x0; a <= x1 && k < n; a++) for (let b = z0; b <= z1 && k < n; b++) {
       const r1 = hash2(a, b), r2 = hash2(b + 911, a - 37), x = (a + r1) * cell, z = (b + r2) * cell;
-      if ((x - center.x) ** 2 + (z - center.z) ** 2 > R * R) continue;
+      { const d2 = (x - center.x) ** 2 + (z - center.z) ** 2; if (d2 > R * R || (d2 > R * R * 0.42 && hash2(a - 5, b + 13) < 0.45)) continue; } // LOD: thinner toward the edge
       { const zn = zoneAt(x, z); if (zn !== "land" && zn !== "lot") continue; }
-      if (noise(x * 0.16 + 3, z * 0.16 - 7) * 1.25 + 0.05 < hash2(a + 77, b - 19)) continue; // clumpy, uneven cover
-      const s = 0.55 + hash2(a * 3, b * 7) * 1.0; { const [wx, wz] = warpXZ(x, z); _p.set(wx, groundAt(x, z), wz); } _q.setFromEuler(_e.set(0, r1 * 6.28, 0)); _s.set(s, s * (0.8 + r2 * 0.6), s);
-      grass.setMatrixAt(k, _m.compose(_p, _q, _s)); const n2 = noise(x * 0.31 + 40, z * 0.31 - 11); { const n3 = noise(x * 0.07 - 9, z * 0.07 + 2), dry = sstep(0.3, 0.1, n3); _c.setRGB(0.8 + r1 * 0.25 + dry * 0.35, 0.85 + r2 * 0.2 + dry * 0.05, 0.75 + n2 * 0.25); }; grass.setColorAt(k, _c); k++;
+      if (grassMask && grassMask(x, z)) continue; // the game's own lot: floors, furniture, paths
+      const s = 0.85 + hash2(a * 3, b * 7) * 0.35; { const [wx, wz] = warpXZ(x, z); _p.set(wx, groundAt(x, z), wz); } _q.setFromEuler(_e.set(0, r1 * 6.28, 0)); _s.set(s * 1.2, s * (0.85 + r2 * 0.3), s * 1.2);
+      grass.setMatrixAt(k, _m.compose(_p, _q, _s)); const n2 = noise(x * 0.31 + 40, z * 0.31 - 11); { const n3 = noise(x * 0.07 - 9, z * 0.07 + 2), dry = sstep(0.3, 0.1, n3); _c.setRGB(0.85 + r1 * 0.1 + dry * 0.15, 0.9 + r2 * 0.1, 0.8 + n2 * 0.15); }; grass.setColorAt(k, _c); k++;
     }
     grass.count = k; grassCount = k; grass.instanceMatrix.needsUpdate = true; if (grass.instanceColor) grass.instanceColor.needsUpdate = true;
     grassCenter.copy(center); grassDirty = false;
@@ -971,7 +1061,7 @@ export function createWorld(scene, opts = {}) {
     const q = Math.round((p - ROAD) / CH) * CH + ROAD; if (Math.abs(p - q) < 7) p = q + (p < q ? -7 : 7);
     { const seg = Math.round(p / CH); if (!(axis === "x" ? hOpen(seg, m) : vOpen(m, seg))) return; } // only on streets that exist
     for (const o of cars) if (o.axis === axis && o.line === line && o.dir === dir && Math.abs(o.p - p) < 12) return;
-    const kind = t.pick(["sedan", "sedan", "hatch", "hatch", "van", "pickup", "taxi", "sedan", "bus"]), obj = carModel(kind, t.pick(CAR_COLS));
+    const kind = t.pick(["sedan", "sedan", "hatch", "suv", "coupe", "van", "pickup", "taxi", "suv", "bus"]), obj = carModel(kind, t.pick(CAR_COLS));
     const c = { id: ++carSeq, axis, line, dir, p, v: 0, vmax: kind === "bus" ? 6 : t.rr(7, 10.5), len: CAR_KINDS[kind].L, obj, held: null };
     obj.name = "Car"; root.add(obj); cars.push(c); placeCar(c);
   }
@@ -1145,6 +1235,7 @@ export function createWorld(scene, opts = {}) {
     setFocus(p, cam) { focus = { x: p.x, z: p.z }; if (cam) camPos.copy(cam); }, setObstacles(fn) { obstacleFn = fn; },
     chunkMeshes: () => [...chunks.values()], carModel, parkedCars: () => parked.map((p) => p.obj), setShared, lotOfSign, zoneAt, auditPlants, auditCars,
     setRadius(r) { radius = r; }, setNpcs(n) { npcMax = n; },
+    setGrassMask(fn) { grassMask = fn; grassDirty = true; },
     setDetail(d) { const g0 = detail.grass; Object.assign(detail, d); if (detail.grass !== g0) makeGrass(detail.grass); },
     setSky(c) { U.uSky.value.copy(c); }, setSeason, season: () => seasonOf(),
     sharedSlots: () => [...slots].map(([k, L]) => ({ chunk: k, name: L.name, sid: L.sid })),

@@ -9,6 +9,7 @@
 //  * smart clothing: offset shells grown from the body surface (gloves/shoes follow fingers/toes)
 //  * hair cards with anisotropic shading, eyes with iris/pupil/cornea, teeth, tongue, brows
 import * as THREE from "three";
+import { mergeGeometries } from "three/addons/utils/BufferGeometryUtils.js";
 
 export const MORPHS = ["weight", "muscle", "chest", "hips", "shoulders", "belly", "faceW", "jaw", "chin", "cheeks", "nose", "lips", "eyes", "ears", "head"];
 export const MORPH_LABELS = { weight: "Weight", muscle: "Muscle", chest: "Chest", hips: "Hips", shoulders: "Shoulders", belly: "Belly", faceW: "Face width", jaw: "Jaw", chin: "Chin", cheeks: "Cheekbones", nose: "Nose", lips: "Lips", eyes: "Eye size", ears: "Ears", head: "Head size" };
@@ -594,6 +595,95 @@ function scalpShell(origin, pad, color, cut = 0.2) {
   return new THREE.Mesh(g, m);
 }
 
+// ---------------------------------------------------------------- sculpted hair volumes
+// Solid, smoothly shaded hair: a thick shell grown from the scalp, flowing down into a curtain for longer styles,
+// plus swept tubes for tails/braids and lumpy spheres for buns. Cut lines stay behind the hairline, so nothing crosses the face.
+const hairFlowTex = () => canvasTex("hairflow", 256, 256, (x, w, h) => {
+  x.fillStyle = "#c8c8c8"; x.fillRect(0, 0, w, h); const r = rng(91);
+  for (let i = 0; i < 520; i++) { const px = r() * w, a = 0.05 + r() * 0.12, c = r() > 0.5 ? 255 : 70; x.strokeStyle = `rgba(${c},${c},${c},${a})`; x.lineWidth = 0.6 + r() * 1.8; x.beginPath(); x.moveTo(px, -4); x.bezierCurveTo(px + (r() - 0.5) * 8, h * 0.35, px + (r() - 0.5) * 8, h * 0.7, px + (r() - 0.5) * 8, h + 4); x.stroke(); }
+}, true);
+const hairFlowN = () => normalFromHeight("hairflowN", 256, (H, w, h) => { const n = noise2(93); for (let j = 0; j < h; j++) for (let i = 0; i < w; i++) H[j * w + i] = Math.sin(i * 0.9 + n(i / 6, j / 50) * 4) * 0.35 + n(i / 2, j / 30) * 0.3; }, 1.4);
+function hairSolidMat(color, hi) {
+  const k = "hairS" + color + hi; if (matCache.has(k)) return matCache.get(k);
+  const c = new THREE.Color(color);
+  const p = { color: c, map: hairFlowTex(), normalMap: hairFlowN(), normalScale: new THREE.Vector2(0.3, 0.3), roughness: 0.66, metalness: 0, envMapIntensity: 0.45, side: THREE.DoubleSide };
+  const m = hi ? new THREE.MeshPhysicalMaterial({ ...p, sheen: 0.25, sheenRoughness: 0.5, sheenColor: c.clone().lerp(new THREE.Color("#fff"), 0.35), specularIntensity: 0.6 }) : new THREE.MeshStandardMaterial(p);
+  m.onBeforeCompile = (sh) => { // two-lobe Kajiya-Kay highlight along the flow direction
+    sh.vertexShader = sh.vertexShader.replace("#include <common>", "#include <common>\nattribute vec3 hairT;\nvarying vec3 vHairT;").replace("#include <begin_vertex>", "#include <begin_vertex>\n vHairT = normalize(normalMatrix * hairT);");
+    sh.fragmentShader = sh.fragmentShader.replace("#include <common>", "#include <common>\nvarying vec3 vHairT;").replace("#include <dithering_fragment>", `#include <dithering_fragment>
+      { vec3 V = normalize(vViewPosition); vec3 Lh = normalize(vec3(0.3, 0.8, 0.5)); vec3 Hh = normalize(Lh + V); vec3 Th = normalize(vHairT);
+        float t1 = dot(Th, Hh); float s1 = pow(sqrt(max(0.0, 1.0 - t1*t1)), 120.0) * 0.07; float t2 = dot(Th, normalize(Hh + 0.3*normal)); float s2 = pow(sqrt(max(0.0, 1.0 - t2*t2)), 30.0) * 0.12;
+        float ao = gl_FrontFacing ? 1.0 : 0.45; gl_FragColor.rgb = gl_FragColor.rgb * ao + (vec3(s1) + diffuseColor.rgb * s2) * ao; }`);
+  };
+  m.customProgramCacheKey = () => "simhairsolid"; m.name = "Hair"; matCache.set(k, m); return m;
+}
+const HAIR_VOL = {
+  short: { t: 0.013, L: 0 }, sidepart: { t: 0.017, L: 0, part: 0.03 }, spiky: { t: 0.012, L: 0, spike: 0.016 }, mohawk: { t: 0.002, L: 0, ridge: 0.05 },
+  long: { t: 0.016, L: 0.3, flare: 0.03 }, bob: { t: 0.018, L: 0.1, flare: 0.022, fringe: 1 }, curly: { t: 0.03, L: 0.05, flare: 0.03, bump: 0.012 },
+  afro: { t: 0.07, L: 0.02, flare: 0.02, bump: 0.008 }, braids: { t: 0.008, L: 0, braids: 1 }, ponytail: { t: 0.01, L: 0, tail: [0, 1.672, -0.118] },
+  pigtails: { t: 0.01, L: 0, tails: 1 }, bun: { t: 0.01, L: 0, bun: [0, 1.75, -0.1, 0.048] }, topknot: { t: 0.01, L: 0, bun: [0, 1.795, -0.03, 0.04] },
+};
+function hairVolume(style, seed, origin) {
+  const S = HAIR_VOL[style]; if (!S) return null;
+  const R = rng(seed), sc = SCALP, nz = noise2(seed % 997), NA = 72, NU = 30, pos = [], tan = [], uv = [], idx = [];
+  const sm = (a, b, v) => { const t = clamp((v - a) / (b - a), 0, 1); return t * t * (3 - 2 * t); };
+  const grid = [];
+  for (let ia = 0; ia <= NA; ia++) {
+    const az = (ia / NA) * Math.PI * 2 - Math.PI, f = Math.cos(az), sa = Math.sin(az), ca = Math.cos(az), aa = Math.abs(az);
+    // hairline polar angle: high on the forehead, above the ears at the sides, down to the nape at the back
+    const thH = Math.PI * (f > 0 ? 0.53 - 0.2 * f ** 1.5 : 0.53 - 0.17 * f)
+    const Lk = S.L * sm(1.15, 1.75, aa) * (1 - 0.15 * sm(2.6, 3.14, aa) * (style === "long" ? -1 : 0)), curtain = Lk > 0.004;
+    const thE = curtain ? Math.max(thH, Math.PI * 0.56) : thH;
+    const row = [];
+    for (let iu = 0; iu <= NU; iu++) {
+      const u = iu / NU, capU = curtain ? 0.6 : 1, x0 = Math.min(1, u / capU);
+      let th = thE * x0, drop = curtain && u > capU ? (u - capU) / (1 - capU) : 0;
+      const edge = sm(thE, thE * 0.82, th), side = sm(0.4, 1.4, aa); // thin out toward the hairline so the cut blends into the scalp
+      let t = S.t * (0.25 + 0.75 * (curtain ? Math.max(edge, 0.85) : edge));
+      if (S.part != null) t *= 1 + 0.6 * sm(-0.02, 0.06, sa * Math.sin(th)) - 0.4 * Math.exp(-((((sa * Math.sin(th) * sc.r[0]) - S.part * 0.3) / 0.006) ** 2)) * (f > -0.3 ? 1 : 0);
+      if (S.ridge) t = 0.0018 + S.ridge * Math.exp(-(((sa * Math.sin(th) * sc.r[0]) / 0.016) ** 2)) * sm(0.05, 0.4, th) * edge;
+      if (S.spike) { const s = (nz(az * 5 + 7, th * 9) - 0.4) * 2; t += S.spike * Math.max(0, s) ** 2 * 2.2 * edge; }
+      if (S.bump) t += S.bump * ((nz(az * 5, th * 7) - 0.5) * 1.4 + (nz(az * 11 + 3, th * 13) - 0.5) * 0.6) * edge;
+      t = Math.max(0.0015, t);
+      let p = [sc.c[0] + Math.sin(th) * sa * (sc.r[0] + t), sc.c[1] + Math.cos(th) * (sc.r[1] + t), sc.c[2] + Math.sin(th) * ca * (sc.r[2] + t)];
+      if (drop > 0) {
+        const d = drop * Lk, fl = (S.flare || 0) * drop ** 1.4, base = [sc.c[0] + Math.sin(thE) * sa * (sc.r[0] + t), sc.c[2] + Math.sin(thE) * ca * (sc.r[2] + t)];
+        const tip = 1 - 0.25 * sm(0.85, 1, drop); // ends turn under a little
+        p = [base[0] + sa * fl * tip, sc.c[1] + Math.cos(thE) * (sc.r[1] + t) - d, base[1] + ca * fl * tip - (aa > 2 ? 0 : 0)];
+        if (S.bump) { const b = S.bump * (nz(az * 6, drop * 4) - 0.5) * 2; p[0] += sa * b; p[2] += ca * b; }
+        if (Math.abs(p[0]) < 0.17 && p[1] < 1.5 && ca < 0) p[2] = Math.min(p[2], -0.1 - (1.5 - p[1]) * 0.25); // over the back, not into the neck
+      }
+      if (S.fringe && f > 0.6 && th > thH * 0.7) { const k = (f - 0.6) / 0.4 * sm(thH * 0.7, thH, th); p[1] -= 0.018 * k; p[2] += 0.008 * k; } // bob: soft fringe above the brows
+      row.push(p);
+    }
+    grid.push(row);
+  }
+  const nor = [];
+  for (let ia = 0; ia <= NA; ia++) for (let iu = 0; iu <= NU; iu++) {
+    const p = grid[ia][iu], q = grid[ia][Math.min(NU, iu + 1)], o = grid[ia][Math.max(0, iu - 1)], l = grid[(ia + NA - 1) % NA][iu], r2 = grid[(ia + 1) % NA][iu];
+    pos.push(p[0] - origin[0], p[1] - origin[1], p[2] - origin[2]); const d = v3.norm(v3.sub(q, o)); tan.push(...d); uv.push((ia / NA) * 10, iu / NU * 1.5);
+    let n = v3.cross(v3.sub(r2, l), d); if (iu === 0 || Math.hypot(...n) < 1e-9) n = [0, 1, 0]; n = v3.norm(n); nor.push(...n);
+  }
+  for (let ia = 0; ia < NA; ia++) for (let iu = 0; iu < NU; iu++) { const a = ia * (NU + 1) + iu, b = (ia + 1) * (NU + 1) + iu; idx.push(a, a + 1, b, b, a + 1, b + 1); }
+  let g = new THREE.BufferGeometry(); g.setAttribute("position", new THREE.Float32BufferAttribute(pos, 3)); g.setAttribute("uv", new THREE.Float32BufferAttribute(uv, 2)); g.setAttribute("hairT", new THREE.Float32BufferAttribute(tan, 3)); g.setAttribute("normal", new THREE.Float32BufferAttribute(nor, 3)); g.setIndex(idx);
+  const parts = [g.toNonIndexed()];
+  // tubes swept along a path (ponytails, pigtails, braids) and lumpy spheres (buns)
+  const tube = (pts, r0, r1, braid) => { const n = pts.length, RS = 14, P = [], T = [], U = [], I = [];
+    for (let s = 0; s < n; s++) { const a = pts[Math.max(0, s - 1)], b = pts[Math.min(n - 1, s + 1)], t = v3.norm(v3.sub(b, a)), up = Math.abs(t[1]) > 0.9 ? [1, 0, 0] : [0, 1, 0], nx = v3.norm(v3.cross(t, up)), ny = v3.cross(nx, t), k = s / (n - 1);
+      let r = (r0 + (r1 - r0) * k) * (k > 0.92 ? 1 - (k - 0.92) / 0.08 * 0.7 : 1); if (braid) r *= 0.82 + 0.18 * Math.abs(Math.sin(k * n * 0.9));
+      for (let j = 0; j <= RS; j++) { const an = (j / RS) * Math.PI * 2, rr = r * (1 + 0.05 * Math.sin(an * 3 + k * 9)), v = v3.add(pts[s], v3.add(v3.mul(nx, Math.cos(an) * rr), v3.mul(ny, Math.sin(an) * rr))); P.push(v[0] - origin[0], v[1] - origin[1], v[2] - origin[2]); T.push(...(braid ? v3.norm(v3.add(t, v3.mul(nx, Math.sin(k * n * 0.9) * 0.6))) : t)); U.push(j / RS * 2, k * 2); }
+      if (s < n - 1) for (let j = 0; j < RS; j++) { const a0 = s * (RS + 1) + j, b0 = a0 + RS + 1; I.push(a0, b0, a0 + 1, a0 + 1, b0, b0 + 1); } }
+    const gg = new THREE.BufferGeometry(); gg.setAttribute("position", new THREE.Float32BufferAttribute(P, 3)); gg.setAttribute("uv", new THREE.Float32BufferAttribute(U, 2)); gg.setAttribute("hairT", new THREE.Float32BufferAttribute(T, 3)); gg.setIndex(I); gg.computeVertexNormals(); return gg.toNonIndexed(); };
+  const fall = (p0, dir, len, n, sway) => { const pts = [p0]; let p = p0.slice(), d = v3.norm(dir); for (let s = 1; s <= n; s++) { d = v3.norm([d[0] + sway * 0.02, d[1] - 0.22, d[2] - 0.02]); p = v3.add(p, v3.mul(d, len / n)); if (p[2] > -0.11 && p[1] < 1.6) p[2] = -0.11 - (1.6 - p[1]) * 0.2; pts.push(p.slice()); } return pts; };
+  if (S.tail) { parts.push(tube(fall(S.tail, [0, 0.2, -1], 0.26, 14, 0), 0.026, 0.012)); const b = new THREE.TorusGeometry(0.02, 0.006, 8, 16); b.translate(S.tail[0] - origin[0], S.tail[1] - origin[1], S.tail[2] - 0.012 - origin[2]); parts.push(withHairT(b.toNonIndexed())); }
+  if (S.tails) for (const s of [-1, 1]) parts.push(tube(fall([s * 0.088, 1.665, -0.075], [s * 0.6, 0.1, -0.5], 0.2, 12, s), 0.02, 0.01));
+  if (S.braids) for (const s of [-1, 1]) parts.push(tube(fall([s * 0.07, 1.64, -0.1], [s * 0.3, -0.3, -0.5], 0.3, 18, s * 0.3), 0.016, 0.01, true));
+  if (S.bun) { const [bx, by, bz, br] = S.bun, sg = new THREE.SphereGeometry(br, 28, 20), sp = sg.attributes.position; for (let v = 0; v < sp.count; v++) { const x = sp.getX(v), y = sp.getY(v), z = sp.getZ(v), k = 1 + 0.12 * Math.sin(Math.atan2(z, x) * 3 + y * 40) * Math.sqrt(Math.max(0, 1 - (y / br) ** 2)); sp.setXYZ(v, x * k + bx - origin[0], y * 0.85 + by - origin[1], z * k + bz - origin[2]); } sg.computeVertexNormals(); parts.push(withHairT(sg.toNonIndexed())); }
+  if (parts.length === 1) return g;
+  const out = mergeGeometries(parts.map((x) => (x.index ? x.toNonIndexed() : x)), false); return out;
+}
+function withHairT(g) { const p = g.attributes.position, T = new Float32Array(p.count * 3); for (let i = 0; i < p.count; i++) T[i * 3 + 1] = -1; g.setAttribute("hairT", new THREE.BufferAttribute(T, 3)); if (!g.attributes.normal) g.computeVertexNormals(); return g; }
+
 // ---------------------------------------------------------------- skeleton + skinned part geometry
 function makeSkeleton(J) {
   const bones = BONES.map(([name]) => { const b = new THREE.Bone(); b.name = name; return b; });
@@ -991,7 +1081,7 @@ export function buildBody(sim, opts = {}) {
   if (style === "buzz") { const b = scalpShell(J.head, 0.0012, hc, 0.25); b.name = "Hair"; B.head.add(b); }
   else if (style !== "bald") {
     const under = scalpShell(J.head, 0.0015, darken(hc, 0.8), 0.25); under.name = "HairBase"; B.head.add(under);
-    const h = new THREE.Mesh(cardsGeometry(hairStrands(style, LODS[lod].hair, seed), J.head), hairMat(hc, hi)); h.name = "Hair"; h.castShadow = true; B.head.add(h);
+    const hg = hairVolume(style, seed, J.head), h = new THREE.Mesh(hg || cardsGeometry(hairStrands(style, LODS[lod].hair, seed), J.head), hg ? hairSolidMat(hc, hi) : hairMat(hc, hi)); h.name = "Hair"; h.castShadow = true; B.head.add(h);
   }
   const bm = new THREE.Mesh(cardsGeometry(browCards(sim.brows || "flat", seed + 1), J.head), hairMat(sim.brows === "thick" ? hc : darken(hc, 0.6), hi)); bm.name = "Brows"; B.head.add(bm);
   for (const kind of ["beard", "mustache"]) if (A.has(kind)) {
@@ -1030,6 +1120,12 @@ const _q = new THREE.Quaternion(), _v = new THREE.Vector3(), IDQ = new THREE.Qua
 export function animate(root, pose, dt, reduce, o = {}) {
   const body = root.userData.body; if (!body) return; const S = root.userData.anim, B = body.bones, J = body.base.J;
   S.t += dt; const P = poseAt(pose, S.t, { reduce, gripL: o.gripL, gripR: o.gripR }), k = o.snap ? 1 : 1 - Math.exp(-dt * 9);
+  if (pose === "sit" && o.seatY != null) { // seat the hips on the cushion: pelvis ~0.13 m above the seat, feet reach the floor
+    const sc = root.scale.y || 1, pel = (o.seatY + 0.13 - root.position.y) / sc; P.py = pel - J.pelvis[1];
+    const knee = pel - (J.pelvis[1] - J.thighL[1]), reach = J.shinL[1] - J.footL[1] + 0.075, drop = knee - reach; // knee height vs shin + foot
+    if (drop < 0) { const a = Math.min(0.6, Math.acos(Math.max(0.2, Math.min(1, knee / reach)))); P.q.shinL = qe(1.5 - a, 0, 0); P.q.shinR = qe(1.5 - a, 0, 0); P.q.thighL = qe(-1.52 - a * 0.5, 0, 0.06); P.q.thighR = qe(-1.52 - a * 0.5, 0, -0.06); }
+    else if (drop > 0.02) { const a = Math.min(0.5, drop * 1.6); P.q.thighL = qe(-1.52 + a, 0, 0.06); P.q.thighR = qe(-1.52 + a, 0, -0.06); P.q.shinL = qe(1.5 - a * 0.6, 0, 0); P.q.shinR = qe(1.5 - a * 0.6, 0, 0); }
+  }
   for (const name in B) {
     if (/^(eye|lid)[LR]$|^jaw$|^sway$/.test(name)) continue;
     B[name].quaternion.slerp(P.q[name] || IDQ, k);
