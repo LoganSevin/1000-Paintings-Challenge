@@ -26,17 +26,6 @@
   }
   function hidden() { try { return localStorage.getItem(KEY) === "1"; } catch (e) { return false; } }
 
-  function carShape(color) {
-    var g = el("g", { "class": "tcpip-car" });
-    el("rect", { x: -6, y: -2.6, width: 12, height: 4, rx: 1.6, fill: color }, g);
-    el("path", { d: "M-3.2 -2.6 L-1.8 -5 H2.2 L3.6 -2.6 Z", fill: color, opacity: 0.9 }, g);
-    el("path", { d: "M-1.4 -4.4 H1.9 L2.8 -2.8 H-2.3 Z", fill: "#1c2a33", opacity: 0.75 }, g);
-    el("circle", { cx: -3.4, cy: 1.5, r: 1.35, fill: "#141414" }, g);
-    el("circle", { cx: 3.4, cy: 1.5, r: 1.35, fill: "#141414" }, g);
-    el("circle", { cx: 5.6, cy: -1, r: 0.7, fill: "#fff6c8" }, g);
-    return g;
-  }
-
   function build() {
     var w = Math.max(200, Math.round(nav.getBoundingClientRect().width));
     wrap.style.width = w + "px";
@@ -166,8 +155,10 @@
       var mainHeads = [head(x - BOX - WALK / 2, 1, 4, 1), head(x + BOX + WALK / 2, 1, 4, -1)];
       // Cross-street head hangs over the mouth of the vanishing road, smaller and higher for depth.
       var crossHeads = [head(x, 0.75, 2, 0)];
-      lights.push({ x: x, s: x + 30, main: mainHeads, cross: crossHeads, glow: glow, state: "", cstate: "" });
+      var vpL = [x + (VPX - x) * Math.min(0.3, 90 / Math.max(1, Math.abs(VPX - x))), VPY];
+      lights.push({ x: x, s: x + 30, vp: vpL, inB: [x - HALF / 2, BASE], outB: [x + HALF / 2, BASE], main: mainHeads, cross: crossHeads, glow: glow, state: "", cstate: "", spawnT: prev[i] ? prev[i].spawnT : null });
     });
+    G = { roadY: ROAD_Y, base: BASE, FAR: FAR, tz: tz, lerp: lerp };
     paintLights();
     roadPath = el("path", { d: d, fill: "none", stroke: "none" }, svg);
     carLayer = el("g", { "class": "tcpip-cars" }, svg);
@@ -176,7 +167,8 @@
     wrap.style.marginBottom = "0px";
     var gap = nav.getBoundingClientRect().top - wrap.getBoundingClientRect().bottom;
     wrap.style.marginBottom = (-gap - 1) + "px";
-    cars.forEach(function (c) { carLayer.appendChild(c.g); });
+    cars = cars.filter(function (c) { if (c.mode === "main") return true; c.g.remove(); return false; });
+    cars.forEach(function (c) { carLayer.appendChild(c.g); placeMain(c); });
   }
 
   function phase() {
@@ -201,64 +193,208 @@
       L.glow.setAttribute("fill", LAMP[p[0]]);
     });
   }
-  // How far this car may travel (along its direction) before stopping.
+  // ---- Cars ---------------------------------------------------------------
+  // Modes: "main" (on the flat road), "in" (coming down a cross street toward the road),
+  // "arcIn" (turning from the cross street onto the road), "arcOut" (turning off the road
+  // into a cross street), "out" (driving away toward the vanishing point).
+  var carId = 0, G = null, Z_SPAWN = 3.3, Z_STOP = 0.26, ZGAP = 0.55, MGAP = 13;
+
+  function carShape(color) {
+    var g = el("g", { "class": "tcpip-car" });
+    var side = el("g", {}, g);
+    el("rect", { x: -6, y: -2.6, width: 12, height: 4, rx: 1.6, fill: color }, side);
+    el("path", { d: "M-3.2 -2.6 L-1.8 -5 H2.2 L3.6 -2.6 Z", fill: color, opacity: 0.9 }, side);
+    el("path", { d: "M-1.4 -4.4 H1.9 L2.8 -2.8 H-2.3 Z", fill: "#1c2a33", opacity: 0.75 }, side);
+    el("circle", { cx: -3.4, cy: 1.5, r: 1.35, fill: "#141414" }, side);
+    el("circle", { cx: 3.4, cy: 1.5, r: 1.35, fill: "#141414" }, side);
+    el("circle", { cx: 5.6, cy: -1, r: 0.7, fill: "#fff6c8" }, side);
+    // Front view (coming toward you) and rear view (driving away).
+    function endView(lamp) {
+      var v = el("g", {}, g);
+      el("rect", { x: -3.6, y: 1.2, width: 1.6, height: 1.5, rx: 0.4, fill: "#141414" }, v);
+      el("rect", { x: 2, y: 1.2, width: 1.6, height: 1.5, rx: 0.4, fill: "#141414" }, v);
+      el("rect", { x: -4, y: -2.6, width: 8, height: 4.2, rx: 1.3, fill: color }, v);
+      el("path", { d: "M-3 -2.6 L-2.2 -5 H2.2 L3 -2.6 Z", fill: color, opacity: 0.9 }, v);
+      el("path", { d: "M-2.3 -2.8 L-1.8 -4.5 H1.8 L2.3 -2.8 Z", fill: "#1c2a33", opacity: 0.8 }, v);
+      el("circle", { cx: -2.7, cy: -0.6, r: 0.7, fill: lamp }, v);
+      el("circle", { cx: 2.7, cy: -0.6, r: 0.7, fill: lamp }, v);
+      return v;
+    }
+    g._views = { side: side, front: endView("#fff6c8"), rear: endView("#ff4a3d") };
+    return g;
+  }
+  function show(c, view, x, y, sc, mirror, op) {
+    var V = c.g._views;
+    if (c.view !== view) {
+      for (var k in V) V[k].setAttribute("display", k === view ? "inline" : "none");
+      c.view = view;
+    }
+    c.x = x; c.y = y; c.sc = sc;
+    c.g.setAttribute("transform", "translate(" + x.toFixed(1) + " " + y.toFixed(1) + ") scale(" + (mirror ? -sc : sc).toFixed(3) + " " + sc.toFixed(3) + ")");
+    c.g.setAttribute("opacity", op == null ? 1 : op.toFixed(2));
+  }
+  function laneY(dir) { return G.roadY + (dir > 0 ? 2.2 : -2.2); }
+  function crossPt(L, out, z) { return G.lerp(out ? L.outB : L.inB, L.vp, G.tz(z)); }
+  function crossScale(z) { return 0.8 * (1 - G.tz(z)); }
+  function fade(z) { return Math.max(0, Math.min(1, (G.FAR - G.tz(z)) / 0.12)); }
+  function qpt(a, b, c, p) { var u = 1 - p; return [u * u * a[0] + 2 * u * p * b[0] + p * p * c[0], u * u * a[1] + 2 * u * p * b[1] + p * p * c[1]]; }
+  function qlen(a, b, c) { var l = 0, pr = a; for (var i = 1; i <= 12; i++) { var q = qpt(a, b, c, i / 12); l += Math.hypot(q[0] - pr[0], q[1] - pr[1]); pr = q; } return l; }
+  function stopS(L, dir) { return L.s - dir * (BOX + WALK + 7); }
+  // Seconds left in the current main-road (or cross-street) go phase, green + yellow.
+  function remaining(main) {
+    if (reduce && reduce.matches) return main ? 99 : 0;
+    var t = clock % CYCLE, mainEnd = PHASES[0][2] + PHASES[1][2];
+    return main ? (t < mainEnd ? mainEnd - t : 0) : (t >= mainEnd ? CYCLE - t : 0);
+  }
+  // Which main lane a car occupies right now (for queueing), or 0.
+  function laneOf(c) {
+    if (c.mode === "main") return c.dir;
+    if (c.mode === "arcOut" && c.p < 0.6) return c.fromDir;
+    if (c.mode === "arcIn" && c.p > 0.35) return c.toDir;
+    return 0;
+  }
+  function sOf(c) { return c.mode === "main" ? c.s : c.x + 30; }
+
   function room(c) {
-    var lim = Infinity, GAP = 13;
+    var lim = Infinity;
     for (var i = 0; i < cars.length; i++) {
       var o = cars[i];
-      if (o === c || o.dir !== c.dir) continue;
-      var ahead = (o.s - c.s) * c.dir;
-      if (ahead > 0) lim = Math.min(lim, ahead - GAP);
+      if (o === c || laneOf(o) !== c.dir) continue;
+      var ahead = (sOf(o) - c.s) * c.dir;
+      if (ahead > 0) lim = Math.min(lim, ahead - MGAP);
     }
     for (var j = 0; j < lights.length; j++) {
       var L = lights[j];
-      if (L.state === "green") continue;
-      var stopAt = (L.s - c.dir * (BOX + WALK + 7) - c.s) * c.dir; // stop line before the crosswalk
-      // Yellow: only stop if there is room to; red: always stop before the line.
-      if (stopAt > -0.5 && (L.state === "red" || stopAt > 10)) lim = Math.min(lim, Math.max(0, stopAt));
+      var stopAt = (stopS(L, c.dir) - c.s) * c.dir;
+      if (stopAt < -0.5) continue; // already past this stop line
+      if (c.turn === j) { lim = Math.min(lim, Math.max(0, stopAt)); continue; } // turning here: wait at the line
+      // Go only if the car can be through the whole box before the main phase ends.
+      var through = (stopAt + 2 * (BOX + WALK) + 16) / Math.max(12, c.v * 0.75);
+      var blocked = L.state === "red" || through > remaining(true) || (L.busy && L.busy.crossesDir === c.dir);
+      if (blocked) lim = Math.min(lim, Math.max(0, stopAt));
     }
     return lim;
+  }
+  function laneClear(dir, x0, x1) {
+    return !cars.some(function (o) { if (laneOf(o) !== dir) return false; var x = sOf(o) - 30; return x >= x0 && x <= x1; });
   }
 
   function spawn(dir, at) {
     var g = carShape(COLORS[(Math.random() * COLORS.length) | 0]);
     carLayer.appendChild(g);
-    var c = { g: g, dir: dir, s: at != null ? at : (dir > 0 ? 0 : len), v: 28 + Math.random() * 26 };
+    var c = { id: ++carId, g: g, mode: "main", dir: dir, s: at != null ? at : (dir > 0 ? 0 : len), v: 28 + Math.random() * 26, turn: -1 };
+    // About a third of main-road cars turn off at the next intersection ahead.
+    if (!(reduce && reduce.matches) && Math.random() < 0.33) {
+      for (var k = 0; k < lights.length; k++) {
+        var j = dir > 0 ? k : lights.length - 1 - k;
+        if ((stopS(lights[j], dir) - c.s) * dir > 20) { c.turn = j; break; }
+      }
+    }
     cars.push(c);
-    place(c);
+    placeMain(c);
+    return c;
+  }
+  function spawnCross(j) {
+    var g = carShape(COLORS[(Math.random() * COLORS.length) | 0]);
+    carLayer.insertBefore(g, carLayer.firstChild); // far cars draw behind near ones
+    var c = { id: ++carId, g: g, mode: "in", L: j, z: Z_SPAWN, v: 0.45 + Math.random() * 0.2 };
+    cars.push(c);
+    placeCross(c);
+  }
+  function placeMain(c) { show(c, "side", c.s - 30, laneY(c.dir), 0.8, c.dir < 0, 1); }
+  function placeCross(c) {
+    var L = lights[c.L], out = c.mode === "out", p = crossPt(L, out, c.z);
+    show(c, out ? "rear" : "front", p[0], p[1], crossScale(c.z), false, fade(c.z));
+  }
+  function placeArc(c) {
+    var p = qpt(c.a, c.b, c.e, c.p), q = qpt(c.a, c.b, c.e, Math.min(1, c.p + 0.04)), r = qpt(c.a, c.b, c.e, Math.max(0, c.p - 0.04));
+    var dx = q[0] - r[0], dy = q[1] - r[1], sc = c.s0 + (c.s1 - c.s0) * c.p;
+    if (Math.abs(dy) > Math.abs(dx) * 1.2) show(c, dy > 0 ? "front" : "rear", p[0], p[1], sc, false, 1);
+    else show(c, "side", p[0], p[1], sc, dx < 0, 1);
+  }
+  function startArc(c, L, a, b, e, s0, s1, next) {
+    c.a = a; c.b = b; c.e = e; c.p = 0; c.s0 = s0; c.s1 = s1; c.alen = qlen(a, b, e);
+    c.av = 26 + Math.random() * 6; c.next = next; c.Lref = L;
   }
 
-  function place(c) {
-    var s = Math.max(0, Math.min(len, c.s));
-    var p = roadPath.getPointAtLength(s);
-    var q = roadPath.getPointAtLength(Math.min(len, s + 1));
-    var p0 = roadPath.getPointAtLength(Math.max(0, s - 1));
-    var ang = Math.atan2(q.y - p0.y, q.x - p0.x);
-    var off = c.dir > 0 ? 2.2 : -2.2; // two lanes, normal offset
-    var x = p.x - Math.sin(ang) * off, y = p.y + Math.cos(ang) * off;
-    var deg = ang * 180 / Math.PI; // leftward cars are mirrored, never rotated
-    c.g.setAttribute("transform", "translate(" + x.toFixed(1) + " " + y.toFixed(1) + ") rotate(" + deg.toFixed(1) + ") scale(" + (c.dir < 0 ? "-0.8 0.8" : "0.8") + ")");
+  // A main car waiting at its turn line: may it turn into the cross street now?
+  function tryTurnOff(c) {
+    var L = lights[c.turn];
+    if (L.state !== "green" || remaining(true) < 2.2 || L.busy) return;
+    if (cars.some(function (o) { return (o.mode === "out" && o.L === c.turn && o.z < Z_STOP + ZGAP) || (o.mode === "arcOut" && o.Lref === L); })) return;
+    // A left turn (rightbound car) crosses the leftbound lane: wait for a real gap.
+    if (c.dir > 0 && !laneClear(-1, L.x - 30, L.x + 75)) return;
+    var a = [c.s - 30, laneY(c.dir)], e = crossPt(L, true, Z_STOP), b = [e[0], a[1]];
+    c.mode = "arcOut"; c.fromDir = c.dir; c.Lj = c.turn;
+    L.busy = { car: c, crossesDir: c.dir > 0 ? -1 : 0 };
+    startArc(c, L, a, b, e, 0.8, crossScale(Z_STOP), "out");
+  }
+  // A cross-street car at its stop line: may it turn onto the main road now?
+  function tryTurnOn(c) {
+    var L = lights[c.L];
+    if (L.cstate === "red" || remaining(false) < 1.6 || L.busy) return;
+    var toDir = Math.random() < 0.5 ? 1 : -1;
+    if (c.pref) toDir = c.pref; else c.pref = toDir;
+    var ex = L.x + toDir * 30;
+    // Merge only into a gap in the target lane.
+    if (!laneClear(toDir, ex - 18, ex + 18) || !laneClear(toDir, Math.min(ex, ex + toDir * 40), Math.max(ex, ex + toDir * 40))) return;
+    var a = crossPt(L, false, Z_STOP), e = [ex, laneY(toDir)], b = [a[0], e[1]];
+    c.mode = "arcIn"; c.toDir = toDir; c.Lj = c.L;
+    L.busy = { car: c, crossesDir: toDir > 0 ? -1 : 0 };
+    carLayer.appendChild(c.g);
+    startArc(c, L, a, b, e, crossScale(Z_STOP), 0.8, "main");
   }
 
   function tick(t) {
     raf = requestAnimationFrame(tick);
     var dt = Math.min(0.1, (t - (last || t)) / 1000); last = t;
-    spawnT -= dt;
-    var target = Math.max(3, Math.round(len / 110));
     clock += dt; paintLights();
-    var clear = function (dir) { return !cars.some(function (o) { return o.dir === dir && (dir > 0 ? o.s < 16 : o.s > len - 16); }); };
+    spawnT -= dt;
+    var mains = cars.filter(function (c) { return c.mode === "main"; }).length;
+    var target = Math.max(3, Math.round(len / 120));
     var nd = Math.random() < 0.5 ? 1 : -1;
-    if (spawnT <= 0 && cars.length < target && clear(nd)) { spawn(nd); spawnT = 0.6 + Math.random() * 1.4; }
+    if (spawnT <= 0 && mains < target && laneClear(nd, nd > 0 ? -40 : len - 50, nd > 0 ? -10 : len - 10 + 30)) { spawn(nd); spawnT = 0.8 + Math.random() * 1.6; }
+    // Cross-street arrivals: modest, at most two queued per street.
+    lights.forEach(function (L, j) {
+      L.spawnT = (L.spawnT == null ? 1 + j * 1.7 : L.spawnT) - dt;
+      if (L.spawnT > 0) return;
+      L.spawnT = 3.5 + Math.random() * 4;
+      var ins = cars.filter(function (c) { return c.mode === "in" && c.L === j; });
+      if (ins.length < 2 && !ins.some(function (c) { return c.z > Z_SPAWN - ZGAP; })) spawnCross(j);
+    });
     for (var i = cars.length - 1; i >= 0; i--) {
       var c = cars[i];
-      var r = room(c);
-      // Ease to a stop: speed scales down within ~20px of the limit.
-      var want = r === Infinity ? c.v : Math.min(c.v, Math.max(0, r) * 2.2);
-      c.cur = (c.cur == null ? c.v : c.cur) + (want - (c.cur == null ? c.v : c.cur)) * Math.min(1, dt * 6);
-      var step = Math.min(c.cur * dt, Math.max(0, r));
-      c.s += c.dir * step;
-      if (c.s < -5 || c.s > len + 5) { c.g.remove(); cars.splice(i, 1); continue; }
-      place(c);
+      if (c.mode === "main") {
+        var r = room(c);
+        var want = r === Infinity ? c.v : Math.min(c.v, Math.max(0, r) * 2.2);
+        c.cur = (c.cur == null ? c.v : c.cur) + (want - (c.cur == null ? c.v : c.cur)) * Math.min(1, dt * 6);
+        c.s += c.dir * Math.min(c.cur * dt, Math.max(0, r));
+        if (c.turn >= 0 && Math.abs(c.s - stopS(lights[c.turn], c.dir)) < 0.6) tryTurnOff(c);
+        if (c.mode === "main") {
+          if (c.s < -45 || c.s > len + 45) { c.g.remove(); cars.splice(i, 1); continue; }
+          placeMain(c);
+        }
+      } else if (c.mode === "in") {
+        var lim = c.z - Z_STOP;
+        cars.forEach(function (o) { if (o !== c && o.mode === "in" && o.L === c.L && o.z < c.z) lim = Math.min(lim, c.z - o.z - ZGAP); });
+        c.z -= Math.max(0, Math.min(c.v * dt, lim));
+        if (c.z - Z_STOP < 0.01) tryTurnOn(c);
+        if (c.mode === "in") placeCross(c);
+      } else if (c.mode === "out") {
+        var limo = Infinity;
+        cars.forEach(function (o) { if (o !== c && o.mode === "out" && o.L === c.L && o.z > c.z) limo = Math.min(limo, o.z - c.z - ZGAP); });
+        c.z += Math.max(0, Math.min(c.v * dt, limo));
+        if (c.z >= Z_SPAWN) { c.g.remove(); cars.splice(i, 1); continue; }
+        placeCross(c);
+      } else {
+        c.p = Math.min(1, c.p + c.av * dt / Math.max(1, c.alen));
+        placeArc(c);
+        if (c.p >= 1) {
+          if (c.Lref.busy && c.Lref.busy.car === c) c.Lref.busy = null;
+          if (c.next === "out") { c.mode = "out"; c.L = c.Lj; c.z = Z_STOP; c.v = 0.5 + Math.random() * 0.15; carLayer.insertBefore(c.g, carLayer.firstChild); placeCross(c); }
+          else { c.mode = "main"; c.dir = c.toDir; c.s = c.e[0] + 30; c.v = 28 + Math.random() * 26; c.cur = c.av; c.turn = -1; placeMain(c); }
+        }
+      }
     }
   }
 
@@ -278,6 +414,7 @@
   function stop() {
     if (raf) cancelAnimationFrame(raf); raf = 0;
     cars.forEach(function (c) { c.g.remove(); }); cars = [];
+    lights.forEach(function (L) { L.busy = null; });
   }
 
   function setHidden(h) {
@@ -326,7 +463,19 @@
     }
   }
 
-  window.TcpIp = { onShow: function () {}, setHidden: setHidden };
+  // Read-only snapshot for tests: which cars are turning, and whether a conflicting green has a car in the box.
+  function debug() {
+    var ids = function (m) { return cars.filter(function (c) { return c.mode === m; }).map(function (c) { return c.id; }); };
+    var conflict = 0;
+    lights.forEach(function (L) {
+      var inBox = function (c) { var x = c.mode === "main" ? c.s - 30 : c.x; return Math.abs(x - L.x) < BOX + WALK - 1; };
+      if (L.state === "green" && cars.some(function (c) { return c.mode === "arcIn" && c.Lref === L; })) conflict++;
+      if (L.cstate === "green" && cars.some(function (c) { return c.mode === "main" && inBox(c); })) conflict++;
+    });
+    var arcs = cars.filter(function (c) { return c.mode === "arcIn" || c.mode === "arcOut"; }).map(function (c) { var r = c.g.getBoundingClientRect(); return { p: c.p, cx: r.left + r.width / 2 }; });
+    return { arcIn: ids("arcIn"), arcOut: ids("arcOut"), arcs: arcs, conflict: conflict };
+  }
+  window.TcpIp = { onShow: function () {}, setHidden: setHidden, _debug: debug };
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
   else init();
 })();
