@@ -8,6 +8,7 @@ import { jsonResponse, corsPreflight } from "./_lib.mjs";
 //   GET  ?op=lot&sid=<hostSid> | ?op=lot&lot=<lotId>     read a lot (read-only)
 //   POST {op:"pos", sid, lot, name, sim, x, z, rot, pose, say?}  heartbeat on a lot
 //   GET  ?op=pos&lot=<lotId>                             everyone on that lot
+//   GET  ?op=list                                        recently shared lots (neighborhood)
 //
 // `key` is a private random string kept in the owner's browser. The public lot
 // id is a hash of it, so nobody else can overwrite a lot (visitors are read-only).
@@ -31,6 +32,7 @@ function noStore(body, status = 200) {
   headers.set("Cache-Control", "no-store, no-cache, must-revalidate");
   return new Response(res.body, { status: res.status, headers });
 }
+const SURF_RE = /^[a-z]{2,12}:\d{1,9}:#[0-9a-fA-F]{3,6}$/;
 const COLOR_RE = /^#[0-9a-fA-F]{3,8}$/;
 const color = (c, d) => (COLOR_RE.test(String(c || "")) ? String(c) : d);
 const num = (v, lo, hi, d) => { const n = Number(v); return Number.isFinite(n) ? Math.min(hi, Math.max(lo, n)) : d; };
@@ -43,13 +45,19 @@ function cleanText(raw, max) {
     .trim()
     .slice(0, max);
 }
+const TOK_RE = /^[a-z]{2,12}$/;
+const tok = (v, d) => (TOK_RE.test(String(v || "")) ? String(v) : d);
 function cleanSim(s) {
   s = s && typeof s === "object" ? s : {};
   return {
     name: cleanText(s.name, 24) || "Sim",
     skin: color(s.skin, "#e8b48f"), hair: color(s.hair, "#1b1410"), top: color(s.top, "#c9a227"), bottom: color(s.bottom, "#2b2724"),
-    hairStyle: ["short", "long", "bun", "bald"].includes(s.hairStyle) ? s.hairStyle : "short",
+    hairStyle: tok(s.hairStyle, "short"),
     height: num(s.height, 0.8, 1.2, 1), build: num(s.build, 0.75, 1.4, 1),
+    // v2 procedural look: short lowercase tokens + colors only
+    outfit: tok(s.outfit, "tee"), bottomStyle: tok(s.bottomStyle, "pants"), pattern: tok(s.pattern, "solid"), pat2: color(s.pat2, "#e8e0d2"),
+    shoes: color(s.shoes, "#1d1a18"), eyes: color(s.eyes, "#3a2a1a"), brows: tok(s.brows, "flat"), mouth: tok(s.mouth, "smile"),
+    accColor: color(s.accColor, "#c9a227"), acc: (Array.isArray(s.acc) ? s.acc : []).filter((a) => TOK_RE.test(String(a))).slice(0, 6),
   };
 }
 function cleanLot(l) {
@@ -59,13 +67,14 @@ function cleanLot(l) {
     const m = /^([hv]):(\d{1,2}):(\d{1,2})$/.exec(k);
     if (!m || +m[2] > N || +m[3] > N || !w) continue;
     walls[k] = { t: ["wall", "door", "window"].includes(w.t) ? w.t : "wall", c: color(w.c, "#e8e0d2") };
+    if (/^[a-z]{2,12}:\d{1,9}$/.test(String(w.p || ""))) walls[k].p = String(w.p);
   }
   for (const [k, c] of Object.entries(l.floors || {}).slice(0, N * N)) {
     const m = /^(\d{1,2}),(\d{1,2})$/.exec(k);
-    if (m && +m[1] < N && +m[2] < N) floors[k] = color(c, "#b89970");
+    if (m && +m[1] < N && +m[2] < N) floors[k] = SURF_RE.test(String(c || "")) ? String(c) : color(c, "#b89970");
   }
   for (const o of (Array.isArray(l.objects) ? l.objects : []).slice(0, 400)) {
-    if (!o || !/^[a-z]{2,10}$/.test(String(o.type))) continue; // custom imports stay local
+    if (!o || !(/^[a-z]{2,10}$/.test(String(o.type)) || /^gen:[a-z]{2,14}:\d{1,10}$/.test(String(o.type)))) continue; // custom imports stay local
     objects.push({ id: cleanText(o.id, 20) || "o", type: o.type, x: num(o.x, 0, N - 1, 0) | 0, z: num(o.z, 0, N - 1, 0) | 0, rot: num(o.rot, 0, 3, 0) | 0, on: o.on !== false });
   }
   return { walls, floors, objects };
@@ -100,13 +109,25 @@ export default async function handler(request) {
   if (request.method === "GET") {
     const op = url.searchParams.get("op");
     let lot = String(url.searchParams.get("lot") || "");
-    if (!LOT_RE.test(lot)) {
+    if (op !== "list" && !LOT_RE.test(lot)) {
       const sid = String(url.searchParams.get("sid") || "");
       if (!SID_RE.test(sid)) return noStore({ ok: false, error: "lot or sid required" }, 400);
       const idx = await readJSON(store, "sid-index", {});
       const hit = idx[sid];
       if (!hit || now - hit.ts > SID_TTL_MS) return noStore({ ok: false, error: "That player hasn't shared a lot yet" }, 404);
       lot = hit.lot;
+    }
+    if (op === "list") {
+      // recently shared lots for the streamed neighborhood (no custom meshes)
+      const idx = await readJSON(store, "sid-index", {});
+      const seen = new Set(), rows = [];
+      for (const [s, v] of Object.entries(idx).sort((a, b) => (b[1].ts || 0) - (a[1].ts || 0))) {
+        if (!v || now - v.ts > SID_TTL_MS || seen.has(v.lot) || !LOT_RE.test(v.lot)) continue;
+        seen.add(v.lot); if (rows.length >= 12) break;
+        const d = await readJSON(store, "lot-" + v.lot, null);
+        if (d) rows.push({ lotId: v.lot, sid: s, name: d.name, sim: d.sim, lot: d.lot, updatedAt: d.updatedAt });
+      }
+      return noStore({ ok: true, now, lots: rows });
     }
     if (op === "pos") return noStore({ ok: true, lot, now, people: prunePos(await readJSON(store, "pos-" + lot, {}), now) });
     const data = await readJSON(store, "lot-" + lot, null);
