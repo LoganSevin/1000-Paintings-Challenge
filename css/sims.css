@@ -93,3 +93,40 @@
 #panel-sims .sims-grid2 .sims-label .sims-input { margin-top: 4px; }
 #panel-sims .sims-acc { display: flex; flex-wrap: wrap; gap: 4px; }
 #panel-sims .sims-acc button { padding: 4px 8px; min-height: 28px; font-size: .72rem; border-radius: 999px; }
+
+/* ---- action menu (right-click / long-press) ---- */
+.sims-pie { position: absolute; z-index: 30; width: 0; height: 0; pointer-events: none; }
+.sims-pie-title { position: absolute; transform: translate(-50%, -50%); background: rgba(20, 18, 16, 0.92); color: #f4e6b8; font: 600 12px/1.2 system-ui, sans-serif; padding: 6px 10px; border-radius: 999px; white-space: nowrap; pointer-events: auto; border: 1px solid #c9a227; }
+.sims-pie-btn { position: absolute; transform: translate(-50%, -50%); pointer-events: auto; background: #fbf7ec; color: #1e1a14; border: 1px solid #c9a227; border-radius: 999px; padding: 7px 12px; font: 600 12.5px/1.15 system-ui, sans-serif; white-space: nowrap; box-shadow: 0 3px 10px rgba(0, 0, 0, 0.35); cursor: pointer; min-height: 32px; }
+.sims-pie-btn:hover, .sims-pie-btn:focus-visible { background: #c9a227; color: #14110c; outline: none; }
+.sims-pie-btn:disabled { opacity: 0.5; cursor: default; }
+.sims-pie.is-list { width: auto; height: auto; transform: translate(-50%, -50%); display: flex; flex-direction: column; gap: 4px; background: rgba(20, 18, 16, 0.92); padding: 8px; border-radius: 12px; max-height: 70%; overflow: auto; pointer-events: auto; border: 1px solid #c9a227; }
+.sims-pie.is-list .sims-pie-btn, .sims-pie.is-list .sims-pie-title { position: static; transform: none; text-align: left; }
+@media (prefers-reduced-motion: no-preference) { .sims-pie-btn { animation: simsPop 0.14s ease-out both; } @keyframes simsPop { from { opacity: 0; scale: 0.6; } } }
+/* ---- fishing ---- */
+.sims-fishgame { position: absolute; left: 50%; bottom: 16px; transform: translateX(-50%); z-index: 25; background: rgba(20, 18, 16, 0.93); color: #f4efe2; padding: 10px 14px; border-radius: 12px; width: min(340px, 90%); font: 13px system-ui, sans-serif; border: 1px solid #c9a227; }
+.sims-fishgame p { margin: 0 0 6px; }
+.sims-fishbar { position: relative; height: 18px; background: #2b3a4a; border-radius: 9px; margin: 6px 0; overflow: hidden; }
+.sims-fishbar i { position: absolute; top: 0; bottom: 0; background: #4caf6a; }
+.sims-fishbar b { position: absolute; top: -2px; width: 4px; height: 22px; background: #fff; margin-left: -2px; }
+.sims-fishgame button { background: #c9a227; color: #14110c; border: 0; border-radius: 8px; padding: 8px 14px; font-weight: 700; min-height: 36px; }
+.sims-fishcard, .sims-fishlog { font-size: 12.5px; }
+/* ---- life panel ---- */
+.sims-life { border: 1px solid rgba(201, 162, 39, 0.5); border-radius: 10px; padding: 8px; margin: 8px 0; }
+.sims-life-head { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; }
+.sims-life-head button[aria-pressed="true"] { background: #c9a227; color: #14110c; }
+.sims-life-body { margin-top: 6px; max-height: 280px; overflow: auto; }
+.sims-item-row { display: flex; gap: 6px; align-items: center; padding: 3px 0; border-bottom: 1px dashed rgba(127, 127, 127, 0.25); }
+.sims-item-row .sims-iname { flex: 1; }
+.sims-ico { width: 1.4em; text-align: center; }
+.sims-coins { margin-left: auto; font-weight: 700; color: #c9a227; }
+.sims-trade { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.sims-trade-side { border: 1px solid rgba(127, 127, 127, 0.3); border-radius: 8px; padding: 6px; }
+.sims-err { color: #d04a3a; }
+.sims-rt { display: inline-flex; gap: 4px; align-items: center; font-size: 12px; }
+/* ---- keyboard mode + help ---- */
+.sims-cammode { font: 600 11.5px system-ui, sans-serif; background: rgba(20, 18, 16, 0.75); color: #f4e6b8; border: 1px solid #c9a227; border-radius: 999px; padding: 3px 9px; cursor: pointer; }
+.sims-keyhelp { position: absolute; right: 10px; top: 46px; z-index: 28; background: rgba(20, 18, 16, 0.94); color: #f4efe2; padding: 10px 14px; border-radius: 12px; font: 13px/1.5 system-ui, sans-serif; max-width: min(360px, 92%); border: 1px solid #c9a227; }
+.sims-keyhelp ul { margin: 6px 0 0; padding-left: 16px; }
+.sims-keyhelp kbd { display: inline-block; min-width: 1.4em; text-align: center; padding: 0 4px; margin-right: 2px; border: 1px solid #8a7a50; border-radius: 4px; font: 11px ui-monospace, monospace; background: #2a2620; }
+@media (pointer: coarse) { .sims-cammode { display: none; } }
