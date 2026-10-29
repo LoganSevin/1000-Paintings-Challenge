@@ -6,6 +6,7 @@
 // on open land, never on sidewalks, roads, paths, driveways, water or buildings.
 // Cars drive the grid in lanes (over bridges and through tunnels); boats cruise the waterways.
 // Shared online lots are placed into nearby house chunks with a name sign you can tap to visit.
+import { generatePlan } from "./sims-plan.js?v=1";
 import * as T from "three";
 import { mergeGeometries } from "three/addons/utils/BufferGeometryUtils.js";
 import * as G from "./sims-gen.js?v=3";
@@ -84,6 +85,12 @@ export function tunnelAt(i, j) {
 const BRIDGES = ["stone", "girder", "truss", "cable", "wood"];
 function bridgeStyle(key) { return BRIDGES[H("br" + key) % BRIDGES.length]; }
 const infoCache = new Map();
+const PONDS = [[1, 0], [-1, 0], [0, 1], [0, -1], [1, 1], [-1, 1], [1, -1], [-1, -1]];
+const plainChunk = (i, j) => !riverCol(i) && !canalRow(j) && !tunnelAt(i, j) && !tunnelAt(i, j - 1);
+function pondChunk(i, j) {
+  if (PONDS.some(([a, b]) => riverCol(a) || canalRow(b))) return false; // a river or canal is already next door
+  const p = PONDS.find(([a, b]) => plainChunk(a, b)); return !!p && p[0] === i && p[1] === j;
+}
 export function chunkInfo(i, j) {
   const k = chunkKey(i, j); if (infoCache.has(k)) return infoCache.get(k);
   const t = G.tools(G.rng(seedOf(i, j) ^ 0x7a11));
@@ -92,6 +99,7 @@ export function chunkInfo(i, j) {
   if (i === 0 && j === 0) info.biome = "home";
   else if (info.river || info.canal) info.biome = "water";
   else if (info.tunN || info.tunS) info.biome = "park";
+  else if (pondChunk(i, j)) info.biome = "lake"; // home always has fishing water one block away
   else { const r = H("biome" + k) % 100; info.biome = r < 9 ? "lake" : r < 25 ? "park" : "house"; }
   if (info.biome === "lake") { const R = t.rr(5.5, 7.5); info.lake = { x: t.rr(-2, 2), z: t.rr(-2, 2), R, p1: t.rr(0, 6), p2: t.rr(0, 6) }; }
   if (info.biome === "park") { info.hump = { x: t.rr(-6, 6), z: t.rr(-6, 6), h: t.rr(0.4, 1.4), s: t.rr(3, 5) }; if (info.tunN || info.tunS) info.hump.z = 0; }
@@ -405,73 +413,60 @@ function vergeTrees(g, info, t) {
 }
 
 // ---------------- houses ----------------
-function house(g, t) {
-  const stories = t.chance(0.35) ? 2 : 1, W = t.ri(7, 12), D = t.ri(6, 9), H = 2.8 * stories;
-  const cx = t.rr(-2.5, 2.5), cz = t.rr(-4, -0.5);
-  const kind = t.pick(["siding", "siding", "brick", "stone", "plaster", "panel"]);
-  const wallC = t.pick(kind === "brick" ? ["#a8574a", "#8e4a3a", "#b87a5a", "#6b3a2f", "#c9b8a0"] : ["#e8e0d2", "#c9d6df", "#f0d6a0", "#a8c0a0", "#d7c3a1", "#7d8a96", "#f5f2ea", "#d08aa0", "#9ab0c8", "#e0b04a", "#5a6a7a"]);
-  const wm = G.TM(kind, t.ri(1, 40), wallC, null, { rough: 0.9, name: "House_" + kind, rep: [Math.round(W / 3), stories] });
-  const hg = new T.Group(); hg.position.set(cx, 0, cz); g.add(hg);
-  addBox(hg, W + 0.4, 0.35, D + 0.4, G.M("#8a857c", { rough: 0.9, name: "Foundation" }), 0, 0, 0);
-  addBox(hg, W, H, D, wm, 0, 0.3, 0);
-  const trim = G.M(t.pick(["#f5f2ea", "#2b2724", "#5a4632", "#e8e0d2", "#3a4a5a"]), { rough: 0.6, name: "Trim" });
-  // windows on all four sides
-  for (let s = 0; s < stories; s++) {
-    const y = 0.3 + s * 2.8 + 1.0;
-    for (const [len, axis, sign] of [[W, "z", 1], [W, "z", -1], [D, "x", 1], [D, "x", -1]]) {
-      const n = Math.max(1, Math.floor(len / 2.6));
-      for (let k = 0; k < n; k++) {
-        const off = -len / 2 + (k + 0.5) * len / n;
-        if (axis === "z" && sign === 1 && s === 0 && Math.abs(off) < 1.2) continue; // door
-        const glow = t.chance(0.45) ? WINDOW_GLOW : WIN_DARK;
-        if (axis === "z") { addBox(hg, 1.1, 1.2, 0.06, glow, off, y, sign * (D / 2 + 0.01)); addBox(hg, 1.3, 0.1, 0.12, trim, off, y - 0.08, sign * (D / 2 + 0.03)); }
-        else { addBox(hg, 0.06, 1.2, 1.1, glow, sign * (W / 2 + 0.01), y, off); addBox(hg, 0.12, 0.1, 1.3, trim, sign * (W / 2 + 0.03), y - 0.08, off); }
-      }
-    }
-  }
-  const doorC = t.pick(["#8b3a3a", "#2f6b4f", "#3a6ea5", "#1d1a18", "#c9a227", "#6b4a2e", "#f5f2ea"]);
-  addBox(hg, 1.0, 2.1, 0.08, G.M(doorC, { rough: 0.5, name: "Front_Door" }), 0, 0.3, D / 2 + 0.02);
-  addBox(hg, 1.25, 0.12, 0.14, trim, 0, 2.4, D / 2 + 0.04);
-  if (t.chance(0.6)) { addBox(hg, 2.4, 0.12, 1.4, trim, 0, 2.85, D / 2 + 0.7); for (const s of [-1, 1]) addBox(hg, 0.12, 2.6, 0.12, trim, s * 1.1, 0.3, D / 2 + 1.3); }
-  // roof
-  const roofC = t.pick(["#4a3a32", "#3a3f4a", "#7a3a2a", "#2b2b2b", "#5a6a5a", "#8a6a4a", "#3a4a6a"]);
-  const rm = G.TM("shingle", t.ri(1, 20), roofC, null, { rough: 0.95, name: "Roof", side: true });
-  const style = t.pick(["gable", "gable", "hip", "flat", "shed"]), top = 0.3 + H, rh = t.rr(1.4, 2.6);
-  if (style === "gable" || style === "shed") {
-    const sh = new T.Shape(); const hw = W / 2 + 0.4;
-    if (style === "gable") { sh.moveTo(-hw, 0); sh.lineTo(hw, 0); sh.lineTo(0, rh); sh.closePath(); }
-    else { sh.moveTo(-hw, 0); sh.lineTo(hw, 0); sh.lineTo(hw, 0.3); sh.lineTo(-hw, rh); sh.closePath(); }
-    const geo = new T.ExtrudeGeometry(sh, { depth: D + 0.8, bevelEnabled: false }); geo.translate(0, 0, -(D + 0.8) / 2);
-    const m = new T.Mesh(geo, rm); m.position.set(0, top, 0); m.castShadow = true; m.receiveShadow = true; hg.add(m);
-    if (t.chance(0.5)) addBox(hg, 0.6, rh + 0.6, 0.6, G.TM("brick", 3, "#8e4a3a", null, { name: "Chimney" }), W / 4, top, -D / 4);
-  } else if (style === "hip") {
-    const m = G.mesh(G.cone(1, 1, 4), rm, 0, top + rh / 2, 0, hg); m.rotation.y = Math.PI / 4; m.scale.set((W + 0.8) / Math.SQRT2, rh, (D + 0.8) / Math.SQRT2);
-  } else { addBox(hg, W + 0.3, 0.25, D + 0.3, G.M("#6a6a6a", { rough: 0.9, name: "Roof_Flat" }), 0, top, 0); addBox(hg, W + 0.3, 0.5, 0.15, trim, 0, top, D / 2 + 0.1); }
-  return { cx, cz, W, D };
-}
 // ---------------- lot content by biome ----------------
-function houseLot(g, info, t, s) {
-  const ry = t.ri(0, 3) * Math.PI / 2, content = new T.Group(); content.rotation.y = ry; g.add(content);
-  const h = house(content, t);
-  addRect(info, "building", h.cx, h.cz + 0.5, h.W + 1.4, h.D + 2.4, ry);
-  const pz0 = h.cz + h.D / 2, len = LOT - pz0;
-  if (len > 0) { plane(content, 1.4, len, G.TM("pavers", 2, "#a89a88", null, { name: "Path", rep: [1, Math.max(1, Math.round(len / 1.4))] }), h.cx, 0.02, pz0 + len / 2); addRect(info, "path", h.cx, pz0 + len / 2, 2.0, len + 0.4, ry); }
-  if (t.chance(0.6)) { const dx = h.cx + (h.cx > 0 ? -1 : 1) * (h.W / 2 + 2), dl = LOT - (h.cz - h.D / 2); plane(content, 3, dl, G.TM("concrete", 4, "#8a8780", null, { name: "Driveway", rep: [1, Math.round(dl / 3)] }), dx, 0.015, h.cz - h.D / 2 + dl / 2); addRect(info, "drive", dx, h.cz - h.D / 2 + dl / 2, 3.8, dl, ry); }
-  const fk = t.pick(["picket", "rail", "hedge", "none"]);
-  if (fk !== "none") {
-    const f = (fl, x, z, r) => { const fg = G.buildFence(fl, t, fk); fg.position.set(x, 0, z); fg.rotation.y = r; content.add(fg); addRect(info, "fence", x, z, r ? 1 : fl, r ? fl : 1, ry); };
-    f(LOT * 2 - 0.6, 0, -LOT + 0.4, 0); f(LOT * 2 - 0.6, -LOT + 0.4, 0, Math.PI / 2); f(LOT * 2 - 0.6, LOT - 0.4, 0, Math.PI / 2);
+// ---------------- planned houses (rooms, hallway, porch, yard, driveway, parked cars) ----------------
+export function lotPlan(i, j) {
+  const info = chunkInfo(i, j); if (info.biome !== "house") return null;
+  if (!info.plan) { info.plan = generatePlan(seedOf(i, j) ^ 0x51ab, G); info.house = { beds: info.plan.beds, baths: info.plan.baths, name: houseName(i, j) }; info.plan.name = info.house.name; }
+  return info.plan;
+}
+const SURN = ["Alvarez", "Brooks", "Chen", "Dubois", "Evans", "Fischer", "Garcia", "Hughes", "Ito", "Jensen", "Khan", "Lopez", "Moreau", "Nguyen", "Okafor", "Patel", "Quinn", "Rossi", "Silva", "Tanaka", "Ueda", "Volkov", "Walsh", "Young", "Zhang"];
+function houseName(i, j) { return "The " + SURN[H("sur" + i + "," + j) % SURN.length] + " House"; }
+const TC = (x) => x + 0.5 - 12, EX = (x) => x - 12; // lot tile -> chunk-local
+function wallPos(k) { const [o, xs, zs] = k.split(":"); const x = +xs, z = +zs; return o === "h" ? [TC(x), EX(z), 0] : [EX(x), TC(z), Math.PI / 2]; }
+// door leaf hinged at one jamb: rotate around the mesh origin
+const DOOR_GEO = (() => { const g = new T.BoxGeometry(0.86, 2.02, 0.05); g.translate(0.43, 1.01, 0); return g; })();
+function doorLeaf(k, mat) { const [x, z, ry] = wallPos(k); const m = new T.Mesh(DOOR_GEO, mat); m.name = "Door"; m.position.set(x - Math.cos(ry) * 0.43, 0.02, z + Math.sin(ry) * 0.43); m.rotation.y = ry; m.userData.door = { base: ry, open: 0, edge: k }; m.castShadow = true; return m; }
+function planLot(g, info, t, near, extras) {
+  const P = lotPlan(info.i, info.j), hs = P.house, WH = 2.6;
+  const ext = G.wallMat(P.ext.c, P.ext.p), trim = G.M("#f2eee6", { rough: 0.6, name: "Trim" });
+  // foundation + floors
+  addBox(g, hs.x1 - hs.x0 + 0.3, 0.08, hs.z1 - hs.z0 + 0.3, G.M("#8a857c", { rough: 0.9, name: "Foundation" }), (hs.x0 + hs.x1) / 2 - 12, -0.06, (hs.z0 + hs.z1) / 2 - 12);
+  for (const k in P.floors) { const [x, z] = k.split(",").map(Number); const inside = x >= hs.x0 && x < hs.x1 && z >= hs.z0 && z < hs.z1; if (!near && inside) continue; addBox(g, 1, 0.04, 1, G.floorMat(P.floors[k]), TC(x), 0, TC(z)); }
+  for (const k in P.walls) {
+    const w = P.walls[k]; if (!near && !w.ext) continue;
+    const [x, z, ry] = wallPos(k), m = w.ext ? ext : G.wallMat(w.c, w.p), th = w.ext ? 0.16 : 0.1;
+    if (w.t === "door") { addBox(g, 1.02, WH - 2.1, th, m, x, 2.1, z, ry); if (near || w.ext) extras.doors.push(doorLeaf(k, w.ext ? G.M("#6b3a2a", { rough: 0.5, name: "Front_Door" }) : G.M("#c9b49a", { rough: 0.6, name: "Door_Int" }))); }
+    else if (w.t === "window") { addBox(g, 1.02, 0.9, th, m, x, 0, z, ry); addBox(g, 1.02, WH - 1.9, th, m, x, 1.9, z, ry); addBox(g, 0.98, 1.0, 0.03, t.chance(0.5) ? WINDOW_GLOW : WIN_DARK, x, 0.9, z, ry); addBox(g, 1.1, 0.06, th + 0.06, trim, x, 0.87, z, ry); }
+    else addBox(g, 1.02, WH, th, m, x, 0, z, ry);
   }
-  const bw = Math.max(1, h.W / 2 - 1.5), bx = h.cx - h.W / 4, bz = h.cz + h.D / 2 + 0.8;
-  const bed = new T.Group(); bed.position.set(bx, 0, bz); G.flowers(bed, t, bw, 0.8, 0, t.ri(8, 20)); content.add(bed);
-  if (t.chance(0.6)) { const mb = new T.Group(); mb.position.set(h.cx + 1.4, 0, LOT - 0.5); G.mesh(G.cyl(0.04, 0.04, 1.1, 6), G.M("#5a4632"), 0, 0.55, 0, mb); G.mesh(G.rbox(0.25, 0.25, 0.45, 0.06), G.M(t.pick(["#2b2b2b", "#3a6ea5", "#8b3a3a"]), { name: "Mailbox" }), 0, 1.2, 0, mb); content.add(mb); addRect(info, "item", h.cx + 1.4, LOT - 0.5, 0.8, 0.8, ry); }
-  for (let k = 0; k < t.ri(0, 3); k++) {
-    const cat = t.pick(["bench", "grill", "planter", "swing", "lantern", "hottub"]), x = t.rr(-LOT + 2.5, LOT - 2.5), z = t.rr(-LOT + 2.5, h.cz - h.D / 2 - 1);
-    const [cx, cz] = rot90(x, z, ry); if (zoneLocal(info, cx, cz) !== "land" || z > LOT - 3) continue;
-    const o = G.buildGen(G.genType(cat, t.ri(1, 1e6))); o.position.set(x, 0, z); o.rotation.y = t.ri(0, 3) * Math.PI / 2; o.traverse((c) => { if (c.isLight) c.visible = false; }); content.add(o); addRect(info, "item", x, z, 2.6, 2.6, ry);
+  if (near) for (const o of P.objects) {
+    const gi = G.genInfo(o.type); if (!gi) continue; const m = G.buildGen(o.type); if (!m) continue;
+    const W = o.rot % 2 ? gi.d : gi.w, D = o.rot % 2 ? gi.w : gi.d; m.position.set(o.x + W / 2 - 12, 0, o.z + D / 2 - 12); m.rotation.y = o.rot * Math.PI / 2; m.traverse((c) => { if (c.isLight) c.visible = false; }); g.add(m);
   }
-  void s;
-  scatterTrees(g, info, t, t.ri(3, 7), "yard", LOT - 1.6);
+  // porch roof on posts
+  const pr = P.porch, pcx = (pr.x0 + pr.x1) / 2 - 12, pcz = (pr.z0 + pr.z1) / 2 - 12, pw = pr.x1 - pr.x0;
+  addBox(g, pw + 0.3, 0.12, 2.2, trim, pcx, WH - 0.05, pcz); for (const s of [-1, 1]) addBox(g, 0.12, WH - 0.05, 0.12, trim, pcx + s * (pw / 2 - 0.1), 0, pcz + 0.9);
+  // roof (own mesh so it can hide when you look inside)
+  const W = hs.x1 - hs.x0, D = hs.z1 - hs.z0, rh = Math.min(W, D) * 0.32 + 0.6, rm = G.TM("shingle", 3, P.roof.c, null, { rough: 0.95, name: "Roof", side: true });
+  let roof;
+  if (P.roof.style === "hip") { roof = new T.Mesh(G.cone(1, 1, 4), rm); roof.rotation.y = Math.PI / 4; roof.scale.set((W + 0.9) / Math.SQRT2, rh, (D + 0.9) / Math.SQRT2); roof.position.y = WH + rh / 2; }
+  else { const sh = new T.Shape(), hw = W / 2 + 0.45; sh.moveTo(-hw, 0); sh.lineTo(hw, 0); sh.lineTo(0, rh); sh.closePath(); const geo = new T.ExtrudeGeometry(sh, { depth: D + 0.9, bevelEnabled: false }); geo.translate(0, 0, -(D + 0.9) / 2); roof = new T.Mesh(geo, rm); roof.position.y = WH; }
+  roof.position.x = (hs.x0 + hs.x1) / 2 - 12; roof.position.z = (hs.z0 + hs.z1) / 2 - 12; roof.name = "Roof"; roof.castShadow = true; roof.userData.roof = { x0: hs.x0 - 12, z0: hs.z0 - 12, x1: hs.x1 - 12, z1: hs.z1 - 12 }; extras.roofs.push(roof);
+  // parked cars on the driveway
+  for (const c of P.cars) { const obj = carModel(c.kind, c.col); obj.position.set(c.x - 12, 0, c.z - 12); obj.rotation.y = -Math.PI / 2; obj.name = "ParkedCar"; extras.cars.push(obj); }
+  // sign with bed/bath count
+  const sg = new T.Group(); const sx = Math.min(10.5, Math.max(-10.5, P.gate.x - 12 + 1.4)); sg.position.set(sx, 0, LOT - 1.2); G.mesh(G.cyl(0.04, 0.04, 1.0, 6), G.M("#5a4632"), 0, 0.5, 0, sg);
+  const board = new T.Mesh(new T.BoxGeometry(1.5, 0.42, 0.05), [G.M("#5a4632"), G.M("#5a4632"), G.M("#5a4632"), G.M("#5a4632"), new T.MeshStandardMaterial({ map: signTexture(P.beds + " bd · " + P.baths + " ba"), roughness: 0.8, name: "Sign" }), G.M("#5a4632")]);
+  board.position.y = 1.1; board.name = "HouseSign"; board.userData.house = { i: info.i, j: info.j }; sg.add(board); extras.signs.push(sg);
+  // yard: zoning so trees stay out of the house, porch, path and driveway
+  addRect(info, "building", (hs.x0 + hs.x1) / 2 - 12, (hs.z0 + hs.z1) / 2 - 12, W + 1.5, D + 1.5);
+  addRect(info, "path", pcx, pcz + 0.5, pw + 1, 3.5); addRect(info, "path", P.gate.x + 0.5 - 12, (pr.z1 + 24) / 2 - 12, 1.6, 24 - pr.z1 + 0.5);
+  addRect(info, "drive", (P.drive.x0 + P.drive.x1) / 2 - 12, (P.drive.z0 + P.drive.z1) / 2 - 12, 3.8, P.drive.z1 - P.drive.z0 + 0.5);
+  for (const o of P.objects) if (o.room === "yard" || o.room === "porch") addRect(info, "item", o.x + 1 - 12, o.z + 1 - 12, 2.6, 2.6);
+  if (P.fenced) { const fk = t.pick(["picket", "rail", "hedge"]); const f = (fl, x, z, r) => { const fg = G.buildFence(fl, t, fk); fg.position.set(x, 0, z); fg.rotation.y = r; g.add(fg); addRect(info, "fence", x, z, r ? 1 : fl, r ? fl : 1); }; f(LOT * 2 - 0.6, 0, -LOT + 0.4, 0); f(LOT * 2 - 0.6, -LOT + 0.4, 0, Math.PI / 2); f(LOT * 2 - 0.6, LOT - 0.4, 0, Math.PI / 2); }
+  const bed = new T.Group(); bed.position.set(pcx - pw / 2 - 1.2, 0, pcz - 0.2); G.flowers(bed, t, 1.2, 0.6, 0, t.ri(6, 14)); g.add(bed);
+  scatterTrees(g, info, t, t.ri(2, 5), "yard", LOT - 1.6);
 }
 function benchAt(g, info, t, x, z, ry) { const o = G.buildGen(G.genType("bench", t.ri(1, 1e6))); o.position.set(x, heightAt(info, x, z), z); o.rotation.y = ry; o.traverse((c) => { if (c.isLight) c.visible = false; }); g.add(o); info.rects.push({ k: "item", x, z, w: 2.2, d: 2.2 }); }
 function lampAt(g, info, x, z) { const pole = G.M("#2b2b2b", { metal: 0.6, rough: 0.4, name: "Lamp_Post" }), y = heightAt(info, x, z); G.mesh(G.cyl(0.05, 0.07, 3.2, 8), pole, x, y + 1.6, z, g); G.mesh(G.sph(0.18, 12, 8), WINDOW_GLOW, x, y + 3.3, z, g); info.rects.push({ k: "item", x, z, w: 0.8, d: 0.8 }); }
@@ -515,6 +510,7 @@ function lakeLot(g, info, t) {
   for (let k = 0; k <= 3; k++) for (const sz of [-0.6, 0.6]) addBox(dk, 0.14, 1.5, 0.14, MAT.wood(), -1 + k * (len + 1) / 3, BED_Y + 0.4, sz);
   const boat = boatModel(t, "row"); boat.position.set(len * 0.6, WATER_Y + 0.02, 1.4); boat.rotation.y = 0.1; dk.add(boat);
   info.rects.push({ k: "path", x: dk.position.x, z: dk.position.z, w: 3, d: 3 });
+  info.dock = { x: dk.position.x + dir[0] * len, z: dk.position.z + dir[1] * len, y: -0.89 };
   void dir;
   reeds(g, info, t, 7);
   for (let k = 0; k < 2; k++) { const b2 = t.rr(0, 6.28), rr = lakeR(L, b2) + 3.4, x = L.x + Math.cos(b2) * rr, z = L.z + Math.sin(b2) * rr; if (Math.abs(x) < LOT - 1.5 && Math.abs(z) < LOT - 1.5 && zoneLocal(info, x, z) === "land") benchAt(g, info, t, x, z, -b2 - Math.PI / 2); }
@@ -529,7 +525,7 @@ const CAR_KINDS = { sedan: { L: 4.3, h1: 0.55, h2: 0.5, cab: 2.2, off: -0.2 }, h
 const carCache = new Map();
 function carModel(kind, col) {
   const key = kind + col; if (carCache.has(key)) return carCache.get(key).clone();
-  const K = CAR_KINDS[kind], g = new T.Group(), wb = kind === "bus" ? 2.4 : 1.8, body = G.M(kind === "taxi" ? "#f2c32e" : kind === "bus" ? "#c9a227" : col, { rough: 0.35, metal: 0.4, name: "Car_Paint" });
+  const K = CAR_KINDS[kind] || CAR_KINDS.sedan, g = new T.Group(), wb = kind === "bus" ? 2.4 : 1.8, body = G.M(kind === "taxi" ? "#f2c32e" : kind === "bus" ? "#c9a227" : col, { rough: 0.35, metal: 0.4, name: "Car_Paint" });
   const glass = G.M("#1e2830", { rough: 0.05, metal: 0.6, name: "Car_Glass" }), tyre = G.M("#141414", { rough: 0.9, name: "Tyre" }), tail = G.M("#8a1a1a", { emissive: "#ff2a2a", ei: 0.6, name: "Tail_Light" });
   G.mesh(G.rbox(K.L, K.h1, wb, 0.18), body, 0, 0.3 + K.h1 / 2, 0, g);
   if (K.cab) { G.mesh(G.rbox(K.cab, K.h2, wb - 0.16, 0.22), glass, K.off, 0.3 + K.h1 + K.h2 / 2 - 0.02, 0, g); G.mesh(G.rbox(K.cab - 0.3, 0.07, wb - 0.2, 0.03), body, K.off, 0.3 + K.h1 + K.h2, 0, g); }
@@ -592,26 +588,35 @@ export function createWorld(scene, opts = {}) {
   const ORDER = []; for (let r = 1; r <= 5; r++) for (let i = -r; i <= r; i++) for (let j = -r; j <= r; j++) if (Math.max(Math.abs(i), Math.abs(j)) === r && chunkInfo(i, j).biome === "house") ORDER.push([i, j]);
   ORDER.sort((a, b) => (Math.hypot(...a) - Math.hypot(...b)) || (a[0] - b[0]) || (a[1] - b[1]));
   let grassDirty = true;
+  let focus = { x: 0, z: 0 }, camPos = new T.Vector3(), lodC = [0, 0];
+  const roofs = [], doors = [], parked = [], houseSigns = [];
   function buildChunk(i, j) {
     const info = chunkInfo(i, j); info.rects = []; info.plants = [];
     const L = slots.get(chunkKey(i, j)); info.shared = !!L;
-    const raw = new T.Group(); const t = streets(raw, info);
+    const near = Math.max(Math.abs(i - lodC[0]), Math.abs(j - lodC[1])) <= 1;
+    const raw = new T.Group(); const t = streets(raw, info), extras = { roofs: [], doors: [], cars: [], signs: [] };
     if (info.biome === "home") { /* the player's own lot is drawn by the game */ }
     else if (L) sharedLot(raw, L, t);
-    else if (info.biome === "house") houseLot(raw, info, t, seedOf(i, j));
+    else if (info.biome === "house") planLot(raw, info, t, near, extras);
     else if (info.biome === "park") parkLot(raw, info, t);
     else if (info.biome === "lake") lakeLot(raw, info, t);
     else if (info.biome === "water") waterLot(raw, info, t);
     vergeTrees(raw, info, t);
     terrain(raw, info, i * CH, j * CH);
     const merged = mergeByMaterial(raw, true);
-    merged.position.set(i * CH, 0, j * CH); merged.name = "Chunk_" + i + "_" + j;
+    merged.position.set(i * CH, 0, j * CH); merged.name = "Chunk_" + i + "_" + j; merged.userData.near = near; merged.userData.ij = [i, j];
+    for (const r of extras.roofs) { merged.add(r); roofs.push(r); }
+    for (const d of extras.doors) { merged.add(d); doors.push(d); }
+    for (const c of extras.cars) { merged.add(c); parked.push({ obj: c, i, j, state: "park", timer: 20 + Math.random() * 90 }); }
+    for (const sg of extras.signs) { merged.add(sg); sg.traverse((o) => { if (o.userData.house) houseSigns.push(o); }); }
     merged.traverse((o) => { if (o.userData.visitSid) signs.push(o); });
     root.add(merged); chunks.set(chunkKey(i, j), merged); grassDirty = true;
   }
   function dropChunk(k) {
     const c = chunks.get(k); if (!c) return; root.remove(c);
-    c.traverse((o) => { if (o.isMesh && (o.name.startsWith("Merged_") || o.name === "Terrain")) o.geometry.dispose(); const si = signs.indexOf(o); if (si >= 0) signs.splice(si, 1); });
+    const drop = (arr, o) => { const ix = arr.indexOf(o); if (ix >= 0) arr.splice(ix, 1); };
+    c.traverse((o) => { if (o.isMesh && (o.name.startsWith("Merged_") || o.name === "Terrain" || (o.name === "Roof" && o.geometry.type === "ExtrudeGeometry"))) o.geometry.dispose(); drop(signs, o); drop(roofs, o); drop(doors, o); drop(houseSigns, o); });
+    for (let k2 = parked.length - 1; k2 >= 0; k2--) if (parked[k2].obj.parent === c) parked.splice(k2, 1);
     chunks.delete(k); grassDirty = true;
   }
   // world-space zone lookup (only for built chunks; unknown elsewhere)
@@ -674,7 +679,7 @@ export function createWorld(scene, opts = {}) {
     for (let k = cars.length - 1; k >= 0; k--) { const c = cars[k], [x, z] = carXZ(c); if (Math.abs(x - ci * CH) > lim || Math.abs(z - cj * CH) > lim) { release(c); root.remove(c.obj); cars.splice(k, 1); } }
     const lanes = new Map(); for (const c of cars) { const key = c.axis + c.line + ":" + c.dir; if (!lanes.has(key)) lanes.set(key, []); lanes.get(key).push(c); }
     for (const list of lanes.values()) { list.sort((a, b) => (b.p - a.p) * a.dir); for (let k = 0; k < list.length; k++) list[k].ahead = k ? list[k - 1] : null; }
-    const BOX = 3.4;
+    const BOX = 3.4, obs = obstacles();
     for (const c of cars) {
       let maxAdv = Infinity;
       if (c.ahead) maxAdv = (c.ahead.p - c.p) * c.dir - (c.ahead.len + c.len) / 2 - 2.2;
@@ -688,6 +693,7 @@ export function createWorld(scene, opts = {}) {
         const dist = (entry - front) * c.dir;
         if (dist < 2 + c.v * 0.9) { const r = reserve.get(key); if (!r || !r.cars.size || r.axis === c.axis) { const rr = r || { axis: c.axis, cars: new Set() }; rr.axis = c.axis; rr.cars.add(c.id); reserve.set(key, rr); c.held = key; } else maxAdv = Math.min(maxAdv, dist - 0.4); }
       }
+      for (const ob of obs) { const along = ((c.axis === "x" ? ob.x : ob.z) - c.p) * c.dir, lat = Math.abs((c.axis === "x" ? ob.z : ob.x) - laneOf(c)); if (lat < 1.7 && along > 0 && along < 14) maxAdv = Math.min(maxAdv, along - c.len / 2 - 1.6); }
       const want = maxAdv < 0.5 ? 0 : Math.min(c.vmax, Math.max(0, (maxAdv - 0.5) * 1.2));
       c.v += Math.max(-9 * dt, Math.min(3 * dt, want - c.v)); if (c.v < 0) c.v = 0;
       c.p += c.dir * Math.min(c.v * dt, Math.max(0, maxAdv)); placeCar(c);
@@ -722,11 +728,33 @@ export function createWorld(scene, opts = {}) {
     const want = new Set();
     for (let i = ci - radius; i <= ci + radius; i++) for (let j = cj - radius; j <= cj + radius; j++) want.add(chunkKey(i, j));
     for (const k of [...chunks.keys()]) if (!want.has(k)) dropChunk(k);
+    if (lodC[0] !== ci || lodC[1] !== cj) { lodC = [ci, cj]; for (const [k, c] of [...chunks]) { const [i, j] = c.userData.ij, near = Math.max(Math.abs(i - ci), Math.abs(j - cj)) <= 1; if (near !== c.userData.near && chunkInfo(i, j).biome === "house" && !slots.has(k)) dropChunk(k); } }
     queue = [...want].filter((k) => !chunks.has(k)).sort((a, b) => { const [ai, aj] = a.split(",").map(Number), [bi, bj] = b.split(",").map(Number); return Math.hypot(ai - ci, aj - cj) - Math.hypot(bi - ci, bj - cj); });
     if (queue.length) { const [i, j] = queue[0].split(",").map(Number); buildChunk(i, j); } // one chunk per frame keeps it smooth
     if (grass && (grassDirty && !queue.length || Math.hypot(center.x - grassCenter.x, center.z - grassCenter.z) > 4)) scatterGrass(center);
-    stepNpcs(dt, ci, cj); stepCars(Math.min(dt, 0.1), ci, cj); stepBoats(Math.min(dt, 0.1), ci, cj);
+    stepNpcs(dt, ci, cj); stepCars(Math.min(dt, 0.1), ci, cj); stepBoats(Math.min(dt, 0.1), ci, cj); stepHouses(Math.min(dt, 0.1));
   }
+  // roofs hide when you look inside; doors swing open for anyone nearby; parked cars sometimes pull out
+  const _w = new T.Vector3();
+  function stepHouses(dt) {
+    for (const r of roofs) { const c = r.parent.position, b = r.userData.roof, fx = focus.x - c.x, fz = focus.z - c.z;
+      const inside = fx > b.x0 - 1 && fx < b.x1 + 1 && fz > b.z0 - 1 && fz < b.z1 + 1; const cx = (b.x0 + b.x1) / 2 + c.x, cz = (b.z0 + b.z1) / 2 + c.z;
+      r.visible = !(inside || (Math.hypot(camPos.x - cx, camPos.z - cz) < 13 && camPos.y < 16)); }
+    const people = obstacles();
+    for (const d of doors) { d.getWorldPosition(_w); let want = 0; for (const p of people) if (Math.abs(p.x - _w.x) < 1.6 && Math.abs(p.z - _w.z) < 1.6) { want = 1; break; }
+      const u = d.userData.door; u.open += Math.max(-dt * 3, Math.min(dt * 3, want - u.open)); d.rotation.y = u.base + (reduce ? Math.round(u.open) : u.open) * 1.45; }
+    for (let k = parked.length - 1; k >= 0; k--) { const pc = parked[k]; pc.timer -= dt;
+      if (pc.state === "park" && pc.timer < 0) { if (Math.random() < 0.35) { pc.state = "out"; pc.v = 0; } else pc.timer = 40 + Math.random() * 120; }
+      else if (pc.state === "out") { const o = pc.obj; pc.v = Math.min(3, pc.v + dt * 1.5); o.position.z += pc.v * dt; o.rotation.y = -Math.PI / 2;
+        if (o.position.z > ROAD - 3.2) { // hand off to traffic
+          o.getWorldPosition(_w); o.removeFromParent(); const dir = Math.random() < 0.5 ? 1 : -1, line = pc.j * CH + ROAD;
+          const c = { id: ++carSeq, axis: "x", line, dir, p: _w.x, v: 2, vmax: 8, len: 4.3, obj: o, held: null }; o.name = "Car"; root.add(o); cars.push(c); placeCar(c); parked.splice(k, 1); } }
+    }
+  }
+  // things cars must stop for: sims crossing, the player's car, etc. (set by the game)
+  let obstacleFn = () => [];
+  const obstacles = () => { try { return obstacleFn() || []; } catch (e) { return []; } };
+  function carNear(x, z, r) { for (const c of cars) { const p = c.obj.position; if (Math.abs(p.x - x) < r && Math.abs(p.z - z) < r) return c; } return null; }
   // ---- wandering neighbors on the sidewalks ----
   function spawnNpc(ci, cj) {
     const seed = G.randSeed(); const sim = G.randomSim(seed); const model = G.buildSim(sim);
@@ -768,7 +796,11 @@ export function createWorld(scene, opts = {}) {
   function auditCars() { let overlaps = 0; for (let a = 0; a < cars.length; a++) for (let b = a + 1; b < cars.length; b++) { const A = cars[a].obj.position, B = cars[b].obj.position; if (Math.abs(A.x - B.x) < 1.9 && Math.abs(A.z - B.z) < 1.9) overlaps++; } return overlaps; }
   makeGrass(detail.grass);
   return {
-    root, signs, update, setShared, lotOfSign, zoneAt, auditPlants, auditCars,
+    actors: () => [...cars.map((c) => c.obj), ...boats.map((b) => b.obj), ...npcs.map((n) => n.holder)],
+    actorKinds: () => [...cars.map((c) => [c.obj, "car"]), ...boats.map((b) => [b.obj, "boat"]), ...npcs.map((n) => [n.holder, "npc", n.name])],
+    root, signs, houseSigns, update, carNear, lotPlan,
+    setFocus(p, cam) { focus = { x: p.x, z: p.z }; if (cam) camPos.copy(cam); }, setObstacles(fn) { obstacleFn = fn; },
+    chunkMeshes: () => [...chunks.values()], carModel, parkedCars: () => parked.map((p) => p.obj), setShared, lotOfSign, zoneAt, auditPlants, auditCars,
     setRadius(r) { radius = r; }, setNpcs(n) { npcMax = n; },
     setDetail(d) { const g0 = detail.grass; Object.assign(detail, d); if (detail.grass !== g0) makeGrass(detail.grass); },
     setSky(c) { U.uSky.value.copy(c); }, setSeason, season: () => seasonOf(),
