@@ -524,13 +524,15 @@ function autonomy(sim) {
 function animateSims(dt) {
   for (const sim of S.sims) animateRt(runtime.get(sim.id), dt);
 }
+const LIFT = { road: 0.006, walk: 0.03 };
+function groundLift(p) { const z = world && world.zoneAt ? world.zoneAt(p.x, p.z) : "land"; return LIFT[z] ?? 0.04; } // asphalt / sidewalk / floor boards
 function animateRt(rt, dt) {
   if (rt && rt.model && rt.model.userData.body) {
     const m = rt.model, sim = rt.holder.userData.simId ? getSim(rt.holder.userData.simId) : null, cas = mode === "cas" && sim && sim.id === selectedSimId;
     const pose = cas && sculpt.on ? "rest" : { stand: "idle", walk: "walk", sit: "sit", lie: "lie", paint: "paint", shower: "shower" }[rt.pose] || "idle";
     const look = cas ? camera.position : null;
     const mouth = cas && sculpt.mouth ? 1 : { o: 0.22, grin: 0.1 }[sim ? sim.mouth : ""] ?? 0;
-    m.rotation.x = 0; m.position.set(0, 0.04, 0); // stand on floor boards (top at 0.04)
+    m.rotation.x = 0; m.position.set(0, groundLift(rt.holder.position), 0); // stand on the surface underfoot
     if (pose === "lie") { m.rotation.x = -Math.PI / 2; m.position.set(0, 0.1, -0.85); }
     Body.animate(m, pose, dt, reduceMotion, { lookAt: look, mouth, talk: !!(rt.say && rt.say.until > performance.now()), snap: cas && sculpt.on });
     return;
@@ -972,7 +974,7 @@ function applyQuality(q) {
   if (sun) { sun.castShadow = Q.shadows; if (sun.shadow.mapSize.x !== Q.map) { sun.shadow.mapSize.set(Q.map, Q.map); if (sun.shadow.map) { sun.shadow.map.dispose(); sun.shadow.map = null; } } }
   if (had !== Q.shadows && scene) scene.traverse((o) => { if (o.material) [].concat(o.material).forEach((m) => (m.needsUpdate = true)); });
   if (world) { world.setRadius(Q.radius); world.setNpcs(Q.npcs); world.setDetail({ grass: Q.grass, cars: Q.cars, boats: Q.boats }); }
-  scene.fog = new THREE.Fog(scene.background || "#9ec9ea", 30, (Q.radius + 0.6) * 36);
+  scene.fog = new THREE.Fog(scene.background || "#9ec9ea", 45, Math.max(110, (Q.radius + 0.6) * 60));
   const sel = $("sims-quality"); if (sel) sel.value = qualityPref;
   resize();
 }

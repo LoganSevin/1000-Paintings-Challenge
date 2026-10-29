@@ -881,7 +881,7 @@ export function buildBody(sim, opts = {}) {
   const outfit = OUTFIT_SPEC[sim.outfit] ? sim.outfit : "tee", bstyle = sim.bottomStyle || (outfit === "dress" ? "skirt" : "pants");
   if (!(outfit === "dress" || outfit === "robe")) { const [reg, kind, th] = BOTTOM_SPEC[bstyle] || BOTTOM_SPEC.pants; garment("body", reg, kind, colors.bottom, th, 0, null, 1); }
   OUTFIT_SPEC[outfit].forEach(([reg, kind, ck, th], i) => garment("body", reg, kind, colors[ck], th + (reg === "bib" ? 0.004 : 0), 0, ck === "top" ? pat : null, reg === "bib" ? 3 : 2));
-  for (const s of ["L", "R"]) garment("foot" + s, "shoes", "leather", sim.shoes || "#1d1a18", (x, y) => 0.0055 + (y < 0.022 ? (0.022 - y) * 0.45 : 0), 4);
+  for (const s of ["L", "R"]) garment("foot" + s, "shoes", "leather", sim.shoes || "#1d1a18", (x, y) => 0.0065 + (y < 0.022 ? (0.022 - y) * 0.45 : 0), 2);
   const A = new Set(sim.acc || []);
   if (A.has("gloves")) for (const s of ["L", "R"]) garment("hand" + s, "gloves", "leather", sim.accColor || "#3a2a20", 0.0013, 0);
   const skirtLen = outfit === "robe" ? 0.8 : outfit === "dress" ? 0.5 : bstyle === "skirt" ? 0.36 : 0;

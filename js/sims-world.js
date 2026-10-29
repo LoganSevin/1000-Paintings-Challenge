@@ -15,11 +15,11 @@ export const CH = 36;          // chunk size (meters)
 // ---- winding roads: the whole neighborhood is laid out on a logical grid, then bent by a smooth, fold-free
 // warp so main roads, rivers and the blocks between them curve and loop. Simulation stays on the grid; anything
 // visible is drawn at warp(x, z). The player's own block (|r| < 30 m) is never bent.
-const WA = 6.5, sst = (a, b, v) => { const t = Math.max(0, Math.min(1, (v - a) / (b - a))); return t * t * (3 - 2 * t); };
+const WA = 12, sst = (a, b, v) => { const t = Math.max(0, Math.min(1, (v - a) / (b - a))); return t * t * (3 - 2 * t); };
 export function warpXZ(x, z) {
-  const e = WA * sst(30, 95, Math.hypot(x, z));
+  const e = WA * sst(26, 62, Math.hypot(x, z)); // home block stays straight; neighbourhoods beyond wind
   if (!e) return [x, z];
-  return [x + e * (Math.sin(z * 0.019 + 1.3) + 0.55 * Math.sin(z * 0.043 + x * 0.011 + 0.7)), z + e * (Math.sin(x * 0.017 + 0.4) + 0.55 * Math.sin(x * 0.041 - z * 0.013 + 2.1))];
+  return [x + e * (Math.sin(z * 0.046 + 1.3) + 0.3 * Math.sin(z * 0.081 + x * 0.012 + 0.7)), z + e * (Math.sin(x * 0.043 + 0.4) + 0.3 * Math.sin(x * 0.077 - z * 0.011 + 2.1))];
 }
 export function warpAngle(x, z) { const a = warpXZ(x + 0.5, z), b = warpXZ(x - 0.5, z); return Math.atan2(-(a[1] - b[1]), a[0] - b[0]); }
 export function unwarpXZ(x, z) { let px = x, pz = z; for (let k = 0; k < 6; k++) { const [wx, wz] = warpXZ(px, pz); px -= wx - x; pz -= wz - z; } return [px, pz]; }
@@ -563,14 +563,13 @@ function courtLot(g, info, t) {
   const kerb = new T.Mesh(new T.TorusGeometry(COURT_R, 0.08, 4, 48), curb); kerb.rotation.x = -Math.PI / 2; kerb.position.set(0, 0.06, COURT_Z); g.add(kerb);
   info.rects.push({ k: "road", x: 0, z: COURT_Z, w: COURT_R * 2, d: COURT_R * 2 }, { k: "road", x: 0, z: (LOT + COURT_Z) / 2, w: 6.4, d: LOT - COURT_Z });
   const wall = G.M(st.wall, { rough: 0.8, name: "Court_Wall" }), roof = G.M(st.roof, { rough: 0.7, name: "Court_Roof" }), trim = G.M(st.trim, { rough: 0.5, name: "Court_Trim" }), drive = MAT.walk();
-  for (const a of [-2.2, -1.1, 0, 1.1, 2.2]) {
-    if (a === 0 && t.chance(0.5)) continue;
-    const ang = a - Math.PI / 2, R = COURT_R + 4.6, x = Math.cos(ang) * R, z = COURT_Z + Math.sin(ang) * R; if (Math.abs(x) > 9.5 || z < -10.5 || z > 8) continue;
+  for (const a of [-1.9, -0.95, 0, 0.95, 1.9]) { // cottages ring the bulb on an ellipse that fits inside the lot
+    const ang = a - Math.PI / 2, x = Math.cos(ang) * 10, z = COURT_Z + Math.sin(ang) * 8.6; if (Math.abs(x) > 11 || z < -11.8 || z > 8) continue;
     const ry = Math.atan2(x, z - COURT_Z) + Math.PI, hg = new T.Group(); hg.position.set(x, 0, z); hg.rotation.y = ry; g.add(hg); // front (+z local) faces the circle
-    addBox(hg, 5.2, 2.8, 4.4, wall, 0, 0, 0); const rf = G.mesh(new T.CylinderGeometry(0.01, 3.9, 1.5, 4, 1), roof, 0, 3.55, 0, hg); rf.rotation.y = Math.PI / 4; rf.scale.set(1, 1, 0.85);
-    addBox(hg, 0.95, 2.05, 0.08, trim, 0.9, 0, 2.22); for (const wx of [-1.4]) addBox(hg, 1.1, 0.9, 0.06, WINDOW_GLOW, wx, 1.1, 2.23);
-    const dw = new T.Mesh(new T.PlaneGeometry(2.6, 3.4), drive); dw.rotation.x = -Math.PI / 2; dw.position.set(-1.2, 0.02, 3.9); hg.add(dw);
-    info.rects.push({ k: "building", x, z, w: 6, d: 6 });
+    addBox(hg, 4.6, 2.8, 3.8, wall, 0, 0, 0); const rf = G.mesh(new T.CylinderGeometry(0.01, 3.5, 1.5, 4, 1), roof, 0, 3.55, 0, hg); rf.rotation.y = Math.PI / 4; rf.scale.set(1, 1, 0.85);
+    addBox(hg, 0.95, 2.05, 0.08, trim, 0.9, 0, 1.92); for (const wx of [-1.2]) addBox(hg, 1.1, 0.9, 0.06, WINDOW_GLOW, wx, 1.1, 1.93);
+    const dw = new T.Mesh(new T.PlaneGeometry(2.6, 3.4), drive); dw.rotation.x = -Math.PI / 2; dw.position.set(-1.2, 0.02, 3.4); hg.add(dw);
+    info.rects.push({ k: "building", x, z, w: 5.4, d: 5.4 });
   }
   lampAt(g, info, 4.2, 6.5, 3.6); lampAt(g, info, -5.5, COURT_Z - 5.6, 3.6);
   scatterTrees(g, info, t, t.ri(3, 6), st.trees);
