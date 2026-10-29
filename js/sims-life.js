@@ -74,9 +74,13 @@ export function sunAt(d, hours) {
   const az = Math.atan2(Math.sin(ha), Math.cos(ha) * Math.sin(lat) - Math.tan(decl) * Math.cos(lat)); // 0 = south, + west
   return { elev: el / rad, az, sunrise: noon - H0, sunset: noon + H0, noon };
 }
+// time preview: when set, the displayed time of day (sun, moon, sky, lights, NPC routines) follows a chosen moment.
+// Farming and other progress keep using Date.now(), so previewing never speeds anything up.
+let previewFn = null;
+export function setPreview(fn) { previewFn = fn; }
 export function clockState(Sgame) {
-  const L = life(), now = new Date();
-  const real = !L || L.realTime || X.visiting();
+  const L = life(), pv = previewFn && previewFn(), now = pv || new Date();
+  const real = !!pv || !L || L.realTime || X.visiting();
   const hours = real ? now.getHours() + now.getMinutes() / 60 + now.getSeconds() / 3600 : (((Sgame.minutes / 60) % 24) + 24) % 24;
   return { real, hours, date: now, sun: sunAt(now, hours), day: real ? dayOfYear(now) : Math.floor(Sgame.minutes / 1440) + 1 };
 }

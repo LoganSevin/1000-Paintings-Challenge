@@ -21,6 +21,56 @@ const sstep = (a, b, x) => { const t = Math.max(0, Math.min(1, (x - a) / (b - a)
 
 // windows glow at night: one shared material whose intensity the day cycle drives
 export const WINDOW_GLOW = G.M("#ffd58a", { emissive: "#ffb85a", ei: 0.05, rough: 0.2, name: "Window_Glow" });
+// ---------------- night fixtures: emissive glass + additive light-pool decal + bloom halo ----------------
+function radialTex(size, stops, sx = 1) {
+  const c = document.createElement("canvas"); c.width = size; c.height = size; const x = c.getContext("2d"); x.translate(size / 2, size / 2); x.scale(sx, 1);
+  const gr = x.createRadialGradient(0, 0, 0, 0, 0, size / 2); for (const [o, col] of stops) gr.addColorStop(o, col); x.fillStyle = gr; x.fillRect(-size, -size, size * 2, size * 2);
+  const t = new T.CanvasTexture(c); t.colorSpace = T.SRGBColorSpace; return t;
+}
+function beamTex() { // headlight throw: bright near the car, widening and fading down the road
+  const c = document.createElement("canvas"); c.width = 128; c.height = 256; const x = c.getContext("2d"), img = x.createImageData(128, 256);
+  for (let v = 0; v < 256; v++) for (let u = 0; u < 128; u++) { const t = v / 255, w = 0.18 + t * 0.8, d = Math.abs(u / 127 - 0.5) * 2 / w, a = Math.max(0, 1 - d * d) * Math.pow(1 - t, 1.4) * Math.min(1, t * 8); const i = (v * 128 + u) * 4; img.data[i] = 255; img.data[i + 1] = 244; img.data[i + 2] = 220; img.data[i + 3] = a * 255; }
+  x.putImageData(img, 0, 0); const t = new T.CanvasTexture(c); t.colorSpace = T.SRGBColorSpace; return t;
+}
+const NIGHT = { k: 0 };
+const POOL_TEX = typeof document !== "undefined" ? radialTex(128, [[0, "rgba(255,214,150,0.85)"], [0.35, "rgba(255,190,110,0.38)"], [0.7, "rgba(255,170,90,0.10)"], [1, "rgba(0,0,0,0)"]]) : null;
+const HALO_TEX = typeof document !== "undefined" ? radialTex(64, [[0, "rgba(255,255,255,1)"], [0.18, "rgba(255,236,200,0.75)"], [0.45, "rgba(255,200,140,0.18)"], [1, "rgba(0,0,0,0)"]]) : null;
+const BEAM_TEX = typeof document !== "undefined" ? beamTex() : null;
+const additive = (map, color) => new T.MeshBasicMaterial({ map, color, transparent: true, blending: T.AdditiveBlending, depthWrite: false, opacity: 0, polygonOffset: true, polygonOffsetFactor: -4, toneMapped: false, name: "Light_Pool" });
+export const LAMP_GLASS = G.M("#fff6e2", { emissive: "#ffd9a0", ei: 0.05, rough: 0.15, name: "Lamp_Glass" });
+const LAMP_POOL = additive(POOL_TEX, "#ffd8a0"), PORCH_POOL = additive(POOL_TEX, "#ffc888");
+const LAMP_HALO = new T.SpriteMaterial({ map: HALO_TEX, color: "#ffdcaa", transparent: true, blending: T.AdditiveBlending, depthWrite: false, opacity: 0, toneMapped: false });
+const PORCH_GEO = new T.CylinderGeometry(0.07, 0.09, 0.22, 8);
+const POOL_GEO = new T.PlaneGeometry(1, 1).rotateX(-Math.PI / 2), BEAM_GEO = new T.PlaneGeometry(1, 1).rotateX(-Math.PI / 2).rotateY(-Math.PI / 2).translate(0, 0, 0);
+// a fixture = light source marker (kept out of chunk merging) with its decal + halo
+export function makeFixture(kind, headY, poolR) {
+  const f = new T.Group(); f.name = "Fixture_" + kind; f.userData.fixture = { kind };
+  const pool = new T.Mesh(POOL_GEO, kind === "porch" ? PORCH_POOL : LAMP_POOL); pool.scale.set(poolR * 2, 1, poolR * 2); pool.position.y = -headY + 0.035; pool.name = "LightPool"; pool.renderOrder = 2; pool.raycast = () => {}; f.add(pool);
+  const h = new T.Sprite(LAMP_HALO); h.scale.setScalar(kind === "porch" ? 0.9 : 1.6); h.name = "Halo"; h.raycast = () => {}; f.add(h);
+  return f;
+}
+export const NIGHT_K = () => NIGHT.k;
+export function setNight(k) {
+  NIGHT.k = k; LAMP_GLASS.emissiveIntensity = 0.05 + k * 4.5; LAMP_POOL.opacity = k * 0.9; PORCH_POOL.opacity = k * 0.7; LAMP_HALO.opacity = k * 0.9;
+  CATS_EYE.emissiveIntensity = 0.05 + k * 1.6;
+}
+export const CATS_EYE = G.M("#f4f0e0", { emissive: "#fff2c0", ei: 0.05, rough: 0.1, metal: 0.3, name: "Cats_Eye" });
+// per-car light materials (so brake lights and tunnel headlights are per car)
+const HEAD_GLASS = G.M("#f4f6ff", { emissive: "#fff6e0", ei: 0.1, rough: 0.05, name: "Head_Light" });
+function carLights(obj, K, wb, kind) {
+  const L = { head: HEAD_GLASS.clone(), tail: null, beam: additive(BEAM_TEX, "#fff3d6"), halo: LAMP_HALO.clone(), tailHalo: LAMP_HALO.clone() };
+  L.tailHalo.color.set("#ff2a20"); L.halo.color.set("#fff4e0");
+  obj.traverse((o) => { if (o.isMesh && o.material && o.material.name === "Head_Light") o.material = L.head; if (o.isMesh && o.material && o.material.name === "Tail_Light") { L.tail = L.tail || o.material.clone(); o.material = L.tail; } });
+  const f = new T.Group(); f.name = "Fixture_head"; f.userData.fixture = { kind: "head" }; f.position.set(K.L / 2 + 0.1, 0.55, 0); f.rotation.y = Math.PI / 2; obj.add(f); // +x forward; getWorldDirection = +z of the group
+  const beam = new T.Mesh(BEAM_GEO, L.beam); beam.scale.set(kind === "bus" ? 3.4 : 3, 1, 13); beam.position.set(K.L / 2 + 6.7, 0.04, 0); beam.name = "HeadBeam"; beam.renderOrder = 2; beam.raycast = () => {}; obj.add(beam);
+  for (const sz of [-1, 1]) { const h = new T.Sprite(L.halo); h.scale.setScalar(0.9); h.position.set(K.L / 2 + 0.08, 0.55, sz * (wb / 2 - 0.3)); h.raycast = () => {}; obj.add(h); const t = new T.Sprite(L.tailHalo); t.scale.setScalar(0.55); t.position.set(-K.L / 2 - 0.06, 0.6, sz * (wb / 2 - 0.3)); t.raycast = () => {}; obj.add(t); }
+  obj.userData.lights = L; obj.userData.lightOn = 0; return obj;
+}
+export function setCarLights(obj, on, brake) {
+  const L = obj.userData.lights; if (!L) return; obj.userData.lightOn = on;
+  L.head.emissiveIntensity = 0.1 + on * 5; L.beam.opacity = on * 0.55; L.halo.opacity = on * 0.85;
+  const t = 0.35 + on * 1.4 + (brake ? 3.2 : 0); if (L.tail) L.tail.emissiveIntensity = t; L.tailHalo.opacity = Math.min(1, on * 0.5 + (brake ? 0.7 : 0));
+}
 const WIN_DARK = G.M("#2a3440", { rough: 0.1, metal: 0.4, name: "Window_Glass" });
 
 // ---------------- shared animated uniforms (wind, season, sky) ----------------
@@ -381,6 +431,72 @@ function footbridge(g, x0, x1, z, t) {
 }
 
 // ---------------- streets ----------------
+// ---------------- road hierarchy, markings and traffic control ----------------
+// every third grid line is an arterial (double yellow, cat's eyes, traffic signals); the rest are residential
+// streets (dashed centre line, all-way stop signs).
+export const arterial = (m) => ((m % 3) + 3) % 3 === 0;
+const WHITE = () => G.M("#eeeae0", { rough: 0.6, name: "Road_White" });
+function roadMarkings(g, info) {
+  const yel = MAT.line(), wht = WHITE(), E = WALK - 0.05, studs = [];
+  const artX = arterial(info.i), artZ = arterial(info.j); // road on x = +ROAD belongs to column i; z = +ROAD to row j
+  for (const [axis, art] of [["z", artX], ["x", artZ]]) {
+    const at = (u, v, w, d, y, mat) => (axis === "z" ? addBox(g, w, 0.01, d, mat, v, y, u) : addBox(g, d, 0.01, w, mat, u, y, v));
+    // centre line along the road on this chunk's + edge
+    if (art) for (const o of [-0.12, 0.12]) at(0, ROAD + o, 0.09, E * 2, 0.007, yel);
+    else for (let k = -E + 1; k < E - 1; k += 3) at(k, ROAD, 0.13, 1.4, 0.007, yel);
+    // white edge lines on both half-roads this chunk owns
+    for (const sv of [-1, 1]) at(0, sv * (WALK + 0.25), 0.12, E * 2 - 5.4, 0.007, wht);
+    // raised reflective markers (cat's eyes) on the centre line (and edges on arterials)
+    for (let k = -E + 2; k < E - 2; k += art ? 4 : 8) { studs.push(axis === "z" ? [ROAD, k] : [k, ROAD]); if (art) for (const sv of [-1, 1]) studs.push(axis === "z" ? [sv * (WALK + 0.45), k] : [k, sv * (WALK + 0.45)]); }
+  }
+  // crosswalks + stop lines where each half-road this chunk owns meets an intersection
+  for (const sv of [-1, 1]) {
+    for (let k = 0; k < 6; k++) for (const e of [-1, 1]) { const off = sv * (WALK + 0.35 + k * 0.5); addBox(g, 0.32, 0.01, 1.8, wht, off, 0.008, e * (WALK - 1.2)); addBox(g, 1.8, 0.01, 0.32, wht, e * (WALK - 1.2), 0.008, off); }
+    addBox(g, 0.32, 0.012, 2.8, wht, sv * (ROAD - 1.5), 0.009, sv * (WALK - 2.6)).rotation.y = Math.PI / 2;
+    addBox(g, 0.32, 0.012, 2.8, wht, -sv * (WALK - 2.6), 0.009, sv * (ROAD - 1.5));
+  }
+  const stud = new T.BoxGeometry(0.12, 0.035, 0.08);
+  for (const [x, z] of studs) G.mesh(stud, CATS_EYE, x, 0.02, z, g);
+  // traffic control at the 4 corners of this chunk: signal heads on arterial crossings, stop signs elsewhere
+  for (const cx of [-1, 1]) for (const cz of [-1, 1]) {
+    const ii = info.i + (cx > 0 ? 0 : -1), jj = info.j + (cz > 0 ? 0 : -1), sig = arterial(ii) || arterial(jj), x = cx * (WALK - 0.35), z = cz * (WALK - 0.35);
+    if (sig) trafficSignal(g, x, z, cx, cz, ii, jj); else if (cx === -cz) stopSign(g, x, z, cx, cz);
+  }
+}
+// signal phases: shared by every intersection with the same green-wave offset. x-axis traffic gets green, then yellow,
+// then z-axis traffic gets green, then yellow. One axis always has green or yellow - never all red.
+export const SIGNAL = { cycle: 26, gx: 10, y: 3 };
+export function signalState(ii, jj, axis, t) { const off = (((ii + jj) % 6) + 6) % 6 * 2.1, u = (((t + off) % SIGNAL.cycle) + SIGNAL.cycle) % SIGNAL.cycle, half = SIGNAL.gx + SIGNAL.y;
+  const mine = axis === "x" ? u : (u + half) % SIGNAL.cycle; return mine < SIGNAL.gx ? "green" : mine < half ? "yellow" : "red"; }
+const SIG_MATS = new Map(); // key "off:axis:color" -> material
+function sigMat(ii, jj, axis, col) { const k = ((((ii + jj) % 6) + 6) % 6) + ":" + axis + ":" + col; if (!SIG_MATS.has(k)) { const m = G.M({ green: "#0c3a1e", yellow: "#3a2e08", red: "#3a0c0c" }[col], { emissive: { green: "#36ff7a", yellow: "#ffc21a", red: "#ff2a1a" }[col], ei: 0, rough: 0.2, name: "Signal_" + col }); m.userData.sig = { off: (((ii + jj) % 6) + 6) % 6, axis, col }; SIG_MATS.set(k, m); } return SIG_MATS.get(k); }
+export function stepSignals(t) { for (const m of SIG_MATS.values()) { const u = m.userData.sig, st = signalState(u.off, 0, u.axis, t); m.emissiveIntensity = st === u.col ? 3.2 : 0.02; } }
+function trafficSignal(g, x, z, cx, cz, ii, jj) {
+  const pole = G.M("#2e3236", { metal: 0.6, rough: 0.45, name: "Signal_Pole" }), box = G.M("#1b1d1f", { rough: 0.6, name: "Signal_Box" });
+  G.mesh(G.cyl(0.07, 0.09, 3.6, 8), pole, x, 1.8, z, g);
+  // one head faces traffic arriving along x (the cars on the z=+-ROAD road), one faces traffic along z
+  for (const axis of ["x", "z"]) {
+    const ang = axis === "x" ? (cx > 0 ? -Math.PI / 2 : Math.PI / 2) : (cz > 0 ? Math.PI : 0), dx = Math.sin(ang), dz = Math.cos(ang);
+    const hx = x + (axis === "x" ? 0 : 0) , hz = z, hy = 3.1;
+    const h = G.mesh(G.rbox(0.3, 0.86, 0.24, 0.05), box, hx - dx * 0.16, hy, hz - dz * 0.16, g); h.rotation.y = ang;
+    ["red", "yellow", "green"].forEach((col, k) => { const l = G.mesh(G.cyl(0.085, 0.085, 0.04, 12), sigMat(ii, jj, axis, col), hx - dx * 0.29 + 0, hy + 0.27 - k * 0.27, hz - dz * 0.29, g); l.rotation.x = Math.PI / 2; l.rotation.y = 0; l.rotation.set(Math.PI / 2, 0, ang, "YXZ"); });
+  }
+}
+function stopSign(g, x, z, cx, cz) {
+  const pole = G.M("#9a9a9a", { metal: 0.5, rough: 0.5, name: "Sign_Pole" }), red = G.M("#c41e1e", { rough: 0.5, name: "Stop_Sign" }), wht = WHITE();
+  G.mesh(G.cyl(0.035, 0.035, 2.3, 6), pole, x, 1.15, z, g);
+  const s = G.mesh(new T.CylinderGeometry(0.33, 0.33, 0.03, 8), red, x, 2.25, z, g); s.rotation.set(Math.PI / 2, Math.PI / 8, 0); s.rotation.y = 0; s.rotateX(0);
+  const r = G.mesh(new T.CylinderGeometry(0.29, 0.29, 0.035, 8), wht, x, 2.25, z, g); r.rotation.copy(s.rotation); r.scale.set(1, 0.5, 1);
+  const s2 = G.mesh(new T.CylinderGeometry(0.26, 0.26, 0.04, 8), red, x, 2.25, z, g); s2.rotation.copy(s.rotation);
+}
+const HOOD_A = ["Maple", "Willow", "Cedar", "Juniper", "Harbor", "Foxglove", "Lark", "Briar", "Aspen", "Sparrow", "Hollow", "Clover", "Linden", "Heron", "Quarry", "Orchard"];
+const HOOD_B = ["Grove", "Heights", "Commons", "Park", "Hollow", "Crossing", "Glen", "Meadows", "Bend", "Ridge", "Terrace", "Green"];
+export function neighborhoodOf(i, j) { const a = Math.floor(i / 3), b = Math.floor(j / 3), h = H("hood:" + a + ":" + b); return HOOD_A[h % HOOD_A.length] + " " + HOOD_B[(h >> 5) % HOOD_B.length]; }
+function neighborhoodSign(g, info) {
+  const name = neighborhoodOf(info.i, info.j), stone = G.M("#8d8478", { rough: 0.85, name: "Hood_Stone" }), tex = signTexture(name);
+  const x = -3, z = LOT - 0.9; addBox(g, 3.4, 0.9, 0.5, stone, x, 0, z); addBox(g, 3.6, 0.12, 0.6, stone, x, 0.9, z);
+  const face = new T.Mesh(new T.PlaneGeometry(3.0, 0.62), new T.MeshStandardMaterial({ map: tex, roughness: 0.6, name: "Hood_Sign" })); face.position.set(x, 0.48, z + 0.26); face.userData.keep = true; face.name = "Hood_Sign"; g.add(face);
+}
 function streets(g, info) {
   const s = seedOf(info.i, info.j);
   for (const sx of [-1, 1]) { plane(g, WALK - LOT, WALK * 2, MAT.walk(), sx * (LOT + WALK) / 2, 0.03, 0); plane(g, ROAD - WALK, ROAD * 2, MAT.road(), sx * (WALK + ROAD) / 2, 0.005, 0); }
@@ -388,7 +504,8 @@ function streets(g, info) {
   const curb = MAT.curb();
   for (const sx of [-1, 1]) addBox(g, 0.15, 0.12, WALK * 2, curb, sx * WALK, 0, 0);
   for (const sz of [-1, 1]) addBox(g, WALK * 2, 0.12, 0.15, curb, 0, 0, sz * WALK);
-  for (let k = -ROAD + 1; k < ROAD; k += 3) { addBox(g, 0.15, 0.01, 1.4, MAT.line(), ROAD, 0.006, k); addBox(g, 1.4, 0.01, 0.15, MAT.line(), k, 0.007, ROAD); }
+  roadMarkings(g, info);
+  if (((info.j % 3) + 3) % 3 === 0 && ((info.i % 3) + 3) % 3 === 1 && info.biome !== "water" && info.biome !== "home") neighborhoodSign(g, info);
   // lot edge: a low kerb between grass and sidewalk so the lot reads as land
   for (const sx of [-1, 1]) addBox(g, 0.12, 0.08, LOT * 2, curb, sx * (LOT - 0.06), 0, 0);
   for (const sz of [-1, 1]) addBox(g, LOT * 2, 0.08, 0.12, curb, 0, 0, sz * (LOT - 0.06));
@@ -400,7 +517,7 @@ function streets(g, info) {
   if (info.tunS) tunnelHalf(g, info, -1, t);
   // street lamps on the sidewalk (not trees)
   const pole = G.M("#2b2b2b", { metal: 0.6, rough: 0.4, name: "Lamp_Post" });
-  for (const [x, z] of [[LOT + 1.1, LOT + 1.1], [-LOT - 1.1, -LOT - 1.1]]) { G.mesh(G.cyl(0.06, 0.08, 4, 8), pole, x, 2, z, g); G.mesh(G.sph(0.22, 12, 8), WINDOW_GLOW, x, 4.1, z, g); }
+  for (const [x, z] of [[LOT + 1.1, LOT + 1.1], [-LOT - 1.1, -LOT - 1.1], [LOT + 1.1, -LOT - 1.1], [-LOT - 1.1, LOT + 1.1]]) lampAt(g, Object.assign(info, { rects: info.rects }), x, z, 4);
   return t;
 }
 // street trees grow on the grass verge just inside the lot edge, only where the mask is open land
@@ -469,7 +586,18 @@ function planLot(g, info, t, near, extras) {
   scatterTrees(g, info, t, t.ri(2, 5), "yard", LOT - 1.6);
 }
 function benchAt(g, info, t, x, z, ry) { const o = G.buildGen(G.genType("bench", t.ri(1, 1e6))); o.position.set(x, heightAt(info, x, z), z); o.rotation.y = ry; o.traverse((c) => { if (c.isLight) c.visible = false; }); g.add(o); info.rects.push({ k: "item", x, z, w: 2.2, d: 2.2 }); }
-function lampAt(g, info, x, z) { const pole = G.M("#2b2b2b", { metal: 0.6, rough: 0.4, name: "Lamp_Post" }), y = heightAt(info, x, z); G.mesh(G.cyl(0.05, 0.07, 3.2, 8), pole, x, y + 1.6, z, g); G.mesh(G.sph(0.18, 12, 8), WINDOW_GLOW, x, y + 3.3, z, g); info.rects.push({ k: "item", x, z, w: 0.8, d: 0.8 }); }
+function lampAt(g, info, x, z, H = 3.4) {
+  const pole = G.M("#2b2b2b", { metal: 0.6, rough: 0.4, name: "Lamp_Post" }), y = heightAt(info, x, z);
+  // cobra-head street light: tapered pole, curved arm, housing with a lens underneath
+  G.mesh(G.cyl(0.05, 0.08, H, 10), pole, x, y + H / 2, z, g); G.mesh(G.cyl(0.11, 0.13, 0.25, 10), pole, x, y + 0.12, z, g);
+  const ang = Math.atan2(-x, -z), ax = Math.sin(ang), az = Math.cos(ang); // arm leans over the road (toward chunk edge)
+  const arm = G.mesh(G.cyl(0.03, 0.03, 0.9, 6), pole, x + ax * 0.42, y + H + 0.12, z + az * 0.42, g); arm.rotation.set(az * 1.35, 0, -ax * 1.35);
+  const hx = x + ax * 0.9, hz = z + az * 0.9, hy = y + H + 0.18;
+  const hous = G.mesh(G.rbox(0.62, 0.14, 0.3, 0.06), pole, hx, hy, hz, g); hous.rotation.y = -ang + Math.PI / 2;
+  const lens = G.mesh(G.rbox(0.5, 0.04, 0.22, 0.03), LAMP_GLASS, hx, hy - 0.08, hz, g); lens.rotation.y = -ang + Math.PI / 2;
+  const f = makeFixture("lamp", hy - 0.1 - y, 4.2); f.position.set(hx, hy - 0.12, hz); (info.fixtures || (info.fixtures = [])).push(f);
+  info.rects.push({ k: "item", x, z, w: 0.8, d: 0.8 });
+}
 function parkLot(g, info, t) {
   // a winding gravel path painted into the ground from one sidewalk to the other
   const alongZ = t.chance(0.5), a = t.rr(1.5, 4), ph = t.rr(0, 6), b = t.rr(-3, 3);
@@ -524,7 +652,7 @@ const CAR_COLS = ["#c94a3a", "#3a6ea5", "#f2eee6", "#2b2b2b", "#8a8f96", "#c9a22
 const CAR_KINDS = { sedan: { L: 4.3, h1: 0.55, h2: 0.5, cab: 2.2, off: -0.2 }, hatch: { L: 3.7, h1: 0.6, h2: 0.55, cab: 2.0, off: -0.4 }, van: { L: 4.9, h1: 1.2, h2: 0.0, cab: 0, off: 0 }, pickup: { L: 5.0, h1: 0.65, h2: 0.6, cab: 1.6, off: 0.9 }, bus: { L: 9.5, h1: 2.3, h2: 0, cab: 0, off: 0 }, taxi: { L: 4.3, h1: 0.55, h2: 0.5, cab: 2.2, off: -0.2 } };
 const carCache = new Map();
 function carModel(kind, col) {
-  const key = kind + col; if (carCache.has(key)) return carCache.get(key).clone();
+  const key = kind + col; if (carCache.has(key)) { const m = carCache.get(key), k = m.userData.K; return carLights(m.clone(), CAR_KINDS[k.kind] || CAR_KINDS.sedan, k.wb, k.kind); }
   const K = CAR_KINDS[kind] || CAR_KINDS.sedan, g = new T.Group(), wb = kind === "bus" ? 2.4 : 1.8, body = G.M(kind === "taxi" ? "#f2c32e" : kind === "bus" ? "#c9a227" : col, { rough: 0.35, metal: 0.4, name: "Car_Paint" });
   const glass = G.M("#1e2830", { rough: 0.05, metal: 0.6, name: "Car_Glass" }), tyre = G.M("#141414", { rough: 0.9, name: "Tyre" }), tail = G.M("#8a1a1a", { emissive: "#ff2a2a", ei: 0.6, name: "Tail_Light" });
   G.mesh(G.rbox(K.L, K.h1, wb, 0.18), body, 0, 0.3 + K.h1 / 2, 0, g);
@@ -533,9 +661,9 @@ function carModel(kind, col) {
   if (kind === "taxi") G.mesh(G.rbox(0.5, 0.15, 0.25, 0.03), WINDOW_GLOW, K.off, 0.3 + K.h1 + K.h2 + 0.1, 0, g);
   const wr = kind === "bus" ? 0.45 : 0.32;
   for (const sx of [-1, 1]) for (const sz of [-1, 1]) { const w = G.mesh(G.cyl(wr, wr, 0.24, 12), tyre, sx * K.L * 0.32, wr, sz * (wb / 2 - 0.05), g); w.rotation.x = Math.PI / 2; }
-  for (const sz of [-1, 1]) { G.mesh(G.rbox(0.06, 0.14, 0.3, 0.02), WINDOW_GLOW, K.L / 2, 0.55, sz * (wb / 2 - 0.3), g); G.mesh(G.rbox(0.06, 0.14, 0.3, 0.02), tail, -K.L / 2, 0.6, sz * (wb / 2 - 0.3), g); }
+  for (const sz of [-1, 1]) { G.mesh(G.rbox(0.06, 0.14, 0.3, 0.02), HEAD_GLASS, K.L / 2, 0.55, sz * (wb / 2 - 0.3), g); G.mesh(G.rbox(0.06, 0.14, 0.3, 0.02), tail, -K.L / 2, 0.6, sz * (wb / 2 - 0.3), g); }
   const merged = mergeByMaterial(g); merged.traverse((o) => { if (o.isMesh) o.castShadow = true; });
-  carCache.set(key, merged); return merged.clone();
+  merged.userData.K = { L: K.L, wb, kind }; carCache.set(key, merged); return carLights(merged.clone(), K, wb, kind);
 }
 const HULL = new T.SphereGeometry(1, 14, 8, 0, Math.PI * 2, Math.PI / 2, Math.PI / 2);
 function boatModel(t, kind) {
@@ -580,7 +708,7 @@ function sharedLot(g, L, t) {
 export function createWorld(scene, opts = {}) {
   const root = new T.Group(); root.name = "Neighborhood"; scene.add(root);
   const chunks = new Map(), signs = [];
-  let radius = opts.radius ?? 1, shared = [], slots = new Map(), queue = [], ownLot = "", time = 0;
+  let radius = opts.radius ?? 1, shared = [], slots = new Map(), queue = [], ownLot = "", time = 0, sigT = 0;
   const reduce = !!opts.reduceMotion;
   const detail = { grass: opts.grass ?? 3000, cars: opts.cars ?? 10, boats: opts.boats ?? 3 };
   const npcs = []; let npcMax = opts.npcs ?? 6;
@@ -606,7 +734,8 @@ export function createWorld(scene, opts = {}) {
     const merged = mergeByMaterial(raw, true);
     merged.position.set(i * CH, 0, j * CH); merged.name = "Chunk_" + i + "_" + j; merged.userData.near = near; merged.userData.ij = [i, j];
     for (const r of extras.roofs) { merged.add(r); roofs.push(r); }
-    for (const d of extras.doors) { merged.add(d); doors.push(d); }
+    for (const d of extras.doors) { merged.add(d); doors.push(d); if (d.material.name === "Front_Door") { const f = makeFixture("porch", 2.3, 2.4); const ry = d.userData.door.base; f.position.set(d.position.x + Math.cos(ry) * 0.43 + Math.sin(ry) * 0.25 - Math.cos(ry) * 0.75, 2.3, d.position.z - Math.sin(ry) * 0.43 + Math.cos(ry) * 0.25 + Math.sin(ry) * 0.75); const lamp = new T.Mesh(PORCH_GEO, LAMP_GLASS); lamp.name = "Porch_Lamp"; f.add(lamp); merged.add(f); } }
+    for (const f of info.fixtures || []) merged.add(f);
     for (const c of extras.cars) { merged.add(c); parked.push({ obj: c, i, j, state: "park", timer: 20 + Math.random() * 90 }); }
     for (const sg of extras.signs) { merged.add(sg); sg.traverse((o) => { if (o.userData.house) houseSigns.push(o); }); }
     merged.traverse((o) => { if (o.userData.visitSid) signs.push(o); });
@@ -657,7 +786,7 @@ export function createWorld(scene, opts = {}) {
   }
 
   // ---- cars: straight lanes on the grid, keep distance, take turns at crossings ----
-  const cars = [], reserve = new Map(); let carSeq = 0;
+  const cars = [], reserve = new Map(); let carSeq = 0, stuckRemoved = 0;
   const laneOf = (c) => (c.axis === "x" ? c.line + c.dir * 1.5 : c.line - c.dir * 1.5);
   function carXZ(c) { return c.axis === "x" ? [c.p, laneOf(c)] : [laneOf(c), c.p]; }
   function spawnCar(ci, cj, t) {
@@ -677,6 +806,7 @@ export function createWorld(scene, opts = {}) {
     while (cars.length > detail.cars) { const c = cars.pop(); release(c); root.remove(c.obj); }
     const lim = (radius + 1) * CH;
     for (let k = cars.length - 1; k >= 0; k--) { const c = cars[k], [x, z] = carXZ(c); if (Math.abs(x - ci * CH) > lim || Math.abs(z - cj * CH) > lim) { release(c); root.remove(c.obj); cars.splice(k, 1); } }
+    for (let k = cars.length - 1; k >= 0; k--) { const c = cars[k]; if (c.stuck > 40) { release(c); root.remove(c.obj); cars.splice(k, 1); stuckRemoved++; } }
     const lanes = new Map(); for (const c of cars) { const key = c.axis + c.line + ":" + c.dir; if (!lanes.has(key)) lanes.set(key, []); lanes.get(key).push(c); }
     for (const list of lanes.values()) { list.sort((a, b) => (b.p - a.p) * a.dir); for (let k = 0; k < list.length; k++) list[k].ahead = k ? list[k - 1] : null; }
     const BOX = 3.4, obs = obstacles();
@@ -691,12 +821,25 @@ export function createWorld(scene, opts = {}) {
       if (inBox) { if (!c.held) { const r = reserve.get(key) || { axis: c.axis, cars: new Set() }; r.cars.add(c.id); reserve.set(key, r); c.held = key; } }
       else {
         const dist = (entry - front) * c.dir;
-        if (dist < 2 + c.v * 0.9) { const r = reserve.get(key); if (!r || !r.cars.size || r.axis === c.axis) { const rr = r || { axis: c.axis, cars: new Set() }; rr.axis = c.axis; rr.cars.add(c.id); reserve.set(key, rr); c.held = key; } else maxAdv = Math.min(maxAdv, dist - 0.4); }
+        // traffic control: signals on arterial crossings, all-way stops on residential ones
+        const I = Math.round(((c.axis === "x" ? q : c.line) - ROAD) / CH), Jn = Math.round(((c.axis === "x" ? c.line : q) - ROAD) / CH);
+        let hold = false;
+        if (dist < 26) {
+          if (arterial(I) || arterial(Jn)) { const st = signalState(I, Jn, c.axis, sigT); if (st === "red" || (st === "yellow" && dist > c.v * 1.1 + 1.5)) hold = true; }
+          else if (c.stopKey !== key) { if (dist < 1.4 && c.v < 0.35) { c.stopWait = (c.stopWait || 0) + dt; if (c.stopWait > 0.9) { c.stopKey = key; c.stopWait = 0; } else hold = true; } else hold = true; }
+        }
+        if (hold) maxAdv = Math.min(maxAdv, Math.max(0, dist - 0.4));
+        else if (dist < 2 + c.v * 0.9) { const r = reserve.get(key); if (!r || !r.cars.size || r.axis === c.axis) { const rr = r || { axis: c.axis, cars: new Set() }; rr.axis = c.axis; rr.cars.add(c.id); reserve.set(key, rr); c.held = key; } else maxAdv = Math.min(maxAdv, dist - 0.4); }
       }
       for (const ob of obs) { const along = ((c.axis === "x" ? ob.x : ob.z) - c.p) * c.dir, lat = Math.abs((c.axis === "x" ? ob.z : ob.x) - laneOf(c)); if (lat < 1.7 && along > 0 && along < 14) maxAdv = Math.min(maxAdv, along - c.len / 2 - 1.6); }
       const want = maxAdv < 0.5 ? 0 : Math.min(c.vmax, Math.max(0, (maxAdv - 0.5) * 1.2));
+      c.brake = want < c.v - 0.4 || (c.v < 0.6 && want < 0.3);
       c.v += Math.max(-9 * dt, Math.min(3 * dt, want - c.v)); if (c.v < 0) c.v = 0;
+      { const [x, z] = carXZ(c); setCarLights(c.obj, Math.max(NIGHT.k, inTunnel(x, z) ? 1 : 0), c.brake); }
       c.p += c.dir * Math.min(c.v * dt, Math.max(0, maxAdv)); placeCar(c);
+      // anti-gridlock: give up a reservation held too long, and quietly retire cars stuck for a long time
+      if (c.held) { c.heldT = (c.heldT || 0) + dt; if (c.heldT > 12) { release(c); c.heldT = 0; } } else c.heldT = 0;
+      c.stuck = c.v < 0.05 ? (c.stuck || 0) + dt : 0;
     }
   }
 
@@ -724,7 +867,7 @@ export function createWorld(scene, opts = {}) {
 
   function update(center, dt) {
     const ci = Math.round(center.x / CH), cj = Math.round(center.z / CH);
-    if (!reduce) time += dt; U.uTime.value = time;
+    if (!reduce) time += dt; U.uTime.value = time; sigT += dt; stepSignals(sigT);
     const want = new Set();
     for (let i = ci - radius; i <= ci + radius; i++) for (let j = cj - radius; j <= cj + radius; j++) want.add(chunkKey(i, j));
     for (const k of [...chunks.keys()]) if (!want.has(k)) dropChunk(k);
@@ -754,6 +897,13 @@ export function createWorld(scene, opts = {}) {
   // things cars must stop for: sims crossing, the player's car, etc. (set by the game)
   let obstacleFn = () => [];
   const obstacles = () => { try { return obstacleFn() || []; } catch (e) { return []; } };
+  function inTunnel(x, z) { const i = Math.round(x / CH), j = Math.round((z - ROAD) / CH); return tunnelAt(i, j) && Math.abs(x - i * CH) < HILL_X + 1 && Math.abs(z - (j * CH + ROAD)) < TUN_W; }
+  function lightSources() {
+    const out = [];
+    for (const c of chunks.values()) for (const f of c.children) if (f.userData.fixture) out.push({ obj: f, kind: f.userData.fixture.kind, on: NIGHT.k });
+    for (const c of cars) { const f = c.obj.getObjectByName("Fixture_head"); if (f) out.push({ obj: f, kind: "head", on: c.obj.userData.lightOn || 0 }); }
+    return out;
+  }
   function carNear(x, z, r) { for (const c of cars) { const p = c.obj.position; if (Math.abs(p.x - x) < r && Math.abs(p.z - z) < r) return c; } return null; }
   // ---- wandering neighbors on the sidewalks ----
   function spawnNpc(ci, cj) {
@@ -798,13 +948,14 @@ export function createWorld(scene, opts = {}) {
   return {
     actors: () => [...cars.map((c) => c.obj), ...boats.map((b) => b.obj), ...npcs.map((n) => n.holder)],
     actorKinds: () => [...cars.map((c) => [c.obj, "car"]), ...boats.map((b) => [b.obj, "boat"]), ...npcs.map((n) => [n.holder, "npc", n.name])],
-    root, signs, houseSigns, update, carNear, lotPlan,
+    root, signs, houseSigns, update, carNear, lotPlan, lightSources, inTunnel,
     setFocus(p, cam) { focus = { x: p.x, z: p.z }; if (cam) camPos.copy(cam); }, setObstacles(fn) { obstacleFn = fn; },
     chunkMeshes: () => [...chunks.values()], carModel, parkedCars: () => parked.map((p) => p.obj), setShared, lotOfSign, zoneAt, auditPlants, auditCars,
     setRadius(r) { radius = r; }, setNpcs(n) { npcMax = n; },
     setDetail(d) { const g0 = detail.grass; Object.assign(detail, d); if (detail.grass !== g0) makeGrass(detail.grass); },
     setSky(c) { U.uSky.value.copy(c); }, setSeason, season: () => seasonOf(),
     sharedSlots: () => [...slots].map(([k, L]) => ({ chunk: k, name: L.name, sid: L.sid })),
+    trafficStats: () => ({ cars: cars.length, moving: cars.filter((c) => c.v > 0.5).length, stopped: cars.filter((c) => c.v < 0.05).length, maxStuck: Math.max(0, ...cars.map((c) => c.stuck || 0)), stuckRemoved, reservations: reserve.size }),
     stats: () => ({ chunks: chunks.size, npcs: npcs.length, shared: shared.length, queued: queue.length, cars: cars.length, boats: boats.length, grass: grassCount }),
   };
 }
