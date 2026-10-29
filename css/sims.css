@@ -1,0 +1,63 @@
+/* Sims tab — dark studio look */
+#panel-sims .sims-shell { display: flex; flex-direction: column; gap: 12px; padding: 12px 16px 24px; color: var(--text, #f5f0e8); }
+#panel-sims .sims-top { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px; }
+#panel-sims h2 { font-family: var(--font-display, Georgia, serif); font-size: 2rem; margin: 0; color: var(--accent, #c9a227); font-weight: 500; }
+#panel-sims h3 { font-family: var(--font-display, Georgia, serif); margin: 0 0 8px; font-weight: 500; font-size: 1.35rem; }
+#panel-sims h4 { margin: 12px 0 6px; font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; color: var(--text-muted, #9a9288); }
+#panel-sims .sims-hint, #panel-sims .sims-small { color: var(--text-muted, #9a9288); font-size: .82rem; margin: 4px 0 8px; line-height: 1.4; }
+#panel-sims button, #panel-sims .sims-file {
+  font: 500 .85rem var(--font-ui, system-ui, sans-serif); color: var(--text, #f5f0e8); background: var(--bg-card, #221f1c);
+  border: 1px solid var(--border, rgba(245,240,232,.08)); border-radius: var(--radius, 6px); padding: 8px 12px; min-height: 38px; cursor: pointer;
+  transition: border-color .15s, background .15s;
+}
+#panel-sims button:hover, #panel-sims .sims-file:hover { border-color: var(--accent, #c9a227); }
+#panel-sims button[aria-pressed="true"] { background: var(--accent-soft, rgba(201,162,39,.15)); border-color: var(--accent, #c9a227); color: var(--accent, #c9a227); }
+#panel-sims button:focus-visible, #panel-sims input:focus-visible, #panel-sims select:focus-visible { outline: 2px solid var(--accent, #c9a227); outline-offset: 2px; }
+#panel-sims .sims-modes { display: flex; gap: 6px; flex-wrap: wrap; }
+#panel-sims .sims-modes button { font-size: .95rem; padding: 10px 16px; }
+#panel-sims .sims-body { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 12px; min-height: 0; }
+#panel-sims .sims-stage { position: relative; height: min(72vh, 760px); min-height: 360px; border: 1px solid var(--border, rgba(245,240,232,.08)); border-radius: 10px; overflow: hidden; background: #141210; touch-action: none; }
+#panel-sims .sims-stage canvas { width: 100%; height: 100%; display: block; touch-action: none; }
+#panel-sims .sims-overlay { position: absolute; top: 8px; left: 8px; right: 8px; display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; pointer-events: none; z-index: 2; }
+#panel-sims .sims-overlay > * { pointer-events: auto; }
+#panel-sims .sims-clock { background: rgba(15,14,13,.75); border: 1px solid var(--border); border-radius: 999px; padding: 6px 12px; font-variant-numeric: tabular-nums; font-size: .85rem; }
+#panel-sims .sims-walls { display: flex; gap: 4px; }
+#panel-sims .sims-walls button { background: rgba(15,14,13,.75); padding: 6px 10px; min-height: 32px; font-size: .78rem; }
+#panel-sims .sims-side { background: var(--bg-elevated, #1a1816); border: 1px solid var(--border); border-radius: 10px; padding: 12px; overflow: auto; max-height: min(72vh, 760px); }
+#panel-sims .sims-tools { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0; }
+#panel-sims .sims-file { position: relative; display: inline-flex; align-items: center; overflow: hidden; }
+#panel-sims .sims-file input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+#panel-sims .sims-label { display: block; margin: 10px 0 4px; font-size: .78rem; color: var(--text-muted, #9a9288); }
+#panel-sims .sims-swatches { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+#panel-sims .sims-swatch { width: 30px; height: 30px; min-height: 30px; padding: 0; border-radius: 50%; border: 2px solid rgba(245,240,232,.15); }
+#panel-sims .sims-swatch[aria-pressed="true"] { border-color: var(--accent, #c9a227); box-shadow: 0 0 0 2px rgba(201,162,39,.35); }
+#panel-sims .sims-color { width: 34px; height: 30px; border: none; background: none; padding: 0; }
+#panel-sims .sims-input { width: 100%; box-sizing: border-box; background: var(--bg-card); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px; font: inherit; }
+#panel-sims input[type="range"] { width: 100%; accent-color: var(--accent, #c9a227); }
+#panel-sims .sims-catalog { display: grid; grid-template-columns: repeat(auto-fill, minmax(92px, 1fr)); gap: 6px; }
+#panel-sims .sims-item { display: flex; flex-direction: column; align-items: flex-start; text-align: left; gap: 2px; }
+#panel-sims .sims-item span { font-size: .72rem; color: var(--text-muted); }
+#panel-sims .sims-simlist { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 6px; }
+#panel-sims .sims-chip { display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; }
+#panel-sims .sims-chip i { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+#panel-sims .sims-needs h4 { margin-top: 8px; color: var(--text); text-transform: none; letter-spacing: 0; font-size: 1rem; }
+#panel-sims .sims-need { display: grid; grid-template-columns: 70px 1fr 32px; gap: 8px; align-items: center; font-size: .82rem; margin: 6px 0; }
+#panel-sims .sims-need em { font-style: normal; text-align: right; color: var(--text-muted); font-variant-numeric: tabular-nums; }
+#panel-sims .sims-bar { height: 10px; background: #2a2622; border-radius: 999px; overflow: hidden; }
+#panel-sims .sims-bar b { display: block; height: 100%; border-radius: 999px; transition: width .4s linear; }
+#panel-sims .sims-thought { font-style: italic; color: var(--accent, #c9a227); font-size: .85rem; min-height: 1.2em; }
+#panel-sims .sims-check { display: flex; gap: 8px; align-items: center; font-size: .82rem; margin: 8px 0; }
+#panel-sims .sims-save { border-top: 1px solid var(--border); margin-top: 14px; padding-top: 4px; }
+#panel-sims .sims-status { font-size: .8rem; color: var(--text-muted); margin: 10px 0 0; min-height: 1.2em; }
+@media (max-width: 860px) {
+  #panel-sims .sims-shell { padding: 8px 8px 20px; }
+  #panel-sims .sims-body { grid-template-columns: 1fr; }
+  #panel-sims .sims-stage { height: 58vh; min-height: 300px; }
+  #panel-sims .sims-side { max-height: none; }
+  #panel-sims h2 { font-size: 1.6rem; }
+  #panel-sims .sims-modes { width: 100%; }
+  #panel-sims .sims-modes button { flex: 1 1 auto; padding: 10px 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #panel-sims * { transition: none !important; animation: none !important; }
+}
