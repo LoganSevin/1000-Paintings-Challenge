@@ -17,6 +17,13 @@
   var player = null;
   var cars = [];
   var peds = [];
+  // Parcel-derived homes + resident NPCs (Terrebonne Assessor data, data/houma-parcels.json)
+  var originLL = [29.59007223, -90.72057];
+  var homes = [];
+  var residents = [];
+  var homeBuckets = {};
+  var BK = 100;
+  var lastMet = null;
   var keys = {};
   var wanted = 0;
   var wantedTimer = 0;
@@ -136,6 +143,7 @@
   function ingest(data) {
     osm = { roads: [], water: [], buildings: [], parking: [] };
     streetSigns = [];
+    if (data.origin) originLL = data.origin;
     (data.features || []).forEach(function (f) {
       if (f.k === "road") osm.roads.push(f);
       else if (f.k === "water") osm.water.push(f);
@@ -398,6 +406,7 @@
         wantedTimer = 10;
       }
     }
+    updateResidents(dt);
     updateMissions();
     hud();
   }
@@ -670,6 +679,7 @@
       drawGround(cam);
       drawRoads(cam);
       drawBuildings(cam);
+      drawHomes(cam);
       drawSigns(cam);
       cars.forEach(function (c) {
         if (Math.hypot(c.x - player.x, c.y - player.y) < 120) drawCar(c, cam);
@@ -748,11 +758,126 @@
         ingest(data);
         spawnWorld();
         ready = true;
+        if (window.HoumaProps) window.HoumaProps.load().then(placeHomes).catch(function (e) { console.warn("parcels", e); });
         toast("OpenStreetMap Houma — " + osm.roads.length + " streets, " + osm.buildings.length + " footprints.");
       })
       .catch(function (err) {
         toast("Could not load OSM: " + (err && err.message));
       });
+  }
+
+  function llToXY(lat, lon) {
+    return [(lon - originLL[1]) * 111320.0 * Math.cos((originLL[0] * Math.PI) / 180), (originLL[0] - lat) * 110540.0];
+  }
+  function niceName(owner) {
+    // "BRUNET, JOSHUA PAUL" -> "Joshua Brunet"
+    var t = function (w) { return w.charAt(0) + w.slice(1).toLowerCase(); };
+    var m = /^([^,]+),\s*([A-Z'\-]+)/.exec(owner || "");
+    if (!m) return owner;
+    return t(m[2]) + " " + m[1].split(/\s+/).map(t).join(" ");
+  }
+  function nearBuckets(x, y, r, fn) {
+    var bx0 = Math.floor((x - r) / BK), bx1 = Math.floor((x + r) / BK), by0 = Math.floor((y - r) / BK), by1 = Math.floor((y + r) / BK), bx, by;
+    for (by = by0; by <= by1; by++) for (bx = bx0; bx <= bx1; bx++) (homeBuckets[bx + "," + by] || []).forEach(fn);
+  }
+  function placeHomes(d) {
+    homes = []; residents = []; homeBuckets = {};
+    var isBiz = window.HoumaProps ? window.HoumaProps.isBiz : function () { return false; };
+    d.parcels.forEach(function (p) {
+      if (p.lat == null || p.lon == null) return;
+      var xy = llToXY(p.lat, p.lon);
+      if (Math.abs(xy[0]) > ORIGIN - 40 || Math.abs(xy[1]) > ORIGIN - 40) return;
+      var built = (p.sqft || 0) > 0 || (p.bldg || 0) > 0;
+      var biz = isBiz(p.owner);
+      var onOsm = getT(wxToC(xy[0]), wyToC(xy[1])) === T.BLDG; // OSM footprint already drawn here
+      var h = { x: xy[0], y: xy[1], p: p, built: built, osm: onOsm, biz: biz, w: Math.max(5, Math.min(14, Math.sqrt(p.sqft || 900) * 0.3)), r: null };
+      // Resident NPC: a person (not a company) who owns a built parcel; owner-occupied if mailing starts with site address
+      if (built && !biz && p.owner) {
+        var occ = p.site && p.mail && p.mail.toUpperCase().indexOf(p.site.toUpperCase()) === 0;
+        h.r = { home: h, x: h.x + rand(-4, 4), y: h.y + rand(-4, 4), a: rand(0, 6.28), v: rand(0.6, 1.4), name: niceName(p.owner), occ: occ, hue: (parseInt(p.id, 10) * 37) % 360 };
+        residents.push(h.r);
+      }
+      homes.push(h);
+      var k = Math.floor(h.x / BK) + "," + Math.floor(h.y / BK);
+      (homeBuckets[k] = homeBuckets[k] || []).push(h);
+    });
+    toast("Assessor parcels: " + homes.length + " homes/lots, " + residents.length + " residents (fetched " + d.meta.fetched + ").");
+  }
+  function updateResidents(dt) {
+    if (!player || !homes.length) return;
+    var best = null, bd = 6;
+    nearBuckets(player.x, player.y, 160, function (h) {
+      var r = h.r;
+      if (!r) return;
+      r.x += Math.cos(r.a) * r.v * dt;
+      r.y += Math.sin(r.a) * r.v * dt;
+      if (Math.hypot(r.x - h.x, r.y - h.y) > 10 || Math.random() < 0.01) r.a = Math.atan2(h.y - r.y, h.x - r.x) + rand(-1.2, 1.2);
+      var dd = Math.hypot(r.x - player.x, r.y - player.y);
+      if (dd < bd) { bd = dd; best = r; }
+    });
+    if (best && best !== lastMet && !player.veh) {
+      lastMet = best;
+      var p = best.home.p;
+      toast(best.name + " — " + (best.occ ? "lives at " : "owns ") + (p.site || "parcel " + p.id) + " · parcel " + p.id + (p.assessed ? " · assessed $" + Math.round(p.assessed).toLocaleString() : ""));
+    }
+  }
+  function drawHomes(cam) {
+    if (!homes.length) return;
+    var vis = [];
+    nearBuckets(player.x, player.y, 130, function (h) {
+      var d = Math.hypot(h.x - cam.x, h.y - cam.y);
+      if (d < 130) vis.push([d, h]);
+    });
+    vis.sort(function (a, b) { return b[0] - a[0]; });
+    vis.forEach(function (it) {
+      var h = it[1], d = it[0];
+      if (h.built && !h.osm) {
+        var w = h.w / 2, z = h.biz ? 5.5 : 3.6, col = h.biz ? "#9fb4d8" : "#e7b98f";
+        var c = [[h.x - w, h.y - w], [h.x + w, h.y - w], [h.x + w, h.y + w], [h.x - w, h.y + w]];
+        var i, ok = true, top = [];
+        for (i = 0; i < 4; i++) { var tp = project(c[i][0], c[i][1], z, cam); if (!tp) { ok = false; break; } top.push(tp); }
+        if (ok) {
+          for (i = 0; i < 4; i++) {
+            var a = c[i], b = c[(i + 1) % 4];
+            drawPoly([project(a[0], a[1], 0, cam), project(b[0], b[1], 0, cam), project(b[0], b[1], z, cam), project(a[0], a[1], z, cam)], shade(col, -18 - i * 5), "rgba(40,20,10,0.25)");
+          }
+          var apex = project(h.x, h.y, z + (h.biz ? 0.4 : 2.2), cam);
+          if (apex) for (i = 0; i < 4; i++) drawPoly([top[i], top[(i + 1) % 4], apex], shade(h.biz ? "#6f7f9a" : "#a5483a", -i * 6), "rgba(30,10,5,0.3)");
+          else drawPoly(top, col);
+        }
+      } else if (!h.built) {
+        var s = project(h.x, h.y, 1.2, cam);
+        if (s) { ctx.fillStyle = "rgba(255,210,74,0.8)"; ctx.fillRect(s.x - 1, s.y - Math.max(4, 60 / s.z), 2, Math.max(4, 60 / s.z)); }
+      }
+      if (d < 38) {
+        var lp = project(h.x, h.y, h.built ? 7.5 : 2.4, cam);
+        if (lp) {
+          ctx.font = "600 " + Math.max(9, Math.min(13, 260 / lp.z)) + "px Bahnschrift, sans-serif";
+          ctx.textAlign = "center";
+          ctx.fillStyle = "rgba(10,6,10,0.65)";
+          var label = h.p.site || "#" + h.p.id;
+          var tw = ctx.measureText(label).width;
+          ctx.fillRect(lp.x - tw / 2 - 3, lp.y - 11, tw + 6, 14);
+          ctx.fillStyle = h.biz ? "#bcd0ff" : "#ffe7c2";
+          ctx.fillText(label, lp.x, lp.y);
+        }
+      }
+      var r = h.r;
+      if (r) {
+        var sp = project(r.x, r.y, 1.0, cam);
+        if (sp) {
+          var rad = Math.max(2, 30 / sp.z);
+          ctx.fillStyle = "hsl(" + r.hue + ",55%,58%)";
+          ctx.beginPath(); ctx.arc(sp.x, sp.y, rad, 0, Math.PI * 2); ctx.fill();
+          var hp = project(r.x, r.y, 1.9, cam);
+          if (hp) { ctx.fillStyle = "#f1d2b6"; ctx.beginPath(); ctx.arc(hp.x, hp.y, rad * 0.6, 0, Math.PI * 2); ctx.fill(); }
+          if (Math.hypot(r.x - player.x, r.y - player.y) < 22 && hp) {
+            ctx.font = "11px Bahnschrift, sans-serif"; ctx.textAlign = "center"; ctx.fillStyle = "#fff";
+            ctx.fillText(r.name, hp.x, hp.y - rad - 3);
+          }
+        }
+      }
+    });
   }
 
   function start() {
@@ -808,5 +933,14 @@
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
   else init();
 
-  window.Houma = { onShow: start, onHide: stop };
+  function goTo(pid) {
+    var h = null;
+    homes.forEach(function (x) { if (x.p.id === String(pid)) h = x; });
+    if (!h || !player) return false;
+    if (player.veh) { player.veh.v = 0; player.veh = null; }
+    player.x = h.x + 9; player.y = h.y + 9; player.a = Math.atan2(h.y - player.y, h.x - player.x); player.v = 0;
+    toast((h.r ? h.r.name + "'s place — " : h.p.owner + " — ") + (h.p.site || "parcel " + h.p.id));
+    return true;
+  }
+  window.Houma = { onShow: start, onHide: stop, goTo: goTo, homesReady: function () { return homes.length; } };
 })();
