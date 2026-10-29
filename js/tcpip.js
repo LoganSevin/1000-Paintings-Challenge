@@ -12,8 +12,8 @@
   var nav, wrap, svg, roadPath, carLayer, cars = [], lights = [], clock = 0, len = 0, raf = 0, last = 0, spawnT = 0;
   // Traffic lights at these fractions of the width (between poles). Cycle seconds.
   var LIGHTS = [0.2, 0.48, 0.81];
-  // Synced phases: main road and cross street are always opposite, with an all-red clearance between.
-  var PHASES = [["green", "red", 5], ["yellow", "red", 1.4], ["red", "red", 0.8], ["red", "green", 3.2], ["red", "yellow", 1.1], ["red", "red", 0.8]];
+  // Synced phases: main road and cross street are always opposite; yellow hands straight to the other green.
+  var PHASES = [["green", "red", 7], ["yellow", "red", 1.6], ["red", "green", 3.2], ["red", "yellow", 1.1]];
   var CYCLE = PHASES.reduce(function (a, p) { return a + p[2]; }, 0), BOX = 13, WALK = 6;
   var LAMP = { red: "#ff4a3d", yellow: "#ffc93a", green: "#3ddc6a", off: "#2b2f33" };
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)");
