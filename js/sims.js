@@ -843,7 +843,7 @@ async function start() {
   [THREE, { OrbitControls }, { GLTFExporter }, { GLTFLoader }] = await Promise.all([
     import("three"), import("three/addons/controls/OrbitControls.js"), import("three/addons/exporters/GLTFExporter.js"), import("three/addons/loaders/GLTFLoader.js"),
   ]);
-  [G, World, Life, Plan] = await Promise.all([import("./sims-gen.js?v=3"), import("./sims-world.js?v=7"), import("./sims-life.js?v=1"), import("./sims-plan.js?v=1")]);
+  [G, World, Life, Plan] = await Promise.all([import("./sims-gen.js?v=3"), import("./sims-world.js?v=7"), import("./sims-life.js?v=4"), import("./sims-plan.js?v=1")]);
   quality = pickQuality(); G.setQuality({ tex: QUALITY[quality].tex, aniso: 4 });
   const wrap = $("sims-stage");
   renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });

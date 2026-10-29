@@ -83,6 +83,7 @@ export function clockState(Sgame) {
 export function partOfDay(c) { const s = c.sun; if (c.hours > s.sunrise - 0.75 && c.hours < s.sunrise + 1.25) return "dawn"; if (c.hours > s.sunset - 1.25 && c.hours < s.sunset + 0.75) return "dusk"; return s.elev > 0 ? "day" : "night"; }
 const hm = (h) => { h = ((h % 24) + 24) % 24; const H2 = Math.floor(h), M2 = Math.floor((h - H2) * 60); return ((H2 + 11) % 12 + 1) + ":" + String(M2).padStart(2, "0") + (H2 < 12 ? " AM" : " PM"); };
 export function clockLabel(c) {
+  { const cb = X && X.$ && X.$("sims-realtime"), L = life(); if (cb && L && cb.checked !== !!L.realTime) cb.checked = !!L.realTime; }
   const icon = c.sun.elev > 6 ? "☀" : c.sun.elev > -6 ? "🌅" : "☾";
   const d = c.real ? c.date.toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" }) + " · " : "Day " + c.day + " · ";
   return icon + " " + d + hm(c.hours) + (c.real ? "" : " (game)") + " · ↑" + hm(c.sun.sunrise) + " ↓" + hm(c.sun.sunset);
@@ -526,10 +527,11 @@ export function openMenu(t, cx, cy, list) {
   const x = Math.max(110, Math.min(r.width - 110, cx - r.left)), y = Math.max(100, Math.min(r.height - 100, cy - r.top)); menu.style.left = x + "px"; menu.style.top = y + "px";
   const title = el("div", "sims-pie-title", t.title || ""); menu.append(title);
   const n = list.length, radial = n <= 8, R = n <= 4 ? 78 : 92;
+  let armed = false; menu.addEventListener("pointerdown", () => { armed = true; }, true);
   if (!radial) menu.classList.add("is-list");
   list.forEach((a, i) => { const b = el("button", "sims-pie-btn", (a.icon ? a.icon + " " : "") + a.label + (a.sub ? " ›" : "")); b.type = "button"; b.setAttribute("role", "menuitem"); if (a.disabled) b.disabled = true;
     if (radial) { const ang = -Math.PI / 2 + (i / n) * Math.PI * 2; b.style.left = Math.cos(ang) * R + "px"; b.style.top = Math.sin(ang) * R * 0.8 + "px"; }
-    b.onclick = (e) => { e.stopPropagation(); if (a.sub) { openMenu({ ...t, title: a.label }, cx, cy, a.sub); return; } closeMenu(); try { a.run(); } catch (err) { console.error(err); X.setStatus("Couldn't do that: " + err.message); } };
+    b.onclick = (e) => { e.stopPropagation(); if (!armed && e.detail !== 0) return; /* ignore the click from lifting a long-press */ if (a.sub) { openMenu({ ...t, title: a.label }, cx, cy, a.sub); return; } closeMenu(); try { a.run(); } catch (err) { console.error(err); X.setStatus("Couldn't do that: " + err.message); } };
     menu.append(b); });
   stage.append(menu); document.addEventListener("keydown", menuKeys, true);
   setTimeout(() => { const f = menu && menu.querySelector("button:not([disabled])"); if (f) f.focus({ preventScroll: true }); }, 0);
