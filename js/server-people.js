@@ -365,6 +365,22 @@
         dropPerson(person);
       });
     }
+    if (!self && online) {
+      var go = el("button", "server-person-msg server-person-goto", "Go to");
+      go.type = "button";
+      go.title = "Visit " + (person.name || "their") + "'s Sims lot";
+      go.addEventListener("click", function () {
+        try {
+          sessionStorage.setItem("simsVisit", person.sid);
+        } catch (eVisit) {}
+        if (location.hash.replace("#", "").split("?")[0] === "sims") {
+          window.dispatchEvent(new Event("sims-visit"));
+        } else {
+          location.hash = "sims";
+        }
+      });
+      row.appendChild(go);
+    }
     if (!self) {
       var msg = el("button", "server-person-msg", "Msg");
       msg.type = "button";
@@ -556,6 +572,9 @@
       box.appendChild(el("li", "server-people-mail-line", who + ": " + (m.text || "")));
     });
     box.hidden = mine.length === 0;
+    try {
+      window.dispatchEvent(new CustomEvent("l7in-mail", { detail: { mail: lastMail, selfId: selfId } }));
+    } catch (eMail) {}
     box.scrollTop = box.scrollHeight;
   }
 
@@ -703,7 +722,48 @@
     });
   }
 
-  window.L7inPeople = { noteStill: noteStill, noteDescription: noteDescription };
+  // Direct messages for other tabs (Sims). Same mail store, cooldown and cleaning as Msg.
+  function sendDm(to, text) {
+    text = String(text || "").slice(0, 200);
+    var body = { sid: selfId, name: myName(), tab: currentTab(), to: String(to || ""), text: text };
+    return fetch("/api/server-people", {
+      method: "POST",
+      cache: "no-store",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    })
+      .then(function (r) {
+        return r.json().catch(function () {
+          return { ok: false, error: "Bad reply" };
+        });
+      })
+      .then(function (data) {
+        if (data && data.ok) applyRoster(data);
+        return data;
+      });
+  }
+  function refreshNow() {
+    postRoster();
+  }
+
+  window.L7inPeople = {
+    noteStill: noteStill,
+    noteDescription: noteDescription,
+    sendDm: sendDm,
+    refresh: refreshNow,
+    selfId: function () {
+      return selfId || sessionId();
+    },
+    name: function () {
+      return myName();
+    },
+    mail: function () {
+      return lastMail.slice();
+    },
+    people: function () {
+      return (lastPeople || []).slice();
+    },
+  };
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", init);

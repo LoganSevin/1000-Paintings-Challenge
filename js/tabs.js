@@ -1216,6 +1216,16 @@
       cdroom = new URLSearchParams(location.search).get("cdroom") || "";
     } catch (eCd) {}
     var tabName = hash;
+    // #sims?visit=<sid> deep link: Sims reads the host from sessionStorage once it opens.
+    if (tabName === "sims") {
+      var visitM = location.hash.match(/[?&]visit=([A-Za-z0-9._-]{8,80})/);
+      if (visitM) {
+        try {
+          sessionStorage.setItem("simsVisit", visitM[1]);
+        } catch (eVisit) {}
+        window.dispatchEvent(new Event("sims-visit"));
+      }
+    }
     if (tabName === "0-z" || tabName === "zeroz" || tabName === "0z") tabName = "az";
     if (tabName === "cloud-xai" || tabName === "xaicloud") tabName = "xai";
     if (tabName === "engram" || tabName === "acronym") tabName = "engrams";

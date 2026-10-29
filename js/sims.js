@@ -31,7 +31,7 @@ let THREE, OrbitControls, GLTFExporter, GLTFLoader;
 let started = false, visible = false, ready = false;
 let renderer, scene, camera, controls, raycaster, clockObj;
 let lotGroup, wallGroup, floorGroup, objGroup, simGroup, ghostGroup, helperGroup;
-let rafId = 0;
+let rafId = 0, remoteGroup;
 const $ = (id) => document.getElementById(id);
 
 // ---------------- state ----------------
@@ -76,6 +76,8 @@ function loadSave() {
 }
 let saveTimer = 0;
 function save() {
+  if (online.visiting) return; // visitors never write the host's lot (or their own) from here
+  schedulePublish();
   clearTimeout(saveTimer);
   saveTimer = setTimeout(() => {
     try { localStorage.setItem(SAVE_KEY, JSON.stringify(S)); setStatus("Saved"); }
@@ -475,8 +477,11 @@ function autonomy(sim) {
   for (const o of cands.slice(0, 3)) { commandSim(sim, { objId: o.id }); if (runtime.get(sim.id).task) return; }
 }
 function animateSims(dt) {
-  for (const sim of S.sims) {
-    const rt = runtime.get(sim.id); if (!rt || !rt.model) continue;
+  for (const sim of S.sims) animateRt(runtime.get(sim.id), dt);
+}
+function animateRt(rt, dt) {
+  {
+    if (!rt || !rt.model) return;
     const m = rt.model, J = (n) => m.getObjectByName(n);
     const hl = J("Joint_HipL"), hr = J("Joint_HipR"), sl = J("Joint_ShoulderL"), sr = J("Joint_ShoulderR"), hips = J("Joint_Hips");
     rt.phase += dt * 9;
@@ -531,9 +536,11 @@ async function start() {
   rebuildLot();
   for (const sim of S.sims) spawnSim(sim);
   selectSim(S.sims[0] ? S.sims[0].id : null);
-  bindUI(); setMode("build"); resize();
+  remoteGroup = new THREE.Group(); remoteGroup.name = "RemoteSims"; scene.add(remoteGroup);
+  bindUI(); bindOnline(); setMode("build"); resize();
   new ResizeObserver(resize).observe(wrap);
   ready = true;
+  publishLot(true); consumeVisit();
   setStatus("Ready — everything runs in your browser, no credits.");
   loop();
 }
@@ -547,8 +554,9 @@ function loop() {
   rafId = 0; if (!visible || !ready) return;
   const dt = Math.min(0.1, clockObj.getDelta());
   if (mode === "live") stepSims(dt); else animateSims(0);
-  controls.update(); renderer.render(scene, camera);
-  if (mode === "live" && performance.now() - lastSave > 5000) { lastSave = performance.now(); save(); renderNeeds(); }
+  stepRemotes(dt); netTick();
+  controls.update(); renderer.render(scene, camera); updateBubbles();
+  if (mode === "live" && !online.visiting && performance.now() - lastSave > 5000) { lastSave = performance.now(); save(); renderNeeds(); }
   else if (mode === "live") renderNeedsLight();
   rafId = requestAnimationFrame(loop);
 }
@@ -699,6 +707,8 @@ function tap(ev) {
     return;
   }
   if (mode === "live" || mode === "cas") {
+    const remoteHit = pick(ev, [remoteGroup]);
+    if (remoteHit && remoteHit.userData.remoteSid) { setDmTarget(remoteHit.userData.remoteSid); return; }
     const simHit = pick(ev, [simGroup]);
     if (simHit && simHit.userData.simId) { selectSim(simHit.userData.simId); return; }
     if (mode !== "live") return;
@@ -711,6 +721,7 @@ function tap(ev) {
 
 // ---------------- UI ----------------
 function setMode(m) {
+  if (online.visiting && m !== "live") { setStatus("You're visiting — only Live mode. The host's lot is read-only."); m = "live"; }
   mode = m; carry = null; clearGhost();
   document.querySelectorAll("#panel-sims [data-sims-mode]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.simsMode === m)));
   document.querySelectorAll("#panel-sims .sims-pane").forEach((p) => (p.hidden = p.dataset.pane !== m));
@@ -848,13 +859,274 @@ function bindUI() {
 function show() {
   visible = true;
   if (!started) start().catch((e) => { console.error(e); setStatus("3D failed to start: " + e.message); });
-  else if (ready) { resize(); clockObj.getDelta(); if (!rafId) loop(); }
+  else if (ready) { resize(); clockObj.getDelta(); consumeVisit(); if (!rafId) loop(); }
 }
-function hide() { visible = false; if (rafId) cancelAnimationFrame(rafId); rafId = 0; if (S) try { localStorage.setItem(SAVE_KEY, JSON.stringify(S)); } catch (e) {} }
+function hide() { netLeave(); visible = false; if (rafId) cancelAnimationFrame(rafId); rafId = 0; const home = online.visiting ? online.homeS : S; if (home) try { localStorage.setItem(SAVE_KEY, JSON.stringify(home)); } catch (e) {} }
 window.addEventListener("sims-show", show);
 window.addEventListener("sims-hide", hide);
 window.SimsTab = { onShow: show, onHide: hide, get state() { return S; },
   // test helper: screen position of a tile corner/center
+  net() { return { lotId: currentLotId(), visiting: online.visiting && { host: online.visiting.hostSid, name: online.visiting.hostName }, remotes: [...online.remotes].map(([sid, r]) => ({ sid, name: r.name, host: r.host, x: +(r.holder.position.x + N / 2 - 0.5).toFixed(2), z: +(r.holder.position.z + N / 2 - 0.5).toFixed(2), say: r.say && r.say.text })), me: mySid() }; },
   tileToScreen(x, z) { const v = new THREE.Vector3(x - N / 2, 0, z - N / 2).project(camera); const r = renderer.domElement.getBoundingClientRect(); return { x: r.left + (v.x + 1) / 2 * r.width, y: r.top + (1 - v.y) / 2 * r.height }; } };
+
+// ======================= ONLINE: shared lots, visiting, bubbles, DMs =======================
+// Backend: /api/sims-lot (Netlify Blobs; same function on the Cloudflare worker) for lots and
+// positions, and the existing /api/server-people mail for DMs (via window.L7inPeople).
+const OWNER_KEY = "logan7in.sims.ownerKey.v1";
+const SHARE_KEY = "logan7in.sims.share.v1";
+const online = { lotId: "", visiting: null, homeS: null, remotes: new Map(), lastPost: 0, lastPoll: 0, polling: false, posting: false,
+  pendingSay: "", dmTarget: "", seenMail: new Set(), lastMailPoll: 0, publishTimer: 0 };
+function people() { return window.L7inPeople || null; }
+function mySid() { const p = people(); if (p) return p.selfId(); try { return sessionStorage.getItem("tabPresenceSid") || ""; } catch (e) { return ""; } }
+function myName() { const p = people(); if (p) return p.name(); try { return localStorage.getItem("pageChatName") || "guest"; } catch (e) { return "guest"; } }
+function ownerKey() {
+  try {
+    let k = localStorage.getItem(OWNER_KEY);
+    if (!k || !/^[A-Za-z0-9_-]{20,80}$/.test(k)) {
+      const b = new Uint8Array(24); crypto.getRandomValues(b);
+      k = Array.from(b, (x) => x.toString(16).padStart(2, "0")).join(""); localStorage.setItem(OWNER_KEY, k);
+    }
+    return k;
+  } catch (e) { return ""; }
+}
+function sharing() { try { return localStorage.getItem(SHARE_KEY) !== "off"; } catch (e) { return true; } }
+function appearance(sim) { return sim ? { name: sim.name, skin: sim.skin, hair: sim.hair, top: sim.top, bottom: sim.bottom, hairStyle: sim.hairStyle, height: sim.height, build: sim.build } : null; }
+async function api(method, body, query) {
+  const url = "/api/sims-lot" + (query ? "?" + new URLSearchParams(query) : "");
+  const r = await fetch(url, method === "GET" ? { cache: "no-store" } : { method, cache: "no-store", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
+  let data = null; try { data = await r.json(); } catch (e) {}
+  return data || { ok: false, error: "HTTP " + r.status };
+}
+function schedulePublish() { clearTimeout(online.publishTimer); online.publishTimer = setTimeout(() => publishLot(false), 4000); }
+async function publishLot(force) {
+  if (online.visiting || !S || !sharing()) return;
+  const sid = mySid(), key = ownerKey(); if (!sid || !key) return;
+  const sim = getSim(selectedSimId) || S.sims[0];
+  const body = { op: "publish", sid, key, name: myName(), lot: { walls: S.walls, floors: S.floors, objects: S.objects.filter((o) => !o.type.startsWith("custom:")) }, sim: appearance(sim) };
+  if (sim && sim.glb && sim.glb.length <= 160000) body.glb = sim.glb;
+  try {
+    const d = await api("POST", body);
+    if (d.lot) online.lotId = d.lot;
+    if (d.ok) setNet("Your lot is shared — others can tap Go to on you in Here." + (d.glbDropped ? " (Custom mesh too big; visitors see the default body.)" : ""));
+    else if (force && d.error) setNet("Couldn't share lot: " + d.error);
+  } catch (e) { setNet("Offline — lot not shared (still playable locally)."); }
+}
+setInterval(() => { if (visible && ready) publishLot(false); }, 60000);
+function setNet(t) { const el = $("sims-net"); if (el) el.textContent = t; }
+
+// ---- visiting ----
+function consumeVisit() {
+  let sid = ""; try { sid = sessionStorage.getItem("simsVisit") || ""; sessionStorage.removeItem("simsVisit"); } catch (e) {}
+  if (sid && sid !== mySid()) enterVisit(sid);
+}
+window.addEventListener("sims-visit", () => { if (ready && visible) consumeVisit(); });
+async function enterVisit(hostSid) {
+  setNet("Finding their lot…");
+  let d; try { d = await api("GET", null, { op: "lot", sid: hostSid }); } catch (e) { d = { ok: false, error: "network" }; }
+  if (!d.ok) { setNet("Can't visit: " + (d.error || "no lot") + ". They need the Sims tab open once."); return; }
+  if (online.visiting) await leaveVisit(true);
+  netLeave();
+  online.homeS = S;
+  const home = getSim(selectedSimId) || S.sims[0];
+  const me = Object.assign({}, home || defaultSim(myName(), 0), { id: "me", glb: null, needs: Object.assign({}, home ? home.needs : { hunger: 80, energy: 80, fun: 80, hygiene: 80 }) });
+  const L = d.lot && typeof d.lot === "object" ? d.lot : { walls: {}, floors: {}, objects: [] };
+  S = { v: 1, N, walls: L.walls || {}, floors: L.floors || {}, objects: L.objects || [], sims: [me], minutes: online.homeS.minutes, nextId: 1 };
+  // arrive at the first free tile at the lot's front edge
+  const occ = occupancy(); let sx = 12, sz = N - 1;
+  for (let i = 0; i < N; i++) { const x = (12 + (i % 2 ? -1 : 1) * Math.ceil(i / 2) + N) % N; if (!occ.has(x + "," + (N - 1))) { sx = x; break; } }
+  me.x = sx; me.z = sz;
+  online.visiting = { lotId: d.lotId, hostSid, hostName: d.name || "host", glb: d.glb || null };
+  for (const rt of runtime.values()) simGroup.remove(rt.holder); runtime.clear(); clearRemotes();
+  if (d.glb) { try { customCache.set("remote:" + hostSid, prepImported(await parseGlb(b64ToBuf(d.glb)))); } catch (e) {} }
+  rebuildLot(); spawnSim(me); selectSim("me"); setMode("live"); focusSim(me);
+  setDmTarget(hostSid);
+  document.querySelectorAll("#panel-sims [data-sims-mode]").forEach((b) => (b.disabled = b.dataset.simsMode !== "live"));
+  $("sims-home").hidden = false;
+  setNet("Visiting " + (d.name || "their") + "'s lot (read-only). Tap tiles to walk, tap a sim to DM them.");
+  online.lastPost = 0; online.lastPoll = 0;
+}
+async function leaveVisit(silent) {
+  if (!online.visiting) return;
+  netLeave();
+  S = online.homeS; online.homeS = null; online.visiting = null;
+  for (const rt of runtime.values()) simGroup.remove(rt.holder); runtime.clear(); clearRemotes();
+  rebuildLot(); for (const sim of S.sims) spawnSim(sim); selectSim(S.sims[0] && S.sims[0].id);
+  document.querySelectorAll("#panel-sims [data-sims-mode]").forEach((b) => (b.disabled = false));
+  $("sims-home").hidden = true;
+  if (!silent) { setMode("live"); setNet("Back home."); publishLot(false); }
+}
+function currentLotId() { return online.visiting ? online.visiting.lotId : online.lotId; }
+
+// ---- position sync ----
+function myNetSim() { return online.visiting ? getSim("me") : getSim(selectedSimId) || S.sims[0]; }
+function netLeave() {
+  const lot = currentLotId(); const sid = mySid();
+  if (!lot || !sid) return;
+  try { fetch("/api/sims-lot", { method: "POST", keepalive: true, headers: { "Content-Type": "application/json" }, body: JSON.stringify({ op: "pos", sid, lot, leave: true }) }); } catch (e) {}
+}
+function netTick() {
+  const lot = currentLotId(); if (!lot || !S) return;
+  if (!online.visiting && !sharing()) return;
+  const now = performance.now(); const sim = myNetSim(); const rt = sim && runtime.get(sim.id);
+  const moving = rt && rt.path && rt.path.length;
+  const every = online.pendingSay ? 400 : moving ? 600 : 3000;
+  if (rt && !online.posting && now - online.lastPost > every) {
+    online.posting = true; online.lastPost = now;
+    const p = rt.holder.position;
+    const body = { op: "pos", sid: mySid(), lot, name: myName(), sim: appearance(sim), x: +(p.x + N / 2 - 0.5).toFixed(2), z: +(p.z + N / 2 - 0.5).toFixed(2), rot: +rt.holder.rotation.y.toFixed(2), pose: rt.pose, host: !online.visiting };
+    if (online.pendingSay) body.say = online.pendingSay;
+    api("POST", body).then((d) => { if (d.ok) { if (body.say) online.pendingSay = ""; applyPeople(d.people); } else if (body.say && d.error === "Slow down") {/* retry next tick */} })
+      .catch(() => {}).finally(() => (online.posting = false));
+  }
+  if (!online.polling && now - online.lastPoll > 1000) {
+    online.polling = true; online.lastPoll = now;
+    api("GET", null, { op: "pos", lot }).then((d) => { if (d.ok) applyPeople(d.people); }).catch(() => {}).finally(() => (online.polling = false));
+  }
+  if (now - online.lastMailPoll > 4000 && people()) { online.lastMailPoll = now; people().refresh(); }
+}
+function clearRemotes() { for (const r of online.remotes.values()) remoteGroup.remove(r.holder); online.remotes.clear(); renderOnlineList(); }
+function applyPeople(map) {
+  if (!map || typeof map !== "object" || !remoteGroup) return;
+  const me = mySid(); const seen = new Set();
+  for (const [sid, p] of Object.entries(map)) {
+    if (sid === me || !p) continue; seen.add(sid);
+    let r = online.remotes.get(sid);
+    const sig = JSON.stringify(p.sim || {});
+    if (!r || r.sig !== sig) {
+      if (r) remoteGroup.remove(r.holder);
+      const app = Object.assign({ id: "r:" + sid }, p.sim || {});
+      const holder = new THREE.Group(); holder.userData.remoteSid = sid;
+      const glbSrc = p.host && online.visiting && sid === online.visiting.hostSid ? customCache.get("remote:" + sid) : null;
+      const model = glbSrc ? glbSrc.clone(true) : buildSimModel(app);
+      model.traverse((c) => (c.userData.remoteSid = sid)); holder.add(model);
+      const tag = new THREE.Mesh(new THREE.RingGeometry(0.3, 0.36, 24), new THREE.MeshBasicMaterial({ color: p.host ? "#6fae5a" : "#3a8ee6", side: THREE.DoubleSide }));
+      tag.rotation.x = -Math.PI / 2; tag.position.y = 0.06; holder.add(tag);
+      const pos = tileCenter(p.x, p.z); holder.position.set(pos.x, 0, pos.z);
+      remoteGroup.add(holder);
+      r = { holder, model, sig, phase: 0, pose: p.pose, path: [], say: null, sayShownTs: 0 };
+      online.remotes.set(sid, r);
+    }
+    r.name = p.name; r.host = !!p.host; r.target = { x: p.x + 0.5 - N / 2, z: p.z + 0.5 - N / 2, rot: p.rot, pose: p.pose };
+    if (p.say && p.say.ts !== r.sayShownTs) { r.sayShownTs = p.say.ts; r.say = { text: p.say.text, until: performance.now() + 6000 }; }
+  }
+  for (const [sid, r] of online.remotes) if (!seen.has(sid)) { remoteGroup.remove(r.holder); online.remotes.delete(sid); }
+  renderOnlineList();
+}
+function stepRemotes(dt) {
+  for (const r of online.remotes.values()) {
+    if (!r.target) continue;
+    const p = r.holder.position, t = r.target;
+    const dx = t.x - p.x, dz = t.z - p.z, d = Math.hypot(dx, dz);
+    const yFor = t.pose === "lie" ? 0.55 : t.pose === "shower" ? 0.08 : 0;
+    if (d > 6 || reduceMotion && d > 0.01) { p.x = t.x; p.z = t.z; }
+    else if (d > 0.02) { const step = Math.min(d, Math.max(2.2, d * 2.5) * dt); p.x += dx / d * step; p.z += dz / d * step; r.holder.rotation.y = Math.atan2(dx, dz); }
+    p.y += (yFor - p.y) * Math.min(1, dt * 8);
+    if (d <= 0.05) r.holder.rotation.y += (((t.rot - r.holder.rotation.y + Math.PI * 3) % (Math.PI * 2)) - Math.PI) * Math.min(1, dt * 6);
+    r.pose = d > 0.05 ? "walk" : t.pose === "walk" ? "stand" : t.pose;
+    animateRt(r, dt);
+  }
+}
+
+// ---- speech bubbles (textContent only: never HTML) ----
+const bubbles = new Map();
+function bubbleFor(key) {
+  let el = bubbles.get(key);
+  if (!el) { el = document.createElement("div"); el.className = "sims-bubble"; $("sims-stage").appendChild(el); bubbles.set(key, el); }
+  return el;
+}
+function sayLocal(simId, text, ms) { const rt = runtime.get(simId); if (rt) rt.say = { text, until: performance.now() + (ms || 6000) }; }
+function updateBubbles() {
+  const now = performance.now(); const live = new Set(); const rect = renderer.domElement.getBoundingClientRect(); const wrap = $("sims-stage").getBoundingClientRect();
+  const place = (key, holder, say, name) => {
+    if (!say || say.until < now) return;
+    live.add(key); const el = bubbleFor(key);
+    const v = new THREE.Vector3(); holder.getWorldPosition(v); v.y += 2.1; v.project(camera);
+    if (v.z > 1) { el.hidden = true; return; }
+    el.hidden = false;
+    const label = (name ? name + ": " : "") + say.text;
+    if (el.textContent !== label) el.textContent = label;
+    el.style.left = (rect.left - wrap.left + (v.x + 1) / 2 * rect.width) + "px";
+    el.style.top = (rect.top - wrap.top + (1 - v.y) / 2 * rect.height) + "px";
+  };
+  for (const [id, rt] of runtime) place("l:" + id, rt.holder, rt.say, "");
+  for (const [sid, r] of online.remotes) place("r:" + sid, r.holder, r.say, r.name);
+  for (const [k, el] of bubbles) if (!live.has(k)) { el.remove(); bubbles.delete(k); }
+}
+
+// ---- DMs (existing server-people mail) ----
+function setDmTarget(sid) {
+  online.dmTarget = sid || ""; const sel = $("sims-dm-to"); renderOnlineList(); if (sel) sel.value = online.dmTarget; renderDmThread();
+}
+function nameOfSid(sid) {
+  const r = online.remotes.get(sid); if (r && r.name) return r.name;
+  if (online.visiting && sid === online.visiting.hostSid) return online.visiting.hostName;
+  const p = people(); const row = p && p.people().find((x) => x.sid === sid); return row ? row.name : "guest";
+}
+function renderOnlineList() {
+  const sel = $("sims-dm-to"); if (!sel) return;
+  const opts = new Map();
+  if (online.visiting) opts.set(online.visiting.hostSid, online.visiting.hostName + " (host)");
+  for (const [sid, r] of online.remotes) opts.set(sid, (r.name || "guest") + (r.host ? " (host)" : ""));
+  const p = people(); if (p) for (const row of p.people()) if (row.online && row.sid !== mySid() && !opts.has(row.sid)) opts.set(row.sid, row.name + " · " + (row.tab || ""));
+  if (online.dmTarget && !opts.has(online.dmTarget)) opts.set(online.dmTarget, nameOfSid(online.dmTarget));
+  const sig = JSON.stringify([...opts]) + online.dmTarget;
+  if (sel.dataset.sig !== sig) {
+    sel.dataset.sig = sig; sel.textContent = "";
+    const none = document.createElement("option"); none.value = ""; none.textContent = opts.size ? "Choose someone…" : "Nobody online yet"; sel.appendChild(none);
+    for (const [sid, label] of opts) { const o = document.createElement("option"); o.value = sid; o.textContent = label; sel.appendChild(o); }
+    sel.value = online.dmTarget;
+  }
+  const here = $("sims-here"); if (here) here.textContent = online.remotes.size ? online.remotes.size + " other" + (online.remotes.size > 1 ? "s" : "") + " on this lot" : currentLotId() ? "Nobody else on this lot right now" : "";
+}
+function renderDmThread() {
+  const box = $("sims-dm-thread"); if (!box) return; const p = people(); const me = mySid(); const them = online.dmTarget;
+  box.textContent = "";
+  if (!p || !them) return;
+  const rows = p.mail().filter((m) => (m.from === me && m.to === them) || (m.from === them && m.to === me)).slice(-20);
+  for (const m of rows) { const li = document.createElement("li"); li.className = m.from === me ? "is-me" : ""; const b = document.createElement("b"); b.textContent = (m.from === me ? "You" : m.fromName || nameOfSid(them)) + ": "; li.appendChild(b); li.appendChild(document.createTextNode(m.text || "")); box.appendChild(li); }
+  box.scrollTop = box.scrollHeight;
+}
+window.addEventListener("l7in-mail", (e) => {
+  const mail = (e.detail && e.detail.mail) || []; const me = mySid(); const first = !online.mailPrimed; online.mailPrimed = true;
+  for (const m of mail) {
+    if (!m || online.seenMail.has(m.id)) continue; online.seenMail.add(m.id);
+    if (first || m.to !== me) continue;
+    const r = online.remotes.get(m.from);
+    if (r) r.say = { text: "(DM) " + m.text, until: performance.now() + 7000 };
+    else if (ready) setNet("DM from " + (m.fromName || "someone") + ": " + m.text);
+    if (!online.dmTarget) setDmTarget(m.from);
+  }
+  renderDmThread(); renderOnlineList();
+});
+const sendGate = { at: 0 };
+async function sendDm() {
+  const inp = $("sims-dm-text"); const text = inp.value.replace(/\s+/g, " ").trim().slice(0, 200);
+  if (!text || !online.dmTarget) { setNet(online.dmTarget ? "Type a message" : "Choose who to message"); return; }
+  if (performance.now() - sendGate.at < 1500) { setNet("Slow down a moment…"); return; }
+  const p = people(); if (!p) { setNet("Messaging isn't available on this page."); return; }
+  sendGate.at = performance.now();
+  const d = await p.sendDm(online.dmTarget, text).catch(() => null);
+  if (d && d.ok) { inp.value = ""; const me = myNetSim(); if (me) sayLocal(me.id, "(DM → " + nameOfSid(online.dmTarget) + ") " + text); renderDmThread(); }
+  else setNet("DM failed: " + ((d && d.error) || "network"));
+}
+function sayOut() {
+  const inp = $("sims-say-text"); const text = inp.value.replace(/\s+/g, " ").trim().slice(0, 140); if (!text) return;
+  if (!currentLotId()) { setNet("Share your lot (or visit one) to talk out loud."); return; }
+  if (performance.now() - sendGate.at < 1500) { setNet("Slow down a moment…"); return; }
+  sendGate.at = performance.now(); online.pendingSay = text; online.lastPost = 0; inp.value = "";
+  const me = myNetSim(); if (me) sayLocal(me.id, text);
+}
+function bindOnline() {
+  $("sims-home").onclick = () => leaveVisit(false);
+  $("sims-dm-to").onchange = (e) => setDmTarget(e.target.value);
+  $("sims-dm-send").onclick = sendDm; $("sims-say-send").onclick = sayOut;
+  $("sims-dm-text").onkeydown = (e) => { if (e.key === "Enter") { e.preventDefault(); sendDm(); } };
+  $("sims-say-text").onkeydown = (e) => { if (e.key === "Enter") { e.preventDefault(); sayOut(); } };
+  const share = $("sims-share"); share.checked = sharing();
+  share.onchange = () => { try { localStorage.setItem(SHARE_KEY, share.checked ? "on" : "off"); } catch (e) {} if (share.checked) publishLot(true); else { netLeave(); setNet("Lot not shared."); } };
+  window.addEventListener("pagehide", netLeave);
+  setInterval(renderOnlineList, 5000);
+}
+
 const panel = document.getElementById("panel-sims");
 if (panel && !panel.hidden) show();
