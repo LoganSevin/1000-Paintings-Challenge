@@ -9,7 +9,7 @@ const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-mo
 // Built-in furniture is procedural (js/sims-gen.js): types look like "gen:sofa:12345" and old
 // saves' plain types ("bed", "lamp", ...) map onto seed 0 of a category. CATALOG only holds imported .glb items.
 const CATALOG = { gardenbed: { label: "Planter Bed", price: 60, w: 2, d: 1, use: { fun: 0.4 }, dur: 4, pose: "stand", cat: "gardenbed" } };
-let G = null, World = null, world = null, Life = null, Plan = null;
+let G = null, World = null, world = null, Life = null, Plan = null, Body = null, Hifi = null, SkeletonUtils = null, NightMod = null, night = null, hourOverride = null, lastDt = 0.016;
 function catInfo(type) { return CATALOG[type] || (G && G.genInfo(type)) || null; }
 const NEEDS = ["hunger", "energy", "fun", "hygiene"];
 const DECAY = { hunger: 7, energy: 4.5, fun: 6, hygiene: 3.5 }; // points per game hour
@@ -274,7 +274,22 @@ function buildFurnitureLegacy(type) {
   return g;
 }
 
-function buildSimModel(sim) { return G.buildSim(sim); }
+// code-generated sculptable body (sims-body.js); falls back to the simple model if it isn't ready
+const bodyLod = () => (quality === "high" ? "high" : quality === "low" ? "low" : "med");
+const pendingSculpt = new Set();
+function buildSimModel(sim) {
+  if (!Body) return G.buildSim(sim);
+  let deltas = null;
+  if (sim.sculpt) { deltas = Body.cachedSculpt(sim.sculpt); if (!deltas && !pendingSculpt.has(sim.sculpt)) { const key = sim.sculpt; pendingSculpt.add(key); Body.loadSculpt(key).then(() => { pendingSculpt.delete(key); sculptLoaded(key); }).catch(() => pendingSculpt.delete(key)); } }
+  const m = Body.buildBody(sim, { lod: bodyLod(), hi: quality === "high", deltas, tex: G.texture });
+  m.userData.kind = "sim"; m.userData.simId = sim.id; m.userData.sim = { name: sim.name, skin: sim.skin, hair: sim.hair, hairStyle: sim.hairStyle, top: sim.top, bottom: sim.bottom, outfit: sim.outfit, height: sim.height, build: sim.build };
+  return m;
+}
+function sculptLoaded(key) {
+  if (!S) return;
+  for (const sim of S.sims) if (sim.sculpt === key) { const rt = runtime.get(sim.id); if (rt) { setSimModel(rt, sim); if (sim.id === selectedSimId) selectSim(sim.id); } }
+  for (const r of online.remotes.values()) if (r.sig && r.sig.includes(key.slice(0, 40))) r.sig = "";
+}
 function buildSimModelLegacy(sim) {
   const root = new THREE.Group(); root.name = "Sim_" + (sim.name || "Sim").replace(/\W+/g, "_");
   const skin = mat(sim.skin, "Skin"), top = mat(sim.top, "Outfit_Top"), bottom = mat(sim.bottom, "Outfit_Bottom"), hair = mat(sim.hair, "Hair");
@@ -310,7 +325,10 @@ function buildSimModelLegacy(sim) {
   root.userData.sim = { name: sim.name, skin: sim.skin, hair: sim.hair, top: sim.top, bottom: sim.bottom, height: sim.height, build: sim.build };
   return root;
 }
-function applyBody(root, sim) { return G.applyBody(root, sim); }
+function applyBody(root, sim) {
+  if (root.userData.body) { root.scale.setScalar((sim.height || 1) * 0.97); Body.setMorph(root, "weight", Body.morphInfluencesFor(sim).weight || 0); return; }
+  return G.applyBody(root, sim);
+}
 function applyBodyLegacy(root, sim) {
   root.scale.setScalar(sim.height || 1);
   const b = sim.build || 1;
@@ -345,6 +363,8 @@ function rebuildLot() {
       seg(0, Math.min(0.9, H)); seg(Math.min(1.9, H), H);
       if (H > 0.9) { const gl = part("WindowGlass", box(1, Math.min(1.9, H) - 0.9, 0.03), mat("#9cc6de", "Glass", { transparent: true, opacity: 0.35 }), 0, (0.9 + Math.min(1.9, H)) / 2, 0); gl.userData.edge = k; g.add(gl); }
     }
+    if (Hifi) Hifi.wallDetail(g, w, H, WALL_T, quality);
+    if (w.t === "door" && H > 2.2) for (const sd of [-1, 1]) { const f = World.makeFixture("porch", 2.25, 2.3); f.position.set(0.66, 2.25, sd * (WALL_T / 2 + 0.1)); const lamp = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.08, 0.2, 8), World.LAMP_GLASS); lamp.name = "Porch_Lamp"; f.add(lamp); g.add(f); }
     wallGroup.add(g);
   }
   rebuildObjects();
@@ -359,6 +379,7 @@ function rebuildObjects() {
     if (info && !info.flat) g.add(aoDecal(info.w, info.d));
     objGroup.add(g); objMeshes.set(o.id, g);
   }
+  if (Hifi) { Hifi.enhance(objGroup, quality); Hifi.enhance(wallGroup, quality); Hifi.enhance(floorGroup, quality); }
 }
 // cheap ambient occlusion: a soft dark blob under each piece (never exported)
 let aoTex = null;
@@ -503,7 +524,19 @@ function autonomy(sim) {
 function animateSims(dt) {
   for (const sim of S.sims) animateRt(runtime.get(sim.id), dt);
 }
+const LIFT = { road: 0.006, walk: 0.03 };
+function groundLift(p) { const z = world && world.zoneAt ? world.zoneAt(p.x, p.z) : "land"; return LIFT[z] ?? 0.04; } // asphalt / sidewalk / floor boards
 function animateRt(rt, dt) {
+  if (rt && rt.model && rt.model.userData.body) {
+    const m = rt.model, sim = rt.holder.userData.simId ? getSim(rt.holder.userData.simId) : null, cas = mode === "cas" && sim && sim.id === selectedSimId;
+    const pose = cas && sculpt.on ? "rest" : { stand: "idle", walk: "walk", sit: "sit", lie: "lie", paint: "paint", shower: "shower" }[rt.pose] || "idle";
+    const look = cas ? camera.position : null;
+    const mouth = cas && sculpt.mouth ? 1 : { o: 0.22, grin: 0.1 }[sim ? sim.mouth : ""] ?? 0;
+    m.rotation.x = 0; m.position.set(0, groundLift(rt.holder.position), 0); // stand on the surface underfoot
+    if (pose === "lie") { m.rotation.x = -Math.PI / 2; m.position.set(0, 0.1, -0.85); }
+    Body.animate(m, pose, dt, reduceMotion, { lookAt: look, mouth, talk: !!(rt.say && rt.say.until > performance.now()), snap: cas && sculpt.on });
+    return;
+  }
   {
     if (!rt || !rt.model) return;
     const m = rt.model, J = (n) => m.getObjectByName(n);
@@ -627,7 +660,41 @@ function parkingFor(p) {
   const x = Math.max(i * CHW - 10, Math.min(i * CHW + 10, p.x)); return { x, z: j * CHW + 14.3, ry: 0, i, j };
 }
 const roadLine = (v) => Math.round((v - 18) / CHW) * CHW + 18;
+// route over the organic street network (Dijkstra over junction nodes), falling back to the simple L route
 function drivePoints(from, park) {
+  try { const r = routePoints(from, park); if (r) return r; } catch (e) { /* fall back */ }
+  return gridPoints(from, park);
+}
+function routePoints(from, park) {
+  const sgn = (v) => (v >= 0 ? 1 : -1), m0 = Math.round((roadLine(from.z + 2) - 18) / CHW), mD = park.j;
+  const nx = (n) => n * CHW + 18, na = Math.floor((from.x - 18) / CHW), nb = Math.floor((park.x - 18) / CHW);
+  if (!World.hOpen(na + 1, m0) || !World.hOpen(nb + 1, mD)) return null;
+  const key = (n, m) => n + "," + m, dist = new Map(), prev = new Map(), open = [];
+  for (const n of [na, na + 1]) { dist.set(key(n, m0), Math.abs(nx(n) - from.x)); open.push([n, m0]); }
+  const lim = 9, goal = new Set([key(nb, mD), key(nb + 1, mD)]); let end = null;
+  while (open.length) {
+    open.sort((a, b) => dist.get(key(...a)) - dist.get(key(...b))); const [n, m] = open.shift(), k = key(n, m), d = dist.get(k);
+    if (goal.has(k)) { end = [n, m]; break; }
+    const A = World.nodeArms(n, m);
+    [[1, 0], [-1, 0], [0, 1], [0, -1]].forEach(([dn, dm], a) => { if (!A[a]) return; const nn = n + dn, mm = m + dm; if (Math.abs(nn - na) > lim || Math.abs(mm - m0) > lim) return;
+      const kk = key(nn, mm), nd = d + CHW + (prev.has(k) && prev.get(k)[2] !== a ? 6 : 0); if (nd < (dist.get(kk) ?? Infinity)) { dist.set(kk, nd); prev.set(kk, [n, m, a]); if (!open.some((o) => o[0] === nn && o[1] === mm)) open.push([nn, mm]); } });
+  }
+  if (!end) return null;
+  const nodes = [end]; while (prev.has(key(...nodes[0]))) { const [n, m] = prev.get(key(...nodes[0])); nodes.unshift([n, m]); }
+  // moves: (axis, line, dir); lane is 1.5 m right of the centre line like traffic
+  const moves = [], add = (axis, line, dir) => { const l = moves[moves.length - 1]; if (l && l.axis === axis && l.line === line && l.dir === dir) return; moves.push({ axis, line, dir }); };
+  add("x", nx(m0), sgn(nx(nodes[0][0]) - from.x));
+  for (let k = 1; k < nodes.length; k++) { const [n1, m1] = nodes[k - 1], [n2, m2] = nodes[k]; if (n1 !== n2) add("x", nx(m1), sgn(n2 - n1)); else add("z", nx(n1), sgn(m2 - m1)); }
+  add("x", nx(mD), sgn(park.x - nx(nodes[nodes.length - 1][0])));
+  const laneZ = (mv) => mv.line + mv.dir * 1.5, laneX = (mv) => mv.line - mv.dir * 1.5, pts = [{ x: from.x, z: laneZ(moves[0]) }];
+  for (let k = 1; k < moves.length; k++) { const a = moves[k - 1], b = moves[k];
+    if (a.axis === b.axis) { const at = a.axis === "x" ? { x: pts[pts.length - 1].x, z: 0 } : null; // U-turn at a node
+      if (a.axis === "x") { const xn = nx(nodes.find((nd) => nx(nd[1]) === a.line)?.[0] ?? 0); pts.push({ x: xn, z: laneZ(a) }, { x: xn, z: laneZ(b) }); } else { const zn = pts[pts.length - 1].z; pts.push({ x: laneX(a), z: zn }, { x: laneX(b), z: zn }); } void at; }
+    else if (a.axis === "x") pts.push({ x: laneX(b), z: laneZ(a) }); else pts.push({ x: laneX(a), z: laneZ(b) }); }
+  pts.push({ x: park.x, z: laneZ(moves[moves.length - 1]) }, { x: park.x, z: park.z });
+  const out = []; for (const p of pts) { const q = out[out.length - 1]; if (!q || Math.hypot(q.x - p.x, q.z - p.z) > 0.3) out.push(p); } return out;
+}
+function gridPoints(from, park) {
   const sgn = (v) => (v >= 0 ? 1 : -1);
   const rz0 = roadLine(from.z + 2), rx = roadLine(park.x), rzD = park.j * CHW + 18;
   const dx1 = sgn(rx - from.x), lz1 = rz0 + dx1 * 1.5, dzv = sgn(rzD - rz0), lx = rx - dzv * 1.5;
@@ -678,7 +745,7 @@ function walkToPoint(sim, p) {
 let follow = false, camPan = false; const keys = new Set();
 function followTick(dt) {
   const sim = getSim(selectedSimId), rt = sim && runtime.get(sim.id); if (!rt) return;
-  const p = myCar.state === "driving" ? myCar.obj.position : rt.holder.position;
+  const p0 = myCar.state === "driving" ? myCar.obj.position : rt.holder.position, w = world ? world.warpXZ(p0.x, p0.z) : [p0.x, p0.z], p = { x: w[0], z: w[1] };
   if (!follow) return; const t = controls.target, k = reduceMotion ? 1 : Math.min(1, dt * 4), dx = (p.x - t.x) * k, dz = (p.z - t.z) * k;
   t.x += dx; t.z += dz; camera.position.x += dx; camera.position.z += dz;
 }
@@ -761,12 +828,12 @@ function targetAt(ev) {
   if (world) {
     const ak = world.actorKinds ? world.actorKinds() : []; const set = new Map(ak.map((a) => [a[0], a]));
     h = first(ak.map((a) => a[0])); if (h) { const a = set.get(upTo(h.object, new Set(set.keys()))); if (a) return a[1] === "npc" ? { kind: "npc", name: a[2] || "Neighbor", point: h.point } : { kind: a[1], point: h.point }; }
-    h = first(world.houseSigns || []); if (h) { let o = h.object; while (o && !o.userData.house) o = o.parent; if (o) return houseTarget(o.userData.house.i, o.userData.house.j, h.point); }
+    h = first(world.houseSigns || []); if (h) { let o = h.object; while (o && !o.userData.house) o = o.parent; if (o) return houseTarget(o.userData.house.i, o.userData.house.j, toGrid(h.point)); }
     const sh = world.signs.length && pick(ev, world.signs); const sid = sh && world.lotOfSign(sh); if (sid) return { kind: "house", sid, name: "Shared lot", beds: "?", baths: "?", point: { x: sh.getWorldPosition(new THREE.Vector3()).x, z: sh.getWorldPosition(new THREE.Vector3()).z } };
   }
   const plotP = groundPoint(ev);
   if (plotP && own) { const [x, z] = tileAt(plotP); if (inLot(x, z) && Life.plotTiles().has(x + "," + z) && !Life.plotTiles().get(x + "," + z).bed) return { kind: "plot", key: x + "," + z }; }
-  if (world) { h = first(world.chunkMeshes()); if (h) { const p = h.point, z = world.zoneAt(p.x, p.z);
+  if (world) { h = first(world.chunkMeshes()); if (h) { const p = toGrid(h.point), z = world.zoneAt(p.x, p.z);
       if (z === "water" || p.y < -0.9) return { kind: "water", point: { x: p.x, z: p.z } };
       const loc = locate(p); if (loc.L && !loc.L.home) { const o = objAtTile(loc.L, loc.tile[0], loc.tile[1]); const hs = loc.L.plan.house;
         if (o && catInfo(o.type)) return { kind: "furniture", obj: o, L: loc.L, remote: true, houseName: lotName(loc.L) };
@@ -823,15 +890,30 @@ function buildLifeHost() {
 }
 // ---- real-clock sky ----
 function dayCycle() {
-  const c = Life.clockState(S), el = c.sun.elev, er = el * Math.PI / 180, az = c.sun.az, tgt = controls.target;
+  const c = Life.clockState(S);
+  const el = c.sun.elev, er = el * Math.PI / 180, az = c.sun.az, tgt = controls.target;
   const dir = new THREE.Vector3(-Math.sin(az) * Math.cos(er), Math.max(0.12, Math.sin(er)), Math.cos(az) * Math.cos(er)).normalize();
-  sun.position.copy(tgt).addScaledVector(dir, 40); sun.target.position.copy(tgt);
+  const trueSun = NightMod ? NightMod.dirFrom(el, az) : dir, moonI = NightMod ? NightMod.moonAt(Life.sunAt, c.date, c.hours) : null; c.moon = moonI;
   const day = Math.max(0, Math.min(1, (el + 4) / 16));
-  sun.intensity = 0.2 + day * 2.1; sun.color.set(el < 0 ? "#8aa0d8" : el < 8 ? "#ffb070" : "#fff1d6");
-  hemi.intensity = 0.32 + day * 0.6; hemi.color.set(day > 0.3 ? "#cfe6ff" : "#5a6a9a");
+  if (moonI && el < -2) {
+    // night: the key light becomes cool moonlight from the real moon position, scaled by its phase
+    const md = NightMod.dirFrom(Math.max(moonI.elev, 12), moonI.az), full = 1 - Math.abs(moonI.age - 0.5) * 2, up = moonI.elev > -1 ? 1 : 0.25;
+    sun.position.copy(tgt).addScaledVector(md, 40); sun.target.position.copy(tgt); sun.color.set("#9db4ff"); sun.intensity = (0.12 + 0.55 * full) * up;
+    hemi.intensity = 0.24; hemi.color.set("#3c4c7c");
+  } else {
+    sun.position.copy(tgt).addScaledVector(dir, 40); sun.target.position.copy(tgt);
+    sun.intensity = 0.2 + day * 2.1; sun.color.set(el < 0 ? "#8aa0d8" : el < 8 ? "#ffb070" : "#fff1d6");
+    hemi.intensity = 0.32 + day * 0.6; hemi.color.set(day > 0.3 ? "#cfe6ff" : "#5a6a9a");
+  }
+  // fixtures switch on at dusk (sun < ~2 degrees) and off at dawn
+  const nk = Math.max(0, Math.min(1, (2 - el) / 8)); World.setNight(nk);
+  if (myCar.obj) World.setCarLights(myCar.obj, myCar.state === "driving" ? Math.max(nk, world.inTunnel(myCar.obj.position.x, myCar.obj.position.z) ? 1 : 0) : 0, myCar.state === "driving" && myCar.v < 1);
+  if (night) night.update({ sunDir: trueSun, sunElev: el, moonInfo: moonI, camera, target: controls.target, sources: world.lightSources().concat(lotFixtures()), dt: lastDt });
   const sky = Life.skyColor(el); scene.background = sky; if (scene.fog) scene.fog.color.copy(sky); world.setSky(sky);
-  World.WINDOW_GLOW.emissiveIntensity = el < 3 ? 1.4 : 0.05;
+  World.WINDOW_GLOW.emissiveIntensity = 0.05 + nk * 1.6;
   renderer.toneMappingExposure = 0.9 + day * 0.2;
+  if (Hifi && quality !== "low") Hifi.updateEnvironment(renderer, scene, dir, sky, day);
+  else if (scene.environment) scene.environment = null;
   lastClock = c;
 }
 let lastClock = null, lifeHost = null;
@@ -845,10 +927,15 @@ async function start() {
   ]);
   [G, World, Life, Plan] = await Promise.all([import("./sims-gen.js?v=3"), import("./sims-world.js?v=7"), import("./sims-life.js?v=4"), import("./sims-plan.js?v=1")]);
   quality = pickQuality(); G.setQuality({ tex: QUALITY[quality].tex, aniso: 4 });
+  try {
+    [Body, Hifi, SkeletonUtils, NightMod] = await Promise.all([import("./sims-body.js?v=1"), import("./sims-hifi.js?v=1"), import("three/addons/utils/SkeletonUtils.js"), import("./sims-night.js?v=1")]);
+    setStatus("Generating sculptable bodies…"); await new Promise((r) => setTimeout(r, 30)); Body.baseFor(bodyLod());
+  } catch (e) { console.warn("hifi bodies unavailable", e); Body = null; Hifi = null; }
   const wrap = $("sims-stage");
   renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   renderer.domElement.id = "sims-canvas"; renderer.domElement.setAttribute("aria-label", "Sims lot");
   wrap.appendChild(renderer.domElement);
   scene = new THREE.Scene(); scene.background = new THREE.Color("#141210"); scene.fog = new THREE.Fog("#141210", 30, 60);
@@ -860,6 +947,7 @@ async function start() {
   hemi = new THREE.HemisphereLight("#cfe6ff", "#5a4a32", 0.8); scene.add(hemi);
   sun = new THREE.DirectionalLight("#fff1d6", 2.2); sun.castShadow = true; sun.shadow.bias = -0.0004; sun.shadow.normalBias = 0.02;
   Object.assign(sun.shadow.camera, { left: -20, right: 20, top: 20, bottom: -20, near: 1, far: 120 }); scene.add(sun, sun.target);
+  if (NightMod) { night = NightMod.createNight(scene, renderer); night.setQuality(quality); }
   world = World.createWorld(scene, { radius: QUALITY[quality].radius, npcs: QUALITY[quality].npcs, grass: QUALITY[quality].grass, cars: QUALITY[quality].cars, boats: QUALITY[quality].boats, reduceMotion });
   applyQuality(quality);
   const grid = new THREE.GridHelper(N, N, "#c9a227", "#5a6a48"); grid.position.y = 0.045; grid.material.transparent = true; grid.material.opacity = 0.35; grid.name = "Grid";
@@ -872,6 +960,7 @@ async function start() {
   raycaster = new THREE.Raycaster(); clockObj = new THREE.Clock();
 
   S = loadSave(); if (S.fresh) S = starterFromPlan(S);
+  Life.setPreview(() => previewDate());
   await restoreCustomGlbs();
   rebuildLot();
   for (const sim of S.sims) spawnSim(sim);
@@ -890,12 +979,13 @@ function resize() {
   const wrap = $("sims-stage"); if (!renderer || !wrap) return;
   const w = wrap.clientWidth || 300, h = wrap.clientHeight || 300;
   renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix();
+  if (Hifi) { Hifi.setupPost(renderer, scene, camera, quality, w, h); Hifi.resizePost(w, h); }
 }
 // ---------------- quality presets + day cycle ----------------
 const QUALITY = {
-  low: { label: "Low", ratio: 1, shadows: false, map: 512, tex: 128, radius: 1, npcs: 3, grass: 1200, cars: 6, boats: 1 },
-  med: { label: "Med", ratio: 1.5, shadows: true, map: 1024, tex: 256, radius: 1, npcs: 6, grass: 4000, cars: 12, boats: 3 },
-  high: { label: "High", ratio: 2, shadows: true, map: 2048, tex: 512, radius: 2, npcs: 12, grass: 9000, cars: 24, boats: 6 },
+  low: { label: "Low", ratio: 1, shadows: false, map: 512, tex: 128, radius: 1, npcs: 3, grass: 2000, cars: 6, boats: 1 },
+  med: { label: "Med", ratio: 1.5, shadows: true, map: 1024, tex: 256, radius: 1, npcs: 6, grass: 7000, cars: 12, boats: 3 },
+  high: { label: "High", ratio: 2, shadows: true, map: 2048, tex: 512, radius: 2, npcs: 12, grass: 14000, cars: 24, boats: 6 },
 };
 const QUALITY_KEY = "logan7in.sims.quality.v1";
 let quality = "med", qualityPref = "auto", hemi = null, sun = null;
@@ -906,17 +996,23 @@ function pickQuality() {
   return isPhone() ? "low" : "med";
 }
 function applyQuality(q) {
+  if (night) night.setQuality(q);
   quality = q; const Q = QUALITY[q];
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, Q.ratio));
   const had = renderer.shadowMap.enabled;
-  renderer.shadowMap.enabled = Q.shadows; renderer.shadowMap.type = q === "high" ? THREE.PCFSoftShadowMap : THREE.PCFShadowMap;
+  renderer.shadowMap.enabled = Q.shadows; renderer.shadowMap.type = q === "low" ? THREE.PCFShadowMap : THREE.PCFSoftShadowMap;
+  if (sun) { sun.shadow.radius = q === "high" ? 4 : 2; sun.shadow.blurSamples = q === "high" ? 16 : 8; }
+  if (Body && S && lastBodyLod && lastBodyLod !== bodyLod()) { lastBodyLod = bodyLod(); for (const sim of S.sims) { const rt = runtime.get(sim.id); if (rt && !sim.glb) setSimModel(rt, sim); } if (selectedSimId) selectSim(selectedSimId); }
+  lastBodyLod = bodyLod();
+  if (Hifi && S) rebuildLot();
   if (sun) { sun.castShadow = Q.shadows; if (sun.shadow.mapSize.x !== Q.map) { sun.shadow.mapSize.set(Q.map, Q.map); if (sun.shadow.map) { sun.shadow.map.dispose(); sun.shadow.map = null; } } }
   if (had !== Q.shadows && scene) scene.traverse((o) => { if (o.material) [].concat(o.material).forEach((m) => (m.needsUpdate = true)); });
   if (world) { world.setRadius(Q.radius); world.setNpcs(Q.npcs); world.setDetail({ grass: Q.grass, cars: Q.cars, boats: Q.boats }); }
-  scene.fog = new THREE.Fog(scene.background || "#9ec9ea", 30, (Q.radius + 0.6) * 36);
+  scene.fog = new THREE.Fog(scene.background || "#9ec9ea", 45, Math.max(110, (Q.radius + 0.6) * 60));
   const sel = $("sims-quality"); if (sel) sel.value = qualityPref;
   resize();
 }
+let lastBodyLod = "";
 const perf = { frames: 0, t: 0, fps: 0, low: 0, history: [] };
 function perfTick(dt) {
   perf.frames++; perf.t += dt;
@@ -944,22 +1040,35 @@ function loop() {
   rafId = requestAnimationFrame(loop);
 }
 let loopErr = false;
-function frame(dt) {
+function lotFixtures() { const out = []; if (lotGroup) lotGroup.traverse((o) => { if (o.userData.fixture) out.push({ obj: o, kind: o.userData.fixture.kind, on: World.NIGHT_K() }); }); return out; }
+function frame(dt) { lastDt = dt; timeTick(dt);
   if (keyActive()) { cameraKeys(dt); if (mode === "live" || keys.size) wasdTick(dt); }
-  if (mode === "live") stepSims(dt); else { animateSims(0); stepCar(dt); }
+  if (mode === "live") stepSims(dt); else { animateSims(mode === "cas" ? dt : 0); stepCar(dt); }
   stepRemotes(dt); netTick(); followTick(dt);
   controls.update(); dayCycle(); world.setFocus(focusPoint(), camera.position); world.update(controls.target, dt); thumbTick();
   Life.farmTick(); if (performance.now() - lastLifeTick > 1000) { lastLifeTick = performance.now(); Life.pollTrades(); clockTick(); }
-  renderer.render(scene, camera); updateBubbles(); perfTick(dt);
+  const bent = warpActors(); // the neighborhood's roads are bent; draw moving sims/cars at their bent spot
+  if (scene.fog && scene.fog.isFog && controls) { const cd = camera.position.distanceTo(controls.target), fr = Math.max(110, (QUALITY[quality].radius + 0.6) * 60); scene.fog.near = 45 + cd * 0.9; scene.fog.far = fr + cd * 1.4; } // overhead views stay clear
+  if (Hifi) Hifi.render(renderer, scene, camera); else renderer.render(scene, camera);
+  for (const [o, p, q] of bent) { o.position.copy(p); o.quaternion.copy(q); }
+  updateBubbles(); perfTick(dt);
   if (mode === "live" && !online.visiting && performance.now() - lastSave > 5000) { lastSave = performance.now(); save(); renderNeeds(); }
   else if (mode === "live") renderNeedsLight();
 }
 
 // ---------------- picking ----------------
 function ndc(ev) { const r = renderer.domElement.getBoundingClientRect(); return new THREE.Vector2(((ev.clientX - r.left) / r.width) * 2 - 1, -((ev.clientY - r.top) / r.height) * 2 + 1); }
+// winding roads: game logic lives on the straight grid, the world is drawn bent (see World.warpXZ)
+function toGrid(p) { if (!p || !world) return p; const [x, z] = world.unwarpXZ(p.x, p.z); return new THREE.Vector3(x, p.y, z); }
+function warpActors() {
+  const out = []; if (!world) return out;
+  const list = [...simGroup.children, ...(remoteGroup ? remoteGroup.children : [])]; if (myCar.obj) list.push(myCar.obj);
+  for (const o of list) { const x = o.position.x, z = o.position.z; if (Math.abs(x) < 30 && Math.abs(z) < 30) continue; out.push([o, o.position.clone(), o.quaternion.clone()]); World.warpObject(o, 0, 0, true); o.updateMatrixWorld(true); }
+  return out;
+}
 function groundPoint(ev) {
   raycaster.setFromCamera(ndc(ev), camera);
-  const p = new THREE.Vector3(); return raycaster.ray.intersectPlane(new THREE.Plane(new THREE.Vector3(0, 1, 0), 0), p) ? p : null;
+  const p = new THREE.Vector3(); return raycaster.ray.intersectPlane(new THREE.Plane(new THREE.Vector3(0, 1, 0), 0), p) ? toGrid(p) : null;
 }
 function pick(ev, groups) {
   raycaster.setFromCamera(ndc(ev), camera);
@@ -1125,7 +1234,7 @@ function tap(ev) {
     if (hit && hit.userData.objId) { commandSim(sim, { objId: hit.userData.objId }); return; }
     const stallHit = scene.getObjectByName("MarketStall") && pick(ev, [scene.getObjectByName("MarketStall")]); if (stallHit) { Life.goMarket(() => Life.openTab("market")); return; }
     const pl = Life.plotTiles(), gp = groundPoint(ev); if (gp) { const [x, z] = tileAt(gp); if (pl.has(x + "," + z)) { Life.openMenu({ kind: "plot", key: x + "," + z }, ev.clientX, ev.clientY); return; } }
-    if (world) { raycaster.setFromCamera(ndc(ev), camera); const h = raycaster.intersectObjects(world.chunkMeshes(), true)[0];
+    if (world) { raycaster.setFromCamera(ndc(ev), camera); const h = raycaster.intersectObjects(world.chunkMeshes(), true)[0]; if (h) h.point = toGrid(h.point);
       if (h && (world.zoneAt(h.point.x, h.point.z) === "water" || h.point.y < -0.9)) { lifeHost.fishAt({ x: h.point.x, z: h.point.z }); return; }
       if (h && !(Math.abs(h.point.x) < N / 2 && Math.abs(h.point.z) < N / 2)) { const rt = runtime.get(sim.id); endTask(sim, rt); rt.queue = null; walkToPoint(sim, h.point); return; } }
     const p = gp; if (p) { const [x, z] = tileAt(p); if (inLot(x, z)) commandSim(sim, { x, z }); }
@@ -1135,6 +1244,7 @@ function tap(ev) {
 // ---------------- UI ----------------
 function setMode(m) {
   if (online.visiting && m !== "live") { setStatus("You're visiting — only Live mode. The host's lot is read-only."); m = "live"; }
+  if (mode === "cas" && m !== "cas") leaveCas();
   mode = m; carry = null; clearGhost();
   document.querySelectorAll("#panel-sims [data-sims-mode]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.simsMode === m)));
   document.querySelectorAll("#panel-sims .sims-pane").forEach((p) => (p.hidden = p.dataset.pane !== m));
@@ -1263,6 +1373,7 @@ function renderCas() {
   swatches($("sims-eyes"), G.EYE_COLORS, sim.eyes || "#3a2a1a", upd("eyes"));
   const acc = $("sims-acc"); acc.innerHTML = ""; const A = new Set(sim.acc || []);
   for (const a of G.ACCESSORIES) chip(acc, a, a, A.has(a) ? a : "", () => { const s2 = new Set(sim.acc || []); s2.has(a) ? s2.delete(a) : s2.add(a); setLook(sim, { acc: [...s2].slice(0, 6) }); });
+  if (Body) renderSculptPanel();
   $("sims-glb-note").textContent = sim.glb ? "Using an imported .glb mesh (colors/sliders reset it to the built-in body)." : "Built-in rounded body with a face and named joints (Joint_HipL, Joint_ShoulderR…).";
 }
 let lastNeedsRender = 0;
@@ -1279,11 +1390,13 @@ function renderNeeds() {
 function download(blob, name) { const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = name; document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1000); }
 function exportGlb(object, name) {
   const ex = new GLTFExporter();
-  const clone = object.clone(true); clone.position.set(0, 0, 0); clone.rotation.set(0, 0, 0);
+  const isBody = !!object.userData.body, clone = isBody && SkeletonUtils ? SkeletonUtils.clone(object) : object.clone(true); clone.position.set(0, 0, 0); clone.rotation.set(0, 0, 0);
+  if (isBody) { clone.traverse((o) => { o.userData = {}; }); clone.userData = { simBody: 1, lod: object.userData.body.lod }; } // generator caches stay out of the file
+  if (isBody) { clone.traverse((b) => { if (b.isBone) { b.quaternion.identity(); } }); const pel = clone.getObjectByName("pelvis"); if (pel) pel.position.y = object.userData.body.base.J.pelvis[1]; }
   const drop = []; clone.traverse((o) => { if (o.userData.noExport || o.name === "SelectRing") drop.push(o); }); drop.forEach((o) => o.removeFromParent());
   const tmp = new THREE.Scene(); tmp.add(clone);
   ex.parse(clone, (res) => { download(new Blob([res], { type: "model/gltf-binary" }), name); setStatus("Exported " + name + " — open in Blender: File › Import › glTF 2.0"); },
-    (err) => setStatus("Export failed: " + (err && err.message)), { binary: true, onlyVisible: true });
+    (err) => setStatus("Export failed: " + (err && err.message)), { binary: true, onlyVisible: true, maxTextureSize: 512, animations: isBody ? Body.makeClips() : [] });
 }
 function bufToB64(buf) { let s = ""; const b = new Uint8Array(buf); for (let i = 0; i < b.length; i += 0x8000) s += String.fromCharCode.apply(null, b.subarray(i, i + 0x8000)); return btoa(s); }
 function b64ToBuf(b64) { const s = atob(b64); const b = new Uint8Array(s.length); for (let i = 0; i < s.length; i++) b[i] = s.charCodeAt(i); return b.buffer; }
@@ -1306,6 +1419,12 @@ async function importGlb(file) {
     CATALOG[key] = { label: key.slice(7), price: 0, w: 1, d: 1, use: { fun: 1 }, dur: 5, pose: "stand" };
     buyItem = key; setMode("buy"); setStatus("Imported " + key.slice(7) + " — tap a tile to place it"); save(); return;
   }
+  const imp = Body && Body.fromImported(sceneObj);
+  if (imp) {
+    const str = await Body.encodeSculpt(imp.deltas); Body.rememberSculpt(str, imp.deltas);
+    if (str) sim.sculpt = str; else delete sim.sculpt; sim.morph = Object.assign({}, sim.morph, imp.morph); sim.glb = null; customCache.delete("sim:" + sim.id);
+    spawnSim(sim); selectSim(sim.id); save(); schedulePublish(); setStatus("Imported the sculpted body back onto " + sim.name + " (shape + " + Object.keys(imp.morph).length + " sliders)."); return;
+  }
   customCache.set("sim:" + sim.id, sceneObj); sim.glb = bufToB64(buf);
   spawnSim(sim); selectSim(sim.id); save();
   const hasJoints = !!sceneObj.getObjectByName("Joint_HipL");
@@ -1313,6 +1432,7 @@ async function importGlb(file) {
 }
 function bindUI() {
   const cv = renderer.domElement;
+  cv.addEventListener("pointerdown", sculptDown, true); cv.addEventListener("pointermove", sculptMove, true); cv.addEventListener("pointerup", sculptUp, true);
   cv.addEventListener("pointerdown", onDown); cv.addEventListener("pointermove", onMove); cv.addEventListener("pointerup", onUp);
   cv.addEventListener("pointercancel", (e) => { pointers.delete(e.pointerId); drag = null; clearGhost(); });
   cv.addEventListener("pointerleave", (e) => { if (e.pointerType === "mouse" && !drag) clearGhost(); });
@@ -1361,6 +1481,162 @@ function bindUI() {
   renderBuildColors();
 }
 
+
+// ---------------- Create-a-Sim: sculpt mode + body/face morph sliders ----------------
+const sculpt = { on: false, brush: "inflate", radius: 0.025, strength: 0.5, mirror: true, mouth: false, stroke: null, tool: null };
+function sculptModel() { const sim = getSim(selectedSimId), rt = sim && runtime.get(sim.id); return rt && rt.model && rt.model.userData.body ? rt.model : null; }
+function sculptTool() { const m = sculptModel(); if (!m) return null; if (!sculpt.tool || sculpt.tool.root !== m) sculpt.tool = new Body.Sculptor(m); return sculpt.tool; }
+function renderSculptPanel() {
+  const host = $("sims-cas-fields"); if (!host || !Body) return;
+  let el = $("sims-sculpt");
+  if (!el) {
+    el = document.createElement("div"); el.id = "sims-sculpt"; el.className = "sims-sculpt";
+    el.innerHTML = '<h4>Sculpt &amp; shape</h4>' +
+      '<label class="sims-check"><input type="checkbox" id="sims-sculpt-on" /> Sculpt mode (drag on the body; right-drag orbits)</label>' +
+      '<div class="sims-tools" role="group" aria-label="Brush" id="sims-brushes"></div>' +
+      '<label class="sims-label" for="sims-brush-radius">Brush radius</label><input id="sims-brush-radius" type="range" min="0.006" max="0.12" step="0.002" />' +
+      '<label class="sims-label" for="sims-brush-strength">Strength</label><input id="sims-brush-strength" type="range" min="0.05" max="1" step="0.05" />' +
+      '<label class="sims-check"><input type="checkbox" id="sims-brush-mirror" /> X-mirror (left ↔ right)</label>' +
+      '<div class="sims-tools"><button type="button" id="sims-sculpt-undo">Undo stroke</button><button type="button" id="sims-sculpt-reset">Reset sculpt</button></div>' +
+      '<div class="sims-tools" role="group" aria-label="Camera"><button type="button" data-sims-cv="body">Body</button><button type="button" data-sims-cv="face">Face</button><button type="button" data-sims-cv="mouth">Mouth</button><button type="button" data-sims-cv="hand">Hand</button><button type="button" data-sims-cv="foot">Foot</button></div>' +
+      '<div id="sims-morphs" class="sims-morphs"></div><p class="sims-small" id="sims-sculpt-note"></p>';
+    const blender = [...host.querySelectorAll("h4")].find((h) => /Blender/.test(h.textContent)); host.insertBefore(el, blender || null);
+    const br = $("sims-brushes");
+    for (const b of Body.BRUSHES) { const btn = document.createElement("button"); btn.type = "button"; btn.textContent = b[0].toUpperCase() + b.slice(1); btn.dataset.brush = b; btn.onclick = () => { sculpt.brush = b; renderSculptPanel(); }; br.appendChild(btn); }
+    $("sims-sculpt-on").onchange = (e) => { sculpt.on = e.target.checked; controls.mouseButtons.LEFT = sculpt.on ? null : THREE.MOUSE.ROTATE; if (sculpt.on) casView("body"); setStatus(sculpt.on ? "Sculpt: drag on the sim. Right-drag to orbit, wheel to zoom." : "Create-a-Sim"); };
+    $("sims-brush-radius").oninput = (e) => (sculpt.radius = +e.target.value);
+    $("sims-brush-strength").oninput = (e) => (sculpt.strength = +e.target.value);
+    $("sims-brush-mirror").onchange = (e) => (sculpt.mirror = e.target.checked);
+    $("sims-sculpt-undo").onclick = () => { const t = sculptTool(); if (t && t.undo()) commitSculpt(); };
+    $("sims-sculpt-reset").onclick = () => { const t = sculptTool(); if (t) { t.reset(); commitSculpt(); } };
+    el.querySelectorAll("[data-sims-cv]").forEach((b) => (b.onclick = () => casView(b.dataset.simsCv)));
+    const mp = $("sims-morphs");
+    for (const k of Body.MORPHS) { const id = "sims-morph-" + k; const lab = document.createElement("label"); lab.className = "sims-label"; lab.htmlFor = id; lab.textContent = Body.MORPH_LABELS[k]; const inp = document.createElement("input"); inp.type = "range"; inp.id = id; inp.min = "-1"; inp.max = "1.5"; inp.step = "0.02"; inp.dataset.morph = k;
+      inp.oninput = () => { const sim = getSim(selectedSimId), m = sculptModel(); if (!sim) return; sim.morph = Object.assign({}, sim.morph, { [k]: +inp.value }); if (m) Body.setMorph(m, k, +inp.value); sim.glb = null; clearTimeout(sculpt.saveT); sculpt.saveT = setTimeout(() => { save(); schedulePublish(); }, 600); };
+      mp.append(lab, inp); }
+  }
+  const sim = getSim(selectedSimId); el.hidden = !sim;
+  $("sims-sculpt-on").checked = sculpt.on; $("sims-brush-radius").value = sculpt.radius; $("sims-brush-strength").value = sculpt.strength; $("sims-brush-mirror").checked = sculpt.mirror;
+  el.querySelectorAll("[data-brush]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.brush === sculpt.brush)));
+  if (sim) { const inf = Body.morphInfluencesFor(sim); el.querySelectorAll("[data-morph]").forEach((i) => (i.value = inf[i.dataset.morph] || 0)); }
+  const m = sculptModel(); $("sims-sculpt-note").textContent = m ? "Generated body: " + Object.values(m.userData.body.parts).reduce((a, p) => a + p.geometry.index.count / 3, 0).toLocaleString() + " triangles (" + m.userData.body.lod + "), " + m.userData.body.skeleton.bones.length + " bones. Sculpts are saved, shared online and exported in the .glb." : "";
+}
+function casView(v) {
+  const m = sculptModel(); if (!m) return; sculpt.mouth = v === "mouth";
+  const B = m.userData.body.bones, p = new THREE.Vector3(), sc = m.scale.x;
+  m.updateMatrixWorld(true);
+  const tgt = { body: B.spine2, face: B.head, mouth: B.jaw, hand: B.handL, foot: B.footL }[v] || B.spine2; tgt.getWorldPosition(p);
+  if (v === "face") p.y += 0.1 * sc; if (v === "mouth") p.y -= 0.035 * sc; if (v === "hand") { B.middle1L.getWorldPosition(p); } if (v === "foot") p.y -= 0.03 * sc;
+  const dist = { body: 2.6, face: 0.5, mouth: 0.36, hand: 0.42, foot: 0.55 }[v] * sc;
+  const eM = new THREE.Vector3(), hp = new THREE.Vector3(), tmp = new THREE.Vector3(); B.eyeL.getWorldPosition(eM); B.eyeR.getWorldPosition(tmp); eM.add(tmp).multiplyScalar(0.5); B.head.getWorldPosition(hp);
+  const fwd = eM.sub(hp).setY(0).normalize(), out = new THREE.Vector3(); B.spine2.getWorldPosition(tmp);
+  if (v === "hand") { out.copy(p).sub(tmp).setY(0).normalize(); }
+  const dir = v === "hand" ? fwd.clone().multiplyScalar(0.9).add(out.multiplyScalar(0.7)).add(new THREE.Vector3(0, 0.15, 0)).normalize() : v === "foot" ? fwd.clone().add(new THREE.Vector3(0, 0.75, 0)).add(new THREE.Vector3().crossVectors(new THREE.Vector3(0, 1, 0), fwd).multiplyScalar(0.35)).normalize() : fwd.clone().add(new THREE.Vector3(0, 0.06, 0)).normalize();
+  if (wallGroup) wallGroup.visible = false; // close-up views see through the house walls
+  controls.minDistance = 0.15; controls.maxPolarAngle = Math.PI * 0.95; follow = false;
+  controls.target.copy(p); camera.position.copy(p).addScaledVector(dir, dist); camera.near = 0.01; camera.updateProjectionMatrix(); controls.update();
+}
+function sculptHit(ev) {
+  const m = sculptModel(); if (!m) return null; raycaster.setFromCamera(ndc(ev), camera);
+  // sculpt mode holds the rest pose, so the bind-space surface is the visible surface: ray-test static proxies that
+  // share each part's geometry (and morphs) instead of skinning every vertex per pointer move
+  const proxies = m.userData.sculptProxies || (m.userData.sculptProxies = Object.values(m.userData.body.parts).map((p) => { const q = new THREE.Mesh(p.geometry, p.material); q.name = p.name; q.matrixAutoUpdate = false; q.morphTargetInfluences = p.morphTargetInfluences; q.morphTargetDictionary = p.morphTargetDictionary; q.userData.part = p; return q; }));
+  for (const q of proxies) { q.matrixWorld.copy(q.userData.part.matrixWorld); q.geometry.boundingSphere = null; }
+  const h = raycaster.intersectObjects(proxies, false); return h[0] || null;
+}
+function sculptDown(ev) {
+  if (!(mode === "cas" && sculpt.on && ev.button === 0)) return;
+  const h = sculptHit(ev); if (!h) return; const t = sculptTool(); if (!t) return;
+  ev.stopImmediatePropagation(); ev.preventDefault(); controls.enabled = false;
+  t.begin(); sculpt.stroke = { last: h.point.clone(), plane: new THREE.Plane().setFromNormalAndCoplanarPoint(camera.getWorldDirection(new THREE.Vector3()).negate(), h.point) };
+  if (sculpt.brush !== "grab") t.apply(h.point, { brush: sculpt.brush, radius: sculpt.radius, strength: sculpt.strength * 0.5, mirror: sculpt.mirror });
+  try { renderer.domElement.setPointerCapture(ev.pointerId); } catch (e) {}
+}
+function sculptMove(ev) {
+  if (!sculpt.stroke) return; ev.stopImmediatePropagation(); const t = sculptTool(); if (!t) return;
+  if (sculpt.brush === "grab") { raycaster.setFromCamera(ndc(ev), camera); const p = new THREE.Vector3(); if (!raycaster.ray.intersectPlane(sculpt.stroke.plane, p)) return; const d = p.clone().sub(sculpt.stroke.last); t.apply(sculpt.stroke.last, { brush: "grab", drag: d, radius: sculpt.radius, strength: 1, mirror: sculpt.mirror }); sculpt.stroke.last.copy(p); return; }
+  const h = sculptHit(ev); if (!h) return; if (h.point.distanceTo(sculpt.stroke.last) < sculpt.radius * 0.15) return; sculpt.stroke.last.copy(h.point);
+  t.apply(h.point, { brush: sculpt.brush, radius: sculpt.radius, strength: sculpt.strength * 0.5, mirror: sculpt.mirror });
+}
+function sculptUp(ev) { if (!sculpt.stroke) return; ev.stopImmediatePropagation(); sculpt.stroke = null; controls.enabled = true; commitSculpt(); }
+async function commitSculpt() {
+  const sim = getSim(selectedSimId), m = sculptModel(); if (!sim || !m) return;
+  const D = Body.currentDeltasMed(m), str = await Body.encodeSculpt(D);
+  if (str.length > Body.SCULPT_MAX) { setStatus("That sculpt is too detailed to save — try Smooth or Undo."); return; }
+  Body.rememberSculpt(str, D); sim.sculpt = str || undefined; if (!str) delete sim.sculpt; sim.glb = null; save(); schedulePublish();
+}
+function leaveCas() { sculpt.on = false; sculpt.mouth = false; if (wallGroup) wallGroup.visible = true; if (controls) { controls.minDistance = 5; controls.maxPolarAngle = Math.PI * 0.45; controls.enabled = true; controls.mouseButtons.LEFT = THREE.MOUSE.ROTATE; camera.near = 0.1; camera.updateProjectionMatrix(); } }
+
+// ---------------- time preview: scrub the sim's displayed time of day; bookmark moments ----------------
+function tp() { if (!S.timePreview) S.timePreview = { mode: "live", t: Date.now(), play: false, speed: 60, moments: [] }; return S.timePreview; }
+function previewDate() { const P = S && S.timePreview; return P && P.mode === "preview" ? new Date(P.t) : null; }
+const pad2 = (n) => String(n).padStart(2, "0");
+function timebarCss() {
+  if ($("sims-timebar-css")) return; const st = document.createElement("style"); st.id = "sims-timebar-css";
+  st.textContent = `.sims-timebar{position:absolute;left:8px;right:8px;bottom:8px;z-index:5;background:rgba(14,14,18,.82);border:1px solid rgba(201,162,39,.5);border-radius:10px;padding:6px 8px;color:#f2eee6;font:12px/1.3 system-ui,sans-serif;backdrop-filter:blur(4px)}
+.sims-timebar .row{display:flex;gap:6px;align-items:center;flex-wrap:wrap}.sims-timebar button,.sims-timebar select,.sims-timebar input[type=date],.sims-timebar input[type=text]{background:#1d1a18;color:#f2eee6;border:1px solid #555;border-radius:6px;padding:2px 7px;font:inherit}
+.sims-timebar button[aria-pressed=true]{border-color:#c9a227;color:#c9a227}.sims-tl{position:relative;flex:1 1 320px;height:30px;min-width:220px}.sims-tl canvas{position:absolute;inset:0;width:100%;height:100%;border-radius:6px}
+.sims-tl input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:.0001;cursor:ew-resize}.sims-tl .knob{position:absolute;top:-3px;bottom:-3px;width:3px;margin-left:-1px;background:#c9a227;box-shadow:0 0 6px #c9a227;pointer-events:none}
+.sims-moments{display:flex;gap:4px;flex-wrap:wrap;margin-top:4px}.sims-moments span{display:inline-flex;border:1px solid #6a5a2a;border-radius:12px;overflow:hidden}.sims-moments span button{border:0;border-radius:0}
+.sims-tread{min-width:210px;font-variant-numeric:tabular-nums}`; document.head.appendChild(st);
+}
+function renderTimebar() {
+  const stage = $("sims-stage"); if (!stage || !Life || !S) return; timebarCss(); const P = tp();
+  let el = $("sims-timebar");
+  if (!el) {
+    el = document.createElement("div"); el.id = "sims-timebar"; el.className = "sims-timebar"; el.setAttribute("role", "group"); el.setAttribute("aria-label", "Time of day preview");
+    el.innerHTML = '<div class="row"><button type="button" id="sims-tb-live" title="Snap back to the real clock">● Live (real clock)</button><button type="button" id="sims-tb-play" title="Play the previewed time forward">▶</button>' +
+      '<select id="sims-tb-speed" aria-label="Playback speed"><option value="1">1×</option><option value="60">60×</option><option value="600">600×</option></select>' +
+      '<div class="sims-tl"><canvas id="sims-tb-canvas" width="720" height="60"></canvas><div class="knob" id="sims-tb-knob"></div><input type="range" id="sims-tb-range" min="0" max="1439" step="1" aria-label="Time of day" /></div>' +
+      '<input type="date" id="sims-tb-date" aria-label="Preview date (season + moon phase)" /><span class="sims-tread" id="sims-tb-read"></span></div>' +
+      '<div class="row sims-moments" id="sims-tb-moments"></div>';
+    stage.appendChild(el);
+    const toPreview = () => { if (P.mode !== "preview") { P.mode = "preview"; P.t = Date.now(); } };
+    $("sims-tb-live").onclick = () => { P.mode = "live"; P.play = false; save(); renderTimebar(); };
+    $("sims-tb-play").onclick = () => { toPreview(); P.play = !P.play; save(); renderTimebar(); };
+    $("sims-tb-speed").onchange = (e) => { P.speed = +e.target.value; save(); };
+    $("sims-tb-range").oninput = (e) => { toPreview(); const d = new Date(P.t); d.setHours(0, +e.target.value, 0, 0); P.t = d.getTime(); renderTimebar(); };
+    $("sims-tb-range").onchange = () => save();
+    $("sims-tb-date").onchange = (e) => { if (!e.target.value) return; toPreview(); const [y, m, dd] = e.target.value.split("-").map(Number), d = new Date(P.t); d.setFullYear(y, m - 1, dd); P.t = d.getTime(); save(); renderTimebar(true); };
+  }
+  const d = previewDate() || new Date(), mins = d.getHours() * 60 + d.getMinutes(), moon = NightMod ? NightMod.moonAt(Life.sunAt, d, mins / 60) : null;
+  $("sims-tb-live").setAttribute("aria-pressed", String(P.mode === "live")); $("sims-tb-play").textContent = P.play ? "❚❚" : "▶"; $("sims-tb-play").setAttribute("aria-pressed", String(!!P.play)); $("sims-tb-speed").value = String(P.speed || 60);
+  if (document.activeElement !== $("sims-tb-range")) $("sims-tb-range").value = mins;
+  $("sims-tb-knob").style.left = (mins / 1440 * 100) + "%";
+  const ds = d.getFullYear() + "-" + pad2(d.getMonth() + 1) + "-" + pad2(d.getDate()); if (document.activeElement !== $("sims-tb-date")) $("sims-tb-date").value = ds;
+  $("sims-tb-read").textContent = (P.mode === "live" ? "Live · " : "Preview · ") + d.toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" }) + " " + pad2(d.getHours()) + ":" + pad2(d.getMinutes()) + (moon ? " · " + moonGlyph(moon.age) + " " + moon.name : "");
+  const key = ds + (moon ? Math.round(moon.age * 60) : ""); if (el.dataset.drawn !== key) { el.dataset.drawn = key; drawTimeline(d); }
+  const mb = $("sims-tb-moments"); const mk = JSON.stringify(P.moments || []);
+  if (mb.dataset.k !== mk) { mb.dataset.k = mk; mb.innerHTML = "";
+    const add = document.createElement("button"); add.type = "button"; add.textContent = "＋ Save moment"; add.onclick = () => { const n = prompt("Name this moment (memory reference):", "Moment " + ((P.moments || []).length + 1)); if (n != null) saveMoment(n); }; mb.appendChild(add);
+    (P.moments || []).forEach((m, i) => { const sp = document.createElement("span"), b = document.createElement("button"), x = document.createElement("button"); b.type = x.type = "button"; const md = new Date(m.t);
+      b.textContent = m.name + " · " + md.toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" }) + " " + pad2(md.getHours()) + ":" + pad2(md.getMinutes()); b.title = "Jump to this moment"; b.onclick = () => jumpMoment(i);
+      x.textContent = "×"; x.setAttribute("aria-label", "Delete moment " + m.name); x.onclick = () => { P.moments.splice(i, 1); save(); renderTimebar(); }; sp.append(b, x); mb.appendChild(sp); }); }
+}
+function moonGlyph(a) { return ["🌑", "🌒", "🌓", "🌔", "🌕", "🌖", "🌗", "🌘"][Math.round(a * 8) % 8]; }
+function drawTimeline(d) {
+  const cv = $("sims-tb-canvas"); if (!cv) return; const x = cv.getContext("2d"), W = cv.width, Hh = cv.height;
+  for (let px = 0; px < W; px++) { const h = px / W * 24, el = Life.sunAt(d, h).elev, c = Life.skyColor(el); x.fillStyle = "#" + c.getHexString(); x.fillRect(px, 0, 1, Hh); }
+  const s = Life.sunAt(d, 12), mark = (h, label, col) => { const px = ((h % 24) + 24) % 24 / 24 * W; x.fillStyle = col; x.fillRect(px - 1, 0, 2, Hh); x.font = "bold 15px system-ui"; x.fillStyle = "#111"; x.fillText(label, Math.min(W - 70, px + 4), 17); x.fillStyle = "#fff"; x.fillText(label, Math.min(W - 70, px + 3), 16); };
+  mark(s.sunrise, "☀↑ " + fmtH(s.sunrise), "#ffb070"); mark(s.noon, "noon", "#fff1d6"); mark(s.sunset, "☀↓ " + fmtH(s.sunset), "#ff8a50");
+  x.font = "14px system-ui"; x.fillStyle = "#cfe0ff"; x.fillText("night", 6, Hh - 8); x.fillText("night", W - 44, Hh - 8);
+  if (NightMod) { let best = -1, bh = 0; for (let h = 0; h < 24; h += 0.25) { const m = NightMod.moonAt(Life.sunAt, d, h); if (m.elev > best) { best = m.elev; bh = h; } } if (best > 0) { x.font = "18px system-ui"; x.fillText(moonGlyph(NightMod.moonAge(d)), bh / 24 * W - 9, Hh - 6); } }
+  for (let h = 0; h <= 24; h += 3) { x.fillStyle = "rgba(255,255,255,.35)"; x.fillRect(h / 24 * W, Hh - 6, 1, 6); }
+}
+const fmtH = (h) => pad2(Math.floor(h)) + ":" + pad2(Math.floor((h % 1) * 60));
+function saveMoment(name) {
+  const P = tp(), d = previewDate() || new Date(); P.moments = P.moments || [];
+  P.moments.push({ name: String(name || "Moment").slice(0, 32), t: d.getTime(), cam: { p: camera.position.toArray().map((v) => +v.toFixed(2)), t: controls.target.toArray().map((v) => +v.toFixed(2)) } });
+  if (P.moments.length > 24) P.moments.shift(); save(); renderTimebar(); setStatus("Saved moment “" + name + "”.");
+}
+function jumpMoment(i) {
+  const P = tp(), m = P.moments && P.moments[i]; if (!m) return; P.mode = "preview"; P.t = m.t; P.play = false;
+  if (m.cam) { follow = false; controls.target.fromArray(m.cam.t); camera.position.fromArray(m.cam.p); controls.update(); }
+  save(); renderTimebar(true); setStatus("Jumped to “" + m.name + "”.");
+}
+let tbAcc = 0;
+function timeTick(dt) { const P = S && S.timePreview; if (P && P.mode === "preview" && P.play) P.t += dt * 1000 * (P.speed || 1); tbAcc += dt; if (tbAcc > 0.25) { tbAcc = 0; renderTimebar(); } }
+
 // ---------------- tab lifecycle ----------------
 function show() {
   visible = true;
@@ -1372,7 +1648,7 @@ window.addEventListener("sims-show", show);
 window.addEventListener("sims-hide", hide);
 window.SimsTab = { onShow: show, onHide: hide, get state() { return S; },
   perf() { return { fps: Math.round(perf.fps), history: perf.history.slice(), quality, pref: qualityPref, draws: renderer && renderer.info.render.calls, tris: renderer && renderer.info.render.triangles, world: world && world.stats(), shared: world && world.sharedSlots() }; },
-  view(x, z, d = 1) { const off = camera.position.clone().sub(controls.target).normalize().multiplyScalar(30 * d); controls.target.set(x, 0, z); camera.position.set(x, 0, z).add(off); controls.update(); },
+  view(x, z, d = 1, az, el, y = 0) { const off = camera.position.clone().sub(controls.target).normalize().multiplyScalar(30 * d); if (az != null) off.set(Math.cos(el) * Math.sin(az), Math.sin(el), Math.cos(el) * Math.cos(az)).multiplyScalar(30 * d); controls.target.set(x, y, z); camera.position.set(x, y, z).add(off); controls.update(); },
   get world() { return world; },
   setQuality(q) { qualityPref = q; try { localStorage.setItem(QUALITY_KEY, q); } catch (e) {} applyQuality(QUALITY[q] ? q : pickQuality()); },
   exportLotBlob() { return new Promise((res, rej) => { const clone = lotGroup.clone(true); const drop = []; clone.traverse((o) => { if (o.userData.noExport || o.name === "SelectRing") drop.push(o); }); drop.forEach((o) => o.removeFromParent()); new GLTFExporter().parse(clone, res, rej, { binary: true, onlyVisible: true }); }); },
@@ -1381,7 +1657,10 @@ window.SimsTab = { onShow: show, onHide: hide, get state() { return S; },
   walk(x, z) { return lifeHost.walkTo({ x, z }); }, drive(x, z) { return driveTo({ x, z }); },
   car() { return myCar.obj && { state: myCar.state, x: +myCar.obj.position.x.toFixed(2), z: +myCar.obj.position.z.toFixed(2), pts: myCar.pts ? myCar.pts.length : 0, away: myCar.away }; },
   cam() { return { tx: controls.target.x, tz: controls.target.z, x: camera.position.x, y: camera.position.y, z: camera.position.z, pan: camPan, follow }; },
-  setSpeed(v) { speed = v; }, setMode(m) { setMode(m); },
+  setSpeed(v) { speed = v; }, setMode(m) { setMode(m); }, setHour(h) { const d = new Date(); d.setHours(Math.floor(h), Math.round((h % 1) * 60), 0, 0); tp().mode = "preview"; tp().t = d.getTime(); tp().play = false; renderTimebar(); },
+  timePreview() { return tp(); }, simData() { const s = getSim(selectedSimId); return s && JSON.parse(JSON.stringify(s)); }, saveMoment(n) { saveMoment(n); }, jumpMoment(i) { jumpMoment(i); }, nightInfo() { return night && { k: night.nightK, realLights: night.lights(), cap: night.cap(), moon: lastClock && lastClock.moon, sources: world.lightSources().length }; },
+  body() { const m = sculptModel(); return m && { report: Body.anatomyReport(m), post: Hifi && Hifi.postInfo(), lod: m.userData.body.lod }; },
+  casView(v) { casView(v); }, sculptState() { return sculpt; }, get Body() { return Body; }, model() { return sculptModel(); },
   worldToScreen(x, y, z) { const v = new THREE.Vector3(x, y, z).project(camera); const r = renderer.domElement.getBoundingClientRect(); return { x: r.left + (v.x + 1) / 2 * r.width, y: r.top + (1 - v.y) / 2 * r.height }; },
   targetAt(cx, cy) { const t = targetAt({ clientX: cx, clientY: cy }); return t && { kind: t.kind, name: t.name || (t.obj && t.obj.type) || (t.sim && t.sim.name) }; },
   // test helper: screen position of a tile corner/center
@@ -1409,7 +1688,7 @@ function ownerKey() {
   } catch (e) { return ""; }
 }
 function sharing() { try { return localStorage.getItem(SHARE_KEY) !== "off"; } catch (e) { return true; } }
-const LOOK_KEYS = ["name", "skin", "hair", "top", "bottom", "hairStyle", "height", "build", "outfit", "bottomStyle", "pattern", "pat2", "shoes", "eyes", "brows", "mouth", "acc", "accColor"];
+const LOOK_KEYS = ["name", "skin", "hair", "top", "bottom", "hairStyle", "height", "build", "outfit", "bottomStyle", "pattern", "pat2", "shoes", "eyes", "brows", "mouth", "acc", "accColor", "morph", "sculpt"];
 function appearance(sim) { if (!sim) return null; const o = {}; for (const k of LOOK_KEYS) if (sim[k] != null) o[k] = sim[k]; return o; }
 async function api(method, body, query) {
   const url = "/api/sims-lot" + (query ? "?" + new URLSearchParams(query) : "");
@@ -1493,7 +1772,7 @@ function netTick() {
   if (rt && !online.posting && now - online.lastPost > every) {
     online.posting = true; online.lastPost = now;
     const p = rt.holder.position;
-    const body = { op: "pos", sid: mySid(), lot, name: myName(), sim: appearance(sim), x: +(p.x + N / 2 - 0.5).toFixed(2), z: +(p.z + N / 2 - 0.5).toFixed(2), rot: +rt.holder.rotation.y.toFixed(2), pose: rt.pose, host: !online.visiting };
+    const body = { op: "pos", sid: mySid(), lot, name: myName(), sim: (({ sculpt, ...r }) => r)(appearance(sim) || {}), x: +(p.x + N / 2 - 0.5).toFixed(2), z: +(p.z + N / 2 - 0.5).toFixed(2), rot: +rt.holder.rotation.y.toFixed(2), pose: rt.pose, host: !online.visiting };
     if (online.pendingSay) body.say = online.pendingSay;
     api("POST", body).then((d) => { if (d.ok) { if (body.say) online.pendingSay = ""; applyPeople(d.people); } else if (body.say && d.error === "Slow down") {/* retry next tick */} })
       .catch(() => {}).finally(() => (online.posting = false));

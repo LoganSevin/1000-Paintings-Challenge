@@ -12,6 +12,55 @@ import { mergeGeometries } from "three/addons/utils/BufferGeometryUtils.js";
 import * as G from "./sims-gen.js?v=3";
 
 export const CH = 36;          // chunk size (meters)
+// ---- winding roads: the whole neighborhood is laid out on a logical grid, then bent by a smooth, fold-free
+// warp so main roads, rivers and the blocks between them curve and loop. Simulation stays on the grid; anything
+// visible is drawn at warp(x, z). The player's own block (|r| < 30 m) is never bent.
+const WA = 12, sst = (a, b, v) => { const t = Math.max(0, Math.min(1, (v - a) / (b - a))); return t * t * (3 - 2 * t); };
+export function warpXZ(x, z) {
+  const e = WA * sst(26, 62, Math.hypot(x, z)); // home block stays straight; neighbourhoods beyond wind
+  if (!e) return [x, z];
+  return [x + e * (Math.sin(z * 0.046 + 1.3) + 0.3 * Math.sin(z * 0.081 + x * 0.012 + 0.7)), z + e * (Math.sin(x * 0.043 + 0.4) + 0.3 * Math.sin(x * 0.077 - z * 0.011 + 2.1))];
+}
+export function warpAngle(x, z) { const a = warpXZ(x + 0.5, z), b = warpXZ(x - 0.5, z); return Math.atan2(-(a[1] - b[1]), a[0] - b[0]); }
+export function unwarpXZ(x, z) { let px = x, pz = z; for (let k = 0; k < 6; k++) { const [wx, wz] = warpXZ(px, pz); px -= wx - x; pz -= wz - z; } return [px, pz]; }
+const _qy = new T.Quaternion(), _ya = new T.Vector3(0, 1, 0);
+// place a rigid object (local to a chunk at ox,oz, or world when ox = oz = 0) at its warped spot, turned with the road
+export function warpObject(o, ox = 0, oz = 0, lift = false) {
+  const x = o.position.x + ox, z = o.position.z + oz, [wx, wz] = warpXZ(x, z), th = warpAngle(x, z);
+  o.position.x = wx - ox; o.position.z = wz - oz; if (lift) o.position.y += roadLift(x, z); if (th) o.quaternion.premultiply(_qy.setFromAxisAngle(_ya, th)); return th;
+}
+// split long triangle edges so straight strips can bend, then warp every vertex (normals turn with the road)
+function tessellate(geo, maxLen) {
+  const P = geo.attributes.position.array, N = geo.attributes.normal.array, Uv = geo.attributes.uv.array, oP = [], oN = [], oU = [];
+  const tri = (a, b, c, d) => {
+    const ax = a[0], lx = (u, v) => Math.hypot(u[0] - v[0], u[2] - v[2]), l = (u, v) => Math.hypot(u[0] - v[0], u[1] - v[1], u[2] - v[2]), lab = l(a, b), lbc = l(b, c), lca = l(c, a), m = Math.max(lab, lbc, lca); // split the longest 3D edge so shared edges split the same way (no cracks/sawtooth when lifted)
+    if (Math.max(lx(a, b), lx(b, c), lx(c, a)) <= maxLen || d > 9) { for (const v of [a, b, c]) { oP.push(v[0], v[1], v[2]); oN.push(v[3], v[4], v[5]); oU.push(v[6], v[7]); } return; }
+    const mid = (u, v) => u.map((x, k) => (x + v[k]) / 2);
+    if (m === lab) { const q = mid(a, b); tri(a, q, c, d + 1); tri(q, b, c, d + 1); } else if (m === lbc) { const q = mid(b, c); tri(a, b, q, d + 1); tri(a, q, c, d + 1); } else { const q = mid(c, a); tri(a, b, q, d + 1); tri(q, b, c, d + 1); }
+  };
+  const V = (i) => [P[i * 3], P[i * 3 + 1], P[i * 3 + 2], N[i * 3], N[i * 3 + 1], N[i * 3 + 2], Uv[i * 2], Uv[i * 2 + 1]];
+  for (let i = 0; i < P.length / 3; i += 3) tri(V(i), V(i + 1), V(i + 2), 0);
+  const g = new T.BufferGeometry(); g.setAttribute("position", new T.Float32BufferAttribute(oP, 3)); g.setAttribute("normal", new T.Float32BufferAttribute(oN, 3)); g.setAttribute("uv", new T.Float32BufferAttribute(oU, 2)); return g;
+}
+function warpGeometry(geo, ox, oz) {
+  const p = geo.attributes.position, n = geo.attributes.normal;
+  for (let v = 0; v < p.count; v++) { const x = p.getX(v) + ox, z = p.getZ(v) + oz, [wx, wz] = warpXZ(x, z); p.setX(v, wx - ox); p.setZ(v, wz - oz);
+    if (n) { const th = warpAngle(x, z), c = Math.cos(th), sn = Math.sin(th), nx = n.getX(v), nz = n.getZ(v); n.setX(v, nx * c + nz * sn); n.setZ(v, -nx * sn + nz * c); } }
+  p.needsUpdate = true; if (n) n.needsUpdate = true; geo.computeBoundingSphere(); geo.computeBoundingBox();
+}
+export function warpChunk(merged, ox, oz) {
+  const warp = sst(30, 95, Math.hypot(ox, oz) + CH * 0.75) > 0; // home block and its ring stay straight
+  const info = chunkInfo(Math.round(ox / CH), Math.round(oz / CH)), lift = info.river || info.canal || info.tunN || info.tunS;
+  if (!warp && !lift) return;
+  for (const c of [...merged.children]) {
+    if (c.isMesh && c.name.startsWith("Merged_")) { const doLift = lift && c.name !== "Merged_Ramp_Wall" && c.name !== "Merged_Bridge_Arch", g = tessellate(c.geometry, doLift ? 1.2 : 2.4); c.geometry.dispose(); c.geometry = g;
+      if (doLift) { const p = g.attributes.position; for (let v = 0; v < p.count; v++) p.setY(v, p.getY(v) + liftLocal(info, p.getX(v), p.getZ(v), true)); p.needsUpdate = true; g.computeVertexNormals(); }
+      if (warp) warpGeometry(g, ox, oz); else { g.computeBoundingSphere(); g.computeBoundingBox(); } }
+    else if (!warp) continue;
+    else if (c.isMesh && c.name === "Terrain") { c.updateMatrix(); c.geometry.applyMatrix4(c.matrix); c.position.set(0, 0, 0); c.quaternion.identity(); c.scale.set(1, 1, 1); warpGeometry(c.geometry, ox, oz); }
+    else { const th = warpObject(c, ox, oz); if (c.userData.door) c.userData.door.base += th; }
+  }
+}
 const LOT = 13.5, WALK = 15, ROAD = 18; // lot edge, sidewalk outer edge, road center (chunk border)
 const WATER_Y = -1.4, BED_Y = -2.3, RIVER_HW = 4, CANAL_HW = 3;
 const chunkKey = (i, j) => i + "," + j;
@@ -21,6 +70,56 @@ const sstep = (a, b, x) => { const t = Math.max(0, Math.min(1, (x - a) / (b - a)
 
 // windows glow at night: one shared material whose intensity the day cycle drives
 export const WINDOW_GLOW = G.M("#ffd58a", { emissive: "#ffb85a", ei: 0.05, rough: 0.2, name: "Window_Glow" });
+// ---------------- night fixtures: emissive glass + additive light-pool decal + bloom halo ----------------
+function radialTex(size, stops, sx = 1) {
+  const c = document.createElement("canvas"); c.width = size; c.height = size; const x = c.getContext("2d"); x.translate(size / 2, size / 2); x.scale(sx, 1);
+  const gr = x.createRadialGradient(0, 0, 0, 0, 0, size / 2); for (const [o, col] of stops) gr.addColorStop(o, col); x.fillStyle = gr; x.fillRect(-size, -size, size * 2, size * 2);
+  const t = new T.CanvasTexture(c); t.colorSpace = T.SRGBColorSpace; return t;
+}
+function beamTex() { // headlight throw: bright near the car, widening and fading down the road
+  const c = document.createElement("canvas"); c.width = 128; c.height = 256; const x = c.getContext("2d"), img = x.createImageData(128, 256);
+  for (let v = 0; v < 256; v++) for (let u = 0; u < 128; u++) { const t = v / 255, w = 0.18 + t * 0.8, d = Math.abs(u / 127 - 0.5) * 2 / w, a = Math.max(0, 1 - d * d) * Math.pow(1 - t, 1.4) * Math.min(1, t * 8); const i = (v * 128 + u) * 4; img.data[i] = 255; img.data[i + 1] = 244; img.data[i + 2] = 220; img.data[i + 3] = a * 255; }
+  x.putImageData(img, 0, 0); const t = new T.CanvasTexture(c); t.colorSpace = T.SRGBColorSpace; return t;
+}
+const NIGHT = { k: 0 };
+const POOL_TEX = typeof document !== "undefined" ? radialTex(128, [[0, "rgba(255,214,150,0.85)"], [0.35, "rgba(255,190,110,0.38)"], [0.7, "rgba(255,170,90,0.10)"], [1, "rgba(0,0,0,0)"]]) : null;
+const HALO_TEX = typeof document !== "undefined" ? radialTex(64, [[0, "rgba(255,255,255,1)"], [0.18, "rgba(255,236,200,0.75)"], [0.45, "rgba(255,200,140,0.18)"], [1, "rgba(0,0,0,0)"]]) : null;
+const BEAM_TEX = typeof document !== "undefined" ? beamTex() : null;
+const additive = (map, color) => new T.MeshBasicMaterial({ map, color, transparent: true, blending: T.AdditiveBlending, depthWrite: false, opacity: 0, polygonOffset: true, polygonOffsetFactor: -4, toneMapped: false, name: "Light_Pool" });
+export const LAMP_GLASS = G.M("#fff6e2", { emissive: "#ffd9a0", ei: 0.05, rough: 0.15, name: "Lamp_Glass" });
+const LAMP_POOL = additive(POOL_TEX, "#ffd8a0"), PORCH_POOL = additive(POOL_TEX, "#ffc888");
+const LAMP_HALO = new T.SpriteMaterial({ map: HALO_TEX, color: "#ffdcaa", transparent: true, blending: T.AdditiveBlending, depthWrite: false, opacity: 0, toneMapped: false });
+const PORCH_GEO = new T.CylinderGeometry(0.07, 0.09, 0.22, 8);
+const POOL_GEO = new T.PlaneGeometry(1, 1).rotateX(-Math.PI / 2), BEAM_GEO = new T.PlaneGeometry(1, 1).rotateX(-Math.PI / 2).rotateY(-Math.PI / 2).translate(0, 0, 0);
+// a fixture = light source marker (kept out of chunk merging) with its decal + halo
+export function makeFixture(kind, headY, poolR) {
+  const f = new T.Group(); f.name = "Fixture_" + kind; f.userData.fixture = { kind };
+  const pool = new T.Mesh(POOL_GEO, kind === "porch" ? PORCH_POOL : LAMP_POOL); pool.scale.set(poolR * 2, 1, poolR * 2); pool.position.y = -headY + 0.035; pool.name = "LightPool"; pool.renderOrder = 2; pool.raycast = () => {}; f.add(pool);
+  const h = new T.Sprite(LAMP_HALO); h.scale.setScalar(kind === "porch" ? 0.9 : 1.6); h.name = "Halo"; h.raycast = () => {}; f.add(h);
+  return f;
+}
+export const NIGHT_K = () => NIGHT.k;
+export function setNight(k) {
+  NIGHT.k = k; LAMP_GLASS.emissiveIntensity = 0.05 + k * 4.5; LAMP_POOL.opacity = k * 0.9; PORCH_POOL.opacity = k * 0.7; LAMP_HALO.opacity = k * 0.9;
+  CATS_EYE.emissiveIntensity = 0.05 + k * 1.6;
+}
+export const CATS_EYE = G.M("#f4f0e0", { emissive: "#fff2c0", ei: 0.05, rough: 0.1, metal: 0.3, name: "Cats_Eye" });
+// per-car light materials (so brake lights and tunnel headlights are per car)
+const HEAD_GLASS = G.M("#f4f6ff", { emissive: "#fff6e0", ei: 0.1, rough: 0.05, name: "Head_Light" });
+function carLights(obj, K, wb, kind) {
+  const L = { head: HEAD_GLASS.clone(), tail: null, beam: additive(BEAM_TEX, "#fff3d6"), halo: LAMP_HALO.clone(), tailHalo: LAMP_HALO.clone() };
+  L.tailHalo.color.set("#ff2a20"); L.halo.color.set("#fff4e0");
+  obj.traverse((o) => { if (o.isMesh && o.material && o.material.name === "Head_Light") o.material = L.head; if (o.isMesh && o.material && o.material.name === "Tail_Light") { L.tail = L.tail || o.material.clone(); o.material = L.tail; } });
+  const f = new T.Group(); f.name = "Fixture_head"; f.userData.fixture = { kind: "head" }; f.position.set(K.L / 2 + 0.1, 0.55, 0); f.rotation.y = Math.PI / 2; obj.add(f); // +x forward; getWorldDirection = +z of the group
+  const beam = new T.Mesh(BEAM_GEO, L.beam); beam.scale.set(kind === "bus" ? 3.4 : 3, 1, 13); beam.position.set(K.L / 2 + 6.7, 0.04, 0); beam.name = "HeadBeam"; beam.renderOrder = 2; beam.raycast = () => {}; obj.add(beam);
+  for (const sz of [-1, 1]) { const h = new T.Sprite(L.halo); h.scale.setScalar(0.9); h.position.set(K.L / 2 + 0.08, 0.55, sz * (wb / 2 - 0.3)); h.raycast = () => {}; obj.add(h); const t = new T.Sprite(L.tailHalo); t.scale.setScalar(0.55); t.position.set(-K.L / 2 - 0.06, 0.6, sz * (wb / 2 - 0.3)); t.raycast = () => {}; obj.add(t); }
+  obj.userData.lights = L; obj.userData.lightOn = 0; return obj;
+}
+export function setCarLights(obj, on, brake) {
+  const L = obj.userData.lights; if (!L) return; obj.userData.lightOn = on;
+  L.head.emissiveIntensity = 0.1 + on * 5; L.beam.opacity = on * 0.55; L.halo.opacity = on * 0.85;
+  const t = 0.35 + on * 1.4 + (brake ? 3.2 : 0); if (L.tail) L.tail.emissiveIntensity = t; L.tailHalo.opacity = Math.min(1, on * 0.5 + (brake ? 0.7 : 0));
+}
 const WIN_DARK = G.M("#2a3440", { rough: 0.1, metal: 0.4, name: "Window_Glass" });
 
 // ---------------- shared animated uniforms (wind, season, sky) ----------------
@@ -81,6 +180,46 @@ export function tunnelAt(i, j) {
   if (riverCol(i) || canalRow(j) || canalRow(j + 1)) return false;
   return (i === -1 && j === 0) || (i === 1 && j === -3) || H("tun" + i + ":" + j) % 7 === 0;
 }
+// ---- organic street network: the grid only offers candidate segments. Arterials (every third line) always run and
+// wind with the warp; residential streets exist only where houses front them, and cross-streets are sparse, so blocks
+// merge into long irregular superblocks with T-junctions, loops and dead-end stubs instead of a 4-way grid.
+export function hOpen(i, j) { // x-running road at z = j*CH + ROAD across chunk column i
+  if (arterial(j) || tunnelAt(i, j) || riverCol(i) || (Math.abs(i) <= 1 && j === 0)) return true;
+  const b = chunkInfo(i, j).biome; if (b === "house" || b === "court") return H("hf" + i + ":" + j) % 100 < 82; // fronts face +z
+  return H("ho" + i + ":" + j) % 100 < 30;
+}
+// cross-streets are staggered like brickwork, so a cross street almost never continues straight through a junction:
+// most junctions are T's, and the hash leaves gaps that become loops and cul-de-sacs
+export function vOpen(i, j) { // z-running road at x = i*CH + ROAD across chunk row j
+  if (canalRow(j)) return true;
+  if (arterial(i) && ((i / 3) & 1) === 0) return Math.abs(j) <= 1 || H("va" + i + ":" + j) % 100 < 88; // every other arterial line runs through
+  if ((((i + j) % 2) + 2) % 2) return false;
+  return H("vo" + i + ":" + j) % 100 < 78;
+}
+export function nodeArms(n, m) { return [hOpen(n + 1, m), hOpen(n, m), vOpen(n, m + 1), vOpen(n, m)]; } // +x, -x, +z, -z
+function edges(info) { if (!info.open) info.open = { E: vOpen(info.i, info.j), W: vOpen(info.i - 1, info.j), N: hOpen(info.i, info.j), S: hOpen(info.i, info.j - 1) }; return info.open; }
+const armCount = (n, m) => nodeArms(n, m).filter(Boolean).length;
+// the street band around a lot (|x| or |z| beyond LOT): road, sidewalk, or open land where a segment is closed
+function bandZone(info, x, z) {
+  const ax = Math.abs(x), az = Math.abs(z), o = edges(info), xs = x > 0 ? o.E : o.W, zs = z > 0 ? o.N : o.S;
+  if (ax > WALK && az > WALK) return armCount(info.i + (x > 0 ? 0 : -1), info.j + (z > 0 ? 0 : -1)) ? "road" : "land";
+  if (ax > WALK) return xs ? "road" : az > LOT && zs ? "walk" : "land";
+  if (az > WALK) return zs ? "road" : ax > LOT && xs ? "walk" : "land";
+  if (ax > LOT && az > LOT) return xs || zs ? "walk" : "land";
+  return (ax > LOT ? xs : zs) ? "walk" : "land";
+}
+// ---- vertical profile of roads: bridges arch over water, tunnel roads ramp down below grade into the hill
+const BR_RISE = 2.7, BR_RUN = 12.5, CN_RISE = 1.6, CN_RUN = 8.5, TUN_D = 3.0;
+const bump = (u, run) => (Math.abs(u) < run ? Math.cos((Math.PI / 2) * u / run) ** 2 : 0);
+function tunDepth(ax) { return ax <= HILL_X + 0.6 ? TUN_D : TUN_D * (1 - sstep(HILL_X + 0.6, WALK - 0.2, ax)); }
+function liftLocal(info, x, z, core = false) {
+  const ax = Math.abs(x), az = Math.abs(z); let y = 0;
+  if (info.river && az > LOT - 0.01) y += BR_RISE * bump(x, BR_RUN);
+  if (info.canal && ax > LOT - 0.01) y += CN_RISE * bump(z, CN_RUN);
+  if ((info.tunN && z > 0) || (info.tunS && z < 0)) { if (az > LOT - 0.01 || (core && az > ROAD - HILL_U - 0.6 && ax <= HILL_X + 0.6)) y -= tunDepth(ax); }
+  return y;
+}
+export function roadLift(x, z) { const i = Math.round(x / CH), j = Math.round(z / CH); return liftLocal(chunkInfo(i, j), x - i * CH, z - j * CH); }
 // bridge style for the crossing on a chunk border (both halves agree)
 const BRIDGES = ["stone", "girder", "truss", "cable", "wood"];
 function bridgeStyle(key) { return BRIDGES[H("br" + key) % BRIDGES.length]; }
@@ -100,7 +239,7 @@ export function chunkInfo(i, j) {
   else if (info.river || info.canal) info.biome = "water";
   else if (info.tunN || info.tunS) info.biome = "park";
   else if (pondChunk(i, j)) info.biome = "lake"; // home always has fishing water one block away
-  else { const r = H("biome" + k) % 100; info.biome = r < 9 ? "lake" : r < 25 ? "park" : "house"; }
+  else { const r = H("biome" + k) % 100, m3 = (v) => ((v % 3) + 3) % 3; info.biome = m3(i) === 1 && m3(j) === 1 ? "park" : m3(i) === 2 && m3(j) === 2 && Math.hypot(i, j) > 1.5 ? "court" : r < 9 ? "lake" : r < 25 ? "park" : "house"; } // every neighborhood: a central park and a cul-de-sac
   if (info.biome === "lake") { const R = t.rr(5.5, 7.5); info.lake = { x: t.rr(-2, 2), z: t.rr(-2, 2), R, p1: t.rr(0, 6), p2: t.rr(0, 6) }; }
   if (info.biome === "park") { info.hump = { x: t.rr(-6, 6), z: t.rr(-6, 6), h: t.rr(0.4, 1.4), s: t.rr(3, 5) }; if (info.tunN || info.tunS) info.hump.z = 0; }
   if (infoCache.size > 4000) infoCache.clear();
@@ -118,13 +257,13 @@ export function heightAt(info, x, z) {
   if (info.hump && h === 0) h += info.hump.h * Math.exp(-((x - info.hump.x) ** 2 + (z - info.hump.z) ** 2) / (2 * info.hump.s ** 2));
   return h;
 }
-const HILL_U = 9.2, HILL_X = 11;
+const HILL_U = 9.2, HILL_X = 6.2;
 function hillTop(u) { return 7.2 * Math.pow(Math.max(0, Math.cos((u / HILL_U) * Math.PI / 2)), 0.8); }
 // zoning mask (chunk-local): road, walk, building, path, drive, fence, item, hill, water, bank, lot, land
 export function zoneLocal(info, x, z) {
   const ax = Math.abs(x), az = Math.abs(z);
-  if (ax > WALK || az > WALK) return "road";
-  if (ax > LOT || az > LOT) return "walk";
+  if (ax > LOT || az > LOT) return bandZone(info, x, z);
+  if (info.biome === "court" && ((Math.abs(x) < 3.2 && z > COURT_Z) || Math.hypot(x, z - COURT_Z) < COURT_R)) return Math.hypot(x, z - COURT_Z) < 2.2 ? "land" : "road";
   for (const r of info.rects) if (Math.abs(x - r.x) < r.w / 2 && Math.abs(z - r.z) < r.d / 2) return r.k;
   if (ax < HILL_X + 0.5 && ((info.tunN && z > ROAD - HILL_U - 0.3) || (info.tunS && z < -(ROAD - HILL_U - 0.3)))) return "hill";
   if (info.biome === "home" && ax < 12.8 && az < 12.8) return "lot";
@@ -167,6 +306,8 @@ const MAT = {
   walkZ: () => G.TM("sidewalk", 1, "#b8b2a6", null, { rough: 0.95, name: "Sidewalk", rep: [12, 1] }),
   road: () => G.TM("asphalt", 1, "#3a3a3c", null, { rough: 0.95, name: "Asphalt", rep: [3, 18] }),
   roadZ: () => G.TM("asphalt", 1, "#3a3a3c", null, { rough: 0.95, name: "Asphalt", rep: [18, 3] }),
+  roadU: () => G.TM("asphalt", 1, "#3a3a3c", null, { rough: 0.95, name: "Asphalt", rep: [1, 1] }),
+  walkU: () => G.TM("sidewalk", 1, "#b8b2a6", null, { rough: 0.95, name: "Sidewalk", rep: [1, 1] }),
   line: () => G.M("#e8c84a", { rough: 0.6, name: "Road_Line" }),
   path: () => G.TM("pavers", 2, "#a89a88", null, { rough: 0.9, name: "Path" }),
   stone: () => G.TM("stone", 5, "#9a948a", null, { rough: 0.95, name: "Stone" }),
@@ -178,11 +319,17 @@ const MAT = {
 const terrainMats = new Map();
 function terrainMat(s) {
   const k = s % 4; if (terrainMats.has(k)) return terrainMats.get(k);
-  const m = new T.MeshStandardMaterial({ map: G.texture("grass", k, "#c8d8b0", null, [7, 7]), vertexColors: true, roughness: 1, name: "Ground" });
+  const m = new T.MeshStandardMaterial({ map: G.texture("grass", k, "#c8d8b0", null, [16, 16]), vertexColors: true, roughness: 1, name: "Ground" });
   terrainMats.set(k, m); return m;
 }
 function addBox(g, w, h, d, mat, x, y, z, ry) { const m = G.mesh(G.rbox(w, h, d, 0.004), mat, x, y + h / 2, z, g); if (ry) m.rotation.y = ry; return m; }
 function plane(g, w, d, mat, x, y, z) { const m = new T.Mesh(new T.PlaneGeometry(w, d), mat); m.rotation.x = -Math.PI / 2; m.position.set(x, y, z); m.receiveShadow = true; g.add(m); return m; }
+// flat strip with world-scaled UVs (tile metres) so cut-up road pieces keep one texture scale
+function uvPlane(g, mat, x0, x1, z0, z1, y, tile) {
+  const geo = new T.PlaneGeometry(x1 - x0, z1 - z0); geo.rotateX(-Math.PI / 2); geo.translate((x0 + x1) / 2, y, (z0 + z1) / 2);
+  const p = geo.attributes.position, uv = geo.attributes.uv; for (let v = 0; v < p.count; v++) uv.setXY(v, p.getX(v) / tile, p.getZ(v) / tile);
+  const m = new T.Mesh(geo, mat); m.receiveShadow = true; g.add(m); return m;
+}
 const UP = new T.Vector3(0, 1, 0);
 function strut(g, mat, a, b, r = 0.06, seg = 6) {
   const A = new T.Vector3(...a), B = new T.Vector3(...b), d = B.clone().sub(A), len = d.length();
@@ -198,6 +345,23 @@ const fbm = (x, z) => noise(x, z) * 0.6 + noise(x * 2.1 + 7, z * 2.1 + 3) * 0.3 
 // ---------------- terrain: textured, colour-varied heightfield for the lot ----------------
 const C_ = (h) => new T.Color(h);
 const GR = [C_("#5d8a3e"), C_("#6f9a46"), C_("#4f7d3a"), C_("#7f9f4a")], CLOVER = C_("#3f7038"), DRY = C_("#a3a457"), MUD = C_("#7a6a4c"), SAND = C_("#c8b88a"), BED = C_("#4a4234"), GRAVEL = C_("#b9a988");
+function groundCol(c, wx, wz) {
+  const n = fbm(wx * 0.12, wz * 0.12), n2 = noise(wx * 0.31 + 40, wz * 0.31 - 11), n3 = noise(wx * 0.07 - 9, wz * 0.07 + 2), n4 = noise(wx * 1.3 + 3, wz * 1.3 - 7);
+  c.copy(GR[0]).lerp(GR[1], n).lerp(GR[2], sstep(0.55, 0.9, n3) * 0.7);
+  if (n2 > 0.66) c.lerp(CLOVER, sstep(0.66, 0.8, n2) * 0.8);
+  if (n3 < 0.25) c.lerp(DRY, sstep(0.25, 0.08, n3) * 0.6);
+  if (n4 > 0.72) c.lerp(MUD, sstep(0.72, 0.95, n4) * 0.35); // small bare patches
+  c.multiplyScalar(0.92 + 0.16 * noise(wx * 2.7, wz * 2.7)); return c;
+}
+// grass ground over a closed street segment (keeps the colours continuous with the lots)
+function landPatch(g, info, x0, x1, z0, z1) {
+  const ox = info.i * CH, oz = info.j * CH, geo = new T.PlaneGeometry(x1 - x0, z1 - z0, Math.max(1, Math.ceil((x1 - x0) / 1.5)), Math.max(1, Math.ceil((z1 - z0) / 1.5)));
+  geo.rotateX(-Math.PI / 2); geo.translate((x0 + x1) / 2, 0.012, (z0 + z1) / 2);
+  const p = geo.attributes.position, col = new Float32Array(p.count * 3), c = new T.Color();
+  for (let v = 0; v < p.count; v++) { groundCol(c, p.getX(v) + ox, p.getZ(v) + oz); col[v * 3] = c.r; col[v * 3 + 1] = c.g; col[v * 3 + 2] = c.b; }
+  geo.setAttribute("color", new T.BufferAttribute(col, 3)); { const uv = geo.attributes.uv; for (let v = 0; v < p.count; v++) uv.setXY(v, (p.getX(v) + LOT) / (LOT * 2), (LOT - p.getZ(v)) / (LOT * 2)); }
+  const m = new T.Mesh(geo, terrainMat(seedOf(info.i, info.j))); m.receiveShadow = true; m.userData.keep = true; m.name = "Terrain"; g.add(m);
+}
 function terrain(g, info, ox, oz) {
   const flat = !info.river && !info.canal && !info.lake && !info.hump;
   const seg = flat ? 18 : 54, size = LOT * 2;
@@ -205,10 +369,7 @@ function terrain(g, info, ox, oz) {
   const pos = geo.attributes.position, col = new Float32Array(pos.count * 3), c = new T.Color();
   for (let v = 0; v < pos.count; v++) {
     const x = pos.getX(v), z = pos.getZ(v), h = heightAt(info, x, z); pos.setY(v, h);
-    const wx = x + ox, wz = z + oz, n = fbm(wx * 0.12, wz * 0.12), n2 = noise(wx * 0.31 + 40, wz * 0.31 - 11), n3 = noise(wx * 0.07 - 9, wz * 0.07 + 2);
-    c.copy(GR[0]).lerp(GR[1], n).lerp(GR[2], sstep(0.55, 0.9, n3) * 0.7);
-    if (n2 > 0.66) c.lerp(CLOVER, sstep(0.66, 0.8, n2) * 0.8);
-    if (n3 < 0.25) c.lerp(DRY, sstep(0.25, 0.08, n3) * 0.6);
+    groundCol(c, x + ox, z + oz);
     for (const r of info.rects) if (r.paint) { const e = Math.max(Math.abs(x - r.x) - r.w / 2, Math.abs(z - r.z) - r.d / 2); if (e < 0.3) c.lerp(GRAVEL, sstep(0.3, -0.3, e) * 0.9); }
     if (h < -0.05) c.lerp(info.lake ? SAND : MUD, sstep(-0.05, -0.9, h));
     if (h < WATER_Y) c.lerp(BED, sstep(WATER_Y, BED_Y, h));
@@ -312,6 +473,12 @@ function bridgeHalf(g, side, W, style, cx = 0) {
   addBox(g, 2 * W, 0.1, len, MAT.mud(), cx, BED_Y - 0.05, zm);
   const deckM = style === "wood" ? MAT.wood() : conc;
   addBox(g, 2 * W + 2.4, 0.62, len, deckM, cx, -0.62, zm);
+  { // arch fascia: an explicit curved ribbon (built already lifted, so the lift pass skips it) hides the deck's underside
+    const rise = W > CANAL_HW + 1 ? BR_RISE : CN_RISE, run = W > CANAL_HW + 1 ? BR_RUN : CN_RUN, fm = G.TM("concrete", 6, style === "stone" ? "#9c948a" : "#b8b2a6", null, { rough: 0.9, name: "Bridge_Arch", side: true });
+    const P = [], UV = [], NS = 40, ez2 = side * (LOT + 0.02);
+    for (let k = 0; k < NS; k++) { const u0 = -run + 2 * run * k / NS, u1 = -run + 2 * run * (k + 1) / NS, t0 = rise * bump(u0, run) + 0.06, t1 = rise * bump(u1, run) + 0.06, b0 = Math.min(-0.25, t0 - 1.0 - 0.5 * bump(u0, run)), b1 = Math.min(-0.25, t1 - 1.0 - 0.5 * bump(u1, run));
+      P.push(cx + u0, b0, ez2, cx + u1, b1, ez2, cx + u1, t1, ez2, cx + u0, b0, ez2, cx + u1, t1, ez2, cx + u0, t0, ez2); UV.push(u0 / 2, b0 / 2, u1 / 2, b1 / 2, u1 / 2, t1 / 2, u0 / 2, b0 / 2, u1 / 2, t1 / 2, u0 / 2, t0 / 2); }
+    const bg = new T.BufferGeometry(); bg.setAttribute("position", new T.Float32BufferAttribute(P, 3)); bg.setAttribute("uv", new T.Float32BufferAttribute(UV, 2)); bg.computeVertexNormals(); const fmesh = new T.Mesh(bg, fm); fmesh.receiveShadow = true; g.add(fmesh); }
   const span = 2 * W + 2.4, x0 = cx - span / 2;
   if (style === "stone") {
     const sh = new T.Shape(); sh.moveTo(-span / 2, WATER_Y - 0.35); sh.lineTo(span / 2, WATER_Y - 0.35); sh.lineTo(span / 2, 0.12); sh.lineTo(-span / 2, 0.12); sh.closePath();
@@ -325,7 +492,6 @@ function bridgeHalf(g, side, W, style, cx = 0) {
     addBox(g, span, 0.3, 0.2, MAT.wood(), cx, -0.35, ez);
   } else {
     const steel = G.M(["#3a6ea5", "#8b3a3a", "#2b2b2b", "#5a6a5a", "#c9a227"][H("st" + style + W) % 5], { metal: 0.6, rough: 0.45, name: "Bridge_Steel" });
-    addBox(g, span, 0.9, 0.25, steel, cx, -0.85, ez); // girder fascia
     for (let x = x0; x <= x0 + span + 0.01; x += 1.2) addBox(g, 0.06, 1.0, 0.06, steel, x, 0.05, ez);
     addBox(g, span, 0.07, 0.09, steel, cx, 1.0, ez); addBox(g, span, 0.05, 0.07, steel, cx, 0.55, ez);
     if (style === "truss") {
@@ -343,7 +509,7 @@ function bridgeHalf(g, side, W, style, cx = 0) {
   }
 }
 // ---------------- tunnel hill: half profile on this chunk's side of the border ----------------
-const TUN_W = 4.9, TUN_WALL = 3.1, TUN_TOP = 5.0;
+const TUN_W = 4.45, TUN_WALL = 3.1, TUN_TOP = 5.0;
 function archY(u) { return TUN_WALL + (TUN_TOP - TUN_WALL) * Math.sqrt(Math.max(0, 1 - (u / TUN_W) ** 2)); }
 function tunnelHalf(g, info, side, t) {
   const sh = new T.Shape(); sh.moveTo(TUN_W, 0); sh.lineTo(HILL_U, 0);
@@ -366,6 +532,13 @@ function tunnelHalf(g, info, side, t) {
   const pm = G.TM("stone", 4, t.pick(["#b0a898", "#8a7a6a", "#a8a49a"]), null, { rough: 0.9, name: "Portal" });
   for (const ex of [-1, 1]) { const m = new T.Mesh(pg, pm); m.rotation.y = side * Math.PI / 2; const px = side > 0 ? (ex > 0 ? HILL_X : -HILL_X - 0.5) : (ex > 0 ? HILL_X + 0.5 : -HILL_X); m.position.set(px, 0, side * ROAD); m.castShadow = true; g.add(m); }
   for (let x = -HILL_X + 2; x < HILL_X; x += 4) G.mesh(G.rbox(0.6, 0.12, 0.25, 0.03), WINDOW_GLOW, x, TUN_TOP - 0.15, side * (ROAD - 0.2), g);
+  // the road cuts down into the hill: stone retaining walls line both ramps (not lifted again by the ramp profile)
+  { const wm = G.TM("stone", 9, "#8c8478", null, { rough: 0.95, name: "Ramp_Wall", side: true }), P = [], UV = [], z = side * (LOT + 0.04), N = 14;
+    for (const ex of [-1, 1]) for (let k = 0; k < N; k++) { const a0 = HILL_X + 0.4 + (WALK - HILL_X - 0.4) * k / N, a1 = HILL_X + 0.4 + (WALK - HILL_X - 0.4) * (k + 1) / N, x0 = ex * a0, x1 = ex * a1, b0 = -tunDepth(a0) - 0.05, b1 = -tunDepth(a1) - 0.05, top = 0.14;
+      P.push(x0, b0, z, x1, b1, z, x1, top, z, x0, b0, z, x1, top, z, x0, top, z); UV.push(a0 / 2, b0 / 2, a1 / 2, b1 / 2, a1 / 2, top / 2, a0 / 2, b0 / 2, a1 / 2, top / 2, a0 / 2, top / 2);
+      P.push(x0, top, z, x1, top, z, x1, top, z - side * 0.35, x0, top, z, x1, top, z - side * 0.35, x0, top, z - side * 0.35); UV.push(0, 0, 1, 0, 1, 0.2, 0, 0, 1, 0.2, 0, 0.2); }
+    const bg = new T.BufferGeometry(); bg.setAttribute("position", new T.Float32BufferAttribute(P, 3)); bg.setAttribute("uv", new T.Float32BufferAttribute(UV, 2)); bg.computeVertexNormals();
+    const wmMesh = new T.Mesh(bg, wm); wmMesh.receiveShadow = true; g.add(wmMesh); }
   // pines and shrubs on top of the hill
   for (let k = 0; k < 4; k++) { const u = t.rr(5.2, 8.4), xx = t.rr(-HILL_X + 1.5, HILL_X - 1.5), sp = t.pick(MIX.hill), [a, b] = SIZES[sp], tg = new T.Group(); tg.position.set(xx, hillTop(u) - 0.1, side * (ROAD - u)); TREE[sp](tg, t, t.rr(a, b) * 0.8); g.add(tg); info.plants.push({ x: xx, z: side * (ROAD - u), sp, r: 1, hill: true }); }
 }
@@ -381,17 +554,127 @@ function footbridge(g, x0, x1, z, t) {
 }
 
 // ---------------- streets ----------------
+// ---------------- road hierarchy, markings and traffic control ----------------
+// every third grid line is an arterial (double yellow, cat's eyes, traffic signals); the rest are residential
+// streets (dashed centre line, all-way stop signs).
+export const arterial = (m) => ((m % 3) + 3) % 3 === 0;
+const WHITE = () => G.M("#eeeae0", { rough: 0.6, name: "Road_White" });
+function roadMarkings(g, info) {
+  const yel = MAT.line(), wht = WHITE(), E = WALK - 0.05, studs = [], o = edges(info);
+  const artX = arterial(info.i), artZ = arterial(info.j); // road on x = +ROAD belongs to column i; z = +ROAD to row j
+  for (const [axis, art, own, sides] of [["z", artX, o.E, [o.W, o.E]], ["x", artZ, o.N, [o.S, o.N]]]) {
+    const at = (u, v, w, d, y, mat) => (axis === "z" ? addBox(g, w, 0.01, d, mat, v, y, u) : addBox(g, d, 0.01, w, mat, u, y, v));
+    if (own) { // centre line along the road on this chunk's + edge
+      if (art) for (const off of [-0.12, 0.12]) at(0, ROAD + off, 0.09, E * 2, 0.007, yel);
+      else for (let k = -E + 1; k < E - 1; k += 3) at(k, ROAD, 0.13, 1.4, 0.007, yel);
+      for (let k = -E + 2; k < E - 2; k += art ? 4 : 8) studs.push(axis === "z" ? [ROAD, k] : [k, ROAD]);
+    }
+    sides.forEach((open, si) => { if (!open) return; const sv = si ? 1 : -1; at(0, sv * (WALK + 0.25), 0.12, E * 2 - 5.4, 0.007, wht);
+      if (art) for (let k = -E + 2; k < E - 2; k += 4) studs.push(axis === "z" ? [sv * (WALK + 0.45), k] : [k, sv * (WALK + 0.45)]); });
+  }
+  // crosswalks + stop lines only where an arm meets a real junction (3+ arms)
+  const junc = (cx, cz) => armCount(info.i + (cx > 0 ? 0 : -1), info.j + (cz > 0 ? 0 : -1)) >= 3;
+  for (const sv of [-1, 1]) for (const e of [-1, 1]) {
+    const xOpen = sv > 0 ? o.E : o.W, zOpen = sv > 0 ? o.N : o.S;
+    if (xOpen && junc(sv, e)) { for (let k = 0; k < 6; k++) addBox(g, 0.32, 0.01, 1.8, wht, sv * (WALK + 0.35 + k * 0.5), 0.008, e * (WALK - 1.2)); if (e === sv) addBox(g, 0.32, 0.012, 2.8, wht, sv * (ROAD - 1.5), 0.009, sv * (WALK - 2.6)).rotation.y = Math.PI / 2; }
+    if (zOpen && junc(e, sv)) { for (let k = 0; k < 6; k++) addBox(g, 1.8, 0.01, 0.32, wht, e * (WALK - 1.2), 0.008, sv * (WALK + 0.35 + k * 0.5)); if (e === -sv) addBox(g, 0.32, 0.012, 2.8, wht, -sv * (WALK - 2.6), 0.009, sv * (ROAD - 1.5)); }
+  }
+  const stud = new T.BoxGeometry(0.12, 0.035, 0.08);
+  for (const [x, z] of studs) G.mesh(stud, CATS_EYE, x, 0.02, z, g);
+  // traffic control at junction corners: signals where an arterial meets 3+ arms, stop signs at other junctions
+  for (const cx of [-1, 1]) for (const cz of [-1, 1]) {
+    const ii = info.i + (cx > 0 ? 0 : -1), jj = info.j + (cz > 0 ? 0 : -1), n = armCount(ii, jj), x = cx * (WALK - 0.35), z = cz * (WALK - 0.35);
+    if (n < 3 || bandZone(info, x, z) !== "walk") continue;
+    if (arterial(ii) || arterial(jj)) trafficSignal(g, x, z, cx, cz, ii, jj); else if (cx === -cz) stopSign(g, x, z, cx, cz);
+  }
+}
+// signal phases: shared by every intersection with the same green-wave offset. x-axis traffic gets green, then yellow,
+// then z-axis traffic gets green, then yellow. One axis always has green or yellow - never all red.
+export const SIGNAL = { cycle: 26, gx: 10, y: 3 };
+export function signalState(ii, jj, axis, t) { const off = (((ii + jj) % 6) + 6) % 6 * 2.1, u = (((t + off) % SIGNAL.cycle) + SIGNAL.cycle) % SIGNAL.cycle, half = SIGNAL.gx + SIGNAL.y;
+  const mine = axis === "x" ? u : (u + half) % SIGNAL.cycle; return mine < SIGNAL.gx ? "green" : mine < half ? "yellow" : "red"; }
+const SIG_MATS = new Map(); // key "off:axis:color" -> material
+function sigMat(ii, jj, axis, col) { const k = ((((ii + jj) % 6) + 6) % 6) + ":" + axis + ":" + col; if (!SIG_MATS.has(k)) { const m = G.M({ green: "#0c3a1e", yellow: "#3a2e08", red: "#3a0c0c" }[col], { emissive: { green: "#36ff7a", yellow: "#ffc21a", red: "#ff2a1a" }[col], ei: 0, rough: 0.2, name: "Signal_" + col }); m.userData.sig = { off: (((ii + jj) % 6) + 6) % 6, axis, col }; SIG_MATS.set(k, m); } return SIG_MATS.get(k); }
+export function stepSignals(t) { for (const m of SIG_MATS.values()) { const u = m.userData.sig, st = signalState(u.off, 0, u.axis, t); m.emissiveIntensity = st === u.col ? 3.2 : 0.02; } }
+function trafficSignal(g, x, z, cx, cz, ii, jj) {
+  const pole = G.M("#2e3236", { metal: 0.6, rough: 0.45, name: "Signal_Pole" }), box = G.M("#1b1d1f", { rough: 0.6, name: "Signal_Box" });
+  G.mesh(G.cyl(0.07, 0.09, 3.6, 8), pole, x, 1.8, z, g);
+  // one head faces traffic arriving along x (the cars on the z=+-ROAD road), one faces traffic along z
+  for (const axis of ["x", "z"]) {
+    const ang = axis === "x" ? (cx > 0 ? -Math.PI / 2 : Math.PI / 2) : (cz > 0 ? Math.PI : 0), dx = Math.sin(ang), dz = Math.cos(ang);
+    const hx = x + (axis === "x" ? 0 : 0) , hz = z, hy = 3.1;
+    const h = G.mesh(G.rbox(0.3, 0.86, 0.24, 0.05), box, hx - dx * 0.16, hy, hz - dz * 0.16, g); h.rotation.y = ang;
+    ["red", "yellow", "green"].forEach((col, k) => { const l = G.mesh(G.cyl(0.085, 0.085, 0.04, 12), sigMat(ii, jj, axis, col), hx - dx * 0.29 + 0, hy + 0.27 - k * 0.27, hz - dz * 0.29, g); l.rotation.x = Math.PI / 2; l.rotation.y = 0; l.rotation.set(Math.PI / 2, 0, ang, "YXZ"); });
+  }
+}
+function stopSign(g, x, z, cx, cz) {
+  const pole = G.M("#9a9a9a", { metal: 0.5, rough: 0.5, name: "Sign_Pole" }), red = G.M("#c41e1e", { rough: 0.5, name: "Stop_Sign" }), wht = WHITE();
+  G.mesh(G.cyl(0.035, 0.035, 2.3, 6), pole, x, 1.15, z, g);
+  const s = G.mesh(new T.CylinderGeometry(0.33, 0.33, 0.03, 8), red, x, 2.25, z, g); s.rotation.set(Math.PI / 2, Math.PI / 8, 0); s.rotation.y = 0; s.rotateX(0);
+  const r = G.mesh(new T.CylinderGeometry(0.29, 0.29, 0.035, 8), wht, x, 2.25, z, g); r.rotation.copy(s.rotation); r.scale.set(1, 0.5, 1);
+  const s2 = G.mesh(new T.CylinderGeometry(0.26, 0.26, 0.04, 8), red, x, 2.25, z, g); s2.rotation.copy(s.rotation);
+}
+const HOOD_A = ["Maple", "Willow", "Cedar", "Juniper", "Harbor", "Foxglove", "Lark", "Briar", "Aspen", "Sparrow", "Hollow", "Clover", "Linden", "Heron", "Quarry", "Orchard"];
+const HOOD_B = ["Grove", "Heights", "Commons", "Park", "Hollow", "Crossing", "Glen", "Meadows", "Bend", "Ridge", "Terrace", "Green"];
+export function neighborhoodOf(i, j) { const a = Math.floor(i / 3), b = Math.floor(j / 3), h = H("hood:" + a + ":" + b); return HOOD_A[h % HOOD_A.length] + " " + HOOD_B[(h >> 5) % HOOD_B.length]; }
+function neighborhoodSign(g, info) {
+  const name = neighborhoodOf(info.i, info.j), stone = G.M(hoodStyle(info.i, info.j).stone, { rough: 0.85, name: "Hood_Stone" }), tex = signTexture(name);
+  const x = -3, z = LOT - 0.9; addBox(g, 3.4, 0.9, 0.5, stone, x, 0, z); addBox(g, 3.6, 0.12, 0.6, stone, x, 0.9, z);
+  const face = new T.Mesh(new T.PlaneGeometry(3.0, 0.62), new T.MeshStandardMaterial({ map: tex, roughness: 0.6, name: "Hood_Sign" })); face.position.set(x, 0.48, z + 0.26); face.userData.keep = true; face.name = "Hood_Sign"; g.add(face);
+  // entrance gateway: stone pillars with lanterns either side of the name wall
+  for (const px of [x - 2.3, x + 2.3]) { addBox(g, 0.55, 1.7, 0.55, stone, px, 0, z); addBox(g, 0.7, 0.12, 0.7, stone, px, 1.7, z); const ln = G.mesh(G.rbox(0.26, 0.34, 0.26, 0.04), LAMP_GLASS, px, 2.0, z, g); const f = makeFixture("porch", 2.0, 2.6); f.position.set(px, 2.0, z); (info.fixtures || (info.fixtures = [])).push(f); }
+}
+const HOOD_STYLES = [
+  { trees: "street", wall: "#e9dcc6", roof: "#6b3a2e", trim: "#f7f2e8", stone: "#8d8478" },
+  { trees: "park", wall: "#c9d6dc", roof: "#3c4a57", trim: "#ffffff", stone: "#7d8790" },
+  { trees: "hill", wall: "#d8c2a4", roof: "#4a3b2c", trim: "#efe4cf", stone: "#a08a6c" },
+  { trees: "bank", wall: "#e8d0c8", roof: "#7a4038", trim: "#fff4ee", stone: "#9a7f76" },
+  { trees: "yard", wall: "#d6dcc4", roof: "#46553a", trim: "#fbfbf2", stone: "#7f8a70" },
+];
+export function hoodStyle(i, j) { return HOOD_STYLES[H("hstyle:" + Math.floor(i / 3) + ":" + Math.floor(j / 3)) % HOOD_STYLES.length]; }
+const COURT_Z = -2.5, COURT_R = 7.2;
+// cul-de-sac: a stub street off the south road ending in a turning circle, cottages facing the bulb with driveways
+function courtLot(g, info, t) {
+  const st = hoodStyle(info.i, info.j), road = MAT.road(), curb = MAT.curb();
+  const stub = new T.Mesh(new T.PlaneGeometry(6.4, WALK - COURT_Z), road); stub.rotation.x = -Math.PI / 2; stub.position.set(0, 0.036, (WALK + COURT_Z) / 2); g.add(stub);
+  const bulb = new T.Mesh(new T.RingGeometry(2.2, COURT_R, 40, 1), road); bulb.rotation.x = -Math.PI / 2; bulb.position.set(0, 0.012, COURT_Z); g.add(bulb);
+  const island = new T.Mesh(new T.CylinderGeometry(2.2, 2.3, 0.16, 32), curb); island.position.set(0, 0.08, COURT_Z); g.add(island);
+  plantTree(g, info, t, 0, COURT_Z, "park", "decid");
+  const kerb = new T.Mesh(new T.TorusGeometry(COURT_R, 0.08, 4, 48), curb); kerb.rotation.x = -Math.PI / 2; kerb.position.set(0, 0.06, COURT_Z); g.add(kerb);
+  info.rects.push({ k: "road", x: 0, z: COURT_Z, w: COURT_R * 2, d: COURT_R * 2 }, { k: "road", x: 0, z: (LOT + COURT_Z) / 2, w: 6.4, d: LOT - COURT_Z });
+  const wall = G.M(st.wall, { rough: 0.8, name: "Court_Wall" }), roof = G.M(st.roof, { rough: 0.7, name: "Court_Roof" }), trim = G.M(st.trim, { rough: 0.5, name: "Court_Trim" }), drive = MAT.walk();
+  for (const a of [-1.9, -0.95, 0, 0.95, 1.9]) { // cottages ring the bulb on an ellipse that fits inside the lot
+    const ang = a - Math.PI / 2, x = Math.cos(ang) * 10, z = COURT_Z + Math.sin(ang) * 8.6; if (Math.abs(x) > 11 || z < -11.8 || z > 8) continue;
+    const ry = Math.atan2(x, z - COURT_Z) + Math.PI, hg = new T.Group(); hg.position.set(x, 0, z); hg.rotation.y = ry; g.add(hg); // front (+z local) faces the circle
+    addBox(hg, 4.6, 2.8, 3.8, wall, 0, 0, 0); const rf = G.mesh(new T.CylinderGeometry(0.01, 3.5, 1.5, 4, 1), roof, 0, 3.55, 0, hg); rf.rotation.y = Math.PI / 4; rf.scale.set(1, 1, 0.85);
+    addBox(hg, 0.95, 2.05, 0.08, trim, 0.9, 0, 1.92); for (const wx of [-1.2]) addBox(hg, 1.1, 0.9, 0.06, WINDOW_GLOW, wx, 1.1, 1.93);
+    const dw = new T.Mesh(new T.PlaneGeometry(2.6, 3.4), drive); dw.rotation.x = -Math.PI / 2; dw.position.set(-1.2, 0.02, 3.4); hg.add(dw);
+    info.rects.push({ k: "building", x, z, w: 5.4, d: 5.4 });
+  }
+  lampAt(g, info, 4.2, 6.5, 3.6); lampAt(g, info, -5.5, COURT_Z - 5.6, 3.6);
+  scatterTrees(g, info, t, t.ri(3, 6), st.trees);
+}
 function streets(g, info) {
-  const s = seedOf(info.i, info.j);
-  for (const sx of [-1, 1]) { plane(g, WALK - LOT, WALK * 2, MAT.walk(), sx * (LOT + WALK) / 2, 0.03, 0); plane(g, ROAD - WALK, ROAD * 2, MAT.road(), sx * (WALK + ROAD) / 2, 0.005, 0); }
-  for (const sz of [-1, 1]) { plane(g, LOT * 2, WALK - LOT, MAT.walkZ(), 0, 0.03, sz * (LOT + WALK) / 2); plane(g, WALK * 2, ROAD - WALK, MAT.roadZ(), 0, 0.006, sz * (WALK + ROAD) / 2); }
-  const curb = MAT.curb();
-  for (const sx of [-1, 1]) addBox(g, 0.15, 0.12, WALK * 2, curb, sx * WALK, 0, 0);
-  for (const sz of [-1, 1]) addBox(g, WALK * 2, 0.12, 0.15, curb, 0, 0, sz * WALK);
-  for (let k = -ROAD + 1; k < ROAD; k += 3) { addBox(g, 0.15, 0.01, 1.4, MAT.line(), ROAD, 0.006, k); addBox(g, 1.4, 0.01, 0.15, MAT.line(), k, 0.007, ROAD); }
+  const s = seedOf(info.i, info.j), o = edges(info), curb = MAT.curb();
+  // the street band is cut into cells; each is road, sidewalk or (where a segment is closed) open ground
+  const XS = [-ROAD, -WALK, -LOT, LOT, WALK, ROAD], cells = [];
+  for (let a = 0; a < 5; a++) for (let b = 0; b < 5; b++) { if (a === 2 && b === 2) continue; const x0 = XS[a], x1 = XS[a + 1], z0 = XS[b], z1 = XS[b + 1]; cells.push({ a, b, x0, x1, z0, z1, k: bandZone(info, (x0 + x1) / 2, (z0 + z1) / 2) }); }
+  const kindAt = (a, b) => (a === 2 && b === 2 ? "lot" : a < 0 || b < 0 || a > 4 || b > 4 ? null : cells.find((c) => c.a === a && c.b === b).k);
+  for (const c of cells) {
+    if (c.k === "land") { landPatch(g, info, c.x0, c.x1, c.z0, c.z1); continue; }
+    uvPlane(g, c.k === "road" ? MAT.roadU() : MAT.walkU(), c.x0, c.x1, c.z0, c.z1, c.k === "road" ? 0.006 : 0.03, c.k === "road" ? 2 : 1.5);
+    if (c.k !== "road") continue; // curbs where asphalt meets anything else
+    for (const [da, db] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) { const n = kindAt(c.a + da, c.b + db); if (!n || n === "road") continue;
+      if (da) addBox(g, 0.15, 0.12, c.z1 - c.z0, curb, da > 0 ? c.x1 : c.x0, 0, (c.z0 + c.z1) / 2); else addBox(g, c.x1 - c.x0, 0.12, 0.15, curb, (c.x0 + c.x1) / 2, 0, db > 0 ? c.z1 : c.z0); }
+  }
+  roadMarkings(g, info);
+  if (((info.j % 3) + 3) % 3 === 0 && ((info.i % 3) + 3) % 3 === 1 && info.biome !== "water" && info.biome !== "home") neighborhoodSign(g, info);
   // lot edge: a low kerb between grass and sidewalk so the lot reads as land
-  for (const sx of [-1, 1]) addBox(g, 0.12, 0.08, LOT * 2, curb, sx * (LOT - 0.06), 0, 0);
-  for (const sz of [-1, 1]) addBox(g, LOT * 2, 0.08, 0.12, curb, 0, 0, sz * (LOT - 0.06));
+  for (const sx of [-1, 1]) if (sx > 0 ? o.E : o.W) addBox(g, 0.12, 0.08, LOT * 2, curb, sx * (LOT - 0.06), 0, 0);
+  for (const sz of [-1, 1]) if (sz > 0 ? o.N : o.S) addBox(g, LOT * 2, 0.08, 0.12, curb, 0, 0, sz * (LOT - 0.06));
+  // arched bridges: skirt walls close the gap between the raised approach and the bank
+  if (info.river) for (const side of [-1, 1]) for (const sx of [-1, 1]) { const a = RIVER_HW + 2.2 + 1.2, b = BR_RUN; addBox(g, b - a, BR_RISE + 0.4, 0.3, MAT.stone(), sx * (a + b) / 2, -BR_RISE - 0.3, side * (LOT + 0.16)); }
+  if (info.canal) for (const side of [-1, 1]) for (const sz of [-1, 1]) { const a = CANAL_HW + 0.4 + 1.2, b = CN_RUN; addBox(g, 0.3, CN_RISE + 0.4, b - a, MAT.stone(), side * (LOT + 0.16), -CN_RISE - 0.3, sz * (a + b) / 2); }
   // bridges where this chunk's water meets a road
   if (info.river) for (const side of [-1, 1]) { const key = info.i + ":" + (side > 0 ? info.j : info.j - 1) + ":r"; const b = new T.Group(); bridgeHalf(b, side, RIVER_HW + 2.2, bridgeStyle(key)); g.add(b); }
   if (info.canal) for (const side of [-1, 1]) { const key = (side > 0 ? info.i : info.i - 1) + ":" + info.j + ":c"; const b = new T.Group(); b.rotation.y = Math.PI / 2; bridgeHalf(b, side, CANAL_HW + 0.4, bridgeStyle(key)); g.add(b); }
@@ -400,7 +683,7 @@ function streets(g, info) {
   if (info.tunS) tunnelHalf(g, info, -1, t);
   // street lamps on the sidewalk (not trees)
   const pole = G.M("#2b2b2b", { metal: 0.6, rough: 0.4, name: "Lamp_Post" });
-  for (const [x, z] of [[LOT + 1.1, LOT + 1.1], [-LOT - 1.1, -LOT - 1.1]]) { G.mesh(G.cyl(0.06, 0.08, 4, 8), pole, x, 2, z, g); G.mesh(G.sph(0.22, 12, 8), WINDOW_GLOW, x, 4.1, z, g); }
+  for (const [x, z] of [[LOT + 1.1, LOT + 1.1], [-LOT - 1.1, -LOT - 1.1], [LOT + 1.1, -LOT - 1.1], [-LOT - 1.1, LOT + 1.1]]) if (bandZone(info, x, z) === "walk") lampAt(g, Object.assign(info, { rects: info.rects }), x, z, 4);
   return t;
 }
 // street trees grow on the grass verge just inside the lot edge, only where the mask is open land
@@ -408,7 +691,7 @@ function vergeTrees(g, info, t) {
   if (info.biome === "home" || info.shared) return;
   for (let side = 0; side < 4; side++) for (let k = -10; k <= 10; k += t.ri(5, 7)) {
     if (!t.chance(0.7)) continue; const e = LOT - 1.4, x = side < 2 ? (side ? e : -e) : k + t.rr(-1, 1), z = side < 2 ? k + t.rr(-1, 1) : (side === 2 ? -e : e);
-    if (freeSpot(info, x, z, 1.3)) plantTree(g, info, t, x, z, "street");
+    if (freeSpot(info, x, z, 1.3)) plantTree(g, info, t, x, z, hoodStyle(info.i, info.j).trees === "bank" ? "street" : hoodStyle(info.i, info.j).trees);
   }
 }
 
@@ -469,7 +752,18 @@ function planLot(g, info, t, near, extras) {
   scatterTrees(g, info, t, t.ri(2, 5), "yard", LOT - 1.6);
 }
 function benchAt(g, info, t, x, z, ry) { const o = G.buildGen(G.genType("bench", t.ri(1, 1e6))); o.position.set(x, heightAt(info, x, z), z); o.rotation.y = ry; o.traverse((c) => { if (c.isLight) c.visible = false; }); g.add(o); info.rects.push({ k: "item", x, z, w: 2.2, d: 2.2 }); }
-function lampAt(g, info, x, z) { const pole = G.M("#2b2b2b", { metal: 0.6, rough: 0.4, name: "Lamp_Post" }), y = heightAt(info, x, z); G.mesh(G.cyl(0.05, 0.07, 3.2, 8), pole, x, y + 1.6, z, g); G.mesh(G.sph(0.18, 12, 8), WINDOW_GLOW, x, y + 3.3, z, g); info.rects.push({ k: "item", x, z, w: 0.8, d: 0.8 }); }
+function lampAt(g, info, x, z, H = 3.4) {
+  const pole = G.M("#2b2b2b", { metal: 0.6, rough: 0.4, name: "Lamp_Post" }), y = heightAt(info, x, z);
+  // cobra-head street light: tapered pole, curved arm, housing with a lens underneath
+  G.mesh(G.cyl(0.05, 0.08, H, 10), pole, x, y + H / 2, z, g); G.mesh(G.cyl(0.11, 0.13, 0.25, 10), pole, x, y + 0.12, z, g);
+  const ang = Math.atan2(-x, -z), ax = Math.sin(ang), az = Math.cos(ang); // arm leans over the road (toward chunk edge)
+  const arm = G.mesh(G.cyl(0.03, 0.03, 0.9, 6), pole, x + ax * 0.42, y + H + 0.12, z + az * 0.42, g); arm.rotation.set(az * 1.35, 0, -ax * 1.35);
+  const hx = x + ax * 0.9, hz = z + az * 0.9, hy = y + H + 0.18;
+  const hous = G.mesh(G.rbox(0.62, 0.14, 0.3, 0.06), pole, hx, hy, hz, g); hous.rotation.y = -ang + Math.PI / 2;
+  const lens = G.mesh(G.rbox(0.5, 0.04, 0.22, 0.03), LAMP_GLASS, hx, hy - 0.08, hz, g); lens.rotation.y = -ang + Math.PI / 2;
+  const f = makeFixture("lamp", hy - 0.1 - y, 4.2); f.position.set(hx, hy - 0.12, hz); (info.fixtures || (info.fixtures = [])).push(f);
+  info.rects.push({ k: "item", x, z, w: 0.8, d: 0.8 });
+}
 function parkLot(g, info, t) {
   // a winding gravel path painted into the ground from one sidewalk to the other
   const alongZ = t.chance(0.5), a = t.rr(1.5, 4), ph = t.rr(0, 6), b = t.rr(-3, 3);
@@ -524,7 +818,7 @@ const CAR_COLS = ["#c94a3a", "#3a6ea5", "#f2eee6", "#2b2b2b", "#8a8f96", "#c9a22
 const CAR_KINDS = { sedan: { L: 4.3, h1: 0.55, h2: 0.5, cab: 2.2, off: -0.2 }, hatch: { L: 3.7, h1: 0.6, h2: 0.55, cab: 2.0, off: -0.4 }, van: { L: 4.9, h1: 1.2, h2: 0.0, cab: 0, off: 0 }, pickup: { L: 5.0, h1: 0.65, h2: 0.6, cab: 1.6, off: 0.9 }, bus: { L: 9.5, h1: 2.3, h2: 0, cab: 0, off: 0 }, taxi: { L: 4.3, h1: 0.55, h2: 0.5, cab: 2.2, off: -0.2 } };
 const carCache = new Map();
 function carModel(kind, col) {
-  const key = kind + col; if (carCache.has(key)) return carCache.get(key).clone();
+  const key = kind + col; if (carCache.has(key)) { const m = carCache.get(key), k = m.userData.K; return carLights(m.clone(), CAR_KINDS[k.kind] || CAR_KINDS.sedan, k.wb, k.kind); }
   const K = CAR_KINDS[kind] || CAR_KINDS.sedan, g = new T.Group(), wb = kind === "bus" ? 2.4 : 1.8, body = G.M(kind === "taxi" ? "#f2c32e" : kind === "bus" ? "#c9a227" : col, { rough: 0.35, metal: 0.4, name: "Car_Paint" });
   const glass = G.M("#1e2830", { rough: 0.05, metal: 0.6, name: "Car_Glass" }), tyre = G.M("#141414", { rough: 0.9, name: "Tyre" }), tail = G.M("#8a1a1a", { emissive: "#ff2a2a", ei: 0.6, name: "Tail_Light" });
   G.mesh(G.rbox(K.L, K.h1, wb, 0.18), body, 0, 0.3 + K.h1 / 2, 0, g);
@@ -533,9 +827,9 @@ function carModel(kind, col) {
   if (kind === "taxi") G.mesh(G.rbox(0.5, 0.15, 0.25, 0.03), WINDOW_GLOW, K.off, 0.3 + K.h1 + K.h2 + 0.1, 0, g);
   const wr = kind === "bus" ? 0.45 : 0.32;
   for (const sx of [-1, 1]) for (const sz of [-1, 1]) { const w = G.mesh(G.cyl(wr, wr, 0.24, 12), tyre, sx * K.L * 0.32, wr, sz * (wb / 2 - 0.05), g); w.rotation.x = Math.PI / 2; }
-  for (const sz of [-1, 1]) { G.mesh(G.rbox(0.06, 0.14, 0.3, 0.02), WINDOW_GLOW, K.L / 2, 0.55, sz * (wb / 2 - 0.3), g); G.mesh(G.rbox(0.06, 0.14, 0.3, 0.02), tail, -K.L / 2, 0.6, sz * (wb / 2 - 0.3), g); }
+  for (const sz of [-1, 1]) { G.mesh(G.rbox(0.06, 0.14, 0.3, 0.02), HEAD_GLASS, K.L / 2, 0.55, sz * (wb / 2 - 0.3), g); G.mesh(G.rbox(0.06, 0.14, 0.3, 0.02), tail, -K.L / 2, 0.6, sz * (wb / 2 - 0.3), g); }
   const merged = mergeByMaterial(g); merged.traverse((o) => { if (o.isMesh) o.castShadow = true; });
-  carCache.set(key, merged); return merged.clone();
+  merged.userData.K = { L: K.L, wb, kind }; carCache.set(key, merged); return carLights(merged.clone(), K, wb, kind);
 }
 const HULL = new T.SphereGeometry(1, 14, 8, 0, Math.PI * 2, Math.PI / 2, Math.PI / 2);
 function boatModel(t, kind) {
@@ -580,7 +874,7 @@ function sharedLot(g, L, t) {
 export function createWorld(scene, opts = {}) {
   const root = new T.Group(); root.name = "Neighborhood"; scene.add(root);
   const chunks = new Map(), signs = [];
-  let radius = opts.radius ?? 1, shared = [], slots = new Map(), queue = [], ownLot = "", time = 0;
+  let radius = opts.radius ?? 1, shared = [], slots = new Map(), queue = [], ownLot = "", time = 0, sigT = 0;
   const reduce = !!opts.reduceMotion;
   const detail = { grass: opts.grass ?? 3000, cars: opts.cars ?? 10, boats: opts.boats ?? 3 };
   const npcs = []; let npcMax = opts.npcs ?? 6;
@@ -599,6 +893,7 @@ export function createWorld(scene, opts = {}) {
     else if (L) sharedLot(raw, L, t);
     else if (info.biome === "house") planLot(raw, info, t, near, extras);
     else if (info.biome === "park") parkLot(raw, info, t);
+    else if (info.biome === "court") courtLot(raw, info, t);
     else if (info.biome === "lake") lakeLot(raw, info, t);
     else if (info.biome === "water") waterLot(raw, info, t);
     vergeTrees(raw, info, t);
@@ -606,10 +901,12 @@ export function createWorld(scene, opts = {}) {
     const merged = mergeByMaterial(raw, true);
     merged.position.set(i * CH, 0, j * CH); merged.name = "Chunk_" + i + "_" + j; merged.userData.near = near; merged.userData.ij = [i, j];
     for (const r of extras.roofs) { merged.add(r); roofs.push(r); }
-    for (const d of extras.doors) { merged.add(d); doors.push(d); }
+    for (const d of extras.doors) { merged.add(d); doors.push(d); if (d.material.name === "Front_Door") { const f = makeFixture("porch", 2.3, 2.4); const ry = d.userData.door.base; f.position.set(d.position.x + Math.cos(ry) * 0.43 + Math.sin(ry) * 0.25 - Math.cos(ry) * 0.75, 2.3, d.position.z - Math.sin(ry) * 0.43 + Math.cos(ry) * 0.25 + Math.sin(ry) * 0.75); const lamp = new T.Mesh(PORCH_GEO, LAMP_GLASS); lamp.name = "Porch_Lamp"; f.add(lamp); merged.add(f); } }
+    for (const f of info.fixtures || []) merged.add(f);
     for (const c of extras.cars) { merged.add(c); parked.push({ obj: c, i, j, state: "park", timer: 20 + Math.random() * 90 }); }
     for (const sg of extras.signs) { merged.add(sg); sg.traverse((o) => { if (o.userData.house) houseSigns.push(o); }); }
     merged.traverse((o) => { if (o.userData.visitSid) signs.push(o); });
+    warpChunk(merged, i * CH, j * CH);
     root.add(merged); chunks.set(chunkKey(i, j), merged); grassDirty = true;
   }
   function dropChunk(k) {
@@ -628,48 +925,72 @@ export function createWorld(scene, opts = {}) {
   function makeGrass(n) {
     if (grass) { root.remove(grass); grass.geometry.dispose(); grass.dispose && grass.dispose(); grass = null; }
     if (n <= 0) return;
-    const blades = [];
-    for (let b = 0; b < 5; b++) { const a = (b / 5) * Math.PI + (b % 2) * 0.3, h = 0.26 + (b % 3) * 0.08, w = 0.045, lean = 0.06 * (b % 2 ? 1 : -1), ox = Math.cos(a * 2.3) * 0.08, oz = Math.sin(a * 1.7) * 0.08;
-      const geo = new T.BufferGeometry(), ca = Math.cos(a), sa = Math.sin(a);
-      geo.setAttribute("position", new T.Float32BufferAttribute([ox - ca * w, 0, oz - sa * w, ox + ca * w, 0, oz + sa * w, ox + lean * sa, h, oz - lean * ca], 3));
-      geo.setAttribute("normal", new T.Float32BufferAttribute([0, 1, 0, 0, 1, 0, 0, 1, 0], 3));
-      geo.setAttribute("color", new T.Float32BufferAttribute([0.32, 0.48, 0.2, 0.32, 0.48, 0.2, 0.66, 0.84, 0.38], 3)); blades.push(geo); }
+    // a soft clump: thin tapered blades that curve and droop outward, dark at the root and sunlit at the tip
+    const blades = [], SEG = 4;
+    for (let b = 0; b < 9; b++) {
+      const a = b * 2.39996 + 0.3, r0 = 0.012 + (b % 4) * 0.018, h = 0.17 + ((b * 7) % 5) * 0.045, w = 0.011 + (b % 3) * 0.004, bend = 0.05 + ((b * 5) % 4) * 0.035, twist = (b % 2 ? 0.5 : -0.4);
+      const ca = Math.cos(a), sa = Math.sin(a), px = -sa, pz = ca, P = [], N = [], C = [], tone = 0.85 + ((b * 3) % 4) * 0.07, dry = b % 5 === 0 ? 0.12 : 0;
+      for (let k = 0; k <= SEG; k++) { const t = k / SEG, y = h * (t - 0.18 * t * t), out = r0 + bend * t * t, ww = w * (1 - t) ** 0.8 + 0.0008, tw = twist * t;
+        const cx = ca * out, cz = sa * out, ex = (px * Math.cos(tw) + ca * Math.sin(tw)) * ww, ez = (pz * Math.cos(tw) + sa * Math.sin(tw)) * ww;
+        P.push(cx - ex, y, cz - ez, cx + ex, y, cz + ez);
+        const ny = 0.75, nx = ca * 0.5 * t, nz = sa * 0.5 * t; N.push(nx, ny, nz, nx, ny, nz);
+        const g0 = 0.22 + 0.38 * t, cr = (0.16 + 0.32 * t + dry * t) * tone, cg = (0.3 + g0) * tone, cb = (0.1 + 0.14 * t) * tone; C.push(cr, cg, cb, cr, cg, cb); }
+      const idx = []; for (let k = 0; k < SEG; k++) { const i0 = k * 2; idx.push(i0, i0 + 1, i0 + 3, i0, i0 + 3, i0 + 2); }
+      const geo = new T.BufferGeometry(); geo.setAttribute("position", new T.Float32BufferAttribute(P, 3)); geo.setAttribute("normal", new T.Float32BufferAttribute(N, 3)); geo.setAttribute("color", new T.Float32BufferAttribute(C, 3)); geo.setIndex(idx);
+      blades.push(geo.toNonIndexed()); geo.dispose(); }
     const geo = mergeGeometries(blades); blades.forEach((b) => b.dispose());
-    const mat = sway(new T.MeshStandardMaterial({ color: "#ffffff", roughness: 0.95, name: "Grass_Blades" }), 0.35, 0.3, "vc");
+    const mat = sway(new T.MeshStandardMaterial({ color: "#ffffff", roughness: 0.9, side: T.DoubleSide, name: "Grass_Blades" }), 0.35, 0.3, "vc");
     grass = new T.InstancedMesh(geo, mat, n); grass.name = "GrassTufts"; grass.frustumCulled = false; grass.receiveShadow = true; grass.castShadow = false; grass.count = 0; grass.userData.noExport = true;
     root.add(grass); grassCenter.set(1e9, 0, 0); grassDirty = true;
   }
   const _m = new T.Matrix4(), _q = new T.Quaternion(), _p = new T.Vector3(), _s = new T.Vector3(), _c = new T.Color(), _e = new T.Euler();
   function scatterGrass(center) {
     if (!grass) return;
-    const n = detail.grass, R = n > 5000 ? 24 : n > 2000 ? 19 : 14, cell = Math.max(0.35, (2 * R) / Math.sqrt(n * 1.15));
+    const n = detail.grass, R = n > 5000 ? 24 : n > 2000 ? 19 : 14, cell = Math.max(0.3, (2 * R) / Math.sqrt(n * 1.9));
     const x0 = Math.floor((center.x - R) / cell), x1 = Math.ceil((center.x + R) / cell), z0 = Math.floor((center.z - R) / cell), z1 = Math.ceil((center.z + R) / cell);
     let k = 0;
     for (let a = x0; a <= x1 && k < n; a++) for (let b = z0; b <= z1 && k < n; b++) {
       const r1 = hash2(a, b), r2 = hash2(b + 911, a - 37), x = (a + r1) * cell, z = (b + r2) * cell;
       if ((x - center.x) ** 2 + (z - center.z) ** 2 > R * R) continue;
-      if (zoneAt(x, z) !== "land") continue;
-      const s = 0.7 + hash2(a * 3, b * 7) * 0.8; _p.set(x, groundAt(x, z), z); _q.setFromEuler(_e.set(0, r1 * 6.28, 0)); _s.set(s, s * (0.8 + r2 * 0.6), s);
-      grass.setMatrixAt(k, _m.compose(_p, _q, _s)); const n2 = noise(x * 0.31 + 40, z * 0.31 - 11); _c.setRGB(0.85 + r1 * 0.3, 0.9 + r2 * 0.2, 0.8 + n2 * 0.3); grass.setColorAt(k, _c); k++;
+      { const zn = zoneAt(x, z); if (zn !== "land" && zn !== "lot") continue; }
+      if (noise(x * 0.16 + 3, z * 0.16 - 7) * 1.25 + 0.05 < hash2(a + 77, b - 19)) continue; // clumpy, uneven cover
+      const s = 0.55 + hash2(a * 3, b * 7) * 1.0; { const [wx, wz] = warpXZ(x, z); _p.set(wx, groundAt(x, z), wz); } _q.setFromEuler(_e.set(0, r1 * 6.28, 0)); _s.set(s, s * (0.8 + r2 * 0.6), s);
+      grass.setMatrixAt(k, _m.compose(_p, _q, _s)); const n2 = noise(x * 0.31 + 40, z * 0.31 - 11); { const n3 = noise(x * 0.07 - 9, z * 0.07 + 2), dry = sstep(0.3, 0.1, n3); _c.setRGB(0.8 + r1 * 0.25 + dry * 0.35, 0.85 + r2 * 0.2 + dry * 0.05, 0.75 + n2 * 0.25); }; grass.setColorAt(k, _c); k++;
     }
     grass.count = k; grassCount = k; grass.instanceMatrix.needsUpdate = true; if (grass.instanceColor) grass.instanceColor.needsUpdate = true;
     grassCenter.copy(center); grassDirty = false;
   }
 
   // ---- cars: straight lanes on the grid, keep distance, take turns at crossings ----
-  const cars = [], reserve = new Map(); let carSeq = 0;
+  const cars = [], reserve = new Map(); let carSeq = 0, stuckRemoved = 0;
   const laneOf = (c) => (c.axis === "x" ? c.line + c.dir * 1.5 : c.line - c.dir * 1.5);
   function carXZ(c) { return c.axis === "x" ? [c.p, laneOf(c)] : [laneOf(c), c.p]; }
   function spawnCar(ci, cj, t) {
     const axis = t.chance(0.5) ? "x" : "z", m = (axis === "x" ? cj : ci) + t.ri(-radius - 1, radius), line = m * CH + ROAD, dir = t.chance(0.5) ? 1 : -1;
     const base = (axis === "x" ? ci : cj) * CH, span = (radius + 0.5) * CH; let p = base + t.rr(-span, span);
     const q = Math.round((p - ROAD) / CH) * CH + ROAD; if (Math.abs(p - q) < 7) p = q + (p < q ? -7 : 7);
+    { const seg = Math.round(p / CH); if (!(axis === "x" ? hOpen(seg, m) : vOpen(m, seg))) return; } // only on streets that exist
     for (const o of cars) if (o.axis === axis && o.line === line && o.dir === dir && Math.abs(o.p - p) < 12) return;
     const kind = t.pick(["sedan", "sedan", "hatch", "hatch", "van", "pickup", "taxi", "sedan", "bus"]), obj = carModel(kind, t.pick(CAR_COLS));
     const c = { id: ++carSeq, axis, line, dir, p, v: 0, vmax: kind === "bus" ? 6 : t.rr(7, 10.5), len: CAR_KINDS[kind].L, obj, held: null };
     obj.name = "Car"; root.add(obj); cars.push(c); placeCar(c);
   }
-  function placeCar(c) { const [x, z] = carXZ(c); c.obj.position.set(x, 0, z); c.obj.rotation.y = c.axis === "x" ? (c.dir > 0 ? 0 : Math.PI) : (c.dir > 0 ? -Math.PI / 2 : Math.PI / 2); }
+  // the car model faces +x at rotation 0; heading = atan2(-dz, dx) of travel. Turns blend smoothly over ~0.6 s.
+  function placeCar(c, dt = 0) {
+    let [x, z] = carXZ(c), ry = c.axis === "x" ? (c.dir > 0 ? 0 : Math.PI) : (c.dir > 0 ? -Math.PI / 2 : Math.PI / 2);
+    if (c.vis && c.blend > 0) { const k = 1 - Math.exp(-dt * 7); c.blend -= dt; x = c.vis[0] + (x - c.vis[0]) * k; z = c.vis[1] + (z - c.vis[1]) * k; let d = ry - c.vis[2]; d = Math.atan2(Math.sin(d), Math.cos(d)); ry = c.vis[2] + d * k; }
+    c.vis = [x, z, ry]; const [wx, wz] = warpXZ(x, z); c.obj.position.set(wx, roadLift(x, z), wz); c.obj.rotation.y = ry + warpAngle(x, z);
+  }
+  // at a node: keep going if the street continues, otherwise (or sometimes) turn onto an open arm; U-turn at dead ends
+  function turnAt(c, q) {
+    const n = Math.round(((c.axis === "x" ? q : c.line) - ROAD) / CH), m = Math.round(((c.axis === "x" ? c.line : q) - ROAD) / CH), A = nodeArms(n, m);
+    const ahead = c.axis === "x" ? A[c.dir > 0 ? 0 : 1] : A[c.dir > 0 ? 2 : 3];
+    const perp = (c.axis === "x" ? [[A[2], 1], [A[3], -1]] : [[A[0], 1], [A[1], -1]]).filter((p) => p[0]);
+    if (ahead && (!perp.length || Math.random() > 0.3)) return;
+    release(c); c.blend = 0.7; c.stopKey = null;
+    if (!perp.length) { c.dir = -c.dir; c.p = q; return; }
+    const d = perp[Math.floor(Math.random() * perp.length)][1], line = c.line; c.axis = c.axis === "x" ? "z" : "x"; c.line = q; c.p = line; c.dir = d;
+  }
   function release(c) { if (!c.held) return; const r = reserve.get(c.held); if (r) { r.cars.delete(c.id); if (!r.cars.size) reserve.delete(c.held); } c.held = null; }
   function stepCars(dt, ci, cj) {
     const rnd = G.tools(Math.random);
@@ -677,6 +998,7 @@ export function createWorld(scene, opts = {}) {
     while (cars.length > detail.cars) { const c = cars.pop(); release(c); root.remove(c.obj); }
     const lim = (radius + 1) * CH;
     for (let k = cars.length - 1; k >= 0; k--) { const c = cars[k], [x, z] = carXZ(c); if (Math.abs(x - ci * CH) > lim || Math.abs(z - cj * CH) > lim) { release(c); root.remove(c.obj); cars.splice(k, 1); } }
+    for (let k = cars.length - 1; k >= 0; k--) { const c = cars[k]; if (c.stuck > 40) { release(c); root.remove(c.obj); cars.splice(k, 1); stuckRemoved++; } }
     const lanes = new Map(); for (const c of cars) { const key = c.axis + c.line + ":" + c.dir; if (!lanes.has(key)) lanes.set(key, []); lanes.get(key).push(c); }
     for (const list of lanes.values()) { list.sort((a, b) => (b.p - a.p) * a.dir); for (let k = 0; k < list.length; k++) list[k].ahead = k ? list[k - 1] : null; }
     const BOX = 3.4, obs = obstacles();
@@ -691,12 +1013,26 @@ export function createWorld(scene, opts = {}) {
       if (inBox) { if (!c.held) { const r = reserve.get(key) || { axis: c.axis, cars: new Set() }; r.cars.add(c.id); reserve.set(key, r); c.held = key; } }
       else {
         const dist = (entry - front) * c.dir;
-        if (dist < 2 + c.v * 0.9) { const r = reserve.get(key); if (!r || !r.cars.size || r.axis === c.axis) { const rr = r || { axis: c.axis, cars: new Set() }; rr.axis = c.axis; rr.cars.add(c.id); reserve.set(key, rr); c.held = key; } else maxAdv = Math.min(maxAdv, dist - 0.4); }
+        // traffic control: signals on arterial crossings, all-way stops on residential ones
+        const I = Math.round(((c.axis === "x" ? q : c.line) - ROAD) / CH), Jn = Math.round(((c.axis === "x" ? c.line : q) - ROAD) / CH);
+        let hold = false;
+        if (dist < 26) {
+          if (armCount(I, Jn) < 3) { /* bend or dead end: no control */ }
+          else if (arterial(I) || arterial(Jn)) { const st = signalState(I, Jn, c.axis, sigT); if (st === "red" || (st === "yellow" && dist > c.v * 1.1 + 1.5)) hold = true; }
+          else if (c.stopKey !== key) { if (dist < 1.4 && c.v < 0.35) { c.stopWait = (c.stopWait || 0) + dt; if (c.stopWait > 0.9) { c.stopKey = key; c.stopWait = 0; } else hold = true; } else hold = true; }
+        }
+        if (hold) maxAdv = Math.min(maxAdv, Math.max(0, dist - 0.4));
+        else if (dist < 2 + c.v * 0.9) { const r = reserve.get(key); if (!r || !r.cars.size || r.axis === c.axis) { const rr = r || { axis: c.axis, cars: new Set() }; rr.axis = c.axis; rr.cars.add(c.id); reserve.set(key, rr); c.held = key; } else maxAdv = Math.min(maxAdv, dist - 0.4); }
       }
       for (const ob of obs) { const along = ((c.axis === "x" ? ob.x : ob.z) - c.p) * c.dir, lat = Math.abs((c.axis === "x" ? ob.z : ob.x) - laneOf(c)); if (lat < 1.7 && along > 0 && along < 14) maxAdv = Math.min(maxAdv, along - c.len / 2 - 1.6); }
       const want = maxAdv < 0.5 ? 0 : Math.min(c.vmax, Math.max(0, (maxAdv - 0.5) * 1.2));
+      c.brake = want < c.v - 0.4 || (c.v < 0.6 && want < 0.3);
       c.v += Math.max(-9 * dt, Math.min(3 * dt, want - c.v)); if (c.v < 0) c.v = 0;
-      c.p += c.dir * Math.min(c.v * dt, Math.max(0, maxAdv)); placeCar(c);
+      { const [x, z] = carXZ(c); setCarLights(c.obj, Math.max(NIGHT.k, inTunnel(x, z) ? 1 : 0), c.brake); }
+      { const p0 = c.p, qn = Math.round((p0 - ROAD) / CH) * CH + ROAD; c.p += c.dir * Math.min(c.v * dt, Math.max(0, maxAdv)); if ((p0 - qn) * c.dir < 0 && (c.p - qn) * c.dir >= 0) turnAt(c, qn); } placeCar(c, dt);
+      // anti-gridlock: give up a reservation held too long, and quietly retire cars stuck for a long time
+      if (c.held) { c.heldT = (c.heldT || 0) + dt; if (c.heldT > 12) { release(c); c.heldT = 0; } } else c.heldT = 0;
+      c.stuck = c.v < 0.05 ? (c.stuck || 0) + dt : 0;
     }
   }
 
@@ -717,14 +1053,14 @@ export function createWorld(scene, opts = {}) {
     }
     for (const b of boats) {
       b.p += b.dir * b.v * dt; b.phase += dt; const [x, z, slope] = boatPos(b);
-      b.obj.position.set(x, WATER_Y - 0.12 + (reduce ? 0 : Math.sin(b.phase * 2) * 0.03), z);
-      b.obj.rotation.set(0, b.kind === "r" ? (b.dir > 0 ? -Math.PI / 2 : Math.PI / 2) - slope * b.dir : (b.dir > 0 ? 0 : Math.PI), reduce ? 0 : Math.sin(b.phase * 1.3) * 0.03);
+      const [bx, bz] = warpXZ(x, z); b.obj.position.set(bx, WATER_Y - 0.12 + (reduce ? 0 : Math.sin(b.phase * 2) * 0.03), bz);
+      b.obj.rotation.set(0, (b.kind === "r" ? (b.dir > 0 ? -Math.PI / 2 : Math.PI / 2) - slope * b.dir : (b.dir > 0 ? 0 : Math.PI)) + warpAngle(x, z), reduce ? 0 : Math.sin(b.phase * 1.3) * 0.03);
     }
   }
 
   function update(center, dt) {
     const ci = Math.round(center.x / CH), cj = Math.round(center.z / CH);
-    if (!reduce) time += dt; U.uTime.value = time;
+    if (!reduce) time += dt; U.uTime.value = time; sigT += dt; stepSignals(sigT);
     const want = new Set();
     for (let i = ci - radius; i <= ci + radius; i++) for (let j = cj - radius; j <= cj + radius; j++) want.add(chunkKey(i, j));
     for (const k of [...chunks.keys()]) if (!want.has(k)) dropChunk(k);
@@ -748,13 +1084,20 @@ export function createWorld(scene, opts = {}) {
       else if (pc.state === "out") { const o = pc.obj; pc.v = Math.min(3, pc.v + dt * 1.5); o.position.z += pc.v * dt; o.rotation.y = -Math.PI / 2;
         if (o.position.z > ROAD - 3.2) { // hand off to traffic
           o.getWorldPosition(_w); o.removeFromParent(); const dir = Math.random() < 0.5 ? 1 : -1, line = pc.j * CH + ROAD;
-          const c = { id: ++carSeq, axis: "x", line, dir, p: _w.x, v: 2, vmax: 8, len: 4.3, obj: o, held: null }; o.name = "Car"; root.add(o); cars.push(c); placeCar(c); parked.splice(k, 1); } }
+          const c = { id: ++carSeq, axis: "x", line, dir, p: unwarpXZ(_w.x, _w.z)[0], v: 2, vmax: 8, len: 4.3, obj: o, held: null }; o.name = "Car"; root.add(o); cars.push(c); placeCar(c); parked.splice(k, 1); } }
     }
   }
   // things cars must stop for: sims crossing, the player's car, etc. (set by the game)
   let obstacleFn = () => [];
   const obstacles = () => { try { return obstacleFn() || []; } catch (e) { return []; } };
-  function carNear(x, z, r) { for (const c of cars) { const p = c.obj.position; if (Math.abs(p.x - x) < r && Math.abs(p.z - z) < r) return c; } return null; }
+  function inTunnel(x, z) { const i = Math.round(x / CH), j = Math.round((z - ROAD) / CH); return tunnelAt(i, j) && Math.abs(x - i * CH) < HILL_X + 1 && Math.abs(z - (j * CH + ROAD)) < TUN_W; }
+  function lightSources() {
+    const out = [];
+    for (const c of chunks.values()) for (const f of c.children) if (f.userData.fixture) out.push({ obj: f, kind: f.userData.fixture.kind, on: NIGHT.k });
+    for (const c of cars) { const f = c.obj.getObjectByName("Fixture_head"); if (f) out.push({ obj: f, kind: "head", on: c.obj.userData.lightOn || 0 }); }
+    return out;
+  }
+  function carNear(x, z, r) { for (const c of cars) { const [px, pz] = carXZ(c); if (Math.abs(px - x) < r && Math.abs(pz - z) < r) return c; } return null; } // logical (grid) space
   // ---- wandering neighbors on the sidewalks ----
   function spawnNpc(ci, cj) {
     const seed = G.randSeed(); const sim = G.randomSim(seed); const model = G.buildSim(sim);
@@ -772,7 +1115,7 @@ export function createWorld(scene, opts = {}) {
     for (const n of npcs) {
       if (Math.abs(n.i - ci) > radius || Math.abs(n.j - cj) > radius) { n.i = ci + Math.floor(Math.random() * (2 * radius + 1)) - radius; n.j = cj + Math.floor(Math.random() * (2 * radius + 1)) - radius; }
       n.s += n.dir * n.speed * dt; n.phase += dt * 8 * n.speed;
-      const [x, z, rot] = ringPos(n.s); n.holder.position.set(n.i * CH + x, 0, n.j * CH + z); n.holder.rotation.y = rot + (n.dir > 0 ? Math.PI / 2 : -Math.PI / 2);
+      const [x, z, rot] = ringPos(n.s); { const lx = n.i * CH + x, lz = n.j * CH + z, [wx, wz] = warpXZ(lx, lz); n.holder.position.set(wx, roadLift(lx, lz), wz); n.holder.rotation.y = rot + (n.dir > 0 ? Math.PI / 2 : -Math.PI / 2) + warpAngle(lx, lz); }
       const sw = reduce ? 0 : Math.sin(n.phase) * 0.5;
       if (n.J.Joint_HipL) { n.J.Joint_HipL.rotation.x = sw; n.J.Joint_HipR.rotation.x = -sw; n.J.Joint_ShoulderL.rotation.x = -sw * 0.8; n.J.Joint_ShoulderR.rotation.x = sw * 0.8; }
     }
@@ -798,13 +1141,14 @@ export function createWorld(scene, opts = {}) {
   return {
     actors: () => [...cars.map((c) => c.obj), ...boats.map((b) => b.obj), ...npcs.map((n) => n.holder)],
     actorKinds: () => [...cars.map((c) => [c.obj, "car"]), ...boats.map((b) => [b.obj, "boat"]), ...npcs.map((n) => [n.holder, "npc", n.name])],
-    root, signs, houseSigns, update, carNear, lotPlan,
+    root, signs, houseSigns, update, roadLift, nodeArms, hOpen, vOpen, carNear, lotPlan, lightSources, inTunnel, warpXZ, unwarpXZ, warpAngle, warpObject,
     setFocus(p, cam) { focus = { x: p.x, z: p.z }; if (cam) camPos.copy(cam); }, setObstacles(fn) { obstacleFn = fn; },
     chunkMeshes: () => [...chunks.values()], carModel, parkedCars: () => parked.map((p) => p.obj), setShared, lotOfSign, zoneAt, auditPlants, auditCars,
     setRadius(r) { radius = r; }, setNpcs(n) { npcMax = n; },
     setDetail(d) { const g0 = detail.grass; Object.assign(detail, d); if (detail.grass !== g0) makeGrass(detail.grass); },
     setSky(c) { U.uSky.value.copy(c); }, setSeason, season: () => seasonOf(),
     sharedSlots: () => [...slots].map(([k, L]) => ({ chunk: k, name: L.name, sid: L.sid })),
+    trafficStats: () => ({ cars: cars.length, moving: cars.filter((c) => c.v > 0.5).length, stopped: cars.filter((c) => c.v < 0.05).length, maxStuck: Math.max(0, ...cars.map((c) => c.stuck || 0)), stuckRemoved, reservations: reserve.size }),
     stats: () => ({ chunks: chunks.size, npcs: npcs.length, shared: shared.length, queued: queue.length, cars: cars.length, boats: boats.length, grass: grassCount }),
   };
 }

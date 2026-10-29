@@ -72,7 +72,17 @@ function cleanSim(s) {
     outfit: tok(s.outfit, "tee"), bottomStyle: tok(s.bottomStyle, "pants"), pattern: tok(s.pattern, "solid"), pat2: color(s.pat2, "#e8e0d2"),
     shoes: color(s.shoes, "#1d1a18"), eyes: color(s.eyes, "#3a2a1a"), brows: tok(s.brows, "flat"), mouth: tok(s.mouth, "smile"),
     accColor: color(s.accColor, "#c9a227"), acc: (Array.isArray(s.acc) ? s.acc : []).filter((a) => TOK_RE.test(String(a))).slice(0, 6),
+    ...cleanShape(s),
   };
+}
+// sculptable body: morph sliders (15 known keys, -1..1.6) + compressed sculpt deltas (base64 with z1:/r1: prefix)
+const MORPH_KEYS = ["weight", "muscle", "chest", "hips", "shoulders", "belly", "faceW", "jaw", "chin", "cheeks", "nose", "lips", "eyes", "ears", "head"];
+const SCULPT_RE = /^[zr]1:[A-Za-z0-9+/=]{4,120000}$/;
+function cleanShape(s) {
+  const out = {};
+  if (s.morph && typeof s.morph === "object") { const m = {}; for (const k of MORPH_KEYS) { const v = Number(s.morph[k]); if (Number.isFinite(v) && v !== 0) m[k] = Math.round(Math.max(-1, Math.min(1.6, v)) * 1000) / 1000; } if (Object.keys(m).length) out.morph = m; }
+  if (typeof s.sculpt === "string" && s.sculpt.length <= 120003 && SCULPT_RE.test(s.sculpt)) out.sculpt = s.sculpt;
+  return out;
 }
 function cleanLot(l) {
   l = l && typeof l === "object" ? l : {};
@@ -102,7 +112,7 @@ async function readJSON(store, key, fallback) {
   try { const v = await store.get(key, { type: "json" }); return v == null ? fallback : v; } catch (e) { return fallback; }
 }
 async function readBody(request) {
-  try { const t = await request.text(); if (!t || t.length > MAX_LOT_BYTES + MAX_GLB_CHARS + 4000) return null; return JSON.parse(t); } catch (e) { return null; }
+  try { const t = await request.text(); if (!t || t.length > MAX_LOT_BYTES + MAX_GLB_CHARS + 124000) return null; return JSON.parse(t); } catch (e) { return null; }
 }
 function prunePos(map, now) {
   const out = {};
@@ -164,7 +174,7 @@ export default async function handler(request) {
     const record = { name: cleanText(body.name, 32) || "guest", owner: sid, sim: cleanSim(body.sim), lot: cleanLot(body.lot), updatedAt: now };
     const glb = typeof body.glb === "string" && body.glb.length <= MAX_GLB_CHARS && /^[A-Za-z0-9+/=]+$/.test(body.glb) ? body.glb : null;
     if (glb) record.glb = glb;
-    if (JSON.stringify(record).length > MAX_LOT_BYTES + MAX_GLB_CHARS) return noStore({ ok: false, error: "Lot too large" }, 413);
+    if (JSON.stringify(record).length > MAX_LOT_BYTES + MAX_GLB_CHARS + 120100) return noStore({ ok: false, error: "Lot too large" }, 413);
     const idx = await readJSON(store, "sid-index", {});
     const nextIdx = {};
     for (const [s, v] of Object.entries(idx)) if (v && now - v.ts < SID_TTL_MS && v.lot !== lot) nextIdx[s] = v;
@@ -188,7 +198,7 @@ export default async function handler(request) {
     }
     if (say && now - say.ts > 8000) say = null;
     map[sid] = {
-      name: cleanText(body.name, 32) || "guest", sim: cleanSim(body.sim),
+      name: cleanText(body.name, 32) || "guest", sim: (({ sculpt, ...rest }) => rest)(cleanSim(body.sim)), // sculpts ride on publish, not presence pings
       x: num(body.x, -1, N, 0), z: num(body.z, -1, N, 0), rot: num(body.rot, -10, 10, 0),
       pose: ["walk", "stand", "sit", "lie", "paint", "shower"].includes(body.pose) ? body.pose : "stand",
       host: body.host === true, ts: now, say,
