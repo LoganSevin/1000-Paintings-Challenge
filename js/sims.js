@@ -6,26 +6,17 @@ const SAVE_KEY = "logan7in.sims.save.v1";
 const WALL_H = 2.6, WALL_T = 0.12;
 const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-const CATALOG = {
-  bed:    { label: "Bed", price: 400, w: 1, d: 2, use: { energy: 3.2 }, dur: 30, pose: "lie" },
-  sofa:   { label: "Sofa", price: 300, w: 2, d: 1, use: { energy: 0.8, fun: 1.2 }, dur: 20, pose: "sit" },
-  chair:  { label: "Chair", price: 80, w: 1, d: 1, use: { energy: 0.6 }, dur: 10, pose: "sit" },
-  table:  { label: "Table", price: 150, w: 1, d: 1, use: { hunger: 1.2, fun: 0.4 }, dur: 12, pose: "stand" },
-  fridge: { label: "Fridge", price: 500, w: 1, d: 1, use: { hunger: 3.5 }, dur: 12, pose: "stand" },
-  stove:  { label: "Stove", price: 450, w: 1, d: 1, use: { hunger: 4.5, fun: 0.3 }, dur: 15, pose: "stand" },
-  toilet: { label: "Toilet", price: 250, w: 1, d: 1, use: { hygiene: 2.0 }, dur: 8, pose: "sit" },
-  shower: { label: "Shower", price: 600, w: 1, d: 1, use: { hygiene: 5.0 }, dur: 15, pose: "inside" },
-  tv:     { label: "TV", price: 350, w: 1, d: 1, use: { fun: 3.0 }, dur: 20, pose: "stand" },
-  lamp:   { label: "Lamp", price: 60, w: 1, d: 1, use: { fun: 0.5 }, dur: 3, pose: "stand", toggle: true },
-  plant:  { label: "Plant", price: 40, w: 1, d: 1, use: { fun: 1.0 }, dur: 6, pose: "stand" },
-  easel:  { label: "Easel", price: 200, w: 1, d: 1, use: { fun: 4.0, energy: -0.3 }, dur: 25, pose: "stand" },
-};
+// Built-in furniture is procedural (js/sims-gen.js): types look like "gen:sofa:12345" and old
+// saves' plain types ("bed", "lamp", ...) map onto seed 0 of a category. CATALOG only holds imported .glb items.
+const CATALOG = {};
+let G = null, World = null, world = null;
+function catInfo(type) { return CATALOG[type] || (G && G.genInfo(type)) || null; }
 const NEEDS = ["hunger", "energy", "fun", "hygiene"];
 const DECAY = { hunger: 7, energy: 4.5, fun: 6, hygiene: 3.5 }; // points per game hour
 const SKINS = ["#f6d3b3", "#e8b48f", "#c98c62", "#a0673f", "#7a4a2a", "#4e2f1c"];
 const HAIRS = ["#1b1410", "#4a2e1a", "#8a5a2b", "#d8b468", "#b33a2a", "#cfcfcf", "#3a5fcd"];
-const FLOOR_COLORS = ["#8a6a4a", "#b89970", "#5d4a3a", "#cfc6b8", "#3e4a52", "#6f2f2a", "#2f4a3a"];
-const WALL_COLORS = ["#e8e0d2", "#c9a227", "#7d8a96", "#a8574a", "#3c4a3e", "#2b2724", "#d7c3a1"];
+const FLOOR_COLORS = ["#8a6a4a", "#b89970", "#5d4a3a", "#cfc6b8", "#3e4a52", "#6f2f2a", "#2f4a3a", "#e8e4dc", "#7aa6b8", "#c47a5a"];
+const WALL_COLORS = ["#e8e0d2", "#c9a227", "#7d8a96", "#a8574a", "#3c4a3e", "#2b2724", "#d7c3a1", "#9ab0c8", "#d08aa0", "#f5f2ea"];
 
 let THREE, OrbitControls, GLTFExporter, GLTFLoader;
 let started = false, visible = false, ready = false;
@@ -39,20 +30,21 @@ let S = null; // save state
 let undoStack = [];
 let mode = "build", tool = "wall";
 let floorColor = FLOOR_COLORS[1], wallColor = WALL_COLORS[0];
+let floorKind = "wood", floorSeed = 7, wallKind = "paint", wallSeed = 1;
+const floorValue = () => floorKind + ":" + floorSeed + ":" + floorColor;
+const wallPattern = () => (wallKind === "paint" ? undefined : wallKind + ":" + wallSeed);
 let buyItem = null, carry = null, buyRot = 0;
 let selectedSimId = null;
 let speed = 1, wallsMode = "up";
 const runtime = new Map(); // simId -> {model, path, task, ...}
 const objMeshes = new Map();
 
-function defaultSim(name, i) {
-  return {
-    id: "s" + Date.now().toString(36) + i, name,
-    skin: SKINS[i % SKINS.length], hair: HAIRS[i % HAIRS.length], hairStyle: i % 2 ? "long" : "short",
-    top: ["#c9a227", "#3a6ea5", "#8b3a3a", "#2f6b4f"][i % 4], bottom: ["#2b2724", "#3b3f6b", "#5a4632"][i % 3],
-    height: 1, build: 1, x: 10 + i, z: 12, rot: 0,
-    needs: { hunger: 80, energy: 80, fun: 70, hygiene: 85 }, glb: null,
-  };
+function defaultSim(name, i, seed) {
+  const look = G.randomSim(seed != null ? seed : G.hashStr("starter:" + name + ":" + i));
+  return Object.assign(look, {
+    id: "s" + Date.now().toString(36) + i + Math.floor(Math.random() * 1e4).toString(36), name,
+    x: 10 + i, z: 12, rot: 0, needs: { hunger: 80, energy: 80, fun: 70, hygiene: 85 }, glb: null,
+  });
 }
 function freshSave() {
   const s = { v: 1, N, walls: {}, floors: {}, objects: [], sims: [], minutes: 8 * 60, nextId: 1 };
@@ -62,7 +54,7 @@ function freshSave() {
   for (let z = z0; z < z1; z++) { s.walls["v:" + x0 + ":" + z] = { t: "wall", c: WALL_COLORS[0] }; s.walls["v:" + x1 + ":" + z] = { t: "wall", c: WALL_COLORS[0] }; }
   s.walls["h:12:" + z1].t = "door";
   s.walls["h:10:" + z0].t = "window"; s.walls["h:14:" + z0].t = "window";
-  for (let x = x0; x < x1; x++) for (let z = z0; z < z1; z++) s.floors[x + "," + z] = FLOOR_COLORS[1];
+  for (let x = x0; x < x1; x++) for (let z = z0; z < z1; z++) s.floors[x + "," + z] = (z < 11 ? "wood:7:#b89970" : "tile:3:#cfc6b8");
   const add = (type, x, z, rot) => s.objects.push({ id: "o" + s.nextId++, type, x, z, rot: rot || 0 });
   add("bed", 8, 8, 0); add("fridge", 15, 8, 0); add("stove", 14, 8, 0); add("sofa", 10, 12, 2);
   add("tv", 10, 9, 0); add("easel", 13, 12, 0); add("plant", 8, 13, 0); add("shower", 15, 13, 3); add("toilet", 15, 12, 3);
@@ -100,7 +92,7 @@ function setStatus(t) { const el = $("sims-status"); if (el) el.textContent = t;
 const tileCenter = (x, z) => new THREE.Vector3(x + 0.5 - N / 2, 0, z + 0.5 - N / 2);
 const inLot = (x, z) => x >= 0 && z >= 0 && x < N && z < N;
 function footprint(o) {
-  const c = CATALOG[o.type] || { w: 1, d: 1 };
+  const c = catInfo(o.type) || { w: 1, d: 1 };
   const W = o.rot % 2 ? c.d : c.w, D = o.rot % 2 ? c.w : c.d;
   return { W, D };
 }
@@ -188,7 +180,11 @@ const box = (w, h, d) => new THREE.BoxGeometry(w, h, d);
 const cyl = (rt, rb, h, s) => new THREE.CylinderGeometry(rt, rb, h, s || 12);
 
 function buildFurniture(type) {
-  const g = new THREE.Group(); g.name = CATALOG[type] ? CATALOG[type].label : type;
+  const gen = G && G.buildGen(type); if (gen) return gen;
+  return buildFurnitureLegacy(type);
+}
+function buildFurnitureLegacy(type) {
+  const g = new THREE.Group(); g.name = catInfo(type) ? catInfo(type).label : type;
   const wood = mat("#7a5232", "Wood"), dark = mat("#2b2724", "Dark"), white = mat("#e8e4dc", "Porcelain"), metal = mat("#9aa0a6", "Metal", { metalness: 0.6, roughness: 0.35 });
   switch (type) {
     case "bed":
@@ -264,7 +260,8 @@ function buildFurniture(type) {
   return g;
 }
 
-function buildSimModel(sim) {
+function buildSimModel(sim) { return G.buildSim(sim); }
+function buildSimModelLegacy(sim) {
   const root = new THREE.Group(); root.name = "Sim_" + (sim.name || "Sim").replace(/\W+/g, "_");
   const skin = mat(sim.skin, "Skin"), top = mat(sim.top, "Outfit_Top"), bottom = mat(sim.bottom, "Outfit_Bottom"), hair = mat(sim.hair, "Hair");
   const shoe = mat("#1d1a18", "Shoes"), eye = mat("#111111", "Eyes");
@@ -299,7 +296,8 @@ function buildSimModel(sim) {
   root.userData.sim = { name: sim.name, skin: sim.skin, hair: sim.hair, top: sim.top, bottom: sim.bottom, height: sim.height, build: sim.build };
   return root;
 }
-function applyBody(root, sim) {
+function applyBody(root, sim) { return G.applyBody(root, sim); }
+function applyBodyLegacy(root, sim) {
   root.scale.setScalar(sim.height || 1);
   const b = sim.build || 1;
   const sp = root.getObjectByName("Joint_Spine"); if (sp) sp.scale.set(b, 1, Math.sqrt(b));
@@ -313,7 +311,7 @@ function rebuildLot() {
   disposeChildren(floorGroup); disposeChildren(wallGroup);
   for (const k in S.floors) {
     const [x, z] = k.split(",").map(Number); const c = tileCenter(x, z);
-    const m = part("Floor_" + k, box(1, 0.04, 1), mat(S.floors[k], "Floor"), c.x, 0.02, c.z); m.castShadow = false; floorGroup.add(m);
+    const m = part("Floor_" + k, box(1, 0.04, 1), G.floorMat(S.floors[k]), c.x, 0.02, c.z); m.castShadow = false; floorGroup.add(m);
   }
   const hScale = wallsMode === "down" ? 0.12 : wallsMode === "cut" ? 0.4 : 1;
   for (const k in S.walls) {
@@ -321,7 +319,7 @@ function rebuildLot() {
     const g = new THREE.Group(); g.name = "Wall_" + k; g.userData.edge = k;
     const cx = o === "h" ? x + 0.5 - N / 2 : x - N / 2, cz = o === "h" ? z - N / 2 : z + 0.5 - N / 2;
     g.position.set(cx, 0, cz); if (o === "v") g.rotation.y = Math.PI / 2;
-    const m = mat(w.c || WALL_COLORS[0], "Wall"); const H = WALL_H * hScale;
+    const m = G.wallMat(w.c || WALL_COLORS[0], w.p); const H = WALL_H * hScale;
     const seg = (y0, y1) => { if (y1 <= y0) return; const p = part("WallPart", box(1.02, y1 - y0, WALL_T), m, 0, (y0 + y1) / 2, 0); p.userData.edge = k; g.add(p); };
     if (w.t === "wall") seg(0, H);
     else if (w.t === "door") {
@@ -342,9 +340,18 @@ function rebuildObjects() {
   for (const o of S.objects) {
     const g = o.type.startsWith("custom:") ? customObject(o) : buildFurniture(o.type);
     placeMesh(g, o); g.userData.objId = o.id; g.traverse((c) => (c.userData.objId = o.id));
-    if (o.type === "lamp") { const l = g.getObjectByName("LampLight"); if (l) l.visible = o.on !== false; }
+    const info = catInfo(o.type);
+    if (info && info.toggle) g.traverse((l) => { if (l.name === "LampLight") l.visible = o.on !== false; });
+    if (info && !info.flat) g.add(aoDecal(info.w, info.d));
     objGroup.add(g); objMeshes.set(o.id, g);
   }
+}
+// cheap ambient occlusion: a soft dark blob under each piece (never exported)
+let aoTex = null;
+function aoDecal(w, d) {
+  if (!aoTex) { const c = document.createElement("canvas"); c.width = c.height = 64; const x = c.getContext("2d"); const gr = x.createRadialGradient(32, 32, 4, 32, 32, 32); gr.addColorStop(0, "rgba(0,0,0,0.55)"); gr.addColorStop(1, "rgba(0,0,0,0)"); x.fillStyle = gr; x.fillRect(0, 0, 64, 64); aoTex = new THREE.CanvasTexture(c); }
+  const m = new THREE.Mesh(new THREE.PlaneGeometry(w * 1.15, d * 1.15), new THREE.MeshBasicMaterial({ map: aoTex, transparent: true, depthWrite: false }));
+  m.rotation.x = -Math.PI / 2; m.position.y = 0.047; m.name = "AO"; m.userData.noExport = true; m.renderOrder = 1; return m;
 }
 function placeMesh(g, o) {
   const { W, D } = footprint(o);
@@ -401,7 +408,7 @@ function commandSim(sim, target) {
       const score = dist.get(k) - (t.front ? 3 : 0);
       if (!best || score < best.score) best = { k, score };
     }
-    if (!best) { setStatus(sim.name + " can't reach the " + CATALOG[obj.type]?.label || "object"); thought(sim, "Can't get there!"); return; }
+    if (!best) { setStatus(sim.name + " can't reach the " + catInfo(obj.type)?.label || "object"); thought(sim, "Can't get there!"); return; }
     goal = best.k;
   } else {
     goal = target.x + "," + target.z;
@@ -410,7 +417,7 @@ function commandSim(sim, target) {
   rt.path = pathTo(prev, sx + "," + sz, goal) || [];
   rt.task = obj ? { objId: obj.id, t: 0 } : null;
   rt.pose = "stand";
-  thought(sim, obj ? "→ " + (CATALOG[obj.type]?.label || "object") : "Walking");
+  thought(sim, obj ? "→ " + (catInfo(obj.type)?.label || "object") : "Walking");
 }
 function endTask(sim, rt) {
   if (rt.task && rt.task.using) {
@@ -421,12 +428,12 @@ function endTask(sim, rt) {
 function thought(sim, t) { const rt = runtime.get(sim.id); if (rt) rt.thought = t; if (sim.id === selectedSimId) { const el = $("sims-thought"); if (el) el.textContent = sim.name + ": " + t; } }
 function startUse(sim, rt) {
   const o = S.objects.find((x) => x.id === rt.task.objId); if (!o) { rt.task = null; return; }
-  const c = CATALOG[o.type] || { dur: 5, use: { fun: 1 }, pose: "stand" };
+  const c = catInfo(o.type) || { dur: 5, use: { fun: 1 }, pose: "stand" };
   rt.task.using = true; rt.task.left = c.dur;
   const g = objMeshes.get(o.id);
   const ctr = g ? g.position.clone() : tileCenter(o.x, o.z);
   const [fx, fz] = FRONT[o.rot];
-  if (c.toggle) { o.on = o.on === false; const l = g && g.getObjectByName("LampLight"); if (l) l.visible = o.on !== false; save(); }
+  if (c.toggle) { o.on = o.on === false; if (g) g.traverse((l) => { if (l.name === "LampLight") l.visible = o.on !== false; }); save(); }
   if (c.pose === "sit") {
     rt.holder.position.set(ctr.x + fx * 0.05, o.type === "toilet" ? 0.0 : 0.0, ctr.z + fz * 0.05);
     rt.holder.rotation.y = Math.atan2(fx, fz); rt.pose = "sit";
@@ -435,7 +442,7 @@ function startUse(sim, rt) {
   } else if (c.pose === "inside") {
     rt.holder.position.set(ctr.x, 0.08, ctr.z); rt.holder.rotation.y = Math.atan2(fx, fz); rt.pose = "shower";
   } else {
-    const p = rt.holder.position; rt.holder.rotation.y = Math.atan2(ctr.x - p.x, ctr.z - p.z); rt.pose = o.type === "easel" ? "paint" : "stand";
+    const p = rt.holder.position; rt.holder.rotation.y = Math.atan2(ctr.x - p.x, ctr.z - p.z); rt.pose = c.pose === "paint" || o.type === "easel" ? "paint" : "stand";
   }
   thought(sim, "Using " + (c.label || "object"));
 }
@@ -456,7 +463,7 @@ function stepSims(dtReal) {
       rt.pose = "walk";
       if (!rt.path.length) { rt.pose = "stand"; if (rt.task) startUse(sim, rt); else thought(sim, "Idle"); }
     } else if (rt.task && rt.task.using) {
-      const o = S.objects.find((x) => x.id === rt.task.objId); const c = o && CATALOG[o.type];
+      const o = S.objects.find((x) => x.id === rt.task.objId); const c = o && catInfo(o.type);
       if (!c) { endTask(sim, rt); continue; }
       for (const n in c.use) sim.needs[n] = Math.min(100, Math.max(0, sim.needs[n] + c.use[n] * gameMin));
       rt.task.left -= gameMin;
@@ -472,8 +479,8 @@ function stepSims(dtReal) {
 function autonomy(sim) {
   let worst = null; for (const n of NEEDS) if (sim.needs[n] < 45 && (!worst || sim.needs[n] < sim.needs[worst])) worst = n;
   if (!worst) return;
-  const cands = S.objects.filter((o) => CATALOG[o.type] && (CATALOG[o.type].use[worst] || 0) > 0);
-  cands.sort((a, b) => CATALOG[b.type].use[worst] - CATALOG[a.type].use[worst] || (Math.abs(a.x - sim.x) + Math.abs(a.z - sim.z)) - (Math.abs(b.x - sim.x) + Math.abs(b.z - sim.z)));
+  const cands = S.objects.filter((o) => catInfo(o.type) && (catInfo(o.type).use[worst] || 0) > 0);
+  cands.sort((a, b) => catInfo(b.type).use[worst] - catInfo(a.type).use[worst] || (Math.abs(a.x - sim.x) + Math.abs(a.z - sim.z)) - (Math.abs(b.x - sim.x) + Math.abs(b.z - sim.z)));
   for (const o of cands.slice(0, 3)) { commandSim(sim, { objId: o.id }); if (runtime.get(sim.id).task) return; }
 }
 function animateSims(dt) {
@@ -504,24 +511,25 @@ async function start() {
   [THREE, { OrbitControls }, { GLTFExporter }, { GLTFLoader }] = await Promise.all([
     import("three"), import("three/addons/controls/OrbitControls.js"), import("three/addons/exporters/GLTFExporter.js"), import("three/addons/loaders/GLTFLoader.js"),
   ]);
+  [G, World] = await Promise.all([import("./sims-gen.js?v=3"), import("./sims-world.js?v=3")]);
+  quality = pickQuality(); G.setQuality({ tex: QUALITY[quality].tex, aniso: 4 });
   const wrap = $("sims-stage");
   renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-  renderer.shadowMap.enabled = window.innerWidth > 700; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   renderer.outputColorSpace = THREE.SRGBColorSpace;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05;
   renderer.domElement.id = "sims-canvas"; renderer.domElement.setAttribute("aria-label", "Sims lot");
   wrap.appendChild(renderer.domElement);
   scene = new THREE.Scene(); scene.background = new THREE.Color("#141210"); scene.fog = new THREE.Fog("#141210", 30, 60);
   camera = new THREE.PerspectiveCamera(35, 1, 0.1, 200); camera.position.set(14, 16, 18);
   controls = new OrbitControls(camera, renderer.domElement);
-  controls.target.set(0, 0, 0); controls.enableDamping = !reduceMotion; controls.maxPolarAngle = Math.PI * 0.45; controls.minDistance = 5; controls.maxDistance = 45;
+  controls.target.set(0, 0, 0); controls.enableDamping = !reduceMotion; controls.maxPolarAngle = Math.PI * 0.45; controls.minDistance = 5; controls.maxDistance = 80; controls.screenSpacePanning = false;
   controls.mouseButtons = { LEFT: THREE.MOUSE.ROTATE, MIDDLE: THREE.MOUSE.DOLLY, RIGHT: THREE.MOUSE.PAN };
   controls.touches = { ONE: THREE.TOUCH.ROTATE, TWO: THREE.TOUCH.DOLLY_PAN };
-  scene.add(new THREE.HemisphereLight("#fff6e6", "#3a3226", 0.9));
-  const sun = new THREE.DirectionalLight("#fff1d6", 1.6); sun.position.set(10, 20, 8); sun.castShadow = true;
-  sun.shadow.mapSize.set(1024, 1024); Object.assign(sun.shadow.camera, { left: -16, right: 16, top: 16, bottom: -16 }); scene.add(sun);
-  const ground = new THREE.Mesh(new THREE.PlaneGeometry(N, N), mat("#3d4a2f", "Grass")); ground.rotation.x = -Math.PI / 2; ground.receiveShadow = true; ground.name = "Ground"; scene.add(ground);
-  const outer = new THREE.Mesh(new THREE.PlaneGeometry(200, 200), new THREE.MeshBasicMaterial({ color: "#1a1816" })); outer.rotation.x = -Math.PI / 2; outer.position.y = -0.01; scene.add(outer);
+  hemi = new THREE.HemisphereLight("#cfe6ff", "#5a4a32", 0.8); scene.add(hemi);
+  sun = new THREE.DirectionalLight("#fff1d6", 2.2); sun.castShadow = true; sun.shadow.bias = -0.0004; sun.shadow.normalBias = 0.02;
+  Object.assign(sun.shadow.camera, { left: -20, right: 20, top: 20, bottom: -20, near: 1, far: 120 }); scene.add(sun, sun.target);
+  world = World.createWorld(scene, { radius: QUALITY[quality].radius, npcs: QUALITY[quality].npcs, reduceMotion });
+  applyQuality(quality);
   const grid = new THREE.GridHelper(N, N, "#c9a227", "#5a6a48"); grid.position.y = 0.045; grid.material.transparent = true; grid.material.opacity = 0.35; grid.name = "Grid";
   helperGroup = new THREE.Group(); helperGroup.add(grid); scene.add(helperGroup);
   lotGroup = new THREE.Group(); lotGroup.name = "Lot"; scene.add(lotGroup);
@@ -542,6 +550,7 @@ async function start() {
   ready = true;
   publishLot(true); consumeVisit();
   setStatus("Ready — everything runs in your browser, no credits.");
+  refreshNeighborhood(); setInterval(() => { if (visible && ready) refreshNeighborhood(); }, 30000);
   loop();
 }
 function resize() {
@@ -549,13 +558,70 @@ function resize() {
   const w = wrap.clientWidth || 300, h = wrap.clientHeight || 300;
   renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix();
 }
+// ---------------- quality presets + day cycle ----------------
+const QUALITY = {
+  low: { label: "Low", ratio: 1, shadows: false, map: 512, tex: 128, radius: 1, npcs: 3 },
+  med: { label: "Med", ratio: 1.5, shadows: true, map: 1024, tex: 256, radius: 1, npcs: 6 },
+  high: { label: "High", ratio: 2, shadows: true, map: 2048, tex: 512, radius: 2, npcs: 12 },
+};
+const QUALITY_KEY = "logan7in.sims.quality.v1";
+let quality = "med", qualityPref = "auto", hemi = null, sun = null;
+const isPhone = () => window.innerWidth <= 700 || (window.matchMedia && window.matchMedia("(pointer: coarse)").matches && Math.min(screen.width, screen.height) < 820);
+function pickQuality() {
+  try { qualityPref = localStorage.getItem(QUALITY_KEY) || "auto"; } catch (e) {}
+  if (QUALITY[qualityPref]) return qualityPref;
+  return isPhone() ? "low" : "med";
+}
+function applyQuality(q) {
+  quality = q; const Q = QUALITY[q];
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, Q.ratio));
+  const had = renderer.shadowMap.enabled;
+  renderer.shadowMap.enabled = Q.shadows; renderer.shadowMap.type = q === "high" ? THREE.PCFSoftShadowMap : THREE.PCFShadowMap;
+  if (sun) { sun.castShadow = Q.shadows; if (sun.shadow.mapSize.x !== Q.map) { sun.shadow.mapSize.set(Q.map, Q.map); if (sun.shadow.map) { sun.shadow.map.dispose(); sun.shadow.map = null; } } }
+  if (had !== Q.shadows && scene) scene.traverse((o) => { if (o.material) [].concat(o.material).forEach((m) => (m.needsUpdate = true)); });
+  if (world) { world.setRadius(Q.radius); world.setNpcs(Q.npcs); }
+  scene.fog = new THREE.Fog(scene.background || "#9ec9ea", 30, (Q.radius + 0.6) * 36);
+  const sel = $("sims-quality"); if (sel) sel.value = qualityPref;
+  resize();
+}
+const perf = { frames: 0, t: 0, fps: 0, low: 0, history: [] };
+function perfTick(dt) {
+  perf.frames++; perf.t += dt;
+  if (perf.t < 1) return;
+  perf.fps = perf.frames / perf.t; perf.frames = 0; perf.t = 0; perf.history.push(Math.round(perf.fps)); if (perf.history.length > 60) perf.history.shift();
+  const el = $("sims-fps"); if (el) el.textContent = Math.round(perf.fps) + " fps · " + QUALITY[quality].label;
+  // Auto: step down when the frame rate stays low for 4 seconds
+  if (qualityPref === "auto" && document.visibilityState === "visible") {
+    perf.low = perf.fps < 28 ? perf.low + 1 : 0;
+    if (perf.low >= 4 && quality !== "low") { perf.low = 0; applyQuality(quality === "high" ? "med" : "low"); setStatus("Graphics lowered to " + QUALITY[quality].label + " to keep things smooth."); }
+  }
+}
+const SKY = [[0, "#0b1222"], [5, "#1a2340"], [6.5, "#e8a070"], [8, "#9ec9ea"], [16.5, "#9ec9ea"], [18.5, "#e88a5a"], [20, "#26305a"], [24, "#0b1222"]];
+function skyAt(h) { for (let i = 1; i < SKY.length; i++) if (h <= SKY[i][0]) { const [h0, c0] = SKY[i - 1], [h1, c1] = SKY[i]; return new THREE.Color(c0).lerp(new THREE.Color(c1), (h - h0) / (h1 - h0)); } return new THREE.Color(SKY[0][1]); }
+function dayCycle() {
+  const h = ((S.minutes / 60) % 24 + 24) % 24, a = (h - 6) / 12 * Math.PI, elev = Math.sin(a);
+  const day = Math.max(0, Math.min(1, elev * 2.5 + 0.15));
+  const tgt = controls.target;
+  sun.position.set(tgt.x + Math.cos(a) * -30, Math.max(6, elev * 34 + 4), tgt.z + 14);
+  sun.target.position.copy(tgt);
+  sun.intensity = 0.25 + day * 2.1; sun.color.set(elev < 0.25 ? "#ffb070" : "#fff1d6"); if (elev < 0) sun.color.set("#8aa0d8");
+  hemi.intensity = 0.35 + day * 0.6; hemi.color.set(day > 0.3 ? "#cfe6ff" : "#5a6a9a");
+  const sky = skyAt(h); scene.background = sky; if (scene.fog) scene.fog.color.copy(sky);
+  World.WINDOW_GLOW.emissiveIntensity = day < 0.35 ? 1.4 : 0.05;
+  renderer.toneMappingExposure = 0.9 + day * 0.2;
+}
+// ---------------- neighborhood ----------------
+async function refreshNeighborhood() {
+  try { const d = await api("GET", null, { op: "list" }); if (d.ok && Array.isArray(d.lots)) world.setShared(d.lots, online.lotId); } catch (e) {}
+}
 let lastSave = 0;
 function loop() {
   rafId = 0; if (!visible || !ready) return;
   const dt = Math.min(0.1, clockObj.getDelta());
   if (mode === "live") stepSims(dt); else animateSims(0);
   stepRemotes(dt); netTick();
-  controls.update(); renderer.render(scene, camera); updateBubbles();
+  controls.update(); dayCycle(); world.update(controls.target, dt); thumbTick();
+  renderer.render(scene, camera); updateBubbles(); perfTick(dt);
   if (mode === "live" && !online.visiting && performance.now() - lastSave > 5000) { lastSave = performance.now(); save(); renderNeeds(); }
   else if (mode === "live") renderNeedsLight();
   rafId = requestAnimationFrame(loop);
@@ -651,13 +717,13 @@ function onUp(ev) {
   const d = drag; drag = null; if (!d) return;
   if (d.kind === "wall") {
     clearGhost(); const edges = wallLineEdges(d.a, d.b);
-    if (edges.length) { snapshot(); for (const k of edges) if (!S.walls[k]) S.walls[k] = { t: "wall", c: wallColor }; rebuildLot(); save(); setStatus(edges.length + " wall segment(s)"); }
+    if (edges.length) { snapshot(); for (const k of edges) if (!S.walls[k]) { S.walls[k] = { t: "wall", c: wallColor }; if (wallPattern()) S.walls[k].p = wallPattern(); } rebuildLot(); save(); setStatus(edges.length + " wall segment(s)"); }
     return;
   }
   if (d.kind === "floor") {
     clearGhost(); snapshot();
     const x0 = Math.min(d.a[0], d.b[0]), x1 = Math.max(d.a[0], d.b[0]), z0 = Math.min(d.a[1], d.b[1]), z1 = Math.max(d.a[1], d.b[1]);
-    for (let x = x0; x <= x1; x++) for (let z = z0; z <= z1; z++) if (inLot(x, z)) S.floors[x + "," + z] = floorColor;
+    for (let x = x0; x <= x1; x++) for (let z = z0; z <= z1; z++) if (inLot(x, z)) S.floors[x + "," + z] = floorValue();
     rebuildLot(); save(); return;
   }
   if (d.kind === "paint") { if (!d.painted.size) undoStack.pop(); save(); return; }
@@ -665,7 +731,7 @@ function onUp(ev) {
 }
 function paintAt(ev, d) {
   const k = edgeAt(ev); if (!k || !S.walls[k] || d.painted.has(k)) return;
-  d.painted.add(k); S.walls[k].c = wallColor; rebuildLot();
+  d.painted.add(k); S.walls[k].c = wallColor; if (wallPattern()) S.walls[k].p = wallPattern(); else delete S.walls[k].p; rebuildLot();
 }
 function hover(ev) {
   if (mode === "buy" && (buyItem || carry)) {
@@ -677,6 +743,10 @@ function hover(ev) {
   }
 }
 function tap(ev) {
+  if (world && world.signs.length && !(mode === "buy" && (buyItem || carry))) {
+    const sh = pick(ev, world.signs); const sid = sh && world.lotOfSign(sh);
+    if (sid) { if (sid === mySid()) { setStatus("That's your own lot."); return; } setStatus("Walking over to visit…"); enterVisit(sid); return; }
+  }
   if (mode === "build") {
     if (tool === "door" || tool === "window") {
       const k = edgeAt(ev); if (!k) return; snapshot();
@@ -699,11 +769,11 @@ function tap(ev) {
       if (!canPlace(o, carry && carry.id)) { setStatus("Can't place there"); return; }
       snapshot();
       if (carry) { const i = S.objects.findIndex((q) => q.id === carry.id); if (i >= 0) S.objects[i] = o; else S.objects.push(o); carry = null; setStatus("Moved"); }
-      else { S.objects.push(o); setStatus("Placed " + (CATALOG[o.type] ? CATALOG[o.type].label : "item")); }
+      else { S.objects.push(o); setStatus("Placed " + (catInfo(o.type) ? catInfo(o.type).label : "item")); }
       clearGhost(); rebuildObjects(); save(); renderBuy(); return;
     }
     const hit = pick(ev, [objGroup]);
-    if (hit && hit.userData.objId) { const o = S.objects.find((q) => q.id === hit.userData.objId); if (o) { carry = Object.assign({}, o); buyRot = o.rot; setStatus("Carrying " + (CATALOG[o.type]?.label || "item") + " — tap a tile to drop, Rotate to turn, Sell to delete"); renderBuy(); showObjGhost(carry); } }
+    if (hit && hit.userData.objId) { const o = S.objects.find((q) => q.id === hit.userData.objId); if (o) { carry = Object.assign({}, o); buyRot = o.rot; setStatus("Carrying " + (catInfo(o.type)?.label || "item") + " — tap a tile to drop, Rotate to turn, Sell to delete"); renderBuy(); showObjGhost(carry); } }
     return;
   }
   if (mode === "live" || mode === "cas") {
@@ -738,20 +808,87 @@ function swatches(el, colors, current, onPick) {
 function renderBuildColors() {
   swatches($("sims-floor-colors"), FLOOR_COLORS, floorColor, (c) => { floorColor = c; renderBuildColors(); setTool("floor"); });
   swatches($("sims-wall-colors"), WALL_COLORS, wallColor, (c) => { wallColor = c; renderBuildColors(); setTool("paint"); });
+  fillSelect($("sims-floor-kind"), G.FLOOR_KINDS, floorKind); fillSelect($("sims-wall-kind"), G.WALL_KINDS, wallKind);
+  // pattern previews on the swatches
+  document.querySelectorAll("#sims-floor-colors .sims-swatch").forEach((b) => { b.style.backgroundImage = "url(" + surfacePreview(floorKind, floorSeed, b.title) + ")"; b.style.backgroundSize = "cover"; });
+  if (wallKind !== "paint") document.querySelectorAll("#sims-wall-colors .sims-swatch").forEach((b) => { b.style.backgroundImage = "url(" + surfacePreview(wallKind === "wood" ? "panel" : wallKind, wallSeed, b.title) + ")"; b.style.backgroundSize = "cover"; });
+}
+const previewCache = new Map();
+function surfacePreview(kind, seed, color) {
+  const k = kind + seed + color; if (previewCache.has(k)) return previewCache.get(k);
+  const t = G.texture(kind, seed, color); const c = document.createElement("canvas"); c.width = c.height = 48; c.getContext("2d").drawImage(t.image, 0, 0, 48, 48);
+  const u = c.toDataURL("image/png"); previewCache.set(k, u); return u;
+}
+function fillSelect(el, list, cur, labels) {
+  if (!el) return; if (el.dataset.filled !== list.join()) { el.innerHTML = list.map((v) => '<option value="' + v + '">' + (labels && labels[v] || v[0].toUpperCase() + v.slice(1)) + "</option>").join(""); el.dataset.filled = list.join(); }
+  el.value = cur;
 }
 function setTool(t) {
   tool = t; clearGhost();
   document.querySelectorAll("#panel-sims [data-sims-tool]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.simsTool === t)));
   updateControlsForTool();
 }
+// ---------------- Buy: endless seeded catalog ----------------
+const FAV_KEY = "logan7in.sims.favs.v1";
+let buyRoom = "all", buyCat = "", buySeed = (Math.random() * 1e9) | 0, buyCount = 24, buyList = [];
+function favs() { try { const a = JSON.parse(localStorage.getItem(FAV_KEY) || "[]"); return Array.isArray(a) ? a.filter((t) => G.parseType(t)) : []; } catch (e) { return []; } }
+function setFavs(a) { try { localStorage.setItem(FAV_KEY, JSON.stringify(a.slice(0, 300))); } catch (e) {} }
+function catsInRoom(room) { return Object.keys(G.CATS).filter((c) => room === "all" || room === "fav" || G.CATS[c].room === room); }
+function makeBuyList() {
+  if (buyRoom === "fav") return favs();
+  const r = G.rng(buySeed ^ G.hashStr(buyRoom + "|" + buyCat)), cats = buyCat ? [buyCat] : catsInRoom(buyRoom), out = [];
+  for (let i = 0; i < buyCount; i++) out.push(G.genType(cats[Math.floor(r() * cats.length)], Math.floor(r() * 1e9) + 1));
+  return out;
+}
+function chip(el, val, label, cur, on) { const b = document.createElement("button"); b.type = "button"; b.textContent = label; b.setAttribute("aria-pressed", String(val === cur)); b.onclick = () => on(val); el.appendChild(b); }
 function renderBuy() {
-  const el = $("sims-catalog"); if (!el) return; el.innerHTML = "";
-  for (const k in CATALOG) { const c = CATALOG[k]; const b = document.createElement("button"); b.type = "button"; b.className = "sims-item"; b.setAttribute("aria-pressed", String(buyItem === k));
-    b.innerHTML = "<strong>" + c.label + "</strong><span>§" + c.price + " · " + c.w + "×" + c.d + "</span>";
-    b.onclick = () => { buyItem = buyItem === k ? null : k; carry = null; clearGhost(); renderBuy(); setStatus(buyItem ? "Tap a tile to place the " + c.label : "Tap furniture to move it"); };
-    el.appendChild(b); }
-  for (const k of customCache.keys()) if (k.startsWith("custom:")) { const b = document.createElement("button"); b.type = "button"; b.className = "sims-item"; b.setAttribute("aria-pressed", String(buyItem === k)); b.innerHTML = "<strong>" + k.slice(7) + "</strong><span>imported .glb</span>"; b.onclick = () => { buyItem = buyItem === k ? null : k; renderBuy(); }; el.appendChild(b); }
+  const el = $("sims-catalog"); if (!el) return;
+  const rooms = $("sims-rooms"), cats = $("sims-cats");
+  if (rooms) { rooms.innerHTML = ""; chip(rooms, "all", "All", buyRoom, pickRoom); chip(rooms, "fav", "\u2605 Saved", buyRoom, pickRoom); for (const k in G.ROOMS) chip(rooms, k, G.ROOMS[k], buyRoom, pickRoom); }
+  if (cats) { cats.innerHTML = ""; cats.hidden = buyRoom === "fav"; chip(cats, "", "Any", buyCat, pickCat); for (const c of catsInRoom(buyRoom)) chip(cats, c, G.CATS[c].label, buyCat, pickCat); }
+  buyList = makeBuyList(); el.innerHTML = "";
+  const F = new Set(favs());
+  const add = (type, label, sub) => {
+    const b = document.createElement("div"); b.className = "sims-item"; b.setAttribute("role", "button"); b.tabIndex = 0; b.dataset.type = type; b.setAttribute("aria-pressed", String(buyItem === type));
+    b.innerHTML = '<img alt="" src="' + (thumbs.get(type) || THUMB_BLANK) + '" data-thumb="' + type + '" /><strong>' + escapeHtml(label) + "</strong><span>" + sub + "</span>";
+    const pickIt = () => { buyItem = buyItem === type ? null : type; carry = null; clearGhost(); el.querySelectorAll(".sims-item").forEach((q) => q.setAttribute("aria-pressed", String(q.dataset.type === buyItem))); setStatus(buyItem ? "Tap a tile to place the " + label + " (seed " + (G.parseType(type) ? G.parseType(type).seed : "custom") + ")" : "Tap furniture to move it"); };
+    b.onclick = pickIt; b.onkeydown = (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); pickIt(); } };
+    if (G.parseType(type)) { const f = document.createElement("button"); f.type = "button"; f.className = "sims-fav"; f.textContent = F.has(type) ? "\u2605" : "\u2606"; f.setAttribute("aria-label", "Save " + label); f.setAttribute("aria-pressed", String(F.has(type)));
+      f.onclick = (e) => { e.stopPropagation(); const a = favs(); const i = a.indexOf(type); if (i >= 0) a.splice(i, 1); else a.unshift(type); setFavs(a); f.textContent = i >= 0 ? "\u2606" : "\u2605"; f.setAttribute("aria-pressed", String(i < 0)); if (buyRoom === "fav") renderBuy(); };
+      b.appendChild(f); }
+    el.appendChild(b); if (!thumbs.has(type)) queueThumb(type);
+  };
+  if (buyRoom === "fav" && !buyList.length) el.innerHTML = '<p class="sims-small">Tap \u2606 on any item to save it here. Saved items keep their seed, so they always look the same.</p>';
+  for (const type of buyList) { const i = G.genInfo(type); if (i) add(type, i.label, "\u00a7" + i.price + " \u00b7 " + i.w + "\u00d7" + i.d); }
+  if (buyRoom === "all") for (const k in CATALOG) if (k.startsWith("custom:")) add(k, k.slice(7), "imported .glb");
+  const more = $("sims-more"); if (more) more.hidden = buyRoom === "fav";
   const c = $("sims-carry"); if (c) c.hidden = !carry;
+}
+function pickRoom(r) { buyRoom = r; buyCat = ""; buyCount = 24; renderBuy(); }
+function pickCat(c) { buyCat = c; buyCount = 24; renderBuy(); }
+// thumbnails: rendered on a small offscreen renderer, a couple per frame
+const thumbs = new Map(), thumbQueue = [];
+const THUMB_BLANK = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+let thumbR = null, thumbScene = null, thumbCam = null;
+function queueThumb(t) { if (!thumbQueue.includes(t)) thumbQueue.push(t); }
+function thumbTick() {
+  if (!thumbQueue.length || mode !== "buy") return;
+  if (!thumbR) {
+    try { thumbR = new THREE.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: true }); } catch (e) { thumbQueue.length = 0; return; }
+    thumbR.setSize(128, 128, false); thumbR.outputColorSpace = THREE.SRGBColorSpace; thumbR.toneMapping = THREE.ACESFilmicToneMapping;
+    thumbScene = new THREE.Scene(); thumbScene.add(new THREE.HemisphereLight("#ffffff", "#6a5a4a", 1.4)); const d = new THREE.DirectionalLight("#ffffff", 2.2); d.position.set(3, 5, 4); thumbScene.add(d);
+    thumbCam = new THREE.PerspectiveCamera(30, 1, 0.05, 50);
+  }
+  for (let n = 0; n < 2 && thumbQueue.length; n++) {
+    const type = thumbQueue.shift(); if (thumbs.has(type)) continue;
+    const obj = type.startsWith("custom:") ? customObject({ type }) : buildFurniture(type); obj.traverse((c) => { if (c.isLight) c.visible = false; });
+    thumbScene.add(obj);
+    const bb = new THREE.Box3().setFromObject(obj), ctr = bb.getCenter(new THREE.Vector3()), sz = bb.getSize(new THREE.Vector3()).length() || 1;
+    thumbCam.position.set(ctr.x + sz * 0.95, ctr.y + sz * 0.75, ctr.z + sz * 1.25); thumbCam.lookAt(ctr);
+    thumbR.render(thumbScene, thumbCam); thumbScene.remove(obj);
+    const url = thumbR.domElement.toDataURL("image/png"); thumbs.set(type, url);
+    document.querySelectorAll('#sims-catalog img[data-thumb="' + CSS.escape(type) + '"]').forEach((im) => (im.src = url));
+  }
 }
 function renderSimList() {
   for (const id of ["sims-simlist", "sims-simlist-live"]) {
@@ -762,16 +899,27 @@ function renderSimList() {
 }
 function escapeHtml(s) { return String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c])); }
 function focusSim(s) { const rt = runtime.get(s.id); if (rt) controls.target.copy(rt.holder.position); }
+function setLook(sim, patch) { Object.assign(sim, patch); sim.glb = null; customCache.delete("sim:" + sim.id); spawnSim(sim); selectSim(sim.id); save(); }
 function renderCas() {
   const sim = getSim(selectedSimId); const pane = $("sims-cas-fields"); if (!pane) return;
   pane.hidden = !sim; if (!sim) return;
-  $("sims-name").value = sim.name; $("sims-height").value = sim.height; $("sims-build").value = sim.build; $("sims-hairstyle").value = sim.hairStyle || "short";
-  const upd = (k) => (c) => { sim[k] = c; sim.glb = null; customCache.delete("sim:" + sim.id); spawnSim(sim); selectSim(sim.id); save(); };
-  swatches($("sims-skin"), SKINS, sim.skin, upd("skin"));
-  swatches($("sims-hair"), HAIRS, sim.hair, upd("hair"));
-  swatches($("sims-top"), ["#c9a227", "#3a6ea5", "#8b3a3a", "#2f6b4f", "#e8e0d2", "#1d1a18", "#7b4fa0"], sim.top, upd("top"));
-  swatches($("sims-bottom"), ["#2b2724", "#3b3f6b", "#5a4632", "#8a8f96", "#6b2f3a", "#d7c3a1"], sim.bottom, upd("bottom"));
-  $("sims-glb-note").textContent = sim.glb ? "Using an imported .glb mesh (colors/sliders reset it to the built-in body)." : "Built-in segmented body with named joints (Joint_HipL, Joint_ShoulderR…).";
+  $("sims-name").value = sim.name; $("sims-height").value = sim.height; $("sims-build").value = sim.build;
+  fillSelect($("sims-hairstyle"), G.HAIR_STYLES, sim.hairStyle || "short");
+  fillSelect($("sims-outfit"), G.OUTFITS, sim.outfit || "tee");
+  fillSelect($("sims-bottomstyle"), G.BOTTOMS, sim.bottomStyle || "pants");
+  fillSelect($("sims-pattern"), G.PATTERNS, sim.pattern || "solid");
+  fillSelect($("sims-bodytype"), Object.keys(G.BODY_TYPES), sim.bodyType || "average");
+  fillSelect($("sims-brows"), G.BROWS, sim.brows || "flat");
+  fillSelect($("sims-mouth"), G.MOUTHS, sim.mouth || "smile");
+  const upd = (k) => (c) => setLook(sim, { [k]: c });
+  swatches($("sims-skin"), G.SKINS, sim.skin, upd("skin"));
+  swatches($("sims-hair"), G.HAIR_COLORS, sim.hair, upd("hair"));
+  swatches($("sims-top"), G.FABRICS.slice(0, 14), sim.top, upd("top"));
+  swatches($("sims-bottom"), ["#2b2724", "#3b3f6b", "#5a4632", "#8a8f96", "#6b2f3a", "#d7c3a1", "#46566b", "#e8e0d2", "#3c4a3e"], sim.bottom, upd("bottom"));
+  swatches($("sims-eyes"), G.EYE_COLORS, sim.eyes || "#3a2a1a", upd("eyes"));
+  const acc = $("sims-acc"); acc.innerHTML = ""; const A = new Set(sim.acc || []);
+  for (const a of G.ACCESSORIES) chip(acc, a, a, A.has(a) ? a : "", () => { const s2 = new Set(sim.acc || []); s2.has(a) ? s2.delete(a) : s2.add(a); setLook(sim, { acc: [...s2].slice(0, 6) }); });
+  $("sims-glb-note").textContent = sim.glb ? "Using an imported .glb mesh (colors/sliders reset it to the built-in body)." : "Built-in rounded body with a face and named joints (Joint_HipL, Joint_ShoulderR…).";
 }
 let lastNeedsRender = 0;
 function renderNeedsLight() { if (performance.now() - lastNeedsRender > 500) renderNeeds(); }
@@ -789,6 +937,7 @@ function download(blob, name) { const a = document.createElement("a"); a.href = 
 function exportGlb(object, name) {
   const ex = new GLTFExporter();
   const clone = object.clone(true); clone.position.set(0, 0, 0); clone.rotation.set(0, 0, 0);
+  const drop = []; clone.traverse((o) => { if (o.userData.noExport || o.name === "SelectRing") drop.push(o); }); drop.forEach((o) => o.removeFromParent());
   const tmp = new THREE.Scene(); tmp.add(clone);
   ex.parse(clone, (res) => { download(new Blob([res], { type: "model/gltf-binary" }), name); setStatus("Exported " + name + " — open in Blender: File › Import › glTF 2.0"); },
     (err) => setStatus("Export failed: " + (err && err.message)), { binary: true, onlyVisible: true });
@@ -835,8 +984,22 @@ function bindUI() {
   $("sims-name").oninput = (e) => { const s = getSim(selectedSimId); if (!s) return; s.name = e.target.value.slice(0, 24) || "Sim"; renderSimList(); save(); };
   $("sims-name").onchange = () => { const s = getSim(selectedSimId); if (s && !s.glb) { spawnSim(s); selectSim(s.id); } };
   for (const k of ["height", "build"]) $("sims-" + k).oninput = (e) => { const s = getSim(selectedSimId); if (!s) return; s[k] = +e.target.value; const rt = runtime.get(s.id); if (rt && rt.model) applyBody(rt.model, s); save(); };
-  $("sims-hairstyle").onchange = (e) => { const s = getSim(selectedSimId); if (!s) return; s.hairStyle = e.target.value; s.glb = null; customCache.delete("sim:" + s.id); spawnSim(s); selectSim(s.id); save(); };
-  $("sims-new").onclick = () => { const s = defaultSim("Sim " + (S.sims.length + 1), S.sims.length); const occ = occupancy(); for (let t = 0; t < N * N; t++) { const x = (11 + t) % N, z = (11 + Math.floor(t / N)) % N; if (!occ.has(x + "," + z)) { s.x = x; s.z = z; break; } } S.sims.push(s); spawnSim(s); selectSim(s.id); save(); };
+  for (const [id, key] of [["sims-hairstyle", "hairStyle"], ["sims-outfit", "outfit"], ["sims-bottomstyle", "bottomStyle"], ["sims-pattern", "pattern"], ["sims-brows", "brows"], ["sims-mouth", "mouth"]])
+    $(id).onchange = (e) => { const s = getSim(selectedSimId); if (s) setLook(s, { [key]: e.target.value }); };
+  $("sims-bodytype").onchange = (e) => { const s = getSim(selectedSimId); if (!s) return; const [b, h] = G.BODY_TYPES[e.target.value] || [1, 1]; setLook(s, { bodyType: e.target.value, build: b, height: h }); };
+  $("sims-randomize").onclick = () => { const s = getSim(selectedSimId); if (!s) return; const r = G.randomSim(G.randSeed()); delete r.name; delete r.id; setLook(s, r); setStatus("Rerolled " + s.name); };
+  $("sims-randomize-look").onclick = () => { const s = getSim(selectedSimId); if (!s) return; const r = G.randomSim(G.randSeed()); setLook(s, { top: r.top, bottom: r.bottom, outfit: r.outfit, bottomStyle: r.bottomStyle, pattern: r.pattern, pat2: r.pat2, shoes: r.shoes, acc: r.acc, accColor: r.accColor, hairStyle: r.hairStyle }); };
+  $("sims-shuffle").onclick = () => { buySeed = G.randSeed(); buyCount = 24; if (buyRoom === "fav") buyRoom = "all"; renderBuy(); $("sims-catalog").scrollTop = 0; };
+  $("sims-more").onclick = () => { buyCount += 24; const el = $("sims-catalog"), top = el.scrollTop; renderBuy(); el.scrollTop = top; };
+  $("sims-catalog").addEventListener("scroll", (e) => { const el = e.target; if (buyRoom !== "fav" && el.scrollTop + el.clientHeight > el.scrollHeight - 40 && buyCount < 600) { buyCount += 24; const top = el.scrollTop; renderBuy(); el.scrollTop = top; } }, { passive: true });
+  $("sims-seed-go").onclick = () => { const v = $("sims-seed").value.trim(); const m = /^(?:gen:)?([a-z]+)?:?(\d{1,10})$/.exec(v); if (!m) { setStatus("Seed: a number, or category:number (e.g. sofa:42)"); return; } const cat = m[1] && G.CATS[m[1]] ? m[1] : buyCat || "sofa"; const t = G.genType(cat, +m[2]); buyItem = t; carry = null; renderBuy(); setStatus("Tap a tile to place " + G.genInfo(t).label + " (" + t.slice(4) + ")"); };
+  $("sims-floor-kind").onchange = (e) => { floorKind = e.target.value; renderBuildColors(); setTool("floor"); };
+  $("sims-wall-kind").onchange = (e) => { wallKind = e.target.value; renderBuildColors(); setTool("paint"); };
+  $("sims-floor-seed").onclick = () => { floorSeed = (Math.random() * 1e6) | 0; renderBuildColors(); setTool("floor"); setStatus("New floor pattern #" + floorSeed + " — drag to lay it"); };
+  $("sims-wall-seed").onclick = () => { wallSeed = (Math.random() * 1e6) | 0; if (wallKind === "paint") wallKind = "wallpaper"; renderBuildColors(); setTool("paint"); setStatus("New wall finish #" + wallSeed + " — drag across walls"); };
+  $("sims-recenter").onclick = () => { controls.target.set(0, 0, 0); camera.position.set(14, 16, 18); controls.update(); };
+  $("sims-quality").onchange = (e) => window.SimsTab.setQuality(e.target.value);
+  $("sims-new").onclick = () => { const s = defaultSim("Sim", S.sims.length, G.randSeed()); s.name = G.randomSim(G.randSeed()).name; const occ = occupancy(); for (let t = 0; t < N * N; t++) { const x = (11 + t) % N, z = (11 + Math.floor(t / N)) % N; if (!occ.has(x + "," + z)) { s.x = x; s.z = z; break; } } S.sims.push(s); spawnSim(s); selectSim(s.id); save(); };
   $("sims-delete-sim").onclick = () => { const s = getSim(selectedSimId); if (!s || S.sims.length <= 1) { setStatus("Keep at least one sim"); return; } const rt = runtime.get(s.id); if (rt) simGroup.remove(rt.holder); runtime.delete(s.id); S.sims = S.sims.filter((q) => q !== s); selectSim(S.sims[0].id); save(); };
   $("sims-export-sim").onclick = () => { const s = getSim(selectedSimId); const rt = s && runtime.get(s.id); if (rt) exportGlb(rt.model, (s.name || "sim").replace(/\W+/g, "_") + ".glb"); };
   $("sims-export-lot").onclick = () => exportGlb(lotGroup, "lot.glb");
@@ -865,6 +1028,9 @@ function hide() { netLeave(); visible = false; if (rafId) cancelAnimationFrame(r
 window.addEventListener("sims-show", show);
 window.addEventListener("sims-hide", hide);
 window.SimsTab = { onShow: show, onHide: hide, get state() { return S; },
+  perf() { return { fps: Math.round(perf.fps), history: perf.history.slice(), quality, pref: qualityPref, draws: renderer && renderer.info.render.calls, tris: renderer && renderer.info.render.triangles, world: world && world.stats(), shared: world && world.sharedSlots() }; },
+  setQuality(q) { qualityPref = q; try { localStorage.setItem(QUALITY_KEY, q); } catch (e) {} applyQuality(QUALITY[q] ? q : pickQuality()); },
+  exportLotBlob() { return new Promise((res, rej) => { const clone = lotGroup.clone(true); const drop = []; clone.traverse((o) => { if (o.userData.noExport || o.name === "SelectRing") drop.push(o); }); drop.forEach((o) => o.removeFromParent()); new GLTFExporter().parse(clone, res, rej, { binary: true, onlyVisible: true }); }); },
   // test helper: screen position of a tile corner/center
   net() { return { lotId: currentLotId(), visiting: online.visiting && { host: online.visiting.hostSid, name: online.visiting.hostName }, remotes: [...online.remotes].map(([sid, r]) => ({ sid, name: r.name, host: r.host, x: +(r.holder.position.x + N / 2 - 0.5).toFixed(2), z: +(r.holder.position.z + N / 2 - 0.5).toFixed(2), say: r.say && r.say.text })), me: mySid() }; },
   tileToScreen(x, z) { const v = new THREE.Vector3(x - N / 2, 0, z - N / 2).project(camera); const r = renderer.domElement.getBoundingClientRect(); return { x: r.left + (v.x + 1) / 2 * r.width, y: r.top + (1 - v.y) / 2 * r.height }; } };
@@ -890,7 +1056,8 @@ function ownerKey() {
   } catch (e) { return ""; }
 }
 function sharing() { try { return localStorage.getItem(SHARE_KEY) !== "off"; } catch (e) { return true; } }
-function appearance(sim) { return sim ? { name: sim.name, skin: sim.skin, hair: sim.hair, top: sim.top, bottom: sim.bottom, hairStyle: sim.hairStyle, height: sim.height, build: sim.build } : null; }
+const LOOK_KEYS = ["name", "skin", "hair", "top", "bottom", "hairStyle", "height", "build", "outfit", "bottomStyle", "pattern", "pat2", "shoes", "eyes", "brows", "mouth", "acc", "accColor"];
+function appearance(sim) { if (!sim) return null; const o = {}; for (const k of LOOK_KEYS) if (sim[k] != null) o[k] = sim[k]; return o; }
 async function api(method, body, query) {
   const url = "/api/sims-lot" + (query ? "?" + new URLSearchParams(query) : "");
   const r = await fetch(url, method === "GET" ? { cache: "no-store" } : { method, cache: "no-store", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });

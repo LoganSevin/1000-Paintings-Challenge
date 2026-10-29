@@ -41,7 +41,7 @@
   <link rel="stylesheet" href="css/chat.css?v=1" />
   <link rel="stylesheet" href="css/vendor-chats.css?v=1" />
   <link rel="stylesheet" href="css/ragdoll.css?v=3" />
-  <link rel="stylesheet" href="css/sims.css?v=2" />
+  <link rel="stylesheet" href="css/sims.css?v=3" />
   <link rel="stylesheet" href="css/particles.css?v=5" />
   <link rel="stylesheet" href="css/live.css?v=10" />
   <link rel="stylesheet" href="css/zoo.css?v=6" />
@@ -7014,6 +7014,11 @@
               <button type="button" data-sims-walls="cut" aria-pressed="false">Cutaway</button>
               <button type="button" data-sims-walls="down" aria-pressed="false">Down</button>
             </span>
+            <span class="sims-walls" role="group" aria-label="View">
+              <button type="button" id="sims-recenter" title="Fly back to your lot">Lot</button>
+              <select id="sims-quality" aria-label="Graphics quality"><option value="auto">Auto</option><option value="low">Low</option><option value="med">Med</option><option value="high">High</option></select>
+              <span id="sims-fps" class="sims-fps" aria-live="off"></span>
+            </span>
           </div>
         </div>
         <aside class="sims-side">
@@ -7029,12 +7034,25 @@
               <button type="button" id="sims-undo">Undo</button>
             </div>
             <p class="sims-small">Wall: drag between grid corners. Floor: drag a rectangle. Paint: drag across walls. Door/Window: tap a wall. Camera: right-drag or two fingers; switch to Door/Delete to orbit with one finger.</p>
-            <label class="sims-label">Floor</label><div id="sims-floor-colors" class="sims-swatches"></div>
-            <label class="sims-label">Wall paint</label><div id="sims-wall-colors" class="sims-swatches"></div>
+            <label class="sims-label" for="sims-floor-kind">Floor</label>
+            <div class="sims-row"><select id="sims-floor-kind" class="sims-input"></select><button type="button" id="sims-floor-seed" title="New pattern variation">&#127922; New</button></div>
+            <div id="sims-floor-colors" class="sims-swatches"></div>
+            <label class="sims-label" for="sims-wall-kind">Wall finish</label>
+            <div class="sims-row"><select id="sims-wall-kind" class="sims-input"></select><button type="button" id="sims-wall-seed" title="New pattern variation">&#127922; New</button></div>
+            <div id="sims-wall-colors" class="sims-swatches"></div>
+            <p class="sims-small">Every pattern is generated from a seed, so there are endless variations. Paint a wall to apply the finish.</p>
           </div>
           <div class="sims-pane" data-pane="buy" hidden>
             <h3>Buy</h3>
+            <div id="sims-rooms" class="sims-rooms" role="group" aria-label="Rooms"></div>
+            <div id="sims-cats" class="sims-cats" role="group" aria-label="Categories"></div>
+            <div class="sims-row">
+              <button type="button" id="sims-shuffle">&#127922; Shuffle</button>
+              <input id="sims-seed" class="sims-input" inputmode="numeric" placeholder="Seed #" aria-label="Item seed" />
+              <button type="button" id="sims-seed-go">Go</button>
+            </div>
             <div id="sims-catalog" class="sims-catalog"></div>
+            <button type="button" id="sims-more" class="sims-more">More &darr;</button>
             <div class="sims-tools">
               <button type="button" id="sims-rotate">Rotate (R)</button>
               <button type="button" id="sims-sell" >Sell carried</button>
@@ -7049,12 +7067,23 @@
             <div class="sims-tools"><button type="button" id="sims-new">+ New sim</button><button type="button" id="sims-delete-sim">Delete sim</button></div>
             <div id="sims-cas-fields">
               <label class="sims-label" for="sims-name">Name</label><input id="sims-name" class="sims-input" maxlength="24" />
+              <div class="sims-tools"><button type="button" id="sims-randomize">&#127922; Randomize</button><button type="button" id="sims-randomize-look" title="Keep the name and body, reroll the look">Reroll outfit</button></div>
               <label class="sims-label">Skin</label><div id="sims-skin" class="sims-swatches"></div>
               <label class="sims-label">Hair</label><div id="sims-hair" class="sims-swatches"></div>
               <label class="sims-label" for="sims-hairstyle">Hair style</label>
-              <select id="sims-hairstyle" class="sims-input"><option value="short">Short</option><option value="long">Long</option><option value="bun">Bun</option><option value="bald">Bald</option></select>
+              <select id="sims-hairstyle" class="sims-input"></select>
               <label class="sims-label">Top</label><div id="sims-top" class="sims-swatches"></div>
               <label class="sims-label">Bottom</label><div id="sims-bottom" class="sims-swatches"></div>
+              <div class="sims-grid2">
+                <label class="sims-label" for="sims-outfit">Outfit<select id="sims-outfit" class="sims-input"></select></label>
+                <label class="sims-label" for="sims-bottomstyle">Bottoms<select id="sims-bottomstyle" class="sims-input"></select></label>
+                <label class="sims-label" for="sims-pattern">Pattern<select id="sims-pattern" class="sims-input"></select></label>
+                <label class="sims-label" for="sims-bodytype">Body<select id="sims-bodytype" class="sims-input"></select></label>
+                <label class="sims-label" for="sims-brows">Brows<select id="sims-brows" class="sims-input"></select></label>
+                <label class="sims-label" for="sims-mouth">Mouth<select id="sims-mouth" class="sims-input"></select></label>
+              </div>
+              <label class="sims-label">Eyes</label><div id="sims-eyes" class="sims-swatches"></div>
+              <label class="sims-label">Accessories</label><div id="sims-acc" class="sims-acc"></div>
               <label class="sims-label" for="sims-height">Height</label><input id="sims-height" type="range" min="0.8" max="1.2" step="0.01" />
               <label class="sims-label" for="sims-build">Build</label><input id="sims-build" type="range" min="0.75" max="1.4" step="0.01" />
               <h4>Blender</h4>
@@ -9584,7 +9613,7 @@
   <script defer src="js/demand.js?v=1"></script>
   <script defer src="js/chat.js?v=3"></script>
   <script defer src="js/vendor-chats.js?v=1"></script>
-  <script type="module" src="js/sims.js?v=2"></script>
+  <script type="module" src="js/sims.js?v=3"></script>
   <script defer src="js/ragdoll.js?v=3"></script>
   <script defer src="js/particles.js?v=10"></script>
   <script defer src="js/live.js?v=25"></script>
