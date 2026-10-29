@@ -76,6 +76,7 @@
   </script>
   <link rel="stylesheet" href="css/stasis-skin.css?v=2" />
   <link rel="stylesheet" href="css/spellforge.css?v=58" />
+  <link rel="stylesheet" href="css/tcpip.css?v=6" />
   <!-- Secondary tab CSS loads after first paint via lazy-assets.js -->
   <link rel="stylesheet" href="css/muralwalk.css?v=46" />
   <link rel="stylesheet" href="css/fleeting-idea.css?v=100" />
@@ -382,6 +383,7 @@
         <button type="button" class="tab" data-tab="diction">Diction</button>
         <button type="button" class="tab" data-tab="periodic">Periodic</button>
         <button type="button" class="tab" data-tab="math">Math</button>
+        <button type="button" class="tab" data-tab="tcpip">TCP/IP</button>
       </nav>
       <nav class="kids-tabs" id="kids-tabs" aria-label="Kids">
         <button type="button" class="tab" data-tab="kids-baby">Baby Cartoons</button>
@@ -8299,6 +8301,19 @@
     </div>
   </section>
 
+  <section id="panel-tcpip" class="panel" hidden>
+    <div class="tcpip-panel">
+      <h2>TCP/IP</h2>
+      <p>The powerlines above the tabs are a road: the network. Every little car is a packet.</p>
+      <dl>
+        <dt>Road (IP)</dt><dd>Carries packets from pole to pole. Each pole is a router hop.</dd>
+        <dt>Cars (packets)</dt><dd>Small pieces of data. They drive both ways, enter off one edge and leave off the other.</dd>
+        <dt>Two lanes (TCP)</dt><dd>One lane sends, the other lane carries the replies that say it arrived.</dd>
+      </dl>
+      <label class="tcpip-toggle"><input type="checkbox" id="tcpip-road-toggle" checked /> Show the road above the tabs</label>
+    </div>
+  </section>
+
   <section id="panel-math" class="panel" hidden>
     <div class="mx-shell">
       <header class="mx-head">
@@ -9480,7 +9495,8 @@
   <script defer src="js/site-nav.js?v=5"></script>
   <script defer src="js/kids.js?v=4"></script>
   <script defer src="js/kids-art.js?v=7"></script>
-  <script defer src="js/tabs.js?v=120"></script>
+  <script defer src="js/tcpip.js?v=12"></script>
+  <script defer src="js/tabs.js?v=121"></script>
   <script defer src="js/source-tabs.js?v=5"></script>
   <script defer src="js/studio-tab.js?v=15"></script>
   <script defer src="js/grok-tab.js?v=1"></script>
