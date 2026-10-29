@@ -983,9 +983,9 @@ function resize() {
 }
 // ---------------- quality presets + day cycle ----------------
 const QUALITY = {
-  low: { label: "Low", ratio: 1, shadows: false, map: 512, tex: 128, radius: 1, npcs: 3, grass: 1200, cars: 6, boats: 1 },
-  med: { label: "Med", ratio: 1.5, shadows: true, map: 1024, tex: 256, radius: 1, npcs: 6, grass: 4000, cars: 12, boats: 3 },
-  high: { label: "High", ratio: 2, shadows: true, map: 2048, tex: 512, radius: 2, npcs: 12, grass: 9000, cars: 24, boats: 6 },
+  low: { label: "Low", ratio: 1, shadows: false, map: 512, tex: 128, radius: 1, npcs: 3, grass: 2000, cars: 6, boats: 1 },
+  med: { label: "Med", ratio: 1.5, shadows: true, map: 1024, tex: 256, radius: 1, npcs: 6, grass: 7000, cars: 12, boats: 3 },
+  high: { label: "High", ratio: 2, shadows: true, map: 2048, tex: 512, radius: 2, npcs: 12, grass: 14000, cars: 24, boats: 6 },
 };
 const QUALITY_KEY = "logan7in.sims.quality.v1";
 let quality = "med", qualityPref = "auto", hemi = null, sun = null;
@@ -1048,6 +1048,7 @@ function frame(dt) { lastDt = dt; timeTick(dt);
   controls.update(); dayCycle(); world.setFocus(focusPoint(), camera.position); world.update(controls.target, dt); thumbTick();
   Life.farmTick(); if (performance.now() - lastLifeTick > 1000) { lastLifeTick = performance.now(); Life.pollTrades(); clockTick(); }
   const bent = warpActors(); // the neighborhood's roads are bent; draw moving sims/cars at their bent spot
+  if (scene.fog && scene.fog.isFog && controls) { const cd = camera.position.distanceTo(controls.target), fr = Math.max(110, (QUALITY[quality].radius + 0.6) * 60); scene.fog.near = 45 + cd * 0.9; scene.fog.far = fr + cd * 1.4; } // overhead views stay clear
   if (Hifi) Hifi.render(renderer, scene, camera); else renderer.render(scene, camera);
   for (const [o, p, q] of bent) { o.position.copy(p); o.quaternion.copy(q); }
   updateBubbles(); perfTick(dt);
@@ -1647,7 +1648,7 @@ window.addEventListener("sims-show", show);
 window.addEventListener("sims-hide", hide);
 window.SimsTab = { onShow: show, onHide: hide, get state() { return S; },
   perf() { return { fps: Math.round(perf.fps), history: perf.history.slice(), quality, pref: qualityPref, draws: renderer && renderer.info.render.calls, tris: renderer && renderer.info.render.triangles, world: world && world.stats(), shared: world && world.sharedSlots() }; },
-  view(x, z, d = 1) { const off = camera.position.clone().sub(controls.target).normalize().multiplyScalar(30 * d); controls.target.set(x, 0, z); camera.position.set(x, 0, z).add(off); controls.update(); },
+  view(x, z, d = 1, az, el, y = 0) { const off = camera.position.clone().sub(controls.target).normalize().multiplyScalar(30 * d); if (az != null) off.set(Math.cos(el) * Math.sin(az), Math.sin(el), Math.cos(el) * Math.cos(az)).multiplyScalar(30 * d); controls.target.set(x, y, z); camera.position.set(x, y, z).add(off); controls.update(); },
   get world() { return world; },
   setQuality(q) { qualityPref = q; try { localStorage.setItem(QUALITY_KEY, q); } catch (e) {} applyQuality(QUALITY[q] ? q : pickQuality()); },
   exportLotBlob() { return new Promise((res, rej) => { const clone = lotGroup.clone(true); const drop = []; clone.traverse((o) => { if (o.userData.noExport || o.name === "SelectRing") drop.push(o); }); drop.forEach((o) => o.removeFromParent()); new GLTFExporter().parse(clone, res, rej, { binary: true, onlyVisible: true }); }); },

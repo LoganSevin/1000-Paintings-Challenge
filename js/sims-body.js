@@ -893,9 +893,9 @@ export function shoeGroup(J, S, color) {
   // tongue, laces and heel pull tab
   const topY = (z) => ySole - 0.003 + Hs(z) + toeSpring(z);
   const tg = new THREE.Mesh(new THREE.BoxGeometry(0.034, 0.005, 0.05, 2, 1, 3), upPlain); tg.position.set(CX(0.012), 0.098, 0.012); tg.rotation.x = -0.75; grp.add(tg);
-  for (let k = 0; k < 4; k++) { const z = 0.03 + k * 0.02, slope = Math.atan2(topY(z + 0.005) - topY(z - 0.005), 0.01), wl = W(z) * 0.62;
-    for (const tw of [0.32, -0.32]) { const l = new THREE.Mesh(new THREE.BoxGeometry(wl * 2, 0.0028, 0.0042), lace); l.position.set(CX(z), topY(z) + 0.0018, z); l.rotation.set(-slope, tw, 0, "YXZ"); grp.add(l); } }
-  const tab = new THREE.Mesh(new THREE.BoxGeometry(0.018, 0.022, 0.004), upPlain); tab.position.set(CX(zH), yc(zH) - 0.002, zH + 0.006); tab.rotation.x = 0.25; grp.add(tab);
+  for (let k = 0; k < 4; k++) { const z = 0.03 + k * 0.02, slope = Math.atan2(topY(z + 0.005) - topY(z - 0.005), 0.01), wl = W(z) * 0.55;
+    for (const tw of [0.32, -0.32]) { const l = new THREE.Mesh(new THREE.BoxGeometry(wl * 2, 0.0028, 0.0042), lace); l.position.set(CX(z), topY(z) - 0.0006, z); l.rotation.set(-slope, tw, 0, "YXZ"); grp.add(l); } }
+  const tab = new THREE.Mesh(new THREE.BoxGeometry(0.016, 0.012, 0.003), upPlain); tab.position.set(CX(zH), yc(zH) - 0.004, zH + 0.003); tab.rotation.x = -0.1; grp.add(tab);
   return grp;
 }
 function mergeVerts(g) { const n = g.attributes.position.count, idx = []; for (let i = 0; i < n; i++) idx.push(i); g.setIndex(idx); return g; }
@@ -903,16 +903,16 @@ function mergeVerts(g) { const n = g.attributes.position.count, idx = []; for (l
 function sockGeometry(base, bodyMesh, J, S) {
   const g = bodyMesh.geometry, P = g.attributes.position.array, mp = g.morphAttributes.position || [], inf = bodyMesh.morphTargetInfluences || [], an = J["foot" + S], sd = S === "L" ? 1 : -1;
   const pos = (i) => { let x = P[i * 3], y = P[i * 3 + 1], z = P[i * 3 + 2]; for (let k = 0; k < mp.length; k++) if (inf[k]) { const a = mp[k].array; x += a[i * 3] * inf[k]; y += a[i * 3 + 1] * inf[k]; z += a[i * 3 + 2] * inf[k]; } return [x, y, z]; };
-  const rows = [0.06, 0.075, 0.09, 0.105, 0.12, 0.135, 0.15], NA = 28, buck = rows.map(() => []);
-  for (let i = 0; i < P.length / 3; i++) { const y = P[i * 3 + 1]; if (y > 0.17 || y < 0.04 || Math.sign(P[i * 3]) !== sd || Math.abs(P[i * 3] - an[0]) > 0.08) continue; const p = pos(i); rows.forEach((ry, r) => { if (Math.abs(p[1] - ry) < 0.009) buck[r].push(p); }); }
-  if (buck.some((b) => b.length < 8)) return null;
+  const rows = [0.08, 0.09, 0.1, 0.12, 0.14, 0.16, 0.175, 0.19], NA = 28, buck = rows.map(() => []);
+  for (let i = 0; i < P.length / 3; i++) { const y = P[i * 3 + 1]; if (y > 0.21 || y < 0.04 || Math.sign(P[i * 3]) !== sd || Math.abs(P[i * 3] - an[0]) > 0.08) continue; const p = pos(i); rows.forEach((ry, r) => { if (Math.abs(p[1] - ry) < 0.012) buck[r].push(p); }); }
+  if (buck.some((b) => b.length < 4)) return null;
   const V = [], si = [], sw = [], idx = [], shin = BI["shin" + S], foot = BI["foot" + S];
   rows.forEach((ry, r) => { const b = buck[r], cx = b.reduce((s, p) => s + p[0], 0) / b.length, cz = b.reduce((s, p) => s + p[2], 0) / b.length, rad = new Float64Array(NA);
     for (const p of b) { const a = Math.atan2(p[2] - cz, p[0] - cx), k = ((Math.round(a / (2 * Math.PI) * NA) % NA) + NA) % NA, d = Math.hypot(p[0] - cx, p[2] - cz); for (const kk of [k - 1, k, k + 1]) { const q = (kk + NA) % NA; rad[q] = Math.max(rad[q], d * (kk === k ? 1 : 0.985)); } }
     const sm = Array.from(rad, (v, k) => (rad[(k + NA - 1) % NA] + 2 * v + rad[(k + 1) % NA]) / 4), mean = sm.reduce((a, c) => a + c, 0) / NA;
-    for (let k = 0; k < NA; k++) { const a = (k / NA) * Math.PI * 2, rr = (sm[k] || mean) + 0.0032; V.push(cx + Math.cos(a) * rr, ry, cz + Math.sin(a) * rr);
-      const t = sst01(0.07, 0.13, ry); si.push(shin, foot, 0, 0); sw.push(t, 1 - t, 0, 0); } });
-  for (let r = 0; r < rows.length - 1; r++) for (let k = 0; k < NA; k++) { const a = r * NA + k, b = r * NA + (k + 1) % NA, c = a + NA, d = b + NA; idx.push(a, b, c, b, d, c); }
+    for (let k = 0; k < NA; k++) { const a = (k / NA) * Math.PI * 2, rr = (sm[k] || mean) + 0.004 + 0.0015 * (1 - sst01(0.17, 0.19, ry)); V.push(cx + Math.cos(a) * rr, ry, cz + Math.sin(a) * rr);
+      const t = sst01(0.085, 0.15, ry); si.push(shin, foot, 0, 0); sw.push(t, 1 - t, 0, 0); } });
+  for (let r = 0; r < rows.length - 1; r++) for (let k = 0; k < NA; k++) { const a = r * NA + k, b = r * NA + (k + 1) % NA, c = a + NA, d = b + NA; idx.push(a, c, b, b, c, d); }
   const out = new THREE.BufferGeometry(); out.setAttribute("position", new THREE.Float32BufferAttribute(V, 3)); out.setAttribute("skinIndex", new THREE.Uint16BufferAttribute(si, 4)); out.setAttribute("skinWeight", new THREE.Float32BufferAttribute(sw, 4)); out.setIndex(idx); out.computeVertexNormals();
   void base; return out;
 }

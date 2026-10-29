@@ -33,8 +33,8 @@ export function warpObject(o, ox = 0, oz = 0, lift = false) {
 function tessellate(geo, maxLen) {
   const P = geo.attributes.position.array, N = geo.attributes.normal.array, Uv = geo.attributes.uv.array, oP = [], oN = [], oU = [];
   const tri = (a, b, c, d) => {
-    const ax = a[0], l = (u, v) => Math.hypot(u[0] - v[0], u[2] - v[2]), lab = l(a, b), lbc = l(b, c), lca = l(c, a), m = Math.max(lab, lbc, lca);
-    if (m <= maxLen || d > 7) { for (const v of [a, b, c]) { oP.push(v[0], v[1], v[2]); oN.push(v[3], v[4], v[5]); oU.push(v[6], v[7]); } return; }
+    const ax = a[0], lx = (u, v) => Math.hypot(u[0] - v[0], u[2] - v[2]), l = (u, v) => Math.hypot(u[0] - v[0], u[1] - v[1], u[2] - v[2]), lab = l(a, b), lbc = l(b, c), lca = l(c, a), m = Math.max(lab, lbc, lca); // split the longest 3D edge so shared edges split the same way (no cracks/sawtooth when lifted)
+    if (Math.max(lx(a, b), lx(b, c), lx(c, a)) <= maxLen || d > 9) { for (const v of [a, b, c]) { oP.push(v[0], v[1], v[2]); oN.push(v[3], v[4], v[5]); oU.push(v[6], v[7]); } return; }
     const mid = (u, v) => u.map((x, k) => (x + v[k]) / 2);
     if (m === lab) { const q = mid(a, b); tri(a, q, c, d + 1); tri(q, b, c, d + 1); } else if (m === lbc) { const q = mid(b, c); tri(a, b, q, d + 1); tri(a, q, c, d + 1); } else { const q = mid(c, a); tri(a, b, q, d + 1); tri(q, b, c, d + 1); }
   };
@@ -53,7 +53,7 @@ export function warpChunk(merged, ox, oz) {
   const info = chunkInfo(Math.round(ox / CH), Math.round(oz / CH)), lift = info.river || info.canal || info.tunN || info.tunS;
   if (!warp && !lift) return;
   for (const c of [...merged.children]) {
-    if (c.isMesh && c.name.startsWith("Merged_")) { const doLift = lift && c.name !== "Merged_Ramp_Wall", g = tessellate(c.geometry, doLift ? 1.2 : 2.4); c.geometry.dispose(); c.geometry = g;
+    if (c.isMesh && c.name.startsWith("Merged_")) { const doLift = lift && c.name !== "Merged_Ramp_Wall" && c.name !== "Merged_Bridge_Arch", g = tessellate(c.geometry, doLift ? 1.2 : 2.4); c.geometry.dispose(); c.geometry = g;
       if (doLift) { const p = g.attributes.position; for (let v = 0; v < p.count; v++) p.setY(v, p.getY(v) + liftLocal(info, p.getX(v), p.getZ(v), true)); p.needsUpdate = true; g.computeVertexNormals(); }
       if (warp) warpGeometry(g, ox, oz); else { g.computeBoundingSphere(); g.computeBoundingBox(); } }
     else if (!warp) continue;
@@ -184,13 +184,17 @@ export function tunnelAt(i, j) {
 // wind with the warp; residential streets exist only where houses front them, and cross-streets are sparse, so blocks
 // merge into long irregular superblocks with T-junctions, loops and dead-end stubs instead of a 4-way grid.
 export function hOpen(i, j) { // x-running road at z = j*CH + ROAD across chunk column i
-  if (arterial(j) || tunnelAt(i, j) || riverCol(i) || (Math.abs(i) <= 1 && (j === 0 || j === -1))) return true;
-  const b = chunkInfo(i, j).biome; if (b === "house" || b === "court" || b === "home") return true; // fronts face +z
-  return H("ho" + i + ":" + j) % 100 < 22;
+  if (arterial(j) || tunnelAt(i, j) || riverCol(i) || (Math.abs(i) <= 1 && j === 0)) return true;
+  const b = chunkInfo(i, j).biome; if (b === "house" || b === "court") return H("hf" + i + ":" + j) % 100 < 82; // fronts face +z
+  return H("ho" + i + ":" + j) % 100 < 30;
 }
+// cross-streets are staggered like brickwork, so a cross street almost never continues straight through a junction:
+// most junctions are T's, and the hash leaves gaps that become loops and cul-de-sacs
 export function vOpen(i, j) { // z-running road at x = i*CH + ROAD across chunk row j
-  if (arterial(i) || canalRow(j) || ((i === 0 || i === -1) && Math.abs(j) <= 1)) return true;
-  return H("vo" + i + ":" + j) % 100 < 24;
+  if (canalRow(j)) return true;
+  if (arterial(i) && ((i / 3) & 1) === 0) return Math.abs(j) <= 1 || H("va" + i + ":" + j) % 100 < 88; // every other arterial line runs through
+  if ((((i + j) % 2) + 2) % 2) return false;
+  return H("vo" + i + ":" + j) % 100 < 78;
 }
 export function nodeArms(n, m) { return [hOpen(n + 1, m), hOpen(n, m), vOpen(n, m + 1), vOpen(n, m)]; } // +x, -x, +z, -z
 function edges(info) { if (!info.open) info.open = { E: vOpen(info.i, info.j), W: vOpen(info.i - 1, info.j), N: hOpen(info.i, info.j), S: hOpen(info.i, info.j - 1) }; return info.open; }
@@ -205,7 +209,7 @@ function bandZone(info, x, z) {
   return (ax > LOT ? xs : zs) ? "walk" : "land";
 }
 // ---- vertical profile of roads: bridges arch over water, tunnel roads ramp down below grade into the hill
-const BR_RISE = 1.6, BR_RUN = 11.5, CN_RISE = 1.0, CN_RUN = 7.5, TUN_D = 2.3;
+const BR_RISE = 2.7, BR_RUN = 12.5, CN_RISE = 1.6, CN_RUN = 8.5, TUN_D = 3.0;
 const bump = (u, run) => (Math.abs(u) < run ? Math.cos((Math.PI / 2) * u / run) ** 2 : 0);
 function tunDepth(ax) { return ax <= HILL_X + 0.6 ? TUN_D : TUN_D * (1 - sstep(HILL_X + 0.6, WALK - 0.2, ax)); }
 function liftLocal(info, x, z, core = false) {
@@ -469,6 +473,12 @@ function bridgeHalf(g, side, W, style, cx = 0) {
   addBox(g, 2 * W, 0.1, len, MAT.mud(), cx, BED_Y - 0.05, zm);
   const deckM = style === "wood" ? MAT.wood() : conc;
   addBox(g, 2 * W + 2.4, 0.62, len, deckM, cx, -0.62, zm);
+  { // arch fascia: an explicit curved ribbon (built already lifted, so the lift pass skips it) hides the deck's underside
+    const rise = W > CANAL_HW + 1 ? BR_RISE : CN_RISE, run = W > CANAL_HW + 1 ? BR_RUN : CN_RUN, fm = G.TM("concrete", 6, style === "stone" ? "#9c948a" : "#b8b2a6", null, { rough: 0.9, name: "Bridge_Arch", side: true });
+    const P = [], UV = [], NS = 40, ez2 = side * (LOT + 0.02);
+    for (let k = 0; k < NS; k++) { const u0 = -run + 2 * run * k / NS, u1 = -run + 2 * run * (k + 1) / NS, t0 = rise * bump(u0, run) + 0.06, t1 = rise * bump(u1, run) + 0.06, b0 = Math.min(-0.25, t0 - 1.0 - 0.5 * bump(u0, run)), b1 = Math.min(-0.25, t1 - 1.0 - 0.5 * bump(u1, run));
+      P.push(cx + u0, b0, ez2, cx + u1, b1, ez2, cx + u1, t1, ez2, cx + u0, b0, ez2, cx + u1, t1, ez2, cx + u0, t0, ez2); UV.push(u0 / 2, b0 / 2, u1 / 2, b1 / 2, u1 / 2, t1 / 2, u0 / 2, b0 / 2, u1 / 2, t1 / 2, u0 / 2, t0 / 2); }
+    const bg = new T.BufferGeometry(); bg.setAttribute("position", new T.Float32BufferAttribute(P, 3)); bg.setAttribute("uv", new T.Float32BufferAttribute(UV, 2)); bg.computeVertexNormals(); const fmesh = new T.Mesh(bg, fm); fmesh.receiveShadow = true; g.add(fmesh); }
   const span = 2 * W + 2.4, x0 = cx - span / 2;
   if (style === "stone") {
     const sh = new T.Shape(); sh.moveTo(-span / 2, WATER_Y - 0.35); sh.lineTo(span / 2, WATER_Y - 0.35); sh.lineTo(span / 2, 0.12); sh.lineTo(-span / 2, 0.12); sh.closePath();
@@ -482,7 +492,6 @@ function bridgeHalf(g, side, W, style, cx = 0) {
     addBox(g, span, 0.3, 0.2, MAT.wood(), cx, -0.35, ez);
   } else {
     const steel = G.M(["#3a6ea5", "#8b3a3a", "#2b2b2b", "#5a6a5a", "#c9a227"][H("st" + style + W) % 5], { metal: 0.6, rough: 0.45, name: "Bridge_Steel" });
-    addBox(g, span, 0.9, 0.25, steel, cx, -0.85, ez); // girder fascia
     for (let x = x0; x <= x0 + span + 0.01; x += 1.2) addBox(g, 0.06, 1.0, 0.06, steel, x, 0.05, ez);
     addBox(g, span, 0.07, 0.09, steel, cx, 1.0, ez); addBox(g, span, 0.05, 0.07, steel, cx, 0.55, ez);
     if (style === "truss") {
@@ -937,14 +946,15 @@ export function createWorld(scene, opts = {}) {
   const _m = new T.Matrix4(), _q = new T.Quaternion(), _p = new T.Vector3(), _s = new T.Vector3(), _c = new T.Color(), _e = new T.Euler();
   function scatterGrass(center) {
     if (!grass) return;
-    const n = detail.grass, R = n > 5000 ? 24 : n > 2000 ? 19 : 14, cell = Math.max(0.35, (2 * R) / Math.sqrt(n * 1.15));
+    const n = detail.grass, R = n > 5000 ? 24 : n > 2000 ? 19 : 14, cell = Math.max(0.3, (2 * R) / Math.sqrt(n * 1.9));
     const x0 = Math.floor((center.x - R) / cell), x1 = Math.ceil((center.x + R) / cell), z0 = Math.floor((center.z - R) / cell), z1 = Math.ceil((center.z + R) / cell);
     let k = 0;
     for (let a = x0; a <= x1 && k < n; a++) for (let b = z0; b <= z1 && k < n; b++) {
       const r1 = hash2(a, b), r2 = hash2(b + 911, a - 37), x = (a + r1) * cell, z = (b + r2) * cell;
       if ((x - center.x) ** 2 + (z - center.z) ** 2 > R * R) continue;
-      if (zoneAt(x, z) !== "land") continue;
-      const s = 0.7 + hash2(a * 3, b * 7) * 0.8; { const [wx, wz] = warpXZ(x, z); _p.set(wx, groundAt(x, z), wz); } _q.setFromEuler(_e.set(0, r1 * 6.28, 0)); _s.set(s, s * (0.8 + r2 * 0.6), s);
+      { const zn = zoneAt(x, z); if (zn !== "land" && zn !== "lot") continue; }
+      if (noise(x * 0.16 + 3, z * 0.16 - 7) * 1.25 + 0.05 < hash2(a + 77, b - 19)) continue; // clumpy, uneven cover
+      const s = 0.55 + hash2(a * 3, b * 7) * 1.0; { const [wx, wz] = warpXZ(x, z); _p.set(wx, groundAt(x, z), wz); } _q.setFromEuler(_e.set(0, r1 * 6.28, 0)); _s.set(s, s * (0.8 + r2 * 0.6), s);
       grass.setMatrixAt(k, _m.compose(_p, _q, _s)); const n2 = noise(x * 0.31 + 40, z * 0.31 - 11); { const n3 = noise(x * 0.07 - 9, z * 0.07 + 2), dry = sstep(0.3, 0.1, n3); _c.setRGB(0.8 + r1 * 0.25 + dry * 0.35, 0.85 + r2 * 0.2 + dry * 0.05, 0.75 + n2 * 0.25); }; grass.setColorAt(k, _c); k++;
     }
     grass.count = k; grassCount = k; grass.instanceMatrix.needsUpdate = true; if (grass.instanceColor) grass.instanceColor.needsUpdate = true;
