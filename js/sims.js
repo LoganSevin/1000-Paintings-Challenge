@@ -511,7 +511,7 @@ async function start() {
   [THREE, { OrbitControls }, { GLTFExporter }, { GLTFLoader }] = await Promise.all([
     import("three"), import("three/addons/controls/OrbitControls.js"), import("three/addons/exporters/GLTFExporter.js"), import("three/addons/loaders/GLTFLoader.js"),
   ]);
-  [G, World] = await Promise.all([import("./sims-gen.js?v=3"), import("./sims-world.js?v=3")]);
+  [G, World] = await Promise.all([import("./sims-gen.js?v=3"), import("./sims-world.js?v=4")]);
   quality = pickQuality(); G.setQuality({ tex: QUALITY[quality].tex, aniso: 4 });
   const wrap = $("sims-stage");
   renderer = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
@@ -528,7 +528,7 @@ async function start() {
   hemi = new THREE.HemisphereLight("#cfe6ff", "#5a4a32", 0.8); scene.add(hemi);
   sun = new THREE.DirectionalLight("#fff1d6", 2.2); sun.castShadow = true; sun.shadow.bias = -0.0004; sun.shadow.normalBias = 0.02;
   Object.assign(sun.shadow.camera, { left: -20, right: 20, top: 20, bottom: -20, near: 1, far: 120 }); scene.add(sun, sun.target);
-  world = World.createWorld(scene, { radius: QUALITY[quality].radius, npcs: QUALITY[quality].npcs, reduceMotion });
+  world = World.createWorld(scene, { radius: QUALITY[quality].radius, npcs: QUALITY[quality].npcs, grass: QUALITY[quality].grass, cars: QUALITY[quality].cars, boats: QUALITY[quality].boats, reduceMotion });
   applyQuality(quality);
   const grid = new THREE.GridHelper(N, N, "#c9a227", "#5a6a48"); grid.position.y = 0.045; grid.material.transparent = true; grid.material.opacity = 0.35; grid.name = "Grid";
   helperGroup = new THREE.Group(); helperGroup.add(grid); scene.add(helperGroup);
@@ -560,9 +560,9 @@ function resize() {
 }
 // ---------------- quality presets + day cycle ----------------
 const QUALITY = {
-  low: { label: "Low", ratio: 1, shadows: false, map: 512, tex: 128, radius: 1, npcs: 3 },
-  med: { label: "Med", ratio: 1.5, shadows: true, map: 1024, tex: 256, radius: 1, npcs: 6 },
-  high: { label: "High", ratio: 2, shadows: true, map: 2048, tex: 512, radius: 2, npcs: 12 },
+  low: { label: "Low", ratio: 1, shadows: false, map: 512, tex: 128, radius: 1, npcs: 3, grass: 1200, cars: 6, boats: 1 },
+  med: { label: "Med", ratio: 1.5, shadows: true, map: 1024, tex: 256, radius: 1, npcs: 6, grass: 4000, cars: 12, boats: 3 },
+  high: { label: "High", ratio: 2, shadows: true, map: 2048, tex: 512, radius: 2, npcs: 12, grass: 9000, cars: 24, boats: 6 },
 };
 const QUALITY_KEY = "logan7in.sims.quality.v1";
 let quality = "med", qualityPref = "auto", hemi = null, sun = null;
@@ -579,7 +579,7 @@ function applyQuality(q) {
   renderer.shadowMap.enabled = Q.shadows; renderer.shadowMap.type = q === "high" ? THREE.PCFSoftShadowMap : THREE.PCFShadowMap;
   if (sun) { sun.castShadow = Q.shadows; if (sun.shadow.mapSize.x !== Q.map) { sun.shadow.mapSize.set(Q.map, Q.map); if (sun.shadow.map) { sun.shadow.map.dispose(); sun.shadow.map = null; } } }
   if (had !== Q.shadows && scene) scene.traverse((o) => { if (o.material) [].concat(o.material).forEach((m) => (m.needsUpdate = true)); });
-  if (world) { world.setRadius(Q.radius); world.setNpcs(Q.npcs); }
+  if (world) { world.setRadius(Q.radius); world.setNpcs(Q.npcs); world.setDetail({ grass: Q.grass, cars: Q.cars, boats: Q.boats }); }
   scene.fog = new THREE.Fog(scene.background || "#9ec9ea", 30, (Q.radius + 0.6) * 36);
   const sel = $("sims-quality"); if (sel) sel.value = qualityPref;
   resize();
@@ -606,7 +606,7 @@ function dayCycle() {
   sun.target.position.copy(tgt);
   sun.intensity = 0.25 + day * 2.1; sun.color.set(elev < 0.25 ? "#ffb070" : "#fff1d6"); if (elev < 0) sun.color.set("#8aa0d8");
   hemi.intensity = 0.35 + day * 0.6; hemi.color.set(day > 0.3 ? "#cfe6ff" : "#5a6a9a");
-  const sky = skyAt(h); scene.background = sky; if (scene.fog) scene.fog.color.copy(sky);
+  const sky = skyAt(h); scene.background = sky; if (scene.fog) scene.fog.color.copy(sky); world.setSky(sky);
   World.WINDOW_GLOW.emissiveIntensity = day < 0.35 ? 1.4 : 0.05;
   renderer.toneMappingExposure = 0.9 + day * 0.2;
 }
@@ -1029,6 +1029,8 @@ window.addEventListener("sims-show", show);
 window.addEventListener("sims-hide", hide);
 window.SimsTab = { onShow: show, onHide: hide, get state() { return S; },
   perf() { return { fps: Math.round(perf.fps), history: perf.history.slice(), quality, pref: qualityPref, draws: renderer && renderer.info.render.calls, tris: renderer && renderer.info.render.triangles, world: world && world.stats(), shared: world && world.sharedSlots() }; },
+  view(x, z, d = 1) { const off = camera.position.clone().sub(controls.target).normalize().multiplyScalar(30 * d); controls.target.set(x, 0, z); camera.position.set(x, 0, z).add(off); controls.update(); },
+  get world() { return world; },
   setQuality(q) { qualityPref = q; try { localStorage.setItem(QUALITY_KEY, q); } catch (e) {} applyQuality(QUALITY[q] ? q : pickQuality()); },
   exportLotBlob() { return new Promise((res, rej) => { const clone = lotGroup.clone(true); const drop = []; clone.traverse((o) => { if (o.userData.noExport || o.name === "SelectRing") drop.push(o); }); drop.forEach((o) => o.removeFromParent()); new GLTFExporter().parse(clone, res, rej, { binary: true, onlyVisible: true }); }); },
   // test helper: screen position of a tile corner/center
