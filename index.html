@@ -41,7 +41,7 @@
   <link rel="stylesheet" href="css/chat.css?v=1" />
   <link rel="stylesheet" href="css/vendor-chats.css?v=1" />
   <link rel="stylesheet" href="css/ragdoll.css?v=3" />
-  <link rel="stylesheet" href="css/sims.css?v=1" />
+  <link rel="stylesheet" href="css/sims.css?v=2" />
   <link rel="stylesheet" href="css/particles.css?v=5" />
   <link rel="stylesheet" href="css/live.css?v=10" />
   <link rel="stylesheet" href="css/zoo.css?v=6" />
@@ -7078,6 +7078,19 @@
             <label class="sims-check"><input type="checkbox" id="sims-freewill" checked /> Free will (sims tend low needs on their own)</label>
             <div id="sims-needs" class="sims-needs"></div>
             <p id="sims-thought" class="sims-thought" aria-live="polite"></p>
+            <div class="sims-online">
+              <h4>Online</h4>
+              <p id="sims-net" class="sims-small" aria-live="polite">Connecting…</p>
+              <p id="sims-here" class="sims-small"></p>
+              <button type="button" id="sims-home" hidden>&larr; Back to my lot</button>
+              <label class="sims-check"><input type="checkbox" id="sims-share" /> Share my lot so people in Here can visit</label>
+              <label class="sims-label" for="sims-say-text">Say out loud (everyone on this lot)</label>
+              <div class="sims-row"><input id="sims-say-text" class="sims-input" maxlength="140" placeholder="Hi!" autocomplete="off" /><button type="button" id="sims-say-send">Say</button></div>
+              <label class="sims-label" for="sims-dm-to">Direct message</label>
+              <select id="sims-dm-to" class="sims-input"></select>
+              <ul id="sims-dm-thread" class="sims-dm-thread" aria-live="polite"></ul>
+              <div class="sims-row"><input id="sims-dm-text" class="sims-input" maxlength="200" placeholder="Message…" autocomplete="off" /><button type="button" id="sims-dm-send">Send</button></div>
+            </div>
           </div>
           <div class="sims-save">
             <h4>Save</h4>
@@ -9522,7 +9535,7 @@
   <script defer src="js/phone-cam.js?v=4"></script>
   <script defer src="js/tab-presence.js?v=5"></script>
   <script defer src="js/server-window.js?v=9"></script>
-  <script defer src="js/server-people.js?v=8"></script>
+  <script defer src="js/server-people.js?v=9"></script>
   <script defer src="js/time-clock.js?v=7"></script>
   <script defer src="js/gallery-shared.js?v=8"></script>
   <script defer src="js/gallery-save-video.js?v=2"></script>
@@ -9571,7 +9584,7 @@
   <script defer src="js/demand.js?v=1"></script>
   <script defer src="js/chat.js?v=3"></script>
   <script defer src="js/vendor-chats.js?v=1"></script>
-  <script type="module" src="js/sims.js?v=1"></script>
+  <script type="module" src="js/sims.js?v=2"></script>
   <script defer src="js/ragdoll.js?v=3"></script>
   <script defer src="js/particles.js?v=10"></script>
   <script defer src="js/live.js?v=25"></script>
