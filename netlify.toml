@@ -126,6 +126,12 @@
   force = true
 
 [[redirects]]
+  from = "/api/sims-lot"
+  to = "/.netlify/functions/sims-lot"
+  status = 200
+  force = true
+
+[[redirects]]
   from = "/api/presence"
   to = "/.netlify/functions/presence"
   status = 200
