@@ -5,7 +5,7 @@
 (function () {
   "use strict";
   // 3D renderer (js/houma3d.js, Sims-tab look). Resolved next to this script; loaded on first show.
-  var H3D_URL = (function () { try { return new URL("houma3d.js?v=4", document.currentScript.src).href; } catch (e) { return "js/houma3d.js?v=4"; } })();
+  var H3D_URL = (function () { try { return new URL("houma3d.js?v=5", document.currentScript.src).href; } catch (e) { return "js/houma3d.js?v=5"; } })();
   var h3dLoading = null;
   function use3d() { return !!(window.Houma3D && window.Houma3D.active()); }
 
