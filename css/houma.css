@@ -189,3 +189,4 @@ body.hm-tab-active .site-header { padding-top: 0.3rem; padding-bottom: 0.3rem; }
 .hm-gps-turn { margin-top: 5px; padding: 8px 10px; border-radius: 8px; background: rgba(10,40,60,0.92); border: 1px solid #35d0ff; font-size: 13px; }
 .hm-gps-turn small { display: block; opacity: 0.75; font-size: 11px; margin-top: 2px; }
 .hm-gps-arrow { font-size: 20px; margin-right: 6px; vertical-align: middle; color: #35d0ff; }
+.hm-speed { color: #ffd76a; font-variant-numeric: tabular-nums; min-width: 4.5em; }
