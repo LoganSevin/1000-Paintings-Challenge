@@ -5,7 +5,7 @@
 (function () {
   "use strict";
   // 3D renderer (js/houma3d.js, Sims-tab look). Resolved next to this script; loaded on first show.
-  var H3D_URL = (function () { try { return new URL("houma3d.js?v=9", document.currentScript.src).href; } catch (e) { return "js/houma3d.js?v=9"; } })();
+  var H3D_URL = (function () { try { return new URL("houma3d.js?v=11", document.currentScript.src).href; } catch (e) { return "js/houma3d.js?v=11"; } })();
   var h3dLoading = null;
   function use3d() { return !!(window.Houma3D && window.Houma3D.active()); }
 
@@ -338,7 +338,9 @@
     var throttle = 0;
     var steer = 0;
     var driven = ent === player || (player.veh && ent === player.veh);
-    if (driven) {
+    if (driven && auto && ent === player.veh) {
+      var ac = autoCtl(ent, dt); throttle = ac[0]; steer = ac[1];
+    } else if (driven) {
       if (keys.w || keys.ArrowUp) throttle = 1;
       if (keys.s || keys.ArrowDown) throttle = -0.5;
       if (keys.a || keys.ArrowLeft) steer = -1;
@@ -787,6 +789,7 @@
   function onKey(e, down) {
     var k = e.key.length === 1 ? e.key.toLowerCase() : e.key;
     keys[k] = down;
+    if (down && auto && /^(w|a|s|d|ArrowUp|ArrowDown|ArrowLeft|ArrowRight| )$/.test(k)) setAuto(false, "Manual — you took the wheel");
     if (down && (k === "f" || k === "e")) {
       tryEnter();
       e.preventDefault();
@@ -848,6 +851,7 @@
         ready = true;
         if (window.HoumaProps) window.HoumaProps.load().then(placeHomes).catch(function (e) { console.warn("parcels", e); });
         buildGraph();
+        if (!homes.length) gpsIndex(null); // streets are searchable before the parcel shards finish loading
         toast((gis ? "Greater Houma: " + gis.lots.length.toLocaleString() + " parish parcels, " : "OpenStreetMap Houma — ") + osm.buildings.length.toLocaleString() + " building footprints, " + osm.roads.length.toLocaleString() + " street segments.");
       })
       .catch(function (err) {
@@ -1111,17 +1115,75 @@
     }
     route = { pts: pts, acc: acc, turns: turns, len: acc[acc.length - 1], cost: r.len, names: names, k: 0 }; routeVer++;
   }
+  // ---- Auto-drive: pure-pursuit along the GPS polyline with a curvature/bridge/arrival speed profile
+  var auto = false, autoMsg = "", autoStuck = 0, autoRev = 0, autoArrT = 0;
+  function setAuto(on, msg) {
+    if (on && !route) { toast("Pick a 'Drive to' destination first."); on = false; }
+    if (on && !player.veh) { tryEnter(); if (!player.veh) { toast("Get in a car to use auto-drive."); on = false; } }
+    auto = on; autoMsg = msg || (on ? "Auto-drive ON" : "Auto-drive off"); autoStuck = 0; autoRev = 0;
+    if (on) toast("Auto-drive engaged. Press any steering/gas/brake key to take over.");
+    else if (msg) toast(msg);
+    autoUI();
+  }
+  function autoUI() {
+    var b = $("hm-auto"), st = $("hm-auto-st"); if (!b) return;
+    b.hidden = !route && !auto; b.textContent = auto ? "■ Stop auto-drive" : "▶ Auto-drive"; b.classList.toggle("on", auto);
+    st.hidden = !autoMsg; st.textContent = autoMsg; st.className = "hm-auto-st" + (auto ? " on" : "");
+  }
+  function onDeck(x, y) { var H3 = window.Houma3D; return !!(H3 && H3.deckY && Math.max(H3.deckY(x, y, 0), H3.deckY(x, y, 12)) > 0.5); }
+  function autoCtl(ent, dt) {
+    var v = Math.max(0, ent.v);
+    if (!route) { // arrived (or route cleared): brake to a smooth stop
+      if (v < 0.3) { ent.v = 0; if (auto && autoArrT <= 0) { auto = false; autoUI(); } return [0, 0]; }
+      return [-0.5, 0];
+    }
+    if (autoRev > 0) { autoRev -= dt; return [-0.5, 0]; } // backing off an obstacle
+    var P = route.pts, A = route.acc, k = route.k || 0, i;
+    // project onto the segment ahead of the nearest vertex for a continuous arc-length position
+    var s0 = A[k];
+    if (k < P.length - 1) { var ex = P[k + 1][0] - P[k][0], ey = P[k + 1][1] - P[k][1], L2 = ex * ex + ey * ey || 1, u = ((ent.x - P[k][0]) * ex + (ent.y - P[k][1]) * ey) / L2; if (u > 0) s0 += Math.min(1, u) * Math.sqrt(L2); }
+    function at(s) { s = Math.min(s, route.len); var j = k; while (j < P.length - 2 && A[j + 1] < s) j++; var sl = A[j + 1] - A[j] || 1, f = Math.max(0, Math.min(1, (s - A[j]) / sl)); return [P[j][0] + (P[j + 1 < P.length ? j + 1 : j][0] - P[j][0]) * f, P[j][1] + (P[j + 1 < P.length ? j + 1 : j][1] - P[j][1]) * f]; }
+    var look = 7 + v * 0.55, tg = at(s0 + look);
+    var diff = Math.atan2(tg[1] - ent.y, tg[0] - ent.x) - ent.a;
+    while (diff > Math.PI) diff -= Math.PI * 2; while (diff < -Math.PI) diff += Math.PI * 2;
+    // pure pursuit: curvature = 2 sin(alpha)/Ld, steer = needed yaw rate / available yaw rate
+    var rate = 1.8 / (1 + v / 18), need = v * 2 * Math.sin(diff) / look;
+    var steer = Math.max(-1, Math.min(1, v > 1 ? need / rate : diff * 3));
+    // speed profile: corners ahead (heading change over short windows), bridges, destination
+    var vt = 44.7, horizon = v * v / 6 + 40, BR = 3.2;
+    for (var d = 0; d < horizon; d += 8) {
+      var a1 = at(s0 + d), a2 = at(s0 + d + 12), a3 = at(s0 + d + 24);
+      var h1 = Math.atan2(a2[1] - a1[1], a2[0] - a1[0]), h2 = Math.atan2(a3[1] - a2[1], a3[0] - a2[0]), th = Math.abs(h2 - h1);
+      if (th > Math.PI) th = Math.PI * 2 - th;
+      // heading change th over ~24 m -> radius ~24/th; corner speed sqrt(a_lat * R) with a_lat ~4.5 m/s^2 (8 m/s at 90 deg, ~20 at 15 deg)
+      var vc = th < 0.03 ? 44.7 : Math.max(6.5, Math.min(44.7, Math.sqrt(4.5 * 22 / th)));
+      if (onDeck(a2[0], a2[1])) vc = Math.min(vc, 20); // ~45 mph on bridges and their ramps
+      vt = Math.min(vt, Math.sqrt(vc * vc + 2 * BR * d));
+    }
+    var dl = Math.min(route.len - s0, gpsDest ? Math.hypot(gpsDest.x - ent.x, gpsDest.y - ent.y) - 26 : 1e9);
+    vt = Math.min(vt, Math.sqrt(2 * 2.5 * Math.max(0, dl - 2)) + (dl > 4 ? 2 : 0));
+    if (Math.abs(diff) > 1.2) vt = Math.min(vt, 5);
+    // obstacle look-ahead (buildings / trees via the 3D hit test, off-road tiles): brake
+    var H3 = window.Houma3D, dist = 3 + v * 0.8;
+    if (H3 && H3.hitBldg && (ent._z || 0) < 0.9 && H3.hitBldg(ent.x + Math.cos(ent.a) * dist, ent.y + Math.sin(ent.a) * dist, 1.2)) vt = Math.min(vt, 4);
+    var thr = v < vt - 0.8 ? Math.min(1, (vt - v) / 3 + 0.3) : v > vt + 1.5 ? -0.5 : 0;
+    // stuck recovery: pinned against something while asking for gas
+    if (thr > 0 && v < 0.5) { autoStuck += dt; if (autoStuck > 1.5) { autoStuck = 0; autoRev = 1.2; } } else autoStuck = 0;
+    return [thr, steer];
+  }
   function fmtD(m) { return m < 950 ? Math.max(10, Math.round(m / 10) * 10) + " m" : (m / 1609.34).toFixed(1) + " mi"; }
   function gpsUpdate(dt) {
     var el = $("hm-gps-turn"); if (!el) return;
-    if (!route || !gpsDest) { el.hidden = true; return; }
+    autoUI();
+    if (!route || !gpsDest) { if (!auto && !/Arrived/.test(el.innerHTML)) el.hidden = true; return; }
+    if (auto && !player.veh) setAuto(false, "Auto-drive off — left the car");
     gpsT += dt;
     // progress: nearest route vertex ahead of the last one
     var best = route.k, bd = 1e9, i, P = route.pts;
     for (i = Math.max(0, route.k - 3); i < Math.min(P.length, route.k + 60); i++) { var d = Math.hypot(P[i][0] - player.x, P[i][1] - player.y); if (d < bd) { bd = d; best = i; } }
     route.k = best;
     var left = routeLeft(); // single source of truth: geometric length along the drawn route
-    if (Math.hypot(gpsDest.x - player.x, gpsDest.y - player.y) < 30 || (best >= P.length - 2 && bd < 30)) { el.hidden = false; el.innerHTML = "<b>Arrived</b> · " + esc(gpsDest.label); route = null; routeVer++; gpsDest = null; return; }
+    if (Math.hypot(gpsDest.x - player.x, gpsDest.y - player.y) < 30 || (best >= P.length - 2 && bd < 30)) { el.hidden = false; el.innerHTML = "<b>Arrived</b> · " + esc(gpsDest.label); if (auto) { autoMsg = "Arrived — auto-drive finished"; toast("Arrived at " + gpsDest.label + "."); autoArrT = 0; } route = null; routeVer++; gpsDest = null; return; }
     if (bd > 35 && gpsT > 2) { gpsT = 0; planRoute(); return; } // off route: reroute along the real streets from here
     var nt = null; for (i = 0; i < route.turns.length; i++) if (route.turns[i].i > best) { nt = route.turns[i]; break; }
     var cur = route.names[Math.min(route.names.length - 1, best)] || "";
@@ -1165,7 +1227,7 @@
   function gpsUI() {
     var stage = $("hm-stage"); if (!stage || $("hm-gps")) return;
     var box = document.createElement("div"); box.className = "hm-gps"; box.id = "hm-gps";
-    box.innerHTML = "<div class='hm-gps-row'><input id='hm-gps-q' type='search' autocomplete='off' placeholder='Drive to: street or address…' aria-label='Drive to street or address'><button type='button' id='hm-gps-x' title='Clear route'>✕</button></div><div id='hm-gps-list' class='hm-gps-list' role='listbox'></div><div id='hm-gps-turn' class='hm-gps-turn' hidden></div>";
+    box.innerHTML = "<div class='hm-gps-row'><input id='hm-gps-q' type='search' autocomplete='off' placeholder='Drive to: street or address…' aria-label='Drive to street or address'><button type='button' id='hm-gps-x' title='Clear route'>✕</button></div><div id='hm-gps-list' class='hm-gps-list' role='listbox'></div><div id='hm-gps-turn' class='hm-gps-turn' hidden></div><div class='hm-gps-row hm-auto-row'><button type='button' id='hm-auto' hidden title='Let the car drive itself along the GPS route'>▶ Auto-drive</button><span id='hm-auto-st' class='hm-auto-st' hidden></span></div>";
     stage.appendChild(box);
     var q = $("hm-gps-q"), list = $("hm-gps-list"), cur = [];
     function render() {
@@ -1179,7 +1241,8 @@
     q.addEventListener("input", render);
     q.addEventListener("keydown", function (e) { e.stopPropagation(); if (e.key === "Enter" && cur[0]) { e.preventDefault(); choose(cur[0]); } if (e.key === "Escape") { list.innerHTML = ""; q.blur(); } });
     q.addEventListener("keyup", function (e) { e.stopPropagation(); });
-    $("hm-gps-x").addEventListener("click", function () { gpsDest = null; route = null; routeVer++; q.value = ""; list.innerHTML = ""; $("hm-gps-turn").hidden = true; });
+    $("hm-auto").addEventListener("click", function () { setAuto(!auto, auto ? "Auto-drive off" : ""); this.blur(); });
+    $("hm-gps-x").addEventListener("click", function () { if (auto) setAuto(false, "Auto-drive off — route cleared"); gpsDest = null; route = null; routeVer++; q.value = ""; list.innerHTML = ""; $("hm-gps-turn").hidden = true; });
   }
   function drawRouteMini(mx, my, mw, mh, x0, y0, span) {
     if (!route) return;
@@ -1200,8 +1263,8 @@
       camMode: function () { return camMode; },
       ready: function () { return ready && !!player; },
       homesReady: function () { return homes.length; },
-      route: function () { return route; }, routeVer: function () { return routeVer; }, gpsTo: function (label) { var t = normSt(label), it = null; gpsIdx.streets.forEach(function (s) { if (!it && s.key === t) it = s; }); if (!it) gpsIdx.addrs.forEach(function (a) { if (!it && normSt(a.label) === t) it = a; }); if (it) gpsPick(it); return !!route; },
+      route: function () { return route; }, auto: function () { return { on: auto, msg: autoMsg }; }, setAuto: function (on) { setAuto(on); return auto; }, routeVer: function () { return routeVer; }, gpsTo: function (label) { var t = normSt(label), it = null; gpsIdx.streets.forEach(function (s) { if (!it && s.key === t) it = s; }); if (!it) gpsIdx.addrs.forEach(function (a) { if (!it && normSt(a.label) === t) it = a; }); if (it) gpsPick(it); return !!route; },
     };
   }
-  window.Houma = { onShow: start, onHide: stop, goTo: goTo, setKey: function (k, d) { keys[k] = !!d; }, step: function (dt) { update(dt); }, homesReady: function () { return homes.length; }, state: state };
+  window.Houma = { onShow: start, onHide: stop, goTo: goTo, setKey: function (k, d) { keys[k] = !!d; }, step: function (dt) { update(dt); }, sim: function (dt) { update(dt); gpsUpdate(dt); }, homesReady: function () { return homes.length; }, state: state };
 })();

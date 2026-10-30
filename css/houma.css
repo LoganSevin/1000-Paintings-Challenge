@@ -190,3 +190,9 @@ body.hm-tab-active .site-header { padding-top: 0.3rem; padding-bottom: 0.3rem; }
 .hm-gps-turn small { display: block; opacity: 0.75; font-size: 11px; margin-top: 2px; }
 .hm-gps-arrow { font-size: 20px; margin-right: 6px; vertical-align: middle; color: #35d0ff; }
 .hm-speed { color: #ffd76a; font-variant-numeric: tabular-nums; min-width: 4.5em; }
+
+.hm-auto-row { margin-top: 5px; align-items: center; }
+.hm-auto-row #hm-auto { padding: 6px 10px; font-weight: 600; color: #bff0ff; border-color: #35d0ff; }
+.hm-auto-row #hm-auto.on { background: #0f5d7a; color: #fff; }
+.hm-auto-st { font-size: 11px; opacity: 0.85; }
+.hm-auto-st.on { color: #7dff9a; opacity: 1; }

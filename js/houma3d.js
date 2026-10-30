@@ -63,8 +63,8 @@ const ROLE = (name) => (name.startsWith("H_Wall") ? "wall" : name.startsWith("H_
 const PAL = {
   wall: ["#f4efe6", "#e8dcc6", "#dfe6ea", "#cfdcc8", "#f1e2c6", "#d9c7b4", "#c8d3dc", "#efe7d8", "#e6d2c0", "#bcc9b8", "#f6f1e1", "#d6b9a3", "#e9d0b8", "#b9c4cf"],
   brick: ["#ffffff", "#f6e8e0", "#e9d8d0", "#fff2e6", "#d9c6bc", "#f0f0f0", "#e4c8b4"],
-  roof: ["#4a4a4c", "#5a4a3e", "#3e4a56", "#6a4a3a", "#5e6266", "#3a3a3a", "#7a5a44", "#47524a", "#55575c"],
-  tin: ["#a3abb0", "#8a4a3a", "#4f6f60", "#b8bcc0", "#5f6f80", "#9a9a92"],
+  roof: ["#6a6a6c", "#7a6a5e", "#5e6a76", "#7e5a48", "#7e8286", "#58585a", "#8a6a54", "#67726a", "#75777c"],
+  tin: ["#c9cdd0", "#b8bcc0", "#dfe2e3", "#a3abb0", "#8a4a3a", "#4f7fa8", "#9a9a92", "#a8463a", "#d4d0c4"],
   biz: ["#ece6da", "#d8d2c6", "#c9d2d8", "#e8dcc4", "#d6c2a8", "#bfc6c0", "#efefe9", "#cdb79e"],
   awn: ["#b33a2a", "#2f6b4f", "#3a6ea5", "#c9a227", "#7b4fa0", "#e07a2a", "#a32a4a", "#2a8a8a"],
 };
@@ -257,6 +257,32 @@ function buildGround() {
   const tex = X.tex("lawn", 7, { color: "#c9d6b0", rep: [gw / 7, gh / 7] });
   const m = new T.Mesh(geo, new T.MeshStandardMaterial({ map: tex, vertexColors: true, roughness: 0.96, name: "H_Ground" })); m.receiveShadow = true; m.name = "Ground"; scene.add(m);
 }
+// ---------------------------------------------------------------- aerial ground drape
+// USDA NAIP orthoimagery (public domain, USGS National Map image service) draped over the ground near the player, so the real
+// lawns, driveways, gravel, ditches, tree lines and bayou banks show where the parish/OSM vectors have no data. 900 m tile at ~0.9 m/px,
+// refetched when the player moves ~250 m; edges fade into the procedural ground. Opt out with localStorage hm-naip = "0".
+const NAIP = { mesh: null, cx: 1e9, cy: 1e9, busy: false, fail: 0, R: 900, PX: 1024 };
+const NAIP_URL = "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage";
+function naipOn() { try { return localStorage.getItem("hm-naip") !== "0"; } catch (e) { return true; } }
+function naipPump(px, py) {
+  if (NAIP.busy || NAIP.fail > 3 || !naipOn() || Math.hypot(px - NAIP.cx, py - NAIP.cy) < 250) return;
+  const O = S.origin ? S.origin() : [29.59007223, -90.72057], kx = 111320 * Math.cos((O[0] * Math.PI) / 180), ky = 110540, h = NAIP.R / 2;
+  const cx = Math.round(px / 50) * 50, cy = Math.round(py / 50) * 50;
+  const w = O[1] + (cx - h) / kx, e = O[1] + (cx + h) / kx, n = O[0] - (cy - h) / ky, so = O[0] - (cy + h) / ky;
+  const url = NAIP_URL + "?bbox=" + [w, so, e, n].map((v) => v.toFixed(6)).join(",") + "&bboxSR=4326&imageSR=4326&size=" + NAIP.PX + "," + NAIP.PX + "&format=jpg&compressionQuality=80&f=image";
+  NAIP.busy = true; const img = new Image(); img.crossOrigin = "anonymous";
+  img.onload = () => {
+    NAIP.busy = false; NAIP.cx = cx; NAIP.cy = cy;
+    const c = document.createElement("canvas"); c.width = c.height = NAIP.PX; const g = c.getContext("2d"); g.drawImage(img, 0, 0, NAIP.PX, NAIP.PX);
+    // soft circular fade so the tile edge never shows as a hard square
+    g.globalCompositeOperation = "destination-in"; const r = NAIP.PX / 2, gr = g.createRadialGradient(r, r, r * 0.62, r, r, r * 0.98); gr.addColorStop(0, "rgba(0,0,0,1)"); gr.addColorStop(1, "rgba(0,0,0,0)"); g.fillStyle = gr; g.fillRect(0, 0, NAIP.PX, NAIP.PX);
+    const tex = new T.CanvasTexture(c); tex.colorSpace = T.SRGBColorSpace; tex.anisotropy = 4;
+    if (!NAIP.mesh) { const geo = new T.PlaneGeometry(NAIP.R, NAIP.R); geo.rotateX(-Math.PI / 2); NAIP.mesh = new T.Mesh(geo, new T.MeshStandardMaterial({ transparent: true, depthWrite: false, roughness: 0.97, name: "H_Aerial" })); NAIP.mesh.name = "AerialDrape"; NAIP.mesh.receiveShadow = true; scene.add(NAIP.mesh); }
+    const m = NAIP.mesh.material; if (m.map) m.map.dispose(); m.map = tex; m.needsUpdate = true; NAIP.mesh.position.set(cx, 0.033, cy);
+  };
+  img.onerror = () => { NAIP.busy = false; NAIP.fail++; NAIP.cx = cx; NAIP.cy = cy; };
+  img.src = url;
+}
 function buildWater() {
   const W1 = { pos: [], uv: [] }, shapes = [];
   for (const f of S.osm.water) {
@@ -298,7 +324,9 @@ function roadProfiles() {
   const climb = (f, e, H, run, depth, chain) => { if (chain) chain.push({ f, e });
     prep(f); const pts = f.p3, n = pts.length, RL = H / (H > 12 ? 0.05 : 0.06); let s = run;
     for (let i = 0; i < n; i++) { const idx = e ? n - 1 - i : i; if (i) { const a = pts[e ? idx + 1 : idx - 1], b = pts[idx]; s += Math.hypot(b[0] - a[0], b[1] - a[1]); } const k = clamp(1 - s / RL, 0, 1), z = H * k * k * (3 - 2 * k); if (z > f.zs[idx]) f.zs[idx] = z; if (!k) return; }
-    if (depth < 14) { const c = cont(f, e ? 0 : 1, false); if (c) climb(c.f, c.e, H, s, depth + 1, chain); }
+    if (depth < 14) { const c = cont(f, e ? 0 : 1, false); if (c) climb(c.f, c.e, H, s, depth + 1, chain);
+      // a ramp that is still raised at a junction lifts every road leaving it (else a side street meets the ramp at a vertical step)
+      const zEnd = f.zs[e ? 0 : n - 1]; if (zEnd > 0.3) for (const o of ends.get(key(e ? f.p[0] : f.p[f.p.length - 1])) || []) if (o.f !== f && (!c || o.f !== c.f) && !isBr(o.f) && o.f.lvl !== -1) climb(o.f, o.e, H, s, depth + 3, null); }
   };
   const brs = roads.filter(isBr); bridgeList = brs;
   // what does each bridge cross? another road below = overpass; water beside the deck = bayou / canal bridge; else a low culvert bridge
@@ -310,12 +338,23 @@ function roadProfiles() {
     for (let i = 0; i < f.p3.length - 1; i++) { const a = f.p3[i], b = f.p3[i + 1], l = Math.hypot(b[0] - a[0], b[1] - a[1]) || 1, nx = -(b[1] - a[1]) / l, ny = (b[0] - a[0]) / l; for (const o of [hw + 4, hw + 9, -hw - 4, -hw - 9]) if (tileAt(a[0] + nx * o, a[1] + ny * o) === S.T.WATER) { wet++; break; } }
     const L = plen(f.p3), water = wet > 0; f.bz = over ? 7.2 * Math.min(2, f.lvl || 1) : water ? (L > 320 ? 21 : L > 140 ? 11 : L > 60 ? 6.5 : 3.6) : 1.6; f.wet = water;
     // arched span: smooth crown over the deck (higher for longer water spans), joined to the approach ramps at bz
-    const crown = water ? Math.min(9, L * 0.035) : over ? Math.min(1.5, L * 0.01) : 0; let s0 = 0;
+    f.crown = water ? Math.min(9, L * 0.035) : over ? Math.min(1.5, L * 0.01) : 0;
+  }
+  // a bridge split into several OSM ways must be one level deck: every piece of a connected chain takes the chain's highest bz
+  // (otherwise a wet span meets a dry span with a several-metre step that stops cars dead)
+  { const seen = new Set(); for (const f0 of brs) { if (seen.has(f0)) continue; const grp = [], st = [f0]; seen.add(f0);
+      while (st.length) { const f = st.pop(); grp.push(f); for (const e of [0, 1]) for (const c of ends.get(key(e ? f.p[f.p.length - 1] : f.p[0])) || []) if (c.f !== f && isBr(c.f) && !seen.has(c.f)) { seen.add(c.f); st.push(c.f); } }
+      if (grp.length > 1) { const z = Math.max(...grp.map((g) => g.bz)); for (const g of grp) { if (g.bz < z) g.crown = 0; g.bz = z; } } } }
+  for (const f of brs) {
+    const L = plen(f.p3), crown = f.crown; let s0 = 0;
     for (let i = 0; i < f.p3.length; i++) { if (i) s0 += Math.hypot(f.p3[i][0] - f.p3[i - 1][0], f.p3[i][1] - f.p3[i - 1][1]); const u = L ? s0 / L : 0.5; f.zs[i] = f.bz + crown * Math.sin(Math.PI * u); }
   }
   for (const f of brs) for (const e of [0, 1]) {
     if (cont(f, e, true)) continue; // continues as another bridge piece
-    const c = cont(f, e, false); if (c) { const chain = []; climb(c.f, c.e, f.bz, 0, 0, chain); (f.ramps || (f.ramps = [])).push({ f: c.f, e: c.e, be: e, chain }); continue; }
+    const c = cont(f, e, false); if (c) { const chain = []; climb(c.f, c.e, f.bz, 0, 0, chain); (f.ramps || (f.ramps = [])).push({ f: c.f, e: c.e, be: e, chain });
+      // every other surface road meeting this deck end ramps up too (OSM splits / skewed joins), so no road ends at a vertical step
+      for (const o of ends.get(key(e ? f.p[f.p.length - 1] : f.p[0])) || []) if (o.f !== f && o.f !== c.f && !isBr(o.f) && o.f.lvl !== -1) climb(o.f, o.e, f.bz, 0, 0, null);
+      continue; }
     const pts = f.p3, n = pts.length, RL = f.bz / 0.06; let s = 0; // dead end: ramp inside the bridge itself
     for (let i = 0; i < n; i++) { const idx = e ? n - 1 - i : i; if (i) { const a = pts[e ? idx + 1 : idx - 1], b = pts[idx]; s += Math.hypot(b[0] - a[0], b[1] - a[1]); } const k = clamp(s / RL, 0, 1); f.zs[idx] = Math.min(f.zs[idx], f.zs[idx] * k * k * (3 - 2 * k)); }
   }
@@ -513,7 +552,7 @@ function chooseHouse(h, a) { const hv = hash(h.p && (h.p.id || h.p.pid || h.p.a)
 const HOUSE_DIMS = { S: [8.5, 7], M: [11, 8.5], L: [14, 10] };
 function colorsFor(hv, style, biz) {
   if (biz) return { wall: pick(PAL.biz, hv), roof: pick(PAL.roof, hv >>> 3), awn: pick(PAL.awn, hv >>> 5), sign: pick(PAL.awn, hv >>> 9) };
-  return { wall: style === "brick" || style === "ranch" ? pick(PAL.brick, hv) : pick(PAL.wall, hv), roof: style === "acadian" ? pick(PAL.tin, hv >>> 4) : pick(PAL.roof, hv >>> 4) };
+  return { wall: style === "brick" || style === "ranch" ? pick(PAL.brick, hv) : pick(PAL.wall, hv), roof: style === "acadian" || hv % 5 < 2 ? pick(PAL.tin, hv >>> 4) : pick(PAL.roof, hv >>> 4) }; // ~half of bayou-country houses wear light metal roofs
 }
 function faceRoad(x, y, fallback) { const r = nearestRoad(x, y, 75); if (!r) return { ry: fallback, road: null }; return { ry: Math.atan2(r.px - x, r.py - y), road: r }; }
 // facade variants: a tileable wall texture with windows painted in (and a matching window-glow emissive map)
@@ -711,7 +750,7 @@ function buildBuildings() {
     let roof = rs === "flat" ? "flat" : rs === "gabled" ? "gable" : rs === "hipped" || rs === "pyramidal" ? "hip" : rs === "skillion" ? "gable" : null;
     if (!roof) roof = kind === "res" || kind === "apt" ? (hv % 9 < 5 ? "hip" : "gable") : kind === "mobile" || kind === "warehouse" || kind === "church" || kind === "shed" ? "gable" : "flat";
     if (roof !== "flat" && rect < 0.55 && area > 400) roof = "flat";
-    let rm = rmat === "metal" || rmat === "tin" ? "metal" : rmat ? "shingle" : roof === "flat" ? "gravel" : kind === "warehouse" || kind === "mobile" || kind === "shed" ? "metal" : kind === "res" && hv % 11 < 2 ? "metal" : "shingle";
+    let rm = rmat === "metal" || rmat === "tin" ? "metal" : rmat ? "shingle" : roof === "flat" ? "gravel" : kind === "warehouse" || kind === "mobile" || kind === "shed" ? "metal" : kind === "res" && hv % 11 < (Math.hypot(cx, cy) > 3500 ? 7 : 3) ? "metal" : "shingle";
     const pitch = kind === "church" ? 0.85 : kind === "warehouse" || kind === "mobile" ? 0.13 : kind === "shed" ? 0.3 : kind === "apt" ? 0.38 : 0.45 + (hv % 5) * 0.04;
     let col = new T.Color(fk === "brick" ? pick(PAL.brick, hv) : fk === "metal" || fk === "shed" ? pick(["#ffffff", "#e8eef2", "#f2ede2", "#dfe6e0", "#c9d4dc", "#d8c9a8"], hv) : kind === "res" || kind === "mobile" || kind === "apt" ? pick(PAL.wall, hv) : pick(PAL.biz, hv));
     const s = { k: "ext", p, o, base, top: base + ht, fk, col, roof, rm, pitch, rcol: new T.Color(rm === "metal" ? pick(PAL.tin, hv >>> 3) : rm === "gravel" ? "#c9c5bc" : pick(PAL.roof, hv >>> 3)), parapet: roof === "flat" && kind !== "shed" ? (kind === "main" ? 1.1 : 0.6) : 0 };
@@ -1090,9 +1129,10 @@ function frame(dt) {
     const ax = aerial.x ?? P.x, ay = aerial.y ?? P.y, hgt = aerial.h || 420; camera.up.set(0, 0, -1); camera.position.set(ax, hgt, ay + (aerial.tilt || 0)); camera.lookAt(ax, 0, ay); camera.up.set(0, 1, 0);
     scene.fog.near = 1e5; scene.fog.far = 1e6; if (camera.far < hgt * 3) { camera.far = hgt * 3; camera.updateProjectionMatrix(); }
     if (Math.hypot(ax - lastRefill.x, ay - lastRefill.z) > 40 || aerial.dirty) { aerial.dirty = false; lastRefill.x = ax; lastRefill.z = ay; refill(ax, ay); for (const m of farChunks) m.visible = Math.hypot(m.userData.cx - ax, m.userData.cy - ay) < m.userData.far + hgt * 1.6 + 424; }
-    pumpTiles(40); syncGPS(P, 0);
+    pumpTiles(40); syncGPS(P, 0); naipPump(ax, ay);
     lighting(dt, tmpS.set(ax, 0, ay).clone()); scene.fog.near = 1e5; scene.fog.far = 1e6; renderer.render(scene, camera); if (labelsEl) labelsEl.innerHTML = ""; return;
   }
+  naipPump(P.x, P.y);
   pumpTiles(6); if (lastRefill.fence) { lastRefill.fence = false; refillFences(P.x, P.y, viewR()); }
   if (Math.hypot(P.x - (lastP.x ?? 1e9), P.y - (lastP.y ?? 1e9)) > 70) { pZ = deckY(P.x, P.y, 99); if (P.veh) P.veh._z = pZ; } lastP.x = P.x; lastP.y = P.y; // spawned/teleported: land on the top deck, not under it
   { const tz = P.veh && P.veh._z != null ? P.veh._z : deckY(P.x, P.y, pZ); pZ = Math.abs(tz - pZ) > 3 ? tz : pZ + (tz - pZ) * Math.min(1, dt * 20); } syncGPS(P, pZ);
