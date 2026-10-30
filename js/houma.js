@@ -5,7 +5,7 @@
 (function () {
   "use strict";
   // 3D renderer (js/houma3d.js, Sims-tab look). Resolved next to this script; loaded on first show.
-  var H3D_URL = (function () { try { return new URL("houma3d.js?v=7", document.currentScript.src).href; } catch (e) { return "js/houma3d.js?v=7"; } })();
+  var H3D_URL = (function () { try { return new URL("houma3d.js?v=9", document.currentScript.src).href; } catch (e) { return "js/houma3d.js?v=9"; } })();
   var h3dLoading = null;
   function use3d() { return !!(window.Houma3D && window.Houma3D.active()); }
 
@@ -351,19 +351,36 @@
       steer = Math.max(-1, Math.min(1, diff * 2));
       throttle = 0.85;
     } else {
-      throttle = 0.4;
+      throttle = ent.v < 13 ? 0.5 : 0; // traffic: same engine, cruises ~30 mph in town
     }
-    ent.v += (throttle * acc - ent.v * 2.2) * dt;
-    ent.v = Math.max(-maxV * 0.35, Math.min(maxV, ent.v));
-    if (Math.abs(ent.v) > 0.4) ent.a += steer * 1.8 * dt * (ent.v >= 0 ? 1 : -1);
+    if (mode === "car") {
+      // realistic longitudinal model: thrust tapers as v^2 approaches top speed (44.7 m/s = 100 mph),
+      // ~0-60 mph in ~9 s; brakes at 8 m/s^2, rolling/air drag when coasting
+      var VMAX = 44.7, A0 = 3.5;
+      if (throttle > 0) ent.v += throttle * A0 * (1 - (ent.v / VMAX) * Math.abs(ent.v / VMAX)) * dt;
+      else if (throttle < 0) ent.v += (ent.v > 0.3 ? -8 : -2.5) * dt;
+      else ent.v -= Math.sign(ent.v) * Math.min(Math.abs(ent.v), (0.35 + 0.0004 * ent.v * ent.v) * dt);
+      ent.v = Math.max(-8, Math.min(VMAX, ent.v));
+      if (Math.abs(ent.v) > 0.4) ent.a += steer * 1.8 / (1 + Math.abs(ent.v) / 18) * dt * (ent.v >= 0 ? 1 : -1);
+    } else {
+      ent.v += (throttle * acc - ent.v * 2.2) * dt;
+      ent.v = Math.max(-maxV * 0.35, Math.min(maxV, ent.v));
+      if (Math.abs(ent.v) > 0.4) ent.a += steer * 1.8 * dt * (ent.v >= 0 ? 1 : -1);
+    }
     var t = worldT(ent.x + Math.cos(ent.a) * 3, ent.y + Math.sin(ent.a) * 3);
     var scale = mode === "foot" && t === T.WATER ? 0.35 : 1;
     var nx = ent.x + Math.cos(ent.a) * ent.v * dt * scale;
     var ny = ent.y + Math.sin(ent.a) * ent.v * dt * scale;
-    if (canMove(nx, ent.y, mode)) ent.x = nx;
-    else ent.v *= 0.25;
-    if (canMove(ent.x, ny, mode)) ent.y = ny;
-    else ent.v *= 0.25;
+    // 3D drivable surface: on a bridge deck/ramp the car follows the deck height and the parapets stop it
+    var H3 = mode === "car" && window.Houma3D && window.Houma3D.deckY ? window.Houma3D : null;
+    var z0 = ent._z || 0, up = H3 && z0 > 0.9;
+    var deckOK = function (x, y) { if (!H3) return true; if (!up) return !(H3.hitBldg && H3.hitBldg(x + Math.cos(ent.a) * 1.6 * Math.sign(ent.v || 1), y + Math.sin(ent.a) * 1.6 * Math.sign(ent.v || 1), 0.9)); var z = H3.deckY(x, y, z0); return Math.abs(z - z0) < 1.0; };
+    // slide along walls axis by axis; a head-on hit stops the car with a small bounce
+    var hx = !((up || canMove(nx, ent.y, mode)) && deckOK(nx, ent.y)), hy = !((up || canMove(ent.x, ny, mode)) && deckOK(ent.x, ny));
+    if (!hx) ent.x = nx;
+    if (!hy) ent.y = ny;
+    if (hx && hy) ent.v *= mode === "car" ? -0.15 : 0.25; else if (hx || hy) ent.v *= mode === "car" ? 0.6 : 0.25;
+    if (H3) ent._z = H3.deckY(ent.x, ent.y, z0);
   }
 
   function updateMissions() {
@@ -390,7 +407,7 @@
       if (toastT <= 0 && $("hm-toast")) $("hm-toast").classList.remove("show");
     }
     if (player.veh) {
-      moveEntity(player.veh, dt, player.veh.boat ? "boat" : "car", player.veh.kind === "truck" ? 22 : 26, 18);
+      moveEntity(player.veh, dt, player.veh.boat ? "boat" : "car", 44.7, 3.5);
       player.x = player.veh.x;
       player.y = player.veh.y;
       player.a = player.veh.a;
@@ -399,7 +416,7 @@
     }
     cars.forEach(function (c) {
       if (c === player.veh) return;
-      moveEntity(c, dt, c.boat ? "boat" : "car", 12, 8);
+      moveEntity(c, dt, c.boat ? "boat" : "car", 44.7, 3.5);
     });
     peds.forEach(function (p) {
       p.x += Math.cos(p.a) * p.v * dt;
@@ -421,6 +438,7 @@
   function hud() {
     if ($("hm-stars")) $("hm-stars").textContent = wanted ? "★".repeat(wanted) + "☆".repeat(5 - wanted) : "☆☆☆☆☆";
     if ($("hm-cash")) $("hm-cash").textContent = "$" + Math.floor(money);
+    if ($("hm-speed")) $("hm-speed").textContent = player.veh && !player.veh.boat ? Math.round(Math.abs(player.veh.v || 0) * 2.23694) + " mph" : "";
     if ($("hm-dist")) $("hm-dist").textContent = districtAt(player.x, player.y);
     if ($("hm-miss")) {
       $("hm-miss").textContent =
@@ -1185,5 +1203,5 @@
       route: function () { return route; }, routeVer: function () { return routeVer; }, gpsTo: function (label) { var t = normSt(label), it = null; gpsIdx.streets.forEach(function (s) { if (!it && s.key === t) it = s; }); if (!it) gpsIdx.addrs.forEach(function (a) { if (!it && normSt(a.label) === t) it = a; }); if (it) gpsPick(it); return !!route; },
     };
   }
-  window.Houma = { onShow: start, onHide: stop, goTo: goTo, homesReady: function () { return homes.length; }, state: state };
+  window.Houma = { onShow: start, onHide: stop, goTo: goTo, setKey: function (k, d) { keys[k] = !!d; }, step: function (dt) { update(dt); }, homesReady: function () { return homes.length; }, state: state };
 })();

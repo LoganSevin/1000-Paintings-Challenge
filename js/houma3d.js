@@ -9,6 +9,7 @@ import * as W from "./sims-world.js?v=8";
 import * as Life from "./sims-life.js?v=5";
 import * as NightMod from "./sims-night.js?v=1";
 import * as X from "./houma-tex.js?v=1";
+import PC from "./vendor-polyclip.js?v=1";
 
 const K = W.Kit, H = window.Houma;
 const QUALITY = {
@@ -275,15 +276,18 @@ let lampSet = null, poolSet = null, eyeSet = null, lamps = [], elevGrid = new Ma
 function addElev(ax, ay, az, bx, by, bz, hw) { const s = { ax, ay, az, bx, by, bz, hw }; const x0 = Math.floor((Math.min(ax, bx) - hw) / SEG), x1 = Math.floor((Math.max(ax, bx) + hw) / SEG), y0 = Math.floor((Math.min(ay, by) - hw) / SEG), y1 = Math.floor((Math.max(ay, by) + hw) / SEG); for (let i = x0; i <= x1; i++) for (let j = y0; j <= y1; j++) { const k = i * 100003 + j; let L = elevGrid.get(k); if (!L) elevGrid.set(k, (L = [])); L.push(s); } }
 // height of the drivable surface under (x, y) nearest to the current height `cur` (bridge decks + ramps; 0 = ground)
 function deckY(x, y, cur = 0) {
-  const L = elevGrid.get(Math.floor(x / SEG) * 100003 + Math.floor(y / SEG)); if (!L) return 0; let best = 0, bd = Math.abs(cur);
-  for (const s of L) { const dx = s.bx - s.ax, dy = s.by - s.ay, LL = dx * dx + dy * dy || 1, t = clamp(((x - s.ax) * dx + (y - s.ay) * dy) / LL, 0, 1); if (Math.hypot(x - s.ax - dx * t, y - s.ay - dy * t) > s.hw + 0.6) continue; const z = s.az + (s.bz - s.az) * t; if (z - cur > 1.6) continue; const d = Math.abs(z - cur); if (d < bd) { bd = d; best = z; } }
-  return best;
+  // inside a ramp/deck footprint the deck wins over the ground (a ramp starts at z~0, so a tie must go to the ramp);
+  // the ground only wins when every deck here is well above us (driving under an overpass) or far below (no snapping down)
+  const L = elevGrid.get(Math.floor(x / SEG) * 100003 + Math.floor(y / SEG)); if (!L) return 0; let best = null, bd = 1e9;
+  for (const s of L) { const dx = s.bx - s.ax, dy = s.by - s.ay, LL = dx * dx + dy * dy || 1, t = clamp(((x - s.ax) * dx + (y - s.ay) * dy) / LL, 0, 1); if (Math.hypot(x - s.ax - dx * t, y - s.ay - dy * t) > s.hw + 0.9) continue; const z = s.az + (s.bz - s.az) * t; if (z - cur > 2.2) continue; const d = Math.abs(z - cur); if (d < bd) { bd = d; best = z; } }
+  if (best == null) return 0; if (Math.abs(cur) + 0.05 < bd && cur < 0.6) return 0; return best;
 }
 function densify(p, step) { const o = [p[0]]; for (let i = 1; i < p.length; i++) { const a = p[i - 1], b = p[i], L = Math.hypot(b[0] - a[0], b[1] - a[1]), n = Math.max(1, Math.ceil(L / step)); for (let k = 1; k <= n; k++) o.push([a[0] + (b[0] - a[0]) * k / n, a[1] + (b[1] - a[1]) * k / n]); } return o; }
 const plen = (p) => { let s = 0; for (let i = 1; i < p.length; i++) s += Math.hypot(p[i][0] - p[i - 1][0], p[i][1] - p[i - 1][1]); return s; };
 const roadHW = (f) => f.hw || (ROADW[f.h] || 6) / 2;
 // OSM bridge=yes ways become raised decks: overpasses at 6.4 m per layer, bayou bridges low, long canal (Intracoastal) spans high;
 // the connected approach roads ramp down at ~5.5 % so cars and the camera can drive up onto them.
+let bridgeList = [];
 function roadProfiles() {
   const roads = S.osm.roads.filter((f) => f.p && f.p.length >= 2), ends = new Map(), key = (q) => Math.round(q[0] / 3) + "," + Math.round(q[1] / 3);
   for (const f of roads) { f.p3 = null; f.zs = null; for (const e of [0, 1]) { const k = key(e ? f.p[f.p.length - 1] : f.p[0]); let L = ends.get(k); if (!L) ends.set(k, (L = [])); L.push({ f, e }); } }
@@ -291,12 +295,12 @@ function roadProfiles() {
   const isBr = (f) => f.osm && f.lvl > 0;
   const out = (f, e) => { const p = f.p, n = p.length, a = e ? p[n - 1] : p[0], b = e ? p[n - 2] : p[1], L = Math.hypot(a[0] - b[0], a[1] - b[1]) || 1; return [(a[0] - b[0]) / L, (a[1] - b[1]) / L]; };
   const cont = (f, e, wantBridge) => { const v = out(f, e); let best = null, bs = 0.35; for (const c of ends.get(key(e ? f.p[f.p.length - 1] : f.p[0])) || []) { if (c.f === f || c.f.lvl === -1 || isBr(c.f) !== wantBridge) continue; const w = out(c.f, c.e), d = -(v[0] * w[0] + v[1] * w[1]) + (c.f.n && c.f.n === f.n ? 0.2 : 0); if (d > bs) { bs = d; best = c; } } return best; };
-  const climb = (f, e, H, run, depth) => {
-    prep(f); const pts = f.p3, n = pts.length, RL = H / 0.055; let s = run;
+  const climb = (f, e, H, run, depth, chain) => { if (chain) chain.push({ f, e });
+    prep(f); const pts = f.p3, n = pts.length, RL = H / (H > 12 ? 0.05 : 0.06); let s = run;
     for (let i = 0; i < n; i++) { const idx = e ? n - 1 - i : i; if (i) { const a = pts[e ? idx + 1 : idx - 1], b = pts[idx]; s += Math.hypot(b[0] - a[0], b[1] - a[1]); } const k = clamp(1 - s / RL, 0, 1), z = H * k * k * (3 - 2 * k); if (z > f.zs[idx]) f.zs[idx] = z; if (!k) return; }
-    if (depth < 4) { const c = cont(f, e ? 0 : 1, false); if (c) climb(c.f, c.e, H, s, depth + 1); }
+    if (depth < 14) { const c = cont(f, e ? 0 : 1, false); if (c) climb(c.f, c.e, H, s, depth + 1, chain); }
   };
-  const brs = roads.filter(isBr);
+  const brs = roads.filter(isBr); bridgeList = brs;
   // what does each bridge cross? another road below = overpass; water beside the deck = bayou / canal bridge; else a low culvert bridge
   const cg = new Map(), CG = 50; for (const f of roads) { if (isBr(f) || f.lvl === -1) continue; for (let i = 0; i < f.p.length - 1; i++) { const a = f.p[i], b = f.p[i + 1]; for (let x = Math.floor(Math.min(a[0], b[0]) / CG); x <= Math.floor(Math.max(a[0], b[0]) / CG); x++) for (let y = Math.floor(Math.min(a[1], b[1]) / CG); y <= Math.floor(Math.max(a[1], b[1]) / CG); y++) { const k = x * 100003 + y; let L = cg.get(k); if (!L) cg.set(k, (L = [])); L.push([a, b, f]); } } }
   const X2 = (a, b, c, d) => { const o = (p, q, r) => (q[0] - p[0]) * (r[1] - p[1]) - (q[1] - p[1]) * (r[0] - p[0]); return o(a, b, c) * o(a, b, d) < 0 && o(c, d, a) * o(c, d, b) < 0; };
@@ -304,13 +308,16 @@ function roadProfiles() {
     prep(f); const hw = roadHW(f); let wet = 0, over = false;
     for (let i = 0; i < f.p.length - 1 && !over; i++) { const a = f.p[i], b = f.p[i + 1], L = cg.get(Math.floor((a[0] + b[0]) / 2 / CG) * 100003 + Math.floor((a[1] + b[1]) / 2 / CG)) || []; for (const [c, d, g] of L) if (g.n !== f.n && X2(a, b, c, d)) { over = true; break; } }
     for (let i = 0; i < f.p3.length - 1; i++) { const a = f.p3[i], b = f.p3[i + 1], l = Math.hypot(b[0] - a[0], b[1] - a[1]) || 1, nx = -(b[1] - a[1]) / l, ny = (b[0] - a[0]) / l; for (const o of [hw + 4, hw + 9, -hw - 4, -hw - 9]) if (tileAt(a[0] + nx * o, a[1] + ny * o) === S.T.WATER) { wet++; break; } }
-    const L = plen(f.p3), water = wet > 0; f.bz = over ? 6.4 * Math.min(2, f.lvl || 1) : water ? (L > 320 ? 11 : L > 140 ? 4.5 : 2.4) : 1.2; f.zs.fill(f.bz); f.wet = water;
+    const L = plen(f.p3), water = wet > 0; f.bz = over ? 7.2 * Math.min(2, f.lvl || 1) : water ? (L > 320 ? 21 : L > 140 ? 11 : L > 60 ? 6.5 : 3.6) : 1.6; f.wet = water;
+    // arched span: smooth crown over the deck (higher for longer water spans), joined to the approach ramps at bz
+    const crown = water ? Math.min(9, L * 0.035) : over ? Math.min(1.5, L * 0.01) : 0; let s0 = 0;
+    for (let i = 0; i < f.p3.length; i++) { if (i) s0 += Math.hypot(f.p3[i][0] - f.p3[i - 1][0], f.p3[i][1] - f.p3[i - 1][1]); const u = L ? s0 / L : 0.5; f.zs[i] = f.bz + crown * Math.sin(Math.PI * u); }
   }
   for (const f of brs) for (const e of [0, 1]) {
     if (cont(f, e, true)) continue; // continues as another bridge piece
-    const c = cont(f, e, false); if (c) { climb(c.f, c.e, f.bz, 0, 0); continue; }
-    const pts = f.p3, n = pts.length, RL = f.bz / 0.055; let s = 0; // dead end: ramp inside the bridge itself
-    for (let i = 0; i < n; i++) { const idx = e ? n - 1 - i : i; if (i) { const a = pts[e ? idx + 1 : idx - 1], b = pts[idx]; s += Math.hypot(b[0] - a[0], b[1] - a[1]); } const k = clamp(s / RL, 0, 1); f.zs[idx] = Math.min(f.zs[idx], f.bz * k * k * (3 - 2 * k)); }
+    const c = cont(f, e, false); if (c) { const chain = []; climb(c.f, c.e, f.bz, 0, 0, chain); (f.ramps || (f.ramps = [])).push({ f: c.f, e: c.e, be: e, chain }); continue; }
+    const pts = f.p3, n = pts.length, RL = f.bz / 0.06; let s = 0; // dead end: ramp inside the bridge itself
+    for (let i = 0; i < n; i++) { const idx = e ? n - 1 - i : i; if (i) { const a = pts[e ? idx + 1 : idx - 1], b = pts[idx]; s += Math.hypot(b[0] - a[0], b[1] - a[1]); } const k = clamp(s / RL, 0, 1); f.zs[idx] = Math.min(f.zs[idx], f.zs[idx] * k * k * (3 - 2 * k)); }
   }
 }
 function buildRoads() {
@@ -522,7 +529,7 @@ function facadeFor(kind) {
   else if (kind === "office") { for (const wy of [30, 150]) { x.fillStyle = "#2b3a48"; x.fillRect(0, wy, s, 80); e.fillStyle = wy < 100 ? "#666" : "#fff"; e.fillRect(0, wy, s, 80); for (let i = 0; i < 4; i++) { x.fillStyle = "#c9ccce"; x.fillRect(i * 64, wy, 4, 80); } } }
   else if (kind === "metal") { x.fillStyle = "#c9cdd1"; x.fillRect(30, 90, 110, 166); x.strokeStyle = "#9aa0a6"; for (let y = 96; y < 256; y += 9) { x.beginPath(); x.moveTo(30, y); x.lineTo(140, y); x.stroke(); } win(180, 120, 46, 34, true); }
   else if (kind === "shed") { x.fillStyle = "#b9bdc1"; x.fillRect(60, 110, 136, 146); }
-  else for (let k = 0; k < 2; k++) win(26 + k * 128, 72, 78, 92, (k + 1) % 2);
+  else { for (let k = 0; k < 2; k++) { const wx = 26 + k * 128; win(wx, 72, 78, 92, (k + 1) % 2); if (kind === "plain" || kind === "brick") { x.fillStyle = kind === "brick" ? "#2e3a2f" : "#33495e"; x.fillRect(wx - 26, 66, 18, 104); x.fillRect(wx + 86, 66, 18, 104); x.fillStyle = "rgba(255,255,255,0.12)"; for (let yy = 70; yy < 168; yy += 8) { x.fillRect(wx - 24, yy, 14, 2); x.fillRect(wx + 88, yy, 14, 2); } x.fillStyle = "#e9e5dc"; x.fillRect(wx - 8, 172, 94, 6); } } }
   x.fillStyle = "rgba(0,0,0,0.18)"; x.fillRect(0, s - 10, s, 10);
   const t = new T.CanvasTexture(cv); t.colorSpace = T.SRGBColorSpace; t.wrapS = t.wrapT = T.RepeatWrapping; t.anisotropy = 8;
   const et = new T.CanvasTexture(ev); et.colorSpace = T.SRGBColorSpace; et.wrapS = et.wrapT = T.RepeatWrapping;
@@ -629,7 +636,35 @@ const LMS = {
 };
 let markHits = [];
 function frontEdge(p, cx, cy, minL = 3) { const r = nearestRoad(cx, cy, 120); let best = null, bs = -2; const tx = r ? r.px - cx : 0, ty = r ? r.py - cy : 1, tl = Math.hypot(tx, ty) || 1; for (let i = 0; i < p.length; i++) { const a = p[i], b = p[(i + 1) % p.length], L = Math.hypot(b[0] - a[0], b[1] - a[1]); if (L < minL) continue; const ux = (b[0] - a[0]) / L, uy = (b[1] - a[1]) / L; let nx = uy, ny = -ux; const mx = (a[0] + b[0]) / 2, my = (a[1] + b[1]) / 2; if ((mx - cx) * nx + (my - cy) * ny < 0) { nx = -nx; ny = -ny; } const sc = (nx * tx + ny * ty) / tl + L * 0.002; if (sc > bs) { bs = sc; best = { x: mx, y: my, ux, uy, nx, ny, len: L, road: r }; } } return best; }
+let mailPts = [], mailSet = null, driveGrid = new Map();
+function addDriveMask(a, b, hw) { const n = Math.ceil(Math.hypot(b[0] - a[0], b[1] - a[1]) / 4) + 1; for (let i = 0; i <= n; i++) { const x = a[0] + (b[0] - a[0]) * i / n, y = a[1] + (b[1] - a[1]) * i / n, k = Math.floor(x / 10) * 100003 + Math.floor(y / 10); let L = driveGrid.get(k); if (!L) driveGrid.set(k, (L = [])); L.push(x, y, hw); } }
+function nearDrive(x, y, r) { for (let i = -1; i <= 1; i++) for (let j = -1; j <= 1; j++) { const L = driveGrid.get((Math.floor(x / 10) + i) * 100003 + Math.floor(y / 10) + j); if (L) for (let k = 0; k < L.length; k += 3) if (Math.hypot(L[k] - x, L[k + 1] - y) < L[k + 2] + r) return true; } return false; }
+// overlapping footprints: same parcel -> one conjoined building (polygon union, tallest storey count);
+// different parcels -> the smaller one is trimmed back to the larger one's wall (polygon difference)
+const mergeStats = { merged: 0, trimmed: 0, dropped: 0 };
+function bbOf(p) { let a = 1e9, b = -1e9, c = 1e9, d = -1e9; for (const q of p) { a = Math.min(a, q[0]); b = Math.max(b, q[0]); c = Math.min(c, q[1]); d = Math.max(d, q[1]); } return [a, b, c, d]; }
+function bestRing(mp) { let best = null, ba = 0; for (const poly of mp || []) { const r = poly[0].slice(0, -1); const a = r.length >= 3 ? polyArea(r) : 0; if (a > ba) { ba = a; best = r; } } return best; }
+function mergeOverlaps(blds) {
+  mergeStats.merged = mergeStats.trimmed = mergeStats.dropped = 0; const CG = 40, grid = new Map();
+  for (const b of blds) { if (!b.p || b.p.length < 3) continue; b.bb = bbOf(b.p); const [a0, a1, c0, c1] = b.bb; const cand = new Set();
+    for (let i = Math.floor(a0 / CG); i <= Math.floor(a1 / CG); i++) for (let j = Math.floor(c0 / CG); j <= Math.floor(c1 / CG); j++) for (const o of grid.get(i * 100003 + j) || []) cand.add(o);
+    for (const o of cand) { if (o.dead || b.dead || !o.bb || o.bb[0] > b.bb[1] || o.bb[1] < b.bb[0] || o.bb[2] > b.bb[3] || o.bb[3] < b.bb[2]) continue;
+      let ia = 0; try { ia = PC.intersection([b.p], [o.p]).reduce((s, poly) => s + polyArea(poly[0].slice(0, -1)), 0); } catch (e) { continue; } if (ia < 0.8) continue;
+      const same = (b.f.acct || "") === (o.f.acct || "");
+      if (same) { let u = null; try { u = bestRing(PC.union([o.p], [b.p])); } catch (e) {} if (!u) continue; o.p = u; o.f = Object.assign({}, o.f, { lv: Math.max(o.f.lv || 0, b.f.lv || 0) || undefined, z: Math.max(o.f.z || 0, b.f.z || 0) || undefined, acct: o.f.acct || b.f.acct }); o.area = polyArea(u); o.bb = bbOf(u); let cx = 0, cy = 0; for (const q of u) { cx += q[0]; cy += q[1]; } o.cx = cx / u.length; o.cy = cy / u.length; b.dead = true; mergeStats.merged++; break; }
+      let d = null; try { d = bestRing(PC.difference([b.p], [o.p])); } catch (e) {} if (!d || polyArea(d) < 8) { b.dead = true; mergeStats.dropped++; break; } b.p = d; b.area = polyArea(d); b.bb = bbOf(d); mergeStats.trimmed++; }
+    if (b.dead) continue; const [x0, x1, y0, y1] = b.bb; for (let i = Math.floor(x0 / CG); i <= Math.floor(x1 / CG); i++) for (let j = Math.floor(y0 / CG); j <= Math.floor(y1 / CG); j++) { const k = i * 100003 + j; let L = grid.get(k); if (!L) grid.set(k, (L = [])); L.push(b); } }
+}
+// 2D collision against the (merged) footprints: point-in-polygon or within r of a wall
+let colGrid = new Map(); const CC = 25;
+function buildCollide(blds) { colGrid = new Map(); for (const b of blds) { if (!b.p || b.p.length < 3 || b.area < 8) continue; const [x0, x1, y0, y1] = b.bb || bbOf(b.p); for (let i = Math.floor((x0 - 4) / CC); i <= Math.floor((x1 + 4) / CC); i++) for (let j = Math.floor((y0 - 4) / CC); j <= Math.floor((y1 + 4) / CC); j++) { const k = i * 100003 + j; let L = colGrid.get(k); if (!L) colGrid.set(k, (L = [])); L.push(b.p); } } }
+function hitBldg(x, y, r = 1.1, noTrees = false) {
+  for (const p of colGrid.get(Math.floor(x / CC) * 100003 + Math.floor(y / CC)) || []) { if (inPoly(p, x, y)) return true; for (let i = 0; i < p.length; i++) { const a = p[i], b = p[(i + 1) % p.length], dx = b[0] - a[0], dy = b[1] - a[1], L = dx * dx + dy * dy || 1, t = clamp(((x - a[0]) * dx + (y - a[1]) * dy) / L, 0, 1); if (Math.hypot(x - a[0] - dx * t, y - a[1] - dy * t) < r) return true; } }
+  if (!noTrees) for (const n of nearTrees) if (n.trunk && Math.abs(n.x - x) < 2 && Math.abs(n.y - y) < 2 && Math.hypot(n.x - x, n.y - y) < n.trunk + r * 0.6) return true;
+  return false;
+}
 function buildBuildings() {
+  mailPts = []; driveGrid = new Map();
   const homes = S.homes, g = S.gis && S.gis();
   if (!Object.keys(houseSets).length) {
     for (const st of ["gable", "hip", "ranch", "brick", "acadian"]) for (const sz of ["S", "M", "L"]) { const [w, d] = HOUSE_DIMS[sz]; houseSets[st + sz] = new Instanced(st + sz, houseTemplate(st, w, d, hash(st + sz)), 64); }
@@ -641,6 +676,7 @@ function buildBuildings() {
   const byAcct = new Map(); for (const h of homes) if (h.p && h.p.id) byAcct.set(String(h.p.id), h);
   buildLots();
   const blds = S.osm.buildings.map((f) => { let p = f.p; if (p && p.length > 3 && Math.hypot(p[0][0] - p[p.length - 1][0], p[0][1] - p[p.length - 1][1]) < 0.5) p = p.slice(0, -1); let cx = 0, cy = 0; if (p) { for (const q of p) { cx += q[0]; cy += q[1]; } cx /= p.length; cy /= p.length; } return { f, p, cx, cy, area: p && p.length >= 3 ? polyArea(p) : 0 }; }).sort((a, b) => b.area - a.area);
+  mergeOverlaps(blds); for (let i = blds.length - 1; i >= 0; i--) if (blds[i].dead) blds.splice(i, 1); blds.sort((a, b) => b.area - a.area); buildCollide(blds);
   // landmarks: the parish footprints inside each OSM landmark outline (or nearest the point) get the landmark's look
   const markOf = new Map(); markHits = [];
   for (const m of (g && g.marks) || []) {
@@ -667,6 +703,7 @@ function buildBuildings() {
     if (!mk && kind === "res" && area >= 40 && area < 260 && rect > 0.88 && !own && !f.rf) { fpFit.push({ p, cx, cy, area, h: null, o }); continue; }
     // ---- extruded true-shape building spec
     const [rs, rmat] = String(f.rf || "").split("|"), lv = f.lv || 0;
+    if ((kind === "warehouse" || (kind === "shop" && area > 900)) && nearWater(cx, cy)) { kind = "warehouse"; }
     const fk = { res: hv % 10 < 4 ? "brick" : "plain", mobile: "plain", apt: hv % 2 ? "brick" : "plain", shop: "store", main: hv % 3 ? "brick" : "store", office: "office", warehouse: "metal", church: "brick", school: "brick", hospital: "office", gov: "brick", shed: "shed" }[kind];
     const base = kind === "res" ? (fk === "plain" && hv % 7 === 0 ? 1.0 : 0.45) : kind === "mobile" ? 0.75 : 0;
     const defH = { res: 2.8, mobile: 2.5, apt: 5.8, shop: area > 2500 ? 7.5 : 5.2, main: 7.4, office: area > 1200 ? 11.5 : 8.2, warehouse: 7.5, church: 6.5, school: 5.2, hospital: 14, gov: 7, shed: 2.6 }[kind];
@@ -683,6 +720,12 @@ function buildBuildings() {
     const fe = (kind === "res" || kind === "main" || kind === "shop") && !mk ? frontEdge(p, cx, cy, kind === "res" ? 4 : 6) : null;
     if (fe && kind === "res" && hv % 10 < 6) { const len = Math.min(fe.len * 0.62, 8), q = { ...fe, len }; const tip = [fe.x + fe.nx * 2.5, fe.y + fe.ny * 2.5]; if (!onRoad(tip[0], tip[1], 0.6)) { s.porch = q; bStats.porches++; } }
     if ((kind === "main" || kind === "shop") && fe && s.top > 3.6) { s.awn = { ...fe, len: fe.len * 0.86 }; s.acol = new T.Color(pick(PAL.awn, hv >>> 5)); if (onRoad(fe.x + fe.nx * 1.6, fe.y + fe.ny * 1.6, 0.3)) s.awn = null; }
+    // regional detail: steeples, sign bands, garage doors, waterfront metal sheds
+    { const ex = s.extra || (s.extra = []); const ang = fe ? Math.atan2(fe.uy, fe.ux) : o.a || 0;
+      if (kind === "church") { const fe2 = fe || frontEdge(p, cx, cy, 4); if (fe2) { const a2 = Math.atan2(fe2.uy, fe2.ux), tx = fe2.x - fe2.nx * 2.2, ty = fe2.y - fe2.ny * 2.2, tw = 3.2, th = s.top + 5.5; ex.push({ x: tx, y: ty, z: 0, w: tw, h: th, d: tw, a: a2, c: "#efece4" }, { x: tx, y: ty, z: th, w: tw * 0.95, h: 7.5, a: a2, c: "#5d6166", pyr: true }, { x: tx, y: ty, z: th + 7.4, w: 0.12, h: 1.6, d: 0.12, a: a2, c: "#d9c27a" }, { x: tx, y: ty, z: th + 8.3, w: 0.9, h: 0.12, d: 0.12, a: a2, c: "#d9c27a" }); bStats.steeples = (bStats.steeples || 0) + 1; } }
+      if ((kind === "shop" || kind === "main" || kind === "office") && fe && s.roof === "flat") { ex.push({ x: fe.x + fe.nx * 0.12, y: fe.y + fe.ny * 0.12, z: s.top - 1.25, w: fe.len * 0.9, h: 1.0, d: 0.18, a: ang, c: pick(["#b3262b", "#1f4e8c", "#2f6b4f", "#e0a526", "#3a3a3a", "#7a2f6b"], hv >>> 7) }); bStats.signBands = (bStats.signBands || 0) + 1; }
+      if (kind === "res" && fe && area > 150 && hv % 4 === 0 && fe.len > 9) { const gx = fe.x + fe.ux * (fe.len / 2 - 2.2) + fe.nx * 0.06, gy = fe.y + fe.uy * (fe.len / 2 - 2.2) + fe.ny * 0.06; ex.push({ x: gx, y: gy, z: s.base, w: 3.0, h: 2.2, d: 0.1, a: ang, c: "#f1efe9" }); addDriveFrom(gx + fe.nx * 1.5, gy + fe.ny * 1.5); bStats.garages = (bStats.garages || 0) + 1; }
+    }
     if (kind === "res" && area < 260 && hv % 10 >= 6 && hv % 10 < 9 && fe) { // carport beside the house, opening to the street
       const sd = hv & 1 ? 1 : -1, hl = Math.max(o.w, o.d) / 2, cxp = cx + fe.ux * sd * (hl + 3.2) + fe.nx * 1.5, cyp = cy + fe.uy * sd * (hl + 3.2) + fe.ny * 1.5, cp = { x: cxp, y: cyp, a: Math.atan2(fe.uy, fe.ux), w: 5.6, d: 6.2 };
       if (rectClear(cxp, cyp, -cp.a, [-3, 3, -3.3, 3.3], 0.3) && !inPoly(p, cxp, cyp)) { s.carport = cp; bStats.carports++; addDriveFrom(cxp + fe.nx * 3, cyp + fe.ny * 3); }
@@ -725,9 +768,17 @@ function buildBuildings() {
     h.inst = inst; bStats.gen++; addMask(inst.x, inst.y, inst.ry, inst.sx, inst.sz, tpl.mask); addDrive(inst.x, inst.y, inst.ry, inst.sx, inst.sz, td);
   }
   buildLandmarks();
+  buildMailboxes();
   builtHomes = homes.length; lastRefill.x = 1e9; treeCache.clear();
 }
-function addDriveFrom(ax, ay) { const r = nearestRoad(ax, ay, 45); if (!r) return; const dx = r.px - ax, dy = r.py - ay, d = Math.hypot(dx, dy); if (d < r.s.hw + 0.5 || d > 44) return; const ux = dx / d, uy = dy / d; bTileFor(ax, ay).specs.push({ k: "drive", pts: [[ax - ux * 0.5, ay - uy * 0.5], [r.px - ux * (r.s.hw - 0.2), r.py - uy * (r.s.hw - 0.2)]], hw: 1.55 }); }
+// roadside mailboxes at each driveway (post + box + flag, one instanced mesh per material)
+function buildMailboxes() {
+  if (mailSet) for (const m of mailSet) { m.removeFromParent(); m.dispose(); } mailSet = []; const n = mailPts.length / 3; if (!n) return;
+  const post = new T.BoxGeometry(0.1, 1.05, 0.1); post.translate(0, 0.52, 0); const box = new T.BoxGeometry(0.24, 0.26, 0.5); box.translate(0, 1.15, 0); const flag = new T.BoxGeometry(0.03, 0.18, 0.06); flag.translate(0.14, 1.3, -0.12);
+  for (const [geo, col, nm] of [[post, "#7a5a3a", "Post"], [box, "#2d2f33", "Box"], [flag, "#c7322b", "Flag"]]) { const im = new T.InstancedMesh(geo, G.M(col, { rough: 0.7, name: "H_Mail" + nm }), n); im.name = "Mailbox" + nm; im.frustumCulled = false;
+    for (let i = 0; i < n; i++) { tmpQ.setFromAxisAngle(UP, mailPts[i * 3 + 2]); tmpM.compose(tmpV.set(mailPts[i * 3], 0, mailPts[i * 3 + 1]), tmpQ, tmpS.set(1, 1, 1)); im.setMatrixAt(i, tmpM); } scene.add(im); mailSet.push(im); }
+}
+function addDriveFrom(ax, ay) { const r = nearestRoad(ax, ay, 45); if (!r) return; const dx = r.px - ax, dy = r.py - ay, d = Math.hypot(dx, dy); if (d < r.s.hw + 0.5 || d > 44) return; const ux = dx / d, uy = dy / d; const dp = [[ax - ux * 0.5, ay - uy * 0.5], [r.px - ux * (r.s.hw - 0.2), r.py - uy * (r.s.hw - 0.2)]]; bTileFor(ax, ay).specs.push({ k: "drive", pts: dp, hw: 1.55 }); addDriveMask(dp[0], dp[1], 1.55); const mx = r.px - ux * (r.s.hw + 0.9) - uy * 2.3, my = r.py - uy * (r.s.hw + 0.9) + ux * 2.3; if (!onRoad(mx, my, 0.3)) mailPts.push(mx, my, Math.atan2(ux, uy)); }
 function addDrive(x, y, ry, sx, sz, tplD) { const fx = Math.sin(ry), fz = Math.cos(ry), rx = Math.cos(ry), rz = -Math.sin(ry), off = (HOUSE_DIMS.M[0] / 2 - 1.7) * sx; addDriveFrom(x + fx * (tplD / 2) * sz + rx * off, y + fz * (tplD / 2) * sz + rz * off); }
 function refill(px, py) {
   const R = viewR(), R2 = R * R;
@@ -853,28 +904,55 @@ function syncGPS(P, pz) {
 }
 
 let treeSets = [], treeCache = new Map(); const TB = 100;
-const TREES = [["decid", 9.5], ["decid", 6.5], ["palm", 7.5], ["willow", 8], ["pine", 10], ["shrub", 1.3], ["birch", 8], ["decid", 10], ["pine", 15]];
-const TREE_SCALE = [[1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [2.1, 0.95], [0.55, 1.1]]; // [horizontal, vertical]: 7 = live oak, 8 = bald cypress
+const TREES = [["decid", 9.5], ["decid", 6.5], ["palm", 7.5], ["willow", 8], ["pine", 10], ["shrub", 1.3], ["birch", 8], ["decid", 10], ["pine", 15], ["cypressW", 17], ["cypress", 14], ["reeds", 1], ["cypressW", 22]];
+const TREE_SCALE = [[1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [2.1, 0.95], [0.55, 1.1], [1, 1], [1, 1], [1, 1], [1.1, 1]]; // [horizontal, vertical]: 7 = live oak, 8 = bald cypress
 function nearWater(x, y) { for (const [ox, oy] of [[0, 0], [18, 0], [-18, 0], [0, 18], [0, -18]]) if (tileAt(x + ox, y + oy) === S.T.WATER) return true; return false; }
-function buildTreeSets() { treeSets = TREES.map(([sp, h], i) => new Instanced("Tree_" + sp + i, { group: W.treeModel(sp, 101 + i * 17, h) }, 128, { noRoles: true })); }
+// bald cypress (Taxodium distichum): straight tapering trunk with a flared, fluted buttress base, short horizontal limbs,
+// flat-topped layered feathery canopy, optional Spanish moss and cypress knees (wet variant). ~400 tris, instanced.
+function cypressModel(seed, h, wet) {
+  const r = G.rng(seed), g = new T.Group();
+  const bark = G.M("#6b5444", { rough: 0.95, name: "H_CypBark" }), leaf = G.M(wet ? "#5d7a3a" : "#6a8a3e", { rough: 0.9, name: "H_CypLeaf" }), leaf2 = G.M("#7f9a48", { rough: 0.9, name: "H_CypLeaf2" }), moss = G.M("#9aa08a", { rough: 1, name: "H_CypMoss" });
+  const prof = []; const B = 0.32 * h / 14; for (let i = 0; i <= 10; i++) { const y = (i / 10) * h * 0.92, u = i / 10; prof.push(new T.Vector2(B * (1 - 0.65 * u) + B * 2.2 * Math.exp(-u * 18), y)); }
+  const tg = new T.LatheGeometry(prof, 7); const tp = tg.attributes.position; for (let i = 0; i < tp.count; i++) { const y = tp.getY(i); if (y < h * 0.12) { const a = Math.atan2(tp.getZ(i), tp.getX(i)), f = 1 + 0.35 * Math.sin(a * 5) * (1 - y / (h * 0.12)); tp.setX(i, tp.getX(i) * f); tp.setZ(i, tp.getZ(i) * f); } } tg.computeVertexNormals();
+  const add = (geo, m, x, y, z, sx = 1, sy = 1, sz = 1, ry = 0, rz = 0) => { const o = new T.Mesh(geo, m); o.position.set(x, y, z); o.scale.set(sx, sy, sz); o.rotation.set(0, ry, rz); g.add(o); return o; };
+  add(tg, bark, 0, 0, 0);
+  const pad = new T.IcosahedronGeometry(1, 1); const limb = new T.CylinderGeometry(0.05, 0.1, 1, 4); limb.translate(0, 0.5, 0);
+  const tiers = 4 + Math.floor(r() * 2);
+  for (let k = 0; k < tiers; k++) { const u = k / (tiers - 1), y = h * (0.5 + 0.42 * u), rad = h * (0.2 + 0.1 * (1 - Math.abs(u - 0.55) * 1.6)) * (0.8 + r() * 0.3), a = r() * 6.28, off = h * 0.06 * (1 - u);
+    const ox = Math.cos(a) * off, oz = Math.sin(a) * off; add(limb, bark, 0, y - h * 0.04, 0, 1, Math.hypot(ox, oz) + rad * 0.6, 1, -a, Math.PI / 2 - 0.25);
+    for (let q = 0; q < 3; q++) { const b2 = r() * 6.28, d2 = rad * (q ? 0.45 : 0.1); add(pad, (k + q) % 2 ? leaf2 : leaf, ox + Math.cos(b2) * d2, y + (r() - 0.5) * h * 0.03, oz + Math.sin(b2) * d2, rad * (q ? 0.6 : 0.85), rad * 0.2, rad * (q ? 0.55 : 0.8), r() * 6); } }
+  add(pad, leaf, 0, h * 0.96, 0, h * 0.22, h * 0.07, h * 0.2); // flat top
+  if (wet || r() < 0.5) { const mg = new T.ConeGeometry(0.16, 1, 4, 1, true); mg.rotateX(Math.PI); mg.translate(0, -0.5, 0); for (let i = 0; i < 12; i++) { const a = r() * 6.28, d = h * (0.1 + r() * 0.2); add(mg, moss, Math.cos(a) * d, h * (0.5 + r() * 0.35), Math.sin(a) * d, 1, 0.9 + r() * 1.4, 1); } }
+  if (wet) { const kg = new T.ConeGeometry(0.16, 0.7, 5); kg.translate(0, 0.3, 0); for (let i = 0; i < 6; i++) { const a = r() * 6.28, d = 1.4 + r() * 2.6; add(kg, bark, Math.cos(a) * d, 0, Math.sin(a) * d, 1, 0.6 + r() * 0.9, 1); } }
+  return g;
+}
+function reedModel(seed) { const r = G.rng(seed), g = new T.Group(), m = G.M("#7d8f45", { rough: 1, name: "H_Reed" }), hd = G.M("#5a3f26", { rough: 1, name: "H_Cattail" }), bl = new T.ConeGeometry(0.05, 1, 3), cat = new T.CylinderGeometry(0.05, 0.05, 0.25, 4);
+  for (let i = 0; i < 14; i++) { const a = r() * 6.28, d = r() * 0.9, hh = 0.9 + r() * 1.1, o = new T.Mesh(bl, m); o.position.set(Math.cos(a) * d, hh / 2, Math.sin(a) * d); o.scale.set(1, hh, 1); o.rotation.set((r() - 0.5) * 0.3, 0, (r() - 0.5) * 0.3); g.add(o); if (i % 4 === 0) { const c = new T.Mesh(cat, hd); c.position.set(Math.cos(a) * d, hh * 0.92, Math.sin(a) * d); g.add(c); } }
+  return g; }
+function buildTreeSets() { treeSets = TREES.map(([sp, h], i) => new Instanced("Tree_" + sp + i, { group: sp === "cypressW" ? cypressModel(901 + i, h, true) : sp === "cypress" ? cypressModel(733 + i, h, false) : sp === "reeds" ? reedModel(55) : W.treeModel(sp, 101 + i * 17, h) }, 256, { noRoles: true, noShadow: sp === "reeds" })); }
 function treesIn(bi, bj) {
   const key = bi * 100003 + bj; if (treeCache.has(key)) return treeCache.get(key);
-  const out = [], r = G.rng(hash(key) || 1), x0 = bi * TB, y0 = bj * TB, step = 13;
+  const out = [], r = G.rng(hash(key) || 1), x0 = bi * TB, y0 = bj * TB, step = 9;
   for (let x = x0 + step / 2; x < x0 + TB; x += step) for (let y = y0 + step / 2; y < y0 + TB; y += step) {
     const px = x + (r() - 0.5) * step * 0.9, py = y + (r() - 0.5) * step * 0.9, roll = r(), sel = r(), sc = 0.75 + r() * 0.5, ry = r() * 6.28;
-    const t = tileAt(px, py); if (t !== S.T.GRASS && t !== S.T.PARK) continue;
-    if (roll > (t === S.T.PARK ? 0.5 : 0.24)) continue;
-    if (onRoad(px, py, 3) || masked(px, py)) continue;
+    const t = tileAt(px, py);
+    if (t === S.T.WATER) { // reeds / cattails along the water's edge
+      const edge = tileAt(px + 10, py) !== S.T.WATER || tileAt(px - 10, py) !== S.T.WATER || tileAt(px, py + 10) !== S.T.WATER || tileAt(px, py - 10) !== S.T.WATER; if (roll < 0.55 && edge && !onRoad(px, py, 4) && deckY(px, py, 0) < 0.3 && !hitBldg(px, py, 1, true)) out.push(px, py, 11, ry, sc); continue; }
+    if (t !== S.T.GRASS && t !== S.T.PARK) continue;
     const wet = nearWater(px, py);
-    const kind = wet && sel < 0.55 ? 8 : wet && sel < 0.7 ? 3 : sel < 0.24 ? 7 : sel < 0.4 ? 0 : sel < 0.52 ? 1 : sel < 0.58 ? 2 : sel < 0.64 ? 3 : sel < 0.7 ? 4 : sel < 0.93 ? 5 : 6; out.push(px, py, kind, ry, sc);
+    if (roll > (wet ? 0.8 : t === S.T.PARK ? 0.6 : 0.36)) continue;
+    if (onRoad(px, py, 3.2) || masked(px, py) || deckY(px, py, 0) > 0.3 || hitBldg(px, py, 3.2, true) || nearDrive(px, py, 2.6)) continue;
+    // bald cypress dominates: nearly all of the waterside trees, about half of the yard / lot trees
+    const kind = wet ? (sel < 0.45 ? 9 : sel < 0.75 ? 12 : sel < 0.85 ? 3 : 11) : sel < 0.5 ? 10 : sel < 0.62 ? 7 : sel < 0.7 ? 0 : sel < 0.76 ? 1 : sel < 0.79 ? 2 : sel < 0.82 ? 3 : sel < 0.94 ? 5 : 8;
+    out.push(px, py, kind, ry, sc);
   }
   treeCache.set(key, out); return out;
 }
 function refillTrees(px, py) {
   const R = Math.min(Q.view, 420), R2 = R * R, dens = Q.trees; nearTrees = []; for (const s of treeSets) s.begin();
   for (let i = Math.floor((px - R) / TB); i <= Math.floor((px + R) / TB); i++) for (let j = Math.floor((py - R) / TB); j <= Math.floor((py + R) / TB); j++) {
-    const L = treesIn(i, j); for (let k = 0; k < L.length; k += 5) { const dx = L[k] - px, dy = L[k + 1] - py, d2 = dx * dx + dy * dy; if (d2 > R2) continue; if (dens < 1 && ((k / 5) % 10) / 10 >= dens && L[k + 2] !== 0) continue; if (d2 > 48400 && (k / 5) % 3 === 1) continue; // LOD: thin trees past 220 m (fog hides the gaps)
-      const ts = TREE_SCALE[L[k + 2]], sc = L[k + 4], set = treeSets[L[k + 2]]; if (d2 < 3600) nearTrees.push({ set, i: set.pending.length, x: L[k], y: L[k + 1], ry: L[k + 3], sx: sc * ts[0], sy: sc * ts[1], r: 2.2 + 3 * sc * ts[0], hid: false }); set.add(L[k], 0, L[k + 1], L[k + 3], sc * ts[0], sc * ts[1], sc * ts[0]); }
+    const L = treesIn(i, j); for (let k = 0; k < L.length; k += 5) { const dx = L[k] - px, dy = L[k + 1] - py, d2 = dx * dx + dy * dy; if (d2 > R2) continue; if (dens < 1 && ((k / 5) % 10) / 10 >= dens && L[k + 2] !== 9) continue; if (L[k + 2] === 11 && d2 > 22500) continue; if (d2 > 48400 && (k / 5) % 3 === 1) continue; // LOD: thin trees past 220 m (fog hides the gaps)
+      const ts = TREE_SCALE[L[k + 2]], sc = L[k + 4], set = treeSets[L[k + 2]]; if (d2 < 3600) nearTrees.push({ set, i: set.pending.length, x: L[k], y: L[k + 1], ry: L[k + 3], sx: sc * ts[0], sy: sc * ts[1], r: 2.2 + 3 * sc * ts[0], hid: false, trunk: (L[k + 2] === 9 || L[k + 2] === 10 || L[k + 2] === 12) ? 0.55 * sc : L[k + 2] === 11 || L[k + 2] === 5 ? 0 : 0.35 * sc }); set.add(L[k], 0, L[k + 1], L[k + 3], sc * ts[0], sc * ts[1], sc * ts[0]); }
   }
   for (const s of treeSets) s.end();
 }
@@ -1016,8 +1094,8 @@ function frame(dt) {
     lighting(dt, tmpS.set(ax, 0, ay).clone()); scene.fog.near = 1e5; scene.fog.far = 1e6; renderer.render(scene, camera); if (labelsEl) labelsEl.innerHTML = ""; return;
   }
   pumpTiles(6); if (lastRefill.fence) { lastRefill.fence = false; refillFences(P.x, P.y, viewR()); }
-  if (Math.hypot(P.x - (lastP.x ?? 1e9), P.y - (lastP.y ?? 1e9)) > 25) pZ = deckY(P.x, P.y, 99); lastP.x = P.x; lastP.y = P.y; // spawned/teleported: land on the top deck, not under it
-  pZ += (deckY(P.x, P.y, pZ) - pZ) * Math.min(1, dt * 8); syncGPS(P, pZ);
+  if (Math.hypot(P.x - (lastP.x ?? 1e9), P.y - (lastP.y ?? 1e9)) > 70) { pZ = deckY(P.x, P.y, 99); if (P.veh) P.veh._z = pZ; } lastP.x = P.x; lastP.y = P.y; // spawned/teleported: land on the top deck, not under it
+  { const tz = P.veh && P.veh._z != null ? P.veh._z : deckY(P.x, P.y, pZ); pZ = Math.abs(tz - pZ) > 3 ? tz : pZ + (tz - pZ) * Math.min(1, dt * 20); } syncGPS(P, pZ);
   const fx = Math.cos(P.a), fy = Math.sin(P.a); let dist = mode === 1 ? 7 : 11, ht = mode === 1 ? 2.6 : 4.0;
   if (++occN % 3 === 0) occDist = camOcclusion(P.x, P.y, fx, fy, dist, ht, pZ); dist = Math.min(dist, occDist); ht = Math.min(ht, 1.9 + dist * 0.2);
   camPos.set(P.x - fx * dist, ht + pZ, P.y - fy * dist); const look = tmpV.set(P.x + fx * 8, 1.7 + pZ, P.y + fy * 8);
@@ -1037,6 +1115,10 @@ window.Houma3D = {
   // overhead map view: Houma3D.aerial({ h: 400, x, y }) centers on world meters (default: player); Houma3D.aerial(null) returns to the chase cam
   probe: () => { const rc = new T.Raycaster(), out = []; for (const d of [[0, 1, 0], [0, 0, -1]]) { rc.camera = camera; rc.set(camera.position, new T.Vector3(...d).applyQuaternion(d[1] ? new T.Quaternion() : camera.quaternion)); const h = rc.intersectObjects(scene.children, true)[0]; out.push(h ? [h.object.name, h.object.material && h.object.material.name, +h.distance.toFixed(1), [h.point.x, h.point.y, h.point.z].map((v) => +v.toFixed(1))] : null); } return { cam: camera.position.toArray().map((v) => +v.toFixed(1)), out }; },
   deckY: (x, y, z) => deckY(x, y, z),
+  // test helper: drivable polylines ground -> approach ramp -> deck for the tallest bridges
+  bridgeRoutes: (n = 3) => bridgeList.filter((f) => f.ramps && f.zs).sort((a, b) => Math.max(...b.zs) - Math.max(...a.zs)).slice(0, n).map((f) => { const r = f.ramps[0]; let rp = [], rz = []; for (const c of r.chain) { const q = c.f.p3.slice(), z = c.f.zs.slice(); if (!c.e) { q.reverse(); z.reverse(); } rp = q.concat(rp); rz = z.concat(rz); } const bp = f.p3.slice(), bz = f.zs.slice(); if (r.be) { bp.reverse(); bz.reverse(); } return { n: f.n, top: Math.max(...f.zs), pts: rp.concat(bp), zs: rz.concat(bz), nr: rp.length, sameP3: r.f.p3 === (S.osm.roads.find((g) => g === r.f) || {}).p3 }; }),
+  hitBldg: (x, y, r) => hitBldg(x, y, r),
+  treeAudit: () => { let n = 0, inF = 0; for (const L of treeCache.values()) for (let k = 0; k < L.length; k += 5) { n++; if (hitBldg(L[k], L[k + 1], 0, true)) inF++; } return { trees: n, insideFootprints: inF }; }, mergeStats: () => ({ ...mergeStats }),
   snapZ: (z) => { pZ = z; },
   gpsDbg: () => [typeof S.routeVer, gpsVer, !!gpsMesh, !!gpsArrow, gpsArrow && gpsArrow.visible, gpsMesh && gpsMesh.geometry.attributes.position.count, gpsMesh && gpsMesh.geometry.drawRange.start, gpsMesh && gpsMesh.parent === scene],
   triStats: () => { const m = {}; scene.traverseVisible((o) => { if (!o.geometry) return; const g = o.geometry, n = (g.index ? g.index.count : g.attributes.position.count) / 3 * (o.isInstancedMesh ? o.count : 1); const k = (o.name || "?").replace(/\d+$/, ""); m[k] = (m[k] || 0) + n; }); return Object.entries(m).sort((a, b) => b[1] - a[1]).slice(0, 25).map(([k, v]) => k + ":" + Math.round(v / 1000) + "k"); },
