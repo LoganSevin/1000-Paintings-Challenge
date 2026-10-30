@@ -4,6 +4,10 @@
  */
 (function () {
   "use strict";
+  // 3D renderer (js/houma3d.js, Sims-tab look). Resolved next to this script; loaded on first show.
+  var H3D_URL = (function () { try { return new URL("houma3d.js?v=1", document.currentScript.src).href; } catch (e) { return "js/houma3d.js?v=1"; } })();
+  var h3dLoading = null;
+  function use3d() { return !!(window.Houma3D && window.Houma3D.active()); }
 
   var CELL = 8;
   var ORIGIN = 2200;
@@ -667,6 +671,12 @@
 
   function draw() {
     if (!ctx || !player) return;
+    if (use3d()) {
+      // the WebGL canvas underneath draws the world; this canvas is only the HUD overlay now
+      ctx.clearRect(0, 0, viewW, viewH);
+      try { drawMinimap(); } catch (e) {}
+      return;
+    }
     try {
       ctx.fillStyle = "#79b4e0";
       ctx.fillRect(0, 0, viewW, viewH);
@@ -716,6 +726,9 @@
     var dt = Math.min(0.05, (ts - lastT) / 1000 || 0.016);
     lastT = ts;
     if (ready) update(dt);
+    if (ready && window.Houma3D) {
+      try { window.Houma3D.frame(dt); } catch (e) { if (!loop.warned) { loop.warned = 1; console.warn("Houma 3D frame", e); } }
+    }
     draw();
     raf = requestAnimationFrame(loop);
   }
@@ -907,6 +920,9 @@
     }
     if (!ready) loadOsm();
     else hud();
+    if (!h3dLoading && !window.Houma3D) {
+      h3dLoading = import(H3D_URL).catch(function (e) { console.warn("Houma 3D unavailable, using 2D", e); });
+    }
   }
 
   function stop() {
@@ -959,5 +975,14 @@
     toast((h.r ? h.r.name + "'s place — " : h.p.owner + " — ") + (h.p.site || "parcel " + h.p.id));
     return true;
   }
-  window.Houma = { onShow: start, onHide: stop, goTo: goTo, homesReady: function () { return homes.length; } };
+  function state() {
+    return {
+      player: player, cars: cars, peds: peds, homes: homes, residents: residents, osm: osm, T: T,
+      worldT: worldT, nearBuckets: nearBuckets,
+      camMode: function () { return camMode; },
+      ready: function () { return ready && !!player; },
+      homesReady: function () { return homes.length; },
+    };
+  }
+  window.Houma = { onShow: start, onHide: stop, goTo: goTo, homesReady: function () { return homes.length; }, state: state };
 })();
