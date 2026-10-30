@@ -925,7 +925,7 @@ async function start() {
   [THREE, { OrbitControls }, { GLTFExporter }, { GLTFLoader }] = await Promise.all([
     import("three"), import("three/addons/controls/OrbitControls.js"), import("three/addons/exporters/GLTFExporter.js"), import("three/addons/loaders/GLTFLoader.js"),
   ]);
-  [G, World, Life, Plan] = await Promise.all([import("./sims-gen.js?v=3"), import("./sims-world.js?v=7"), import("./sims-life.js?v=4"), import("./sims-plan.js?v=1")]);
+  [G, World, Life, Plan] = await Promise.all([import("./sims-gen.js?v=3"), import("./sims-world.js?v=8"), import("./sims-life.js?v=5"), import("./sims-plan.js?v=1")]);
   quality = pickQuality(); G.setQuality({ tex: QUALITY[quality].tex, aniso: 4 });
   try {
     [Body, Hifi, SkeletonUtils, NightMod] = await Promise.all([import("./sims-body.js?v=1"), import("./sims-hifi.js?v=1"), import("three/addons/utils/SkeletonUtils.js"), import("./sims-night.js?v=1")]);

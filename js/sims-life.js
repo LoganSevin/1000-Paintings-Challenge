@@ -1,7 +1,8 @@
 // Sims life systems: real-time clock + sun, farming, fishing, inventory, market, player trading,
 // and the right-click / long-press action menu (data-driven registry). Loaded by js/sims.js.
 // Everything here lives in the Sims save only; the § currency is never site credits or real money.
-let T = null, X = null; // THREE, host context from sims.js
+import * as THREE0 from "three";
+let T = THREE0, X = null; // THREE, host context from sims.js
 const CH = 36, SW = 14.25, WATER_Y = -1.4;
 
 // ---------------- items ----------------
