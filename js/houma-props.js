@@ -12,6 +12,21 @@
   function money(n) { return n == null ? "" : "$" + Math.round(n).toLocaleString(); }
   function norm(s) { return String(s || "").toUpperCase().replace(/[.,#]/g, " ").replace(/\s+/g, " "); }
   function isBiz(o) { return BIZ.test(o || ""); }
+  var SITES = [];
+  fetch("data/houma-biz-sites.json?v=1").then(function (r) { return r.ok ? r.json() : { sites: [] }; }).then(function (d) { SITES = d.sites || []; rowsCache = null; if (data) { try { renderTable(); renderOwners(); } catch (e) {} } }).catch(function () {});
+  // Organizations only: personal/family trusts named after individuals never get links.
+  function isOrg(o) { o = String(o || "").toUpperCase(); if (!isBiz(o)) return false; if (/TRUST/.test(o) && !/\b(L\.?L\.?C|INC|CORP|BANK|COMPANY|CO\.)\b/.test(o)) return false; return true; }
+  function bizName(o) { return String(o).replace(/\s+(\d+\/\d+|T\/S)(\s.*)?$/, "").replace(/,?\s*THE$/, "").trim(); }
+  function bizLinks(o) {
+    if (!isOrg(o)) return "";
+    var n = bizName(o), q = encodeURIComponent(n), up = n.toUpperCase(), site = "";
+    for (var i = 0; i < SITES.length; i++) if (up.indexOf(SITES[i][0]) === 0) { site = SITES[i][1]; break; }
+    return '<span class="hp-links">' + (site ? '<a href="' + esc(site) + '" target="_blank" rel="noopener" title="Official website">site</a>' : "") +
+      '<a href="https://coraweb.sos.la.gov/commercialsearch/CommercialSearch.aspx" target="_blank" rel="noopener" data-copy="' + esc(n) + '" title="Louisiana Secretary of State business search (name copied to clipboard)">LA SOS</a>' +
+      '<a href="https://opencorporates.com/companies/us_la?q=' + q + '" target="_blank" rel="noopener" title="Louisiana registry record (OpenCorporates)">registry</a>' +
+      '<a href="https://duckduckgo.com/?q=' + encodeURIComponent('"' + n + '" Louisiana') + '" target="_blank" rel="noopener" title="Web search">web</a></span>';
+  }
+  document.addEventListener("click", function (e) { var a = e.target.closest && e.target.closest("a[data-copy]"); if (a && navigator.clipboard) navigator.clipboard.writeText(a.getAttribute("data-copy")).catch(function () {}); }, true);
   function load() {
     if (loading) return loading;
     var get = function (u) { return fetch(u).then(function (r) { if (!r.ok) throw new Error("parcels " + r.status); return r.json(); }); };
@@ -63,7 +78,7 @@
     if (k === "land" || k === "bldg" || k === "assessed") return money(p[k]);
     if (k === "book") return esc(p.book + (p.page ? "/" + p.page : ""));
     if (k === "site") return p.site ? '<a href="#houma" class="hp-go" data-go="' + esc(p.id) + '" title="Walk there in the Houma world">' + esc(p.site) + "</a>" : "";
-    if (k === "owner") return esc(p.owner) + (p.biz ? ' <span class="hp-biz">biz</span>' : "");
+    if (k === "owner") return esc(p.owner) + (p.biz ? ' <span class="hp-biz">biz</span>' : "") + bizLinks(p.owner);
     return esc(p[k]);
   }
   function pager(cur, total, per, id) {
@@ -99,7 +114,7 @@
     var l = ownersList(), per = 50, pages = Math.max(1, Math.ceil(l.length / per));
     if (st.opage >= pages) st.opage = pages - 1;
     $("hp-owners-list").innerHTML = l.slice(st.opage * per, (st.opage + 1) * per).map(function (o) {
-      return '<details class="hp-owner"><summary><span class="hp-cnt">' + o.n + '</span><span class="hp-on">' + esc(o.owner) + "</span>" + (o.biz ? '<span class="hp-biz">biz</span>' : "") +
+      return '<details class="hp-owner"><summary><span class="hp-cnt">' + o.n + '</span><span class="hp-on">' + esc(o.owner) + "</span>" + (o.biz ? '<span class="hp-biz">biz</span>' : "") + bizLinks(o.owner) +
         '<span class="hp-tot">' + money(o.total) + " assessed</span></summary><ul>" + o.parcels.slice().sort(cmp("street", 1)).map(function (p) {
           return "<li><b>" + esc(p.site || "(no site address)") + "</b> · #" + esc(p.id) + (p.acres != null ? " · " + p.acres.toFixed(2) + " ac" : "") + " · " + money(p.assessed) + (p.subdiv ? " · " + esc(p.subdiv) : "") + "</li>";
         }).join("") + "</ul></details>";
