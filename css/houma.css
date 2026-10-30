@@ -177,3 +177,15 @@ body.hm-tab-active .site-header { padding-top: 0.3rem; padding-bottom: 0.3rem; }
 .hp-sec-ind .hp-sec-h{color:#9fd8ff}
 .hp-sec-h span{font-size:12px;opacity:.75;margin-left:6px;letter-spacing:0;text-transform:none}
 .hp-sec .hp-table thead th{top:0}
+
+/* GPS "Drive to" (under the minimap) */
+.hm-gps { position: absolute; top: 186px; right: 9px; width: 230px; z-index: 6; font: 12px/1.35 system-ui, sans-serif; color: #eef3ea; }
+.hm-gps-row { display: flex; gap: 4px; }
+.hm-gps input { flex: 1; min-width: 0; padding: 6px 8px; border-radius: 6px; border: 1px solid #3c4a3a; background: rgba(8,12,8,0.88); color: #eef3ea; font-size: 12px; }
+.hm-gps-row button { border: 1px solid #3c4a3a; background: rgba(8,12,8,0.88); color: #cfd8c8; border-radius: 6px; cursor: pointer; padding: 0 8px; }
+.hm-gps-list { display: flex; flex-direction: column; max-height: 230px; overflow: auto; margin-top: 3px; }
+.hm-gps-list button { text-align: left; border: 0; border-bottom: 1px solid #24301f; background: rgba(8,12,8,0.92); color: #e6eddf; padding: 5px 8px; cursor: pointer; font-size: 12px; }
+.hm-gps-list button:hover { background: #1e3a2a; }
+.hm-gps-turn { margin-top: 5px; padding: 8px 10px; border-radius: 8px; background: rgba(10,40,60,0.92); border: 1px solid #35d0ff; font-size: 13px; }
+.hm-gps-turn small { display: block; opacity: 0.75; font-size: 11px; margin-top: 2px; }
+.hm-gps-arrow { font-size: 20px; margin-right: 6px; vertical-align: middle; color: #35d0ff; }

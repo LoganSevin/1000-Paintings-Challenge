@@ -5,7 +5,7 @@
 (function () {
   "use strict";
   // 3D renderer (js/houma3d.js, Sims-tab look). Resolved next to this script; loaded on first show.
-  var H3D_URL = (function () { try { return new URL("houma3d.js?v=2", document.currentScript.src).href; } catch (e) { return "js/houma3d.js?v=2"; } })();
+  var H3D_URL = (function () { try { return new URL("houma3d.js?v=4", document.currentScript.src).href; } catch (e) { return "js/houma3d.js?v=4"; } })();
   var h3dLoading = null;
   function use3d() { return !!(window.Houma3D && window.Houma3D.active()); }
 
@@ -169,8 +169,8 @@
       else stampLine(f.p, Math.max(3, (f.w || 28) / 2), T.WATER);
     });
     osm.roads.forEach(function (f) {
-      var w = f.h === "trunk" || f.h === "primary" || f.h === "secondary" ? 9 : f.h === "residential" ? 6 : 5;
-      stampLine(f.p, w, T.ROAD);
+      var w = f.hw ? f.hw + 1 : f.h === "trunk" || f.h === "primary" || f.h === "secondary" ? 9 : f.h === "residential" ? 6 : 5;
+      if (f.lvl !== -1) stampLine(f.p, w, T.ROAD);
       if (f.n && f.p.length > 1) {
         var mid = f.p[(f.p.length / 2) | 0];
         var a = f.p[Math.min(f.p.length - 1, ((f.p.length / 2) | 0) + 1)];
@@ -659,6 +659,7 @@
         ctx.fillRect(mx + ix, my + iy, 2, 2);
       }
     }
+    drawRouteMini(mx, my, mw, mh, x0, y0, span);
     ctx.save();
     ctx.translate(mx + mw / 2, my + mh / 2);
     ctx.rotate(player.a);
@@ -728,7 +729,7 @@
     if (!running) return;
     var dt = Math.min(0.05, (ts - lastT) / 1000 || 0.016);
     lastT = ts;
-    if (ready) update(dt);
+    if (ready) { update(dt); gpsUpdate(dt); }
     if (ready && window.Houma3D) {
       try { window.Houma3D.frame(dt); } catch (e) { if (!loop.warned) { loop.warned = 1; console.warn("Houma 3D frame", e); } }
     }
@@ -779,7 +780,7 @@
   }
 
   // ---- real geometry: Terrebonne Parish GIS (parcels, structures, street centerlines) + OSM water/bridges/land use
-  var GV = "?v=2";
+  var GV = "?v=3";
   function getJ(u) { return fetch(u + GV).then(function (r) { if (!r.ok) throw new Error(u + " " + r.status); return r.json(); }); }
   function dec(a) { var out = [], x = 0, y = 0, i; for (i = 0; i < a.length; i += 2) { x += a[i]; y += a[i + 1]; out.push([x / 10, y / 10]); } return out; }
   function centroid(p) { var a = 0, cx = 0, cy = 0, i, j; for (i = 0, j = p.length - 1; i < p.length; j = i++) { var f = p[j][0] * p[i][1] - p[i][0] * p[j][1]; a += f; cx += (p[j][0] + p[i][0]) * f; cy += (p[j][1] + p[i][1]) * f; } if (Math.abs(a) < 1e-6) return [p[0][0], p[0][1], 0]; return [cx / (3 * a), cy / (3 * a), Math.abs(a / 2)]; }
@@ -788,6 +789,10 @@
     if (/HIGHWAY|HWY|MARTIN LUTHER KING|TUNNEL BLVD|PRAGUE|INDUSTRIAL BLVD|ST CHARLES|SAINT CHARLES|GRAND CAILLOU|NEW ORLEANS BLVD/.test(name)) return cls === 3 ? "trunk" : "secondary";
     return cls === 1 ? "motorway" : cls === 2 ? "trunk" : cls === 3 ? "primary" : cls === 4 ? "residential" : cls === 5 ? "living_street" : "service";
   }
+  // half-widths (m) shared with js/houma3d.js and scripts/fetch_houma_gis.py (buildings are clipped against these)
+  var PHW = { 1: 7, 2: 7, 3: 5, 4: 3.5, 5: 3, 0: 2.3 };
+  var OHW = { motorway: 7.6, trunk: 7.6, primary: 7.2, secondary: 6.0, tertiary: 4.6, motorway_link: 3.6, trunk_link: 3.6, primary_link: 3.4, secondary_link: 3.2, tertiary_link: 3.0 };
+  function osmHW(cls, lanes, one) { if (lanes) return Math.max(2.6, lanes * 1.75 + 0.6); var h = OHW[cls] || 3.5; return one && !/link$/.test(cls) ? h / 2 + 1 : h; }
   function loadGis() {
     return getJ("data/houma-gis/meta.json").then(function (meta) {
       var parts = [getJ("data/houma-gis/roads.json"), getJ("data/houma-gis/water.json")], i;
@@ -795,16 +800,23 @@
       for (i = 0; i < meta.parts.bldg; i++) parts.push(getJ("data/houma-gis/bldg-" + i + ".json"));
       return Promise.all(parts).then(function (all) {
         var roads = all[0], wat = all[1], feats = [], lots = [], lotByAcct = {}, bl = [];
-        roads.rows.forEach(function (r) { var nm = r[0] || ""; feats.push({ k: "road", p: dec(r[2]), n: titleCase(nm), r: "", h: roadClass(r[1], nm) }); });
+        roads.rows.forEach(function (r) {
+          var nm = r[0] || "";
+          if (r[3] === 1) feats.push({ k: "road", p: dec(r[2]), n: nm || r[7] || "", r: r[7] || "", h: r[1], lanes: r[4], one: r[5], lvl: r[6], osm: 1, hw: osmHW(r[1], r[4], r[5]) });
+          else feats.push({ k: "road", p: dec(r[2]), n: titleCase(nm), r: "", h: roadClass(r[1], nm), hw: PHW[r[1]] || 2.3 });
+        });
         wat.water.forEach(function (w) { feats.push({ k: "water", p: dec(w[3]), n: w[0], w: w[2], wk: w[1] }); });
         for (i = 2; i < 2 + meta.parts.lots; i++) all[i].rows.forEach(function (r) { var p = dec(r[1]); if (p.length < 3) return; var c = centroid(p), L = { acct: String(r[0]), p: p, cx: c[0], cy: c[1], area: c[2], h: null }; lots.push(L); if (r[0] && !lotByAcct[L.acct]) lotByAcct[L.acct] = L; });
-        for (i = 2 + meta.parts.lots; i < all.length; i++) all[i].rows.forEach(function (r) { var p = dec(r[1]); if (p.length >= 3) { var f = { k: "building", p: p, acct: String(r[0]) }; feats.push(f); bl.push(f); } });
+        for (i = 2 + meta.parts.lots; i < all.length; i++) all[i].rows.forEach(function (r) { var p = dec(r[1]); if (p.length >= 3) { var f = { k: "building", p: p, acct: String(r[0]), bt: r[2] || "", lv: r[3] || 0, z: r[4] || 0, rf: r[5] || "", nm: r[6] || "" }; feats.push(f); bl.push(f); } });
         gis = {
           meta: meta, lots: lots, lotByAcct: lotByAcct, bridges: wat.bridges.map(function (b) { return { n: b[0], h: b[1], p: dec(b[2]) }; }),
           green: wat.green.map(function (g) { return { k: g[0], n: g[1], p: dec(g[2]) }; }), poi: wat.poi.map(function (q) { return { k: q[0], n: q[1], x: q[2], y: q[3] }; }),
-          city: (meta.city || []).map(dec),
+          city: (meta.city || []).map(dec), marks: [], aero: [],
         };
-        return { origin: meta.origin, bounds: meta.bounds, features: feats, gis: true };
+        return getJ("data/houma-gis/landmarks.json").then(function (lm) {
+          gis.marks = lm.marks.map(function (m) { return { k: m[0], n: m[1], x: m[2], y: m[3], p: m[4] && m[4].length ? dec(m[4]) : null }; });
+          gis.aero = lm.aero.map(function (a) { return { k: a[0], ref: a[1], w: a[2], p: dec(a[3]) }; });
+        }).catch(function (e) { console.warn("landmarks", e); }).then(function () { return { origin: meta.origin, bounds: meta.bounds, features: feats, gis: true }; });
       });
     });
   }
@@ -817,7 +829,8 @@
         spawnWorld();
         ready = true;
         if (window.HoumaProps) window.HoumaProps.load().then(placeHomes).catch(function (e) { console.warn("parcels", e); });
-        toast((gis ? "Terrebonne Parish GIS: " + gis.lots.length + " parcels, " : "OpenStreetMap Houma — ") + osm.roads.length + " street segments, " + osm.buildings.length + " building footprints.");
+        buildGraph();
+        toast((gis ? "Greater Houma: " + gis.lots.length.toLocaleString() + " parish parcels, " : "OpenStreetMap Houma — ") + osm.buildings.length.toLocaleString() + " building footprints, " + osm.roads.length.toLocaleString() + " street segments.");
       })
       .catch(function (err) {
         toast("Could not load OSM: " + (err && err.message));
@@ -862,7 +875,8 @@
       var k = Math.floor(h.x / BK) + "," + Math.floor(h.y / BK);
       (homeBuckets[k] = homeBuckets[k] || []).push(h);
     });
-    toast("Assessor parcels: " + homes.length + " homes/lots, " + residents.length + " residents (fetched " + d.meta.fetched + ").");
+    toast("Greater Houma: " + (gis ? gis.lots.length.toLocaleString() + " parcels, " + osm.buildings.length.toLocaleString() + " buildings · " : "") + homes.length.toLocaleString() + " owner records, " + residents.length.toLocaleString() + " residents (parish data " + ((gis && gis.meta.fetched) || d.meta.fetched) + ").");
+    gpsIndex(d);
   }
   function updateResidents(dt) {
     if (!player || !homes.length) return;
@@ -967,6 +981,7 @@
   function bind() {
     if (document.body.dataset.hmBound) return;
     document.body.dataset.hmBound = "1";
+    gpsUI();
     window.addEventListener("keydown", function (e) {
       if (!worldKeysActive(e)) { keys = {}; return; }
       onKey(e, true);
@@ -1008,6 +1023,146 @@
     toast((h.r ? h.r.name + "'s place — " : h.p.owner + " — ") + (h.p.site || "parcel " + h.p.id));
     return true;
   }
+  // ---- GPS: "Drive to" any street / property address, A* over the real road graph, turn-by-turn guidance
+  var G = { adj: [], xs: [], ys: [], segs: new Map(), keyN: new Map() }, route = null, routeVer = 0, gpsDest = null, gpsIdx = { streets: [], addrs: [] }, gpsT = 0;
+  var GS = 30;
+  function gNode(x, y) { var k = Math.round(x * 2) + "," + Math.round(y * 2), n = G.keyN.get(k); if (n != null) return n; n = G.xs.length; G.xs.push(x); G.ys.push(y); G.adj.push([]); G.keyN.set(k, n); return n; }
+  function gSegAdd(sg) { var x0 = Math.floor(Math.min(G.xs[sg.u], G.xs[sg.v]) / GS), x1 = Math.floor(Math.max(G.xs[sg.u], G.xs[sg.v]) / GS), y0 = Math.floor(Math.min(G.ys[sg.u], G.ys[sg.v]) / GS), y1 = Math.floor(Math.max(G.ys[sg.u], G.ys[sg.v]) / GS), i, j; for (i = x0; i <= x1; i++) for (j = y0; j <= y1; j++) { var k = i * 100003 + j, L = G.segs.get(k); if (!L) G.segs.set(k, (L = [])); L.push(sg); } }
+  function gLink(a, b, name, one) { var d = Math.hypot(G.xs[a] - G.xs[b], G.ys[a] - G.ys[b]) + 0.01; G.adj[a].push([b, d, name]); if (!one) G.adj[b].push([a, d, name]); }
+  function gUnlink(a, b) { G.adj[a] = G.adj[a].filter(function (e) { return e[0] !== b; }); }
+  function gNearestSeg(x, y, R, skipName) {
+    var best = null, bd = R, r = Math.ceil(R / GS), ci = Math.floor(x / GS), cj = Math.floor(y / GS), i, j;
+    for (i = ci - r; i <= ci + r; i++) for (j = cj - r; j <= cj + r; j++) { var L = G.segs.get(i * 100003 + j); if (!L) continue; L.forEach(function (sg) { if (sg.dead || sg.road === skipName) return; var ax = G.xs[sg.u], ay = G.ys[sg.u], dx = G.xs[sg.v] - ax, dy = G.ys[sg.v] - ay, l2 = dx * dx + dy * dy || 1, t = Math.max(0, Math.min(1, ((x - ax) * dx + (y - ay) * dy) / l2)), px = ax + dx * t, py = ay + dy * t, d = Math.hypot(x - px, y - py); if (d < bd) { bd = d; best = { sg: sg, x: px, y: py, d: d, t: t }; } }); }
+    return best;
+  }
+  // split a segment at a point, returning the new node
+  function gSplit(h) {
+    var sg = h.sg; if (h.t < 0.02) return sg.u; if (h.t > 0.98) return sg.v;
+    var n = gNode(h.x, h.y); sg.dead = true; gUnlink(sg.u, sg.v); gUnlink(sg.v, sg.u);
+    var a = { u: sg.u, v: n, name: sg.name, one: sg.one, road: sg.road }, b = { u: n, v: sg.v, name: sg.name, one: sg.one, road: sg.road };
+    gLink(sg.u, n, sg.name, sg.one); gLink(n, sg.v, sg.name, sg.one); gSegAdd(a); gSegAdd(b); return n;
+  }
+  function buildGraph() {
+    G = { adj: [], xs: [], ys: [], segs: new Map(), keyN: new Map() };
+    var ends = [];
+    osm.roads.forEach(function (f, ri) {
+      if (!f.p || f.p.length < 2) return; var prev = gNode(f.p[0][0], f.p[0][1]), first = prev, i;
+      for (i = 1; i < f.p.length; i++) { var n = gNode(f.p[i][0], f.p[i][1]); if (n === prev) continue; gLink(prev, n, f.n || f.r || "", !!f.one); gSegAdd({ u: prev, v: n, name: f.n || f.r || "", one: !!f.one, road: ri }); prev = n; }
+      ends.push([first, ri], [prev, ri]);
+    });
+    // stitch dead ends (parish centerlines meeting OSM highways, small digitizing gaps) onto the nearest other road
+    ends.forEach(function (e) {
+      var n = e[0]; if (G.adj[n].length > 1) return; var inc = 0; G.adj.forEach && null; // degree check is approximate for one-way ends
+      var h = gNearestSeg(G.xs[n], G.ys[n], 22, e[1]); if (!h) return; var m = gSplit(h); if (m !== n) gLink(n, m, "", false); void inc;
+    });
+  }
+  function gSnap(x, y) { var h = gNearestSeg(x, y, 400, -1); return h ? gSplit(h) : null; }
+  function astar(s, t) {
+    var N = G.xs.length, gs = new Float64Array(N).fill(Infinity), from = new Int32Array(N).fill(-1), heap = [[0, s]], tx = G.xs[t], ty = G.ys[t], closed = new Uint8Array(N);
+    gs[s] = 0;
+    function push(it) { heap.push(it); var i = heap.length - 1; while (i > 0) { var p = (i - 1) >> 1; if (heap[p][0] <= heap[i][0]) break; var tmp = heap[p]; heap[p] = heap[i]; heap[i] = tmp; i = p; } }
+    function pop() { var top = heap[0], last = heap.pop(); if (heap.length) { heap[0] = last; var i = 0; for (;;) { var l = 2 * i + 1, r = l + 1, m = i; if (l < heap.length && heap[l][0] < heap[m][0]) m = l; if (r < heap.length && heap[r][0] < heap[m][0]) m = r; if (m === i) break; var tmp = heap[m]; heap[m] = heap[i]; heap[i] = tmp; i = m; } } return top; }
+    var it = 0;
+    while (heap.length && it++ < 400000) {
+      var cur = pop()[1]; if (cur === t) break; if (closed[cur]) continue; closed[cur] = 1;
+      G.adj[cur].forEach(function (e) { var ng = gs[cur] + e[1]; if (ng < gs[e[0]]) { gs[e[0]] = ng; from[e[0]] = cur; push([ng + Math.hypot(G.xs[e[0]] - tx, G.ys[e[0]] - ty), e[0]]); } });
+    }
+    if (from[t] < 0 && s !== t) return null;
+    var path = [t]; while (path[0] !== s) path.unshift(from[path[0]]);
+    return { nodes: path, len: gs[t] };
+  }
+  function edgeName(a, b) { var L = G.adj[a], i; for (i = 0; i < L.length; i++) if (L[i][0] === b) return L[i][2]; return ""; }
+  function planRoute() {
+    if (!gpsDest || !player || !G.xs.length) return;
+    var s = gSnap(player.x, player.y), t = gpsDest.node != null ? gpsDest.node : (gpsDest.node = gSnap(gpsDest.x, gpsDest.y));
+    if (s == null || t == null) { toast("No road near the destination."); return; }
+    var r = astar(s, t); if (!r) { toast("No drivable route found to " + gpsDest.label + "."); route = null; return; }
+    var pts = r.nodes.map(function (n) { return [G.xs[n], G.ys[n]]; }), names = [], i, turns = [];
+    for (i = 0; i < r.nodes.length - 1; i++) names.push(edgeName(r.nodes[i], r.nodes[i + 1]));
+    var acc = [0]; for (i = 1; i < pts.length; i++) acc.push(acc[i - 1] + Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]));
+    for (i = 1; i < pts.length - 1; i++) {
+      var a1 = Math.atan2(pts[i][1] - pts[i - 1][1], pts[i][0] - pts[i - 1][0]), j = i + 1;
+      while (j < pts.length - 1 && acc[j] - acc[i] < 12) j++;
+      var a2 = Math.atan2(pts[j][1] - pts[i][1], pts[j][0] - pts[i][0]), d = Math.atan2(Math.sin(a2 - a1), Math.cos(a2 - a1)) * 180 / Math.PI;
+      var nameChange = names[i] && names[i] !== names[i - 1];
+      if (Math.abs(d) > 35 || (nameChange && Math.abs(d) > 12)) {
+        var dir = Math.abs(d) < 45 ? (d > 0 ? "Bear right" : "Bear left") : Math.abs(d) > 150 ? "Make a U-turn" : d > 0 ? "Turn right" : "Turn left"; // +y is south, so positive angle = clockwise = right
+        if (turns.length && acc[i] - turns[turns.length - 1].at < 15) continue;
+        turns.push({ i: i, at: acc[i], x: pts[i][0], y: pts[i][1], dir: dir, onto: names[i] || "" });
+      }
+    }
+    route = { pts: pts, acc: acc, turns: turns, len: r.len, names: names, k: 0 }; routeVer++;
+  }
+  function fmtD(m) { return m < 950 ? Math.max(10, Math.round(m / 10) * 10) + " m" : (m / 1609.34).toFixed(1) + " mi"; }
+  function gpsUpdate(dt) {
+    var el = $("hm-gps-turn"); if (!el) return;
+    if (!route || !gpsDest) { el.hidden = true; return; }
+    gpsT += dt;
+    // progress: nearest route vertex ahead of the last one
+    var best = route.k, bd = 1e9, i, P = route.pts;
+    for (i = Math.max(0, route.k - 3); i < Math.min(P.length, route.k + 60); i++) { var d = Math.hypot(P[i][0] - player.x, P[i][1] - player.y); if (d < bd) { bd = d; best = i; } }
+    route.k = best;
+    var left = route.len - route.acc[best] + bd;
+    if (Math.hypot(gpsDest.x - player.x, gpsDest.y - player.y) < 30 || (best >= P.length - 2 && bd < 30)) { el.hidden = false; el.innerHTML = "<b>Arrived</b> · " + esc(gpsDest.label); route = null; routeVer++; gpsDest = null; return; }
+    if (bd > 35 && gpsT > 2) { gpsT = 0; planRoute(); return; } // off route: reroute along the real streets from here
+    var nt = null; for (i = 0; i < route.turns.length; i++) if (route.turns[i].i > best) { nt = route.turns[i]; break; }
+    var cur = route.names[Math.min(route.names.length - 1, best)] || "";
+    el.hidden = false;
+    el.innerHTML = nt ? "<span class='hm-gps-arrow'>" + (/U-turn/.test(nt.dir) ? "⮌" : /right/.test(nt.dir) ? (/Bear/.test(nt.dir) ? "↗" : "➜") : (/Bear/.test(nt.dir) ? "↖" : "⬅")) + "</span> In " + fmtD(route.acc[nt.i] - route.acc[best] + bd) + " <b>" + nt.dir.toLowerCase().replace(/^./, function (c) { return c.toUpperCase(); }) + "</b>" + (nt.onto ? " onto " + esc(nt.onto) : "") + "<small>" + esc(gpsDest.label) + " · " + fmtD(left) + " left</small>"
+      : "<span class='hm-gps-arrow'>⬆</span> Continue" + (cur ? " on " + esc(cur) : "") + " · " + fmtD(left) + "<small>" + esc(gpsDest.label) + "</small>";
+  }
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function normSt(s) { return String(s || "").toUpperCase().replace(/\s+/g, " ").trim(); }
+  function gpsIndex(d) {
+    var st = {}, addrs = [];
+    osm.roads.forEach(function (f) { var n = f.n || f.r; if (!n) return; var k = normSt(n); (st[k] = st[k] || { label: n, roads: [] }).roads.push(f); if (f.r && f.n) { var k2 = normSt(f.r); (st[k2] = st[k2] || { label: f.r + " (" + f.n + ")", roads: [] }).roads.push(f); } });
+    (d && d.parcels || []).forEach(function (p) { if (p.street) { var k = normSt(p.street); if (!st[k]) st[k] = { label: titleCase(p.street), roads: [], prop: true }; } if (p.site) addrs.push({ label: titleCase(p.site), id: p.id, lat: p.lat, lon: p.lon }); });
+    gpsIdx.streets = Object.keys(st).map(function (k) { var o = st[k]; o.key = k; return o; }).sort(function (a, b) { return a.label < b.label ? -1 : 1; });
+    gpsIdx.addrs = addrs;
+  }
+  function gpsPick(item) {
+    var x, y;
+    if (item.roads) {
+      var roadsFor = item.roads.length ? item.roads : osm.roads.filter(function (f) { return normSt(f.n).indexOf(item.key.replace(/ (ST|RD|AVE|DR|LN|BLVD|CT|HWY)$/, "")) === 0; });
+      var bd = 1e12; roadsFor.forEach(function (f) { f.p.forEach(function (q) { var dd = Math.hypot(q[0] - player.x, q[1] - player.y); if (dd < bd) { bd = dd; x = q[0]; y = q[1]; } }); });
+      if (x == null) { toast("That street (" + item.label + ") isn't in the road network yet."); return; }
+    } else {
+      var h = null; homes.forEach(function (o) { if (o.p.id === item.id) h = o; });
+      if (h) { x = h.x; y = h.y; } else if (item.lat != null) { var q = llToXY(item.lat, item.lon); x = q[0]; y = q[1]; }
+      if (x == null) return;
+    }
+    gpsDest = { x: x, y: y, label: item.label, node: null }; gpsT = 0; planRoute();
+    if (route) toast("Route to " + item.label + ": " + fmtD(route.len) + " along real streets.");
+  }
+  function gpsUI() {
+    var stage = $("hm-stage"); if (!stage || $("hm-gps")) return;
+    var box = document.createElement("div"); box.className = "hm-gps"; box.id = "hm-gps";
+    box.innerHTML = "<div class='hm-gps-row'><input id='hm-gps-q' type='search' autocomplete='off' placeholder='Drive to: street or address…' aria-label='Drive to street or address'><button type='button' id='hm-gps-x' title='Clear route'>✕</button></div><div id='hm-gps-list' class='hm-gps-list' role='listbox'></div><div id='hm-gps-turn' class='hm-gps-turn' hidden></div>";
+    stage.appendChild(box);
+    var q = $("hm-gps-q"), list = $("hm-gps-list"), cur = [];
+    function render() {
+      var t = normSt(q.value); list.innerHTML = ""; cur = [];
+      if (t.length < 2) return;
+      gpsIdx.streets.forEach(function (s) { if (cur.length < 8 && s.key.indexOf(t) >= 0) cur.push(s); });
+      for (var i = 0; i < gpsIdx.addrs.length && cur.length < 14; i++) if (normSt(gpsIdx.addrs[i].label).indexOf(t) >= 0) cur.push(gpsIdx.addrs[i]);
+      cur.forEach(function (it) { var b = document.createElement("button"); b.type = "button"; b.textContent = (it.roads ? "🛣 " : "🏠 ") + it.label; b.addEventListener("click", function () { choose(it); }); list.appendChild(b); });
+    }
+    function choose(it) { q.value = it.label; list.innerHTML = ""; q.blur(); gpsPick(it); }
+    q.addEventListener("input", render);
+    q.addEventListener("keydown", function (e) { e.stopPropagation(); if (e.key === "Enter" && cur[0]) { e.preventDefault(); choose(cur[0]); } if (e.key === "Escape") { list.innerHTML = ""; q.blur(); } });
+    q.addEventListener("keyup", function (e) { e.stopPropagation(); });
+    $("hm-gps-x").addEventListener("click", function () { gpsDest = null; route = null; routeVer++; q.value = ""; list.innerHTML = ""; $("hm-gps-turn").hidden = true; });
+  }
+  function drawRouteMini(mx, my, mw, mh, x0, y0, span) {
+    if (!route) return;
+    var sx = mw / (span * 2), sy = mh / (span * 2), i;
+    ctx.save(); ctx.beginPath(); ctx.rect(mx, my, mw, mh); ctx.clip();
+    ctx.strokeStyle = "#35d0ff"; ctx.lineWidth = 3; ctx.lineJoin = "round"; ctx.beginPath();
+    for (i = route.k; i < route.pts.length; i++) { var px = mx + (route.pts[i][0] - x0) * sx, py = my + (route.pts[i][1] - y0) * sy; if (i === route.k) ctx.moveTo(px, py); else ctx.lineTo(px, py); }
+    ctx.stroke();
+    if (gpsDest) { var dx = mx + (gpsDest.x - x0) * sx, dy = my + (gpsDest.y - y0) * sy; ctx.fillStyle = "#ffd23a"; ctx.beginPath(); ctx.arc(Math.max(mx + 4, Math.min(mx + mw - 4, dx)), Math.max(my + 4, Math.min(my + mh - 4, dy)), 4, 0, 7); ctx.fill(); }
+    ctx.restore();
+  }
   function state() {
     return {
       player: player, cars: cars, peds: peds, homes: homes, residents: residents, osm: osm, T: T,
@@ -1015,6 +1170,7 @@
       camMode: function () { return camMode; },
       ready: function () { return ready && !!player; },
       homesReady: function () { return homes.length; },
+      route: function () { return route; }, routeVer: function () { return routeVer; }, gpsTo: function (label) { var t = normSt(label), it = null; gpsIdx.streets.forEach(function (s) { if (!it && s.key === t) it = s; }); if (!it) gpsIdx.addrs.forEach(function (a) { if (!it && normSt(a.label) === t) it = a; }); if (it) gpsPick(it); return !!route; },
     };
   }
   window.Houma = { onShow: start, onHide: stop, goTo: goTo, homesReady: function () { return homes.length; }, state: state };
