@@ -98,7 +98,8 @@ def run(todo, label):
 known = set(recs) | set(tab_only)
 run([a for a in sorted(known) if a not in cache and a not in failed and a not in probed], "export")
 run([str(n) for n in range(1, MAXPROBE) if str(n) not in known and str(n) not in probed and str(n) not in failed and str(n) not in cache], "probe")
-retry = sorted(failed & known); failed -= set(retry); probed -= set(retry); run(retry, "retry-failed")  # second chance, one pass
+if not os.environ.get("SKIP_RETRY"):
+    retry = sorted(failed & known); failed -= set(retry); probed -= set(retry); run(retry, "retry-failed")  # second chance, one pass
 discovered = sorted(set(cache) - known, key=lambda s: int(s) if s.isdigit() else 0)
 failed_known = sorted(failed & known, key=int)
 log("discovered (not in GIS)", len(discovered), "failed", failed_known)
@@ -127,7 +128,7 @@ def getinfo(a):
         try: out["taxes"] = json.loads(req(MAP + "/Search/GetParcelTaxes?parcelid=" + a, tries=2))
         except Exception: pass
     return out
-need = [a for a in failed_known + tab_only + discovered if a not in info]
+need = [] if os.environ.get("SKIP_RETRY") else [a for a in failed_known + tab_only + discovered if a not in info]
 for i, a in enumerate(need):
     info[a] = getinfo(a); time.sleep(1.0)
     if i % 50 == 0 or i == len(need) - 1: json.dump(info, open(IC, "w")); log(f"info {i+1}/{len(need)}")
@@ -177,9 +178,26 @@ def rec(pid, row, g, src):
         "lat": round(g["lat"], 6) if g and g.get("lat") else None, "lon": round(g["lon"], 6) if g and g.get("lon") else None,
         "zip": z, "city": "HOUMA" if g and g.get("inCity") else ("HOUMA AREA" if z in HOUMA_ZIPS else "PARISH"),
         "kind": kind_of(site, subdiv, classes, inf.get("Legal")), "cls": "; ".join(f"{c[0]} ({c[2]})" for c in classes) or None, "units": units, "src": src}
+# alternate lookups from scripts/recover_houma_owners.py (address search / building footprint / single-account export retry)
+RV = json.load(open(f"{CD}/recovered.json")) if os.path.exists(f"{CD}/recovered.json") else {}
+def apply_rv(r, key):
+    v = RV.get(key) or {}
+    if r["owner"] or not v.get("owner"):
+        if not r["site"] and v.get("site"): r["site"] = v["site"]; r["street"] = re.sub(r"^\S*\d\S*\s+", "", v["site"].split(" / ")[0])
+        return r
+    row = v.get("row") or {}
+    if row and key.startswith("acct:") and str(v.get("acct")) == str(r["id"]):
+        nr = rec(r["id"], row, None, r["src"]); [r.__setitem__(k, nr[k]) for k in ("owner", "site", "street", "mail", "subdiv", "book", "page", "assessed", "land", "bldg", "sqft") if nr.get(k) not in (None, "")]
+    r["owner"] = r["owner"] or re.sub(r"\s+", " ", v["owner"]).strip()
+    if not r["site"] and v.get("site"): r["site"] = v["site"]; r["street"] = re.sub(r"^\S*\d\S*\s+", "", v["site"].split(" / ")[0])
+    if not r["site"] and row.get("PhysAddress"): r["site"] = re.sub(r"\s+", " ", row["PhysAddress"]).strip(); r["street"] = re.sub(r"^\S*\d\S*\s+", "", r["site"])
+    if str(v.get("acct")) != str(r["id"]): r["note"] = ((r.get("note") or "") + "; " if r.get("note") else "") + f"owner of linked account {v.get('acct')}"
+    r["src"] = "recovered: " + v["how"]
+    return r
+NO_PUB = "no public owner record"
 out = []
 for pid, g in recs.items():
-    if pid in cache: out.append(rec(pid, cache[pid], g, "export"))
+    if pid in cache: out.append(rec(pid, cache[pid], g, "export")); out[-1]["shapes"] = len(g["oids"])
     else:
         r = rec(pid, {}, g, "popup-fallback" if info.get(pid, {}).get("Primary Owner") else "gis-only (export & popup error)")
         inf = info.get(pid, {}); d = inf.get("deeds") or []; t = inf.get("taxes") or {}
@@ -189,9 +207,13 @@ for pid, g in recs.items():
             r["street"] = (parts[0].group(1).upper() if parts[0] else r["site"])
         if not r["book"] and d: r["note"] = f"latest deed {d[0][1]} {d[0][2]}"
         if t.get("ParishTaxes") is not None: r["note"] = (r.get("note", "") + f"; est. parish tax ${t['ParishTaxes']}, homestead {t.get('Homestead')}").strip("; ")
-        out.append(r)
+        r = apply_rv(r, "acct:" + pid)
+        if not r["owner"]: r["src"] = NO_PUB + " (assessor map errors on this account; site/deed/tax info from GIS + popup)"
+        r["shapes"] = len(g["oids"]); out.append(r)
 for pid in tab_only:
-    out.append(rec(pid, cache.get(pid, {}), None, "account table (no polygon)"))
+    r = apply_rv(rec(pid, cache.get(pid, {}), None, "account table (no polygon)"), "acct:" + pid)
+    if not r["owner"]: r["src"] = NO_PUB + " (account in GIS table only, no parcel polygon; assessor has no current record)"
+    r["shapes"] = 0; out.append(r)
 for pid in discovered:
     out.append(rec(pid, cache[pid], None, "export (not in GIS)"))
 for a in noacct:
@@ -199,9 +221,11 @@ for a in noacct:
     out.append({"id": f"OID-{o}", "owner": "", "site": "", "street": "", "mail": "", "subdiv": "", "book": "", "page": "", "assessed": None, "land": None, "bldg": None, "sqft": None,
         "acres": round(a["Shape__Area"] / 43560, 3) if a.get("Shape__Area") else None, "lat": round(a["Latitude"], 6) if a.get("Latitude") else None,
         "lon": round(a["Longitude"], 6) if a.get("Longitude") else None, "zip": zipof.get(str(o)),
-        "city": "HOUMA" if o in city else ("HOUMA AREA" if zipof.get(str(o)) in HOUMA_ZIPS else "PARISH"), "kind": "no account #", "cls": None, "units": None, "src": "parcel polygon, no account number"})
+        "city": "HOUMA" if o in city else ("HOUMA AREA" if zipof.get(str(o)) in HOUMA_ZIPS else "PARISH"), "kind": "no account #", "cls": None, "units": None, "src": "parcel polygon, no account number", "shapes": 1})
+    r = apply_rv(out[-1], "oid:%d" % o)
+    if not r["owner"]: r["src"] = NO_PUB + " (parcel polygon has no assessor account #: typically road/right-of-way, water, servitude or common area)"
 # 5) Shard by scope so the table can lazy-load: city -> Houma ZIPs outside city -> rest of parish
-F = ["id", "owner", "site", "street", "mail", "subdiv", "book", "page", "assessed", "land", "bldg", "sqft", "acres", "lat", "lon", "zip", "city", "kind", "cls", "units", "src", "note"]
+F = ["id", "owner", "site", "street", "mail", "subdiv", "book", "page", "assessed", "land", "bldg", "sqft", "acres", "lat", "lon", "zip", "city", "kind", "cls", "units", "src", "note", "shapes"]
 os.makedirs(OUT, exist_ok=True)
 for f in glob.glob(f"{OUT}/part-*.json"): os.remove(f)
 groups = [("city", [p for p in out if p["city"] == "HOUMA"]), ("houma-zip", [p for p in out if p["city"] == "HOUMA AREA"]), ("parish", [p for p in out if p["city"] == "PARISH"])]
@@ -219,7 +243,7 @@ meta = {"fetched": datetime.date.today().isoformat(),
     "sources": [FS + "/0", FS + "/18", FS + "/26", FS + "/38", MAP + "/Search/ExportToCsvWithExtraData", MAP + "/Search/GetInfo", MAP + "/Search/GetDeeds", MAP + "/Search/GetParcelTaxes"],
     "note": "Public Terrebonne Parish Assessor data, informational only, provided as-is (see site disclaimer). Acres from parcel polygon area; sqft = building living area. Assessed values in USD (Louisiana assessed, not market). Assessor records list owners only; tenants are not public and are not included. Units only where the assessor lists them.",
     "count": len(out), "counts": {"scope": dict(Counter(p["city"] for p in out)), "kind": dict(Counter(p["kind"] for p in out)), "src": dict(Counter(p["src"] for p in out))},
-    "export_failed": failed_known, "parts": len(parts), "partList": parts, "fields": F, "houmaZips": sorted(HOUMA_ZIPS),
+    "export_failed": failed_known, "missingOwner": sum(1 for p in out if not p["owner"]), "shapesTotal": len(parcels), "shapesCovered": sum(p.get("shapes") or 0 for p in out), "parts": len(parts), "partList": parts, "fields": F, "houmaZips": sorted(HOUMA_ZIPS),
     "zips": sorted({p["zip"] for p in out if p["zip"]})}
 json.dump(meta, open(f"{OUT}/meta.json", "w"), indent=1)
 log("wrote", len(out), json.dumps(meta["counts"]))
