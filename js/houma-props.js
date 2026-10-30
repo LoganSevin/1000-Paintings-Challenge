@@ -5,14 +5,23 @@
 (function () {
   "use strict";
   var data = null, loading = null;
-  var BIZ = /\b(L\.?L\.?C|INC|CORP|CORPORATION|CO|COMPANY|LTD|L\.?P|LLP|TRUST|TRUSTEE|PARTNERSHIP|PARTNERS|HOLDINGS|PROPERTIES|INVESTMENTS?|ENTERPRISES?|BANK|CHURCH|PARISH|ASSOCIATION|ASSN|FOUNDATION|GROUP|DEVELOPMENT|REALTY|RENTALS?|MINISTRIES|AUTHORITY|DISTRICT|SCHOOL|CITY OF|STATE OF|UNITED STATES|HOUSING|VENTURES|MANAGEMENT|FUND|SERVICES?|SUCCESSION|ESTATE OF|CONSOLIDATED|GOVERNMENT|HOSPITAL|L\.?L\.?C\.?)\b/i;
   var GRP0 = "both"; try { GRP0 = localStorage.getItem("hp-grp") || "both"; } catch (e) {}
   var st = { grp: /^(biz|ind|both)$/.test(GRP0) ? GRP0 : "both", pg: { biz: 0, ind: 0 }, opg: { biz: 0, ind: 0 }, view: "world", q: "", sort: "owner", dir: 1, page: 0, per: 100, oq: "", ofilter: "all", opage: 0 };
   function $(id) { return document.getElementById(id); }
   function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
   function money(n) { return n == null ? "" : "$" + Math.round(n).toLocaleString(); }
   function norm(s) { return String(s || "").toUpperCase().replace(/[.,#]/g, " ").replace(/\s+/g, " "); }
-  function isBiz(o) { return BIZ.test(o || ""); }
+  var CORP = /(^|[\s,.(])(L\.?\s?L\.?\s?C|P\.?\s?L\.?\s?L\.?\s?C|L\.?\s?L\.?\s?P|I\.?\s?N\.?\s?C|INCORPORATED|CORP|CORPORATION|CO|COMPANY|LTD|LIMITED|BANK|N\.?\s?A)\.?(?=$|[\s,.)])/i;
+  var BTR = /\b(BUSINESS TRUST|ACQUISITION TRUST|LOAN TRUST|MORTGAGE|FINANCING AUTHORITY|PUBLIC TRUST|TRUST \d{4}-|CREDIT UNION)\b/i;
+  var ORG = /\b(L\.?P|PARTNERSHIP|PARTNERS|HOLDINGS?|PROPERTIES|PROPERTY|INVESTMENTS?|ENTERPRISES?|ASSOCIATES|CHURCH|MINISTRY|MINISTRIES|PARISH|ASSOCIATION|ASSN|FOUNDATION|GROUP|DEVELOPMENT|REALTY|RENTALS?|AUTHORITY|DISTRICT|SCHOOLS?|CITY OF|TOWN OF|VILLAGE OF|STATE OF|UNITED STATES|U\.?\s?S\.?\s?A|HOUSING|VENTURES|MANAGEMENT|FUND|SERVICES?|CONSOLIDATED|GOVERNMENT|HOSPITAL|HOTEL|MOTEL|APARTMENTS|INSTITUTE|UNIVERSITY|COLLEGE|ACADEMY|CLUB|LODGE|COUNCIL|BOARD|COMMISSION|AGENCY|SOCIETY|SUPPLY|MARINE|LEVEE|CEMETERY|TEMPLE|MOSQUE|DIOCESE|ARCHDIOCESE|CONGREGATION|FELLOWSHIP|TABERNACLE|NATION|COOPERATIVE|CO-OP|CREDIT UNION|INDUSTRIES|PIPELINE|LEASING|CONSTRUCTION|HOMES|FARMS?|CENTER|TRUST COMPANY)\b/i;
+  var PERS = /\b(FAMILY TRUST|REVOCABLE|LIVING TRUST|IRREVOCABLE|SUCCESSION|ESTATE OF|USUFRUCT|TESTAMENTARY)\b|\bTRUST\b|TRUSTEE/i;
+  function isBiz(o) {
+    o = String(o || "").replace(/\s+\d+\/\d+.*$|\s+T\/S\b.*$/, "");
+    if (CORP.test(o) || BTR.test(o)) return true;
+    if (PERS.test(o)) return false; // personal/family trusts, successions, estates
+    var m = o.match(/^[A-Z'\-]+,\s*(.*)$/i); // "SURNAME, FIRST ...": ignore the surname (e.g. BOARD, TEMPLE)
+    return ORG.test(m ? m[1] : o);
+  }
   var SITES = [];
   fetch("data/houma-biz-sites.json?v=1").then(function (r) { return r.ok ? r.json() : { sites: [] }; }).then(function (d) { SITES = d.sites || []; rowsCache = null; if (data) { try { renderTable(); renderOwners(); } catch (e) {} } }).catch(function () {});
   // Organizations only: personal/family trusts named after individuals never get links.
