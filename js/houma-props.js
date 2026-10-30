@@ -41,7 +41,7 @@
   var metaP = null, partP = {}, ownersT = null;
   function get(u) { return fetch(u).then(function (r) { if (!r.ok) throw new Error("parcels " + r.status); return r.json(); }); }
   function getMeta() {
-    return metaP || (metaP = get("data/houma-parcels/meta.json?v=2").then(function (meta) {
+    return metaP || (metaP = get("data/houma-parcels/meta.json?v=3").then(function (meta) {
       if (!meta.partList) { meta.partList = []; for (var i = 0; i < meta.parts; i++) meta.partList.push({ file: "part-" + i + ".json", scope: "houma-zip" }); }
       data = data || { meta: meta, parcels: [], owners: [] }; window.HoumaParcels = data; return meta;
     }));
@@ -69,7 +69,7 @@
     return getMeta().then(function (meta) {
       var want = SCOPES[scope] || SCOPES.houma;
       return Promise.all(meta.partList.filter(function (pt) { return want.indexOf(pt.scope) >= 0; }).map(function (pt) {
-        if (!partP[pt.file]) partP[pt.file] = get("data/houma-parcels/" + pt.file + "?v=2").then(addPart);
+        if (!partP[pt.file]) partP[pt.file] = get("data/houma-parcels/" + pt.file + "?v=3").then(addPart);
         return partP[pt.file].then(function () { if (onPart) onPart(); });
       })).then(function () { return data; });
     });
