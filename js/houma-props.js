@@ -41,7 +41,7 @@
   var metaP = null, partP = {}, ownersT = null;
   function get(u) { return fetch(u).then(function (r) { if (!r.ok) throw new Error("parcels " + r.status); return r.json(); }); }
   function getMeta() {
-    return metaP || (metaP = get("data/houma-parcels/meta.json?v=3").then(function (meta) {
+    return metaP || (metaP = get("data/houma-parcels/meta.json?v=4").then(function (meta) {
       if (!meta.partList) { meta.partList = []; for (var i = 0; i < meta.parts; i++) meta.partList.push({ file: "part-" + i + ".json", scope: "houma-zip" }); }
       data = data || { meta: meta, parcels: [], owners: [] }; window.HoumaParcels = data; return meta;
     }));
@@ -71,7 +71,7 @@
     return getMeta().then(function (meta) {
       var want = SCOPES[scope] || SCOPES.houma;
       return Promise.all(meta.partList.filter(function (pt) { return want.indexOf(pt.scope) >= 0; }).map(function (pt) {
-        if (!partP[pt.file]) partP[pt.file] = get("data/houma-parcels/" + pt.file + "?v=3").then(addPart);
+        if (!partP[pt.file]) partP[pt.file] = get("data/houma-parcels/" + pt.file + "?v=4").then(addPart);
         return partP[pt.file].then(function () { if (onPart) onPart(); });
       })).then(function () { return data; });
     });
@@ -109,7 +109,7 @@
     if (k === "city") return p.city === "HOUMA" ? "City" : p.city === "HOUMA AREA" ? "Houma ZIP" : "Parish";
     if (k === "units") return p.units == null ? "" : esc(p.units);
     if (k === "kind") return esc(p.kind) + (p.cls ? '<br><small>' + esc(p.cls) + "</small>" : "") + (p.note ? '<br><small>' + esc(p.note) + "</small>" : "") + (p.src && p.src !== "export" ? '<br><small class="hp-src">' + esc(p.src) + "</small>" : "");
-    if (k === "owner") return p.owner ? esc(p.owner) + (p.biz ? ' <span class="hp-biz">biz</span>' : "") + bizLinks(p.owner) : "<i>(no owner listed)</i>";
+    if (k === "owner") return p.owner ? esc(p.owner) + (p.biz ? ' <span class="hp-biz">biz</span>' : "") + bizLinks(p.owner) : "<i>(" + (/^no public owner record/.test(p.src || "") ? "no public owner record" : "no owner listed") + ")</i>";
     return esc(p[k]);
   }
   function pager(cur, total, per, id) {
