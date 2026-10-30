@@ -192,7 +192,8 @@ def apply_rv(r, key):
     if not r["site"] and v.get("site"): r["site"] = v["site"]; r["street"] = re.sub(r"^\S*\d\S*\s+", "", v["site"].split(" / ")[0])
     if not r["site"] and row.get("PhysAddress"): r["site"] = re.sub(r"\s+", " ", row["PhysAddress"]).strip(); r["street"] = re.sub(r"^\S*\d\S*\s+", "", r["site"])
     if str(v.get("acct")) != str(r["id"]): r["note"] = ((r.get("note") or "") + "; " if r.get("note") else "") + f"owner of linked account {v.get('acct')}"
-    r["src"] = "recovered: " + v["how"]
+    h = v["how"]; cat = "export retry" if h.startswith("export") else "building footprint account" if h.startswith("building") else "same-address account" if "account" in h else "address search"
+    r["src"] = "recovered: " + cat; r["note"] = ((r.get("note") or "") + "; " if r.get("note") else "") + h
     return r
 NO_PUB = "no public owner record"
 out = []
