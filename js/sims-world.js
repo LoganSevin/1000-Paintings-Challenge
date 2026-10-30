@@ -871,6 +871,23 @@ function sharedLot(g, L, t) {
   g.add(sg);
 }
 // ---------------- the streamed world ----------------
+// soft grass clump geometry (shared with the Houma tab)
+export function grassTuftGeometry() {
+    const blades = [], SEG = 4;
+    for (let b = 0; b < 9; b++) {
+      const a = b * 2.39996 + 0.3, r0 = 0.012 + (b % 4) * 0.018, h = 0.17 + ((b * 7) % 5) * 0.045, w = 0.011 + (b % 3) * 0.004, bend = 0.05 + ((b * 5) % 4) * 0.035, twist = (b % 2 ? 0.5 : -0.4);
+      const ca = Math.cos(a), sa = Math.sin(a), px = -sa, pz = ca, P = [], N = [], C = [], tone = 0.85 + ((b * 3) % 4) * 0.07, dry = b % 5 === 0 ? 0.12 : 0;
+      for (let k = 0; k <= SEG; k++) { const t = k / SEG, y = h * (t - 0.18 * t * t), out = r0 + bend * t * t, ww = w * (1 - t) ** 0.8 + 0.0008, tw = twist * t;
+        const cx = ca * out, cz = sa * out, ex = (px * Math.cos(tw) + ca * Math.sin(tw)) * ww, ez = (pz * Math.cos(tw) + sa * Math.sin(tw)) * ww;
+        P.push(cx - ex, y, cz - ez, cx + ex, y, cz + ez);
+        const ny = 0.75, nx = ca * 0.5 * t, nz = sa * 0.5 * t; N.push(nx, ny, nz, nx, ny, nz);
+        const g0 = 0.22 + 0.38 * t, cr = (0.16 + 0.32 * t + dry * t) * tone, cg = (0.3 + g0) * tone, cb = (0.1 + 0.14 * t) * tone; C.push(cr, cg, cb, cr, cg, cb); }
+      const idx = []; for (let k = 0; k < SEG; k++) { const i0 = k * 2; idx.push(i0, i0 + 1, i0 + 3, i0, i0 + 3, i0 + 2); }
+      const geo = new T.BufferGeometry(); geo.setAttribute("position", new T.Float32BufferAttribute(P, 3)); geo.setAttribute("normal", new T.Float32BufferAttribute(N, 3)); geo.setAttribute("color", new T.Float32BufferAttribute(C, 3)); geo.setIndex(idx);
+      blades.push(geo.toNonIndexed()); geo.dispose(); }
+    const geo = mergeGeometries(blades); blades.forEach((b) => b.dispose());
+    return geo;
+}
 export function createWorld(scene, opts = {}) {
   const root = new T.Group(); root.name = "Neighborhood"; scene.add(root);
   const chunks = new Map(), signs = [];
@@ -926,19 +943,7 @@ export function createWorld(scene, opts = {}) {
     if (grass) { root.remove(grass); grass.geometry.dispose(); grass.dispose && grass.dispose(); grass = null; }
     if (n <= 0) return;
     // a soft clump: thin tapered blades that curve and droop outward, dark at the root and sunlit at the tip
-    const blades = [], SEG = 4;
-    for (let b = 0; b < 9; b++) {
-      const a = b * 2.39996 + 0.3, r0 = 0.012 + (b % 4) * 0.018, h = 0.17 + ((b * 7) % 5) * 0.045, w = 0.011 + (b % 3) * 0.004, bend = 0.05 + ((b * 5) % 4) * 0.035, twist = (b % 2 ? 0.5 : -0.4);
-      const ca = Math.cos(a), sa = Math.sin(a), px = -sa, pz = ca, P = [], N = [], C = [], tone = 0.85 + ((b * 3) % 4) * 0.07, dry = b % 5 === 0 ? 0.12 : 0;
-      for (let k = 0; k <= SEG; k++) { const t = k / SEG, y = h * (t - 0.18 * t * t), out = r0 + bend * t * t, ww = w * (1 - t) ** 0.8 + 0.0008, tw = twist * t;
-        const cx = ca * out, cz = sa * out, ex = (px * Math.cos(tw) + ca * Math.sin(tw)) * ww, ez = (pz * Math.cos(tw) + sa * Math.sin(tw)) * ww;
-        P.push(cx - ex, y, cz - ez, cx + ex, y, cz + ez);
-        const ny = 0.75, nx = ca * 0.5 * t, nz = sa * 0.5 * t; N.push(nx, ny, nz, nx, ny, nz);
-        const g0 = 0.22 + 0.38 * t, cr = (0.16 + 0.32 * t + dry * t) * tone, cg = (0.3 + g0) * tone, cb = (0.1 + 0.14 * t) * tone; C.push(cr, cg, cb, cr, cg, cb); }
-      const idx = []; for (let k = 0; k < SEG; k++) { const i0 = k * 2; idx.push(i0, i0 + 1, i0 + 3, i0, i0 + 3, i0 + 2); }
-      const geo = new T.BufferGeometry(); geo.setAttribute("position", new T.Float32BufferAttribute(P, 3)); geo.setAttribute("normal", new T.Float32BufferAttribute(N, 3)); geo.setAttribute("color", new T.Float32BufferAttribute(C, 3)); geo.setIndex(idx);
-      blades.push(geo.toNonIndexed()); geo.dispose(); }
-    const geo = mergeGeometries(blades); blades.forEach((b) => b.dispose());
+    const geo = grassTuftGeometry();
     const mat = sway(new T.MeshStandardMaterial({ color: "#ffffff", roughness: 0.9, side: T.DoubleSide, name: "Grass_Blades" }), 0.35, 0.3, "vc");
     grass = new T.InstancedMesh(geo, mat, n); grass.name = "GrassTufts"; grass.frustumCulled = false; grass.receiveShadow = true; grass.castShadow = false; grass.count = 0; grass.userData.noExport = true;
     root.add(grass); grassCenter.set(1e9, 0, 0); grassDirty = true;
@@ -1152,3 +1157,17 @@ export function createWorld(scene, opts = {}) {
     stats: () => ({ chunks: chunks.size, npcs: npcs.length, shared: shared.length, queued: queue.length, cars: cars.length, boats: boats.length, grass: grassCount }),
   };
 }
+
+// ---- reusable pieces for other tabs (Houma renders real-map data with the same look) ----
+// cobra-head street light at the origin, arm reaching toward +x; returns { group, headX, headY }
+export function lampModel(H = 3.4) {
+  const g = new T.Group(), pole = G.M("#2b2b2b", { metal: 0.6, rough: 0.4, name: "Lamp_Post" });
+  G.mesh(G.cyl(0.05, 0.08, H, 10), pole, 0, H / 2, 0, g); G.mesh(G.cyl(0.11, 0.13, 0.25, 10), pole, 0, 0.12, 0, g);
+  const arm = G.mesh(G.cyl(0.03, 0.03, 0.9, 6), pole, 0.42, H + 0.12, 0, g); arm.rotation.z = -1.35;
+  G.mesh(G.rbox(0.62, 0.14, 0.3, 0.06), pole, 0.9, H + 0.18, 0, g); G.mesh(G.rbox(0.5, 0.04, 0.22, 0.03), LAMP_GLASS, 0.9, H + 0.1, 0, g);
+  return { group: g, headX: 0.9, headY: H + 0.06 };
+}
+export function treeModel(sp, seed, h) {
+  const t = G.tools(G.rng(seed >>> 0 || 1)); const [a, b] = SIZES[sp] || SIZES.decid; const g = new T.Group(); TREE[sp] ? TREE[sp](g, t, h || t.rr(a, b)) : TREE.decid(g, t, h || t.rr(a, b)); return g;
+}
+export const Kit = { MAT, WATER, WIN_DARK, LAMP_POOL, U, sway, carModel, mergeByMaterial, makeFixture, SIZES };
