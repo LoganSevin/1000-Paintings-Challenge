@@ -5,7 +5,7 @@
 (function () {
   "use strict";
   // 3D renderer (js/houma3d.js, Sims-tab look). Resolved next to this script; loaded on first show.
-  var H3D_URL = (function () { try { return new URL("houma3d.js?v=5", document.currentScript.src).href; } catch (e) { return "js/houma3d.js?v=5"; } })();
+  var H3D_URL = (function () { try { return new URL("houma3d.js?v=6", document.currentScript.src).href; } catch (e) { return "js/houma3d.js?v=6"; } })();
   var h3dLoading = null;
   function use3d() { return !!(window.Houma3D && window.Houma3D.active()); }
 
@@ -1091,7 +1091,7 @@
         turns.push({ i: i, at: acc[i], x: pts[i][0], y: pts[i][1], dir: dir, onto: names[i] || "" });
       }
     }
-    route = { pts: pts, acc: acc, turns: turns, len: r.len, names: names, k: 0 }; routeVer++;
+    route = { pts: pts, acc: acc, turns: turns, len: acc[acc.length - 1], cost: r.len, names: names, k: 0 }; routeVer++;
   }
   function fmtD(m) { return m < 950 ? Math.max(10, Math.round(m / 10) * 10) + " m" : (m / 1609.34).toFixed(1) + " mi"; }
   function gpsUpdate(dt) {
@@ -1102,15 +1102,17 @@
     var best = route.k, bd = 1e9, i, P = route.pts;
     for (i = Math.max(0, route.k - 3); i < Math.min(P.length, route.k + 60); i++) { var d = Math.hypot(P[i][0] - player.x, P[i][1] - player.y); if (d < bd) { bd = d; best = i; } }
     route.k = best;
-    var left = route.len - route.acc[best] + bd;
+    var left = routeLeft(); // single source of truth: geometric length along the drawn route
     if (Math.hypot(gpsDest.x - player.x, gpsDest.y - player.y) < 30 || (best >= P.length - 2 && bd < 30)) { el.hidden = false; el.innerHTML = "<b>Arrived</b> · " + esc(gpsDest.label); route = null; routeVer++; gpsDest = null; return; }
     if (bd > 35 && gpsT > 2) { gpsT = 0; planRoute(); return; } // off route: reroute along the real streets from here
     var nt = null; for (i = 0; i < route.turns.length; i++) if (route.turns[i].i > best) { nt = route.turns[i]; break; }
     var cur = route.names[Math.min(route.names.length - 1, best)] || "";
     el.hidden = false;
-    el.innerHTML = nt ? "<span class='hm-gps-arrow'>" + (/U-turn/.test(nt.dir) ? "⮌" : /right/.test(nt.dir) ? (/Bear/.test(nt.dir) ? "↗" : "➜") : (/Bear/.test(nt.dir) ? "↖" : "⬅")) + "</span> In " + fmtD(route.acc[nt.i] - route.acc[best] + bd) + " <b>" + nt.dir.toLowerCase().replace(/^./, function (c) { return c.toUpperCase(); }) + "</b>" + (nt.onto ? " onto " + esc(nt.onto) : "") + "<small>" + esc(gpsDest.label) + " · " + fmtD(left) + " left</small>"
+    el.innerHTML = nt ? "<span class='hm-gps-arrow'>" + (/U-turn/.test(nt.dir) ? "⮌" : /right/.test(nt.dir) ? (/Bear/.test(nt.dir) ? "↗" : "➜") : (/Bear/.test(nt.dir) ? "↖" : "⬅")) + "</span> In " + fmtD(Math.min(left, route.acc[nt.i] - route.acc[best])) + " <b>" + nt.dir.toLowerCase().replace(/^./, function (c) { return c.toUpperCase(); }) + "</b>" + (nt.onto ? " onto " + esc(nt.onto) : "") + "<small>" + esc(gpsDest.label) + " · " + fmtD(left) + " left</small>"
       : "<span class='hm-gps-arrow'>⬆</span> Continue" + (cur ? " on " + esc(cur) : "") + " · " + fmtD(left) + "<small>" + esc(gpsDest.label) + "</small>";
   }
+  // the one remaining-distance figure every GPS readout uses: route length past the route vertex nearest the player
+  function routeLeft() { if (!route) return 0; var P = route.pts, best = route.k || 0, bd = 1e9; for (var i = Math.max(0, best - 3); i < Math.min(P.length, best + 60); i++) { var d = Math.hypot(P[i][0] - player.x, P[i][1] - player.y); if (d < bd) { bd = d; best = i; } } route.k = best; route.left = route.len - route.acc[best]; return route.left; }
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
   function normSt(s) { return String(s || "").toUpperCase().replace(/\s+/g, " ").trim(); }
   function gpsIndex(d) {
@@ -1132,7 +1134,7 @@
       if (x == null) return;
     }
     gpsDest = { x: x, y: y, label: item.label, node: null }; gpsT = 0; planRoute();
-    if (route) toast("Route to " + item.label + ": " + fmtD(route.len) + " along real streets.");
+    if (route) { routeLeft(); toast("Route to " + item.label + " set: follow the blue line (distance shown in the GPS panel)."); }
   }
   function gpsUI() {
     var stage = $("hm-stage"); if (!stage || $("hm-gps")) return;

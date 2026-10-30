@@ -12,9 +12,9 @@ import * as X from "./houma-tex.js?v=1";
 
 const K = W.Kit, H = window.Houma;
 const QUALITY = {
-  low: { ratio: 1, shadows: false, map: 512, tex: 128, grass: 1600, view: 280, people: 6, trees: 0.55, lampLights: "low" },
-  med: { ratio: 1.5, shadows: true, map: 1024, tex: 256, grass: 6000, view: 440, people: 14, trees: 1, lampLights: "med" },
-  high: { ratio: 2, shadows: true, map: 2048, tex: 256, grass: 12000, view: 620, people: 24, trees: 1.25, lampLights: "high" },
+  low: { ratio: 1, shadows: false, map: 512, tex: 128, grass: 700, view: 280, people: 6, trees: 0.55, lampLights: "low" },
+  med: { ratio: 1.5, shadows: true, map: 1024, tex: 256, grass: 2200, view: 440, people: 14, trees: 1, lampLights: "med" },
+  high: { ratio: 2, shadows: true, map: 2048, tex: 256, grass: 4500, view: 620, people: 24, trees: 1.25, lampLights: "high" },
 };
 const isPhone = () => matchMedia("(pointer: coarse)").matches && Math.min(screen.width, screen.height) < 820;
 const clamp = (v, a, b) => (v < a ? a : v > b ? b : v);
@@ -25,7 +25,7 @@ let aerial = null;
 const viewR = () => (aerial ? Math.max(Q.view, (aerial.h || 420) * 1.3) : Q.view);
 let S = null, renderer = null, scene = null, camera = null, sun = null, hemi = null, night = null, stage = null, labelsEl = null;
 let qName = "med", qAuto = true, Q = QUALITY.med, tod = "live", built = false, building = false, active = false, failed = false;
-let lastP = {}, pZ = 0, builtHomes = -1, lastRefill = { x: 1e9, z: 1e9, t: -1e9 }, lastGrass = { x: 1e9, z: 1e9, t: 0 }, clock = 0, fpsAcc = { n: 0, t: 0, low: 0 };
+let occN = 0, occDist = 99, nearTrees = [], lastP = {}, pZ = 0, builtHomes = -1, lastRefill = { x: 1e9, z: 1e9, t: -1e9 }, lastGrass = { x: 1e9, z: 1e9, t: 0 }, clock = 0, fpsAcc = { n: 0, t: 0, low: 0 };
 const camPos = new T.Vector3(), camLook = new T.Vector3(), tmpV = new T.Vector3(), tmpM = new T.Matrix4(), tmpQ = new T.Quaternion(), tmpS = new T.Vector3(), tmpC = new T.Color(), UP = new T.Vector3(0, 1, 0);
 
 // ---------------------------------------------------------------- materials
@@ -236,6 +236,15 @@ function meshFrom(out, mat, name, { shadow = false } = {}) {
   if (out.col) g.setAttribute("color", new T.Float32BufferAttribute(out.col, 3));
   g.computeVertexNormals(); const m = new T.Mesh(g, mat); m.name = name; m.receiveShadow = true; m.castShadow = shadow; scene.add(m); return m;
 }
+// split a citywide buffer into ~600 m chunks so frustum culling works, and optionally hide chunks past `far` m (LOD)
+let farChunks = [];
+function meshChunks(out, mat, name, far = 0, C = 600) {
+  if (!out.pos.length) return []; const groups = new Map(), P = out.pos, U = out.uv, Cl = out.col;
+  for (let t = 0; t < P.length; t += 9) { const cx = (P[t] + P[t + 3] + P[t + 6]) / 3, cz = (P[t + 2] + P[t + 5] + P[t + 8]) / 3, k = Math.floor(cx / C) * 100003 + Math.floor(cz / C); let g = groups.get(k); if (!g) groups.set(k, (g = { pos: [], uv: [], col: Cl ? [] : null, x: (Math.floor(cx / C) + 0.5) * C, y: (Math.floor(cz / C) + 0.5) * C }));
+    for (let v = 0; v < 3; v++) { const i = t / 3 + v; g.pos.push(P[i * 3], P[i * 3 + 1], P[i * 3 + 2]); g.uv.push(U[i * 2] || 0, U[i * 2 + 1] || 0); if (Cl) g.col.push(Cl[i * 3], Cl[i * 3 + 1], Cl[i * 3 + 2]); } }
+  const ms = []; for (const g of groups.values()) { if (!g.col) delete g.col; const m = meshFrom(g, mat, name); if (!m) continue; m.geometry.computeBoundingSphere(); if (far) { m.userData.far = far; m.userData.cx = g.x; m.userData.cy = g.y; farChunks.push(m); } ms.push(m); }
+  return ms;
+}
 // triangles produced by ribbon() wind clockwise seen from above when n points left; make both faces safe
 const flatMat = (m) => { m.side = T.DoubleSide; return m; };
 function buildGround() {
@@ -359,13 +368,13 @@ function buildRoads() {
   for (const l of cand) if (!onRoad(l.x, l.y, 0.9) && deckY(l.x, l.y, 0) < 0.3) lamps.push(l);
   lampsOnRoad = lamps.filter((l) => onRoad(l.x, l.y, 0)).length;
   for (const out of [LY, LW, FA]) if (!out.uv.length) out.uv = new Array(out.pos.length / 3 * 2).fill(0); for (const out of [LY, LW]) out.uv = new Array(out.pos.length / 3 * 2).fill(0);
-  meshFrom(SW, walk, "Sidewalks"); meshFrom(CB, flatMat(X.mat("panels", 44, "#d2cec4", { name: "H_Curb", rep: [0.5, 0.5] })), "Curbs"); const rm = meshFrom(R, asphalt, "Roads"); if (rm) rm.material.polygonOffset = true;
+  farChunks = farChunks.filter((m) => m.parent); meshChunks(SW, walk, "Sidewalks", 900); meshChunks(CB, flatMat(X.mat("panels", 44, "#d2cec4", { name: "H_Curb", rep: [0.5, 0.5] })), "Curbs", 600); const rms = meshChunks(R, asphalt, "Roads"); if (rms.length) rms[0].material.polygonOffset = true;
   meshFrom(SH, flatMat(X.mat("gravel", 45, "#8f8a7e", { rough: 1, name: "H_Shoulder", rep: [0.3, 0.3] })), "Shoulders");
   const conc = flatMat(X.mat("panels", 46, "#b9b5ac", { rough: 0.9, name: "H_BridgeConcrete", rep: [0.25, 0.25] }));
   meshFrom(FA, conc, "DeckFascia", { shadow: true }); meshFrom(UN, conc, "DeckUnderside", { shadow: true });
   if (piers.length) { const pg = new T.BoxGeometry(1, 1, 1); pg.translate(0, 0.5, 0); const pm = new T.InstancedMesh(pg, conc, piers.length / 5); pm.name = "BridgePiers"; pm.castShadow = true; pm.frustumCulled = false; for (let i = 0; i < piers.length; i += 5) { tmpQ.setFromAxisAngle(UP, -piers[i + 3]); tmpM.compose(tmpV.set(piers[i], 0, piers[i + 1]), tmpQ, tmpS.set(1.4, piers[i + 2], piers[i + 4] * 1.5)); pm.setMatrixAt(i / 5, tmpM); } scene.add(pm); }
-  meshFrom(LY, yellow, "LinesYellow"); meshFrom(LW, white, "LinesWhite");
-  const eg = new T.BoxGeometry(0.14, 0.04, 0.1), em = new T.InstancedMesh(eg, W.CATS_EYE, Math.max(1, eyes.length / 4)); em.name = "Reflectors"; em.frustumCulled = false;
+  meshChunks(LY, yellow, "LinesYellow", 520); meshChunks(LW, white, "LinesWhite", 520);
+  const eg = new T.PlaneGeometry(0.14, 0.1); eg.rotateX(-Math.PI / 2); eg.translate(0, 0.02, 0); const em = new T.InstancedMesh(eg, W.CATS_EYE, Math.max(1, eyes.length / 4)); em.name = "Reflectors"; em.frustumCulled = false;
   for (let i = 0; i < eyes.length; i += 4) { tmpQ.setFromAxisAngle(UP, -eyes[i + 2]); tmpM.compose(tmpV.set(eyes[i], eyes[i + 3] + 0.015, eyes[i + 1]), tmpQ, tmpS.set(1, 1, 1)); em.setMatrixAt(i / 4, tmpM); }
   em.count = eyes.length / 4; scene.add(em); eyeSet = em;
   const P = []; for (const f of S.osm.parking) { if (f.p.length < 3) continue; const s = new T.Shape(); f.p.forEach((q, i) => (i ? s.lineTo(q[0], -q[1]) : s.moveTo(q[0], -q[1]))); P.push(s); }
@@ -723,8 +732,8 @@ function addDrive(x, y, ry, sx, sz, tplD) { const fx = Math.sin(ry), fz = Math.c
 function refill(px, py) {
   const R = viewR(), R2 = R * R;
   for (const s of Object.values(houseSets)) s.begin(); for (const s of Object.values(bizSets)) s.begin();
-  const TR = Math.min(R, 900), TR2 = TR * TR; // LOD: detailed instanced templates only within 900 m
-  const put = (i) => { if (!i.set) return; const dx = i.x - px, dy = i.y - py; if (dx * dx + dy * dy > TR2) return; const set = i.set.startsWith("biz:") ? bizSets[i.set.slice(4)] : houseSets[i.set]; set.add(i.x, 0, i.y, i.ry, i.sx, 1, i.sz, i.colors); };
+  const TR = Math.min(R, aerial ? 900 : 560), TR2 = TR * TR; nearHouses = []; // LOD: detailed instanced templates only within 560 m on the street (900 m from the air)
+  const put = (i) => { if (!i.set) return; const dx = i.x - px, dy = i.y - py; if (dx * dx + dy * dy > TR2) return; if (dx * dx + dy * dy < 4900) nearHouses.push({ x: i.x, y: i.y, r: 4.2 * Math.sqrt(i.sx * i.sz) }); const set = i.set.startsWith("biz:") ? bizSets[i.set.slice(4)] : houseSets[i.set]; set.add(i.x, 0, i.y, i.ry, i.sx, 1, i.sz, i.colors); };
   S.nearBuckets(px, py, TR, (h) => { if (h.inst) put(h.inst); });
   for (const i of extraHouses) put(i);
   for (const s of Object.values(houseSets)) s.end(); for (const s of Object.values(bizSets)) s.end();
@@ -734,6 +743,23 @@ function refill(px, py) {
   for (const l of lamps) { const dx = l.x - px, dy = l.y - py; if (dx * dx + dy * dy > LR2) continue; lampSet.add(l.x, 0, l.y, -l.a, 1, 1, 1); tmpM.compose(tmpV.set(l.hx, 0.09, l.hy), tmpQ.identity(), tmpS.set(9, 1, 9)); poolSet.setMatrixAt(n++, tmpM); }
   lampSet.end(); poolSet.count = n; poolSet.instanceMatrix.needsUpdate = true;
 }
+// chase-camera occlusion: trees between the player and the camera are hidden (instance scaled to 0); real
+// footprints (extruded tile buildings) and templated houses in the way pull the camera in toward the player
+const pip = (x, y, p) => { let c = false; for (let i = 0, j = p.length - 1; i < p.length; j = i++) { const a = p[i], b = p[j]; if ((a[1] > y) !== (b[1] > y) && x < ((b[0] - a[0]) * (y - a[1])) / (b[1] - a[1] || 1e-9) + a[0]) c = !c; } return c; };
+function camOcclusion(px, py, fx, fy, dist, ht, z0) {
+  const hz = 1.6, segHit = (x, y) => { const dx = x - px, dy = y - py, t = clamp(-(dx * fx + dy * fy) / dist, 0, 1); return Math.hypot(dx + fx * dist * t, dy + fy * dist * t); };
+  // trees
+  const touched = new Set();
+  for (const n of nearTrees) { const hide = segHit(n.x, n.y) < n.r && -( (n.x - px) * fx + (n.y - py) * fy) > -1; if (hide !== n.hid) { n.hid = hide; tmpQ.setFromAxisAngle(UP, n.ry); tmpM.compose(tmpV.set(n.x, 0, n.y), tmpQ, hide ? tmpS.set(1e-4, 1e-4, 1e-4) : tmpS.set(n.sx, n.sy, n.sx)); for (const pp of n.set.parts) { pp.im.setMatrixAt(n.i, tmpM); touched.add(pp.im); } } }
+  for (const im of touched) im.instanceMatrix.needsUpdate = true;
+  // buildings: march from the player back toward the camera; stop before the first footprint whose roof is above the sight line
+  const specs = []; for (const t of [bTiles.get(tileKey(px, py, BTILE)), bTiles.get(tileKey(px - fx * dist, py - fy * dist, BTILE))]) if (t) for (const sp of t.specs) if (sp.k === "ext" && sp.p) { if (!sp.bb) { let a = 1e9, b = 1e9, c = -1e9, d = -1e9; for (const q of sp.p) { a = Math.min(a, q[0]); b = Math.min(b, q[1]); c = Math.max(c, q[0]); d = Math.max(d, q[1]); } sp.bb = [a, b, c, d]; } const bb = sp.bb; if (bb[2] < Math.min(px, px - fx * dist) - 1 || bb[0] > Math.max(px, px - fx * dist) + 1 || bb[3] < Math.min(py, py - fy * dist) - 1 || bb[1] > Math.max(py, py - fy * dist) + 1) continue; specs.push(sp); }
+  for (let d = 2; d <= dist + 0.8; d += 0.7) { const x = px - fx * d, y = py - fy * d, h = z0 + hz + (ht - hz) * (d / dist);
+    for (const sp of specs) if (x > sp.bb[0] && x < sp.bb[2] && y > sp.bb[1] && y < sp.bb[3] && (sp.top || 6) + (sp.roof === "flat" ? 1 : 3) > h && pip(x, y, sp.p)) return Math.max(2.2, d - 1.2);
+    for (const hh of nearHouses) if (Math.hypot(x - hh.x, y - hh.y) < hh.r) return Math.max(2.2, d - 1.2); }
+  return 99;
+}
+let nearHouses = [];
 // ---------------------------------------------------------------- landmarks: signage, towers, spires, portals, runways
 let lmGroup = null, gpsMesh = null, gpsArrow = null, gpsVer = -1;
 function signMat(text, bg, fg = "#ffffff", w = 512, h = 128) {
@@ -802,14 +828,14 @@ function syncGPS(P, pz) {
   if (v !== gpsVer) {
     gpsVer = v; if (gpsMesh) { gpsMesh.geometry.dispose(); gpsMesh.removeFromParent(); gpsMesh = null; }
     const r = S.route && S.route();
-    if (r && r.pts && r.pts.length > 1) { const pts = densify(r.pts, 6), o = { pos: [], uv: [] }; ribbon(pts, 1.1, 0, pts.map((q) => deckY(q[0], q[1], 0) + 0.12), o, 0.2); gpsMesh = meshFrom(o, new T.MeshBasicMaterial({ color: "#19b6ff", transparent: true, opacity: 0.72, depthWrite: false, side: T.DoubleSide, name: "H_GPSRoute" }), "GPSRoute"); if (gpsMesh) { gpsMesh.renderOrder = 3; gpsMesh.receiveShadow = false; } }
+    if (r && r.pts && r.pts.length > 1) { const pts = densify(r.pts, 6), o = { pos: [], uv: [] }; ribbon(pts, 1.1, 0, pts.map((q) => deckY(q[0], q[1], 0) + 0.25), o, 0.2); gpsMesh = meshFrom(o, new T.MeshBasicMaterial({ color: "#19b6ff", transparent: true, opacity: 0.72, depthWrite: false, side: T.DoubleSide, name: "H_GPSRoute" }), "GPSRoute"); if (gpsMesh) { gpsMesh.renderOrder = 3; gpsMesh.receiveShadow = false; } }
   }
   if (!gpsArrow) { const s = new T.Shape(); s.moveTo(0, 1.6); s.lineTo(1.1, -0.6); s.lineTo(0, -0.1); s.lineTo(-1.1, -0.6); s.closePath(); const g = new T.ExtrudeGeometry(s, { depth: 0.25, bevelEnabled: false }); g.rotateX(-Math.PI / 2); gpsArrow = new T.Mesh(g, new T.MeshStandardMaterial({ color: "#19b6ff", emissive: "#0a6fa8", emissiveIntensity: 0.8, name: "H_GPSArrow" })); gpsArrow.name = "GPSArrow"; scene.add(gpsArrow); }
   const r = S.route && S.route(); if (!r || !r.pts || r.pts.length < 2) { gpsArrow.visible = false; return; }
   // aim at the route point ~25 m ahead of the closest point
   let bi = 0, bd = 1e9; for (let i = 0; i < r.pts.length; i++) { const d = Math.hypot(r.pts[i][0] - P.x, r.pts[i][1] - P.y); if (d < bd) { bd = d; bi = i; } }
   let j = bi; while (j < r.pts.length - 1 && Math.hypot(r.pts[j][0] - P.x, r.pts[j][1] - P.y) < 25) j++;
-  const tx = r.pts[j][0], ty = r.pts[j][1]; gpsArrow.visible = !aerial; gpsArrow.position.set(P.x, pz + 4.2 + Math.sin(clock * 3) * 0.15, P.y); gpsArrow.rotation.y = Math.atan2(tx - P.x, ty - P.y) + Math.PI;
+  const tx = r.pts[j][0], ty = r.pts[j][1]; gpsArrow.visible = !aerial; const ga = Math.atan2(ty - P.y, tx - P.x); gpsArrow.position.set(P.x + Math.cos(ga) * 7, pz + 0.9 + Math.sin(clock * 3) * 0.12, P.y + Math.sin(ga) * 7); gpsArrow.rotation.y = Math.atan2(tx - P.x, ty - P.y) + Math.PI;
 }
 
 let treeSets = [], treeCache = new Map(); const TB = 100;
@@ -831,9 +857,10 @@ function treesIn(bi, bj) {
   treeCache.set(key, out); return out;
 }
 function refillTrees(px, py) {
-  const R = Math.min(Q.view, 420), R2 = R * R, dens = Q.trees; for (const s of treeSets) s.begin();
+  const R = Math.min(Q.view, 420), R2 = R * R, dens = Q.trees; nearTrees = []; for (const s of treeSets) s.begin();
   for (let i = Math.floor((px - R) / TB); i <= Math.floor((px + R) / TB); i++) for (let j = Math.floor((py - R) / TB); j <= Math.floor((py + R) / TB); j++) {
-    const L = treesIn(i, j); for (let k = 0; k < L.length; k += 5) { const dx = L[k] - px, dy = L[k + 1] - py, d2 = dx * dx + dy * dy; if (d2 > R2) continue; if (dens < 1 && ((k / 5) % 10) / 10 >= dens && L[k + 2] !== 0) continue; const ts = TREE_SCALE[L[k + 2]], sc = L[k + 4]; treeSets[L[k + 2]].add(L[k], 0, L[k + 1], L[k + 3], sc * ts[0], sc * ts[1], sc * ts[0]); }
+    const L = treesIn(i, j); for (let k = 0; k < L.length; k += 5) { const dx = L[k] - px, dy = L[k + 1] - py, d2 = dx * dx + dy * dy; if (d2 > R2) continue; if (dens < 1 && ((k / 5) % 10) / 10 >= dens && L[k + 2] !== 0) continue; if (d2 > 48400 && (k / 5) % 3 === 1) continue; // LOD: thin trees past 220 m (fog hides the gaps)
+      const ts = TREE_SCALE[L[k + 2]], sc = L[k + 4], set = treeSets[L[k + 2]]; if (d2 < 3600) nearTrees.push({ set, i: set.pending.length, x: L[k], y: L[k + 1], ry: L[k + 3], sx: sc * ts[0], sy: sc * ts[1], r: 2.2 + 3 * sc * ts[0], hid: false }); set.add(L[k], 0, L[k + 1], L[k + 3], sc * ts[0], sc * ts[1], sc * ts[0]); }
   }
   for (const s of treeSets) s.end();
 }
@@ -970,18 +997,19 @@ function frame(dt) {
   if (aerial) {
     const ax = aerial.x ?? P.x, ay = aerial.y ?? P.y, hgt = aerial.h || 420; camera.up.set(0, 0, -1); camera.position.set(ax, hgt, ay + (aerial.tilt || 0)); camera.lookAt(ax, 0, ay); camera.up.set(0, 1, 0);
     scene.fog.near = 1e5; scene.fog.far = 1e6; if (camera.far < hgt * 3) { camera.far = hgt * 3; camera.updateProjectionMatrix(); }
-    if (Math.hypot(ax - lastRefill.x, ay - lastRefill.z) > 40 || aerial.dirty) { aerial.dirty = false; lastRefill.x = ax; lastRefill.z = ay; refill(ax, ay); }
+    if (Math.hypot(ax - lastRefill.x, ay - lastRefill.z) > 40 || aerial.dirty) { aerial.dirty = false; lastRefill.x = ax; lastRefill.z = ay; refill(ax, ay); for (const m of farChunks) m.visible = Math.hypot(m.userData.cx - ax, m.userData.cy - ay) < m.userData.far + hgt * 1.6 + 424; }
     pumpTiles(40); syncGPS(P, 0);
     lighting(dt, tmpS.set(ax, 0, ay).clone()); scene.fog.near = 1e5; scene.fog.far = 1e6; renderer.render(scene, camera); if (labelsEl) labelsEl.innerHTML = ""; return;
   }
   pumpTiles(6); if (lastRefill.fence) { lastRefill.fence = false; refillFences(P.x, P.y, viewR()); }
   if (Math.hypot(P.x - (lastP.x ?? 1e9), P.y - (lastP.y ?? 1e9)) > 25) pZ = deckY(P.x, P.y, 99); lastP.x = P.x; lastP.y = P.y; // spawned/teleported: land on the top deck, not under it
   pZ += (deckY(P.x, P.y, pZ) - pZ) * Math.min(1, dt * 8); syncGPS(P, pZ);
-  const fx = Math.cos(P.a), fy = Math.sin(P.a), dist = mode === 1 ? 9 : 18, ht = mode === 1 ? 3.4 : 7.5;
-  camPos.set(P.x - fx * dist, ht + pZ, P.y - fy * dist); const look = tmpV.set(P.x + fx * 6, 1.4 + pZ, P.y + fy * 6);
+  const fx = Math.cos(P.a), fy = Math.sin(P.a); let dist = mode === 1 ? 7 : 11, ht = mode === 1 ? 2.6 : 4.0;
+  if (++occN % 3 === 0) occDist = camOcclusion(P.x, P.y, fx, fy, dist, ht, pZ); dist = Math.min(dist, occDist); ht = Math.min(ht, 1.9 + dist * 0.2);
+  camPos.set(P.x - fx * dist, ht + pZ, P.y - fy * dist); const look = tmpV.set(P.x + fx * 8, 1.7 + pZ, P.y + fy * 8);
   const k = 1 - Math.exp(-dt * 6); if (camera.position.lengthSq() < 1 || camera.position.distanceTo(camPos) > 80) { camera.position.copy(camPos); camLook.copy(look); } else { camera.position.lerp(camPos, k); camLook.lerp(look, k); }
   camera.lookAt(camLook);
-  if (Math.hypot(P.x - lastRefill.x, P.y - lastRefill.z) > 40) { lastRefill.x = P.x; lastRefill.z = P.y; refill(P.x, P.y); }
+  if (Math.hypot(P.x - lastRefill.x, P.y - lastRefill.z) > 40) { lastRefill.x = P.x; lastRefill.z = P.y; refill(P.x, P.y); for (const m of farChunks) m.visible = Math.hypot(m.userData.cx - P.x, m.userData.cy - P.y) < m.userData.far + 424; }
   if (Math.hypot(P.x - lastGrass.x, P.y - lastGrass.z) > 5 && clock - lastGrass.t > 0.25) { lastGrass.x = P.x; lastGrass.z = P.y; lastGrass.t = clock; scatterGrass(P.x, P.y, fx, fy); }
   syncCars(P.x, P.y, nightK); syncPeople(P.x, P.y, clock);
   lighting(dt, tmpS.set(P.x, 0, P.y).clone());
@@ -996,6 +1024,8 @@ window.Houma3D = {
   probe: () => { const rc = new T.Raycaster(), out = []; for (const d of [[0, 1, 0], [0, 0, -1]]) { rc.camera = camera; rc.set(camera.position, new T.Vector3(...d).applyQuaternion(d[1] ? new T.Quaternion() : camera.quaternion)); const h = rc.intersectObjects(scene.children, true)[0]; out.push(h ? [h.object.name, h.object.material && h.object.material.name, +h.distance.toFixed(1), [h.point.x, h.point.y, h.point.z].map((v) => +v.toFixed(1))] : null); } return { cam: camera.position.toArray().map((v) => +v.toFixed(1)), out }; },
   deckY: (x, y, z) => deckY(x, y, z),
   snapZ: (z) => { pZ = z; },
+  gpsDbg: () => [typeof S.routeVer, gpsVer, !!gpsMesh, !!gpsArrow, gpsArrow && gpsArrow.visible, gpsMesh && gpsMesh.geometry.attributes.position.count],
+  triStats: () => { const m = {}; scene.traverseVisible((o) => { if (!o.geometry) return; const g = o.geometry, n = (g.index ? g.index.count : g.attributes.position.count) / 3 * (o.isInstancedMesh ? o.count : 1); const k = (o.name || "?").replace(/\d+$/, ""); m[k] = (m[k] || 0) + n; }); return Object.entries(m).sort((a, b) => b[1] - a[1]).slice(0, 25).map(([k, v]) => k + ":" + Math.round(v / 1000) + "k"); },
   aerial: (o) => { aerial = o ? { ...o, dirty: true } : null; lastRefill.x = 1e9; if (!o && scene) applyQuality(qName); },
   setQuality: (q) => { qAuto = false; applyQuality(q); },
   stats: () => ({ quality: qName, built, houses: Object.values(houseSets).reduce((a, s) => a + s.n, 0), biz: Object.values(bizSets).reduce((a, s) => a + s.n, 0), trees: treeSets.reduce((a, s) => a + s.n, 0), grass: grass ? grass.count : 0, lamps: lamps.length, lampsOnRoad, bld: { ...bStats }, tilesBuilt: [...bTiles.values()].filter((t) => t.meshes).length, tilesTotal: bTiles.size, lotTilesBuilt: [...lotTiles.values()].filter((t) => t.meshes).length, queue: buildQ.length, landmarks: markHits.map((h) => [h.m.k, h.m.n, !!h.b]), tunnels: tunnels.length, elevated: S && S.osm ? S.osm.roads.filter((f) => f.bz).length : 0, calls: renderer ? renderer.info.render.calls : 0, tris: renderer ? renderer.info.render.triangles : 0 }),
