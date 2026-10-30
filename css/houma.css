@@ -167,3 +167,13 @@ body.hm-tab-active .site-header { padding-top: 0.3rem; padding-bottom: 0.3rem; }
 .hp-links a{font-size:10px;line-height:1;padding:2px 5px;border-radius:8px;border:1px solid rgba(120,200,255,.45);color:#9fd8ff;text-decoration:none;white-space:nowrap}
 .hp-links a:hover{background:rgba(120,200,255,.18)}
 .hp-links a[title="Official website"]{border-color:#7fe0a0;color:#9ff0b8}
+.hp-seg{display:inline-flex;margin:6px 0 8px;border:1px solid rgba(255,120,200,.5);border-radius:10px;overflow:hidden}
+.hp-seg button{background:transparent;color:#f6d;border:0;padding:5px 12px;font:inherit;font-size:12px;cursor:pointer}
+.hp-seg button+button{border-left:1px solid rgba(255,120,200,.5)}
+.hp-seg button.on{background:#ff4fa8;color:#fff}
+.hp-sec{margin:0 0 18px}
+.hp-sec+.hp-sec{border-top:2px dashed rgba(255,255,255,.25);padding-top:10px}
+.hp-sec-h{margin:4px 0 6px;font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:#ffd27a}
+.hp-sec-ind .hp-sec-h{color:#9fd8ff}
+.hp-sec-h span{font-size:12px;opacity:.75;margin-left:6px;letter-spacing:0;text-transform:none}
+.hp-sec .hp-table thead th{top:0}
