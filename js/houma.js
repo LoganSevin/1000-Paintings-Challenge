@@ -5,12 +5,14 @@
 (function () {
   "use strict";
   // 3D renderer (js/houma3d.js, Sims-tab look). Resolved next to this script; loaded on first show.
-  var H3D_URL = (function () { try { return new URL("houma3d.js?v=1", document.currentScript.src).href; } catch (e) { return "js/houma3d.js?v=1"; } })();
+  var H3D_URL = (function () { try { return new URL("houma3d.js?v=2", document.currentScript.src).href; } catch (e) { return "js/houma3d.js?v=2"; } })();
   var h3dLoading = null;
   function use3d() { return !!(window.Houma3D && window.Houma3D.active()); }
 
   var CELL = 8;
   var ORIGIN = 2200;
+  var X0 = -ORIGIN, Y0 = -ORIGIN, X1 = ORIGIN, Y1 = ORIGIN; // world bounds (meters); replaced by the GIS extent
+  var gis = null; // real parish geometry (data/houma-gis): lots, structures, centerlines, water, bridges, land use
   var COLS = 560;
   var ROWS = 560;
   var T = { GRASS: 0, WATER: 1, ROAD: 2, PARK: 3, BLDG: 4 };
@@ -56,13 +58,13 @@
   }
 
   function wxToC(x) {
-    return ((x + ORIGIN) / CELL) | 0;
+    return ((x - X0) / CELL) | 0;
   }
   function wyToC(y) {
-    return ((y + ORIGIN) / CELL) | 0;
+    return ((y - Y0) / CELL) | 0;
   }
   function cToWx(c) {
-    return c * CELL - ORIGIN;
+    return c * CELL + X0;
   }
   function getT(cx, cy) {
     if (cx < 0 || cy < 0 || cx >= COLS || cy >= ROWS || !grid) return T.GRASS;
@@ -148,6 +150,7 @@
     osm = { roads: [], water: [], buildings: [], parking: [] };
     streetSigns = [];
     if (data.origin) originLL = data.origin;
+    if (data.bounds) { X0 = data.bounds[0]; Y0 = data.bounds[1]; X1 = data.bounds[2]; Y1 = data.bounds[3]; COLS = Math.ceil((X1 - X0) / CELL); ROWS = Math.ceil((Y1 - Y0) / CELL); }
     (data.features || []).forEach(function (f) {
       if (f.k === "road") osm.roads.push(f);
       else if (f.k === "water") osm.water.push(f);
@@ -163,10 +166,10 @@
     });
     osm.water.forEach(function (f) {
       if (f.p.length > 3 && closeRing(f.p)) fillPoly(f.p, T.WATER);
-      else stampLine(f.p, 14, T.WATER);
+      else stampLine(f.p, Math.max(3, (f.w || 28) / 2), T.WATER);
     });
     osm.roads.forEach(function (f) {
-      var w = f.h === "primary" || f.h === "secondary" ? 9 : f.h === "residential" ? 6 : 5;
+      var w = f.h === "trunk" || f.h === "primary" || f.h === "secondary" ? 9 : f.h === "residential" ? 6 : 5;
       stampLine(f.p, w, T.ROAD);
       if (f.n && f.p.length > 1) {
         var mid = f.p[(f.p.length / 2) | 0];
@@ -775,19 +778,46 @@
     }
   }
 
+  // ---- real geometry: Terrebonne Parish GIS (parcels, structures, street centerlines) + OSM water/bridges/land use
+  var GV = "?v=2";
+  function getJ(u) { return fetch(u + GV).then(function (r) { if (!r.ok) throw new Error(u + " " + r.status); return r.json(); }); }
+  function dec(a) { var out = [], x = 0, y = 0, i; for (i = 0; i < a.length; i += 2) { x += a[i]; y += a[i + 1]; out.push([x / 10, y / 10]); } return out; }
+  function centroid(p) { var a = 0, cx = 0, cy = 0, i, j; for (i = 0, j = p.length - 1; i < p.length; j = i++) { var f = p[j][0] * p[i][1] - p[i][0] * p[j][1]; a += f; cx += (p[j][0] + p[i][0]) * f; cy += (p[j][1] + p[i][1]) * f; } if (Math.abs(a) < 1e-6) return [p[0][0], p[0][1], 0]; return [cx / (3 * a), cy / (3 * a), Math.abs(a / 2)]; }
+  function titleCase(n) { return (n || "").toLowerCase().replace(/\b([a-z])/g, function (m) { return m.toUpperCase(); }).replace(/\bAv\b/, "Ave"); }
+  function roadClass(cls, name) {
+    if (/HIGHWAY|HWY|MARTIN LUTHER KING|TUNNEL BLVD|PRAGUE|INDUSTRIAL BLVD|ST CHARLES|SAINT CHARLES|GRAND CAILLOU|NEW ORLEANS BLVD/.test(name)) return cls === 3 ? "trunk" : "secondary";
+    return cls === 1 ? "motorway" : cls === 2 ? "trunk" : cls === 3 ? "primary" : cls === 4 ? "residential" : cls === 5 ? "living_street" : "service";
+  }
+  function loadGis() {
+    return getJ("data/houma-gis/meta.json").then(function (meta) {
+      var parts = [getJ("data/houma-gis/roads.json"), getJ("data/houma-gis/water.json")], i;
+      for (i = 0; i < meta.parts.lots; i++) parts.push(getJ("data/houma-gis/lots-" + i + ".json"));
+      for (i = 0; i < meta.parts.bldg; i++) parts.push(getJ("data/houma-gis/bldg-" + i + ".json"));
+      return Promise.all(parts).then(function (all) {
+        var roads = all[0], wat = all[1], feats = [], lots = [], lotByAcct = {}, bl = [];
+        roads.rows.forEach(function (r) { var nm = r[0] || ""; feats.push({ k: "road", p: dec(r[2]), n: titleCase(nm), r: "", h: roadClass(r[1], nm) }); });
+        wat.water.forEach(function (w) { feats.push({ k: "water", p: dec(w[3]), n: w[0], w: w[2], wk: w[1] }); });
+        for (i = 2; i < 2 + meta.parts.lots; i++) all[i].rows.forEach(function (r) { var p = dec(r[1]); if (p.length < 3) return; var c = centroid(p), L = { acct: String(r[0]), p: p, cx: c[0], cy: c[1], area: c[2], h: null }; lots.push(L); if (r[0] && !lotByAcct[L.acct]) lotByAcct[L.acct] = L; });
+        for (i = 2 + meta.parts.lots; i < all.length; i++) all[i].rows.forEach(function (r) { var p = dec(r[1]); if (p.length >= 3) { var f = { k: "building", p: p, acct: String(r[0]) }; feats.push(f); bl.push(f); } });
+        gis = {
+          meta: meta, lots: lots, lotByAcct: lotByAcct, bridges: wat.bridges.map(function (b) { return { n: b[0], h: b[1], p: dec(b[2]) }; }),
+          green: wat.green.map(function (g) { return { k: g[0], n: g[1], p: dec(g[2]) }; }), poi: wat.poi.map(function (q) { return { k: q[0], n: q[1], x: q[2], y: q[3] }; }),
+          city: (meta.city || []).map(dec),
+        };
+        return { origin: meta.origin, bounds: meta.bounds, features: feats, gis: true };
+      });
+    });
+  }
   function loadOsm() {
-    toast("Loading real Houma streets…");
-    return fetch("data/houma-osm.json?v=1")
-      .then(function (r) {
-        if (!r.ok) throw new Error("osm " + r.status);
-        return r.json();
-      })
+    toast("Loading real Houma parcels, streets and bayous…");
+    return loadGis().catch(function (e) { console.warn("houma-gis unavailable, falling back to OSM extract", e); gis = null; return fetch("data/houma-osm.json?v=1").then(function (r) { if (!r.ok) throw new Error("osm " + r.status); return r.json(); }); })
+      .then(function (r) { return r; })
       .then(function (data) {
         ingest(data);
         spawnWorld();
         ready = true;
         if (window.HoumaProps) window.HoumaProps.load().then(placeHomes).catch(function (e) { console.warn("parcels", e); });
-        toast("OpenStreetMap Houma — " + osm.roads.length + " streets, " + osm.buildings.length + " footprints.");
+        toast((gis ? "Terrebonne Parish GIS: " + gis.lots.length + " parcels, " : "OpenStreetMap Houma — ") + osm.roads.length + " street segments, " + osm.buildings.length + " building footprints.");
       })
       .catch(function (err) {
         toast("Could not load OSM: " + (err && err.message));
@@ -814,12 +844,15 @@
     d.parcels.forEach(function (p) {
       if (p.lat == null || p.lon == null) return;
       var xy = llToXY(p.lat, p.lon);
-      if (Math.abs(xy[0]) > ORIGIN - 40 || Math.abs(xy[1]) > ORIGIN - 40) return;
+      var lot = gis && gis.lotByAcct[p.id];
+      if (lot) xy = [lot.cx, lot.cy]; // the parcel's real polygon centroid
+      if (xy[0] < X0 + 40 || xy[0] > X1 - 40 || xy[1] < Y0 + 40 || xy[1] > Y1 - 40) return;
       var built = (p.sqft || 0) > 0 || (p.bldg || 0) > 0;
       var biz = isBiz(p.owner);
       var onOsm = getT(wxToC(xy[0]), wyToC(xy[1])) === T.BLDG; // OSM footprint already drawn here
-      var h = { x: xy[0], y: xy[1], p: p, built: built, osm: onOsm, biz: biz, w: Math.max(5, Math.min(14, Math.sqrt(p.sqft || 900) * 0.3)), r: null };
+      var h = { x: xy[0], y: xy[1], p: p, lot: lot || null, built: built, osm: onOsm, biz: biz, w: Math.max(5, Math.min(14, Math.sqrt(p.sqft || 900) * 0.3)), r: null };
       // Resident NPC: a person (not a company) who owns a built parcel; owner-occupied if mailing starts with site address
+      if (lot) lot.h = h;
       if (built && !biz && p.owner) {
         var occ = p.site && p.mail && p.mail.toUpperCase().indexOf(p.site.toUpperCase()) === 0;
         h.r = { home: h, x: h.x + rand(-4, 4), y: h.y + rand(-4, 4), a: rand(0, 6.28), v: rand(0.6, 1.4), name: niceName(p.owner), occ: occ, hue: (parseInt(p.id, 10) * 37) % 360 };
@@ -978,7 +1011,7 @@
   function state() {
     return {
       player: player, cars: cars, peds: peds, homes: homes, residents: residents, osm: osm, T: T,
-      worldT: worldT, nearBuckets: nearBuckets,
+      worldT: worldT, nearBuckets: nearBuckets, gis: function () { return gis; }, bounds: function () { return [X0, Y0, X1, Y1]; },
       camMode: function () { return camMode; },
       ready: function () { return ready && !!player; },
       homesReady: function () { return homes.length; },
