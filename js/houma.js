@@ -5,7 +5,7 @@
 (function () {
   "use strict";
   // 3D renderer (js/houma3d.js, Sims-tab look). Resolved next to this script; loaded on first show.
-  var H3D_URL = (function () { try { return new URL("houma3d.js?v=6", document.currentScript.src).href; } catch (e) { return "js/houma3d.js?v=6"; } })();
+  var H3D_URL = (function () { try { return new URL("houma3d.js?v=7", document.currentScript.src).href; } catch (e) { return "js/houma3d.js?v=7"; } })();
   var h3dLoading = null;
   function use3d() { return !!(window.Houma3D && window.Houma3D.active()); }
 
@@ -1167,9 +1167,11 @@
     if (!route) return;
     var sx = mw / (span * 2), sy = mh / (span * 2), i;
     ctx.save(); ctx.beginPath(); ctx.rect(mx, my, mw, mh); ctx.clip();
-    ctx.strokeStyle = "#35d0ff"; ctx.lineWidth = 3; ctx.lineJoin = "round"; ctx.beginPath();
-    for (i = route.k; i < route.pts.length; i++) { var px = mx + (route.pts[i][0] - x0) * sx, py = my + (route.pts[i][1] - y0) * sy; if (i === route.k) ctx.moveTo(px, py); else ctx.lineTo(px, py); }
-    ctx.stroke();
+    ctx.lineJoin = "round"; ctx.lineCap = "round"; ctx.beginPath();
+    ctx.moveTo(mx + (player.x - x0) * sx, my + (player.y - y0) * sy);
+    for (i = route.k || 0; i < route.pts.length; i++) ctx.lineTo(mx + (route.pts[i][0] - x0) * sx, my + (route.pts[i][1] - y0) * sy);
+    ctx.strokeStyle = "rgba(0,30,60,0.85)"; ctx.lineWidth = 6; ctx.stroke();
+    ctx.strokeStyle = "#35d0ff"; ctx.lineWidth = 3.5; ctx.stroke();
     if (gpsDest) { var dx = mx + (gpsDest.x - x0) * sx, dy = my + (gpsDest.y - y0) * sy; ctx.fillStyle = "#ffd23a"; ctx.beginPath(); ctx.arc(Math.max(mx + 4, Math.min(mx + mw - 4, dx)), Math.max(my + 4, Math.min(my + mh - 4, dy)), 4, 0, 7); ctx.fill(); }
     ctx.restore();
   }

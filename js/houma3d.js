@@ -825,10 +825,24 @@ function buildLandmarks() {
 // ---------------------------------------------------------------- GPS route ribbon + guidance arrow
 function syncGPS(P, pz) {
   const v = S.routeVer ? S.routeVer() : 0;
-  if (v !== gpsVer) {
+  if (v !== gpsVer || (gpsMesh && gpsMesh.parent !== scene)) {
     gpsVer = v; if (gpsMesh) { gpsMesh.geometry.dispose(); gpsMesh.removeFromParent(); gpsMesh = null; }
     const r = S.route && S.route();
-    if (r && r.pts && r.pts.length > 1) { const pts = densify(r.pts, 6), o = { pos: [], uv: [] }; ribbon(pts, 1.1, 0, pts.map((q) => deckY(q[0], q[1], 0) + 0.25), o, 0.2); gpsMesh = meshFrom(o, new T.MeshBasicMaterial({ color: "#19b6ff", transparent: true, opacity: 0.72, depthWrite: false, side: T.DoubleSide, name: "H_GPSRoute" }), "GPSRoute"); if (gpsMesh) { gpsMesh.renderOrder = 3; gpsMesh.receiveShadow = false; } }
+    if (r && r.pts && r.pts.length > 1) {
+      // densify, remembering which source vertex each piece came from so only the part ahead of the car is drawn
+      const pts = [r.pts[0]], src = [0];
+      for (let i = 1; i < r.pts.length; i++) { const a = r.pts[i - 1], b = r.pts[i], n = Math.max(1, Math.ceil(Math.hypot(b[0] - a[0], b[1] - a[1]) / 4)); for (let k = 1; k <= n; k++) { pts.push([a[0] + (b[0] - a[0]) * k / n, a[1] + (b[1] - a[1]) * k / n]); src.push(i - 1); } }
+      // follow the drivable surface continuously (bridge ramps/decks included) and float just above it
+      let cur = deckY(pts[0][0], pts[0][1], Math.abs(pz - deckY(pts[0][0], pts[0][1], 0)) < 2 ? 0 : pz); const ys = pts.map((q) => (cur = deckY(q[0], q[1], cur)) + 0.32);
+      const o = { pos: [], uv: [] }; ribbon(pts, 1.3, 0, ys, o, 0.2);
+      gpsMesh = meshFrom(o, new T.MeshBasicMaterial({ color: "#19b6ff", transparent: true, opacity: 0.85, depthWrite: false, side: T.DoubleSide, fog: false, polygonOffset: true, polygonOffsetFactor: -4, polygonOffsetUnits: -4, name: "H_GPSRoute" }), "GPSRoute");
+      if (gpsMesh) { gpsMesh.renderOrder = 10; gpsMesh.receiveShadow = false; gpsMesh.frustumCulled = false; gpsMesh.userData.src = src; gpsMesh.userData.k = -1; }
+    }
+  }
+  if (gpsMesh) { // trim the part already driven: draw from a little behind the route vertex nearest the car
+    const r = S.route && S.route(), k = r ? Math.max(0, (r.k || 0) - 1) : 0;
+    if (k !== gpsMesh.userData.k) { gpsMesh.userData.k = k; const src = gpsMesh.userData.src; let j = 0; while (j < src.length - 1 && src[j] < k) j++; const tot = gpsMesh.geometry.attributes.position.count; gpsMesh.geometry.setDrawRange(Math.min(tot, j * 6), Infinity); }
+    gpsMesh.visible = true;
   }
   if (!gpsArrow) { const s = new T.Shape(); s.moveTo(0, 1.6); s.lineTo(1.1, -0.6); s.lineTo(0, -0.1); s.lineTo(-1.1, -0.6); s.closePath(); const g = new T.ExtrudeGeometry(s, { depth: 0.25, bevelEnabled: false }); g.rotateX(-Math.PI / 2); gpsArrow = new T.Mesh(g, new T.MeshStandardMaterial({ color: "#19b6ff", emissive: "#0a6fa8", emissiveIntensity: 0.8, name: "H_GPSArrow" })); gpsArrow.name = "GPSArrow"; scene.add(gpsArrow); }
   const r = S.route && S.route(); if (!r || !r.pts || r.pts.length < 2) { gpsArrow.visible = false; return; }
@@ -1024,7 +1038,7 @@ window.Houma3D = {
   probe: () => { const rc = new T.Raycaster(), out = []; for (const d of [[0, 1, 0], [0, 0, -1]]) { rc.camera = camera; rc.set(camera.position, new T.Vector3(...d).applyQuaternion(d[1] ? new T.Quaternion() : camera.quaternion)); const h = rc.intersectObjects(scene.children, true)[0]; out.push(h ? [h.object.name, h.object.material && h.object.material.name, +h.distance.toFixed(1), [h.point.x, h.point.y, h.point.z].map((v) => +v.toFixed(1))] : null); } return { cam: camera.position.toArray().map((v) => +v.toFixed(1)), out }; },
   deckY: (x, y, z) => deckY(x, y, z),
   snapZ: (z) => { pZ = z; },
-  gpsDbg: () => [typeof S.routeVer, gpsVer, !!gpsMesh, !!gpsArrow, gpsArrow && gpsArrow.visible, gpsMesh && gpsMesh.geometry.attributes.position.count],
+  gpsDbg: () => [typeof S.routeVer, gpsVer, !!gpsMesh, !!gpsArrow, gpsArrow && gpsArrow.visible, gpsMesh && gpsMesh.geometry.attributes.position.count, gpsMesh && gpsMesh.geometry.drawRange.start, gpsMesh && gpsMesh.parent === scene],
   triStats: () => { const m = {}; scene.traverseVisible((o) => { if (!o.geometry) return; const g = o.geometry, n = (g.index ? g.index.count : g.attributes.position.count) / 3 * (o.isInstancedMesh ? o.count : 1); const k = (o.name || "?").replace(/\d+$/, ""); m[k] = (m[k] || 0) + n; }); return Object.entries(m).sort((a, b) => b[1] - a[1]).slice(0, 25).map(([k, v]) => k + ":" + Math.round(v / 1000) + "k"); },
   aerial: (o) => { aerial = o ? { ...o, dirty: true } : null; lastRefill.x = 1e9; if (!o && scene) applyQuality(qName); },
   setQuality: (q) => { qAuto = false; applyQuality(q); },
