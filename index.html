@@ -5281,6 +5281,9 @@
             <option value="street:1">Street A→Z</option><option value="street:-1">Street Z→A</option>
             <option value="assessed:-1">Assessed value ↓</option><option value="acres:-1">Acres ↓</option><option value="id:1">Parcel #</option>
           </select>
+          <select id="hp-scope" aria-label="Area scope"><option value="city">Houma city limits</option><option value="houma" selected>Houma (city + 70360/70363/70364)</option><option value="parish">Whole Terrebonne Parish</option></select>
+          <select id="hp-zip" aria-label="Site ZIP"><option value="">Any ZIP</option></select>
+          <select id="hp-kind" aria-label="Record type"><option value="">All record types</option></select>
         </div>
         <div class="hp-meta" id="hp-meta">Loading parcels…</div>
         <div class="hp-scroll" id="hp-table-wrap"></div>
@@ -5293,6 +5296,7 @@
             <option value="all">Businesses or 2+ parcels</option><option value="bizmulti">Businesses with 2+ parcels</option>
             <option value="multi">Any owner with 2+ parcels</option><option value="biz">Business-like names (LLC, INC, TRUST…)</option>
           </select>
+          <select id="hp-oscope" aria-label="Area scope"><option value="city">Houma city limits</option><option value="houma" selected>Houma (city + 70360/70363/70364)</option><option value="parish">Whole Terrebonne Parish</option></select>
         </div>
         <div class="hp-meta" id="hp-meta2">Loading…</div>
         <div class="hp-scroll" id="hp-owners-list"></div>
@@ -9624,7 +9628,7 @@
   <script defer src="js/plasma.js?v=7"></script>
   <script defer src="js/spellshop.js?v=4"></script>
   <script defer src="js/runes.js?v=7"></script>
-  <script defer src="js/houma-props.js?v=7"></script>
+  <script defer src="js/houma-props.js?v=8"></script>
   <script defer src="js/houma.js?v=13"></script>
   <script defer src="js/thousand-games.js?v=4"></script>
   <script defer src="js/spell-map-textures.js?v=2"></script>
