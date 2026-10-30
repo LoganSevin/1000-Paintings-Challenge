@@ -135,7 +135,11 @@ body.hm-tab-active .site-header { padding-top: 0.3rem; padding-bottom: 0.3rem; }
 .hp-on { font-weight: 600; flex: 1 1 10rem; } .hp-tot { color: #7dffb3; font-size: 0.78rem; }
 .hp-owner ul { margin: 0.3rem 0 0.2rem 2.6rem; padding: 0; font-size: 0.8rem; color: #ddd; }
 .hp-empty { padding: 1rem; color: #b9a8b3; }
+.hp-az { margin-left: 0.35rem; vertical-align: middle; background: #1b0f19; color: #f3ece3; border: 1px solid #5a2f4c; border-radius: 4px; padding: 0 0.35rem; font: inherit; font-size: 0.7rem; line-height: 1.5; cursor: pointer; }
+.hp-az.on { border-color: #ff4fa3; color: #ff9cd0; }
+.hp-az-bar { display: none; }
 @media (max-width: 720px) {
+  .hp-az-bar { display: flex; align-items: center; gap: 0.3rem; position: sticky; top: 0; z-index: 1; padding: 0.35rem 0.45rem; background: #2a1426; font-size: 0.8rem; font-weight: 600; }
   .hp-table thead { display: none; }
   .hp-table, .hp-table tbody, .hp-table tr, .hp-table td { display: block; width: 100%; }
   .hp-table tr { padding: 0.4rem; border-top: 1px solid #3a2034; }
