@@ -74,8 +74,11 @@
     var r = rows(), pages = Math.max(1, Math.ceil(r.length / st.per));
     if (st.page >= pages) st.page = pages - 1;
     var slice = r.slice(st.page * st.per, (st.page + 1) * st.per);
-    var h = '<table class="hp-table"><thead><tr>' + COLS.map(function (c) {
-      return '<th data-sort="' + c[0] + '" class="' + (st.sort === c[0] ? (st.dir > 0 ? "asc" : "desc") : "") + '">' + c[1] + "</th>";
+    // Owner A→Z / Z→A button: in the Owner header on desktop, in a small bar above the cards on mobile
+    var azOn = st.sort === "owner", azNext = azOn && st.dir > 0 ? "Z→A" : "A→Z";
+    var az = function (cls) { return '<button type="button" class="hp-az ' + cls + (azOn ? " on" : "") + '" data-az="1" title="Sort owners ' + azNext + '" aria-label="Sort by owner name ' + azNext + '">' + azNext + "</button>"; };
+    var h = '<div class="hp-az-bar">Owner ' + az("m") + '</div><table class="hp-table"><thead><tr>' + COLS.map(function (c) {
+      return '<th data-sort="' + c[0] + '" class="' + (st.sort === c[0] ? (st.dir > 0 ? "asc" : "desc") : "") + '">' + c[1] + (c[0] === "owner" ? " " + az("d") : "") + "</th>";
     }).join("") + "</tr></thead><tbody>" + slice.map(function (p) {
       return "<tr>" + COLS.map(function (c) { return '<td data-l="' + c[1] + '">' + cell(p, c[0]) + "</td>"; }).join("") + "</tr>";
     }).join("") + "</tbody></table>";
@@ -128,6 +131,7 @@
     $("hp-table-wrap").addEventListener("click", function (e) {
       var go = e.target.closest("[data-go]");
       if (go) { e.preventDefault(); setView("world"); setTimeout(function () { if (!(window.Houma && window.Houma.goTo(go.dataset.go))) alert("That parcel is outside the drivable world area (or the world is still loading)."); }, 50); return; }
+      if (e.target.closest("[data-az]")) { e.stopPropagation(); st.dir = st.sort === "owner" && st.dir > 0 ? -1 : 1; st.sort = "owner"; st.page = 0; rowsCache = null; renderTable(); return; }
       var th = e.target.closest("th[data-sort]"); if (!th) return;
       var k = th.dataset.sort; st.dir = st.sort === k ? -st.dir : 1; st.sort = k; st.page = 0; rowsCache = null; renderTable();
     });
