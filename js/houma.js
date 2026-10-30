@@ -1115,10 +1115,18 @@
   function routeLeft() { if (!route) return 0; var P = route.pts, best = route.k || 0, bd = 1e9; for (var i = Math.max(0, best - 3); i < Math.min(P.length, best + 60); i++) { var d = Math.hypot(P[i][0] - player.x, P[i][1] - player.y); if (d < bd) { bd = d; best = i; } } route.k = best; route.left = route.len - route.acc[best]; return route.left; }
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
   function normSt(s) { return String(s || "").toUpperCase().replace(/\s+/g, " ").trim(); }
+  window.addEventListener("houma-parcels", function (e) { if (ready && homes.length) gpsIndex(e.detail); });
   function gpsIndex(d) {
     var st = {}, addrs = [];
     osm.roads.forEach(function (f) { var n = f.n || f.r; if (!n) return; var k = normSt(n); (st[k] = st[k] || { label: n, roads: [] }).roads.push(f); if (f.r && f.n) { var k2 = normSt(f.r); (st[k2] = st[k2] || { label: f.r + " (" + f.n + ")", roads: [] }).roads.push(f); } });
-    (d && d.parcels || []).forEach(function (p) { if (p.street) { var k = normSt(p.street); if (!st[k]) st[k] = { label: titleCase(p.street), roads: [], prop: true }; } if (p.site) addrs.push({ label: titleCase(p.site), id: p.id, lat: p.lat, lon: p.lon }); });
+    var seenA = {};
+    (d && d.parcels || []).forEach(function (p) {
+      // parish-wide shards (table's "whole parish" filter) can include records off the 3D map or without coordinates: only index drivable ones
+      var xy = p.lat != null && p.lon != null ? llToXY(p.lat, p.lon) : null;
+      var onMap = xy && xy[0] >= X0 && xy[0] <= X1 && xy[1] >= Y0 && xy[1] <= Y1;
+      if (p.street && (onMap || p.city !== "PARISH")) { var k = normSt(p.street); if (!st[k]) st[k] = { label: titleCase(p.street), roads: [], prop: true }; }
+      if (p.site && onMap) { var ka = normSt(p.site); if (!seenA[ka]) { seenA[ka] = 1; addrs.push({ label: titleCase(p.site), id: p.id, lat: p.lat, lon: p.lon }); } }
+    });
     gpsIdx.streets = Object.keys(st).map(function (k) { var o = st[k]; o.key = k; return o; }).sort(function (a, b) { return a.label < b.label ? -1 : 1; });
     gpsIdx.addrs = addrs;
   }

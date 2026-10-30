@@ -1,12 +1,12 @@
 /**
  * Houma — property table + multi-property owners, from Terrebonne Parish Assessor public data
- * (cached in data/houma-parcels.json by scripts/fetch_houma_parcels.py).
+ * (sharded in data/houma-parcels/ by scope, lazy-loaded; built by scripts/fetch_houma_parcels.py).
  */
 (function () {
   "use strict";
   var data = null, loading = null;
   var GRP0 = "both"; try { GRP0 = localStorage.getItem("hp-grp") || "both"; } catch (e) {}
-  var st = { grp: /^(biz|ind|both)$/.test(GRP0) ? GRP0 : "both", pg: { biz: 0, ind: 0 }, opg: { biz: 0, ind: 0 }, view: "world", q: "", sort: "owner", dir: 1, page: 0, per: 100, oq: "", ofilter: "all", opage: 0 };
+  var st = { grp: /^(biz|ind|both)$/.test(GRP0) ? GRP0 : "both", pg: { biz: 0, ind: 0 }, opg: { biz: 0, ind: 0 }, view: "world", scope: "houma", oscope: "houma", zip: "", kind: "", q: "", sort: "owner", dir: 1, page: 0, per: 100, oq: "", ofilter: "all", opage: 0 };
   function $(id) { return document.getElementById(id); }
   function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
   function money(n) { return n == null ? "" : "$" + Math.round(n).toLocaleString(); }
@@ -37,35 +37,53 @@
       '<a href="https://duckduckgo.com/?q=' + encodeURIComponent('"' + n + '" Louisiana') + '" target="_blank" rel="noopener" title="Web search">web</a></span>';
   }
   document.addEventListener("click", function (e) { var a = e.target.closest && e.target.closest("a[data-copy]"); if (a && navigator.clipboard) navigator.clipboard.writeText(a.getAttribute("data-copy")).catch(function () {}); }, true);
-  function load() {
-    if (loading) return loading;
-    var get = function (u) { return fetch(u).then(function (r) { if (!r.ok) throw new Error("parcels " + r.status); return r.json(); }); };
-    loading = get("data/houma-parcels/meta.json?v=1").then(function (meta) {
-      var parts = [], i;
-      for (i = 0; i < meta.parts; i++) parts.push(get("data/houma-parcels/part-" + i + ".json?v=1"));
-      return Promise.all(parts).then(function (ps) {
-        var all = [];
-        ps.forEach(function (part) {
-          part.rows.forEach(function (r) { var o = {}; part.fields.forEach(function (k, j) { o[k] = r[j]; }); all.push(o); });
-        });
-        return { meta: meta, parcels: all };
-      });
-    })
-      .then(function (d) {
-        d.parcels.forEach(function (p) { p._s = norm([p.owner, p.site, p.street, p.mail, p.id, p.subdiv, p.city, p.zip].join(" | ")); p.biz = isBiz(p.owner); });
-        var g = {};
-        d.parcels.forEach(function (p) { (g[p.owner] = g[p.owner] || []).push(p); });
-        d.owners = Object.keys(g).map(function (k) {
-          var ps = g[k], tot = 0; ps.forEach(function (p) { tot += p.assessed || 0; });
-          return { owner: k, parcels: ps, n: ps.length, biz: isBiz(k), total: tot, _s: norm(k + " | " + ps.map(function (p) { return p._s; }).join(" | ")) };
-        }).filter(function (o) { return o.n >= 2 || o.biz; })
-          .sort(function (a, b) { return b.n - a.n || b.total - a.total || a.owner.localeCompare(b.owner); });
-        data = d; window.HoumaParcels = d; return d;
-      });
-    return loading;
+  var SCOPES = { city: ["city"], houma: ["city", "houma-zip"], parish: ["city", "houma-zip", "parish"] };
+  var metaP = null, partP = {}, ownersT = null;
+  function get(u) { return fetch(u).then(function (r) { if (!r.ok) throw new Error("parcels " + r.status); return r.json(); }); }
+  function getMeta() {
+    return metaP || (metaP = get("data/houma-parcels/meta.json?v=3").then(function (meta) {
+      if (!meta.partList) { meta.partList = []; for (var i = 0; i < meta.parts; i++) meta.partList.push({ file: "part-" + i + ".json", scope: "houma-zip" }); }
+      data = data || { meta: meta, parcels: [], owners: [] }; window.HoumaParcels = data; return meta;
+    }));
   }
+  function addPart(part) {
+    part.rows.forEach(function (r) {
+      var o = {}; part.fields.forEach(function (k, j) { o[k] = r[j]; });
+      o.city = o.city || "HOUMA AREA"; o.kind = o.kind || "real property";
+      o._s = norm([o.owner, o.site, o.street, o.mail, o.id, o.subdiv, o.city, o.zip, o.kind, o.cls].join(" | ")); o.biz = isBiz(o.owner);
+      data.parcels.push(o);
+    });
+    rowsCache = null; buildOwners();
+    clearTimeout(evT); evT = setTimeout(function () { try { window.dispatchEvent(new CustomEvent("houma-parcels", { detail: data })); } catch (e) {} }, 300); // let the 3D world / GPS pick up newly loaded shards
+  }
+  var evT = null;
+  function buildOwners() {
+    var g = {};
+    data.parcels.forEach(function (p) { if (p.owner) (g[p.owner] = g[p.owner] || []).push(p); });
+    data.owners = Object.keys(g).map(function (k) {
+      var ps = g[k], tot = 0; ps.forEach(function (p) { tot += p.assessed || 0; });
+      return { owner: k, parcels: ps, n: ps.length, biz: isBiz(k), total: tot, _s: null };
+    }).filter(function (o) { return o.n >= 2 || o.biz; })
+      .sort(function (a, b) { return b.n - a.n || b.total - a.total || a.owner.localeCompare(b.owner); });
+  }
+  // Lazy: only fetch the shards a scope needs; onPart fires as each arrives so the table renders progressively.
+  function ensure(scope, onPart) {
+    return getMeta().then(function (meta) {
+      var want = SCOPES[scope] || SCOPES.houma;
+      return Promise.all(meta.partList.filter(function (pt) { return want.indexOf(pt.scope) >= 0; }).map(function (pt) {
+        if (!partP[pt.file]) partP[pt.file] = get("data/houma-parcels/" + pt.file + "?v=3").then(addPart);
+        return partP[pt.file].then(function () { if (onPart) onPart(); });
+      })).then(function () { return data; });
+    });
+  }
+  function inScope(p, scope) {
+    if (scope === "city") return p.city === "HOUMA";
+    if (scope === "houma") return p.city === "HOUMA" || p.city === "HOUMA AREA";
+    return true;
+  }
+  function load() { return ensure("houma"); }
   var COLS = [["owner", "Owner"], ["street", "Street"], ["site", "Site address"], ["mail", "Mailing address"], ["id", "Parcel #"],
-    ["acres", "Acres"], ["sqft", "Bldg sqft"], ["land", "Land assmt"], ["bldg", "Bldg assmt"], ["assessed", "Total assmt"], ["subdiv", "Subdivision"], ["book", "Book/Page"]];
+    ["kind", "Type"], ["zip", "ZIP"], ["city", "Area"], ["acres", "Acres"], ["units", "Units"], ["sqft", "Bldg sqft"], ["land", "Land assmt"], ["bldg", "Bldg assmt"], ["assessed", "Total assmt"], ["subdiv", "Subdivision"], ["book", "Book/Page"]];
   function cmp(k, dir) {
     return function (a, b) {
       var x = a[k], y = b[k];
@@ -78,7 +96,7 @@
   function rows() {
     if (rowsCache) return rowsCache;
     var q = norm(st.q).trim().split(" ").filter(Boolean);
-    var r = data.parcels.filter(function (p) { return q.every(function (w) { return p._s.indexOf(w) >= 0; }); });
+    var r = data.parcels.filter(function (p) { return inScope(p, st.scope) && (!st.zip || p.zip === st.zip) && (!st.kind || p.kind === st.kind) && q.every(function (w) { return p._s.indexOf(w) >= 0; }); });
     r.sort(cmp(st.sort, st.dir));
     return (rowsCache = { biz: r.filter(function (p) { return p.biz; }), ind: r.filter(function (p) { return !p.biz; }) });
   }
@@ -88,7 +106,10 @@
     if (k === "land" || k === "bldg" || k === "assessed") return money(p[k]);
     if (k === "book") return esc(p.book + (p.page ? "/" + p.page : ""));
     if (k === "site") return p.site ? '<a href="#houma" class="hp-go" data-go="' + esc(p.id) + '" title="Walk there in the Houma world">' + esc(p.site) + "</a>" : "";
-    if (k === "owner") return esc(p.owner) + (p.biz ? ' <span class="hp-biz">biz</span>' : "") + bizLinks(p.owner);
+    if (k === "city") return p.city === "HOUMA" ? "City" : p.city === "HOUMA AREA" ? "Houma ZIP" : "Parish";
+    if (k === "units") return p.units == null ? "" : esc(p.units);
+    if (k === "kind") return esc(p.kind) + (p.cls ? '<br><small>' + esc(p.cls) + "</small>" : "") + (p.note ? '<br><small>' + esc(p.note) + "</small>" : "") + (p.src && p.src !== "export" ? '<br><small class="hp-src">' + esc(p.src) + "</small>" : "");
+    if (k === "owner") return p.owner ? esc(p.owner) + (p.biz ? ' <span class="hp-biz">biz</span>' : "") + bizLinks(p.owner) : "<i>(no owner listed)</i>";
     return esc(p[k]);
   }
   function pager(cur, total, per, id) {
@@ -125,12 +146,19 @@
   }
   function ownersList() {
     var q = norm(st.oq).trim().split(" ").filter(Boolean);
-    return data.owners.filter(function (o) {
+    return data.owners.map(function (o) {
+      var ps = o.parcels.filter(function (p) { return inScope(p, st.oscope); }), tot = 0;
+      ps.forEach(function (p) { tot += p.assessed || 0; });
+      return { owner: o.owner, parcels: ps, n: ps.length, biz: o.biz, total: tot, base: o };
+    }).filter(function (o) {
+      if (!o.n || (o.n < 2 && !o.biz)) return false;
       if (st.ofilter === "biz" && !o.biz) return false;
       if (st.ofilter === "multi" && o.n < 2) return false;
       if (st.ofilter === "bizmulti" && !(o.biz && o.n >= 2)) return false;
-      return q.every(function (w) { return o._s.indexOf(w) >= 0; });
-    });
+      if (!q.length) return true;
+      var b = o.base; if (!b._s) b._s = norm(b.owner + " | " + b.parcels.map(function (p) { return p._s; }).join(" | "));
+      return q.every(function (w) { return b._s.indexOf(w) >= 0; });
+    }).sort(function (a, b) { return b.n - a.n || b.total - a.total || a.owner.localeCompare(b.owner); });
   }
   function renderOwners() {
     var l = ownersList(), per = 50;
@@ -156,11 +184,31 @@
     $("hp-table-view").hidden = v !== "table";
     $("hp-owners-view").hidden = v !== "owners";
     if (v === "world") { window.dispatchEvent(new Event("resize")); return; }
-    load().then(function () {
-      $("hp-meta").textContent = data.meta.count.toLocaleString() + " Houma parcels · Terrebonne Parish Assessor public map · fetched " + data.meta.fetched + " · informational only, as-is";
-      $("hp-meta2").textContent = $("hp-meta").textContent;
-      if (v === "table") renderTable(); else renderOwners();
-    }).catch(function (e) { $("hp-meta").textContent = "Could not load parcels: " + e.message; });
+    refresh();
+  }
+  var rT = null;
+  function refresh() {
+    var v = st.view; if (v === "world") return;
+    var scope = v === "table" ? st.scope : st.oscope;
+    var paint = function (done) {
+      var m = data.meta, c = m.counts && m.counts.scope, n = 0;
+      data.parcels.forEach(function (p) { if (inScope(p, scope)) n++; });
+      var txt = n.toLocaleString() + (done ? "" : " (loading more…)") + " records in " + ({ city: "Houma city limits", houma: "Houma (city + Houma ZIPs)", parish: "all of Terrebonne Parish" })[scope] +
+        (c ? " · parish total " + m.count.toLocaleString() : "") + " · Terrebonne Parish Assessor public map · fetched " + m.fetched + " · owners only (tenants are not public) · informational, as-is";
+      $("hp-meta").textContent = txt; $("hp-meta2").textContent = txt;
+      fillSelects();
+      if (st.view === "table") renderTable(); else if (st.view === "owners") renderOwners();
+    };
+    ensure(scope, function () { if (!rT) rT = setTimeout(function () { rT = null; paint(false); }, 120); })
+      .then(function () { clearTimeout(rT); rT = null; paint(true); })
+      .catch(function (e) { $("hp-meta").textContent = "Could not load parcels: " + e.message; });
+  }
+  var filled = false;
+  function fillSelects() {
+    if (filled || !data || !data.meta) return; var m = data.meta; filled = true;
+    var z = $("hp-zip"), k = $("hp-kind");
+    if (z) (m.zips || []).forEach(function (v) { var o = document.createElement("option"); o.value = v; o.textContent = v + ((m.houmaZips || []).indexOf(v) >= 0 ? " (Houma)" : ""); z.appendChild(o); });
+    if (k && m.counts) Object.keys(m.counts.kind).forEach(function (v) { var o = document.createElement("option"); o.value = v; o.textContent = v + " (" + m.counts.kind[v].toLocaleString() + " parish-wide)"; k.appendChild(o); });
   }
   function deb(fn) { var t; return function () { clearTimeout(t); t = setTimeout(fn, 160); }; }
   function init() {
@@ -177,6 +225,8 @@
     });
     $("hp-oq").addEventListener("input", deb(function () { st.oq = $("hp-oq").value; st.opg = { biz: 0, ind: 0 }; renderOwners(); }));
     $("hp-ofilter").addEventListener("change", function () { st.ofilter = $("hp-ofilter").value; st.opg = { biz: 0, ind: 0 }; renderOwners(); });
+    var onSel = function (id, key, view) { var el = $(id); if (el) el.addEventListener("change", function () { st[key] = el.value; st.pg = { biz: 0, ind: 0 }; st.opg = { biz: 0, ind: 0 }; rowsCache = null; if (key === "zip" && el.value && st.scope !== "parish" && (data.meta.houmaZips || []).indexOf(el.value) < 0) { st.scope = "parish"; $("hp-scope").value = "parish"; } refresh(); }); };
+    onSel("hp-scope", "scope"); onSel("hp-zip", "zip"); onSel("hp-kind", "kind"); onSel("hp-oscope", "oscope");
     document.getElementById("panel-houma").addEventListener("click", function (e) {
       var gb = e.target.closest("[data-grp]"); if (gb) { setGrp(gb.dataset.grp); return; }
       var b = e.target.closest("[data-pg]"); if (!b || b.disabled) return;
@@ -185,6 +235,6 @@
       sec = document.querySelector((w[0] === "t" ? "#hp-table-wrap" : "#hp-owners-list") + " .hp-sec-" + w[1]); if (sec) sec.scrollIntoView({ block: "start" });
     });
   }
-  window.HoumaProps = { load: load, isBiz: isBiz, setView: setView };
+  window.HoumaProps = { load: load, ensure: ensure, isBiz: isBiz, setView: setView };
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
 })();
