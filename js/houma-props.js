@@ -54,7 +54,9 @@
       data.parcels.push(o);
     });
     rowsCache = null; buildOwners();
+    clearTimeout(evT); evT = setTimeout(function () { try { window.dispatchEvent(new CustomEvent("houma-parcels", { detail: data })); } catch (e) {} }, 300); // let the 3D world / GPS pick up newly loaded shards
   }
+  var evT = null;
   function buildOwners() {
     var g = {};
     data.parcels.forEach(function (p) { if (p.owner) (g[p.owner] = g[p.owner] || []).push(p); });
