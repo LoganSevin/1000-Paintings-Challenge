@@ -1,5 +1,5 @@
 {
- "fetched": "2026-10-29",
+ "fetched": "2026-10-30",
  "area": "All of Terrebonne Parish. city = inside Houma city limits (FeatureServer/18); houma-zip = outside city limits with a 70360/70363/70364 site address point; parish = everything else",
  "sources": [
   "https://gis.tpcg.org/server/rest/services/Assessor/Assessors_Map/FeatureServer/0",
@@ -27,10 +27,12 @@
   },
   "src": {
    "export": 49485,
-   "gis-only (export & popup error)": 72,
+   "recovered: same-address account": 117,
+   "no public owner record (assessor map errors on this account; site/deed/tax info from GIS + popup)": 59,
    "popup-fallback": 3,
-   "account table (no polygon)": 279,
-   "parcel polygon, no account number": 982
+   "account table (no polygon)": 28,
+   "no public owner record (account in GIS table only, no parcel polygon; assessor has no current record)": 183,
+   "no public owner record (parcel polygon has no assessor account #: typically road/right-of-way, water, servitude or common area)": 946
   }
  },
  "export_failed": [
@@ -324,6 +326,9 @@
   "70176",
   "72718"
  ],
+ "missingOwner": 1188,
+ "shapesTotal": 55548,
+ "shapesCovered": 55548,
  "parts": 28,
  "partList": [
   {
@@ -489,7 +494,8 @@
   "cls",
   "units",
   "src",
-  "note"
+  "note",
+  "shapes"
  ],
  "houmaZips": [
   "70360",
