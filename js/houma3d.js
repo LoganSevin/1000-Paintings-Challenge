@@ -11,15 +11,15 @@ import * as NightMod from "./sims-night.js?v=1";
 import * as X from "./houma-tex.js?v=1";
 import PC from "./vendor-polyclip.js?v=1";
 import * as TR from "./houma-trees.js?v=2";
-import * as GR from "./houma-grit.js?v=1";
-import { createPost } from "./houma-post.js?v=1";
+import * as GR from "./houma-grit.js?v=2";
+import { createPost } from "./houma-post.js?v=2";
 
 const K = W.Kit, H = window.Houma;
 const QUALITY = {
   low: { ratio: 1, shadows: false, map: 512, tex: 128, grass: 700, view: 280, people: 6, trees: 0.55, lampLights: "low", carpet: 0 },
   med: { ratio: 1.5, shadows: true, map: 1024, tex: 256, grass: 2200, view: 440, people: 14, trees: 1, lampLights: "med", carpet: 7 },
-  high: { ratio: 2, shadows: true, map: 2048, tex: 256, grass: 4500, view: 620, people: 24, trees: 1.25, lampLights: "high", post: "high", env: true, imp: 150, carpet: 12 },
-  cine: { ratio: 2, shadows: true, map: 4096, tex: 256, grass: 7000, view: 700, people: 24, trees: 1.35, lampLights: "high", post: "cine", env: true, imp: 200, carpet: 16 },
+  high: { ratio: 2, shadows: true, map: 2048, tex: 256, grass: 4500, view: 620, people: 24, trees: 1.25, lampLights: "high", post: "high", env: true, imp: 150, carpet: 12, motes: true },
+  cine: { ratio: 2, shadows: true, map: 4096, tex: 256, grass: 7000, view: 700, people: 24, trees: 1.35, lampLights: "high", post: "cine", env: true, imp: 200, carpet: 16, motes: true },
 };
 QUALITY.low.imp = 70; QUALITY.med.imp = 110; QUALITY.med.env = true;
 const QORDER = ["low", "med", "high", "cine"];
@@ -900,10 +900,16 @@ function buildMailboxes() {
   const post = new T.BoxGeometry(0.1, 1.05, 0.1); post.translate(0, 0.52, 0); const box = new T.BoxGeometry(0.24, 0.26, 0.5); box.translate(0, 1.15, 0); const flag = new T.BoxGeometry(0.03, 0.18, 0.06); flag.translate(0.14, 1.3, -0.12);
   for (const [geo, col, nm] of [[post, "#7a5a3a", "Post"], [box, "#2d2f33", "Box"], [flag, "#c7322b", "Flag"]]) { const im = new T.InstancedMesh(geo, G.M(col, { rough: 0.7, name: "H_Mail" + nm }), n); im.name = "Mailbox" + nm; im.frustumCulled = false;
     for (let i = 0; i < n; i++) { tmpQ.setFromAxisAngle(UP, mailPts[i * 3 + 2]); tmpM.compose(tmpV.set(mailPts[i * 3], 0, mailPts[i * 3 + 1]), tmpQ, tmpS.set(1, 1, 1)); im.setMatrixAt(i, tmpM); } scene.add(im); mailSet.push(im); }
+  // wheelie bins beside ~60% of mailboxes
+  const can = new T.CylinderGeometry(0.33, 0.29, 1.0, 10); can.translate(0, 0.5, 0); const lid = new T.BoxGeometry(0.72, 0.06, 0.72); lid.translate(0, 1.03, 0);
+  for (const [geo, nm] of [[can, "Bin"], [lid, "BinLid"]]) { const im = new T.InstancedMesh(geo, G.M("#ffffff", { rough: 0.75, name: "H_" + nm }), n); im.name = nm; im.frustumCulled = false; im.castShadow = true; let k = 0;
+    for (let i = 0; i < n; i++) { const hh = hash(String(i * 7919 + 3)); if (hh % 10 > 5) continue; const a = mailPts[i * 3 + 2]; tmpQ.setFromAxisAngle(UP, a + (hh % 7) * 0.1); tmpM.compose(tmpV.set(mailPts[i * 3] + Math.cos(a) * 1.1, 0.03, mailPts[i * 3 + 1] - Math.sin(a) * 1.1), tmpQ, tmpS.set(1, 1, 1)); im.setMatrixAt(k, tmpM); im.setColorAt(k, tmpC.set(["#2f4a36", "#2a2d31", "#2d4c78", "#3a3d40"][hh % 4])); k++; }
+    im.count = k; scene.add(im); mailSet.push(im); }
 }
 function addDriveFrom(ax, ay) { const r = nearestRoad(ax, ay, 45); if (!r) return; const dx = r.px - ax, dy = r.py - ay, d = Math.hypot(dx, dy); if (d < r.s.hw + 0.5 || d > 44) return; const ux = dx / d, uy = dy / d; const dp = [[ax - ux * 0.5, ay - uy * 0.5], [r.px - ux * (r.s.hw - 0.2), r.py - uy * (r.s.hw - 0.2)]]; bTileFor(ax, ay).specs.push({ k: "drive", pts: dp, hw: 1.55 }); addDriveMask(dp[0], dp[1], 1.55); const mx = r.px - ux * (r.s.hw + 0.9) - uy * 2.3, my = r.py - uy * (r.s.hw + 0.9) + ux * 2.3; if (!onRoad(mx, my, 0.3)) mailPts.push(mx, my, Math.atan2(ux, uy)); }
 function addDrive(x, y, ry, sx, sz, tplD) { const fx = Math.sin(ry), fz = Math.cos(ry), rx = Math.cos(ry), rz = -Math.sin(ry), off = (HOUSE_DIMS.M[0] / 2 - 1.7) * sx; addDriveFrom(x + fx * (tplD / 2) * sz + rx * off, y + fz * (tplD / 2) * sz + rz * off); }
 function refill(px, py) {
+  try { refillPoles(px, py); } catch (e) { console.warn("props", e); }
   const R = viewR(), R2 = R * R;
   for (const s of Object.values(houseSets)) s.begin(); for (const s of Object.values(bizSets)) s.begin();
   const TR = Math.min(R, aerial ? 900 : 560), TR2 = TR * TR; nearHouses = []; // LOD: detailed instanced templates only within 560 m on the street (900 m from the air)
@@ -1159,23 +1165,53 @@ function refillTrees(px, py) {
   }
   for (const s of impSets) if (s) s.end(); for (const s of treeSets) s.end();
 }
-// ---------------------------------------------------------------- v7 dense grass carpet (full-coverage lawns)
-let carpet = null, gritT = -9;
+// ---------------------------------------------------------------- v7 power poles + sagging lines
+let poleList = null, poleSet = null, armSet = null, wires = null;
+const POLE_ROADS = { residential: 1, tertiary: 1, secondary: 1, unclassified: 1, primary: 1, living_street: 1 };
+function buildPoleList() {
+  poleList = []; const roads = S.osm && S.osm.roads || [];
+  for (const f of roads) { if (!POLE_ROADS[f.h] || !f.p || f.p.length < 2) continue; const off = roadHW(f) + 2.4, run = []; let carry = 17;
+    for (let i = 0; i < f.p.length - 1; i++) { const a = f.p[i], b = f.p[i + 1], dx = b[0] - a[0], dy = b[1] - a[1], L = Math.hypot(dx, dy); if (L < 0.1) continue; const ux = dx / L, uy = dy / L;
+      for (let t = carry; t < L; t += 38) { const x = a[0] + ux * t - uy * off, y = a[1] + uy * t + ux * off;
+        const ok = !onRoad(x, y, 0.8) && tileAt(x, y) !== S.T.WATER && !bankAt(x, y, 2) && !masked(x, y) && deckY(x, y, 0) < 0.3; if (ok) run.push([x, y, Math.atan2(uy, ux)]); else if (run.length) { poleList.push(run.splice(0)); } }
+      carry = (carry - L) % 38; if (carry < 0) carry += 38; }
+    if (run.length) poleList.push(run); }
+}
+function refillPoles(px, py) {
+  if (!S.osm || !segGrid.size) return; if (!poleList) buildPoleList();
+  if (!poleSet) { const pg = new T.CylinderGeometry(0.11, 0.15, 9.5, 7); pg.translate(0, 4.75, 0); poleSet = new T.InstancedMesh(pg, G.M("#5b4632", { rough: 0.95, name: "H_Pole" }), 900); const ag = new T.BoxGeometry(0.1, 0.1, 2.2); ag.translate(0, 9.0, 0); armSet = new T.InstancedMesh(ag, G.M("#4a3a2a", { rough: 0.95, name: "H_Arm" }), 900);
+    for (const im of [poleSet, armSet]) { im.frustumCulled = false; im.castShadow = true; im.name = im === poleSet ? "PowerPoles" : "PoleArms"; scene.add(im); }
+    wires = new T.LineSegments(new T.BufferGeometry(), new T.LineBasicMaterial({ color: "#1d1d1f", name: "H_Wire" })); wires.frustumCulled = false; wires.name = "PowerLines"; scene.add(wires); }
+  const R = Math.min(Q.view, 420), R2 = R * R, W = []; let c = 0;
+  for (const run of poleList) { let prev = null; for (const q of run) { const dx = q[0] - px, dy = q[1] - py, inR = dx * dx + dy * dy < R2;
+      if (inR && c < 900) { tmpQ.setFromAxisAngle(UP, -q[2]); tmpM.compose(tmpV.set(q[0], 0, q[1]), tmpQ, tmpS.set(1, 1, 1)); poleSet.setMatrixAt(c, tmpM); armSet.setMatrixAt(c, tmpM); c++; }
+      if (inR && prev) { const L = Math.hypot(q[0] - prev[0], q[1] - prev[1]); if (L < 60) for (const o of [-1, 0, 1]) { const ox = -Math.sin(-q[2]) * 0, nx = Math.sin(q[2]) * o * 1.0, ny = -Math.cos(q[2]) * o * 1.0; for (let s = 0; s < 8; s++) { for (const t of [s / 8, (s + 1) / 8]) W.push(prev[0] + (q[0] - prev[0]) * t + nx + ox, 9.05 - (o === 0 ? 0.6 : 0) - 4 * 0.55 * t * (1 - t) * (L / 38), prev[1] + (q[1] - prev[1]) * t + ny); } } }
+      prev = q; } }
+  poleSet.count = armSet.count = c; poleSet.instanceMatrix.needsUpdate = armSet.instanceMatrix.needsUpdate = true;
+  wires.geometry.dispose(); const g = new T.BufferGeometry(); g.setAttribute("position", new T.Float32BufferAttribute(W, 3)); wires.geometry = g;
+}
+// ---------------------------------------------------------------- v7 dense grass carpet (full-coverage lawns) + leaf litter, dust motes, birds
+let carpet = null, litter = null, motes = null, birds = null, gritT = -9;
 function buildCarpet() {
   const base = G.M("#ffffff", { rough: 1, name: "H_Carpet" }); base.vertexColors = true; base.metalness = 0; base.envMapIntensity = 0.4; base.side = T.DoubleSide; const mat = K.sway(base, 0.3, 0.25, "vc");
   carpet = new T.InstancedMesh(GR.carpetGeometry(420), mat, 1100); carpet.name = "GrassCarpet"; carpet.count = 0; carpet.frustumCulled = false; carpet.receiveShadow = true; carpet.instanceMatrix.setUsage(T.DynamicDrawUsage); carpet.setColorAt(0, tmpC.set("#ffffff")); scene.add(carpet);
+  const lm = G.M("#ffffff", { rough: 0.95, name: "H_Litter" }); lm.vertexColors = true; lm.polygonOffset = true; lm.polygonOffsetFactor = -1; lm.polygonOffsetUnits = -1;
+  litter = new T.InstancedMesh(GR.litterGeometry(150), lm, 900); litter.name = "LeafLitter"; litter.count = 0; litter.frustumCulled = false; litter.receiveShadow = true; scene.add(litter);
+  motes = GR.makeMotes(scene); birds = GR.makeBirds(scene);
 }
 function scatterCarpet(px, py, fwdx, fwdy) {
-  const R = Q.carpet || 0; let c = 0; if (!carpet) return; const PS = GR.PATCH, cx = px + fwdx * R * 0.25, cy = py + fwdy * R * 0.25;
+  const R = Q.carpet || 0; let c = 0, l = 0; if (!carpet) return; const PS = GR.PATCH, cx = px + fwdx * R * 0.25, cy = py + fwdy * R * 0.25;
   if (R > 0) for (let i = Math.floor((cx - R) / PS); i <= Math.floor((cx + R) / PS); i++) for (let j = Math.floor((cy - R) / PS); j <= Math.floor((cy + R) / PS); j++) {
-    if (c >= 1100) break; const x = (i + 0.5) * PS, y = (j + 0.5) * PS, d = Math.hypot(x - cx, y - cy); if (d > R) continue;
+    if (c >= 1100 && l >= 900) break; const x = (i + 0.5) * PS, y = (j + 0.5) * PS, d = Math.hypot(x - cx, y - cy); if (d > R) continue;
     const t = tileAt(x, y); if (t === S.T.WATER) continue; if (t === S.T.BLDG && hitBldg(x, y, 0.4)) continue; if (onRoad(x, y, 0.7) || masked(x, y) || bankAt(x, y, 1.2)) continue;
-    const hh = ((i * 73856093) ^ (j * 19349663)) >>> 0, fa = forestAt(x, y), fade = Math.min(1, (R - d) / (R * 0.35)); if (fa === 2) continue;
+    const hh = ((i * 73856093) ^ (j * 19349663)) >>> 0, fa = forestAt(x, y), fade = Math.min(1, (R - d) / (R * 0.35));
     tmpQ.setFromAxisAngle(UP, (hh & 3) * 1.5708 + ((hh >>> 3) & 7) * 0.05);
+    if (fa >= 1) { if (l < 900) { tmpM.compose(tmpV.set(x, 0.035, y), tmpQ, tmpS.set(1, 1, 1)); litter.setMatrixAt(l++, tmpM); } if (fa === 2) continue; }
+    if (c >= 1100) continue;
     const sy = fade * (0.75 + ((hh >>> 8) & 255) / 255 * 0.55) * (fa >= 1 ? 0.6 : 1); tmpM.compose(tmpV.set(x, 0.03, y), tmpQ, tmpS.set(1, sy, 1)); carpet.setMatrixAt(c, tmpM);
     const dry = Math.sin(x * 0.07 + Math.sin(y * 0.05) * 2) * Math.sin(y * 0.09 - x * 0.03); tmpC.setRGB(0.85 + dry * 0.25 + ((hh >>> 16) & 15) / 60, 0.95 + ((hh >>> 20) & 15) / 80, 0.8 - dry * 0.15); carpet.setColorAt(c, tmpC); c++;
   }
-  carpet.count = c; carpet.instanceMatrix.needsUpdate = true; if (carpet.instanceColor) carpet.instanceColor.needsUpdate = true;
+  carpet.count = c; litter.count = l; litter.instanceMatrix.needsUpdate = true; carpet.instanceMatrix.needsUpdate = true; if (carpet.instanceColor) carpet.instanceColor.needsUpdate = true;
 }
 let grass = null;
 function buildGrass() {
@@ -1353,6 +1389,7 @@ function frame(dt) {
   if (Math.hypot(P.x - lastRefill.x, P.y - lastRefill.z) > 40) { lastRefill.x = P.x; lastRefill.z = P.y; refill(P.x, P.y); for (const m of farChunks) m.visible = Math.hypot(m.userData.cx - P.x, m.userData.cy - P.y) < m.userData.far + 424; }
   if (Math.hypot(P.x - lastGrass.x, P.y - lastGrass.z) > 5 && clock - lastGrass.t > 0.25) { lastGrass.x = P.x; lastGrass.z = P.y; lastGrass.t = clock; scatterGrass(P.x, P.y, fx, fy); scatterCarpet(P.x, P.y, fx, fy); }
   if (clock - gritT > 2) { gritT = clock; GR.gritPass(scene); }
+  if (motes) { motes.pts.visible = !!Q.motes; motes.U.uT.value = clock; motes.U.uC.value.copy(camera.position); motes.U.uI.value = (1 - nightK) * 0.9 + 0.1; motes.U.uScale.value = renderer.domElement.height; birds.m.visible = nightK < 0.6; birds.U.uT.value = clock; birds.U.uC.value.set(P.x, 0, P.y); }
   syncCars(P.x, P.y, nightK); syncPeople(P.x, P.y, clock);
   lighting(dt, tmpS.set(P.x, 0, P.y).clone());
   post.render(clock); updateLabels();
@@ -1372,7 +1409,7 @@ window.Houma3D = {
   bizSignList: () => [...bizSigns.values()].filter((g) => g && g.parent).map((g) => ({ text: g.userData.text, gas: g.userData.gas, x: g.position.x, y: g.position.z })),
   carInfo: () => [...carObjs].slice(0, 6).map(([c, o]) => { const m = []; o.traverse((q) => { if (q.isMesh) m.push((q.material.name || "") + ":" + (q.material.color ? q.material.color.getHexString() : "") + ":" + q.material.metalness); }); return { color: c.color, kind: c.kind, mats: m.slice(0, 4), y: o.position.y }; }),
   treeAudit: () => { let n = 0, inF = 0; for (const L of treeCache.values()) for (let k = 0; k < L.length; k += 5) { n++; if (hitBldg(L[k], L[k + 1], 0, true)) inF++; } return { trees: n, insideFootprints: inF }; }, mergeStats: () => ({ ...mergeStats }),
-  snapZ: (z) => { pZ = z; }, grassInfo: () => ({ carpet: carpet && carpet.count, lawn: GR.hooked() }), postInfo: () => post && post.info(), setPainterly: (on) => { painterly = !!on; applyQuality(qName); }, setCineCam: (on) => { cineCam = !!on; }, setCineT: (t) => { cineT = t; },
+  snapZ: (z) => { pZ = z; }, grassInfo: () => ({ carpet: carpet && carpet.count, lawn: GR.hooked() }), gritInfo: () => ({ grit: GR.hooked(), litter: litter && litter.count, poles: poleSet && poleSet.count }), postInfo: () => post && post.info(), setPainterly: (on) => { painterly = !!on; applyQuality(qName); }, setCineCam: (on) => { cineCam = !!on; }, setCineT: (t) => { cineT = t; },
   gpsDbg: () => [typeof S.routeVer, gpsVer, !!gpsMesh, !!gpsArrow, gpsArrow && gpsArrow.visible, gpsMesh && gpsMesh.geometry.attributes.position.count, gpsMesh && gpsMesh.geometry.drawRange.start, gpsMesh && gpsMesh.parent === scene],
   triStats: () => { const m = {}; scene.traverseVisible((o) => { if (!o.geometry) return; const g = o.geometry, n = (g.index ? g.index.count : g.attributes.position.count) / 3 * (o.isInstancedMesh ? o.count : 1); const k = (o.name || "?").replace(/\d+$/, ""); m[k] = (m[k] || 0) + n; }); return Object.entries(m).sort((a, b) => b[1] - a[1]).slice(0, 25).map(([k, v]) => k + ":" + Math.round(v / 1000) + "k"); },
   aerial: (o) => { aerial = o ? { ...o, dirty: true } : null; lastRefill.x = 1e9; if (!o && scene) applyQuality(qName); },

@@ -52,7 +52,7 @@ export function createPost(renderer, scene, camera) {
     if (paint) { kuw = new ShaderPass(Kuwahara); composer.addPass(kuw); }
     grade = new ShaderPass(Grade); composer.addPass(grade); setGrade();
   }
-  function setGrade() { if (!grade) return; const u = grade.uniforms, cine = mode === "cine"; u.sat.value = paint ? 1.32 : cine ? 1.18 : 1.12; u.warm.value = cine || paint ? 0.05 : 0.03; u.vig.value = cine ? 0.42 : 0.25; u.grain.value = cine ? 0.045 : mode === "high" ? 0.02 : 0; u.paint.value = paint ? 1 : 0; }
+  function setGrade() { if (!grade) return; const u = grade.uniforms, cine = mode === "cine"; u.sat.value = paint ? 1.32 : cine ? 1.18 : 1.12; u.warm.value = cine || paint ? 0.05 : 0.03; u.vig.value = cine ? 0.42 : 0.25; u.grain.value = cine ? 0.075 : mode === "high" ? 0.05 : 0; u.paint.value = paint ? 1 : 0; }
   return {
     set(m, p) { if (m === mode && p === paint) return; mode = m; paint = p; rebuild(); },
     size(W, H) { w = W; h = H; if (composer) { composer.setPixelRatio(renderer.getPixelRatio()); composer.setSize(W, H); } if (kuw) kuw.uniforms.res.value.set(W * renderer.getPixelRatio(), H * renderer.getPixelRatio()); if (grade) grade.uniforms.res.value.set(W * renderer.getPixelRatio(), H * renderer.getPixelRatio()); },
