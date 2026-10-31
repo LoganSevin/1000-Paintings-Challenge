@@ -11,7 +11,7 @@ import * as NightMod from "./sims-night.js?v=1";
 import * as X from "./houma-tex.js?v=1";
 import PC from "./vendor-polyclip.js?v=1";
 import * as TR from "./houma-trees.js?v=2";
-import * as GR from "./houma-grit.js?v=2";
+import * as GR from "./houma-grit.js?v=3";
 import { createPost } from "./houma-post.js?v=2";
 
 const K = W.Kit, H = window.Houma;
@@ -1191,13 +1191,15 @@ function refillPoles(px, py) {
   wires.geometry.dispose(); const g = new T.BufferGeometry(); g.setAttribute("position", new T.Float32BufferAttribute(W, 3)); wires.geometry = g;
 }
 // ---------------------------------------------------------------- v7 dense grass carpet (full-coverage lawns) + leaf litter, dust motes, birds
-let carpet = null, litter = null, motes = null, birds = null, gritT = -9;
+let carpet = null, litter = null, motes = null, birds = null, gritT = -9, mudFx = null, ruts = null, rutN = 0, rutBirth = null, rutLast = { x: 1e9, y: 0 };
 function buildCarpet() {
   const base = G.M("#ffffff", { rough: 1, name: "H_Carpet" }); base.vertexColors = true; base.metalness = 0; base.envMapIntensity = 0.4; base.side = T.DoubleSide; const mat = K.sway(base, 0.3, 0.25, "vc");
   carpet = new T.InstancedMesh(GR.carpetGeometry(420), mat, 1100); carpet.name = "GrassCarpet"; carpet.count = 0; carpet.frustumCulled = false; carpet.receiveShadow = true; carpet.instanceMatrix.setUsage(T.DynamicDrawUsage); carpet.setColorAt(0, tmpC.set("#ffffff")); scene.add(carpet);
   const lm = G.M("#ffffff", { rough: 0.95, name: "H_Litter" }); lm.vertexColors = true; lm.polygonOffset = true; lm.polygonOffsetFactor = -1; lm.polygonOffsetUnits = -1;
   litter = new T.InstancedMesh(GR.litterGeometry(150), lm, 900); litter.name = "LeafLitter"; litter.count = 0; litter.frustumCulled = false; litter.receiveShadow = true; scene.add(litter);
-  motes = GR.makeMotes(scene); birds = GR.makeBirds(scene);
+  motes = GR.makeMotes(scene); birds = GR.makeBirds(scene); mudFx = GR.makeMudSpray(scene);
+  const rg = new T.PlaneGeometry(0.5, 0.42); rg.rotateX(-Math.PI / 2); const rm = new T.MeshStandardMaterial({ color: "#2e2216", roughness: 0.6, transparent: true, opacity: 0.75, depthWrite: false, polygonOffset: true, polygonOffsetFactor: -3, polygonOffsetUnits: -3, name: "H_Rut" });
+  ruts = new T.InstancedMesh(rg, rm, 1600); ruts.name = "TyreRuts"; ruts.count = 0; ruts.frustumCulled = false; ruts.receiveShadow = true; rutBirth = new Float32Array(1600).fill(-1e9); scene.add(ruts);
 }
 function scatterCarpet(px, py, fwdx, fwdy) {
   const R = Q.carpet || 0; let c = 0, l = 0; if (!carpet) return; const PS = GR.PATCH, cx = px + fwdx * R * 0.25, cy = py + fwdy * R * 0.25;
@@ -1212,6 +1214,20 @@ function scatterCarpet(px, py, fwdx, fwdy) {
     const dry = Math.sin(x * 0.07 + Math.sin(y * 0.05) * 2) * Math.sin(y * 0.09 - x * 0.03); tmpC.setRGB(0.85 + dry * 0.25 + ((hh >>> 16) & 15) / 60, 0.95 + ((hh >>> 20) & 15) / 80, 0.8 - dry * 0.15); carpet.setColorAt(c, tmpC); c++;
   }
   carpet.count = c; litter.count = l; litter.instanceMatrix.needsUpdate = true; carpet.instanceMatrix.needsUpdate = true; if (carpet.instanceColor) carpet.instanceColor.needsUpdate = true;
+}
+let mudLive = 0;
+function updateLife(dt) {
+  if (!mudFx) return; const V = S.player.veh;
+  if (V && !V.boat && !V._sink) { const sp = Math.abs(V.v || 0), a = V.a, fx = Math.cos(a), fy = Math.sin(a), off = !onRoad(V.x, V.y, 0.3) && tileAt(V.x, V.y) !== S.T.WATER && (V._z || 0) < 0.3 && deckY(V.x, V.y, 0) < 0.3;
+    if (off && sp > 1.2) { const Sp = { L: 4.4, W: 1.8, wr: 0.33 }; V._mud = Math.min(1, (V._mud || 0) + dt * sp * 0.01);
+      for (const sd of [-1, 1]) for (const ax of [0.3, -0.3]) { const wx = V.x + fx * Sp.L * ax - fy * sd * (Sp.W / 2 - 0.16), wy = V.y + fy * Sp.L * ax + fx * sd * (Sp.W / 2 - 0.16); const n = Math.min(16, Math.round(sp * dt * (ax < 0 ? 55 : 18) + Math.random()));
+        if (n > 0) mudFx.emit(wx - fx * Sp.wr, Sp.wr * 0.6, wy - fy * Sp.wr, -fx * sp * 0.35 * Math.sign(V.v), 1.6 + sp * 0.18, -fy * sp * 0.35 * Math.sign(V.v), n, 1.2 + sp * 0.08);
+        if (ax < 0 && Math.hypot(V.x - rutLast.x, V.y - rutLast.y) > 0.4) { const k = rutN % 1600; rutN++; tmpQ.setFromAxisAngle(UP, -a); tmpM.compose(tmpV.set(wx, 0.046, wy), tmpQ, tmpS.set(1, 1, 1)); ruts.setMatrixAt(k, tmpM); rutBirth[k] = clock; ruts.count = Math.min(1600, rutN); ruts.instanceMatrix.needsUpdate = true; } }
+      if (Math.hypot(V.x - rutLast.x, V.y - rutLast.y) > 0.4) { rutLast.x = V.x; rutLast.y = V.y; }
+    } else if (!off) V._mud = Math.max(0, (V._mud || 0) - dt * 0.0015);
+  }
+  mudLive = mudFx.update(dt); mudFx.setScale(renderer.domElement.height);
+  if (ruts.count && Math.floor(clock * 2) !== Math.floor((clock - dt) * 2)) { let ch = false; for (let k = 0; k < ruts.count; k++) { const age = clock - rutBirth[k]; if (age > 40 && age < 70) { ruts.getMatrixAt(k, tmpM); tmpM.decompose(tmpV, tmpQ, tmpS); const w = Math.max(0.001, 1 - (age - 40) / 25); tmpM.compose(tmpV, tmpQ, tmpS.set(w, 1, w)); ruts.setMatrixAt(k, tmpM); ch = true; } } if (ch) ruts.instanceMatrix.needsUpdate = true; }
 }
 let grass = null;
 function buildGrass() {
@@ -1233,12 +1249,18 @@ function scatterGrass(px, py, fwdx, fwdy) {
 // ---------------------------------------------------------------- vehicles + people
 const CAR_GLASS = new T.MeshStandardMaterial({ color: "#5d7080", roughness: 0.12, metalness: 0.25, name: "Car_Glass" }); // lighter tint so cabins read as glass, not a black block
 const carObjs = new Map(); const CARKIND = { car: "sedan", truck: "pickup", cop: "sedan", bus: "bus", van: "van", taxi: "taxi" };
+const MUD_C = new T.Color("#4a3a26");
+function mudTint(o, k) { // mud buildup on the player's car: own copies of its paint/body materials, blended toward dried mud
+  let L = o.userData.mudMats; if (!L) { if (k <= 0.01) return; L = o.userData.mudMats = []; o.traverse((q) => { if (!q.isMesh || !q.material || !q.material.color || /Glass|Light|Lamp/i.test(q.material.name || "")) return; q.material = q.material.clone(); L.push([q.material, q.material.color.clone(), q.material.roughness]); }); }
+  for (const [m, c0, r0] of L) { m.color.copy(c0).lerp(MUD_C, Math.min(0.75, k * 0.8)); m.roughness = r0 + (1 - r0) * Math.min(1, k); }
+}
 function syncCars(px, py, nk) {
   const seen = new Set();
   for (const c of S.cars) {
     if (c.kind === "boat") continue; seen.add(c); let o = carObjs.get(c);
     if (!o) { const kind = c.cop ? "sedan" : CARKIND[c.kind] || pick(["sedan", "hatch", "sedan", "van", "pickup"], hash(c.color || "") ); o = K.carModel(kind, c.cop ? "#e9ebef" : c.color || "#b23a3a"); o.traverse((q) => { if (!q.isMesh) return; if (q.material.name === "Car_Paint") { q.material.metalness = 0.15; q.material.roughness = 0.4; } else if (q.material.name === "Car_Glass") q.material = CAR_GLASS; }); o.name = "Car"; scene.add(o); carObjs.set(c, o); }
     const far = Math.hypot(c.x - px, c.y - py) > Q.view; o.visible = !far; if (far) continue;
+    if (c === S.player.veh || o.userData.mudMats) mudTint(o, c === S.player.veh ? c._mud || 0 : 0);
     c._z = deckY(c.x, c.y, c._z || 0); o.position.set(c.x, c._z - (c._sink || 0), c.y); o.rotation.y = -c.a; W.setCarLights(o, nk, (c.v || 0) < 0.3 && nk > 0.2);
   }
   for (const [c, o] of carObjs) if (!seen.has(c)) { o.removeFromParent(); carObjs.delete(c); }
@@ -1390,7 +1412,7 @@ function frame(dt) {
   if (Math.hypot(P.x - lastGrass.x, P.y - lastGrass.z) > 5 && clock - lastGrass.t > 0.25) { lastGrass.x = P.x; lastGrass.z = P.y; lastGrass.t = clock; scatterGrass(P.x, P.y, fx, fy); scatterCarpet(P.x, P.y, fx, fy); }
   if (clock - gritT > 2) { gritT = clock; GR.gritPass(scene); }
   if (motes) { motes.pts.visible = !!Q.motes; motes.U.uT.value = clock; motes.U.uC.value.copy(camera.position); motes.U.uI.value = (1 - nightK) * 0.9 + 0.1; motes.U.uScale.value = renderer.domElement.height; birds.m.visible = nightK < 0.6; birds.U.uT.value = clock; birds.U.uC.value.set(P.x, 0, P.y); }
-  syncCars(P.x, P.y, nightK); syncPeople(P.x, P.y, clock);
+  syncCars(P.x, P.y, nightK); syncPeople(P.x, P.y, clock); updateLife(dt);
   lighting(dt, tmpS.set(P.x, 0, P.y).clone());
   post.render(clock); updateLabels();
   // auto quality: drop a preset after ~4 s under 24 fps
@@ -1409,7 +1431,7 @@ window.Houma3D = {
   bizSignList: () => [...bizSigns.values()].filter((g) => g && g.parent).map((g) => ({ text: g.userData.text, gas: g.userData.gas, x: g.position.x, y: g.position.z })),
   carInfo: () => [...carObjs].slice(0, 6).map(([c, o]) => { const m = []; o.traverse((q) => { if (q.isMesh) m.push((q.material.name || "") + ":" + (q.material.color ? q.material.color.getHexString() : "") + ":" + q.material.metalness); }); return { color: c.color, kind: c.kind, mats: m.slice(0, 4), y: o.position.y }; }),
   treeAudit: () => { let n = 0, inF = 0; for (const L of treeCache.values()) for (let k = 0; k < L.length; k += 5) { n++; if (hitBldg(L[k], L[k + 1], 0, true)) inF++; } return { trees: n, insideFootprints: inF }; }, mergeStats: () => ({ ...mergeStats }),
-  snapZ: (z) => { pZ = z; }, grassInfo: () => ({ carpet: carpet && carpet.count, lawn: GR.hooked() }), gritInfo: () => ({ grit: GR.hooked(), litter: litter && litter.count, poles: poleSet && poleSet.count }), postInfo: () => post && post.info(), setPainterly: (on) => { painterly = !!on; applyQuality(qName); }, setCineCam: (on) => { cineCam = !!on; }, setCineT: (t) => { cineT = t; },
+  snapZ: (z) => { pZ = z; }, grassInfo: () => ({ carpet: carpet && carpet.count, lawn: GR.hooked() }), offRoad: (x, y) => !onRoad(x, y, 0.3) && deckY(x, y, 0) < 0.3, mudInfo: () => ({ mud: S.player.veh && S.player.veh._mud, ruts: ruts && ruts.count, spray: mudLive }), gritInfo: () => ({ grit: GR.hooked(), litter: litter && litter.count, poles: poleSet && poleSet.count }), postInfo: () => post && post.info(), setPainterly: (on) => { painterly = !!on; applyQuality(qName); }, setCineCam: (on) => { cineCam = !!on; }, setCineT: (t) => { cineT = t; },
   gpsDbg: () => [typeof S.routeVer, gpsVer, !!gpsMesh, !!gpsArrow, gpsArrow && gpsArrow.visible, gpsMesh && gpsMesh.geometry.attributes.position.count, gpsMesh && gpsMesh.geometry.drawRange.start, gpsMesh && gpsMesh.parent === scene],
   triStats: () => { const m = {}; scene.traverseVisible((o) => { if (!o.geometry) return; const g = o.geometry, n = (g.index ? g.index.count : g.attributes.position.count) / 3 * (o.isInstancedMesh ? o.count : 1); const k = (o.name || "?").replace(/\d+$/, ""); m[k] = (m[k] || 0) + n; }); return Object.entries(m).sort((a, b) => b[1] - a[1]).slice(0, 25).map(([k, v]) => k + ":" + Math.round(v / 1000) + "k"); },
   aerial: (o) => { aerial = o ? { ...o, dirty: true } : null; lastRefill.x = 1e9; if (!o && scene) applyQuality(qName); },

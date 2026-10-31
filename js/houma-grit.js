@@ -114,7 +114,23 @@ export function litterGeometry(n) { // fallen leaves / needles / twigs
     for (let k = 0; k < 6; k++) { N.push(0, 1, 0); C.push(...c); } }
   const g = new T.BufferGeometry(); g.setAttribute("position", new T.Float32BufferAttribute(P, 3)); g.setAttribute("normal", new T.Float32BufferAttribute(N, 3)); g.setAttribute("color", new T.Float32BufferAttribute(C, 3)); g.computeBoundingSphere(); return g;
 }
-// ---------------------------------------------------------------- particles: dust motes, birds
+// ---------------------------------------------------------------- particles: mud spray, dust motes, birds
+export function makeMudSpray(scene, cap = 600) {
+  const pos = new Float32Array(cap * 3), vel = new Float32Array(cap * 3), life = new Float32Array(cap), size = new Float32Array(cap); let head = 0;
+  const geo = new T.BufferGeometry(); geo.setAttribute("position", new T.BufferAttribute(pos, 3).setUsage(T.DynamicDrawUsage)); geo.setAttribute("size", new T.BufferAttribute(size, 1).setUsage(T.DynamicDrawUsage));
+  const mat = new T.ShaderMaterial({ transparent: true, depthWrite: false, uniforms: { uScale: { value: 600 } },
+    vertexShader: "attribute float size; varying float vS; uniform float uScale; void main(){ vec4 mv = modelViewMatrix * vec4(position,1.0); gl_Position = projectionMatrix * mv; vS = size; gl_PointSize = size * uScale / max(0.5, -mv.z); }",
+    fragmentShader: "varying float vS; void main(){ vec2 d = gl_PointCoord - 0.5; float r = length(d) + 0.15 * sin(atan(d.y, d.x) * 5.0 + vS * 900.0); if (r > 0.5 || vS <= 0.0) discard; gl_FragColor = vec4(vec3(0.2, 0.14, 0.08) * (0.7 + 0.6 * fract(vS * 3171.0)), 1.0); }" });
+  const pts = new T.Points(geo, mat); pts.frustumCulled = false; pts.name = "MudSpray"; scene.add(pts);
+  return {
+    emit(x, y, z, vx, vy, vz, n, sp) { for (let i = 0; i < n; i++) { const k = head; head = (head + 1) % cap; pos[k * 3] = x + (Math.random() - 0.5) * 0.3; pos[k * 3 + 1] = y; pos[k * 3 + 2] = z + (Math.random() - 0.5) * 0.3;
+      vel[k * 3] = vx + (Math.random() - 0.5) * sp; vel[k * 3 + 1] = vy * (0.4 + Math.random()); vel[k * 3 + 2] = vz + (Math.random() - 0.5) * sp; life[k] = 0.8 + Math.random() * 1.2; size[k] = 0.035 + Math.random() * Math.random() * 0.14; } },
+    update(dt) { let live = 0; for (let k = 0; k < cap; k++) { if (life[k] <= 0) { size[k] = 0; continue; } live++; life[k] -= dt; vel[k * 3 + 1] -= 9.8 * dt; for (let a = 0; a < 3; a++) pos[k * 3 + a] += vel[k * 3 + a] * dt;
+      if (pos[k * 3 + 1] < 0.03) { pos[k * 3 + 1] = 0.03; vel[k * 3] *= 0.2; vel[k * 3 + 2] *= 0.2; vel[k * 3 + 1] = 0; } if (life[k] <= 0) size[k] = 0; }
+      geo.attributes.position.needsUpdate = true; geo.attributes.size.needsUpdate = true; return live; },
+    setScale(h) { mat.uniforms.uScale.value = h * 0.9; },
+  };
+}
 export function makeMotes(scene, n = 900) {
   const pos = new Float32Array(n * 3), seed = new Float32Array(n); for (let i = 0; i < n; i++) { pos[i * 3] = (Math.random() - 0.5) * 40; pos[i * 3 + 1] = Math.random() * 8; pos[i * 3 + 2] = (Math.random() - 0.5) * 40; seed[i] = Math.random(); }
   const geo = new T.BufferGeometry(); geo.setAttribute("position", new T.BufferAttribute(pos, 3)); geo.setAttribute("seed", new T.BufferAttribute(seed, 1));

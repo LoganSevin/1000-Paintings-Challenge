@@ -5,7 +5,7 @@
 (function () {
   "use strict";
   // 3D renderer (js/houma3d.js, Sims-tab look). Resolved next to this script; loaded on first show.
-  var H3D_URL = (function () { try { return new URL("houma3d.js?v=15", document.currentScript.src).href; } catch (e) { return "js/houma3d.js?v=11"; } })();
+  var H3D_URL = (function () { try { return new URL("houma3d.js?v=16", document.currentScript.src).href; } catch (e) { return "js/houma3d.js?v=11"; } })();
   var h3dLoading = null;
   function use3d() { return !!(window.Houma3D && window.Houma3D.active()); }
 
@@ -368,11 +368,14 @@
       // realistic longitudinal model: thrust tapers as v^2 approaches top speed (44.7 m/s = 100 mph),
       // ~0-60 mph in ~9 s; brakes at 8 m/s^2, rolling/air drag when coasting
       var VMAX = 44.7, A0 = 3.5;
-      if (throttle > 0) ent.v += throttle * A0 * (1 - (ent.v / VMAX) * Math.abs(ent.v / VMAX)) * dt;
+      // grass / dirt: a little less grip (slower turn-in, softer acceleration, more rolling drag)
+      var gr = driven && window.Houma3D && window.Houma3D.offRoad && window.Houma3D.offRoad(ent.x, ent.y) ? 0.72 : 1;
+      if (gr < 1) ent.v -= ent.v * 0.12 * dt;
+      if (throttle > 0) ent.v += throttle * A0 * (0.55 + 0.45 * gr) * (1 - (ent.v / VMAX) * Math.abs(ent.v / VMAX)) * dt;
       else if (throttle < 0) ent.v += (ent.v > 0.3 ? -8 : -2.5) * dt;
       else ent.v -= Math.sign(ent.v) * Math.min(Math.abs(ent.v), (0.35 + 0.0004 * ent.v * ent.v) * dt);
       ent.v = Math.max(-8, Math.min(VMAX, ent.v));
-      if (Math.abs(ent.v) > 0.4) ent.a += steer * 1.8 / (1 + Math.abs(ent.v) / 18) * dt * (ent.v >= 0 ? 1 : -1);
+      if (Math.abs(ent.v) > 0.4) ent.a += steer * 1.8 * gr / (1 + Math.abs(ent.v) / 18) * dt * (ent.v >= 0 ? 1 : -1);
     } else {
       ent.v += (throttle * acc - ent.v * 2.2) * dt;
       ent.v = Math.max(-maxV * 0.35, Math.min(maxV, ent.v));
