@@ -12,14 +12,15 @@ import * as X from "./houma-tex.js?v=1";
 import PC from "./vendor-polyclip.js?v=1";
 import * as TR from "./houma-trees.js?v=2";
 import * as GR from "./houma-grit.js?v=3";
+import * as CR from "./houma-cars.js?v=1";
 import { createPost } from "./houma-post.js?v=2";
 
 const K = W.Kit, H = window.Houma;
 const QUALITY = {
-  low: { ratio: 1, shadows: false, map: 512, tex: 128, grass: 700, view: 280, people: 6, trees: 0.55, lampLights: "low", carpet: 0 },
-  med: { ratio: 1.5, shadows: true, map: 1024, tex: 256, grass: 2200, view: 440, people: 14, trees: 1, lampLights: "med", carpet: 7 },
-  high: { ratio: 2, shadows: true, map: 2048, tex: 256, grass: 4500, view: 620, people: 24, trees: 1.25, lampLights: "high", post: "high", env: true, imp: 150, carpet: 12, motes: true },
-  cine: { ratio: 2, shadows: true, map: 4096, tex: 256, grass: 7000, view: 700, people: 24, trees: 1.35, lampLights: "high", post: "cine", env: true, imp: 200, carpet: 16, motes: true },
+  low: { ratio: 1, shadows: false, map: 512, tex: 128, grass: 700, view: 280, people: 6, trees: 0.55, lampLights: "low", carpet: 0, props: 110 },
+  med: { ratio: 1.5, shadows: true, map: 1024, tex: 256, grass: 2200, view: 440, people: 14, trees: 1, lampLights: "med", carpet: 7, props: 160 },
+  high: { ratio: 2, shadows: true, map: 2048, tex: 256, grass: 4500, view: 620, people: 24, trees: 1.25, lampLights: "high", post: "high", env: true, imp: 150, carpet: 12, motes: true, props: 200 },
+  cine: { ratio: 2, shadows: true, map: 4096, tex: 256, grass: 7000, view: 700, people: 24, trees: 1.35, lampLights: "high", post: "cine", env: true, imp: 200, carpet: 16, motes: true, props: 240 },
 };
 QUALITY.low.imp = 70; QUALITY.med.imp = 110; QUALITY.med.env = true;
 const QORDER = ["low", "med", "high", "cine"];
@@ -759,7 +760,7 @@ const LMS = {
 };
 let markHits = [];
 function frontEdge(p, cx, cy, minL = 3) { const r = nearestRoad(cx, cy, 120); let best = null, bs = -2; const tx = r ? r.px - cx : 0, ty = r ? r.py - cy : 1, tl = Math.hypot(tx, ty) || 1; for (let i = 0; i < p.length; i++) { const a = p[i], b = p[(i + 1) % p.length], L = Math.hypot(b[0] - a[0], b[1] - a[1]); if (L < minL) continue; const ux = (b[0] - a[0]) / L, uy = (b[1] - a[1]) / L; let nx = uy, ny = -ux; const mx = (a[0] + b[0]) / 2, my = (a[1] + b[1]) / 2; if ((mx - cx) * nx + (my - cy) * ny < 0) { nx = -nx; ny = -ny; } const sc = (nx * tx + ny * ty) / tl + L * 0.002; if (sc > bs) { bs = sc; best = { x: mx, y: my, ux, uy, nx, ny, len: L, road: r }; } } return best; }
-let mailPts = [], mailSet = null, driveGrid = new Map();
+let mailPts = [], drivePts = [], mailSet = null, driveGrid = new Map();
 function addDriveMask(a, b, hw) { const n = Math.ceil(Math.hypot(b[0] - a[0], b[1] - a[1]) / 4) + 1; for (let i = 0; i <= n; i++) { const x = a[0] + (b[0] - a[0]) * i / n, y = a[1] + (b[1] - a[1]) * i / n, k = Math.floor(x / 10) * 100003 + Math.floor(y / 10); let L = driveGrid.get(k); if (!L) driveGrid.set(k, (L = [])); L.push(x, y, hw); } }
 function nearDrive(x, y, r) { for (let i = -1; i <= 1; i++) for (let j = -1; j <= 1; j++) { const L = driveGrid.get((Math.floor(x / 10) + i) * 100003 + Math.floor(y / 10) + j); if (L) for (let k = 0; k < L.length; k += 3) if (Math.hypot(L[k] - x, L[k + 1] - y) < L[k + 2] + r) return true; } return false; }
 // overlapping footprints: same parcel -> one conjoined building (polygon union, tallest storey count);
@@ -787,7 +788,7 @@ function hitBldg(x, y, r = 1.1, noTrees = false) {
   return false;
 }
 function buildBuildings() {
-  mailPts = []; driveGrid = new Map();
+  mailPts = []; drivePts = []; driveGrid = new Map();
   const homes = S.homes, g = S.gis && S.gis();
   if (!Object.keys(houseSets).length) {
     for (const st of ["gable", "hip", "ranch", "brick", "acadian"]) for (const sz of ["S", "M", "L"]) { const [w, d] = HOUSE_DIMS[sz]; houseSets[st + sz] = new Instanced(st + sz, houseTemplate(st, w, d, hash(st + sz)), 64); }
@@ -906,10 +907,10 @@ function buildMailboxes() {
     for (let i = 0; i < n; i++) { const hh = hash(String(i * 7919 + 3)); if (hh % 10 > 5) continue; const a = mailPts[i * 3 + 2]; tmpQ.setFromAxisAngle(UP, a + (hh % 7) * 0.1); tmpM.compose(tmpV.set(mailPts[i * 3] + Math.cos(a) * 1.1, 0.03, mailPts[i * 3 + 1] - Math.sin(a) * 1.1), tmpQ, tmpS.set(1, 1, 1)); im.setMatrixAt(k, tmpM); im.setColorAt(k, tmpC.set(["#2f4a36", "#2a2d31", "#2d4c78", "#3a3d40"][hh % 4])); k++; }
     im.count = k; scene.add(im); mailSet.push(im); }
 }
-function addDriveFrom(ax, ay) { const r = nearestRoad(ax, ay, 45); if (!r) return; const dx = r.px - ax, dy = r.py - ay, d = Math.hypot(dx, dy); if (d < r.s.hw + 0.5 || d > 44) return; const ux = dx / d, uy = dy / d; const dp = [[ax - ux * 0.5, ay - uy * 0.5], [r.px - ux * (r.s.hw - 0.2), r.py - uy * (r.s.hw - 0.2)]]; bTileFor(ax, ay).specs.push({ k: "drive", pts: dp, hw: 1.55 }); addDriveMask(dp[0], dp[1], 1.55); const mx = r.px - ux * (r.s.hw + 0.9) - uy * 2.3, my = r.py - uy * (r.s.hw + 0.9) + ux * 2.3; if (!onRoad(mx, my, 0.3)) mailPts.push(mx, my, Math.atan2(ux, uy)); }
+function addDriveFrom(ax, ay) { const r = nearestRoad(ax, ay, 45); if (!r) return; const dx = r.px - ax, dy = r.py - ay, d = Math.hypot(dx, dy); if (d < r.s.hw + 0.5 || d > 44) return; const ux = dx / d, uy = dy / d; const dp = [[ax - ux * 0.5, ay - uy * 0.5], [r.px - ux * (r.s.hw - 0.2), r.py - uy * (r.s.hw - 0.2)]]; bTileFor(ax, ay).specs.push({ k: "drive", pts: dp, hw: 1.55 }); addDriveMask(dp[0], dp[1], 1.55); const mx = r.px - ux * (r.s.hw + 0.9) - uy * 2.3, my = r.py - uy * (r.s.hw + 0.9) + ux * 2.3; if (!onRoad(mx, my, 0.3)) mailPts.push(mx, my, Math.atan2(ux, uy)); if (d > r.s.hw + 7) drivePts.push(ax + ux * 3.2, ay + uy * 3.2, Math.atan2(uy, ux)); }
 function addDrive(x, y, ry, sx, sz, tplD) { const fx = Math.sin(ry), fz = Math.cos(ry), rx = Math.cos(ry), rz = -Math.sin(ry), off = (HOUSE_DIMS.M[0] / 2 - 1.7) * sx; addDriveFrom(x + fx * (tplD / 2) * sz + rx * off, y + fz * (tplD / 2) * sz + rz * off); }
 function refill(px, py) {
-  try { refillPoles(px, py); } catch (e) { console.warn("props", e); }
+  try { refillParked(px, py); refillPoles(px, py); } catch (e) { console.warn("props", e); }
   const R = viewR(), R2 = R * R;
   for (const s of Object.values(houseSets)) s.begin(); for (const s of Object.values(bizSets)) s.begin();
   const TR = Math.min(R, aerial ? 900 : 560), TR2 = TR * TR; nearHouses = []; // LOD: detailed instanced templates only within 560 m on the street (900 m from the air)
@@ -1166,6 +1167,23 @@ function refillTrees(px, py) {
   for (const s of impSets) if (s) s.end(); for (const s of treeSets) s.end();
 }
 // ---------------------------------------------------------------- v7 power poles + sagging lines
+// v7 parked cars/trucks/boats on trailers in driveways
+const parkedSets = new Map();
+function parkedSet(key, parts) {
+  let L = parkedSets.get(key); if (L) return L; L = parts.map(([geo, mat, pt]) => { const im = new T.InstancedMesh(geo, mat, 220); im.name = "Parked_" + key; im.count = 0; im.frustumCulled = false; im.castShadow = true; im.receiveShadow = true; if (pt) im.userData.paint = true; scene.add(im); return im; });
+  parkedSets.set(key, L); return L;
+}
+function refillParked(px, py) {
+  const R = Q.props || 150, R2 = R * R, n = new Map();
+  for (const L of parkedSets.values()) for (const im of L) im.count = 0;
+  for (let i = 0; i < drivePts.length; i += 3) { const x = drivePts[i], y = drivePts[i + 1], dx = x - px, dy = y - py; if (dx * dx + dy * dy > R2) continue; const hh = hash("pk" + Math.round(x) + "," + Math.round(y)), u = (hh % 1000) / 1000;
+    let key; if (u < 0.52) key = ["sedan", "suv", "pickup", "sedan", "suv", "hatch", "pickup", "van"][hh % 8]; else if (u < 0.6) key = "boat"; else continue;
+    const L = parkedSet(key, key === "boat" ? CR.boatTrailerParts() : CR.staticParts(key)), k = n.get(key) || 0; if (k >= 220) continue; n.set(key, k + 1);
+    const a = drivePts[i + 2] + ((hh >> 10) & 1 ? Math.PI : 0); tmpQ.setFromAxisAngle(UP, -a); tmpM.compose(tmpV.set(x, 0.03, y), tmpQ, tmpS.set(1, 1, 1));
+    for (const im of L) { im.setMatrixAt(k, tmpM); if (im.userData.paint) im.setColorAt(k, tmpC.set(key === "boat" ? ["#f2eee6", "#3a6ea5", "#8b3a3a", "#c9c3b4"][hh % 4] : CR.PALETTE[(hh >> 4) % CR.PALETTE.length])); im.count = k + 1; }
+  }
+  for (const L of parkedSets.values()) for (const im of L) { im.instanceMatrix.needsUpdate = true; if (im.instanceColor) im.instanceColor.needsUpdate = true; }
+}
 let poleList = null, poleSet = null, armSet = null, wires = null;
 const POLE_ROADS = { residential: 1, tertiary: 1, secondary: 1, unclassified: 1, primary: 1, living_street: 1 };
 function buildPoleList() {
@@ -1198,7 +1216,7 @@ function buildCarpet() {
   const lm = G.M("#ffffff", { rough: 0.95, name: "H_Litter" }); lm.vertexColors = true; lm.polygonOffset = true; lm.polygonOffsetFactor = -1; lm.polygonOffsetUnits = -1;
   litter = new T.InstancedMesh(GR.litterGeometry(150), lm, 900); litter.name = "LeafLitter"; litter.count = 0; litter.frustumCulled = false; litter.receiveShadow = true; scene.add(litter);
   motes = GR.makeMotes(scene); birds = GR.makeBirds(scene); mudFx = GR.makeMudSpray(scene);
-  const rg = new T.PlaneGeometry(0.5, 0.42); rg.rotateX(-Math.PI / 2); const rm = new T.MeshStandardMaterial({ color: "#2e2216", roughness: 0.6, transparent: true, opacity: 0.75, depthWrite: false, polygonOffset: true, polygonOffsetFactor: -3, polygonOffsetUnits: -3, name: "H_Rut" });
+  const rg = new T.PlaneGeometry(0.6, 0.42); rg.rotateX(-Math.PI / 2); const rm = new T.MeshStandardMaterial({ color: "#1f160c", roughness: 0.45, transparent: true, opacity: 0.92, depthWrite: false, polygonOffset: true, polygonOffsetFactor: -3, polygonOffsetUnits: -3, name: "H_Rut" });
   ruts = new T.InstancedMesh(rg, rm, 1600); ruts.name = "TyreRuts"; ruts.count = 0; ruts.frustumCulled = false; ruts.receiveShadow = true; rutBirth = new Float32Array(1600).fill(-1e9); scene.add(ruts);
 }
 function scatterCarpet(px, py, fwdx, fwdy) {
@@ -1219,7 +1237,7 @@ let mudLive = 0;
 function updateLife(dt) {
   if (!mudFx) return; const V = S.player.veh;
   if (V && !V.boat && !V._sink) { const sp = Math.abs(V.v || 0), a = V.a, fx = Math.cos(a), fy = Math.sin(a), off = !onRoad(V.x, V.y, 0.3) && tileAt(V.x, V.y) !== S.T.WATER && (V._z || 0) < 0.3 && deckY(V.x, V.y, 0) < 0.3;
-    if (off && sp > 1.2) { const Sp = { L: 4.4, W: 1.8, wr: 0.33 }; V._mud = Math.min(1, (V._mud || 0) + dt * sp * 0.01);
+    if (off && sp > 1.2) { const o = carObjs.get(V), Sp = o && o.userData.spec || { L: 4.4, W: 1.8, wr: 0.33 }; V._mud = Math.min(1, (V._mud || 0) + dt * sp * 0.04);
       for (const sd of [-1, 1]) for (const ax of [0.3, -0.3]) { const wx = V.x + fx * Sp.L * ax - fy * sd * (Sp.W / 2 - 0.16), wy = V.y + fy * Sp.L * ax + fx * sd * (Sp.W / 2 - 0.16); const n = Math.min(16, Math.round(sp * dt * (ax < 0 ? 55 : 18) + Math.random()));
         if (n > 0) mudFx.emit(wx - fx * Sp.wr, Sp.wr * 0.6, wy - fy * Sp.wr, -fx * sp * 0.35 * Math.sign(V.v), 1.6 + sp * 0.18, -fy * sp * 0.35 * Math.sign(V.v), n, 1.2 + sp * 0.08);
         if (ax < 0 && Math.hypot(V.x - rutLast.x, V.y - rutLast.y) > 0.4) { const k = rutN % 1600; rutN++; tmpQ.setFromAxisAngle(UP, -a); tmpM.compose(tmpV.set(wx, 0.046, wy), tmpQ, tmpS.set(1, 1, 1)); ruts.setMatrixAt(k, tmpM); rutBirth[k] = clock; ruts.count = Math.min(1600, rutN); ruts.instanceMatrix.needsUpdate = true; } }
@@ -1258,10 +1276,15 @@ function syncCars(px, py, nk) {
   const seen = new Set();
   for (const c of S.cars) {
     if (c.kind === "boat") continue; seen.add(c); let o = carObjs.get(c);
+    if (!o && c.kind !== "bus") { const hv = hash((c.color || "") + (c.id || S.cars.indexOf(c))), kind = c._ck ? c._ck : c.cop || c.kind === "taxi" ? "sedan" : c.kind === "truck" ? pick(["pickup", "pickup", "van"], hv) : c.kind === "van" ? "van" : pick(["sedan", "sedan", "suv", "suv", "hatch", "pickup", "van"], hv);
+      const col = c.cop ? "#e9ebef" : c.kind === "taxi" ? "#f2c32e" : c.color === "#3f5f86" ? "#3f5f86" : CR.PALETTE[hv % CR.PALETTE.length]; o = CR.makeCar(kind, col); o.name = "Car"; scene.add(o); carObjs.set(c, o); }
     if (!o) { const kind = c.cop ? "sedan" : CARKIND[c.kind] || pick(["sedan", "hatch", "sedan", "van", "pickup"], hash(c.color || "") ); o = K.carModel(kind, c.cop ? "#e9ebef" : c.color || "#b23a3a"); o.traverse((q) => { if (!q.isMesh) return; if (q.material.name === "Car_Paint") { q.material.metalness = 0.15; q.material.roughness = 0.4; } else if (q.material.name === "Car_Glass") q.material = CAR_GLASS; }); o.name = "Car"; scene.add(o); carObjs.set(c, o); }
     const far = Math.hypot(c.x - px, c.y - py) > Q.view; o.visible = !far; if (far) continue;
-    if (c === S.player.veh || o.userData.mudMats) mudTint(o, c === S.player.veh ? c._mud || 0 : 0);
-    c._z = deckY(c.x, c.y, c._z || 0); o.position.set(c.x, c._z - (c._sink || 0), c.y); o.rotation.y = -c.a; W.setCarLights(o, nk, (c.v || 0) < 0.3 && nk > 0.2);
+    if (!o.userData.wheels && (c === S.player.veh || o.userData.mudMats)) mudTint(o, c === S.player.veh ? c._mud || 0 : 0);
+    c._z = deckY(c.x, c.y, c._z || 0); o.position.set(c.x, c._z - (c._sink || 0), c.y); o.rotation.y = -c.a;
+    { const ud = o.userData; if (ud.wheels) { const ds = ud.px == null ? 0 : Math.hypot(c.x - ud.px, c.y - ud.py) * Math.sign(c.v || 0); let dA = ud.pa == null ? 0 : c.a - ud.pa; dA = Math.atan2(Math.sin(dA), Math.cos(dA)); if (Math.abs(ds) < 5) CR.animate(o, ds, dA); ud.px = c.x; ud.py = c.y; ud.pa = c.a; ud.brake = ud.pv != null && (c.v || 0) < ud.pv - 0.05; ud.pv = c.v || 0; }
+      if (c === S.player.veh && ud.wheels) { const m = CR.addMud(o); if (m) m.userData.u.value = c._mud || 0; } }
+    W.setCarLights(o, nk, o.userData.wheels ? (o.userData.brake && Math.abs(c.v || 0) > 0.3) || (Math.abs(c.v || 0) < 0.3 && nk > 0.2) : (c.v || 0) < 0.3 && nk > 0.2);
   }
   for (const [c, o] of carObjs) if (!seen.has(c)) { o.removeFromParent(); carObjs.delete(c); }
 }
@@ -1431,7 +1454,7 @@ window.Houma3D = {
   bizSignList: () => [...bizSigns.values()].filter((g) => g && g.parent).map((g) => ({ text: g.userData.text, gas: g.userData.gas, x: g.position.x, y: g.position.z })),
   carInfo: () => [...carObjs].slice(0, 6).map(([c, o]) => { const m = []; o.traverse((q) => { if (q.isMesh) m.push((q.material.name || "") + ":" + (q.material.color ? q.material.color.getHexString() : "") + ":" + q.material.metalness); }); return { color: c.color, kind: c.kind, mats: m.slice(0, 4), y: o.position.y }; }),
   treeAudit: () => { let n = 0, inF = 0; for (const L of treeCache.values()) for (let k = 0; k < L.length; k += 5) { n++; if (hitBldg(L[k], L[k + 1], 0, true)) inF++; } return { trees: n, insideFootprints: inF }; }, mergeStats: () => ({ ...mergeStats }),
-  snapZ: (z) => { pZ = z; }, grassInfo: () => ({ carpet: carpet && carpet.count, lawn: GR.hooked() }), offRoad: (x, y) => !onRoad(x, y, 0.3) && deckY(x, y, 0) < 0.3, mudInfo: () => ({ mud: S.player.veh && S.player.veh._mud, ruts: ruts && ruts.count, spray: mudLive }), gritInfo: () => ({ grit: GR.hooked(), litter: litter && litter.count, poles: poleSet && poleSet.count }), postInfo: () => post && post.info(), setPainterly: (on) => { painterly = !!on; applyQuality(qName); }, setCineCam: (on) => { cineCam = !!on; }, setCineT: (t) => { cineT = t; },
+  snapZ: (z) => { pZ = z; }, grassInfo: () => ({ carpet: carpet && carpet.count, lawn: GR.hooked() }), offRoad: (x, y) => !onRoad(x, y, 0.3) && deckY(x, y, 0) < 0.3, setCarKind: (k) => { const v = S.player.veh; if (!v) return; v._ck = k; const o = carObjs.get(v); if (o) { o.removeFromParent(); carObjs.delete(v); } }, carKinds: () => [...carObjs.values()].map((o) => o.userData.spec ? o.userData.kind || "cr" : "old").join(","), parked: () => [...parkedSets].map(([k, L]) => k + ":" + L[0].count).join(" "), mudInfo: () => ({ mud: S.player.veh && S.player.veh._mud, ruts: ruts && ruts.count, spray: mudLive }), gritInfo: () => ({ grit: GR.hooked(), litter: litter && litter.count, poles: poleSet && poleSet.count }), postInfo: () => post && post.info(), setPainterly: (on) => { painterly = !!on; applyQuality(qName); }, setCineCam: (on) => { cineCam = !!on; }, setCineT: (t) => { cineT = t; },
   gpsDbg: () => [typeof S.routeVer, gpsVer, !!gpsMesh, !!gpsArrow, gpsArrow && gpsArrow.visible, gpsMesh && gpsMesh.geometry.attributes.position.count, gpsMesh && gpsMesh.geometry.drawRange.start, gpsMesh && gpsMesh.parent === scene],
   triStats: () => { const m = {}; scene.traverseVisible((o) => { if (!o.geometry) return; const g = o.geometry, n = (g.index ? g.index.count : g.attributes.position.count) / 3 * (o.isInstancedMesh ? o.count : 1); const k = (o.name || "?").replace(/\d+$/, ""); m[k] = (m[k] || 0) + n; }); return Object.entries(m).sort((a, b) => b[1] - a[1]).slice(0, 25).map(([k, v]) => k + ":" + Math.round(v / 1000) + "k"); },
   aerial: (o) => { aerial = o ? { ...o, dirty: true } : null; lastRefill.x = 1e9; if (!o && scene) applyQuality(qName); },
