@@ -264,6 +264,29 @@ function buildGround() {
 const NAIP = { mesh: null, cx: 1e9, cy: 1e9, busy: false, fail: 0, R: 900, PX: 1024 };
 const NAIP_URL = "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage";
 function naipOn() { try { return localStorage.getItem("hm-naip") !== "0"; } catch (e) { return true; } }
+// Tree canopy mask from the same aerial tile: dark, green, textured pixels on a 4 m grid are woods; trees are placed
+// only there (plus sparse yard trees), so stands follow the real tree lines and open lawns stay open.
+const FOREST = { cx: 1e9, cy: 1e9, N: 225, R: 900, m: null, ver: 0 };
+function naipForest(img, cx, cy) {
+  const N = FOREST.N, c = document.createElement("canvas"); c.width = c.height = N * 2; const g = c.getContext("2d", { willReadFrequently: true }); g.drawImage(img, 0, 0, N * 2, N * 2);
+  const d = g.getImageData(0, 0, N * 2, N * 2).data, m = new Uint8Array(N * N);
+  for (let j = 0; j < N; j++) for (let i = 0; i < N; i++) {
+    let sr = 0, sg = 0, sb = 0, lo = 1e9, hi = -1e9;
+    for (let v = 0; v < 2; v++) for (let u = 0; u < 2; u++) { const k = ((j * 2 + v) * N * 2 + i * 2 + u) * 4, r = d[k], gg = d[k + 1], b = d[k + 2]; sr += r; sg += gg; sb += b; const L = r + gg + b; lo = Math.min(lo, L); hi = Math.max(hi, L); }
+    sr /= 4; sg /= 4; sb /= 4; const L = (sr + sg + sb) / 3, tex = hi - lo;
+    const green = sg >= sr - 2 && sg > sb + 2;
+    m[j * N + i] = green && L < 92 ? (L < 70 || tex > 40 ? 2 : 1) : 0;
+  }
+  // close small holes / drop speckles (one 3x3 majority pass)
+  const o = new Uint8Array(N * N);
+  for (let j = 1; j < N - 1; j++) for (let i = 1; i < N - 1; i++) { let n = 0; for (let v = -1; v <= 1; v++) for (let u = -1; u <= 1; u++) n += m[(j + v) * N + i + u] ? 1 : 0; o[j * N + i] = n >= 5 ? Math.max(1, m[j * N + i]) : 0; }
+  FOREST.m = o; FOREST.cx = cx; FOREST.cy = cy; FOREST.ver++;
+  treeCache.clear(); lastRefill.x = 1e9;
+}
+function forestAt(x, y) { // -1 unknown, 0 open, 1 trees, 2 dense woods
+  if (!FOREST.m) return -1; const N = FOREST.N, i = Math.floor(((x - FOREST.cx) / FOREST.R + 0.5) * N), j = Math.floor(((y - FOREST.cy) / FOREST.R + 0.5) * N);
+  if (i < 2 || j < 2 || i >= N - 2 || j >= N - 2) return -1; const dx = i - N / 2, dy = j - N / 2; if (dx * dx + dy * dy > (N * 0.46) ** 2) return -1; return FOREST.m[j * N + i];
+}
 function naipPump(px, py) {
   if (NAIP.busy || NAIP.fail > 3 || !naipOn() || Math.hypot(px - NAIP.cx, py - NAIP.cy) < 250) return;
   const O = S.origin ? S.origin() : [29.59007223, -90.72057], kx = 111320 * Math.cos((O[0] * Math.PI) / 180), ky = 110540, h = NAIP.R / 2;
@@ -274,29 +297,59 @@ function naipPump(px, py) {
   img.onload = () => {
     NAIP.busy = false; NAIP.cx = cx; NAIP.cy = cy;
     const c = document.createElement("canvas"); c.width = c.height = NAIP.PX; const g = c.getContext("2d"); g.drawImage(img, 0, 0, NAIP.PX, NAIP.PX);
+    try { naipForest(img, cx, cy); } catch (e) { /* tainted or unavailable: keep the old tree layout */ }
     // soft circular fade so the tile edge never shows as a hard square
     g.globalCompositeOperation = "destination-in"; const r = NAIP.PX / 2, gr = g.createRadialGradient(r, r, r * 0.62, r, r, r * 0.98); gr.addColorStop(0, "rgba(0,0,0,1)"); gr.addColorStop(1, "rgba(0,0,0,0)"); g.fillStyle = gr; g.fillRect(0, 0, NAIP.PX, NAIP.PX);
     const tex = new T.CanvasTexture(c); tex.colorSpace = T.SRGBColorSpace; tex.anisotropy = 4;
-    if (!NAIP.mesh) { const geo = new T.PlaneGeometry(NAIP.R, NAIP.R); geo.rotateX(-Math.PI / 2); NAIP.mesh = new T.Mesh(geo, new T.MeshStandardMaterial({ transparent: true, depthWrite: false, roughness: 0.97, name: "H_Aerial" })); NAIP.mesh.name = "AerialDrape"; NAIP.mesh.receiveShadow = true; scene.add(NAIP.mesh); }
+    if (!NAIP.mesh) { const geo = new T.PlaneGeometry(NAIP.R, NAIP.R); geo.rotateX(-Math.PI / 2); NAIP.mesh = new T.Mesh(geo, new T.MeshStandardMaterial({ transparent: true, depthWrite: false, roughness: 0.97, name: "H_Aerial" })); cutMat(NAIP.mesh.material); NAIP.mesh.name = "AerialDrape"; NAIP.mesh.receiveShadow = true; scene.add(NAIP.mesh); }
     const m = NAIP.mesh.material; if (m.map) m.map.dispose(); m.map = tex; m.needsUpdate = true; NAIP.mesh.position.set(cx, 0.033, cy);
   };
   img.onerror = () => { NAIP.busy = false; NAIP.fail++; NAIP.cx = cx; NAIP.cy = cy; };
   img.src = url;
 }
+// Bayous are carved: a stencil cap over every channel cuts the flat ground/lots/aerial away, sloped mud banks drop
+// to a murky water surface a metre or so below the land, so the channels read as real cuts in the marsh.
+const WATER_Y = -1.15, BED_Y = -2.4;
+const CUT_MATS = new Set();
+function cutMat(m) { if (!m || CUT_MATS.has(m)) return m; m.stencilWrite = true; m.stencilRef = 1; m.stencilFunc = T.NotEqualStencilFunc; m.stencilFail = T.KeepStencilOp; m.stencilZFail = T.KeepStencilOp; m.stencilZPass = T.KeepStencilOp; CUT_MATS.add(m); return m; }
+const MURK = new T.MeshStandardMaterial({ color: "#5a5a3a", roughness: 0.35, metalness: 0.0, emissive: "#14160c", name: "H_BayouWater" });
+function disc(cx, cy, r, y, out, n = 10) { for (let i = 0; i < n; i++) { const a0 = (i / n) * Math.PI * 2, a1 = ((i + 1) / n) * Math.PI * 2; out.pos.push(cx, y, cy, cx + Math.cos(a1) * r, y, cy + Math.sin(a1) * r, cx + Math.cos(a0) * r, y, cy + Math.sin(a0) * r); out.uv.push(cx, cy, cx, cy, cx, cy); } }
+function bankStrip(pts, o1, o2, y1, y2, out) { // strip between offsets o1 (height y1) and o2 (height y2)
+  for (let i = 0; i < pts.length - 1; i++) {
+    const [ax, ay] = pts[i], [bx, by] = pts[i + 1], dx = bx - ax, dy = by - ay, L = Math.hypot(dx, dy); if (L < 0.01) continue;
+    const nx = -dy / L, ny = dx / L, e = Math.min(1.2, L * 0.2), ex = dx / L * e, ey = dy / L * e;
+    const P = (x, y, o) => [x + nx * o, y + ny * o];
+    const a1 = P(ax - ex, ay - ey, o1), a2 = P(ax - ex, ay - ey, o2), b1 = P(bx + ex, by + ey, o1), b2 = P(bx + ex, by + ey, o2);
+    out.pos.push(a1[0], y1, a1[1], b1[0], y1, b1[1], a2[0], y2, a2[1], a2[0], y2, a2[1], b1[0], y1, b1[1], b2[0], y2, b2[1]);
+    out.uv.push(ax * 0.2, y1, bx * 0.2, y1, ax * 0.2, y2 * 3, ax * 0.2, y2 * 3, bx * 0.2, y1, bx * 0.2, y2 * 3);
+  }
+}
 function buildWater() {
-  const W1 = { pos: [], uv: [] }, shapes = [];
+  const CAP = { pos: [], uv: [] }, WS = { pos: [], uv: [] }, BK = { pos: [], uv: [] }, shapes = [], capShapes = [];
   for (const f of S.osm.water) {
     const pts = f.p; if (pts.length < 2) continue;
     const closed = f.wk ? f.wk === "area" : pts.length > 3 && Math.hypot(pts[0][0] - pts[pts.length - 1][0], pts[0][1] - pts[pts.length - 1][1]) < 1;
-    if (closed && pts.length > 2) { const s = new T.Shape(); pts.forEach((q, i) => (i ? s.lineTo(q[0], -q[1]) : s.moveTo(q[0], -q[1]))); shapes.push(s); }
-    else ribbon(pts, Math.max(1.5, (f.w || 28) / 2), 0, 0.06, W1, 0.05);
+    if (closed && pts.length > 2) {
+      const s = new T.Shape(); pts.forEach((q, i) => (i ? s.lineTo(q[0], -q[1]) : s.moveTo(q[0], -q[1]))); shapes.push(s);
+      // inward bank ring
+      const [ax, ay] = pts[0], [bx, by] = pts[1], L = Math.hypot(bx - ax, by - ay) || 1, tx = (ax + bx) / 2 - (by - ay) / L * 0.6, ty = (ay + by) / 2 + (bx - ax) / L * 0.6;
+      const sg = inPoly(pts, tx, ty) ? 1 : -1; bankStrip(pts, 0, sg * 5, 0, BED_Y, BK);
+    } else {
+      const hw = Math.max(1.5, (f.w || 28) / 2), bw = Math.min(4.5, hw * 0.75);
+      ribbon(pts, hw, 0, 0, CAP, 0.05); ribbon(pts, hw, 0, WATER_Y, WS, 0.05);
+      for (const q of pts) { disc(q[0], q[1], hw, 0, CAP); disc(q[0], q[1], hw, WATER_Y, WS); }
+      bankStrip(pts, hw, hw - bw, 0, BED_Y, BK); bankStrip(pts, -hw, -hw + bw, 0, BED_Y, BK);
+    }
   }
-  const mud = meshFrom({ pos: W1.pos.map((v, i) => v), uv: W1.uv }, flatMat(X.mat("marsh", 31, "#7d7a52", { rough: 1, name: "H_Bank" })), "WaterBank");
-  if (mud) { mud.scale.set(1, 1, 1); mud.position.y = -0.03; }
-  const wm = meshFrom(W1, flatMat(K.WATER), "WaterLines"); if (wm) { wm.position.y = 0.02; wm.scale.set(1, 1, 1); }
-  if (shapes.length) { const g = new T.ShapeGeometry(shapes); g.rotateX(-Math.PI / 2); const m = new T.Mesh(g, flatMat(K.WATER)); m.position.y = 0.08; m.receiveShadow = true; m.name = "WaterAreas"; scene.add(m); }
-  // a wider muddy bank under the river ribbons
-  if (mud) { const g = mud.geometry, pos = g.attributes.position; mud.geometry.dispose(); const B = { pos: [], uv: [] }; for (const f of S.osm.water) if (f.p.length >= 2 && f.wk !== "area") ribbon(f.p, Math.max(2.5, (f.w || 28) / 2 + 3), 0, 0.03, B, 0.2); mud.geometry = new T.BufferGeometry(); mud.geometry.setAttribute("position", new T.Float32BufferAttribute(B.pos, 3)); mud.geometry.setAttribute("uv", new T.Float32BufferAttribute(B.uv, 2)); mud.geometry.computeVertexNormals(); void pos; }
+  const capM = new T.MeshBasicMaterial({ colorWrite: false, depthWrite: false, side: T.DoubleSide, name: "H_WaterCut" });
+  capM.stencilWrite = true; capM.stencilRef = 1; capM.stencilFunc = T.AlwaysStencilFunc; capM.stencilZPass = T.ReplaceStencilOp;
+  const cap = meshFrom(CAP, capM, "WaterCut"); if (cap) { cap.renderOrder = -10; cap.position.y = 0.002; cap.receiveShadow = false; }
+  if (shapes.length) { const g = new T.ShapeGeometry(shapes); g.rotateX(-Math.PI / 2); const m = new T.Mesh(g, capM); m.renderOrder = -10; m.position.y = 0.002; m.name = "WaterAreaCut"; scene.add(m);
+    const w = new T.Mesh(g, MURK); w.position.y = WATER_Y; w.receiveShadow = false; w.name = "WaterAreas"; scene.add(w); }
+  const bm = new T.MeshStandardMaterial({ map: X.mat("marsh", 31, "#ffffff", { rough: 1 }).map, color: "#8f7a55", roughness: 1, side: T.DoubleSide, name: "H_Bank" });
+  const bank = meshFrom(BK, bm, "WaterBank"); if (bank) { bank.geometry.computeVertexNormals(); bank.receiveShadow = false; }
+  const wm = meshFrom(WS, MURK, "WaterLines"); if (wm) wm.receiveShadow = false; // below grade: the uncut ground would shadow them
+  for (const n of ["Ground", "Wetlands", "Parks", "Parking"]) { const o = scene.getObjectByName(n); if (o && o.material) cutMat(o.material); }
 }
 let lampSet = null, poolSet = null, eyeSet = null, lamps = [], elevGrid = new Map(), tunnels = [], lampsOnRoad = 0;
 function addElev(ax, ay, az, bx, by, bz, hw) { const s = { ax, ay, az, bx, by, bz, hw }; const x0 = Math.floor((Math.min(ax, bx) - hw) / SEG), x1 = Math.floor((Math.max(ax, bx) + hw) / SEG), y0 = Math.floor((Math.min(ay, by) - hw) / SEG), y1 = Math.floor((Math.max(ay, by) + hw) / SEG); for (let i = x0; i <= x1; i++) for (let j = y0; j <= y1; j++) { const k = i * 100003 + j; let L = elevGrid.get(k); if (!L) elevGrid.set(k, (L = [])); L.push(s); } }
@@ -828,7 +881,7 @@ function refill(px, py) {
   for (const i of extraHouses) put(i);
   for (const s of Object.values(houseSets)) s.end(); for (const s of Object.values(bizSets)) s.end();
   streamTiles(px, py, R); refillFences(px, py, R);
-  refillTrees(px, py);
+  refillTrees(px, py); refillBizSigns(px, py);
   const LR = Math.min(R, 360), LR2 = LR * LR; let n = 0; lampSet.begin();
   for (const l of lamps) { const dx = l.x - px, dy = l.y - py; if (dx * dx + dy * dy > LR2) continue; lampSet.add(l.x, 0, l.y, -l.a, 1, 1, 1); tmpM.compose(tmpV.set(l.hx, 0.09, l.hy), tmpQ.identity(), tmpS.set(9, 1, 9)); poolSet.setMatrixAt(n++, tmpM); }
   lampSet.end(); poolSet.count = n; poolSet.instanceMatrix.needsUpdate = true;
@@ -858,6 +911,48 @@ function signMat(text, bg, fg = "#ffffff", w = 512, h = 128) {
   x.fillStyle = fg; x.textAlign = "center"; x.textBaseline = "middle"; x.fillText(text, w / 2, h / 2 + 2);
   const t = new T.CanvasTexture(cv); t.colorSpace = T.SRGBColorSpace; t.anisotropy = 4;
   return new T.MeshStandardMaterial({ map: t, emissiveMap: t, emissive: new T.Color("#ffffff"), emissiveIntensity: 0.25, roughness: 0.5, side: T.DoubleSide, name: "H_SignText" });
+}
+// Business frontage: a roadside pylon sign with the business (OSM name, else parcel owner) name as generated text, and
+// fuel canopies with pumps at gas stations. Only the nearest few dozen are built, cached per business.
+const bizSigns = new Map(); let bizSignGroup = null; const BIZ_BG = ["#1d4f91", "#8c1d1d", "#1f6b3a", "#5b2c83", "#a35a00", "#22313f", "#7a1f4d", "#0f6c74"];
+const GAS_RE = /\b(GAS|FUEL|PETRO|CHEVRON|EXXON|SHELL|VALERO|TEXACO|CONOCO|CITGO|MARATHON|MOBIL|CIRCLE K|RACETRAC|MURPHY|TRUCK STOP|TRUCKSTOP|FOOD ?MART|FOOD STORE|QUICK ?STOP|STOP ?N|KWIK|CONVENIENCE)\b/i;
+function bizName(h) {
+  const L = h.lot, q = L && L.p ? (() => { const b = obb(L.p); return poiIn({ p: L.p, cx: b.cx, cy: b.cy }); })() : null; let n = q && q.n ? q.n : (h.p && (h.p.owner || h.p.o)) || "";
+  n = String(n).replace(/\b(L\.?L\.?C|INC|CORP(ORATION)?|CO|LTD|L\.?P|PLLC|ET AL|ETAL|ETUX|TRUST|&)\b\.?/gi, " ").replace(/[,.]+/g, " ").replace(/\s+/g, " ").trim();
+  if (!n) return null; if (n.length > 26) n = n.slice(0, 26).replace(/\s\S*$/, "");
+  return { text: n.replace(/\w\S*/g, (w) => (w.length <= 3 && /^[A-Z]+$/.test(w) && !/^(THE|AND|OF)$/.test(w) ? w : w[0].toUpperCase() + w.slice(1).toLowerCase())), gas: (q && q.k === "fuel") || GAS_RE.test(n) };
+}
+function makeBizSign(h) {
+  const nm = bizName(h); if (!nm) return null; const I = h.inst, r = nearestRoad(I.x, I.y, 90); if (!r) return null;
+  const g = new T.Group(), dx = I.x - r.px, dy = I.y - r.py, dl = Math.hypot(dx, dy) || 1, ux = dx / dl, uy = dy / dl, off = Math.min(dl * 0.45, r.s.hw + 3.2);
+  const sx = r.px + ux * off, sy = r.py + uy * off, ang = Math.atan2(uy, ux); // board faces along the road (readable to traffic both ways)
+  if (hitBldg(sx, sy, 1, true)) return null;
+  const bg = BIZ_BG[hash(nm.text) % BIZ_BG.length], post = G.M("#5d6166", { rough: 0.6, metal: 0.5, name: "H_SignPost" });
+  const mat = signMat(nm.text.toUpperCase(), bg, "#ffffff", 512, 160), bw = Math.min(5.2, 2.4 + nm.text.length * 0.16), bh = bw * 160 / 512 * 1.15;
+  const H = nm.gas ? 6.2 : 4.4;
+  for (const sd of [-1, 1]) { const p = new T.Mesh(new T.BoxGeometry(0.18, H, 0.18), post); p.position.set(sd * bw * 0.38, H / 2, 0); g.add(p); }
+  const box = new T.Mesh(new T.BoxGeometry(bw + 0.2, bh + 0.2, 0.3), G.M("#e8e6e0", { rough: 0.5, name: "H_SignBox" })); box.position.y = H + bh / 2; g.add(box);
+  for (const sd of [-1, 1]) { const f = new T.Mesh(new T.PlaneGeometry(bw, bh), mat); f.position.set(0, H + bh / 2, sd * 0.16); if (sd < 0) f.rotation.y = Math.PI; g.add(f); }
+  if (nm.gas) { const pm = signMat("REGULAR  3.09", "#1b1b1b", "#ffd23a", 512, 128); for (const sd of [-1, 1]) { const f = new T.Mesh(new T.PlaneGeometry(bw * 0.8, bw * 0.2), pm); f.position.set(0, H - bw * 0.14, sd * 0.1); if (sd < 0) f.rotation.y = Math.PI; g.add(f); } }
+  g.position.set(sx, 0, sy); g.lookAt( // local z along the road, so the faces look up/down the street
+    sx + Math.cos(ang + Math.PI / 2), 0, sy + Math.sin(ang + Math.PI / 2));
+  if (nm.gas) { // canopy over the pumps between the store and the road
+    const cg = new T.Group(), cx = r.px + ux * Math.min(dl * 0.62, r.s.hw + 11), cy = r.py + uy * Math.min(dl * 0.62, r.s.hw + 11), W = 16, D = 9, roof = G.M("#f2f2f0", { rough: 0.5, name: "H_Canopy" }), band = signMat(nm.text.toUpperCase(), bg, "#ffffff", 1024, 96);
+    const top = new T.Mesh(new T.BoxGeometry(W, 0.9, D), roof); top.position.y = 5.2; cg.add(top);
+    for (const sd of [-1, 1]) { const b = new T.Mesh(new T.PlaneGeometry(W, 0.85), band); b.position.set(0, 5.2, sd * (D / 2 + 0.01)); if (sd < 0) b.rotation.y = Math.PI; cg.add(b); }
+    const col = G.M("#d9d9d6", { rough: 0.5, name: "H_CanopyCol" }), pump = G.M("#c8302c", { rough: 0.5, name: "H_Pump" });
+    for (const px of [-W / 3, W / 3]) { const c = new T.Mesh(new T.BoxGeometry(0.45, 4.8, 0.45), col); c.position.set(px, 2.4, 0); cg.add(c); const isl = new T.Mesh(new T.BoxGeometry(1.2, 0.2, 4), col); isl.position.set(px, 0.1, 0); cg.add(isl); for (const pz of [-1.2, 1.2]) { const p = new T.Mesh(new T.BoxGeometry(0.7, 1.7, 0.5), pump); p.position.set(px, 1.05, pz); cg.add(p); } }
+    cg.position.set(cx, 0, cy); cg.lookAt(cx + ux, 0, cy + uy); if (!hitBldg(cx, cy, 4, true)) g.userData.canopy = cg;
+  }
+  g.name = "BizSign_" + nm.text; g.userData.text = nm.text; g.userData.gas = nm.gas; return g;
+}
+function refillBizSigns(px, py) {
+  if (!bizSignGroup) { bizSignGroup = new T.Group(); bizSignGroup.name = "BizSigns"; scene.add(bizSignGroup); }
+  const list = []; S.nearBuckets(px, py, 240, (h) => { if (!h.biz || !h.inst) return; const d = Math.hypot(h.inst.x - px, h.inst.y - py); if (d < 240) list.push([d, h]); });
+  list.sort((a, b) => a[0] - b[0]); const want = new Set();
+  for (const [, h] of list.slice(0, 24)) { want.add(h); if (!bizSigns.has(h)) { let g = null; try { g = makeBizSign(h); } catch (e) { g = null; } bizSigns.set(h, g); } const g = bizSigns.get(h); if (g && !g.parent) { bizSignGroup.add(g); if (g.userData.canopy) bizSignGroup.add(g.userData.canopy); } }
+  for (const [h, g] of bizSigns) if (!want.has(h) && g && g.parent) { g.removeFromParent(); if (g.userData.canopy) g.userData.canopy.removeFromParent(); }
+  if (bizSigns.size > 120) for (const [h, g] of bizSigns) { if (want.has(h)) continue; if (g) g.traverse((o) => { if (o.isMesh) { o.geometry.dispose(); } }); bizSigns.delete(h); if (bizSigns.size <= 80) break; }
 }
 function signBoard(text, bg, x, y, z, w, h, ang) { const m = new T.Mesh(new T.PlaneGeometry(w, h), signMat(text, bg)); m.position.set(x, z, y); m.rotation.y = -ang + Math.PI / 2; m.name = "Sign_" + text; lmGroup.add(m); return m; }
 function buildLandmarks() {
@@ -943,8 +1038,8 @@ function syncGPS(P, pz) {
 }
 
 let treeSets = [], treeCache = new Map(); const TB = 100;
-const TREES = [["decid", 9.5], ["decid", 6.5], ["palm", 7.5], ["willow", 8], ["pine", 10], ["shrub", 1.3], ["birch", 8], ["decid", 10], ["pine", 15], ["cypressW", 17], ["cypress", 14], ["reeds", 1], ["cypressW", 22]];
-const TREE_SCALE = [[1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [2.1, 0.95], [0.55, 1.1], [1, 1], [1, 1], [1, 1], [1.1, 1]]; // [horizontal, vertical]: 7 = live oak, 8 = bald cypress
+const TREES = [["decid", 9.5], ["decid", 6.5], ["palm", 7.5], ["willow", 8], ["pine", 10], ["shrub", 1.3], ["birch", 8], ["decid", 10], ["pine", 15], ["cypressW", 17], ["cypress", 14], ["reeds", 1], ["cypressW", 22], ["tupelo", 13], ["palmetto", 1.4], ["cane", 3.2], ["oakmoss", 10]];
+const TREE_SCALE = [[1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [2.1, 0.95], [0.55, 1.1], [1, 1], [1, 1], [1, 1], [1.1, 1], [0.7, 1.15], [1, 1], [1, 1], [1.9, 0.9]]; // [horizontal, vertical]: 7 = live oak, 8 = bald cypress
 function nearWater(x, y) { for (const [ox, oy] of [[0, 0], [18, 0], [-18, 0], [0, 18], [0, -18]]) if (tileAt(x + ox, y + oy) === S.T.WATER) return true; return false; }
 // bald cypress (Taxodium distichum): straight tapering trunk with a flared, fluted buttress base, short horizontal limbs,
 // flat-topped layered feathery canopy, optional Spanish moss and cypress knees (wet variant). ~400 tris, instanced.
@@ -968,21 +1063,49 @@ function cypressModel(seed, h, wet) {
 function reedModel(seed) { const r = G.rng(seed), g = new T.Group(), m = G.M("#7d8f45", { rough: 1, name: "H_Reed" }), hd = G.M("#5a3f26", { rough: 1, name: "H_Cattail" }), bl = new T.ConeGeometry(0.05, 1, 3), cat = new T.CylinderGeometry(0.05, 0.05, 0.25, 4);
   for (let i = 0; i < 14; i++) { const a = r() * 6.28, d = r() * 0.9, hh = 0.9 + r() * 1.1, o = new T.Mesh(bl, m); o.position.set(Math.cos(a) * d, hh / 2, Math.sin(a) * d); o.scale.set(1, hh, 1); o.rotation.set((r() - 0.5) * 0.3, 0, (r() - 0.5) * 0.3); g.add(o); if (i % 4 === 0) { const c = new T.Mesh(cat, hd); c.position.set(Math.cos(a) * d, hh * 0.92, Math.sin(a) * d); g.add(c); } }
   return g; }
-function buildTreeSets() { treeSets = TREES.map(([sp, h], i) => new Instanced("Tree_" + sp + i, { group: sp === "cypressW" ? cypressModel(901 + i, h, true) : sp === "cypress" ? cypressModel(733 + i, h, false) : sp === "reeds" ? reedModel(55) : W.treeModel(sp, 101 + i * 17, h) }, 256, { noRoles: true, noShadow: sp === "reeds" })); }
+// Spanish moss: grey-green drapes hung from the lower canopy of live oaks / tupelo
+function addMoss(g, seed, h, n) { const r = G.rng(seed), moss = G.M("#a3a68f", { rough: 1, name: "H_OakMoss" }), mg = new T.ConeGeometry(0.22, 1, 4, 1, true); mg.rotateX(Math.PI); mg.translate(0, -0.5, 0);
+  for (let i = 0; i < n; i++) { const a = r() * 6.28, d = h * (0.15 + r() * 0.3), o = new T.Mesh(mg, moss); o.position.set(Math.cos(a) * d, h * (0.45 + r() * 0.3), Math.sin(a) * d); o.scale.set(1, 1 + r() * 1.8, 1); g.add(o); } return g; }
+// dwarf palmetto: a low clump of fan leaves on short stalks
+function palmettoModel(seed) { const r = G.rng(seed), g = new T.Group(), m = G.M("#4f6e34", { rough: 0.9, name: "H_Palmetto" }), st = G.M("#6a7a3e", { rough: 1, name: "H_PalmStem" }), fan = new T.CircleGeometry(0.55, 7, 0, Math.PI * 1.1), stem = new T.CylinderGeometry(0.02, 0.03, 1, 3); stem.translate(0, 0.5, 0);
+  for (let i = 0; i < 9; i++) { const a = r() * 6.28, tilt = 0.5 + r() * 0.7, L = 0.5 + r() * 0.6, s = new T.Mesh(stem, st); s.scale.set(1, L, 1); s.rotation.set(0, -a, tilt); s.rotation.order = "YXZ"; g.add(s);
+    const f = new T.Mesh(fan, m); f.position.set(Math.cos(a) * Math.sin(tilt) * L, Math.cos(tilt) * L, Math.sin(a) * Math.sin(tilt) * L); f.rotation.set(-Math.PI / 2 + tilt * 0.6, -a + Math.PI / 2, 0); f.rotation.order = "YXZ"; f.material.side = T.DoubleSide; g.add(f); }
+  return g; }
+// switch cane / tall marsh grass clump
+function caneModel(seed) { const r = G.rng(seed), g = new T.Group(), m = G.M("#8a9a4e", { rough: 1, name: "H_Cane" }), m2 = G.M("#a7a35e", { rough: 1, name: "H_Cane2" }), bl = new T.ConeGeometry(0.04, 1, 3);
+  for (let i = 0; i < 18; i++) { const a = r() * 6.28, d = r() * 0.8, hh = 1.6 + r() * 1.8, o = new T.Mesh(bl, i % 3 ? m : m2); o.position.set(Math.cos(a) * d, hh / 2, Math.sin(a) * d); o.scale.set(1, hh, 1); o.rotation.set((r() - 0.5) * 0.35, 0, (r() - 0.5) * 0.35); g.add(o); } return g; }
+function treeGroup(sp, i, h) {
+  if (sp === "cypressW") return cypressModel(901 + i, h, true); if (sp === "cypress") return cypressModel(733 + i, h, false); if (sp === "reeds") return reedModel(55);
+  if (sp === "tupelo") return addMoss(W.treeModel("birch", 611, h), 612, h, 6); if (sp === "oakmoss") return addMoss(W.treeModel("decid", 271, h), 272, h, 14);
+  if (sp === "palmetto") return palmettoModel(77); if (sp === "cane") return caneModel(78); return W.treeModel(sp, 101 + i * 17, h);
+}
+const UNDER = new Set([5, 11, 14, 15]);
+function buildTreeSets() { treeSets = TREES.map(([sp, h], i) => new Instanced("Tree_" + sp + i, { group: treeGroup(sp, i, h) }, 256, { noRoles: true, noShadow: UNDER.has(i) })); }
+function bankAt(x, y, d) { const W_ = S.T.WATER; return tileAt(x + d, y) === W_ || tileAt(x - d, y) === W_ || tileAt(x, y + d) === W_ || tileAt(x, y - d) === W_; }
 function treesIn(bi, bj) {
   const key = bi * 100003 + bj; if (treeCache.has(key)) return treeCache.get(key);
-  const out = [], r = G.rng(hash(key) || 1), x0 = bi * TB, y0 = bj * TB, step = 9;
+  const out = [], r = G.rng(hash(key) || 1), x0 = bi * TB, y0 = bj * TB, step = 5.5;
+  const bad = (px, py, rr) => onRoad(px, py, rr) || masked(px, py) || deckY(px, py, 0) > 0.3 || hitBldg(px, py, rr, true) || nearDrive(px, py, 2.4);
   for (let x = x0 + step / 2; x < x0 + TB; x += step) for (let y = y0 + step / 2; y < y0 + TB; y += step) {
-    const px = x + (r() - 0.5) * step * 0.9, py = y + (r() - 0.5) * step * 0.9, roll = r(), sel = r(), sc = 0.75 + r() * 0.5, ry = r() * 6.28;
+    const px = x + (r() - 0.5) * step * 0.9, py = y + (r() - 0.5) * step * 0.9, roll = r(), sel = r(), sc = 0.75 + r() * 0.5, ry = r() * 6.28, u = r();
     const t = tileAt(px, py);
-    if (t === S.T.WATER) { // reeds / cattails along the water's edge
-      const edge = tileAt(px + 10, py) !== S.T.WATER || tileAt(px - 10, py) !== S.T.WATER || tileAt(px, py + 10) !== S.T.WATER || tileAt(px, py - 10) !== S.T.WATER; if (roll < 0.55 && edge && !onRoad(px, py, 4) && deckY(px, py, 0) < 0.3 && !hitBldg(px, py, 1, true)) out.push(px, py, 11, ry, sc); continue; }
     if (t !== S.T.GRASS && t !== S.T.PARK) continue;
-    const wet = nearWater(px, py);
-    if (roll > (wet ? 0.8 : t === S.T.PARK ? 0.6 : 0.36)) continue;
-    if (onRoad(px, py, 3.2) || masked(px, py) || deckY(px, py, 0) > 0.3 || hitBldg(px, py, 3.2, true) || nearDrive(px, py, 2.6)) continue;
-    // bald cypress dominates: nearly all of the waterside trees, about half of the yard / lot trees
-    const kind = wet ? (sel < 0.45 ? 9 : sel < 0.75 ? 12 : sel < 0.85 ? 3 : 11) : sel < 0.5 ? 10 : sel < 0.62 ? 7 : sel < 0.7 ? 0 : sel < 0.76 ? 1 : sel < 0.79 ? 2 : sel < 0.82 ? 3 : sel < 0.94 ? 5 : 8;
+    const f = forestAt(px, py), bank = bankAt(px, py, 4.5), wet = nearWater(px, py);
+    if (bank) { // muddy bank: grasses, cane, the odd cypress leaning over the water
+      if (roll < 0.55 && !bad(px, py, 1.5)) out.push(px, py, roll < 0.12 && f !== 0 ? 9 : u < 0.6 ? 11 : 15, ry, sc);
+      continue;
+    }
+    if (f >= 1) { // real woods from the aerial canopy mask: dense mixed swamp forest + undergrowth
+      if (roll > (f === 2 ? 0.9 : 0.6) || bad(px, py, 2.6)) { if (u < 0.35 && !bad(px, py, 1)) out.push(px, py, wet ? 15 : 14, ry, sc); continue; }
+      const kind = wet ? (sel < 0.34 ? 9 : sel < 0.52 ? 12 : sel < 0.74 ? 13 : sel < 0.88 ? 16 : 3) : sel < 0.3 ? 16 : sel < 0.5 ? 10 : sel < 0.7 ? 13 : sel < 0.8 ? 7 : sel < 0.9 ? 8 : 0;
+      out.push(px, py, kind, ry, sc * (0.85 + r() * 0.3));
+      if (u < 0.55) { const a = r() * 6.28, d = 2 + r() * 1.5, qx = px + Math.cos(a) * d, qy = py + Math.sin(a) * d; if (!bad(qx, qy, 1)) out.push(qx, qy, u < 0.3 ? 14 : 15, r() * 6.28, 0.8 + r() * 0.5); }
+      continue;
+    }
+    if (f === 0) continue; // open lawn / field in the aerial: leave it open
+    // no aerial mask here (far away / offline): sparse cover, denser along the water
+    if (roll > (wet ? 0.45 : t === S.T.PARK ? 0.25 : 0.1) || bad(px, py, 3.2)) continue;
+    const kind = wet ? (sel < 0.45 ? 9 : sel < 0.75 ? 12 : sel < 0.85 ? 13 : 16) : sel < 0.45 ? 10 : sel < 0.65 ? 16 : sel < 0.75 ? 0 : sel < 0.85 ? 13 : 8;
     out.push(px, py, kind, ry, sc);
   }
   treeCache.set(key, out); return out;
@@ -990,8 +1113,8 @@ function treesIn(bi, bj) {
 function refillTrees(px, py) {
   const R = Math.min(Q.view, 420), R2 = R * R, dens = Q.trees; nearTrees = []; for (const s of treeSets) s.begin();
   for (let i = Math.floor((px - R) / TB); i <= Math.floor((px + R) / TB); i++) for (let j = Math.floor((py - R) / TB); j <= Math.floor((py + R) / TB); j++) {
-    const L = treesIn(i, j); for (let k = 0; k < L.length; k += 5) { const dx = L[k] - px, dy = L[k + 1] - py, d2 = dx * dx + dy * dy; if (d2 > R2) continue; if (dens < 1 && ((k / 5) % 10) / 10 >= dens && L[k + 2] !== 9) continue; if (L[k + 2] === 11 && d2 > 22500) continue; if (d2 > 48400 && (k / 5) % 3 === 1) continue; // LOD: thin trees past 220 m (fog hides the gaps)
-      const ts = TREE_SCALE[L[k + 2]], sc = L[k + 4], set = treeSets[L[k + 2]]; if (d2 < 3600) nearTrees.push({ set, i: set.pending.length, x: L[k], y: L[k + 1], ry: L[k + 3], sx: sc * ts[0], sy: sc * ts[1], r: 2.2 + 3 * sc * ts[0], hid: false, trunk: (L[k + 2] === 9 || L[k + 2] === 10 || L[k + 2] === 12) ? 0.55 * sc : L[k + 2] === 11 || L[k + 2] === 5 ? 0 : 0.35 * sc }); set.add(L[k], 0, L[k + 1], L[k + 3], sc * ts[0], sc * ts[1], sc * ts[0]); }
+    const L = treesIn(i, j); for (let k = 0; k < L.length; k += 5) { const dx = L[k] - px, dy = L[k + 1] - py, d2 = dx * dx + dy * dy; if (d2 > R2) continue; const kd = L[k + 2], ki = k / 5; if (dens < 1 && (ki % 10) / 10 >= dens && kd !== 9) continue; if (UNDER.has(kd) && d2 > 14400) continue; if (d2 > 22500 && ki % 2 === 1) continue; if (d2 > 62500 && ki % 3 === 1) continue; // LOD: undergrowth to 120 m, thin trees past 150 / 250 m (fog hides the gaps)
+      const ts = TREE_SCALE[L[k + 2]], sc = L[k + 4], set = treeSets[L[k + 2]]; if (d2 < 3600) nearTrees.push({ set, i: set.pending.length, x: L[k], y: L[k + 1], ry: L[k + 3], sx: sc * ts[0], sy: sc * ts[1], r: 2.2 + 3 * sc * ts[0], hid: false, trunk: (kd === 9 || kd === 10 || kd === 12) ? 0.55 * sc : UNDER.has(kd) ? 0 : 0.35 * sc }); set.add(L[k], 0, L[k + 1], L[k + 3], sc * ts[0], sc * ts[1], sc * ts[0]); }
   }
   for (const s of treeSets) s.end();
 }
@@ -1006,21 +1129,22 @@ function scatterGrass(px, py, fwdx, fwdy) {
   while (c < n && tries < n * 3) {
     tries++; const ox = Math.floor((cx + (r() - 0.5) * 2 * Rg) / 1.1), oy = Math.floor((cy + (r() - 0.5) * 2 * Rg) / 1.1); // snap to a 1.1 m lattice so tufts don't swim as you move
     const hh = ((ox * 73856093) ^ (oy * 19349663)) >>> 0, x = (ox + ((hh & 255) / 255)) * 1.1, y = (oy + (((hh >>> 8) & 255) / 255)) * 1.1;
-    const t = tileAt(x, y); if (t !== S.T.GRASS && t !== S.T.PARK) continue; if (onRoad(x, y, 2.2) || masked(x, y)) continue;
+    const t = tileAt(x, y); if (t !== S.T.GRASS && t !== S.T.PARK) continue; if (onRoad(x, y, 2.2) || masked(x, y) || bankAt(x, y, 2.5)) continue;
     const s = 0.7 + ((hh >>> 16) & 255) / 255 * 0.7; tmpQ.setFromAxisAngle(UP, ((hh >>> 4) & 255) / 40); tmpM.compose(tmpV.set(x, 0, y), tmpQ, tmpS.set(s, s * (0.8 + ((hh >>> 20) & 15) / 30), s)); grass.setMatrixAt(c++, tmpM);
   }
   grass.count = c; grass.instanceMatrix.needsUpdate = true;
 }
 
 // ---------------------------------------------------------------- vehicles + people
+const CAR_GLASS = new T.MeshStandardMaterial({ color: "#5d7080", roughness: 0.12, metalness: 0.25, name: "Car_Glass" }); // lighter tint so cabins read as glass, not a black block
 const carObjs = new Map(); const CARKIND = { car: "sedan", truck: "pickup", cop: "sedan", bus: "bus", van: "van", taxi: "taxi" };
 function syncCars(px, py, nk) {
   const seen = new Set();
   for (const c of S.cars) {
     if (c.kind === "boat") continue; seen.add(c); let o = carObjs.get(c);
-    if (!o) { const kind = c.cop ? "sedan" : CARKIND[c.kind] || pick(["sedan", "hatch", "sedan", "van", "pickup"], hash(c.color || "") ); o = K.carModel(kind, c.cop ? "#e9ebef" : c.color || "#b23a3a"); o.name = "Car"; scene.add(o); carObjs.set(c, o); }
+    if (!o) { const kind = c.cop ? "sedan" : CARKIND[c.kind] || pick(["sedan", "hatch", "sedan", "van", "pickup"], hash(c.color || "") ); o = K.carModel(kind, c.cop ? "#e9ebef" : c.color || "#b23a3a"); o.traverse((q) => { if (!q.isMesh) return; if (q.material.name === "Car_Paint") { q.material.metalness = 0.15; q.material.roughness = 0.4; } else if (q.material.name === "Car_Glass") q.material = CAR_GLASS; }); o.name = "Car"; scene.add(o); carObjs.set(c, o); }
     const far = Math.hypot(c.x - px, c.y - py) > Q.view; o.visible = !far; if (far) continue;
-    c._z = deckY(c.x, c.y, c._z || 0); o.position.set(c.x, c._z, c.y); o.rotation.y = -c.a; W.setCarLights(o, nk, (c.v || 0) < 0.3 && nk > 0.2);
+    c._z = deckY(c.x, c.y, c._z || 0); o.position.set(c.x, c._z - (c._sink || 0), c.y); o.rotation.y = -c.a; W.setCarLights(o, nk, (c.v || 0) < 0.3 && nk > 0.2);
   }
   for (const [c, o] of carObjs) if (!seen.has(c)) { o.removeFromParent(); carObjs.delete(c); }
 }
@@ -1095,7 +1219,7 @@ function resize() { if (!renderer || !stage) return; const w = stage.clientWidth
 // ---------------------------------------------------------------- setup + frame
 function init() {
   stage = document.getElementById("hm-stage"); const c2d = document.getElementById("hm-canvas"); if (!stage || !c2d) throw new Error("no stage");
-  renderer = new T.WebGLRenderer({ antialias: true, powerPreference: "high-performance" }); renderer.domElement.className = "hm-gl"; renderer.domElement.setAttribute("aria-hidden", "true");
+  renderer = new T.WebGLRenderer({ antialias: true, stencil: true, powerPreference: "high-performance" }); renderer.domElement.className = "hm-gl"; renderer.domElement.setAttribute("aria-hidden", "true");
   renderer.outputColorSpace = T.SRGBColorSpace; renderer.toneMapping = T.ACESFilmicToneMapping; renderer.shadowMap.type = T.PCFSoftShadowMap;
   stage.insertBefore(renderer.domElement, c2d); stage.classList.add("hm-3d");
   labelsEl = document.createElement("div"); labelsEl.className = "hm3-labels"; stage.appendChild(labelsEl);
@@ -1158,6 +1282,9 @@ window.Houma3D = {
   // test helper: drivable polylines ground -> approach ramp -> deck for the tallest bridges
   bridgeRoutes: (n = 3) => bridgeList.filter((f) => f.ramps && f.zs).sort((a, b) => Math.max(...b.zs) - Math.max(...a.zs)).slice(0, n).map((f) => { const r = f.ramps[0]; let rp = [], rz = []; for (const c of r.chain) { const q = c.f.p3.slice(), z = c.f.zs.slice(); if (!c.e) { q.reverse(); z.reverse(); } rp = q.concat(rp); rz = z.concat(rz); } const bp = f.p3.slice(), bz = f.zs.slice(); if (r.be) { bp.reverse(); bz.reverse(); } return { n: f.n, top: Math.max(...f.zs), pts: rp.concat(bp), zs: rz.concat(bz), nr: rp.length, sameP3: r.f.p3 === (S.osm.roads.find((g) => g === r.f) || {}).p3 }; }),
   hitBldg: (x, y, r) => hitBldg(x, y, r),
+  forestAt: (x, y) => forestAt(x, y), forestInfo: () => ({ ver: FOREST.ver, cx: FOREST.cx, cy: FOREST.cy, n: FOREST.m ? FOREST.m.reduce((a, v) => a + (v ? 1 : 0), 0) : 0 }),
+  bizSignList: () => [...bizSigns.values()].filter((g) => g && g.parent).map((g) => ({ text: g.userData.text, gas: g.userData.gas, x: g.position.x, y: g.position.z })),
+  carInfo: () => [...carObjs].slice(0, 6).map(([c, o]) => { const m = []; o.traverse((q) => { if (q.isMesh) m.push((q.material.name || "") + ":" + (q.material.color ? q.material.color.getHexString() : "") + ":" + q.material.metalness); }); return { color: c.color, kind: c.kind, mats: m.slice(0, 4), y: o.position.y }; }),
   treeAudit: () => { let n = 0, inF = 0; for (const L of treeCache.values()) for (let k = 0; k < L.length; k += 5) { n++; if (hitBldg(L[k], L[k + 1], 0, true)) inF++; } return { trees: n, insideFootprints: inF }; }, mergeStats: () => ({ ...mergeStats }),
   snapZ: (z) => { pZ = z; },
   gpsDbg: () => [typeof S.routeVer, gpsVer, !!gpsMesh, !!gpsArrow, gpsArrow && gpsArrow.visible, gpsMesh && gpsMesh.geometry.attributes.position.count, gpsMesh && gpsMesh.geometry.drawRange.start, gpsMesh && gpsMesh.parent === scene],

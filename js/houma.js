@@ -5,7 +5,7 @@
 (function () {
   "use strict";
   // 3D renderer (js/houma3d.js, Sims-tab look). Resolved next to this script; loaded on first show.
-  var H3D_URL = (function () { try { return new URL("houma3d.js?v=11", document.currentScript.src).href; } catch (e) { return "js/houma3d.js?v=11"; } })();
+  var H3D_URL = (function () { try { return new URL("houma3d.js?v=12", document.currentScript.src).href; } catch (e) { return "js/houma3d.js?v=11"; } })();
   var h3dLoading = null;
   function use3d() { return !!(window.Houma3D && window.Houma3D.active()); }
 
@@ -190,6 +190,15 @@
     return getT(wxToC(x), wyToC(y));
   }
 
+  // narrower channel widths matching the aerial: the bayous through town are roughly 18-26 m bank to bank, not 40 m
+  function bayouW(kind, name, w) {
+    name = name || "";
+    if (/intracoastal|navigation|houma nav/i.test(name)) return w || 40;
+    if (kind === "river") return /terrebonne|black|blue/i.test(name) ? 26 : /bayou/i.test(name) ? 22 : 24;
+    if (kind === "canal") return /bayou/i.test(name) ? 18 : 16;
+    if (kind === "stream") return 8;
+    return w;
+  }
   function canMove(x, y, mode) {
     var t = worldT(x, y);
     if (mode === "boat") return t === T.WATER;
@@ -259,7 +268,7 @@
     var sp = spawnRd.p[Math.min(4, spawnRd.p.length - 2)];
     var sp2 = spawnRd.p[Math.min(5, spawnRd.p.length - 1)];
     var ang = Math.atan2(sp2[1] - sp[1], sp2[0] - sp[0]);
-    var ride = spawnCar("sedan", sp[0], sp[1], ang, "#2a2c30");
+    var ride = spawnCar("sedan", sp[0], sp[1], ang, "#3f5f86");
     cars.push(ride);
     player = { x: sp[0], y: sp[1], a: ang, v: 0, veh: ride };
     var n;
@@ -378,11 +387,21 @@
     var z0 = ent._z || 0, up = H3 && z0 > 0.9;
     var deckOK = function (x, y) { if (!H3) return true; if (!up) return !(H3.hitBldg && H3.hitBldg(x + Math.cos(ent.a) * 1.6 * Math.sign(ent.v || 1), y + Math.sin(ent.a) * 1.6 * Math.sign(ent.v || 1), 0.9)); var z = H3.deckY(x, y, z0); return Math.abs(z - z0) < 1.0; };
     // slide along walls axis by axis; a head-on hit stops the car with a small bounce
-    var hx = !((up || canMove(nx, ent.y, mode)) && deckOK(nx, ent.y)), hy = !((up || canMove(ent.x, ny, mode)) && deckOK(ent.x, ny));
+    // a driven car may roll off the bank into a bayou (and bog down there); traffic keeps to dry land
+    var cm = function (x, y) { if (driven && mode === "car" && worldT(x, y) === T.WATER) return true; return canMove(x, y, mode); };
+    var hx = !((up || cm(nx, ent.y)) && deckOK(nx, ent.y)), hy = !((up || cm(ent.x, ny)) && deckOK(ent.x, ny));
     if (!hx) ent.x = nx;
     if (!hy) ent.y = ny;
     if (hx && hy) ent.v *= mode === "car" ? -0.15 : 0.25; else if (hx || hy) ent.v *= mode === "car" ? 0.6 : 0.25;
     if (H3) ent._z = H3.deckY(ent.x, ent.y, z0);
+    if (mode === "car") { // in the water (not on a deck): the car sinks into the mud and stalls; only a slow reverse gets it out
+      var inW = worldT(ent.x, ent.y) === T.WATER && !((ent._z || 0) > 0.5);
+      if (inW) {
+        ent._sink = Math.min(1.5, (ent._sink || 0) + dt * 1.1);
+        if (ent.v > 0) ent.v = Math.min(ent.v * Math.pow(0.01, dt), ent._sink > 0.9 ? 0 : 1.5); else ent.v = Math.max(ent.v, -1.5);
+        if (driven && !ent._sankMsg) { ent._sankMsg = 1; if (auto) setAuto(false, "Stopped: in the water"); toast("Splash! The car is stuck in the bayou. Back out slowly (S), or get out (F)."); }
+      } else if (ent._sink) { ent._sink = Math.max(0, ent._sink - dt * 2); if (!ent._sink) ent._sankMsg = 0; }
+    }
   }
 
   function updateMissions() {
@@ -826,7 +845,7 @@
           if (r[3] === 1) feats.push({ k: "road", p: dec(r[2]), n: nm || r[7] || "", r: r[7] || "", h: r[1], lanes: r[4], one: r[5], lvl: r[6], osm: 1, hw: osmHW(r[1], r[4], r[5]) });
           else feats.push({ k: "road", p: dec(r[2]), n: titleCase(nm), r: "", h: roadClass(r[1], nm), hw: PHW[r[1]] || 2.3 });
         });
-        wat.water.forEach(function (w) { feats.push({ k: "water", p: dec(w[3]), n: w[0], w: w[2], wk: w[1] }); });
+        wat.water.forEach(function (w) { feats.push({ k: "water", p: dec(w[3]), n: w[0], w: bayouW(w[1], w[0], w[2]), wk: w[1] }); });
         for (i = 2; i < 2 + meta.parts.lots; i++) all[i].rows.forEach(function (r) { var p = dec(r[1]); if (p.length < 3) return; var c = centroid(p), L = { acct: String(r[0]), p: p, cx: c[0], cy: c[1], area: c[2], h: null }; lots.push(L); if (r[0] && !lotByAcct[L.acct]) lotByAcct[L.acct] = L; });
         for (i = 2 + meta.parts.lots; i < all.length; i++) all[i].rows.forEach(function (r) { var p = dec(r[1]); if (p.length >= 3) { var f = { k: "building", p: p, acct: String(r[0]), bt: r[2] || "", lv: r[3] || 0, z: r[4] || 0, rf: r[5] || "", nm: r[6] || "" }; feats.push(f); bl.push(f); } });
         gis = {
@@ -1116,7 +1135,7 @@
     route = { pts: pts, acc: acc, turns: turns, len: acc[acc.length - 1], cost: r.len, names: names, k: 0 }; routeVer++;
   }
   // ---- Auto-drive: pure-pursuit along the GPS polyline with a curvature/bridge/arrival speed profile
-  var auto = false, autoMsg = "", autoStuck = 0, autoRev = 0, autoArrT = 0;
+  var autoPark = null, auto = false, autoMsg = "", autoStuck = 0, autoRev = 0, autoArrT = 0;
   function setAuto(on, msg) {
     if (on && !route) { toast("Pick a 'Drive to' destination first."); on = false; }
     if (on && !player.veh) { tryEnter(); if (!player.veh) { toast("Get in a car to use auto-drive."); on = false; } }
@@ -1134,8 +1153,14 @@
   function autoCtl(ent, dt) {
     var v = Math.max(0, ent.v);
     if (!route) { // arrived (or route cleared): brake to a smooth stop
-      if (v < 0.3) { ent.v = 0; if (auto && autoArrT <= 0) { auto = false; autoUI(); } return [0, 0]; }
-      return [-0.5, 0];
+      var st = 0;
+      if (autoPark) { // pull over to the right-hand curb: steer onto a point ahead and to the right, straighten as we stop
+        var dx = autoPark.x - ent.x, dy = autoPark.y - ent.y, fwd = dx * Math.cos(autoPark.a) + dy * Math.sin(autoPark.a);
+        var aim = fwd > 4 ? Math.atan2(dy, dx) : autoPark.a, df = aim - ent.a; while (df > Math.PI) df -= Math.PI * 2; while (df < -Math.PI) df += Math.PI * 2;
+        st = Math.max(-1, Math.min(1, df * 2.5)); if (fwd < 1) autoPark = null;
+      }
+      if (v < 0.3) { ent.v = 0; autoPark = null; if (auto && autoArrT <= 0) { auto = false; autoUI(); } return [0, 0]; }
+      return [v > 6 ? -0.5 : -0.25, st];
     }
     if (autoRev > 0) { autoRev -= dt; return [-0.5, 0]; } // backing off an obstacle
     var P = route.pts, A = route.acc, k = route.k || 0, i;
@@ -1183,7 +1208,7 @@
     for (i = Math.max(0, route.k - 3); i < Math.min(P.length, route.k + 60); i++) { var d = Math.hypot(P[i][0] - player.x, P[i][1] - player.y); if (d < bd) { bd = d; best = i; } }
     route.k = best;
     var left = routeLeft(); // single source of truth: geometric length along the drawn route
-    if (Math.hypot(gpsDest.x - player.x, gpsDest.y - player.y) < 30 || (best >= P.length - 2 && bd < 30)) { el.hidden = false; el.innerHTML = "<b>Arrived</b> · " + esc(gpsDest.label); if (auto) { autoMsg = "Arrived — auto-drive finished"; toast("Arrived at " + gpsDest.label + "."); autoArrT = 0; } route = null; routeVer++; gpsDest = null; return; }
+    if (Math.hypot(gpsDest.x - player.x, gpsDest.y - player.y) < 30 || (best >= P.length - 2 && bd < 30)) { el.hidden = false; el.innerHTML = "<b>Arrived</b> · " + esc(gpsDest.label); if (auto) { autoMsg = "Arrived — auto-drive finished"; toast("Arrived at " + gpsDest.label + "."); autoArrT = 0; if (player.veh) { var c = player.veh, ca = Math.cos(c.a), sa = Math.sin(c.a), lead = Math.max(10, Math.min(22, c.v * c.v / 5 + 8)), px_ = c.x + ca * lead - sa * 2.4, py_ = c.y + sa * lead + ca * 2.4; autoPark = canMove(px_, py_, "car") && canMove(c.x + ca * lead * 0.5 - sa * 1.2, c.y + sa * lead * 0.5 + ca * 1.2, "car") ? { x: px_, y: py_, a: c.a } : null; } } route = null; routeVer++; gpsDest = null; return; }
     if (bd > 35 && gpsT > 2) { gpsT = 0; planRoute(); return; } // off route: reroute along the real streets from here
     var nt = null; for (i = 0; i < route.turns.length; i++) if (route.turns[i].i > best) { nt = route.turns[i]; break; }
     var cur = route.names[Math.min(route.names.length - 1, best)] || "";
