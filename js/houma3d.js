@@ -10,13 +10,20 @@ import * as Life from "./sims-life.js?v=5";
 import * as NightMod from "./sims-night.js?v=1";
 import * as X from "./houma-tex.js?v=1";
 import PC from "./vendor-polyclip.js?v=1";
+import * as TR from "./houma-trees.js?v=2";
+import { createPost } from "./houma-post.js?v=1";
 
 const K = W.Kit, H = window.Houma;
 const QUALITY = {
   low: { ratio: 1, shadows: false, map: 512, tex: 128, grass: 700, view: 280, people: 6, trees: 0.55, lampLights: "low" },
   med: { ratio: 1.5, shadows: true, map: 1024, tex: 256, grass: 2200, view: 440, people: 14, trees: 1, lampLights: "med" },
-  high: { ratio: 2, shadows: true, map: 2048, tex: 256, grass: 4500, view: 620, people: 24, trees: 1.25, lampLights: "high" },
+  high: { ratio: 2, shadows: true, map: 2048, tex: 256, grass: 4500, view: 620, people: 24, trees: 1.25, lampLights: "high", post: "high", env: true, imp: 150 },
+  cine: { ratio: 2, shadows: true, map: 4096, tex: 256, grass: 7000, view: 700, people: 24, trees: 1.35, lampLights: "high", post: "cine", env: true, imp: 200 },
 };
+QUALITY.low.imp = 70; QUALITY.med.imp = 110; QUALITY.med.env = true;
+const QORDER = ["low", "med", "high", "cine"];
+let cineT = 0, cineShot = -1, post = null, painterly = false, cineCam = true, envKey = "", envRT = null, pmrem = null;
+const defaultQ = () => (isPhone() ? "low" : "high");
 const isPhone = () => matchMedia("(pointer: coarse)").matches && Math.min(screen.width, screen.height) < 820;
 const clamp = (v, a, b) => (v < a ? a : v > b ? b : v);
 const hash = (s) => { let h = 2166136261; s = String(s); for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return h >>> 0; };
@@ -324,6 +331,25 @@ function bankStrip(pts, o1, o2, y1, y2, out) { // strip between offsets o1 (heig
     out.uv.push(ax * 0.2, y1, bx * 0.2, y1, ax * 0.2, y2 * 3, ax * 0.2, y2 * 3, bx * 0.2, y1, bx * 0.2, y2 * 3);
   }
 }
+// at-grade roads crossing a carved channel ride on an earthen causeway (culvert fill) instead of floating over the cut
+function buildCulverts() {
+  const E = { pos: [], uv: [] };
+  for (const f of S.osm.roads) {
+    if (f.lvl === -1) continue; const pts = f.p3 || f.p; if (!pts || pts.length < 2) continue; const hw = roadHW(f) + 1.2;
+    for (let i = 0; i < pts.length - 1; i++) {
+      const [ax, ay] = pts[i], [bx, by] = pts[i + 1], L = Math.hypot(bx - ax, by - ay); if (L < 0.2) continue; const ux = (bx - ax) / L, uy = (by - ay) / L, nx = -uy, ny = ux;
+      for (let s0 = 0; s0 < L; s0 += 3) {
+        const s1 = Math.min(L, s0 + 3), mx = ax + ux * (s0 + s1) / 2, my = ay + uy * (s0 + s1) / 2; if (tileAt(mx, my) !== S.T.WATER && !bankAt(mx, my, hw)) continue; if (deckY(mx, my, 0) > 0.3) continue;
+        const p0 = [ax + ux * (s0 - 0.5), ay + uy * (s0 - 0.5)], p1 = [ax + ux * (s1 + 0.5), ay + uy * (s1 + 0.5)];
+        for (const sd of [-1, 1]) { const o1 = sd * hw, o2 = sd * (hw + 3.2), q = (p, o) => [p[0] + nx * o, p[1] + ny * o];
+          const a1 = q(p0, o1), b1 = q(p1, o1), a2 = q(p0, o2), b2 = q(p1, o2); E.pos.push(a1[0], 0.035, a1[1], b1[0], 0.035, b1[1], a2[0], BED_Y, a2[1], a2[0], BED_Y, a2[1], b1[0], 0.035, b1[1], b2[0], BED_Y, b2[1]); E.uv.push(0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1);
+          const t1 = q(p0, sd * 0.01), t2 = q(p1, sd * 0.01); E.pos.push(a1[0], 0.03, a1[1], t1[0], 0.03, t1[1], b1[0], 0.03, b1[1], b1[0], 0.03, b1[1], t1[0], 0.03, t1[1], t2[0], 0.03, t2[1]); E.uv.push(0, 0, 0, 1, 1, 0, 1, 0, 0, 1, 1, 1); }
+      }
+    }
+  }
+  const m = new T.MeshStandardMaterial({ map: X.mat("marsh", 32, "#ffffff", { rough: 1 }).map, color: "#8a7a5a", roughness: 1, side: T.DoubleSide, name: "H_Causeway" });
+  const o = meshFrom(E, m, "Causeways"); if (o) { o.geometry.computeVertexNormals(); o.receiveShadow = false; }
+}
 function buildWater() {
   const CAP = { pos: [], uv: [] }, WS = { pos: [], uv: [] }, BK = { pos: [], uv: [] }, shapes = [], capShapes = [];
   for (const f of S.osm.water) {
@@ -467,7 +493,11 @@ function buildRoads() {
   for (const l of cand) if (!onRoad(l.x, l.y, 0.9) && deckY(l.x, l.y, 0) < 0.3) lamps.push(l);
   lampsOnRoad = lamps.filter((l) => onRoad(l.x, l.y, 0)).length;
   for (const out of [LY, LW, FA]) if (!out.uv.length) out.uv = new Array(out.pos.length / 3 * 2).fill(0); for (const out of [LY, LW]) out.uv = new Array(out.pos.length / 3 * 2).fill(0);
-  farChunks = farChunks.filter((m) => m.parent); meshChunks(SW, walk, "Sidewalks", 900); meshChunks(CB, flatMat(X.mat("panels", 44, "#d2cec4", { name: "H_Curb", rep: [0.5, 0.5] })), "Curbs", 600); const rms = meshChunks(R, asphalt, "Roads"); if (rms.length) rms[0].material.polygonOffset = true;
+  farChunks = farChunks.filter((m) => m.parent); meshChunks(SW, walk, "Sidewalks", 900); meshChunks(CB, flatMat(X.mat("panels", 44, "#d2cec4", { name: "H_Curb", rep: [0.5, 0.5] })), "Curbs", 600); const rms = meshChunks(R, asphalt, "Roads");
+  // roads sit ON the land: depth-biased toward the camera over ground / lots / aerial drape so they never z-fight or sink at grazing angles
+  const bias = (m, f) => { if (m) { m.polygonOffset = true; m.polygonOffsetFactor = f; m.polygonOffsetUnits = f * 2; } };
+  bias(asphalt, -2); bias(walk, -1); bias(yellow, -4); bias(white, -4); for (const n of ["Curbs", "Sidewalks", "Roads"]) scene.traverse((o) => { if (o.isMesh && o.name.startsWith(n)) bias(o.material, n === "Roads" ? -2 : -1); });
+  buildCulverts();
   meshFrom(SH, flatMat(X.mat("gravel", 45, "#8f8a7e", { rough: 1, name: "H_Shoulder", rep: [0.3, 0.3] })), "Shoulders");
   const conc = flatMat(X.mat("panels", 46, "#b9b5ac", { rough: 0.9, name: "H_BridgeConcrete", rep: [0.25, 0.25] }));
   meshFrom(FA, conc, "DeckFascia", { shadow: true }); meshFrom(UN, conc, "DeckUnderside", { shadow: true });
@@ -1038,8 +1068,8 @@ function syncGPS(P, pz) {
 }
 
 let treeSets = [], treeCache = new Map(); const TB = 100;
-const TREES = [["decid", 9.5], ["decid", 6.5], ["palm", 7.5], ["willow", 8], ["pine", 10], ["shrub", 1.3], ["birch", 8], ["decid", 10], ["pine", 15], ["cypressW", 17], ["cypress", 14], ["reeds", 1], ["cypressW", 22], ["tupelo", 13], ["palmetto", 1.4], ["cane", 3.2], ["oakmoss", 10]];
-const TREE_SCALE = [[1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [2.1, 0.95], [0.55, 1.1], [1, 1], [1, 1], [1, 1], [1.1, 1], [0.7, 1.15], [1, 1], [1, 1], [1.9, 0.9]]; // [horizontal, vertical]: 7 = live oak, 8 = bald cypress
+const TREES = [["oak", 9], ["tupelo", 8], ["palm", 7.5], ["willow", 8], ["pine", 14], ["shrub", 1.3], ["tupelo", 11], ["oak", 11], ["pine", 19], ["cypressW", 17], ["cypress", 14], ["reeds", 1], ["cypressW", 22], ["tupelo", 13], ["palmetto", 1.4], ["cane", 3.2], ["oakmoss", 10]];
+const TREE_SCALE = [[1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1, 1], [1.1, 1], [1, 1], [1, 1], [1, 1], [1, 1]]; // [horizontal, vertical]: 7 = live oak, 8 = bald cypress
 function nearWater(x, y) { for (const [ox, oy] of [[0, 0], [18, 0], [-18, 0], [0, 18], [0, -18]]) if (tileAt(x + ox, y + oy) === S.T.WATER) return true; return false; }
 // bald cypress (Taxodium distichum): straight tapering trunk with a flared, fluted buttress base, short horizontal limbs,
 // flat-topped layered feathery canopy, optional Spanish moss and cypress knees (wet variant). ~400 tris, instanced.
@@ -1074,13 +1104,23 @@ function palmettoModel(seed) { const r = G.rng(seed), g = new T.Group(), m = G.M
 // switch cane / tall marsh grass clump
 function caneModel(seed) { const r = G.rng(seed), g = new T.Group(), m = G.M("#8a9a4e", { rough: 1, name: "H_Cane" }), m2 = G.M("#a7a35e", { rough: 1, name: "H_Cane2" }), bl = new T.ConeGeometry(0.04, 1, 3);
   for (let i = 0; i < 18; i++) { const a = r() * 6.28, d = r() * 0.8, hh = 1.6 + r() * 1.8, o = new T.Mesh(bl, i % 3 ? m : m2); o.position.set(Math.cos(a) * d, hh / 2, Math.sin(a) * d); o.scale.set(1, hh, 1); o.rotation.set((r() - 0.5) * 0.35, 0, (r() - 0.5) * 0.35); g.add(o); } return g; }
+const leafWrap = (m) => K.sway(m, 0.011, 0.35);
+const TR_OPT = { cypressW: ["cypress", { moss: 0.55, knees: true }], cypress: ["cypress", { moss: 0.2 }], oak: ["oak", { moss: 0.25 }], oakmoss: ["oak", { moss: 0.85 }], tupelo: ["tupelo", { moss: 0.25 }], pine: ["pine", {}] };
 function treeGroup(sp, i, h) {
+  if (TR_OPT[sp]) { const [k, o] = TR_OPT[sp]; return TR.makeTree(k, 300 + i * 31, h, { ...o, wrap: leafWrap }); }
   if (sp === "cypressW") return cypressModel(901 + i, h, true); if (sp === "cypress") return cypressModel(733 + i, h, false); if (sp === "reeds") return reedModel(55);
   if (sp === "tupelo") return addMoss(W.treeModel("birch", 611, h), 612, h, 6); if (sp === "oakmoss") return addMoss(W.treeModel("decid", 271, h), 272, h, 14);
   if (sp === "palmetto") return palmettoModel(77); if (sp === "cane") return caneModel(78); return W.treeModel(sp, 101 + i * 17, h);
 }
 const UNDER = new Set([5, 11, 14, 15]);
-function buildTreeSets() { treeSets = TREES.map(([sp, h], i) => new Instanced("Tree_" + sp + i, { group: treeGroup(sp, i, h) }, 256, { noRoles: true, noShadow: UNDER.has(i) })); }
+let impSets = [];
+function buildTreeSets() {
+  const groups = TREES.map(([sp, h], i) => treeGroup(sp, i, h));
+  treeSets = TREES.map(([sp], i) => new Instanced("Tree_" + sp + i, { group: groups[i] }, 256, { noRoles: true, noShadow: UNDER.has(i) }));
+  // distant LOD: a pre-rendered side view of the same tree on crossed alpha-tested quads
+  impSets = TREES.map(([sp, h], i) => { if (!TR_OPT[sp]) return null; const bb = new T.Box3().setFromObject(groups[i]), w = Math.max(bb.max.x - bb.min.x, bb.max.z - bb.min.z) * 1.05, hh = bb.max.y; try { return new Instanced("TreeImp_" + sp + i, { group: TR.makeImpostor(renderer, groups[i], hh, w, leafWrap) }, 256, { noRoles: true }); } catch (e) { return null; } });
+  for (const s of treeSets) for (const p of s.parts) p.mat.alphaToCoverage = qName !== "low";
+}
 function bankAt(x, y, d) { const W_ = S.T.WATER; return tileAt(x + d, y) === W_ || tileAt(x - d, y) === W_ || tileAt(x, y + d) === W_ || tileAt(x, y - d) === W_; }
 function treesIn(bi, bj) {
   const key = bi * 100003 + bj; if (treeCache.has(key)) return treeCache.get(key);
@@ -1111,12 +1151,12 @@ function treesIn(bi, bj) {
   treeCache.set(key, out); return out;
 }
 function refillTrees(px, py) {
-  const R = Math.min(Q.view, 420), R2 = R * R, dens = Q.trees; nearTrees = []; for (const s of treeSets) s.begin();
+  const R = Math.min(Q.view, 420), R2 = R * R, dens = Q.trees; nearTrees = []; for (const s of treeSets) s.begin(); for (const s of impSets) if (s) s.begin(); const IMP2 = (Q.imp || 120) ** 2;
   for (let i = Math.floor((px - R) / TB); i <= Math.floor((px + R) / TB); i++) for (let j = Math.floor((py - R) / TB); j <= Math.floor((py + R) / TB); j++) {
     const L = treesIn(i, j); for (let k = 0; k < L.length; k += 5) { const dx = L[k] - px, dy = L[k + 1] - py, d2 = dx * dx + dy * dy; if (d2 > R2) continue; const kd = L[k + 2], ki = k / 5; if (dens < 1 && (ki % 10) / 10 >= dens && kd !== 9) continue; if (UNDER.has(kd) && d2 > 14400) continue; if (d2 > 22500 && ki % 2 === 1) continue; if (d2 > 62500 && ki % 3 === 1) continue; // LOD: undergrowth to 120 m, thin trees past 150 / 250 m (fog hides the gaps)
-      const ts = TREE_SCALE[L[k + 2]], sc = L[k + 4], set = treeSets[L[k + 2]]; if (d2 < 3600) nearTrees.push({ set, i: set.pending.length, x: L[k], y: L[k + 1], ry: L[k + 3], sx: sc * ts[0], sy: sc * ts[1], r: 2.2 + 3 * sc * ts[0], hid: false, trunk: (kd === 9 || kd === 10 || kd === 12) ? 0.55 * sc : UNDER.has(kd) ? 0 : 0.35 * sc }); set.add(L[k], 0, L[k + 1], L[k + 3], sc * ts[0], sc * ts[1], sc * ts[0]); }
+      const ts = TREE_SCALE[L[k + 2]], sc = L[k + 4], set = treeSets[L[k + 2]]; if (d2 > IMP2 && impSets[kd]) { impSets[kd].add(L[k], 0, L[k + 1], L[k + 3], sc * ts[0], sc * ts[1], sc * ts[0]); continue; } if (d2 < 3600) nearTrees.push({ set, i: set.pending.length, x: L[k], y: L[k + 1], ry: L[k + 3], sx: sc * ts[0], sy: sc * ts[1], r: 2.2 + 3 * sc * ts[0], hid: false, trunk: (kd === 9 || kd === 10 || kd === 12) ? 0.55 * sc : UNDER.has(kd) ? 0 : 0.35 * sc }); set.add(L[k], 0, L[k + 1], L[k + 3], sc * ts[0], sc * ts[1], sc * ts[0]); }
   }
-  for (const s of treeSets) s.end();
+  for (const s of impSets) if (s) s.end(); for (const s of treeSets) s.end();
 }
 let grass = null;
 function buildGrass() {
@@ -1195,7 +1235,8 @@ function lighting(dt, target) {
   sun.intensity = 0.15 + sunK * 2.4; sun.color.set(el < 12 ? "#ffc98e" : "#fff4e2"); sun.color.lerp(new T.Color("#9fb4ff"), nk * 0.6);
   hemi.intensity = 0.18 + dayK * 0.85; hemi.color.copy(sky).lerp(new T.Color("#ffffff"), 0.4); hemi.groundColor.set("#4d5a3a").lerp(new T.Color("#141a22"), nk);
   const lightDir = el > -2 ? sunDir : tmpV.set(0.3, 0.9, 0.2).normalize(); sun.position.copy(target).addScaledVector(lightDir, 120); sun.target.position.copy(target); sun.target.updateMatrixWorld();
-  renderer.toneMappingExposure = 0.95 + nk * 0.15;
+  renderer.toneMappingExposure = (Q.env ? 0.9 : 0.95) + nk * 0.15;
+  if (Q.env) { updateEnv(sky, dayK, el < 15 ? 1 : 0); hemi.intensity *= 0.45; scene.fog.color.lerp(new T.Color("#e9d8bc"), 0.22 * dayK); } // warm atmospheric haze
   W.setNight(nk); W.WINDOW_GLOW.emissiveIntensity = 0.05 + nk * 1.6; materials().glass.emissiveIntensity = nk * 1.25; for (const fm of Object.values(facadeMats)) fm.emissiveIntensity = nk * 1.1; materials().sign.emissiveIntensity = 0.05 + nk * 0.5;
   if (poolSet) poolSet.visible = nk > 0.15;
   // nearest lamps feed the night module's real spotlights
@@ -1212,9 +1253,19 @@ function applyQuality(name) {
   const sc = name === "high" ? 80 : 60; Object.assign(sun.shadow.camera, { left: -sc, right: sc, top: sc, bottom: -sc, near: 1, far: 320 }); sun.shadow.camera.updateProjectionMatrix();
   camera.far = Q.view + 450; camera.updateProjectionMatrix(); scene.fog.near = Q.view * 0.35; scene.fog.far = Q.view;
   if (night) night.setQuality(Q.lampLights); lastRefill.x = 1e9; lastGrass.x = 1e9; resize(); scene.traverse((o) => { if (o.material && o.material.needsUpdate !== undefined) o.material.needsUpdate = true; });
+  if (post) post.set(Q.post || "none", painterly); resize(); envKey = ""; if (!Q.env) { scene.environment = null; }
+  for (const s of treeSets) for (const p of s.parts) p.mat.alphaToCoverage = name !== "low";
   const sel = document.getElementById("hm3-qual"); if (sel && !qAuto) sel.value = name;
 }
-function resize() { if (!renderer || !stage) return; const w = stage.clientWidth || 1, h = stage.clientHeight || 1; renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix(); }
+// image-based light: a procedural sky dome (zenith -> warm horizon -> marsh-green ground) prefiltered with PMREM
+function updateEnv(sky, dayK, warmK) {
+  if (!Q.env) return; const key = sky.getHexString() + (dayK * 10 | 0); if (key === envKey) return; envKey = key;
+  if (!pmrem) pmrem = new T.PMREMGenerator(renderer);
+  const es = new T.Scene(), top = sky.clone().multiplyScalar(0.55 + dayK * 0.9), hor = sky.clone().lerp(new T.Color("#ffd9a8"), 0.35 + warmK * 0.3).multiplyScalar(0.6 + dayK * 1.0), gnd = new T.Color("#4f5a36").multiplyScalar(0.25 + dayK * 0.6);
+  const m = new T.ShaderMaterial({ side: T.BackSide, uniforms: { a: { value: top }, b: { value: hor }, c: { value: gnd } }, vertexShader: "varying vec3 p; void main(){ p = normalize(position); gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0); }", fragmentShader: "uniform vec3 a,b,c; varying vec3 p; void main(){ float y = p.y; vec3 col = y > 0.0 ? mix(b, a, pow(y, 0.6)) : mix(b, c, pow(-y, 0.4)); gl_FragColor = vec4(col, 1.0); }" });
+  es.add(new T.Mesh(new T.SphereGeometry(10, 32, 16), m)); const rt = pmrem.fromScene(es, 0.02); if (envRT) envRT.dispose(); envRT = rt; scene.environment = rt.texture; m.dispose();
+}
+function resize() { if (!renderer || !stage) return; const w = stage.clientWidth || 1, h = stage.clientHeight || 1; renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix(); if (post) post.size(w, h); }
 
 // ---------------------------------------------------------------- setup + frame
 function init() {
@@ -1229,14 +1280,17 @@ function init() {
   sun = new T.DirectionalLight("#fff4e2", 2.2); sun.shadow.bias = -0.0006; sun.shadow.normalBias = 0.03; scene.add(sun); scene.add(sun.target);
   G.setQuality({ tex: 256 });
   try { night = NightMod.createNight(scene, renderer); } catch (e) { night = null; }
-  qName = isPhone() ? "low" : "med"; applyQuality(qName);
+  post = createPost(renderer, scene, camera); qName = defaultQ(); applyQuality(qName);
   new ResizeObserver(resize).observe(stage);
   wireControls();
 }
 function wireControls() {
   const tsel = document.getElementById("hm3-time"), qsel = document.getElementById("hm3-qual");
   if (tsel) tsel.addEventListener("change", () => { tod = tsel.value; tsel.blur(); });
-  if (qsel) qsel.addEventListener("change", () => { qAuto = qsel.value === "auto"; applyQuality(qAuto ? (isPhone() ? "low" : "med") : qsel.value); qsel.blur(); });
+  if (qsel) qsel.addEventListener("change", () => { qAuto = qsel.value === "auto"; applyQuality(qAuto ? defaultQ() : qsel.value); qsel.blur(); });
+  const pt = document.getElementById("hm3-paint"), cc = document.getElementById("hm3-cine");
+  if (pt) pt.addEventListener("change", () => { painterly = pt.checked; applyQuality(qName); pt.blur(); });
+  if (cc) { cc.checked = cineCam; cc.addEventListener("change", () => { cineCam = cc.checked; cc.blur(); }); }
 }
 async function build() {
   building = true; buildGround(); buildMarsh(); buildWater(); buildRoads(); buildBridges(); buildTreeSets(); buildGrass(); buildBuildings(); built = true; building = false;
@@ -1254,7 +1308,7 @@ function frame(dt) {
     scene.fog.near = 1e5; scene.fog.far = 1e6; if (camera.far < hgt * 3) { camera.far = hgt * 3; camera.updateProjectionMatrix(); }
     if (Math.hypot(ax - lastRefill.x, ay - lastRefill.z) > 40 || aerial.dirty) { aerial.dirty = false; lastRefill.x = ax; lastRefill.z = ay; refill(ax, ay); for (const m of farChunks) m.visible = Math.hypot(m.userData.cx - ax, m.userData.cy - ay) < m.userData.far + hgt * 1.6 + 424; }
     pumpTiles(40); syncGPS(P, 0); naipPump(ax, ay);
-    lighting(dt, tmpS.set(ax, 0, ay).clone()); scene.fog.near = 1e5; scene.fog.far = 1e6; renderer.render(scene, camera); if (labelsEl) labelsEl.innerHTML = ""; return;
+    lighting(dt, tmpS.set(ax, 0, ay).clone()); scene.fog.near = 1e5; scene.fog.far = 1e6; post.render(clock); if (labelsEl) labelsEl.innerHTML = ""; return;
   }
   naipPump(P.x, P.y);
   pumpTiles(6); if (lastRefill.fence) { lastRefill.fence = false; refillFences(P.x, P.y, viewR()); }
@@ -1263,15 +1317,27 @@ function frame(dt) {
   const fx = Math.cos(P.a), fy = Math.sin(P.a); let dist = mode === 1 ? 7 : 11, ht = mode === 1 ? 2.6 : 4.0;
   if (++occN % 3 === 0) occDist = camOcclusion(P.x, P.y, fx, fy, dist, ht, pZ); dist = Math.min(dist, occDist); ht = Math.min(ht, 1.9 + dist * 0.2);
   camPos.set(P.x - fx * dist, ht + pZ, P.y - fy * dist); const look = tmpV.set(P.x + fx * 8, 1.7 + pZ, P.y + fy * 8);
-  const k = 1 - Math.exp(-dt * 6); if (camera.position.lengthSq() < 1 || camera.position.distanceTo(camPos) > 80) { camera.position.copy(camPos); camLook.copy(look); } else { camera.position.lerp(camPos, k); camLook.lerp(look, k); }
+  let k = 1 - Math.exp(-dt * 6);
+  const cine = cineCam && P.veh && S.auto && S.auto().on; let fov = 60;
+  if (cine) { // "life on autopilot": slow alternating film shots — low chase, drone, side tracking, lead shot looking back
+    cineT += dt; const shot = Math.floor(cineT / 9) % 4, px = -fy, py = fx, v = Math.max(0, P.veh.v || 0), sw = Math.sin(cineT * 0.21);
+    if (shot === 0) { camPos.set(P.x - fx * 13 + px * 2.5 * sw, pZ + 2.2, P.y - fy * 13 + py * 2.5 * sw); look.set(P.x + fx * 18, pZ + 1.4, P.y + fy * 18); fov = 48; }
+    else if (shot === 1) { camPos.set(P.x - fx * 34 + px * 10, pZ + 24, P.y - fy * 34 + py * 10); look.set(P.x + fx * 25, pZ, P.y + fy * 25); fov = 52; }
+    else if (shot === 2) { camPos.set(P.x + px * 11 + fx * (2 + v * 0.1), pZ + 1.7, P.y + py * 11 + fy * (2 + v * 0.1)); look.set(P.x + fx * 2, pZ + 1.0, P.y + fy * 2); fov = 40; }
+    else { camPos.set(P.x + fx * (20 + v * 0.3) + px * 3, pZ + 1.3, P.y + fy * (20 + v * 0.3) + py * 3); look.set(P.x, pZ + 1.0, P.y); fov = 38; }
+    if (shot !== cineShot) { cineShot = shot; camera.position.copy(camPos); camLook.copy(look); } // hard cut between shots, smooth within
+    k = 1 - Math.exp(-dt * 2.2);
+  } else cineShot = -1;
+  if (Math.abs(camera.fov - fov) > 0.05) { camera.fov += (fov - camera.fov) * Math.min(1, dt * 3); camera.updateProjectionMatrix(); }
+  if (camera.position.lengthSq() < 1 || camera.position.distanceTo(camPos) > 80) { camera.position.copy(camPos); camLook.copy(look); } else { camera.position.lerp(camPos, k); camLook.lerp(look, k); }
   camera.lookAt(camLook);
   if (Math.hypot(P.x - lastRefill.x, P.y - lastRefill.z) > 40) { lastRefill.x = P.x; lastRefill.z = P.y; refill(P.x, P.y); for (const m of farChunks) m.visible = Math.hypot(m.userData.cx - P.x, m.userData.cy - P.y) < m.userData.far + 424; }
   if (Math.hypot(P.x - lastGrass.x, P.y - lastGrass.z) > 5 && clock - lastGrass.t > 0.25) { lastGrass.x = P.x; lastGrass.z = P.y; lastGrass.t = clock; scatterGrass(P.x, P.y, fx, fy); }
   syncCars(P.x, P.y, nightK); syncPeople(P.x, P.y, clock);
   lighting(dt, tmpS.set(P.x, 0, P.y).clone());
-  renderer.render(scene, camera); updateLabels();
+  post.render(clock); updateLabels();
   // auto quality: drop a preset after ~4 s under 24 fps
-  fpsAcc.n++; fpsAcc.t += dt; if (fpsAcc.t > 1) { const fps = fpsAcc.n / fpsAcc.t; fpsAcc.n = 0; fpsAcc.t = 0; const el = document.getElementById("hm3-fps"); if (el) el.textContent = Math.round(fps) + " fps · " + qName; if (qAuto && fps < 24) { if (++fpsAcc.low >= 4 && qName !== "low") { applyQuality(qName === "high" ? "med" : "low"); fpsAcc.low = 0; } } else fpsAcc.low = 0; }
+  fpsAcc.n++; fpsAcc.t += dt; if (fpsAcc.t > 1) { const fps = fpsAcc.n / fpsAcc.t; fpsAcc.n = 0; fpsAcc.t = 0; const el = document.getElementById("hm3-fps"); if (el) el.textContent = Math.round(fps) + " fps · " + qName; if (qAuto && fps < 24) { if (++fpsAcc.low >= 4 && qName !== "low") { applyQuality(QORDER[Math.max(0, QORDER.indexOf(qName) - 1)]); fpsAcc.low = 0; } } else fpsAcc.low = 0; }
 }
 window.Houma3D = {
   frame, active: () => active && !failed,
@@ -1286,7 +1352,7 @@ window.Houma3D = {
   bizSignList: () => [...bizSigns.values()].filter((g) => g && g.parent).map((g) => ({ text: g.userData.text, gas: g.userData.gas, x: g.position.x, y: g.position.z })),
   carInfo: () => [...carObjs].slice(0, 6).map(([c, o]) => { const m = []; o.traverse((q) => { if (q.isMesh) m.push((q.material.name || "") + ":" + (q.material.color ? q.material.color.getHexString() : "") + ":" + q.material.metalness); }); return { color: c.color, kind: c.kind, mats: m.slice(0, 4), y: o.position.y }; }),
   treeAudit: () => { let n = 0, inF = 0; for (const L of treeCache.values()) for (let k = 0; k < L.length; k += 5) { n++; if (hitBldg(L[k], L[k + 1], 0, true)) inF++; } return { trees: n, insideFootprints: inF }; }, mergeStats: () => ({ ...mergeStats }),
-  snapZ: (z) => { pZ = z; },
+  snapZ: (z) => { pZ = z; }, postInfo: () => post && post.info(), setPainterly: (on) => { painterly = !!on; applyQuality(qName); }, setCineCam: (on) => { cineCam = !!on; }, setCineT: (t) => { cineT = t; },
   gpsDbg: () => [typeof S.routeVer, gpsVer, !!gpsMesh, !!gpsArrow, gpsArrow && gpsArrow.visible, gpsMesh && gpsMesh.geometry.attributes.position.count, gpsMesh && gpsMesh.geometry.drawRange.start, gpsMesh && gpsMesh.parent === scene],
   triStats: () => { const m = {}; scene.traverseVisible((o) => { if (!o.geometry) return; const g = o.geometry, n = (g.index ? g.index.count : g.attributes.position.count) / 3 * (o.isInstancedMesh ? o.count : 1); const k = (o.name || "?").replace(/\d+$/, ""); m[k] = (m[k] || 0) + n; }); return Object.entries(m).sort((a, b) => b[1] - a[1]).slice(0, 25).map(([k, v]) => k + ":" + Math.round(v / 1000) + "k"); },
   aerial: (o) => { aerial = o ? { ...o, dirty: true } : null; lastRefill.x = 1e9; if (!o && scene) applyQuality(qName); },
