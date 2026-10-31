@@ -11,14 +11,15 @@ import * as NightMod from "./sims-night.js?v=1";
 import * as X from "./houma-tex.js?v=1";
 import PC from "./vendor-polyclip.js?v=1";
 import * as TR from "./houma-trees.js?v=2";
+import * as GR from "./houma-grit.js?v=1";
 import { createPost } from "./houma-post.js?v=1";
 
 const K = W.Kit, H = window.Houma;
 const QUALITY = {
-  low: { ratio: 1, shadows: false, map: 512, tex: 128, grass: 700, view: 280, people: 6, trees: 0.55, lampLights: "low" },
-  med: { ratio: 1.5, shadows: true, map: 1024, tex: 256, grass: 2200, view: 440, people: 14, trees: 1, lampLights: "med" },
-  high: { ratio: 2, shadows: true, map: 2048, tex: 256, grass: 4500, view: 620, people: 24, trees: 1.25, lampLights: "high", post: "high", env: true, imp: 150 },
-  cine: { ratio: 2, shadows: true, map: 4096, tex: 256, grass: 7000, view: 700, people: 24, trees: 1.35, lampLights: "high", post: "cine", env: true, imp: 200 },
+  low: { ratio: 1, shadows: false, map: 512, tex: 128, grass: 700, view: 280, people: 6, trees: 0.55, lampLights: "low", carpet: 0 },
+  med: { ratio: 1.5, shadows: true, map: 1024, tex: 256, grass: 2200, view: 440, people: 14, trees: 1, lampLights: "med", carpet: 7 },
+  high: { ratio: 2, shadows: true, map: 2048, tex: 256, grass: 4500, view: 620, people: 24, trees: 1.25, lampLights: "high", post: "high", env: true, imp: 150, carpet: 12 },
+  cine: { ratio: 2, shadows: true, map: 4096, tex: 256, grass: 7000, view: 700, people: 24, trees: 1.35, lampLights: "high", post: "cine", env: true, imp: 200, carpet: 16 },
 };
 QUALITY.low.imp = 70; QUALITY.med.imp = 110; QUALITY.med.env = true;
 const QORDER = ["low", "med", "high", "cine"];
@@ -1158,6 +1159,24 @@ function refillTrees(px, py) {
   }
   for (const s of impSets) if (s) s.end(); for (const s of treeSets) s.end();
 }
+// ---------------------------------------------------------------- v7 dense grass carpet (full-coverage lawns)
+let carpet = null, gritT = -9;
+function buildCarpet() {
+  const base = G.M("#ffffff", { rough: 1, name: "H_Carpet" }); base.vertexColors = true; base.metalness = 0; base.envMapIntensity = 0.4; base.side = T.DoubleSide; const mat = K.sway(base, 0.3, 0.25, "vc");
+  carpet = new T.InstancedMesh(GR.carpetGeometry(420), mat, 1100); carpet.name = "GrassCarpet"; carpet.count = 0; carpet.frustumCulled = false; carpet.receiveShadow = true; carpet.instanceMatrix.setUsage(T.DynamicDrawUsage); carpet.setColorAt(0, tmpC.set("#ffffff")); scene.add(carpet);
+}
+function scatterCarpet(px, py, fwdx, fwdy) {
+  const R = Q.carpet || 0; let c = 0; if (!carpet) return; const PS = GR.PATCH, cx = px + fwdx * R * 0.25, cy = py + fwdy * R * 0.25;
+  if (R > 0) for (let i = Math.floor((cx - R) / PS); i <= Math.floor((cx + R) / PS); i++) for (let j = Math.floor((cy - R) / PS); j <= Math.floor((cy + R) / PS); j++) {
+    if (c >= 1100) break; const x = (i + 0.5) * PS, y = (j + 0.5) * PS, d = Math.hypot(x - cx, y - cy); if (d > R) continue;
+    const t = tileAt(x, y); if (t === S.T.WATER) continue; if (t === S.T.BLDG && hitBldg(x, y, 0.4)) continue; if (onRoad(x, y, 0.7) || masked(x, y) || bankAt(x, y, 1.2)) continue;
+    const hh = ((i * 73856093) ^ (j * 19349663)) >>> 0, fa = forestAt(x, y), fade = Math.min(1, (R - d) / (R * 0.35)); if (fa === 2) continue;
+    tmpQ.setFromAxisAngle(UP, (hh & 3) * 1.5708 + ((hh >>> 3) & 7) * 0.05);
+    const sy = fade * (0.75 + ((hh >>> 8) & 255) / 255 * 0.55) * (fa >= 1 ? 0.6 : 1); tmpM.compose(tmpV.set(x, 0.03, y), tmpQ, tmpS.set(1, sy, 1)); carpet.setMatrixAt(c, tmpM);
+    const dry = Math.sin(x * 0.07 + Math.sin(y * 0.05) * 2) * Math.sin(y * 0.09 - x * 0.03); tmpC.setRGB(0.85 + dry * 0.25 + ((hh >>> 16) & 15) / 60, 0.95 + ((hh >>> 20) & 15) / 80, 0.8 - dry * 0.15); carpet.setColorAt(c, tmpC); c++;
+  }
+  carpet.count = c; carpet.instanceMatrix.needsUpdate = true; if (carpet.instanceColor) carpet.instanceColor.needsUpdate = true;
+}
 let grass = null;
 function buildGrass() {
   const geo = W.grassTuftGeometry(), base = G.M("#ffffff", { rough: 0.95, name: "H_Grass" }), mat = K.sway(base, 0.35, 0.3, "vc");
@@ -1293,7 +1312,7 @@ function wireControls() {
   if (cc) { cc.checked = cineCam; cc.addEventListener("change", () => { cineCam = cc.checked; cc.blur(); }); }
 }
 async function build() {
-  building = true; buildGround(); buildMarsh(); buildWater(); buildRoads(); buildBridges(); buildTreeSets(); buildGrass(); buildBuildings(); built = true; building = false;
+  building = true; buildGround(); buildMarsh(); buildWater(); buildRoads(); buildBridges(); buildTreeSets(); buildGrass(); buildCarpet(); buildBuildings(); built = true; building = false;
 }
 function frame(dt) {
   if (failed) return; S = H.state(); if (!S || !S.ready()) return;
@@ -1332,7 +1351,8 @@ function frame(dt) {
   if (camera.position.lengthSq() < 1 || camera.position.distanceTo(camPos) > 80) { camera.position.copy(camPos); camLook.copy(look); } else { camera.position.lerp(camPos, k); camLook.lerp(look, k); }
   camera.lookAt(camLook);
   if (Math.hypot(P.x - lastRefill.x, P.y - lastRefill.z) > 40) { lastRefill.x = P.x; lastRefill.z = P.y; refill(P.x, P.y); for (const m of farChunks) m.visible = Math.hypot(m.userData.cx - P.x, m.userData.cy - P.y) < m.userData.far + 424; }
-  if (Math.hypot(P.x - lastGrass.x, P.y - lastGrass.z) > 5 && clock - lastGrass.t > 0.25) { lastGrass.x = P.x; lastGrass.z = P.y; lastGrass.t = clock; scatterGrass(P.x, P.y, fx, fy); }
+  if (Math.hypot(P.x - lastGrass.x, P.y - lastGrass.z) > 5 && clock - lastGrass.t > 0.25) { lastGrass.x = P.x; lastGrass.z = P.y; lastGrass.t = clock; scatterGrass(P.x, P.y, fx, fy); scatterCarpet(P.x, P.y, fx, fy); }
+  if (clock - gritT > 2) { gritT = clock; GR.gritPass(scene); }
   syncCars(P.x, P.y, nightK); syncPeople(P.x, P.y, clock);
   lighting(dt, tmpS.set(P.x, 0, P.y).clone());
   post.render(clock); updateLabels();
@@ -1352,7 +1372,7 @@ window.Houma3D = {
   bizSignList: () => [...bizSigns.values()].filter((g) => g && g.parent).map((g) => ({ text: g.userData.text, gas: g.userData.gas, x: g.position.x, y: g.position.z })),
   carInfo: () => [...carObjs].slice(0, 6).map(([c, o]) => { const m = []; o.traverse((q) => { if (q.isMesh) m.push((q.material.name || "") + ":" + (q.material.color ? q.material.color.getHexString() : "") + ":" + q.material.metalness); }); return { color: c.color, kind: c.kind, mats: m.slice(0, 4), y: o.position.y }; }),
   treeAudit: () => { let n = 0, inF = 0; for (const L of treeCache.values()) for (let k = 0; k < L.length; k += 5) { n++; if (hitBldg(L[k], L[k + 1], 0, true)) inF++; } return { trees: n, insideFootprints: inF }; }, mergeStats: () => ({ ...mergeStats }),
-  snapZ: (z) => { pZ = z; }, postInfo: () => post && post.info(), setPainterly: (on) => { painterly = !!on; applyQuality(qName); }, setCineCam: (on) => { cineCam = !!on; }, setCineT: (t) => { cineT = t; },
+  snapZ: (z) => { pZ = z; }, grassInfo: () => ({ carpet: carpet && carpet.count, lawn: GR.hooked() }), postInfo: () => post && post.info(), setPainterly: (on) => { painterly = !!on; applyQuality(qName); }, setCineCam: (on) => { cineCam = !!on; }, setCineT: (t) => { cineT = t; },
   gpsDbg: () => [typeof S.routeVer, gpsVer, !!gpsMesh, !!gpsArrow, gpsArrow && gpsArrow.visible, gpsMesh && gpsMesh.geometry.attributes.position.count, gpsMesh && gpsMesh.geometry.drawRange.start, gpsMesh && gpsMesh.parent === scene],
   triStats: () => { const m = {}; scene.traverseVisible((o) => { if (!o.geometry) return; const g = o.geometry, n = (g.index ? g.index.count : g.attributes.position.count) / 3 * (o.isInstancedMesh ? o.count : 1); const k = (o.name || "?").replace(/\d+$/, ""); m[k] = (m[k] || 0) + n; }); return Object.entries(m).sort((a, b) => b[1] - a[1]).slice(0, 25).map(([k, v]) => k + ":" + Math.round(v / 1000) + "k"); },
   aerial: (o) => { aerial = o ? { ...o, dirty: true } : null; lastRefill.x = 1e9; if (!o && scene) applyQuality(qName); },
